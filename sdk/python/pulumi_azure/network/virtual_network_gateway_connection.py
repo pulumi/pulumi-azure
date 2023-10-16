@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -74,51 +74,106 @@ class VirtualNetworkGatewayConnectionArgs:
                For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps).
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "virtual_network_gateway_id", virtual_network_gateway_id)
+        VirtualNetworkGatewayConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            type=type,
+            virtual_network_gateway_id=virtual_network_gateway_id,
+            authorization_key=authorization_key,
+            connection_mode=connection_mode,
+            connection_protocol=connection_protocol,
+            custom_bgp_addresses=custom_bgp_addresses,
+            dpd_timeout_seconds=dpd_timeout_seconds,
+            egress_nat_rule_ids=egress_nat_rule_ids,
+            enable_bgp=enable_bgp,
+            express_route_circuit_id=express_route_circuit_id,
+            express_route_gateway_bypass=express_route_gateway_bypass,
+            ingress_nat_rule_ids=ingress_nat_rule_ids,
+            ipsec_policy=ipsec_policy,
+            local_azure_ip_address_enabled=local_azure_ip_address_enabled,
+            local_network_gateway_id=local_network_gateway_id,
+            location=location,
+            name=name,
+            peer_virtual_network_gateway_id=peer_virtual_network_gateway_id,
+            routing_weight=routing_weight,
+            shared_key=shared_key,
+            tags=tags,
+            traffic_selector_policy=traffic_selector_policy,
+            use_policy_based_traffic_selectors=use_policy_based_traffic_selectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             virtual_network_gateway_id: pulumi.Input[str],
+             authorization_key: Optional[pulumi.Input[str]] = None,
+             connection_mode: Optional[pulumi.Input[str]] = None,
+             connection_protocol: Optional[pulumi.Input[str]] = None,
+             custom_bgp_addresses: Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] = None,
+             dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+             egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enable_bgp: Optional[pulumi.Input[bool]] = None,
+             express_route_circuit_id: Optional[pulumi.Input[str]] = None,
+             express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
+             ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipsec_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] = None,
+             local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
+             local_network_gateway_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             peer_virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
+             routing_weight: Optional[pulumi.Input[int]] = None,
+             shared_key: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_selector_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']] = None,
+             use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("type", type)
+        _setter("virtual_network_gateway_id", virtual_network_gateway_id)
         if authorization_key is not None:
-            pulumi.set(__self__, "authorization_key", authorization_key)
+            _setter("authorization_key", authorization_key)
         if connection_mode is not None:
-            pulumi.set(__self__, "connection_mode", connection_mode)
+            _setter("connection_mode", connection_mode)
         if connection_protocol is not None:
-            pulumi.set(__self__, "connection_protocol", connection_protocol)
+            _setter("connection_protocol", connection_protocol)
         if custom_bgp_addresses is not None:
-            pulumi.set(__self__, "custom_bgp_addresses", custom_bgp_addresses)
+            _setter("custom_bgp_addresses", custom_bgp_addresses)
         if dpd_timeout_seconds is not None:
-            pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
+            _setter("dpd_timeout_seconds", dpd_timeout_seconds)
         if egress_nat_rule_ids is not None:
-            pulumi.set(__self__, "egress_nat_rule_ids", egress_nat_rule_ids)
+            _setter("egress_nat_rule_ids", egress_nat_rule_ids)
         if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
+            _setter("enable_bgp", enable_bgp)
         if express_route_circuit_id is not None:
-            pulumi.set(__self__, "express_route_circuit_id", express_route_circuit_id)
+            _setter("express_route_circuit_id", express_route_circuit_id)
         if express_route_gateway_bypass is not None:
-            pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
+            _setter("express_route_gateway_bypass", express_route_gateway_bypass)
         if ingress_nat_rule_ids is not None:
-            pulumi.set(__self__, "ingress_nat_rule_ids", ingress_nat_rule_ids)
+            _setter("ingress_nat_rule_ids", ingress_nat_rule_ids)
         if ipsec_policy is not None:
-            pulumi.set(__self__, "ipsec_policy", ipsec_policy)
+            _setter("ipsec_policy", ipsec_policy)
         if local_azure_ip_address_enabled is not None:
-            pulumi.set(__self__, "local_azure_ip_address_enabled", local_azure_ip_address_enabled)
+            _setter("local_azure_ip_address_enabled", local_azure_ip_address_enabled)
         if local_network_gateway_id is not None:
-            pulumi.set(__self__, "local_network_gateway_id", local_network_gateway_id)
+            _setter("local_network_gateway_id", local_network_gateway_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if peer_virtual_network_gateway_id is not None:
-            pulumi.set(__self__, "peer_virtual_network_gateway_id", peer_virtual_network_gateway_id)
+            _setter("peer_virtual_network_gateway_id", peer_virtual_network_gateway_id)
         if routing_weight is not None:
-            pulumi.set(__self__, "routing_weight", routing_weight)
+            _setter("routing_weight", routing_weight)
         if shared_key is not None:
-            pulumi.set(__self__, "shared_key", shared_key)
+            _setter("shared_key", shared_key)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if traffic_selector_policy is not None:
-            pulumi.set(__self__, "traffic_selector_policy", traffic_selector_policy)
+            _setter("traffic_selector_policy", traffic_selector_policy)
         if use_policy_based_traffic_selectors is not None:
-            pulumi.set(__self__, "use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
+            _setter("use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -477,54 +532,109 @@ class _VirtualNetworkGatewayConnectionState:
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`.
         :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway in which the connection will be created. Changing this forces a new resource to be created.
         """
+        _VirtualNetworkGatewayConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_key=authorization_key,
+            connection_mode=connection_mode,
+            connection_protocol=connection_protocol,
+            custom_bgp_addresses=custom_bgp_addresses,
+            dpd_timeout_seconds=dpd_timeout_seconds,
+            egress_nat_rule_ids=egress_nat_rule_ids,
+            enable_bgp=enable_bgp,
+            express_route_circuit_id=express_route_circuit_id,
+            express_route_gateway_bypass=express_route_gateway_bypass,
+            ingress_nat_rule_ids=ingress_nat_rule_ids,
+            ipsec_policy=ipsec_policy,
+            local_azure_ip_address_enabled=local_azure_ip_address_enabled,
+            local_network_gateway_id=local_network_gateway_id,
+            location=location,
+            name=name,
+            peer_virtual_network_gateway_id=peer_virtual_network_gateway_id,
+            resource_group_name=resource_group_name,
+            routing_weight=routing_weight,
+            shared_key=shared_key,
+            tags=tags,
+            traffic_selector_policy=traffic_selector_policy,
+            type=type,
+            use_policy_based_traffic_selectors=use_policy_based_traffic_selectors,
+            virtual_network_gateway_id=virtual_network_gateway_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_key: Optional[pulumi.Input[str]] = None,
+             connection_mode: Optional[pulumi.Input[str]] = None,
+             connection_protocol: Optional[pulumi.Input[str]] = None,
+             custom_bgp_addresses: Optional[pulumi.Input['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] = None,
+             dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
+             egress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enable_bgp: Optional[pulumi.Input[bool]] = None,
+             express_route_circuit_id: Optional[pulumi.Input[str]] = None,
+             express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
+             ingress_nat_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ipsec_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionIpsecPolicyArgs']] = None,
+             local_azure_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
+             local_network_gateway_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             peer_virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             routing_weight: Optional[pulumi.Input[int]] = None,
+             shared_key: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_selector_policy: Optional[pulumi.Input['VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
+             virtual_network_gateway_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authorization_key is not None:
-            pulumi.set(__self__, "authorization_key", authorization_key)
+            _setter("authorization_key", authorization_key)
         if connection_mode is not None:
-            pulumi.set(__self__, "connection_mode", connection_mode)
+            _setter("connection_mode", connection_mode)
         if connection_protocol is not None:
-            pulumi.set(__self__, "connection_protocol", connection_protocol)
+            _setter("connection_protocol", connection_protocol)
         if custom_bgp_addresses is not None:
-            pulumi.set(__self__, "custom_bgp_addresses", custom_bgp_addresses)
+            _setter("custom_bgp_addresses", custom_bgp_addresses)
         if dpd_timeout_seconds is not None:
-            pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
+            _setter("dpd_timeout_seconds", dpd_timeout_seconds)
         if egress_nat_rule_ids is not None:
-            pulumi.set(__self__, "egress_nat_rule_ids", egress_nat_rule_ids)
+            _setter("egress_nat_rule_ids", egress_nat_rule_ids)
         if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
+            _setter("enable_bgp", enable_bgp)
         if express_route_circuit_id is not None:
-            pulumi.set(__self__, "express_route_circuit_id", express_route_circuit_id)
+            _setter("express_route_circuit_id", express_route_circuit_id)
         if express_route_gateway_bypass is not None:
-            pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
+            _setter("express_route_gateway_bypass", express_route_gateway_bypass)
         if ingress_nat_rule_ids is not None:
-            pulumi.set(__self__, "ingress_nat_rule_ids", ingress_nat_rule_ids)
+            _setter("ingress_nat_rule_ids", ingress_nat_rule_ids)
         if ipsec_policy is not None:
-            pulumi.set(__self__, "ipsec_policy", ipsec_policy)
+            _setter("ipsec_policy", ipsec_policy)
         if local_azure_ip_address_enabled is not None:
-            pulumi.set(__self__, "local_azure_ip_address_enabled", local_azure_ip_address_enabled)
+            _setter("local_azure_ip_address_enabled", local_azure_ip_address_enabled)
         if local_network_gateway_id is not None:
-            pulumi.set(__self__, "local_network_gateway_id", local_network_gateway_id)
+            _setter("local_network_gateway_id", local_network_gateway_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if peer_virtual_network_gateway_id is not None:
-            pulumi.set(__self__, "peer_virtual_network_gateway_id", peer_virtual_network_gateway_id)
+            _setter("peer_virtual_network_gateway_id", peer_virtual_network_gateway_id)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if routing_weight is not None:
-            pulumi.set(__self__, "routing_weight", routing_weight)
+            _setter("routing_weight", routing_weight)
         if shared_key is not None:
-            pulumi.set(__self__, "shared_key", shared_key)
+            _setter("shared_key", shared_key)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if traffic_selector_policy is not None:
-            pulumi.set(__self__, "traffic_selector_policy", traffic_selector_policy)
+            _setter("traffic_selector_policy", traffic_selector_policy)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if use_policy_based_traffic_selectors is not None:
-            pulumi.set(__self__, "use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
+            _setter("use_policy_based_traffic_selectors", use_policy_based_traffic_selectors)
         if virtual_network_gateway_id is not None:
-            pulumi.set(__self__, "virtual_network_gateway_id", virtual_network_gateway_id)
+            _setter("virtual_network_gateway_id", virtual_network_gateway_id)
 
     @property
     @pulumi.getter(name="authorizationKey")
@@ -1168,6 +1278,10 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkGatewayConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1209,6 +1323,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["authorization_key"] = None if authorization_key is None else pulumi.Output.secret(authorization_key)
             __props__.__dict__["connection_mode"] = connection_mode
             __props__.__dict__["connection_protocol"] = connection_protocol
+            if custom_bgp_addresses is not None and not isinstance(custom_bgp_addresses, VirtualNetworkGatewayConnectionCustomBgpAddressesArgs):
+                custom_bgp_addresses = custom_bgp_addresses or {}
+                def _setter(key, value):
+                    custom_bgp_addresses[key] = value
+                VirtualNetworkGatewayConnectionCustomBgpAddressesArgs._configure(_setter, **custom_bgp_addresses)
             __props__.__dict__["custom_bgp_addresses"] = custom_bgp_addresses
             __props__.__dict__["dpd_timeout_seconds"] = dpd_timeout_seconds
             __props__.__dict__["egress_nat_rule_ids"] = egress_nat_rule_ids
@@ -1216,6 +1335,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["express_route_circuit_id"] = express_route_circuit_id
             __props__.__dict__["express_route_gateway_bypass"] = express_route_gateway_bypass
             __props__.__dict__["ingress_nat_rule_ids"] = ingress_nat_rule_ids
+            if ipsec_policy is not None and not isinstance(ipsec_policy, VirtualNetworkGatewayConnectionIpsecPolicyArgs):
+                ipsec_policy = ipsec_policy or {}
+                def _setter(key, value):
+                    ipsec_policy[key] = value
+                VirtualNetworkGatewayConnectionIpsecPolicyArgs._configure(_setter, **ipsec_policy)
             __props__.__dict__["ipsec_policy"] = ipsec_policy
             __props__.__dict__["local_azure_ip_address_enabled"] = local_azure_ip_address_enabled
             __props__.__dict__["local_network_gateway_id"] = local_network_gateway_id
@@ -1228,6 +1352,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["routing_weight"] = routing_weight
             __props__.__dict__["shared_key"] = None if shared_key is None else pulumi.Output.secret(shared_key)
             __props__.__dict__["tags"] = tags
+            if traffic_selector_policy is not None and not isinstance(traffic_selector_policy, VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs):
+                traffic_selector_policy = traffic_selector_policy or {}
+                def _setter(key, value):
+                    traffic_selector_policy[key] = value
+                VirtualNetworkGatewayConnectionTrafficSelectorPolicyArgs._configure(_setter, **traffic_selector_policy)
             __props__.__dict__["traffic_selector_policy"] = traffic_selector_policy
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

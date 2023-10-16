@@ -21,9 +21,6 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
         /// 
         /// &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-        /// 
-        /// 
-        /// &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         /// </summary>
         public readonly bool IsDefault;
         /// <summary>

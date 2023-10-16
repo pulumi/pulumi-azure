@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -63,41 +63,90 @@ class VolumeArgs:
         :param pulumi.Input[float] throughput_in_mibps: Throughput of this volume in Mibps.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "pool_name", pool_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_level", service_level)
-        pulumi.set(__self__, "storage_quota_in_gb", storage_quota_in_gb)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "volume_path", volume_path)
+        VolumeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            pool_name=pool_name,
+            resource_group_name=resource_group_name,
+            service_level=service_level,
+            storage_quota_in_gb=storage_quota_in_gb,
+            subnet_id=subnet_id,
+            volume_path=volume_path,
+            azure_vmware_data_store_enabled=azure_vmware_data_store_enabled,
+            create_from_snapshot_resource_id=create_from_snapshot_resource_id,
+            data_protection_replication=data_protection_replication,
+            data_protection_snapshot_policy=data_protection_snapshot_policy,
+            export_policy_rules=export_policy_rules,
+            location=location,
+            name=name,
+            network_features=network_features,
+            protocols=protocols,
+            security_style=security_style,
+            snapshot_directory_visible=snapshot_directory_visible,
+            tags=tags,
+            throughput_in_mibps=throughput_in_mibps,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             pool_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             service_level: pulumi.Input[str],
+             storage_quota_in_gb: pulumi.Input[int],
+             subnet_id: pulumi.Input[str],
+             volume_path: pulumi.Input[str],
+             azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
+             create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
+             data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
+             data_protection_snapshot_policy: Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']] = None,
+             export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_features: Optional[pulumi.Input[str]] = None,
+             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_style: Optional[pulumi.Input[str]] = None,
+             snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             throughput_in_mibps: Optional[pulumi.Input[float]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("pool_name", pool_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_level", service_level)
+        _setter("storage_quota_in_gb", storage_quota_in_gb)
+        _setter("subnet_id", subnet_id)
+        _setter("volume_path", volume_path)
         if azure_vmware_data_store_enabled is not None:
-            pulumi.set(__self__, "azure_vmware_data_store_enabled", azure_vmware_data_store_enabled)
+            _setter("azure_vmware_data_store_enabled", azure_vmware_data_store_enabled)
         if create_from_snapshot_resource_id is not None:
-            pulumi.set(__self__, "create_from_snapshot_resource_id", create_from_snapshot_resource_id)
+            _setter("create_from_snapshot_resource_id", create_from_snapshot_resource_id)
         if data_protection_replication is not None:
-            pulumi.set(__self__, "data_protection_replication", data_protection_replication)
+            _setter("data_protection_replication", data_protection_replication)
         if data_protection_snapshot_policy is not None:
-            pulumi.set(__self__, "data_protection_snapshot_policy", data_protection_snapshot_policy)
+            _setter("data_protection_snapshot_policy", data_protection_snapshot_policy)
         if export_policy_rules is not None:
-            pulumi.set(__self__, "export_policy_rules", export_policy_rules)
+            _setter("export_policy_rules", export_policy_rules)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_features is not None:
-            pulumi.set(__self__, "network_features", network_features)
+            _setter("network_features", network_features)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if security_style is not None:
-            pulumi.set(__self__, "security_style", security_style)
+            _setter("security_style", security_style)
         if snapshot_directory_visible is not None:
-            pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
+            _setter("snapshot_directory_visible", snapshot_directory_visible)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if throughput_in_mibps is not None:
-            pulumi.set(__self__, "throughput_in_mibps", throughput_in_mibps)
+            _setter("throughput_in_mibps", throughput_in_mibps)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="accountName")
@@ -406,50 +455,101 @@ class _VolumeState:
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         """
+        _VolumeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            azure_vmware_data_store_enabled=azure_vmware_data_store_enabled,
+            create_from_snapshot_resource_id=create_from_snapshot_resource_id,
+            data_protection_replication=data_protection_replication,
+            data_protection_snapshot_policy=data_protection_snapshot_policy,
+            export_policy_rules=export_policy_rules,
+            location=location,
+            mount_ip_addresses=mount_ip_addresses,
+            name=name,
+            network_features=network_features,
+            pool_name=pool_name,
+            protocols=protocols,
+            resource_group_name=resource_group_name,
+            security_style=security_style,
+            service_level=service_level,
+            snapshot_directory_visible=snapshot_directory_visible,
+            storage_quota_in_gb=storage_quota_in_gb,
+            subnet_id=subnet_id,
+            tags=tags,
+            throughput_in_mibps=throughput_in_mibps,
+            volume_path=volume_path,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             azure_vmware_data_store_enabled: Optional[pulumi.Input[bool]] = None,
+             create_from_snapshot_resource_id: Optional[pulumi.Input[str]] = None,
+             data_protection_replication: Optional[pulumi.Input['VolumeDataProtectionReplicationArgs']] = None,
+             data_protection_snapshot_policy: Optional[pulumi.Input['VolumeDataProtectionSnapshotPolicyArgs']] = None,
+             export_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeExportPolicyRuleArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_features: Optional[pulumi.Input[str]] = None,
+             pool_name: Optional[pulumi.Input[str]] = None,
+             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             security_style: Optional[pulumi.Input[str]] = None,
+             service_level: Optional[pulumi.Input[str]] = None,
+             snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
+             storage_quota_in_gb: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             throughput_in_mibps: Optional[pulumi.Input[float]] = None,
+             volume_path: Optional[pulumi.Input[str]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if azure_vmware_data_store_enabled is not None:
-            pulumi.set(__self__, "azure_vmware_data_store_enabled", azure_vmware_data_store_enabled)
+            _setter("azure_vmware_data_store_enabled", azure_vmware_data_store_enabled)
         if create_from_snapshot_resource_id is not None:
-            pulumi.set(__self__, "create_from_snapshot_resource_id", create_from_snapshot_resource_id)
+            _setter("create_from_snapshot_resource_id", create_from_snapshot_resource_id)
         if data_protection_replication is not None:
-            pulumi.set(__self__, "data_protection_replication", data_protection_replication)
+            _setter("data_protection_replication", data_protection_replication)
         if data_protection_snapshot_policy is not None:
-            pulumi.set(__self__, "data_protection_snapshot_policy", data_protection_snapshot_policy)
+            _setter("data_protection_snapshot_policy", data_protection_snapshot_policy)
         if export_policy_rules is not None:
-            pulumi.set(__self__, "export_policy_rules", export_policy_rules)
+            _setter("export_policy_rules", export_policy_rules)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mount_ip_addresses is not None:
-            pulumi.set(__self__, "mount_ip_addresses", mount_ip_addresses)
+            _setter("mount_ip_addresses", mount_ip_addresses)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_features is not None:
-            pulumi.set(__self__, "network_features", network_features)
+            _setter("network_features", network_features)
         if pool_name is not None:
-            pulumi.set(__self__, "pool_name", pool_name)
+            _setter("pool_name", pool_name)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if security_style is not None:
-            pulumi.set(__self__, "security_style", security_style)
+            _setter("security_style", security_style)
         if service_level is not None:
-            pulumi.set(__self__, "service_level", service_level)
+            _setter("service_level", service_level)
         if snapshot_directory_visible is not None:
-            pulumi.set(__self__, "snapshot_directory_visible", snapshot_directory_visible)
+            _setter("snapshot_directory_visible", snapshot_directory_visible)
         if storage_quota_in_gb is not None:
-            pulumi.set(__self__, "storage_quota_in_gb", storage_quota_in_gb)
+            _setter("storage_quota_in_gb", storage_quota_in_gb)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if throughput_in_mibps is not None:
-            pulumi.set(__self__, "throughput_in_mibps", throughput_in_mibps)
+            _setter("throughput_in_mibps", throughput_in_mibps)
         if volume_path is not None:
-            pulumi.set(__self__, "volume_path", volume_path)
+            _setter("volume_path", volume_path)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="accountName")
@@ -809,6 +909,10 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -849,7 +953,17 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["azure_vmware_data_store_enabled"] = azure_vmware_data_store_enabled
             __props__.__dict__["create_from_snapshot_resource_id"] = create_from_snapshot_resource_id
+            if data_protection_replication is not None and not isinstance(data_protection_replication, VolumeDataProtectionReplicationArgs):
+                data_protection_replication = data_protection_replication or {}
+                def _setter(key, value):
+                    data_protection_replication[key] = value
+                VolumeDataProtectionReplicationArgs._configure(_setter, **data_protection_replication)
             __props__.__dict__["data_protection_replication"] = data_protection_replication
+            if data_protection_snapshot_policy is not None and not isinstance(data_protection_snapshot_policy, VolumeDataProtectionSnapshotPolicyArgs):
+                data_protection_snapshot_policy = data_protection_snapshot_policy or {}
+                def _setter(key, value):
+                    data_protection_snapshot_policy[key] = value
+                VolumeDataProtectionSnapshotPolicyArgs._configure(_setter, **data_protection_snapshot_policy)
             __props__.__dict__["data_protection_snapshot_policy"] = data_protection_snapshot_policy
             __props__.__dict__["export_policy_rules"] = export_policy_rules
             __props__.__dict__["location"] = location

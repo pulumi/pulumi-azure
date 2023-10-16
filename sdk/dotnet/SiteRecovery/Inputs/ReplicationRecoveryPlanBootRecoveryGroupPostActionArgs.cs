@@ -75,7 +75,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         public Input<string>? ScriptPath { get; set; }
 
         /// <summary>
-        /// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        /// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

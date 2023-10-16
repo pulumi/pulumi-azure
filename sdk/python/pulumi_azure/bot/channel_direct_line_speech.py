@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ChannelDirectLineSpeechArgs', 'ChannelDirectLineSpeech']
@@ -33,18 +33,41 @@ class ChannelDirectLineSpeechArgs:
         :param pulumi.Input[str] custom_voice_deployment_id: The custom voice deployment id for the Direct Line Speech Channel.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "bot_name", bot_name)
-        pulumi.set(__self__, "cognitive_service_access_key", cognitive_service_access_key)
-        pulumi.set(__self__, "cognitive_service_location", cognitive_service_location)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ChannelDirectLineSpeechArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            cognitive_service_access_key=cognitive_service_access_key,
+            cognitive_service_location=cognitive_service_location,
+            resource_group_name=resource_group_name,
+            cognitive_account_id=cognitive_account_id,
+            custom_speech_model_id=custom_speech_model_id,
+            custom_voice_deployment_id=custom_voice_deployment_id,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: pulumi.Input[str],
+             cognitive_service_access_key: pulumi.Input[str],
+             cognitive_service_location: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             cognitive_account_id: Optional[pulumi.Input[str]] = None,
+             custom_speech_model_id: Optional[pulumi.Input[str]] = None,
+             custom_voice_deployment_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bot_name", bot_name)
+        _setter("cognitive_service_access_key", cognitive_service_access_key)
+        _setter("cognitive_service_location", cognitive_service_location)
+        _setter("resource_group_name", resource_group_name)
         if cognitive_account_id is not None:
-            pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
+            _setter("cognitive_account_id", cognitive_account_id)
         if custom_speech_model_id is not None:
-            pulumi.set(__self__, "custom_speech_model_id", custom_speech_model_id)
+            _setter("custom_speech_model_id", custom_speech_model_id)
         if custom_voice_deployment_id is not None:
-            pulumi.set(__self__, "custom_voice_deployment_id", custom_voice_deployment_id)
+            _setter("custom_voice_deployment_id", custom_voice_deployment_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="botName")
@@ -165,22 +188,45 @@ class _ChannelDirectLineSpeechState:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the Direct Line Speech Channel should be created. Changing this forces a new resource to be created.
         """
+        _ChannelDirectLineSpeechState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            cognitive_account_id=cognitive_account_id,
+            cognitive_service_access_key=cognitive_service_access_key,
+            cognitive_service_location=cognitive_service_location,
+            custom_speech_model_id=custom_speech_model_id,
+            custom_voice_deployment_id=custom_voice_deployment_id,
+            location=location,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             cognitive_account_id: Optional[pulumi.Input[str]] = None,
+             cognitive_service_access_key: Optional[pulumi.Input[str]] = None,
+             cognitive_service_location: Optional[pulumi.Input[str]] = None,
+             custom_speech_model_id: Optional[pulumi.Input[str]] = None,
+             custom_voice_deployment_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bot_name is not None:
-            pulumi.set(__self__, "bot_name", bot_name)
+            _setter("bot_name", bot_name)
         if cognitive_account_id is not None:
-            pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
+            _setter("cognitive_account_id", cognitive_account_id)
         if cognitive_service_access_key is not None:
-            pulumi.set(__self__, "cognitive_service_access_key", cognitive_service_access_key)
+            _setter("cognitive_service_access_key", cognitive_service_access_key)
         if cognitive_service_location is not None:
-            pulumi.set(__self__, "cognitive_service_location", cognitive_service_location)
+            _setter("cognitive_service_location", cognitive_service_location)
         if custom_speech_model_id is not None:
-            pulumi.set(__self__, "custom_speech_model_id", custom_speech_model_id)
+            _setter("custom_speech_model_id", custom_speech_model_id)
         if custom_voice_deployment_id is not None:
-            pulumi.set(__self__, "custom_voice_deployment_id", custom_voice_deployment_id)
+            _setter("custom_voice_deployment_id", custom_voice_deployment_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="botName")
@@ -394,6 +440,10 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelDirectLineSpeechArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

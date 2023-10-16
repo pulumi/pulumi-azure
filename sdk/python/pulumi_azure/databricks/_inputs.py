@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -31,13 +31,28 @@ class AccessConnectorIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         """
-        pulumi.set(__self__, "type", type)
+        AccessConnectorIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -123,30 +138,61 @@ class WorkspaceCustomParametersArgs:
                
                > **NOTE** Databricks requires that a network security group is associated with the `public` and `private` subnets when a `virtual_network_id` has been defined. Both `public` and `private` subnets must be delegated to `Microsoft.Databricks/workspaces`. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview).
         """
+        WorkspaceCustomParametersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            machine_learning_workspace_id=machine_learning_workspace_id,
+            nat_gateway_name=nat_gateway_name,
+            no_public_ip=no_public_ip,
+            private_subnet_name=private_subnet_name,
+            private_subnet_network_security_group_association_id=private_subnet_network_security_group_association_id,
+            public_ip_name=public_ip_name,
+            public_subnet_name=public_subnet_name,
+            public_subnet_network_security_group_association_id=public_subnet_network_security_group_association_id,
+            storage_account_name=storage_account_name,
+            storage_account_sku_name=storage_account_sku_name,
+            virtual_network_id=virtual_network_id,
+            vnet_address_prefix=vnet_address_prefix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             machine_learning_workspace_id: Optional[pulumi.Input[str]] = None,
+             nat_gateway_name: Optional[pulumi.Input[str]] = None,
+             no_public_ip: Optional[pulumi.Input[bool]] = None,
+             private_subnet_name: Optional[pulumi.Input[str]] = None,
+             private_subnet_network_security_group_association_id: Optional[pulumi.Input[str]] = None,
+             public_ip_name: Optional[pulumi.Input[str]] = None,
+             public_subnet_name: Optional[pulumi.Input[str]] = None,
+             public_subnet_network_security_group_association_id: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             storage_account_sku_name: Optional[pulumi.Input[str]] = None,
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
+             vnet_address_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if machine_learning_workspace_id is not None:
-            pulumi.set(__self__, "machine_learning_workspace_id", machine_learning_workspace_id)
+            _setter("machine_learning_workspace_id", machine_learning_workspace_id)
         if nat_gateway_name is not None:
-            pulumi.set(__self__, "nat_gateway_name", nat_gateway_name)
+            _setter("nat_gateway_name", nat_gateway_name)
         if no_public_ip is not None:
-            pulumi.set(__self__, "no_public_ip", no_public_ip)
+            _setter("no_public_ip", no_public_ip)
         if private_subnet_name is not None:
-            pulumi.set(__self__, "private_subnet_name", private_subnet_name)
+            _setter("private_subnet_name", private_subnet_name)
         if private_subnet_network_security_group_association_id is not None:
-            pulumi.set(__self__, "private_subnet_network_security_group_association_id", private_subnet_network_security_group_association_id)
+            _setter("private_subnet_network_security_group_association_id", private_subnet_network_security_group_association_id)
         if public_ip_name is not None:
-            pulumi.set(__self__, "public_ip_name", public_ip_name)
+            _setter("public_ip_name", public_ip_name)
         if public_subnet_name is not None:
-            pulumi.set(__self__, "public_subnet_name", public_subnet_name)
+            _setter("public_subnet_name", public_subnet_name)
         if public_subnet_network_security_group_association_id is not None:
-            pulumi.set(__self__, "public_subnet_network_security_group_association_id", public_subnet_network_security_group_association_id)
+            _setter("public_subnet_network_security_group_association_id", public_subnet_network_security_group_association_id)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
         if storage_account_sku_name is not None:
-            pulumi.set(__self__, "storage_account_sku_name", storage_account_sku_name)
+            _setter("storage_account_sku_name", storage_account_sku_name)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
         if vnet_address_prefix is not None:
-            pulumi.set(__self__, "vnet_address_prefix", vnet_address_prefix)
+            _setter("vnet_address_prefix", vnet_address_prefix)
 
     @property
     @pulumi.getter(name="machineLearningWorkspaceId")
@@ -308,12 +354,25 @@ class WorkspaceManagedDiskIdentityArgs:
         :param pulumi.Input[str] tenant_id: The UUID of the tenant where the internal databricks storage account was created.
         :param pulumi.Input[str] type: The type of the internal databricks storage account.
         """
+        WorkspaceManagedDiskIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -363,12 +422,25 @@ class WorkspaceStorageAccountIdentityArgs:
         :param pulumi.Input[str] tenant_id: The UUID of the tenant where the internal databricks storage account was created.
         :param pulumi.Input[str] type: The type of the internal databricks storage account.
         """
+        WorkspaceStorageAccountIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")

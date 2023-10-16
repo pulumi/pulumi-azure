@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -54,12 +54,27 @@ class DefinitionAuthorization(dict):
         :param Sequence[str] delegated_role_definition_ids: The set of role definition ids which define all the permissions that the principal id can assign.
         :param str principal_display_name: The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        DefinitionAuthorization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            role_definition_id=role_definition_id,
+            delegated_role_definition_ids=delegated_role_definition_ids,
+            principal_display_name=principal_display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             role_definition_id: str,
+             delegated_role_definition_ids: Optional[Sequence[str]] = None,
+             principal_display_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("role_definition_id", role_definition_id)
         if delegated_role_definition_ids is not None:
-            pulumi.set(__self__, "delegated_role_definition_ids", delegated_role_definition_ids)
+            _setter("delegated_role_definition_ids", delegated_role_definition_ids)
         if principal_display_name is not None:
-            pulumi.set(__self__, "principal_display_name", principal_display_name)
+            _setter("principal_display_name", principal_display_name)
 
     @property
     @pulumi.getter(name="principalId")
@@ -130,12 +145,27 @@ class DefinitionEligibleAuthorization(dict):
         :param 'DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs' just_in_time_access_policy: A `just_in_time_access_policy` block as defined below.
         :param str principal_display_name: The display name of the Azure Active Directory Principal.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        DefinitionEligibleAuthorization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            role_definition_id=role_definition_id,
+            just_in_time_access_policy=just_in_time_access_policy,
+            principal_display_name=principal_display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             role_definition_id: str,
+             just_in_time_access_policy: Optional['outputs.DefinitionEligibleAuthorizationJustInTimeAccessPolicy'] = None,
+             principal_display_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("role_definition_id", role_definition_id)
         if just_in_time_access_policy is not None:
-            pulumi.set(__self__, "just_in_time_access_policy", just_in_time_access_policy)
+            _setter("just_in_time_access_policy", just_in_time_access_policy)
         if principal_display_name is not None:
-            pulumi.set(__self__, "principal_display_name", principal_display_name)
+            _setter("principal_display_name", principal_display_name)
 
     @property
     @pulumi.getter(name="principalId")
@@ -202,12 +232,25 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicy(dict):
                
                > **Note:** When this property isn't set, it would be set to `None`.
         """
+        DefinitionEligibleAuthorizationJustInTimeAccessPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            approvers=approvers,
+            maximum_activation_duration=maximum_activation_duration,
+            multi_factor_auth_provider=multi_factor_auth_provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             approvers: Optional[Sequence['outputs.DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover']] = None,
+             maximum_activation_duration: Optional[str] = None,
+             multi_factor_auth_provider: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if approvers is not None:
-            pulumi.set(__self__, "approvers", approvers)
+            _setter("approvers", approvers)
         if maximum_activation_duration is not None:
-            pulumi.set(__self__, "maximum_activation_duration", maximum_activation_duration)
+            _setter("maximum_activation_duration", maximum_activation_duration)
         if multi_factor_auth_provider is not None:
-            pulumi.set(__self__, "multi_factor_auth_provider", multi_factor_auth_provider)
+            _setter("multi_factor_auth_provider", multi_factor_auth_provider)
 
     @property
     @pulumi.getter
@@ -264,9 +307,20 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover(dict):
         :param str principal_id: The Principal ID of the Azure Active Directory principal for the approver.
         :param str principal_display_name: The display name of the Azure Active Directory Principal for the approver.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
+        DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            principal_display_name=principal_display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             principal_display_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
         if principal_display_name is not None:
-            pulumi.set(__self__, "principal_display_name", principal_display_name)
+            _setter("principal_display_name", principal_display_name)
 
     @property
     @pulumi.getter(name="principalId")
@@ -298,10 +352,25 @@ class DefinitionPlan(dict):
         :param str publisher: The publisher ID of the plan.
         :param str version: The version of the plan.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "version", version)
+        DefinitionPlan._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            product=product,
+            publisher=publisher,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             product: str,
+             publisher: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("product", product)
+        _setter("publisher", publisher)
+        _setter("version", version)
 
     @property
     @pulumi.getter

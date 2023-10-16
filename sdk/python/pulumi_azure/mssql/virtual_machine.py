@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,37 +51,76 @@ class VirtualMachineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input['VirtualMachineWsfcDomainCredentialArgs'] wsfc_domain_credential: A `wsfc_domain_credential` block as defined below
         """
-        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        VirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_machine_id=virtual_machine_id,
+            assessment=assessment,
+            auto_backup=auto_backup,
+            auto_patching=auto_patching,
+            key_vault_credential=key_vault_credential,
+            r_services_enabled=r_services_enabled,
+            sql_connectivity_port=sql_connectivity_port,
+            sql_connectivity_type=sql_connectivity_type,
+            sql_connectivity_update_password=sql_connectivity_update_password,
+            sql_connectivity_update_username=sql_connectivity_update_username,
+            sql_instance=sql_instance,
+            sql_license_type=sql_license_type,
+            sql_virtual_machine_group_id=sql_virtual_machine_group_id,
+            storage_configuration=storage_configuration,
+            tags=tags,
+            wsfc_domain_credential=wsfc_domain_credential,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_machine_id: pulumi.Input[str],
+             assessment: Optional[pulumi.Input['VirtualMachineAssessmentArgs']] = None,
+             auto_backup: Optional[pulumi.Input['VirtualMachineAutoBackupArgs']] = None,
+             auto_patching: Optional[pulumi.Input['VirtualMachineAutoPatchingArgs']] = None,
+             key_vault_credential: Optional[pulumi.Input['VirtualMachineKeyVaultCredentialArgs']] = None,
+             r_services_enabled: Optional[pulumi.Input[bool]] = None,
+             sql_connectivity_port: Optional[pulumi.Input[int]] = None,
+             sql_connectivity_type: Optional[pulumi.Input[str]] = None,
+             sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
+             sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
+             sql_instance: Optional[pulumi.Input['VirtualMachineSqlInstanceArgs']] = None,
+             sql_license_type: Optional[pulumi.Input[str]] = None,
+             sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
+             storage_configuration: Optional[pulumi.Input['VirtualMachineStorageConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             wsfc_domain_credential: Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("virtual_machine_id", virtual_machine_id)
         if assessment is not None:
-            pulumi.set(__self__, "assessment", assessment)
+            _setter("assessment", assessment)
         if auto_backup is not None:
-            pulumi.set(__self__, "auto_backup", auto_backup)
+            _setter("auto_backup", auto_backup)
         if auto_patching is not None:
-            pulumi.set(__self__, "auto_patching", auto_patching)
+            _setter("auto_patching", auto_patching)
         if key_vault_credential is not None:
-            pulumi.set(__self__, "key_vault_credential", key_vault_credential)
+            _setter("key_vault_credential", key_vault_credential)
         if r_services_enabled is not None:
-            pulumi.set(__self__, "r_services_enabled", r_services_enabled)
+            _setter("r_services_enabled", r_services_enabled)
         if sql_connectivity_port is not None:
-            pulumi.set(__self__, "sql_connectivity_port", sql_connectivity_port)
+            _setter("sql_connectivity_port", sql_connectivity_port)
         if sql_connectivity_type is not None:
-            pulumi.set(__self__, "sql_connectivity_type", sql_connectivity_type)
+            _setter("sql_connectivity_type", sql_connectivity_type)
         if sql_connectivity_update_password is not None:
-            pulumi.set(__self__, "sql_connectivity_update_password", sql_connectivity_update_password)
+            _setter("sql_connectivity_update_password", sql_connectivity_update_password)
         if sql_connectivity_update_username is not None:
-            pulumi.set(__self__, "sql_connectivity_update_username", sql_connectivity_update_username)
+            _setter("sql_connectivity_update_username", sql_connectivity_update_username)
         if sql_instance is not None:
-            pulumi.set(__self__, "sql_instance", sql_instance)
+            _setter("sql_instance", sql_instance)
         if sql_license_type is not None:
-            pulumi.set(__self__, "sql_license_type", sql_license_type)
+            _setter("sql_license_type", sql_license_type)
         if sql_virtual_machine_group_id is not None:
-            pulumi.set(__self__, "sql_virtual_machine_group_id", sql_virtual_machine_group_id)
+            _setter("sql_virtual_machine_group_id", sql_virtual_machine_group_id)
         if storage_configuration is not None:
-            pulumi.set(__self__, "storage_configuration", storage_configuration)
+            _setter("storage_configuration", storage_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if wsfc_domain_credential is not None:
-            pulumi.set(__self__, "wsfc_domain_credential", wsfc_domain_credential)
+            _setter("wsfc_domain_credential", wsfc_domain_credential)
 
     @property
     @pulumi.getter(name="virtualMachineId")
@@ -314,38 +353,77 @@ class _VirtualMachineState:
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineWsfcDomainCredentialArgs'] wsfc_domain_credential: A `wsfc_domain_credential` block as defined below
         """
+        _VirtualMachineState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment=assessment,
+            auto_backup=auto_backup,
+            auto_patching=auto_patching,
+            key_vault_credential=key_vault_credential,
+            r_services_enabled=r_services_enabled,
+            sql_connectivity_port=sql_connectivity_port,
+            sql_connectivity_type=sql_connectivity_type,
+            sql_connectivity_update_password=sql_connectivity_update_password,
+            sql_connectivity_update_username=sql_connectivity_update_username,
+            sql_instance=sql_instance,
+            sql_license_type=sql_license_type,
+            sql_virtual_machine_group_id=sql_virtual_machine_group_id,
+            storage_configuration=storage_configuration,
+            tags=tags,
+            virtual_machine_id=virtual_machine_id,
+            wsfc_domain_credential=wsfc_domain_credential,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment: Optional[pulumi.Input['VirtualMachineAssessmentArgs']] = None,
+             auto_backup: Optional[pulumi.Input['VirtualMachineAutoBackupArgs']] = None,
+             auto_patching: Optional[pulumi.Input['VirtualMachineAutoPatchingArgs']] = None,
+             key_vault_credential: Optional[pulumi.Input['VirtualMachineKeyVaultCredentialArgs']] = None,
+             r_services_enabled: Optional[pulumi.Input[bool]] = None,
+             sql_connectivity_port: Optional[pulumi.Input[int]] = None,
+             sql_connectivity_type: Optional[pulumi.Input[str]] = None,
+             sql_connectivity_update_password: Optional[pulumi.Input[str]] = None,
+             sql_connectivity_update_username: Optional[pulumi.Input[str]] = None,
+             sql_instance: Optional[pulumi.Input['VirtualMachineSqlInstanceArgs']] = None,
+             sql_license_type: Optional[pulumi.Input[str]] = None,
+             sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
+             storage_configuration: Optional[pulumi.Input['VirtualMachineStorageConfigurationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
+             wsfc_domain_credential: Optional[pulumi.Input['VirtualMachineWsfcDomainCredentialArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assessment is not None:
-            pulumi.set(__self__, "assessment", assessment)
+            _setter("assessment", assessment)
         if auto_backup is not None:
-            pulumi.set(__self__, "auto_backup", auto_backup)
+            _setter("auto_backup", auto_backup)
         if auto_patching is not None:
-            pulumi.set(__self__, "auto_patching", auto_patching)
+            _setter("auto_patching", auto_patching)
         if key_vault_credential is not None:
-            pulumi.set(__self__, "key_vault_credential", key_vault_credential)
+            _setter("key_vault_credential", key_vault_credential)
         if r_services_enabled is not None:
-            pulumi.set(__self__, "r_services_enabled", r_services_enabled)
+            _setter("r_services_enabled", r_services_enabled)
         if sql_connectivity_port is not None:
-            pulumi.set(__self__, "sql_connectivity_port", sql_connectivity_port)
+            _setter("sql_connectivity_port", sql_connectivity_port)
         if sql_connectivity_type is not None:
-            pulumi.set(__self__, "sql_connectivity_type", sql_connectivity_type)
+            _setter("sql_connectivity_type", sql_connectivity_type)
         if sql_connectivity_update_password is not None:
-            pulumi.set(__self__, "sql_connectivity_update_password", sql_connectivity_update_password)
+            _setter("sql_connectivity_update_password", sql_connectivity_update_password)
         if sql_connectivity_update_username is not None:
-            pulumi.set(__self__, "sql_connectivity_update_username", sql_connectivity_update_username)
+            _setter("sql_connectivity_update_username", sql_connectivity_update_username)
         if sql_instance is not None:
-            pulumi.set(__self__, "sql_instance", sql_instance)
+            _setter("sql_instance", sql_instance)
         if sql_license_type is not None:
-            pulumi.set(__self__, "sql_license_type", sql_license_type)
+            _setter("sql_license_type", sql_license_type)
         if sql_virtual_machine_group_id is not None:
-            pulumi.set(__self__, "sql_virtual_machine_group_id", sql_virtual_machine_group_id)
+            _setter("sql_virtual_machine_group_id", sql_virtual_machine_group_id)
         if storage_configuration is not None:
-            pulumi.set(__self__, "storage_configuration", storage_configuration)
+            _setter("storage_configuration", storage_configuration)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+            _setter("virtual_machine_id", virtual_machine_id)
         if wsfc_domain_credential is not None:
-            pulumi.set(__self__, "wsfc_domain_credential", wsfc_domain_credential)
+            _setter("wsfc_domain_credential", wsfc_domain_credential)
 
     @property
     @pulumi.getter
@@ -669,6 +747,10 @@ class VirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -699,23 +781,58 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualMachineArgs.__new__(VirtualMachineArgs)
 
+            if assessment is not None and not isinstance(assessment, VirtualMachineAssessmentArgs):
+                assessment = assessment or {}
+                def _setter(key, value):
+                    assessment[key] = value
+                VirtualMachineAssessmentArgs._configure(_setter, **assessment)
             __props__.__dict__["assessment"] = assessment
+            if auto_backup is not None and not isinstance(auto_backup, VirtualMachineAutoBackupArgs):
+                auto_backup = auto_backup or {}
+                def _setter(key, value):
+                    auto_backup[key] = value
+                VirtualMachineAutoBackupArgs._configure(_setter, **auto_backup)
             __props__.__dict__["auto_backup"] = auto_backup
+            if auto_patching is not None and not isinstance(auto_patching, VirtualMachineAutoPatchingArgs):
+                auto_patching = auto_patching or {}
+                def _setter(key, value):
+                    auto_patching[key] = value
+                VirtualMachineAutoPatchingArgs._configure(_setter, **auto_patching)
             __props__.__dict__["auto_patching"] = auto_patching
+            if key_vault_credential is not None and not isinstance(key_vault_credential, VirtualMachineKeyVaultCredentialArgs):
+                key_vault_credential = key_vault_credential or {}
+                def _setter(key, value):
+                    key_vault_credential[key] = value
+                VirtualMachineKeyVaultCredentialArgs._configure(_setter, **key_vault_credential)
             __props__.__dict__["key_vault_credential"] = key_vault_credential
             __props__.__dict__["r_services_enabled"] = r_services_enabled
             __props__.__dict__["sql_connectivity_port"] = sql_connectivity_port
             __props__.__dict__["sql_connectivity_type"] = sql_connectivity_type
             __props__.__dict__["sql_connectivity_update_password"] = None if sql_connectivity_update_password is None else pulumi.Output.secret(sql_connectivity_update_password)
             __props__.__dict__["sql_connectivity_update_username"] = None if sql_connectivity_update_username is None else pulumi.Output.secret(sql_connectivity_update_username)
+            if sql_instance is not None and not isinstance(sql_instance, VirtualMachineSqlInstanceArgs):
+                sql_instance = sql_instance or {}
+                def _setter(key, value):
+                    sql_instance[key] = value
+                VirtualMachineSqlInstanceArgs._configure(_setter, **sql_instance)
             __props__.__dict__["sql_instance"] = sql_instance
             __props__.__dict__["sql_license_type"] = sql_license_type
             __props__.__dict__["sql_virtual_machine_group_id"] = sql_virtual_machine_group_id
+            if storage_configuration is not None and not isinstance(storage_configuration, VirtualMachineStorageConfigurationArgs):
+                storage_configuration = storage_configuration or {}
+                def _setter(key, value):
+                    storage_configuration[key] = value
+                VirtualMachineStorageConfigurationArgs._configure(_setter, **storage_configuration)
             __props__.__dict__["storage_configuration"] = storage_configuration
             __props__.__dict__["tags"] = tags
             if virtual_machine_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_id'")
             __props__.__dict__["virtual_machine_id"] = virtual_machine_id
+            if wsfc_domain_credential is not None and not isinstance(wsfc_domain_credential, VirtualMachineWsfcDomainCredentialArgs):
+                wsfc_domain_credential = wsfc_domain_credential or {}
+                def _setter(key, value):
+                    wsfc_domain_credential[key] = value
+                VirtualMachineWsfcDomainCredentialArgs._configure(_setter, **wsfc_domain_credential)
             __props__.__dict__["wsfc_domain_credential"] = wsfc_domain_credential
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sqlConnectivityUpdatePassword", "sqlConnectivityUpdateUsername"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)

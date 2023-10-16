@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,41 +59,84 @@ class LinkedServiceAzureBlobStorageArgs:
         :param pulumi.Input[str] tenant_id: The tenant id or name in which to authenticate against the Azure Blob Storage account.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
         """
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
+        LinkedServiceAzureBlobStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_factory_id=data_factory_id,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            connection_string=connection_string,
+            connection_string_insecure=connection_string_insecure,
+            description=description,
+            integration_runtime_name=integration_runtime_name,
+            key_vault_sas_token=key_vault_sas_token,
+            name=name,
+            parameters=parameters,
+            sas_uri=sas_uri,
+            service_endpoint=service_endpoint,
+            service_principal_id=service_principal_id,
+            service_principal_key=service_principal_key,
+            service_principal_linked_key_vault_key=service_principal_linked_key_vault_key,
+            storage_kind=storage_kind,
+            tenant_id=tenant_id,
+            use_managed_identity=use_managed_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_factory_id: pulumi.Input[str],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             connection_string_insecure: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             integration_runtime_name: Optional[pulumi.Input[str]] = None,
+             key_vault_sas_token: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             sas_uri: Optional[pulumi.Input[str]] = None,
+             service_endpoint: Optional[pulumi.Input[str]] = None,
+             service_principal_id: Optional[pulumi.Input[str]] = None,
+             service_principal_key: Optional[pulumi.Input[str]] = None,
+             service_principal_linked_key_vault_key: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']] = None,
+             storage_kind: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             use_managed_identity: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_factory_id", data_factory_id)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if connection_string_insecure is not None:
-            pulumi.set(__self__, "connection_string_insecure", connection_string_insecure)
+            _setter("connection_string_insecure", connection_string_insecure)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if integration_runtime_name is not None:
-            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+            _setter("integration_runtime_name", integration_runtime_name)
         if key_vault_sas_token is not None:
-            pulumi.set(__self__, "key_vault_sas_token", key_vault_sas_token)
+            _setter("key_vault_sas_token", key_vault_sas_token)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if sas_uri is not None:
-            pulumi.set(__self__, "sas_uri", sas_uri)
+            _setter("sas_uri", sas_uri)
         if service_endpoint is not None:
-            pulumi.set(__self__, "service_endpoint", service_endpoint)
+            _setter("service_endpoint", service_endpoint)
         if service_principal_id is not None:
-            pulumi.set(__self__, "service_principal_id", service_principal_id)
+            _setter("service_principal_id", service_principal_id)
         if service_principal_key is not None:
-            pulumi.set(__self__, "service_principal_key", service_principal_key)
+            _setter("service_principal_key", service_principal_key)
         if service_principal_linked_key_vault_key is not None:
-            pulumi.set(__self__, "service_principal_linked_key_vault_key", service_principal_linked_key_vault_key)
+            _setter("service_principal_linked_key_vault_key", service_principal_linked_key_vault_key)
         if storage_kind is not None:
-            pulumi.set(__self__, "storage_kind", storage_kind)
+            _setter("storage_kind", storage_kind)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if use_managed_identity is not None:
-            pulumi.set(__self__, "use_managed_identity", use_managed_identity)
+            _setter("use_managed_identity", use_managed_identity)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -362,42 +405,85 @@ class _LinkedServiceAzureBlobStorageState:
         :param pulumi.Input[str] tenant_id: The tenant id or name in which to authenticate against the Azure Blob Storage account.
         :param pulumi.Input[bool] use_managed_identity: Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with `service_principal_id` and `service_principal_key`.
         """
+        _LinkedServiceAzureBlobStorageState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+            annotations=annotations,
+            connection_string=connection_string,
+            connection_string_insecure=connection_string_insecure,
+            data_factory_id=data_factory_id,
+            description=description,
+            integration_runtime_name=integration_runtime_name,
+            key_vault_sas_token=key_vault_sas_token,
+            name=name,
+            parameters=parameters,
+            sas_uri=sas_uri,
+            service_endpoint=service_endpoint,
+            service_principal_id=service_principal_id,
+            service_principal_key=service_principal_key,
+            service_principal_linked_key_vault_key=service_principal_linked_key_vault_key,
+            storage_kind=storage_kind,
+            tenant_id=tenant_id,
+            use_managed_identity=use_managed_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             connection_string_insecure: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             integration_runtime_name: Optional[pulumi.Input[str]] = None,
+             key_vault_sas_token: Optional[pulumi.Input['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             sas_uri: Optional[pulumi.Input[str]] = None,
+             service_endpoint: Optional[pulumi.Input[str]] = None,
+             service_principal_id: Optional[pulumi.Input[str]] = None,
+             service_principal_key: Optional[pulumi.Input[str]] = None,
+             service_principal_linked_key_vault_key: Optional[pulumi.Input['LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs']] = None,
+             storage_kind: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             use_managed_identity: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if connection_string_insecure is not None:
-            pulumi.set(__self__, "connection_string_insecure", connection_string_insecure)
+            _setter("connection_string_insecure", connection_string_insecure)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if integration_runtime_name is not None:
-            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+            _setter("integration_runtime_name", integration_runtime_name)
         if key_vault_sas_token is not None:
-            pulumi.set(__self__, "key_vault_sas_token", key_vault_sas_token)
+            _setter("key_vault_sas_token", key_vault_sas_token)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if sas_uri is not None:
-            pulumi.set(__self__, "sas_uri", sas_uri)
+            _setter("sas_uri", sas_uri)
         if service_endpoint is not None:
-            pulumi.set(__self__, "service_endpoint", service_endpoint)
+            _setter("service_endpoint", service_endpoint)
         if service_principal_id is not None:
-            pulumi.set(__self__, "service_principal_id", service_principal_id)
+            _setter("service_principal_id", service_principal_id)
         if service_principal_key is not None:
-            pulumi.set(__self__, "service_principal_key", service_principal_key)
+            _setter("service_principal_key", service_principal_key)
         if service_principal_linked_key_vault_key is not None:
-            pulumi.set(__self__, "service_principal_linked_key_vault_key", service_principal_linked_key_vault_key)
+            _setter("service_principal_linked_key_vault_key", service_principal_linked_key_vault_key)
         if storage_kind is not None:
-            pulumi.set(__self__, "storage_kind", storage_kind)
+            _setter("storage_kind", storage_kind)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if use_managed_identity is not None:
-            pulumi.set(__self__, "use_managed_identity", use_managed_identity)
+            _setter("use_managed_identity", use_managed_identity)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -813,6 +899,10 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkedServiceAzureBlobStorageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -854,6 +944,11 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
+            if key_vault_sas_token is not None and not isinstance(key_vault_sas_token, LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs):
+                key_vault_sas_token = key_vault_sas_token or {}
+                def _setter(key, value):
+                    key_vault_sas_token[key] = value
+                LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs._configure(_setter, **key_vault_sas_token)
             __props__.__dict__["key_vault_sas_token"] = key_vault_sas_token
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
@@ -861,6 +956,11 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             __props__.__dict__["service_endpoint"] = None if service_endpoint is None else pulumi.Output.secret(service_endpoint)
             __props__.__dict__["service_principal_id"] = service_principal_id
             __props__.__dict__["service_principal_key"] = service_principal_key
+            if service_principal_linked_key_vault_key is not None and not isinstance(service_principal_linked_key_vault_key, LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs):
+                service_principal_linked_key_vault_key = service_principal_linked_key_vault_key or {}
+                def _setter(key, value):
+                    service_principal_linked_key_vault_key[key] = value
+                LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs._configure(_setter, **service_principal_linked_key_vault_key)
             __props__.__dict__["service_principal_linked_key_vault_key"] = service_principal_linked_key_vault_key
             __props__.__dict__["storage_kind"] = storage_kind
             __props__.__dict__["tenant_id"] = tenant_id

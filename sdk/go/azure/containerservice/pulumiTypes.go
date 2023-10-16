@@ -7289,9 +7289,7 @@ type KubernetesClusterDefaultNodePool struct {
 	MinCount *int `pulumi:"minCount"`
 	// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
-	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
-	//
-	// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+	// The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	//
 	// > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 	NodeCount *int `pulumi:"nodeCount"`
@@ -7401,9 +7399,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
 	// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
-	//
-	// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+	// The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	//
 	// > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 	NodeCount pulumi.IntPtrInput `pulumi:"nodeCount"`
@@ -7645,9 +7641,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
-//
-// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+// The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 //
 // > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 func (o KubernetesClusterDefaultNodePoolOutput) NodeCount() pulumi.IntPtrOutput {
@@ -7966,9 +7960,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Name() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `minCount` and `maxCount`.
-//
-// > **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+// The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 //
 // > **Note:** If `enableAutoScaling` is set to `false` both `minCount` and `maxCount` fields need to be set to `null` or omitted from the configuration.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) NodeCount() pulumi.IntPtrOutput {

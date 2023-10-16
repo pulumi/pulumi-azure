@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -55,11 +55,28 @@ class HubApnsCredential(dict):
         :param str team_id: The ID of the team the Token.
         :param str token: The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
         """
-        pulumi.set(__self__, "application_mode", application_mode)
-        pulumi.set(__self__, "bundle_id", bundle_id)
-        pulumi.set(__self__, "key_id", key_id)
-        pulumi.set(__self__, "team_id", team_id)
-        pulumi.set(__self__, "token", token)
+        HubApnsCredential._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_mode=application_mode,
+            bundle_id=bundle_id,
+            key_id=key_id,
+            team_id=team_id,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_mode: str,
+             bundle_id: str,
+             key_id: str,
+             team_id: str,
+             token: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_mode", application_mode)
+        _setter("bundle_id", bundle_id)
+        _setter("key_id", key_id)
+        _setter("team_id", team_id)
+        _setter("token", token)
 
     @property
     @pulumi.getter(name="applicationMode")
@@ -126,7 +143,16 @@ class HubGcmCredential(dict):
         """
         :param str api_key: The API Key associated with the Google Cloud Messaging service.
         """
-        pulumi.set(__self__, "api_key", api_key)
+        HubGcmCredential._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_key", api_key)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -152,11 +178,28 @@ class GetHubApnsCredentialResult(dict):
         :param str team_id: The ID of the team the Token.
         :param str token: The Push Token associated with the Apple Developer Account.
         """
-        pulumi.set(__self__, "application_mode", application_mode)
-        pulumi.set(__self__, "bundle_id", bundle_id)
-        pulumi.set(__self__, "key_id", key_id)
-        pulumi.set(__self__, "team_id", team_id)
-        pulumi.set(__self__, "token", token)
+        GetHubApnsCredentialResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_mode=application_mode,
+            bundle_id=bundle_id,
+            key_id=key_id,
+            team_id=team_id,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_mode: str,
+             bundle_id: str,
+             key_id: str,
+             team_id: str,
+             token: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_mode", application_mode)
+        _setter("bundle_id", bundle_id)
+        _setter("key_id", key_id)
+        _setter("team_id", team_id)
+        _setter("token", token)
 
     @property
     @pulumi.getter(name="applicationMode")
@@ -206,7 +249,16 @@ class GetHubGcmCredentialResult(dict):
         """
         :param str api_key: The API Key associated with the Google Cloud Messaging service.
         """
-        pulumi.set(__self__, "api_key", api_key)
+        GetHubGcmCredentialResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_key", api_key)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -224,7 +276,16 @@ class GetNamespaceSkuResult(dict):
         """
         :param str name: Specifies the Name of the Notification Hub Namespace.
         """
-        pulumi.set(__self__, "name", name)
+        GetNamespaceSkuResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter

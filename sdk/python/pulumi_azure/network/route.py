@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteArgs', 'Route']
@@ -29,14 +29,33 @@ class RouteArgs:
         :param pulumi.Input[str] name: The name of the route. Changing this forces a new resource to be created.
         :param pulumi.Input[str] next_hop_in_ip_address: Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
         """
-        pulumi.set(__self__, "address_prefix", address_prefix)
-        pulumi.set(__self__, "next_hop_type", next_hop_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "route_table_name", route_table_name)
+        RouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefix=address_prefix,
+            next_hop_type=next_hop_type,
+            resource_group_name=resource_group_name,
+            route_table_name=route_table_name,
+            name=name,
+            next_hop_in_ip_address=next_hop_in_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefix: pulumi.Input[str],
+             next_hop_type: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             route_table_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             next_hop_in_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("address_prefix", address_prefix)
+        _setter("next_hop_type", next_hop_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("route_table_name", route_table_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if next_hop_in_ip_address is not None:
-            pulumi.set(__self__, "next_hop_in_ip_address", next_hop_in_ip_address)
+            _setter("next_hop_in_ip_address", next_hop_in_ip_address)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -129,18 +148,37 @@ class _RouteState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route. Changing this forces a new resource to be created.
         :param pulumi.Input[str] route_table_name: The name of the route table within which create the route. Changing this forces a new resource to be created.
         """
+        _RouteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefix=address_prefix,
+            name=name,
+            next_hop_in_ip_address=next_hop_in_ip_address,
+            next_hop_type=next_hop_type,
+            resource_group_name=resource_group_name,
+            route_table_name=route_table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefix: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             next_hop_in_ip_address: Optional[pulumi.Input[str]] = None,
+             next_hop_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             route_table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if next_hop_in_ip_address is not None:
-            pulumi.set(__self__, "next_hop_in_ip_address", next_hop_in_ip_address)
+            _setter("next_hop_in_ip_address", next_hop_in_ip_address)
         if next_hop_type is not None:
-            pulumi.set(__self__, "next_hop_type", next_hop_type)
+            _setter("next_hop_type", next_hop_type)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if route_table_name is not None:
-            pulumi.set(__self__, "route_table_name", route_table_name)
+            _setter("route_table_name", route_table_name)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -316,6 +354,10 @@ class Route(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

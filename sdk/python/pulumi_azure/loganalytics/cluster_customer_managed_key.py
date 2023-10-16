@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterCustomerManagedKeyArgs', 'ClusterCustomerManagedKey']
@@ -21,8 +21,19 @@ class ClusterCustomerManagedKeyArgs:
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key to use for encryption.
         :param pulumi.Input[str] log_analytics_cluster_id: The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
         """
-        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
-        pulumi.set(__self__, "log_analytics_cluster_id", log_analytics_cluster_id)
+        ClusterCustomerManagedKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_key_id=key_vault_key_id,
+            log_analytics_cluster_id=log_analytics_cluster_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_key_id: pulumi.Input[str],
+             log_analytics_cluster_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_vault_key_id", key_vault_key_id)
+        _setter("log_analytics_cluster_id", log_analytics_cluster_id)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -59,10 +70,21 @@ class _ClusterCustomerManagedKeyState:
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key to use for encryption.
         :param pulumi.Input[str] log_analytics_cluster_id: The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created.
         """
+        _ClusterCustomerManagedKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_key_id=key_vault_key_id,
+            log_analytics_cluster_id=log_analytics_cluster_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             log_analytics_cluster_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+            _setter("key_vault_key_id", key_vault_key_id)
         if log_analytics_cluster_id is not None:
-            pulumi.set(__self__, "log_analytics_cluster_id", log_analytics_cluster_id)
+            _setter("log_analytics_cluster_id", log_analytics_cluster_id)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -260,6 +282,10 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterCustomerManagedKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

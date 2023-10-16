@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AccountCustomerManagedKeyInitArgs', 'AccountCustomerManagedKey']
@@ -23,10 +23,23 @@ class AccountCustomerManagedKeyInitArgs:
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
         :param pulumi.Input[str] identity_client_id: The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
         """
-        pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
-        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        AccountCustomerManagedKeyInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cognitive_account_id=cognitive_account_id,
+            key_vault_key_id=key_vault_key_id,
+            identity_client_id=identity_client_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cognitive_account_id: pulumi.Input[str],
+             key_vault_key_id: pulumi.Input[str],
+             identity_client_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cognitive_account_id", cognitive_account_id)
+        _setter("key_vault_key_id", key_vault_key_id)
         if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
+            _setter("identity_client_id", identity_client_id)
 
     @property
     @pulumi.getter(name="cognitiveAccountId")
@@ -77,12 +90,25 @@ class _AccountCustomerManagedKeyState:
         :param pulumi.Input[str] identity_client_id: The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
         :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
         """
+        _AccountCustomerManagedKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cognitive_account_id=cognitive_account_id,
+            identity_client_id=identity_client_id,
+            key_vault_key_id=key_vault_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cognitive_account_id: Optional[pulumi.Input[str]] = None,
+             identity_client_id: Optional[pulumi.Input[str]] = None,
+             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cognitive_account_id is not None:
-            pulumi.set(__self__, "cognitive_account_id", cognitive_account_id)
+            _setter("cognitive_account_id", cognitive_account_id)
         if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
+            _setter("identity_client_id", identity_client_id)
         if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+            _setter("key_vault_key_id", key_vault_key_id)
 
     @property
     @pulumi.getter(name="cognitiveAccountId")
@@ -392,6 +418,10 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountCustomerManagedKeyInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

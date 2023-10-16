@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -49,20 +49,41 @@ class NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs:
         :param pulumi.Input[int] udp_pinhole_timeout_in_seconds: Pinhole timeout for UDP pinholes in seconds. Must between `1` to `180`, Default to `180`.
         :param pulumi.Input[int] udp_port_reuse_minimum_hold_time_in_seconds: Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Defaults to `60`.
         """
+        NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            icmp_pinhole_timeout_in_seconds=icmp_pinhole_timeout_in_seconds,
+            pinhole_maximum_number=pinhole_maximum_number,
+            port_range=port_range,
+            tcp_pinhole_timeout_in_seconds=tcp_pinhole_timeout_in_seconds,
+            tcp_port_reuse_minimum_hold_time_in_seconds=tcp_port_reuse_minimum_hold_time_in_seconds,
+            udp_pinhole_timeout_in_seconds=udp_pinhole_timeout_in_seconds,
+            udp_port_reuse_minimum_hold_time_in_seconds=udp_port_reuse_minimum_hold_time_in_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             icmp_pinhole_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             pinhole_maximum_number: Optional[pulumi.Input[int]] = None,
+             port_range: Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs']] = None,
+             tcp_pinhole_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             tcp_port_reuse_minimum_hold_time_in_seconds: Optional[pulumi.Input[int]] = None,
+             udp_pinhole_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             udp_port_reuse_minimum_hold_time_in_seconds: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if icmp_pinhole_timeout_in_seconds is not None:
-            pulumi.set(__self__, "icmp_pinhole_timeout_in_seconds", icmp_pinhole_timeout_in_seconds)
+            _setter("icmp_pinhole_timeout_in_seconds", icmp_pinhole_timeout_in_seconds)
         if pinhole_maximum_number is not None:
-            pulumi.set(__self__, "pinhole_maximum_number", pinhole_maximum_number)
+            _setter("pinhole_maximum_number", pinhole_maximum_number)
         if port_range is not None:
-            pulumi.set(__self__, "port_range", port_range)
+            _setter("port_range", port_range)
         if tcp_pinhole_timeout_in_seconds is not None:
-            pulumi.set(__self__, "tcp_pinhole_timeout_in_seconds", tcp_pinhole_timeout_in_seconds)
+            _setter("tcp_pinhole_timeout_in_seconds", tcp_pinhole_timeout_in_seconds)
         if tcp_port_reuse_minimum_hold_time_in_seconds is not None:
-            pulumi.set(__self__, "tcp_port_reuse_minimum_hold_time_in_seconds", tcp_port_reuse_minimum_hold_time_in_seconds)
+            _setter("tcp_port_reuse_minimum_hold_time_in_seconds", tcp_port_reuse_minimum_hold_time_in_seconds)
         if udp_pinhole_timeout_in_seconds is not None:
-            pulumi.set(__self__, "udp_pinhole_timeout_in_seconds", udp_pinhole_timeout_in_seconds)
+            _setter("udp_pinhole_timeout_in_seconds", udp_pinhole_timeout_in_seconds)
         if udp_port_reuse_minimum_hold_time_in_seconds is not None:
-            pulumi.set(__self__, "udp_port_reuse_minimum_hold_time_in_seconds", udp_port_reuse_minimum_hold_time_in_seconds)
+            _setter("udp_port_reuse_minimum_hold_time_in_seconds", udp_port_reuse_minimum_hold_time_in_seconds)
 
     @property
     @pulumi.getter(name="icmpPinholeTimeoutInSeconds")
@@ -155,10 +176,21 @@ class NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs:
         :param pulumi.Input[int] maximum: Specifies the maximum port number.
         :param pulumi.Input[int] minimum: Specifies the minimum port number.
         """
+        NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum=maximum,
+            minimum=minimum,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum: Optional[pulumi.Input[int]] = None,
+             minimum: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if maximum is not None:
-            pulumi.set(__self__, "maximum", maximum)
+            _setter("maximum", maximum)
         if minimum is not None:
-            pulumi.set(__self__, "minimum", minimum)
+            _setter("minimum", minimum)
 
     @property
     @pulumi.getter
@@ -194,8 +226,19 @@ class NetworkPacketCoreControlPlaneIdentityArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of the IDs for User Assigned Managed Identity resources to be assigned.
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "type", type)
+        NetworkPacketCoreControlPlaneIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -231,9 +274,20 @@ class NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs:
         :param pulumi.Input[str] authentication_type: How to authenticate users to access local diagnostics APIs. Possible values are `AAD` and `Password`.
         :param pulumi.Input[str] https_server_certificate_url: The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
         """
-        pulumi.set(__self__, "authentication_type", authentication_type)
+        NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+            https_server_certificate_url=https_server_certificate_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: pulumi.Input[str],
+             https_server_certificate_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authentication_type", authentication_type)
         if https_server_certificate_url is not None:
-            pulumi.set(__self__, "https_server_certificate_url", https_server_certificate_url)
+            _setter("https_server_certificate_url", https_server_certificate_url)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -277,15 +331,32 @@ class NetworkPacketCoreControlPlanePlatformArgs:
         :param pulumi.Input[str] edge_device_id: The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
         :param pulumi.Input[str] stack_hci_cluster_id: The ID of the Azure Stack HCI cluster where the packet core is deployed.
         """
-        pulumi.set(__self__, "type", type)
+        NetworkPacketCoreControlPlanePlatformArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            arc_kubernetes_cluster_id=arc_kubernetes_cluster_id,
+            custom_location_id=custom_location_id,
+            edge_device_id=edge_device_id,
+            stack_hci_cluster_id=stack_hci_cluster_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             arc_kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
+             custom_location_id: Optional[pulumi.Input[str]] = None,
+             edge_device_id: Optional[pulumi.Input[str]] = None,
+             stack_hci_cluster_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if arc_kubernetes_cluster_id is not None:
-            pulumi.set(__self__, "arc_kubernetes_cluster_id", arc_kubernetes_cluster_id)
+            _setter("arc_kubernetes_cluster_id", arc_kubernetes_cluster_id)
         if custom_location_id is not None:
-            pulumi.set(__self__, "custom_location_id", custom_location_id)
+            _setter("custom_location_id", custom_location_id)
         if edge_device_id is not None:
-            pulumi.set(__self__, "edge_device_id", edge_device_id)
+            _setter("edge_device_id", edge_device_id)
         if stack_hci_cluster_id is not None:
-            pulumi.set(__self__, "stack_hci_cluster_id", stack_hci_cluster_id)
+            _setter("stack_hci_cluster_id", stack_hci_cluster_id)
 
     @property
     @pulumi.getter
@@ -365,13 +436,30 @@ class NetworkServicePccRuleArgs:
         :param pulumi.Input['NetworkServicePccRuleQosPolicyArgs'] qos_policy: A `qos_policy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
         :param pulumi.Input[bool] traffic_control_enabled: Determines whether flows that match this data flow policy rule are permitted. Defaults to `true`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "precedence", precedence)
-        pulumi.set(__self__, "service_data_flow_templates", service_data_flow_templates)
+        NetworkServicePccRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            precedence=precedence,
+            service_data_flow_templates=service_data_flow_templates,
+            qos_policy=qos_policy,
+            traffic_control_enabled=traffic_control_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             precedence: pulumi.Input[int],
+             service_data_flow_templates: pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleServiceDataFlowTemplateArgs']]],
+             qos_policy: Optional[pulumi.Input['NetworkServicePccRuleQosPolicyArgs']] = None,
+             traffic_control_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("precedence", precedence)
+        _setter("service_data_flow_templates", service_data_flow_templates)
         if qos_policy is not None:
-            pulumi.set(__self__, "qos_policy", qos_policy)
+            _setter("qos_policy", qos_policy)
         if traffic_control_enabled is not None:
-            pulumi.set(__self__, "traffic_control_enabled", traffic_control_enabled)
+            _setter("traffic_control_enabled", traffic_control_enabled)
 
     @property
     @pulumi.getter
@@ -451,16 +539,35 @@ class NetworkServicePccRuleQosPolicyArgs:
         :param pulumi.Input[str] preemption_capability: The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
         :param pulumi.Input[str] preemption_vulnerability: The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
         """
-        pulumi.set(__self__, "maximum_bit_rate", maximum_bit_rate)
-        pulumi.set(__self__, "qos_indicator", qos_indicator)
+        NetworkServicePccRuleQosPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_bit_rate=maximum_bit_rate,
+            qos_indicator=qos_indicator,
+            allocation_and_retention_priority_level=allocation_and_retention_priority_level,
+            guaranteed_bit_rate=guaranteed_bit_rate,
+            preemption_capability=preemption_capability,
+            preemption_vulnerability=preemption_vulnerability,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_bit_rate: pulumi.Input['NetworkServicePccRuleQosPolicyMaximumBitRateArgs'],
+             qos_indicator: pulumi.Input[int],
+             allocation_and_retention_priority_level: Optional[pulumi.Input[int]] = None,
+             guaranteed_bit_rate: Optional[pulumi.Input['NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs']] = None,
+             preemption_capability: Optional[pulumi.Input[str]] = None,
+             preemption_vulnerability: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("maximum_bit_rate", maximum_bit_rate)
+        _setter("qos_indicator", qos_indicator)
         if allocation_and_retention_priority_level is not None:
-            pulumi.set(__self__, "allocation_and_retention_priority_level", allocation_and_retention_priority_level)
+            _setter("allocation_and_retention_priority_level", allocation_and_retention_priority_level)
         if guaranteed_bit_rate is not None:
-            pulumi.set(__self__, "guaranteed_bit_rate", guaranteed_bit_rate)
+            _setter("guaranteed_bit_rate", guaranteed_bit_rate)
         if preemption_capability is not None:
-            pulumi.set(__self__, "preemption_capability", preemption_capability)
+            _setter("preemption_capability", preemption_capability)
         if preemption_vulnerability is not None:
-            pulumi.set(__self__, "preemption_vulnerability", preemption_vulnerability)
+            _setter("preemption_vulnerability", preemption_vulnerability)
 
     @property
     @pulumi.getter(name="maximumBitRate")
@@ -544,8 +651,19 @@ class NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs:
         :param pulumi.Input[str] downlink: Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         :param pulumi.Input[str] uplink: Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         """
-        pulumi.set(__self__, "downlink", downlink)
-        pulumi.set(__self__, "uplink", uplink)
+        NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downlink=downlink,
+            uplink=uplink,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downlink: pulumi.Input[str],
+             uplink: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("downlink", downlink)
+        _setter("uplink", uplink)
 
     @property
     @pulumi.getter
@@ -581,8 +699,19 @@ class NetworkServicePccRuleQosPolicyMaximumBitRateArgs:
         :param pulumi.Input[str] downlink: Downlink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         :param pulumi.Input[str] uplink: Uplink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         """
-        pulumi.set(__self__, "downlink", downlink)
-        pulumi.set(__self__, "uplink", uplink)
+        NetworkServicePccRuleQosPolicyMaximumBitRateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downlink=downlink,
+            uplink=uplink,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downlink: pulumi.Input[str],
+             uplink: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("downlink", downlink)
+        _setter("uplink", uplink)
 
     @property
     @pulumi.getter
@@ -624,12 +753,29 @@ class NetworkServicePccRuleServiceDataFlowTemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_ip_lists: Specifies the remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value `any`. Otherwise, you must provide each of the remote IP addresses to which the packet core instance will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, `192.0.2.54/24`).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ports: The port(s) to which UEs will connect for this flow. You can specify zero or more ports or port ranges. If you specify one or more ports or port ranges then you must specify a value other than `ip` in the `protocol` field. If it is not specified then connections will be allowed on all ports. Port ranges must be specified as <FirstPort>-<LastPort>. For example: [`8080`, `8082-8085`].
         """
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "protocols", protocols)
-        pulumi.set(__self__, "remote_ip_lists", remote_ip_lists)
+        NetworkServicePccRuleServiceDataFlowTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direction=direction,
+            name=name,
+            protocols=protocols,
+            remote_ip_lists=remote_ip_lists,
+            ports=ports,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direction: pulumi.Input[str],
+             name: pulumi.Input[str],
+             protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
+             remote_ip_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
+             ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("direction", direction)
+        _setter("name", name)
+        _setter("protocols", protocols)
+        _setter("remote_ip_lists", remote_ip_lists)
         if ports is not None:
-            pulumi.set(__self__, "ports", ports)
+            _setter("ports", ports)
 
     @property
     @pulumi.getter
@@ -707,15 +853,32 @@ class NetworkServiceServiceQosPolicyArgs:
         :param pulumi.Input[str] preemption_vulnerability: The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
         :param pulumi.Input[int] qos_indicator: The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`. Defaults to `9`.
         """
-        pulumi.set(__self__, "maximum_bit_rate", maximum_bit_rate)
+        NetworkServiceServiceQosPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maximum_bit_rate=maximum_bit_rate,
+            allocation_and_retention_priority_level=allocation_and_retention_priority_level,
+            preemption_capability=preemption_capability,
+            preemption_vulnerability=preemption_vulnerability,
+            qos_indicator=qos_indicator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maximum_bit_rate: pulumi.Input['NetworkServiceServiceQosPolicyMaximumBitRateArgs'],
+             allocation_and_retention_priority_level: Optional[pulumi.Input[int]] = None,
+             preemption_capability: Optional[pulumi.Input[str]] = None,
+             preemption_vulnerability: Optional[pulumi.Input[str]] = None,
+             qos_indicator: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("maximum_bit_rate", maximum_bit_rate)
         if allocation_and_retention_priority_level is not None:
-            pulumi.set(__self__, "allocation_and_retention_priority_level", allocation_and_retention_priority_level)
+            _setter("allocation_and_retention_priority_level", allocation_and_retention_priority_level)
         if preemption_capability is not None:
-            pulumi.set(__self__, "preemption_capability", preemption_capability)
+            _setter("preemption_capability", preemption_capability)
         if preemption_vulnerability is not None:
-            pulumi.set(__self__, "preemption_vulnerability", preemption_vulnerability)
+            _setter("preemption_vulnerability", preemption_vulnerability)
         if qos_indicator is not None:
-            pulumi.set(__self__, "qos_indicator", qos_indicator)
+            _setter("qos_indicator", qos_indicator)
 
     @property
     @pulumi.getter(name="maximumBitRate")
@@ -787,8 +950,19 @@ class NetworkServiceServiceQosPolicyMaximumBitRateArgs:
         :param pulumi.Input[str] downlink: Downlink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         :param pulumi.Input[str] uplink: Uplink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         """
-        pulumi.set(__self__, "downlink", downlink)
-        pulumi.set(__self__, "uplink", uplink)
+        NetworkServiceServiceQosPolicyMaximumBitRateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downlink=downlink,
+            uplink=uplink,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downlink: pulumi.Input[str],
+             uplink: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("downlink", downlink)
+        _setter("uplink", uplink)
 
     @property
     @pulumi.getter
@@ -824,8 +998,19 @@ class NetworkSimGroupIdentityArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of IDs for User Assigned Managed Identity resources to be assigned.
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity. Possible value is `UserAssigned`.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "type", type)
+        NetworkSimGroupIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -863,9 +1048,22 @@ class NetworkSimPolicySliceArgs:
         :param pulumi.Input[str] default_data_network_id: The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `data_network` block.
         :param pulumi.Input[str] slice_id: The ID of the slice that these settings apply to.
         """
-        pulumi.set(__self__, "data_networks", data_networks)
-        pulumi.set(__self__, "default_data_network_id", default_data_network_id)
-        pulumi.set(__self__, "slice_id", slice_id)
+        NetworkSimPolicySliceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_networks=data_networks,
+            default_data_network_id=default_data_network_id,
+            slice_id=slice_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_networks: pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceDataNetworkArgs']]],
+             default_data_network_id: pulumi.Input[str],
+             slice_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("data_networks", data_networks)
+        _setter("default_data_network_id", default_data_network_id)
+        _setter("slice_id", slice_id)
 
     @property
     @pulumi.getter(name="dataNetworks")
@@ -929,22 +1127,49 @@ class NetworkSimPolicySliceDataNetworkArgs:
         :param pulumi.Input[str] preemption_capability: The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
         :param pulumi.Input[str] preemption_vulnerability: The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
         """
-        pulumi.set(__self__, "allowed_services_ids", allowed_services_ids)
-        pulumi.set(__self__, "data_network_id", data_network_id)
-        pulumi.set(__self__, "qos_indicator", qos_indicator)
-        pulumi.set(__self__, "session_aggregate_maximum_bit_rate", session_aggregate_maximum_bit_rate)
+        NetworkSimPolicySliceDataNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_services_ids=allowed_services_ids,
+            data_network_id=data_network_id,
+            qos_indicator=qos_indicator,
+            session_aggregate_maximum_bit_rate=session_aggregate_maximum_bit_rate,
+            additional_allowed_session_types=additional_allowed_session_types,
+            allocation_and_retention_priority_level=allocation_and_retention_priority_level,
+            default_session_type=default_session_type,
+            max_buffered_packets=max_buffered_packets,
+            preemption_capability=preemption_capability,
+            preemption_vulnerability=preemption_vulnerability,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_services_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             data_network_id: pulumi.Input[str],
+             qos_indicator: pulumi.Input[int],
+             session_aggregate_maximum_bit_rate: pulumi.Input['NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs'],
+             additional_allowed_session_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allocation_and_retention_priority_level: Optional[pulumi.Input[int]] = None,
+             default_session_type: Optional[pulumi.Input[str]] = None,
+             max_buffered_packets: Optional[pulumi.Input[int]] = None,
+             preemption_capability: Optional[pulumi.Input[str]] = None,
+             preemption_vulnerability: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_services_ids", allowed_services_ids)
+        _setter("data_network_id", data_network_id)
+        _setter("qos_indicator", qos_indicator)
+        _setter("session_aggregate_maximum_bit_rate", session_aggregate_maximum_bit_rate)
         if additional_allowed_session_types is not None:
-            pulumi.set(__self__, "additional_allowed_session_types", additional_allowed_session_types)
+            _setter("additional_allowed_session_types", additional_allowed_session_types)
         if allocation_and_retention_priority_level is not None:
-            pulumi.set(__self__, "allocation_and_retention_priority_level", allocation_and_retention_priority_level)
+            _setter("allocation_and_retention_priority_level", allocation_and_retention_priority_level)
         if default_session_type is not None:
-            pulumi.set(__self__, "default_session_type", default_session_type)
+            _setter("default_session_type", default_session_type)
         if max_buffered_packets is not None:
-            pulumi.set(__self__, "max_buffered_packets", max_buffered_packets)
+            _setter("max_buffered_packets", max_buffered_packets)
         if preemption_capability is not None:
-            pulumi.set(__self__, "preemption_capability", preemption_capability)
+            _setter("preemption_capability", preemption_capability)
         if preemption_vulnerability is not None:
-            pulumi.set(__self__, "preemption_vulnerability", preemption_vulnerability)
+            _setter("preemption_vulnerability", preemption_vulnerability)
 
     @property
     @pulumi.getter(name="allowedServicesIds")
@@ -1076,8 +1301,19 @@ class NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs:
         :param pulumi.Input[str] downlink: Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         :param pulumi.Input[str] uplink: Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         """
-        pulumi.set(__self__, "downlink", downlink)
-        pulumi.set(__self__, "uplink", uplink)
+        NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downlink=downlink,
+            uplink=uplink,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downlink: pulumi.Input[str],
+             uplink: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("downlink", downlink)
+        _setter("uplink", uplink)
 
     @property
     @pulumi.getter
@@ -1113,8 +1349,19 @@ class NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs:
         :param pulumi.Input[str] downlink: Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         :param pulumi.Input[str] uplink: Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
         """
-        pulumi.set(__self__, "downlink", downlink)
-        pulumi.set(__self__, "uplink", uplink)
+        NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            downlink=downlink,
+            uplink=uplink,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             downlink: pulumi.Input[str],
+             uplink: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("downlink", downlink)
+        _setter("uplink", uplink)
 
     @property
     @pulumi.getter
@@ -1151,10 +1398,23 @@ class NetworkSimStaticIpConfigurationArgs:
         :param pulumi.Input[str] attached_data_network_id: The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
         :param pulumi.Input[str] static_ipv4_address: The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
         """
-        pulumi.set(__self__, "attached_data_network_id", attached_data_network_id)
-        pulumi.set(__self__, "slice_id", slice_id)
+        NetworkSimStaticIpConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attached_data_network_id=attached_data_network_id,
+            slice_id=slice_id,
+            static_ipv4_address=static_ipv4_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attached_data_network_id: pulumi.Input[str],
+             slice_id: pulumi.Input[str],
+             static_ipv4_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("attached_data_network_id", attached_data_network_id)
+        _setter("slice_id", slice_id)
         if static_ipv4_address is not None:
-            pulumi.set(__self__, "static_ipv4_address", static_ipv4_address)
+            _setter("static_ipv4_address", static_ipv4_address)
 
     @property
     @pulumi.getter(name="attachedDataNetworkId")
@@ -1199,9 +1459,20 @@ class NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs:
         :param pulumi.Input[int] slice_service_type: Slice/service type (SST). Must be between `0` and `255`.
         :param pulumi.Input[str] slice_differentiator: Slice differentiator (SD). Must be a 6 digit hex string.
         """
-        pulumi.set(__self__, "slice_service_type", slice_service_type)
+        NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            slice_service_type=slice_service_type,
+            slice_differentiator=slice_differentiator,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             slice_service_type: pulumi.Input[int],
+             slice_differentiator: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("slice_service_type", slice_service_type)
         if slice_differentiator is not None:
-            pulumi.set(__self__, "slice_differentiator", slice_differentiator)
+            _setter("slice_differentiator", slice_differentiator)
 
     @property
     @pulumi.getter(name="sliceServiceType")

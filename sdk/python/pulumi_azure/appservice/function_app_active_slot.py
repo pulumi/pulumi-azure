@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FunctionAppActiveSlotArgs', 'FunctionAppActiveSlot']
@@ -21,9 +21,20 @@ class FunctionAppActiveSlotArgs:
         :param pulumi.Input[str] slot_id: The ID of the Slot to swap with `Production`.
         :param pulumi.Input[bool] overwrite_network_config: The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "slot_id", slot_id)
+        FunctionAppActiveSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            slot_id=slot_id,
+            overwrite_network_config=overwrite_network_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             slot_id: pulumi.Input[str],
+             overwrite_network_config: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("slot_id", slot_id)
         if overwrite_network_config is not None:
-            pulumi.set(__self__, "overwrite_network_config", overwrite_network_config)
+            _setter("overwrite_network_config", overwrite_network_config)
 
     @property
     @pulumi.getter(name="slotId")
@@ -62,12 +73,25 @@ class _FunctionAppActiveSlotState:
         :param pulumi.Input[bool] overwrite_network_config: The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] slot_id: The ID of the Slot to swap with `Production`.
         """
+        _FunctionAppActiveSlotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            last_successful_swap=last_successful_swap,
+            overwrite_network_config=overwrite_network_config,
+            slot_id=slot_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             last_successful_swap: Optional[pulumi.Input[str]] = None,
+             overwrite_network_config: Optional[pulumi.Input[bool]] = None,
+             slot_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if last_successful_swap is not None:
-            pulumi.set(__self__, "last_successful_swap", last_successful_swap)
+            _setter("last_successful_swap", last_successful_swap)
         if overwrite_network_config is not None:
-            pulumi.set(__self__, "overwrite_network_config", overwrite_network_config)
+            _setter("overwrite_network_config", overwrite_network_config)
         if slot_id is not None:
-            pulumi.set(__self__, "slot_id", slot_id)
+            _setter("slot_id", slot_id)
 
     @property
     @pulumi.getter(name="lastSuccessfulSwap")
@@ -277,6 +301,10 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FunctionAppActiveSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

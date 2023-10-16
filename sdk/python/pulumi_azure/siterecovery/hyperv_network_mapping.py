@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HypervNetworkMappingArgs', 'HypervNetworkMapping']
@@ -27,12 +27,29 @@ class HypervNetworkMappingArgs:
         :param pulumi.Input[str] target_network_id: The id of the recovery network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the HyperV network mapping. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
-        pulumi.set(__self__, "source_network_name", source_network_name)
-        pulumi.set(__self__, "source_system_center_virtual_machine_manager_name", source_system_center_virtual_machine_manager_name)
-        pulumi.set(__self__, "target_network_id", target_network_id)
+        HypervNetworkMappingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recovery_vault_id=recovery_vault_id,
+            source_network_name=source_network_name,
+            source_system_center_virtual_machine_manager_name=source_system_center_virtual_machine_manager_name,
+            target_network_id=target_network_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recovery_vault_id: pulumi.Input[str],
+             source_network_name: pulumi.Input[str],
+             source_system_center_virtual_machine_manager_name: pulumi.Input[str],
+             target_network_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("recovery_vault_id", recovery_vault_id)
+        _setter("source_network_name", source_network_name)
+        _setter("source_system_center_virtual_machine_manager_name", source_system_center_virtual_machine_manager_name)
+        _setter("target_network_id", target_network_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="recoveryVaultId")
@@ -111,16 +128,33 @@ class _HypervNetworkMappingState:
         :param pulumi.Input[str] source_system_center_virtual_machine_manager_name: Specifies the name of source System Center Virtual Machine Manager where the source network exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_network_id: The id of the recovery network. Changing this forces a new resource to be created.
         """
+        _HypervNetworkMappingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            recovery_vault_id=recovery_vault_id,
+            source_network_name=source_network_name,
+            source_system_center_virtual_machine_manager_name=source_system_center_virtual_machine_manager_name,
+            target_network_id=target_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             recovery_vault_id: Optional[pulumi.Input[str]] = None,
+             source_network_name: Optional[pulumi.Input[str]] = None,
+             source_system_center_virtual_machine_manager_name: Optional[pulumi.Input[str]] = None,
+             target_network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recovery_vault_id is not None:
-            pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
+            _setter("recovery_vault_id", recovery_vault_id)
         if source_network_name is not None:
-            pulumi.set(__self__, "source_network_name", source_network_name)
+            _setter("source_network_name", source_network_name)
         if source_system_center_virtual_machine_manager_name is not None:
-            pulumi.set(__self__, "source_system_center_virtual_machine_manager_name", source_system_center_virtual_machine_manager_name)
+            _setter("source_system_center_virtual_machine_manager_name", source_system_center_virtual_machine_manager_name)
         if target_network_id is not None:
-            pulumi.set(__self__, "target_network_id", target_network_id)
+            _setter("target_network_id", target_network_id)
 
     @property
     @pulumi.getter
@@ -284,6 +318,10 @@ class HypervNetworkMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HypervNetworkMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

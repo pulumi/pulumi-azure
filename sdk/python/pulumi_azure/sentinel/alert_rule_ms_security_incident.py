@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AlertRuleMsSecurityIncidentArgs', 'AlertRuleMsSecurityIncident']
@@ -39,22 +39,49 @@ class AlertRuleMsSecurityIncidentArgs:
         :param pulumi.Input[bool] enabled: Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "product_filter", product_filter)
-        pulumi.set(__self__, "severity_filters", severity_filters)
+        AlertRuleMsSecurityIncidentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            product_filter=product_filter,
+            severity_filters=severity_filters,
+            alert_rule_template_guid=alert_rule_template_guid,
+            description=description,
+            display_name_exclude_filters=display_name_exclude_filters,
+            display_name_filters=display_name_filters,
+            enabled=enabled,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             log_analytics_workspace_id: pulumi.Input[str],
+             product_filter: pulumi.Input[str],
+             severity_filters: pulumi.Input[Sequence[pulumi.Input[str]]],
+             alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name_exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("product_filter", product_filter)
+        _setter("severity_filters", severity_filters)
         if alert_rule_template_guid is not None:
-            pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
+            _setter("alert_rule_template_guid", alert_rule_template_guid)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name_exclude_filters is not None:
-            pulumi.set(__self__, "display_name_exclude_filters", display_name_exclude_filters)
+            _setter("display_name_exclude_filters", display_name_exclude_filters)
         if display_name_filters is not None:
-            pulumi.set(__self__, "display_name_filters", display_name_filters)
+            _setter("display_name_filters", display_name_filters)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="displayName")
@@ -207,26 +234,53 @@ class _AlertRuleMsSecurityIncidentState:
                
                > **NOTE** At least one of the severity filters need to be set.
         """
+        _AlertRuleMsSecurityIncidentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_rule_template_guid=alert_rule_template_guid,
+            description=description,
+            display_name=display_name,
+            display_name_exclude_filters=display_name_exclude_filters,
+            display_name_filters=display_name_filters,
+            enabled=enabled,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            name=name,
+            product_filter=product_filter,
+            severity_filters=severity_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             display_name_exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             product_filter: Optional[pulumi.Input[str]] = None,
+             severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alert_rule_template_guid is not None:
-            pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
+            _setter("alert_rule_template_guid", alert_rule_template_guid)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if display_name_exclude_filters is not None:
-            pulumi.set(__self__, "display_name_exclude_filters", display_name_exclude_filters)
+            _setter("display_name_exclude_filters", display_name_exclude_filters)
         if display_name_filters is not None:
-            pulumi.set(__self__, "display_name_filters", display_name_filters)
+            _setter("display_name_filters", display_name_filters)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_analytics_workspace_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if product_filter is not None:
-            pulumi.set(__self__, "product_filter", product_filter)
+            _setter("product_filter", product_filter)
         if severity_filters is not None:
-            pulumi.set(__self__, "severity_filters", severity_filters)
+            _setter("severity_filters", severity_filters)
 
     @property
     @pulumi.getter(name="alertRuleTemplateGuid")
@@ -458,6 +512,10 @@ class AlertRuleMsSecurityIncident(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AlertRuleMsSecurityIncidentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

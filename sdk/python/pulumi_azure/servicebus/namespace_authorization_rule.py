@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NamespaceAuthorizationRuleArgs', 'NamespaceAuthorizationRule']
@@ -29,15 +29,32 @@ class NamespaceAuthorizationRuleArgs:
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         """
-        pulumi.set(__self__, "namespace_id", namespace_id)
+        NamespaceAuthorizationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_id=namespace_id,
+            listen=listen,
+            manage=manage,
+            name=name,
+            send=send,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_id: pulumi.Input[str],
+             listen: Optional[pulumi.Input[bool]] = None,
+             manage: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             send: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace_id", namespace_id)
         if listen is not None:
-            pulumi.set(__self__, "listen", listen)
+            _setter("listen", listen)
         if manage is not None:
-            pulumi.set(__self__, "manage", manage)
+            _setter("manage", manage)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if send is not None:
-            pulumi.set(__self__, "send", send)
+            _setter("send", send)
 
     @property
     @pulumi.getter(name="namespaceId")
@@ -132,28 +149,57 @@ class _NamespaceAuthorizationRuleState:
         :param pulumi.Input[str] secondary_key: The Secondary Key for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         """
+        _NamespaceAuthorizationRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            listen=listen,
+            manage=manage,
+            name=name,
+            namespace_id=namespace_id,
+            primary_connection_string=primary_connection_string,
+            primary_connection_string_alias=primary_connection_string_alias,
+            primary_key=primary_key,
+            secondary_connection_string=secondary_connection_string,
+            secondary_connection_string_alias=secondary_connection_string_alias,
+            secondary_key=secondary_key,
+            send=send,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             listen: Optional[pulumi.Input[bool]] = None,
+             manage: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace_id: Optional[pulumi.Input[str]] = None,
+             primary_connection_string: Optional[pulumi.Input[str]] = None,
+             primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             send: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if listen is not None:
-            pulumi.set(__self__, "listen", listen)
+            _setter("listen", listen)
         if manage is not None:
-            pulumi.set(__self__, "manage", manage)
+            _setter("manage", manage)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace_id is not None:
-            pulumi.set(__self__, "namespace_id", namespace_id)
+            _setter("namespace_id", namespace_id)
         if primary_connection_string is not None:
-            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+            _setter("primary_connection_string", primary_connection_string)
         if primary_connection_string_alias is not None:
-            pulumi.set(__self__, "primary_connection_string_alias", primary_connection_string_alias)
+            _setter("primary_connection_string_alias", primary_connection_string_alias)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if secondary_connection_string is not None:
-            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+            _setter("secondary_connection_string", secondary_connection_string)
         if secondary_connection_string_alias is not None:
-            pulumi.set(__self__, "secondary_connection_string_alias", secondary_connection_string_alias)
+            _setter("secondary_connection_string_alias", secondary_connection_string_alias)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
         if send is not None:
-            pulumi.set(__self__, "send", send)
+            _setter("send", send)
 
     @property
     @pulumi.getter
@@ -391,6 +437,10 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceAuthorizationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

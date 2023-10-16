@@ -35,16 +35,6 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2 {
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
      */
     private @Nullable String clientSecretSettingName;
     /**
@@ -52,10 +42,6 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2 {
      * 
      */
     private @Nullable String issuerEndpoint;
-    /**
-     * @return The Site Credentials Username used for publishing.
-     * 
-     */
     private String name;
     /**
      * @return The name of the claim that contains the users name.
@@ -110,16 +96,6 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2 {
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
      */
     public Optional<String> clientSecretSettingName() {
         return Optional.ofNullable(this.clientSecretSettingName);
@@ -131,10 +107,6 @@ public final class WindowsWebAppSlotAuthSettingsV2CustomOidcV2 {
     public Optional<String> issuerEndpoint() {
         return Optional.ofNullable(this.issuerEndpoint);
     }
-    /**
-     * @return The Site Credentials Username used for publishing.
-     * 
-     */
     public String name() {
         return this.name;
     }

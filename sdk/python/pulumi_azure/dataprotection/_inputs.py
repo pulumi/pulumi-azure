@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -30,10 +30,25 @@ class BackupPolicyDiskRetentionRuleArgs:
         :param pulumi.Input[str] name: The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[int] priority: Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
         """
-        pulumi.set(__self__, "criteria", criteria)
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
+        BackupPolicyDiskRetentionRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criteria=criteria,
+            duration=duration,
+            name=name,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criteria: pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArgs'],
+             duration: pulumi.Input[str],
+             name: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("criteria", criteria)
+        _setter("duration", duration)
+        _setter("name", name)
+        _setter("priority", priority)
 
     @property
     @pulumi.getter
@@ -91,8 +106,17 @@ class BackupPolicyDiskRetentionRuleCriteriaArgs:
         """
         :param pulumi.Input[str] absolute_criteria: Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
         """
+        BackupPolicyDiskRetentionRuleCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            absolute_criteria=absolute_criteria,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             absolute_criteria: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if absolute_criteria is not None:
-            pulumi.set(__self__, "absolute_criteria", absolute_criteria)
+            _setter("absolute_criteria", absolute_criteria)
 
     @property
     @pulumi.getter(name="absoluteCriteria")
@@ -120,10 +144,25 @@ class BackupPolicyPostgresqlRetentionRuleArgs:
         :param pulumi.Input[str] name: The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[int] priority: Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
-        pulumi.set(__self__, "criteria", criteria)
-        pulumi.set(__self__, "duration", duration)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "priority", priority)
+        BackupPolicyPostgresqlRetentionRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criteria=criteria,
+            duration=duration,
+            name=name,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criteria: pulumi.Input['BackupPolicyPostgresqlRetentionRuleCriteriaArgs'],
+             duration: pulumi.Input[str],
+             name: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("criteria", criteria)
+        _setter("duration", duration)
+        _setter("name", name)
+        _setter("priority", priority)
 
     @property
     @pulumi.getter
@@ -189,16 +228,33 @@ class BackupPolicyPostgresqlRetentionRuleCriteriaArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scheduled_backup_times: Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_months: Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
+        BackupPolicyPostgresqlRetentionRuleCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            absolute_criteria=absolute_criteria,
+            days_of_weeks=days_of_weeks,
+            months_of_years=months_of_years,
+            scheduled_backup_times=scheduled_backup_times,
+            weeks_of_months=weeks_of_months,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             absolute_criteria: Optional[pulumi.Input[str]] = None,
+             days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             months_of_years: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             scheduled_backup_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if absolute_criteria is not None:
-            pulumi.set(__self__, "absolute_criteria", absolute_criteria)
+            _setter("absolute_criteria", absolute_criteria)
         if days_of_weeks is not None:
-            pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+            _setter("days_of_weeks", days_of_weeks)
         if months_of_years is not None:
-            pulumi.set(__self__, "months_of_years", months_of_years)
+            _setter("months_of_years", months_of_years)
         if scheduled_backup_times is not None:
-            pulumi.set(__self__, "scheduled_backup_times", scheduled_backup_times)
+            _setter("scheduled_backup_times", scheduled_backup_times)
         if weeks_of_months is not None:
-            pulumi.set(__self__, "weeks_of_months", weeks_of_months)
+            _setter("weeks_of_months", weeks_of_months)
 
     @property
     @pulumi.getter(name="absoluteCriteria")
@@ -272,11 +328,24 @@ class BackupVaultIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
         """
-        pulumi.set(__self__, "type", type)
+        BackupVaultIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter

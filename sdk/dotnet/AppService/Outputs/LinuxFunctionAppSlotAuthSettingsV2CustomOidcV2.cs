@@ -26,26 +26,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ClientCredentialMethod;
         /// <summary>
-        /// The OpenID Connect Client ID for the Apple web application.
+        /// The ID of the Client to use to authenticate with Azure Active Directory.
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The app setting name that contains the `client_secret` value used for Apple Login.
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         /// </summary>
         public readonly string? ClientSecretSettingName;
         /// <summary>

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -31,14 +31,29 @@ class HostPoolScheduledAgentUpdatesArgs:
         :param pulumi.Input[str] timezone: Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `use_session_host_timezone` is enabled then it will override this setting. Default is `UTC`
         :param pulumi.Input[bool] use_session_host_timezone: Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
         """
+        HostPoolScheduledAgentUpdatesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            schedules=schedules,
+            timezone=timezone,
+            use_session_host_timezone=use_session_host_timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             use_session_host_timezone: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if schedules is not None:
-            pulumi.set(__self__, "schedules", schedules)
+            _setter("schedules", schedules)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
         if use_session_host_timezone is not None:
-            pulumi.set(__self__, "use_session_host_timezone", use_session_host_timezone)
+            _setter("use_session_host_timezone", use_session_host_timezone)
 
     @property
     @pulumi.getter
@@ -100,8 +115,19 @@ class HostPoolScheduledAgentUpdatesScheduleArgs:
         :param pulumi.Input[str] day_of_week: The day of the week on which agent updates should be performed. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
         :param pulumi.Input[int] hour_of_day: The hour of day the update window should start. The update is a 2 hour period following the hour provided. The value should be provided as a number between 0 and 23, with 0 being midnight and 23 being 11pm. A leading zero should not be used.
         """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "hour_of_day", hour_of_day)
+        HostPoolScheduledAgentUpdatesScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            hour_of_day=hour_of_day,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: pulumi.Input[str],
+             hour_of_day: pulumi.Input[int],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("day_of_week", day_of_week)
+        _setter("hour_of_day", hour_of_day)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -137,8 +163,19 @@ class ScalingPlanHostPoolArgs:
         :param pulumi.Input[str] hostpool_id: The ID of the HostPool to assign the Scaling Plan to.
         :param pulumi.Input[bool] scaling_plan_enabled: Specifies if the scaling plan is enabled or disabled for the HostPool.
         """
-        pulumi.set(__self__, "hostpool_id", hostpool_id)
-        pulumi.set(__self__, "scaling_plan_enabled", scaling_plan_enabled)
+        ScalingPlanHostPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hostpool_id=hostpool_id,
+            scaling_plan_enabled=scaling_plan_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hostpool_id: pulumi.Input[str],
+             scaling_plan_enabled: pulumi.Input[bool],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hostpool_id", hostpool_id)
+        _setter("scaling_plan_enabled", scaling_plan_enabled)
 
     @property
     @pulumi.getter(name="hostpoolId")
@@ -206,26 +243,69 @@ class ScalingPlanScheduleArgs:
         :param pulumi.Input[int] ramp_up_capacity_threshold_percent: This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
         :param pulumi.Input[int] ramp_up_minimum_hosts_percent: Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
         """
-        pulumi.set(__self__, "days_of_weeks", days_of_weeks)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "off_peak_load_balancing_algorithm", off_peak_load_balancing_algorithm)
-        pulumi.set(__self__, "off_peak_start_time", off_peak_start_time)
-        pulumi.set(__self__, "peak_load_balancing_algorithm", peak_load_balancing_algorithm)
-        pulumi.set(__self__, "peak_start_time", peak_start_time)
-        pulumi.set(__self__, "ramp_down_capacity_threshold_percent", ramp_down_capacity_threshold_percent)
-        pulumi.set(__self__, "ramp_down_force_logoff_users", ramp_down_force_logoff_users)
-        pulumi.set(__self__, "ramp_down_load_balancing_algorithm", ramp_down_load_balancing_algorithm)
-        pulumi.set(__self__, "ramp_down_minimum_hosts_percent", ramp_down_minimum_hosts_percent)
-        pulumi.set(__self__, "ramp_down_notification_message", ramp_down_notification_message)
-        pulumi.set(__self__, "ramp_down_start_time", ramp_down_start_time)
-        pulumi.set(__self__, "ramp_down_stop_hosts_when", ramp_down_stop_hosts_when)
-        pulumi.set(__self__, "ramp_down_wait_time_minutes", ramp_down_wait_time_minutes)
-        pulumi.set(__self__, "ramp_up_load_balancing_algorithm", ramp_up_load_balancing_algorithm)
-        pulumi.set(__self__, "ramp_up_start_time", ramp_up_start_time)
+        ScalingPlanScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_of_weeks=days_of_weeks,
+            name=name,
+            off_peak_load_balancing_algorithm=off_peak_load_balancing_algorithm,
+            off_peak_start_time=off_peak_start_time,
+            peak_load_balancing_algorithm=peak_load_balancing_algorithm,
+            peak_start_time=peak_start_time,
+            ramp_down_capacity_threshold_percent=ramp_down_capacity_threshold_percent,
+            ramp_down_force_logoff_users=ramp_down_force_logoff_users,
+            ramp_down_load_balancing_algorithm=ramp_down_load_balancing_algorithm,
+            ramp_down_minimum_hosts_percent=ramp_down_minimum_hosts_percent,
+            ramp_down_notification_message=ramp_down_notification_message,
+            ramp_down_start_time=ramp_down_start_time,
+            ramp_down_stop_hosts_when=ramp_down_stop_hosts_when,
+            ramp_down_wait_time_minutes=ramp_down_wait_time_minutes,
+            ramp_up_load_balancing_algorithm=ramp_up_load_balancing_algorithm,
+            ramp_up_start_time=ramp_up_start_time,
+            ramp_up_capacity_threshold_percent=ramp_up_capacity_threshold_percent,
+            ramp_up_minimum_hosts_percent=ramp_up_minimum_hosts_percent,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_of_weeks: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             off_peak_load_balancing_algorithm: pulumi.Input[str],
+             off_peak_start_time: pulumi.Input[str],
+             peak_load_balancing_algorithm: pulumi.Input[str],
+             peak_start_time: pulumi.Input[str],
+             ramp_down_capacity_threshold_percent: pulumi.Input[int],
+             ramp_down_force_logoff_users: pulumi.Input[bool],
+             ramp_down_load_balancing_algorithm: pulumi.Input[str],
+             ramp_down_minimum_hosts_percent: pulumi.Input[int],
+             ramp_down_notification_message: pulumi.Input[str],
+             ramp_down_start_time: pulumi.Input[str],
+             ramp_down_stop_hosts_when: pulumi.Input[str],
+             ramp_down_wait_time_minutes: pulumi.Input[int],
+             ramp_up_load_balancing_algorithm: pulumi.Input[str],
+             ramp_up_start_time: pulumi.Input[str],
+             ramp_up_capacity_threshold_percent: Optional[pulumi.Input[int]] = None,
+             ramp_up_minimum_hosts_percent: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days_of_weeks", days_of_weeks)
+        _setter("name", name)
+        _setter("off_peak_load_balancing_algorithm", off_peak_load_balancing_algorithm)
+        _setter("off_peak_start_time", off_peak_start_time)
+        _setter("peak_load_balancing_algorithm", peak_load_balancing_algorithm)
+        _setter("peak_start_time", peak_start_time)
+        _setter("ramp_down_capacity_threshold_percent", ramp_down_capacity_threshold_percent)
+        _setter("ramp_down_force_logoff_users", ramp_down_force_logoff_users)
+        _setter("ramp_down_load_balancing_algorithm", ramp_down_load_balancing_algorithm)
+        _setter("ramp_down_minimum_hosts_percent", ramp_down_minimum_hosts_percent)
+        _setter("ramp_down_notification_message", ramp_down_notification_message)
+        _setter("ramp_down_start_time", ramp_down_start_time)
+        _setter("ramp_down_stop_hosts_when", ramp_down_stop_hosts_when)
+        _setter("ramp_down_wait_time_minutes", ramp_down_wait_time_minutes)
+        _setter("ramp_up_load_balancing_algorithm", ramp_up_load_balancing_algorithm)
+        _setter("ramp_up_start_time", ramp_up_start_time)
         if ramp_up_capacity_threshold_percent is not None:
-            pulumi.set(__self__, "ramp_up_capacity_threshold_percent", ramp_up_capacity_threshold_percent)
+            _setter("ramp_up_capacity_threshold_percent", ramp_up_capacity_threshold_percent)
         if ramp_up_minimum_hosts_percent is not None:
-            pulumi.set(__self__, "ramp_up_minimum_hosts_percent", ramp_up_minimum_hosts_percent)
+            _setter("ramp_up_minimum_hosts_percent", ramp_up_minimum_hosts_percent)
 
     @property
     @pulumi.getter(name="daysOfWeeks")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,30 +47,61 @@ class AutomationRuleArgs:
         :param pulumi.Input[str] triggers_on: Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
         :param pulumi.Input[str] triggers_when: Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "order", order)
+        AutomationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            order=order,
+            action_incidents=action_incidents,
+            action_playbooks=action_playbooks,
+            condition_json=condition_json,
+            conditions=conditions,
+            enabled=enabled,
+            expiration=expiration,
+            name=name,
+            triggers_on=triggers_on,
+            triggers_when=triggers_when,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             log_analytics_workspace_id: pulumi.Input[str],
+             order: pulumi.Input[int],
+             action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentArgs']]]] = None,
+             action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionPlaybookArgs']]]] = None,
+             condition_json: Optional[pulumi.Input[str]] = None,
+             conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleConditionArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             expiration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             triggers_on: Optional[pulumi.Input[str]] = None,
+             triggers_when: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("order", order)
         if action_incidents is not None:
-            pulumi.set(__self__, "action_incidents", action_incidents)
+            _setter("action_incidents", action_incidents)
         if action_playbooks is not None:
-            pulumi.set(__self__, "action_playbooks", action_playbooks)
+            _setter("action_playbooks", action_playbooks)
         if condition_json is not None:
-            pulumi.set(__self__, "condition_json", condition_json)
+            _setter("condition_json", condition_json)
         if conditions is not None:
             warnings.warn("""This is deprecated in favor of `condition_json`""", DeprecationWarning)
             pulumi.log.warn("""conditions is deprecated: This is deprecated in favor of `condition_json`""")
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if triggers_on is not None:
-            pulumi.set(__self__, "triggers_on", triggers_on)
+            _setter("triggers_on", triggers_on)
         if triggers_when is not None:
-            pulumi.set(__self__, "triggers_when", triggers_when)
+            _setter("triggers_when", triggers_when)
 
     @property
     @pulumi.getter(name="displayName")
@@ -258,33 +289,64 @@ class _AutomationRuleState:
         :param pulumi.Input[str] triggers_on: Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
         :param pulumi.Input[str] triggers_when: Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
         """
+        _AutomationRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_incidents=action_incidents,
+            action_playbooks=action_playbooks,
+            condition_json=condition_json,
+            conditions=conditions,
+            display_name=display_name,
+            enabled=enabled,
+            expiration=expiration,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            name=name,
+            order=order,
+            triggers_on=triggers_on,
+            triggers_when=triggers_when,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_incidents: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionIncidentArgs']]]] = None,
+             action_playbooks: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionPlaybookArgs']]]] = None,
+             condition_json: Optional[pulumi.Input[str]] = None,
+             conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleConditionArgs']]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             expiration: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[int]] = None,
+             triggers_on: Optional[pulumi.Input[str]] = None,
+             triggers_when: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action_incidents is not None:
-            pulumi.set(__self__, "action_incidents", action_incidents)
+            _setter("action_incidents", action_incidents)
         if action_playbooks is not None:
-            pulumi.set(__self__, "action_playbooks", action_playbooks)
+            _setter("action_playbooks", action_playbooks)
         if condition_json is not None:
-            pulumi.set(__self__, "condition_json", condition_json)
+            _setter("condition_json", condition_json)
         if conditions is not None:
             warnings.warn("""This is deprecated in favor of `condition_json`""", DeprecationWarning)
             pulumi.log.warn("""conditions is deprecated: This is deprecated in favor of `condition_json`""")
         if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
+            _setter("conditions", conditions)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if log_analytics_workspace_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if triggers_on is not None:
-            pulumi.set(__self__, "triggers_on", triggers_on)
+            _setter("triggers_on", triggers_on)
         if triggers_when is not None:
-            pulumi.set(__self__, "triggers_when", triggers_when)
+            _setter("triggers_when", triggers_when)
 
     @property
     @pulumi.getter(name="actionIncidents")
@@ -557,6 +619,10 @@ class AutomationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AutomationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -586,9 +652,6 @@ class AutomationRule(pulumi.CustomResource):
             __props__.__dict__["action_incidents"] = action_incidents
             __props__.__dict__["action_playbooks"] = action_playbooks
             __props__.__dict__["condition_json"] = condition_json
-            if conditions is not None and not opts.urn:
-                warnings.warn("""This is deprecated in favor of `condition_json`""", DeprecationWarning)
-                pulumi.log.warn("""conditions is deprecated: This is deprecated in favor of `condition_json`""")
             __props__.__dict__["conditions"] = conditions
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")

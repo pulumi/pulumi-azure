@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -46,13 +46,34 @@ class GetAgentResult(dict):
         :param Sequence[str] proxy_bypasses: List of service names which should not use the specified proxy server.
         :param str proxy_url: Specifies the URL of the proxy to be used.
         """
-        pulumi.set(__self__, "extensions_allow_lists", extensions_allow_lists)
-        pulumi.set(__self__, "extensions_block_lists", extensions_block_lists)
-        pulumi.set(__self__, "extensions_enabled", extensions_enabled)
-        pulumi.set(__self__, "guest_configuration_enabled", guest_configuration_enabled)
-        pulumi.set(__self__, "incoming_connections_ports", incoming_connections_ports)
-        pulumi.set(__self__, "proxy_bypasses", proxy_bypasses)
-        pulumi.set(__self__, "proxy_url", proxy_url)
+        GetAgentResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extensions_allow_lists=extensions_allow_lists,
+            extensions_block_lists=extensions_block_lists,
+            extensions_enabled=extensions_enabled,
+            guest_configuration_enabled=guest_configuration_enabled,
+            incoming_connections_ports=incoming_connections_ports,
+            proxy_bypasses=proxy_bypasses,
+            proxy_url=proxy_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extensions_allow_lists: Sequence['outputs.GetAgentExtensionsAllowListResult'],
+             extensions_block_lists: Sequence['outputs.GetAgentExtensionsBlockListResult'],
+             extensions_enabled: bool,
+             guest_configuration_enabled: bool,
+             incoming_connections_ports: Sequence[str],
+             proxy_bypasses: Sequence[str],
+             proxy_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("extensions_allow_lists", extensions_allow_lists)
+        _setter("extensions_block_lists", extensions_block_lists)
+        _setter("extensions_enabled", extensions_enabled)
+        _setter("guest_configuration_enabled", guest_configuration_enabled)
+        _setter("incoming_connections_ports", incoming_connections_ports)
+        _setter("proxy_bypasses", proxy_bypasses)
+        _setter("proxy_url", proxy_url)
 
     @property
     @pulumi.getter(name="extensionsAllowLists")
@@ -120,8 +141,19 @@ class GetAgentExtensionsAllowListResult(dict):
         :param str publisher: Publisher of the extension.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "type", type)
+        GetAgentExtensionsAllowListResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            publisher=publisher,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             publisher: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("publisher", publisher)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -149,8 +181,19 @@ class GetAgentExtensionsBlockListResult(dict):
         :param str publisher: Publisher of the extension.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "type", type)
+        GetAgentExtensionsBlockListResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            publisher=publisher,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             publisher: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("publisher", publisher)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -176,7 +219,16 @@ class GetCloudMetadataResult(dict):
         """
         :param str provider: Specifies the cloud provider. For example `Azure`, `AWS` and `GCP`.
         """
-        pulumi.set(__self__, "provider", provider)
+        GetCloudMetadataResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider=provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider", provider)
 
     @property
     @pulumi.getter
@@ -198,9 +250,22 @@ class GetIdentityResult(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -240,10 +305,25 @@ class GetLocationDataResult(dict):
         :param str district: The district, state, or province where the resource is located.
         :param str name: The name of this Azure Arc machine.
         """
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "country_or_region", country_or_region)
-        pulumi.set(__self__, "district", district)
-        pulumi.set(__self__, "name", name)
+        GetLocationDataResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            city=city,
+            country_or_region=country_or_region,
+            district=district,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             city: str,
+             country_or_region: str,
+             district: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("city", city)
+        _setter("country_or_region", country_or_region)
+        _setter("district", district)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -289,9 +369,22 @@ class GetOsProfileResult(dict):
         :param Sequence['GetOsProfileLinuxArgs'] linuxes: A `linux` block as defined above.
         :param Sequence['GetOsProfileWindowArgs'] windows: A `windows` block as defined below.
         """
-        pulumi.set(__self__, "computer_name", computer_name)
-        pulumi.set(__self__, "linuxes", linuxes)
-        pulumi.set(__self__, "windows", windows)
+        GetOsProfileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            computer_name=computer_name,
+            linuxes=linuxes,
+            windows=windows,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             computer_name: str,
+             linuxes: Sequence['outputs.GetOsProfileLinuxResult'],
+             windows: Sequence['outputs.GetOsProfileWindowResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("computer_name", computer_name)
+        _setter("linuxes", linuxes)
+        _setter("windows", windows)
 
     @property
     @pulumi.getter(name="computerName")
@@ -325,7 +418,16 @@ class GetOsProfileLinuxResult(dict):
         """
         :param Sequence['GetOsProfileLinuxPatchArgs'] patches: A `patch` block as defined above.
         """
-        pulumi.set(__self__, "patches", patches)
+        GetOsProfileLinuxResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            patches=patches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             patches: Sequence['outputs.GetOsProfileLinuxPatchResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("patches", patches)
 
     @property
     @pulumi.getter
@@ -345,8 +447,19 @@ class GetOsProfileLinuxPatchResult(dict):
         :param str assessment_mode: Specifies the assessment mode.
         :param str patch_mode: Specifies the patch mode.
         """
-        pulumi.set(__self__, "assessment_mode", assessment_mode)
-        pulumi.set(__self__, "patch_mode", patch_mode)
+        GetOsProfileLinuxPatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_mode=assessment_mode,
+            patch_mode=patch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_mode: str,
+             patch_mode: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assessment_mode", assessment_mode)
+        _setter("patch_mode", patch_mode)
 
     @property
     @pulumi.getter(name="assessmentMode")
@@ -372,7 +485,16 @@ class GetOsProfileWindowResult(dict):
         """
         :param Sequence['GetOsProfileWindowPatchArgs'] patches: A `patch` block as defined above.
         """
-        pulumi.set(__self__, "patches", patches)
+        GetOsProfileWindowResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            patches=patches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             patches: Sequence['outputs.GetOsProfileWindowPatchResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("patches", patches)
 
     @property
     @pulumi.getter
@@ -392,8 +514,19 @@ class GetOsProfileWindowPatchResult(dict):
         :param str assessment_mode: Specifies the assessment mode.
         :param str patch_mode: Specifies the patch mode.
         """
-        pulumi.set(__self__, "assessment_mode", assessment_mode)
-        pulumi.set(__self__, "patch_mode", patch_mode)
+        GetOsProfileWindowPatchResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_mode=assessment_mode,
+            patch_mode=patch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_mode: str,
+             patch_mode: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assessment_mode", assessment_mode)
+        _setter("patch_mode", patch_mode)
 
     @property
     @pulumi.getter(name="assessmentMode")
@@ -421,8 +554,19 @@ class GetServiceStatusResult(dict):
         :param Sequence['GetServiceStatusExtensionServiceArgs'] extension_services: A `extension_service` block as defined above.
         :param Sequence['GetServiceStatusGuestConfigurationServiceArgs'] guest_configuration_services: A `guest_configuration_service` block as defined above.
         """
-        pulumi.set(__self__, "extension_services", extension_services)
-        pulumi.set(__self__, "guest_configuration_services", guest_configuration_services)
+        GetServiceStatusResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extension_services=extension_services,
+            guest_configuration_services=guest_configuration_services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extension_services: Sequence['outputs.GetServiceStatusExtensionServiceResult'],
+             guest_configuration_services: Sequence['outputs.GetServiceStatusGuestConfigurationServiceResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("extension_services", extension_services)
+        _setter("guest_configuration_services", guest_configuration_services)
 
     @property
     @pulumi.getter(name="extensionServices")
@@ -450,8 +594,19 @@ class GetServiceStatusExtensionServiceResult(dict):
         :param str startup_type: The behavior of the service when the Arc-enabled machine starts up.
         :param str status: The current status of the service.
         """
-        pulumi.set(__self__, "startup_type", startup_type)
-        pulumi.set(__self__, "status", status)
+        GetServiceStatusExtensionServiceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            startup_type=startup_type,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             startup_type: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("startup_type", startup_type)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="startupType")
@@ -479,8 +634,19 @@ class GetServiceStatusGuestConfigurationServiceResult(dict):
         :param str startup_type: The behavior of the service when the Arc-enabled machine starts up.
         :param str status: The current status of the service.
         """
-        pulumi.set(__self__, "startup_type", startup_type)
-        pulumi.set(__self__, "status", status)
+        GetServiceStatusGuestConfigurationServiceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            startup_type=startup_type,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             startup_type: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("startup_type", startup_type)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="startupType")

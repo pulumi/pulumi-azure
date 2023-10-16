@@ -1695,7 +1695,7 @@ type ReplicationRecoveryPlanBootRecoveryGroupPostAction struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
 }
 
@@ -1733,7 +1733,7 @@ type ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1849,7 +1849,7 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput) ScriptPath() p
 	return o.ApplyT(func(v ReplicationRecoveryPlanBootRecoveryGroupPostAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }
 
-// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanBootRecoveryGroupPostAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1903,7 +1903,7 @@ type ReplicationRecoveryPlanBootRecoveryGroupPreAction struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
 }
 
@@ -1941,7 +1941,7 @@ type ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2057,7 +2057,7 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput) ScriptPath() pu
 	return o.ApplyT(func(v ReplicationRecoveryPlanBootRecoveryGroupPreAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }
 
-// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanBootRecoveryGroupPreAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2295,7 +2295,7 @@ type ReplicationRecoveryPlanFailoverRecoveryGroupPostAction struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
 }
 
@@ -2333,7 +2333,7 @@ type ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2451,7 +2451,7 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput) ScriptPath
 	return o.ApplyT(func(v ReplicationRecoveryPlanFailoverRecoveryGroupPostAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }
 
-// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanFailoverRecoveryGroupPostAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2505,7 +2505,7 @@ type ReplicationRecoveryPlanFailoverRecoveryGroupPreAction struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
 }
 
@@ -2543,7 +2543,7 @@ type ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2661,7 +2661,7 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput) ScriptPath(
 	return o.ApplyT(func(v ReplicationRecoveryPlanFailoverRecoveryGroupPreAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }
 
-// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanFailoverRecoveryGroupPreAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2867,7 +2867,7 @@ type ReplicationRecoveryPlanRecoveryGroupPostAction struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
 }
 
@@ -2905,7 +2905,7 @@ type ReplicationRecoveryPlanRecoveryGroupPostActionArgs struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3021,7 +3021,7 @@ func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) ScriptPath() pulum
 	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPostAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }
 
-// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPostAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3075,7 +3075,7 @@ type ReplicationRecoveryPlanRecoveryGroupPreAction struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
 }
 
@@ -3113,7 +3113,7 @@ type ReplicationRecoveryPlanRecoveryGroupPreActionArgs struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3229,7 +3229,7 @@ func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) ScriptPath() pulumi
 	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPreAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }
 
-// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanRecoveryGroupPreAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3467,7 +3467,7 @@ type ReplicationRecoveryPlanShutdownRecoveryGroupPostAction struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
 }
 
@@ -3505,7 +3505,7 @@ type ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3623,7 +3623,7 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput) ScriptPath
 	return o.ApplyT(func(v ReplicationRecoveryPlanShutdownRecoveryGroupPostAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }
 
-// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanShutdownRecoveryGroupPostAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3677,7 +3677,7 @@ type ReplicationRecoveryPlanShutdownRecoveryGroupPreAction struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
 }
 
@@ -3715,7 +3715,7 @@ type ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs struct {
 	//
 	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
-	// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3833,7 +3833,7 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput) ScriptPath(
 	return o.ApplyT(func(v ReplicationRecoveryPlanShutdownRecoveryGroupPreAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }
 
-// The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanShutdownRecoveryGroupPreAction) string { return v.Type }).(pulumi.StringOutput)
 }

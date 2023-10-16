@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -55,15 +55,32 @@ class PolicySetDefinitionPolicyDefinitionGroup(dict):
         :param str description: The description of this policy definition group.
         :param str display_name: The display name of this policy definition group.
         """
-        pulumi.set(__self__, "name", name)
+        PolicySetDefinitionPolicyDefinitionGroup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            additional_metadata_resource_id=additional_metadata_resource_id,
+            category=category,
+            description=description,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             additional_metadata_resource_id: Optional[str] = None,
+             category: Optional[str] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if additional_metadata_resource_id is not None:
-            pulumi.set(__self__, "additional_metadata_resource_id", additional_metadata_resource_id)
+            _setter("additional_metadata_resource_id", additional_metadata_resource_id)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter
@@ -142,13 +159,28 @@ class PolicySetDefinitionPolicyDefinitionReference(dict):
         :param Sequence[str] policy_group_names: A list of names of the policy definition groups that this policy definition reference belongs to.
         :param str reference_id: A unique ID within this policy set definition for this policy definition reference.
         """
-        pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        PolicySetDefinitionPolicyDefinitionReference._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_definition_id=policy_definition_id,
+            parameter_values=parameter_values,
+            policy_group_names=policy_group_names,
+            reference_id=reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_definition_id: str,
+             parameter_values: Optional[str] = None,
+             policy_group_names: Optional[Sequence[str]] = None,
+             reference_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("policy_definition_id", policy_definition_id)
         if parameter_values is not None:
-            pulumi.set(__self__, "parameter_values", parameter_values)
+            _setter("parameter_values", parameter_values)
         if policy_group_names is not None:
-            pulumi.set(__self__, "policy_group_names", policy_group_names)
+            _setter("policy_group_names", policy_group_names)
         if reference_id is not None:
-            pulumi.set(__self__, "reference_id", reference_id)
+            _setter("reference_id", reference_id)
 
     @property
     @pulumi.getter(name="policyDefinitionId")
@@ -221,16 +253,33 @@ class VirtualMachineConfigurationAssignmentConfiguration(dict):
         :param Sequence['VirtualMachineConfigurationAssignmentConfigurationParameterArgs'] parameters: One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         :param str version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
+        VirtualMachineConfigurationAssignmentConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assignment_type=assignment_type,
+            content_hash=content_hash,
+            content_uri=content_uri,
+            parameters=parameters,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assignment_type: Optional[str] = None,
+             content_hash: Optional[str] = None,
+             content_uri: Optional[str] = None,
+             parameters: Optional[Sequence['outputs.VirtualMachineConfigurationAssignmentConfigurationParameter']] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assignment_type is not None:
-            pulumi.set(__self__, "assignment_type", assignment_type)
+            _setter("assignment_type", assignment_type)
         if content_hash is not None:
-            pulumi.set(__self__, "content_hash", content_hash)
+            _setter("content_hash", content_hash)
         if content_uri is not None:
-            pulumi.set(__self__, "content_uri", content_uri)
+            _setter("content_uri", content_uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="assignmentType")
@@ -284,8 +333,19 @@ class VirtualMachineConfigurationAssignmentConfigurationParameter(dict):
         :param str name: The name of the configuration parameter to check.
         :param str value: The value to check the configuration parameter with.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        VirtualMachineConfigurationAssignmentConfigurationParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -317,10 +377,25 @@ class GetPolicyAssignmentIdentityResult(dict):
         :param str tenant_id: The Tenant ID of the Policy Assignment for this Resource.
         :param str type: The Type of Managed Identity which is added to this Policy Assignment.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetPolicyAssignmentIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Sequence[str],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -364,8 +439,19 @@ class GetPolicyAssignmentNonComplianceMessageResult(dict):
         :param str content: The non-compliance message text.
         :param str policy_definition_reference_id: The ID of the Policy Definition that the non-compliance message applies to.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+        GetPolicyAssignmentNonComplianceMessageResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            policy_definition_reference_id=policy_definition_reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: str,
+             policy_definition_reference_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
+        _setter("policy_definition_reference_id", policy_definition_reference_id)
 
     @property
     @pulumi.getter
@@ -401,11 +487,28 @@ class GetPolicySetDefinitionPolicyDefinitionGroupResult(dict):
                **NOTE** As `display_name` is not unique errors may occur when there are multiple policy set definitions with same display name.
         :param str name: Specifies the name of the Policy Set Definition. Conflicts with `display_name`.
         """
-        pulumi.set(__self__, "additional_metadata_resource_id", additional_metadata_resource_id)
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "name", name)
+        GetPolicySetDefinitionPolicyDefinitionGroupResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_metadata_resource_id=additional_metadata_resource_id,
+            category=category,
+            description=description,
+            display_name=display_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_metadata_resource_id: str,
+             category: str,
+             description: str,
+             display_name: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("additional_metadata_resource_id", additional_metadata_resource_id)
+        _setter("category", category)
+        _setter("description", description)
+        _setter("display_name", display_name)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="additionalMetadataResourceId")
@@ -465,11 +568,28 @@ class GetPolicySetDefinitionPolicyDefinitionReferenceResult(dict):
         :param Sequence[str] policy_group_names: The list of names of the policy definition groups that this policy definition reference belongs to.
         :param str reference_id: The unique ID within this policy set definition for this policy definition reference.
         """
-        pulumi.set(__self__, "parameter_values", parameter_values)
-        pulumi.set(__self__, "parameters", parameters)
-        pulumi.set(__self__, "policy_definition_id", policy_definition_id)
-        pulumi.set(__self__, "policy_group_names", policy_group_names)
-        pulumi.set(__self__, "reference_id", reference_id)
+        GetPolicySetDefinitionPolicyDefinitionReferenceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameter_values=parameter_values,
+            parameters=parameters,
+            policy_definition_id=policy_definition_id,
+            policy_group_names=policy_group_names,
+            reference_id=reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameter_values: str,
+             parameters: Mapping[str, str],
+             policy_definition_id: str,
+             policy_group_names: Sequence[str],
+             reference_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("parameter_values", parameter_values)
+        _setter("parameters", parameters)
+        _setter("policy_definition_id", policy_definition_id)
+        _setter("policy_group_names", policy_group_names)
+        _setter("reference_id", reference_id)
 
     @property
     @pulumi.getter(name="parameterValues")

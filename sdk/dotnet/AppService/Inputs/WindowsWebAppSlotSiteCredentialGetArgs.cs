@@ -14,10 +14,6 @@ namespace Pulumi.Azure.AppService.Inputs
     {
         [Input("name")]
         private Input<string>? _name;
-
-        /// <summary>
-        /// The Site Credentials Username used for publishing.
-        /// </summary>
         public Input<string>? Name
         {
             get => _name;

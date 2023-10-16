@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -73,54 +73,109 @@ class ApiArgs:
                
                > **NOTE:** When `version` is set, `version_set_id` must also be specified
         """
-        pulumi.set(__self__, "api_management_name", api_management_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "revision", revision)
+        ApiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            resource_group_name=resource_group_name,
+            revision=revision,
+            api_type=api_type,
+            contact=contact,
+            description=description,
+            display_name=display_name,
+            import_=import_,
+            license=license,
+            name=name,
+            oauth2_authorization=oauth2_authorization,
+            openid_authentication=openid_authentication,
+            path=path,
+            protocols=protocols,
+            revision_description=revision_description,
+            service_url=service_url,
+            soap_pass_through=soap_pass_through,
+            source_api_id=source_api_id,
+            subscription_key_parameter_names=subscription_key_parameter_names,
+            subscription_required=subscription_required,
+            terms_of_service_url=terms_of_service_url,
+            version=version,
+            version_description=version_description,
+            version_set_id=version_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             revision: pulumi.Input[str],
+             api_type: Optional[pulumi.Input[str]] = None,
+             contact: Optional[pulumi.Input['ApiContactArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             import_: Optional[pulumi.Input['ApiImportArgs']] = None,
+             license: Optional[pulumi.Input['ApiLicenseArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             oauth2_authorization: Optional[pulumi.Input['ApiOauth2AuthorizationArgs']] = None,
+             openid_authentication: Optional[pulumi.Input['ApiOpenidAuthenticationArgs']] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             revision_description: Optional[pulumi.Input[str]] = None,
+             service_url: Optional[pulumi.Input[str]] = None,
+             soap_pass_through: Optional[pulumi.Input[bool]] = None,
+             source_api_id: Optional[pulumi.Input[str]] = None,
+             subscription_key_parameter_names: Optional[pulumi.Input['ApiSubscriptionKeyParameterNamesArgs']] = None,
+             subscription_required: Optional[pulumi.Input[bool]] = None,
+             terms_of_service_url: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             version_description: Optional[pulumi.Input[str]] = None,
+             version_set_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_management_name", api_management_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("revision", revision)
         if api_type is not None:
-            pulumi.set(__self__, "api_type", api_type)
+            _setter("api_type", api_type)
         if contact is not None:
-            pulumi.set(__self__, "contact", contact)
+            _setter("contact", contact)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if import_ is not None:
-            pulumi.set(__self__, "import_", import_)
+            _setter("import_", import_)
         if license is not None:
-            pulumi.set(__self__, "license", license)
+            _setter("license", license)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if oauth2_authorization is not None:
-            pulumi.set(__self__, "oauth2_authorization", oauth2_authorization)
+            _setter("oauth2_authorization", oauth2_authorization)
         if openid_authentication is not None:
-            pulumi.set(__self__, "openid_authentication", openid_authentication)
+            _setter("openid_authentication", openid_authentication)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if revision_description is not None:
-            pulumi.set(__self__, "revision_description", revision_description)
+            _setter("revision_description", revision_description)
         if service_url is not None:
-            pulumi.set(__self__, "service_url", service_url)
+            _setter("service_url", service_url)
         if soap_pass_through is not None:
             warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
             pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
         if soap_pass_through is not None:
-            pulumi.set(__self__, "soap_pass_through", soap_pass_through)
+            _setter("soap_pass_through", soap_pass_through)
         if source_api_id is not None:
-            pulumi.set(__self__, "source_api_id", source_api_id)
+            _setter("source_api_id", source_api_id)
         if subscription_key_parameter_names is not None:
-            pulumi.set(__self__, "subscription_key_parameter_names", subscription_key_parameter_names)
+            _setter("subscription_key_parameter_names", subscription_key_parameter_names)
         if subscription_required is not None:
-            pulumi.set(__self__, "subscription_required", subscription_required)
+            _setter("subscription_required", subscription_required)
         if terms_of_service_url is not None:
-            pulumi.set(__self__, "terms_of_service_url", terms_of_service_url)
+            _setter("terms_of_service_url", terms_of_service_url)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if version_description is not None:
-            pulumi.set(__self__, "version_description", version_description)
+            _setter("version_description", version_description)
         if version_set_id is not None:
-            pulumi.set(__self__, "version_set_id", version_set_id)
+            _setter("version_set_id", version_set_id)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -484,61 +539,120 @@ class _ApiState:
                
                > **NOTE:** When `version` is set, `version_set_id` must also be specified
         """
+        _ApiState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            api_type=api_type,
+            contact=contact,
+            description=description,
+            display_name=display_name,
+            import_=import_,
+            is_current=is_current,
+            is_online=is_online,
+            license=license,
+            name=name,
+            oauth2_authorization=oauth2_authorization,
+            openid_authentication=openid_authentication,
+            path=path,
+            protocols=protocols,
+            resource_group_name=resource_group_name,
+            revision=revision,
+            revision_description=revision_description,
+            service_url=service_url,
+            soap_pass_through=soap_pass_through,
+            source_api_id=source_api_id,
+            subscription_key_parameter_names=subscription_key_parameter_names,
+            subscription_required=subscription_required,
+            terms_of_service_url=terms_of_service_url,
+            version=version,
+            version_description=version_description,
+            version_set_id=version_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_type: Optional[pulumi.Input[str]] = None,
+             contact: Optional[pulumi.Input['ApiContactArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             import_: Optional[pulumi.Input['ApiImportArgs']] = None,
+             is_current: Optional[pulumi.Input[bool]] = None,
+             is_online: Optional[pulumi.Input[bool]] = None,
+             license: Optional[pulumi.Input['ApiLicenseArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             oauth2_authorization: Optional[pulumi.Input['ApiOauth2AuthorizationArgs']] = None,
+             openid_authentication: Optional[pulumi.Input['ApiOpenidAuthenticationArgs']] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[str]] = None,
+             revision_description: Optional[pulumi.Input[str]] = None,
+             service_url: Optional[pulumi.Input[str]] = None,
+             soap_pass_through: Optional[pulumi.Input[bool]] = None,
+             source_api_id: Optional[pulumi.Input[str]] = None,
+             subscription_key_parameter_names: Optional[pulumi.Input['ApiSubscriptionKeyParameterNamesArgs']] = None,
+             subscription_required: Optional[pulumi.Input[bool]] = None,
+             terms_of_service_url: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             version_description: Optional[pulumi.Input[str]] = None,
+             version_set_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_management_name is not None:
-            pulumi.set(__self__, "api_management_name", api_management_name)
+            _setter("api_management_name", api_management_name)
         if api_type is not None:
-            pulumi.set(__self__, "api_type", api_type)
+            _setter("api_type", api_type)
         if contact is not None:
-            pulumi.set(__self__, "contact", contact)
+            _setter("contact", contact)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if import_ is not None:
-            pulumi.set(__self__, "import_", import_)
+            _setter("import_", import_)
         if is_current is not None:
-            pulumi.set(__self__, "is_current", is_current)
+            _setter("is_current", is_current)
         if is_online is not None:
-            pulumi.set(__self__, "is_online", is_online)
+            _setter("is_online", is_online)
         if license is not None:
-            pulumi.set(__self__, "license", license)
+            _setter("license", license)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if oauth2_authorization is not None:
-            pulumi.set(__self__, "oauth2_authorization", oauth2_authorization)
+            _setter("oauth2_authorization", oauth2_authorization)
         if openid_authentication is not None:
-            pulumi.set(__self__, "openid_authentication", openid_authentication)
+            _setter("openid_authentication", openid_authentication)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
         if revision_description is not None:
-            pulumi.set(__self__, "revision_description", revision_description)
+            _setter("revision_description", revision_description)
         if service_url is not None:
-            pulumi.set(__self__, "service_url", service_url)
+            _setter("service_url", service_url)
         if soap_pass_through is not None:
             warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
             pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
         if soap_pass_through is not None:
-            pulumi.set(__self__, "soap_pass_through", soap_pass_through)
+            _setter("soap_pass_through", soap_pass_through)
         if source_api_id is not None:
-            pulumi.set(__self__, "source_api_id", source_api_id)
+            _setter("source_api_id", source_api_id)
         if subscription_key_parameter_names is not None:
-            pulumi.set(__self__, "subscription_key_parameter_names", subscription_key_parameter_names)
+            _setter("subscription_key_parameter_names", subscription_key_parameter_names)
         if subscription_required is not None:
-            pulumi.set(__self__, "subscription_required", subscription_required)
+            _setter("subscription_required", subscription_required)
         if terms_of_service_url is not None:
-            pulumi.set(__self__, "terms_of_service_url", terms_of_service_url)
+            _setter("terms_of_service_url", terms_of_service_url)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if version_description is not None:
-            pulumi.set(__self__, "version_description", version_description)
+            _setter("version_description", version_description)
         if version_set_id is not None:
-            pulumi.set(__self__, "version_set_id", version_set_id)
+            _setter("version_set_id", version_set_id)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -1015,6 +1129,10 @@ class Api(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1057,13 +1175,38 @@ class Api(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_management_name'")
             __props__.__dict__["api_management_name"] = api_management_name
             __props__.__dict__["api_type"] = api_type
+            if contact is not None and not isinstance(contact, ApiContactArgs):
+                contact = contact or {}
+                def _setter(key, value):
+                    contact[key] = value
+                ApiContactArgs._configure(_setter, **contact)
             __props__.__dict__["contact"] = contact
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
+            if import_ is not None and not isinstance(import_, ApiImportArgs):
+                import_ = import_ or {}
+                def _setter(key, value):
+                    import_[key] = value
+                ApiImportArgs._configure(_setter, **import_)
             __props__.__dict__["import_"] = import_
+            if license is not None and not isinstance(license, ApiLicenseArgs):
+                license = license or {}
+                def _setter(key, value):
+                    license[key] = value
+                ApiLicenseArgs._configure(_setter, **license)
             __props__.__dict__["license"] = license
             __props__.__dict__["name"] = name
+            if oauth2_authorization is not None and not isinstance(oauth2_authorization, ApiOauth2AuthorizationArgs):
+                oauth2_authorization = oauth2_authorization or {}
+                def _setter(key, value):
+                    oauth2_authorization[key] = value
+                ApiOauth2AuthorizationArgs._configure(_setter, **oauth2_authorization)
             __props__.__dict__["oauth2_authorization"] = oauth2_authorization
+            if openid_authentication is not None and not isinstance(openid_authentication, ApiOpenidAuthenticationArgs):
+                openid_authentication = openid_authentication or {}
+                def _setter(key, value):
+                    openid_authentication[key] = value
+                ApiOpenidAuthenticationArgs._configure(_setter, **openid_authentication)
             __props__.__dict__["openid_authentication"] = openid_authentication
             __props__.__dict__["path"] = path
             __props__.__dict__["protocols"] = protocols
@@ -1075,11 +1218,13 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["revision"] = revision
             __props__.__dict__["revision_description"] = revision_description
             __props__.__dict__["service_url"] = service_url
-            if soap_pass_through is not None and not opts.urn:
-                warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
-                pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
             __props__.__dict__["soap_pass_through"] = soap_pass_through
             __props__.__dict__["source_api_id"] = source_api_id
+            if subscription_key_parameter_names is not None and not isinstance(subscription_key_parameter_names, ApiSubscriptionKeyParameterNamesArgs):
+                subscription_key_parameter_names = subscription_key_parameter_names or {}
+                def _setter(key, value):
+                    subscription_key_parameter_names[key] = value
+                ApiSubscriptionKeyParameterNamesArgs._configure(_setter, **subscription_key_parameter_names)
             __props__.__dict__["subscription_key_parameter_names"] = subscription_key_parameter_names
             __props__.__dict__["subscription_required"] = subscription_required
             __props__.__dict__["terms_of_service_url"] = terms_of_service_url

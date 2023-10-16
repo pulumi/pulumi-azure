@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupPolicyRemediationArgs', 'GroupPolicyRemediation']
@@ -27,30 +27,57 @@ class GroupPolicyRemediationArgs:
         """
         The set of arguments for constructing a GroupPolicyRemediation resource.
         """
-        pulumi.set(__self__, "management_group_id", management_group_id)
-        pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
+        GroupPolicyRemediationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_group_id=management_group_id,
+            policy_assignment_id=policy_assignment_id,
+            failure_percentage=failure_percentage,
+            location_filters=location_filters,
+            name=name,
+            parallel_deployments=parallel_deployments,
+            policy_definition_id=policy_definition_id,
+            policy_definition_reference_id=policy_definition_reference_id,
+            resource_count=resource_count,
+            resource_discovery_mode=resource_discovery_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_group_id: pulumi.Input[str],
+             policy_assignment_id: pulumi.Input[str],
+             failure_percentage: Optional[pulumi.Input[float]] = None,
+             location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parallel_deployments: Optional[pulumi.Input[int]] = None,
+             policy_definition_id: Optional[pulumi.Input[str]] = None,
+             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+             resource_count: Optional[pulumi.Input[int]] = None,
+             resource_discovery_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("management_group_id", management_group_id)
+        _setter("policy_assignment_id", policy_assignment_id)
         if failure_percentage is not None:
-            pulumi.set(__self__, "failure_percentage", failure_percentage)
+            _setter("failure_percentage", failure_percentage)
         if location_filters is not None:
-            pulumi.set(__self__, "location_filters", location_filters)
+            _setter("location_filters", location_filters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parallel_deployments is not None:
-            pulumi.set(__self__, "parallel_deployments", parallel_deployments)
+            _setter("parallel_deployments", parallel_deployments)
         if policy_definition_id is not None:
             warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
             pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
         if policy_definition_id is not None:
-            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+            _setter("policy_definition_id", policy_definition_id)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
         if resource_count is not None:
-            pulumi.set(__self__, "resource_count", resource_count)
+            _setter("resource_count", resource_count)
         if resource_discovery_mode is not None:
             warnings.warn("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""", DeprecationWarning)
             pulumi.log.warn("""resource_discovery_mode is deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
         if resource_discovery_mode is not None:
-            pulumi.set(__self__, "resource_discovery_mode", resource_discovery_mode)
+            _setter("resource_discovery_mode", resource_discovery_mode)
 
     @property
     @pulumi.getter(name="managementGroupId")
@@ -165,32 +192,59 @@ class _GroupPolicyRemediationState:
         """
         Input properties used for looking up and filtering GroupPolicyRemediation resources.
         """
+        _GroupPolicyRemediationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_percentage=failure_percentage,
+            location_filters=location_filters,
+            management_group_id=management_group_id,
+            name=name,
+            parallel_deployments=parallel_deployments,
+            policy_assignment_id=policy_assignment_id,
+            policy_definition_id=policy_definition_id,
+            policy_definition_reference_id=policy_definition_reference_id,
+            resource_count=resource_count,
+            resource_discovery_mode=resource_discovery_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_percentage: Optional[pulumi.Input[float]] = None,
+             location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parallel_deployments: Optional[pulumi.Input[int]] = None,
+             policy_assignment_id: Optional[pulumi.Input[str]] = None,
+             policy_definition_id: Optional[pulumi.Input[str]] = None,
+             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+             resource_count: Optional[pulumi.Input[int]] = None,
+             resource_discovery_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if failure_percentage is not None:
-            pulumi.set(__self__, "failure_percentage", failure_percentage)
+            _setter("failure_percentage", failure_percentage)
         if location_filters is not None:
-            pulumi.set(__self__, "location_filters", location_filters)
+            _setter("location_filters", location_filters)
         if management_group_id is not None:
-            pulumi.set(__self__, "management_group_id", management_group_id)
+            _setter("management_group_id", management_group_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parallel_deployments is not None:
-            pulumi.set(__self__, "parallel_deployments", parallel_deployments)
+            _setter("parallel_deployments", parallel_deployments)
         if policy_assignment_id is not None:
-            pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
+            _setter("policy_assignment_id", policy_assignment_id)
         if policy_definition_id is not None:
             warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
             pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
         if policy_definition_id is not None:
-            pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+            _setter("policy_definition_id", policy_definition_id)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
         if resource_count is not None:
-            pulumi.set(__self__, "resource_count", resource_count)
+            _setter("resource_count", resource_count)
         if resource_discovery_mode is not None:
             warnings.warn("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""", DeprecationWarning)
             pulumi.log.warn("""resource_discovery_mode is deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
         if resource_discovery_mode is not None:
-            pulumi.set(__self__, "resource_discovery_mode", resource_discovery_mode)
+            _setter("resource_discovery_mode", resource_discovery_mode)
 
     @property
     @pulumi.getter(name="failurePercentage")
@@ -328,6 +382,10 @@ class GroupPolicyRemediation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupPolicyRemediationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -362,15 +420,9 @@ class GroupPolicyRemediation(pulumi.CustomResource):
             if policy_assignment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_assignment_id'")
             __props__.__dict__["policy_assignment_id"] = policy_assignment_id
-            if policy_definition_id is not None and not opts.urn:
-                warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
-                pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
             __props__.__dict__["policy_definition_id"] = policy_definition_id
             __props__.__dict__["policy_definition_reference_id"] = policy_definition_reference_id
             __props__.__dict__["resource_count"] = resource_count
-            if resource_discovery_mode is not None and not opts.urn:
-                warnings.warn("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""", DeprecationWarning)
-                pulumi.log.warn("""resource_discovery_mode is deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
             __props__.__dict__["resource_discovery_mode"] = resource_discovery_mode
         super(GroupPolicyRemediation, __self__).__init__(
             'azure:management/groupPolicyRemediation:GroupPolicyRemediation',

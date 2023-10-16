@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VirtualWanArgs', 'VirtualWan']
@@ -33,21 +33,44 @@ class VirtualWanArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual WAN.
         :param pulumi.Input[str] type: Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualWanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            allow_branch_to_branch_traffic=allow_branch_to_branch_traffic,
+            disable_vpn_encryption=disable_vpn_encryption,
+            location=location,
+            name=name,
+            office365_local_breakout_category=office365_local_breakout_category,
+            tags=tags,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
+             disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             office365_local_breakout_category: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if allow_branch_to_branch_traffic is not None:
-            pulumi.set(__self__, "allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
+            _setter("allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
         if disable_vpn_encryption is not None:
-            pulumi.set(__self__, "disable_vpn_encryption", disable_vpn_encryption)
+            _setter("disable_vpn_encryption", disable_vpn_encryption)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if office365_local_breakout_category is not None:
-            pulumi.set(__self__, "office365_local_breakout_category", office365_local_breakout_category)
+            _setter("office365_local_breakout_category", office365_local_breakout_category)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -168,22 +191,45 @@ class _VirtualWanState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual WAN.
         :param pulumi.Input[str] type: Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
         """
+        _VirtualWanState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_branch_to_branch_traffic=allow_branch_to_branch_traffic,
+            disable_vpn_encryption=disable_vpn_encryption,
+            location=location,
+            name=name,
+            office365_local_breakout_category=office365_local_breakout_category,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_branch_to_branch_traffic: Optional[pulumi.Input[bool]] = None,
+             disable_vpn_encryption: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             office365_local_breakout_category: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_branch_to_branch_traffic is not None:
-            pulumi.set(__self__, "allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
+            _setter("allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
         if disable_vpn_encryption is not None:
-            pulumi.set(__self__, "disable_vpn_encryption", disable_vpn_encryption)
+            _setter("disable_vpn_encryption", disable_vpn_encryption)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if office365_local_breakout_category is not None:
-            pulumi.set(__self__, "office365_local_breakout_category", office365_local_breakout_category)
+            _setter("office365_local_breakout_category", office365_local_breakout_category)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="allowBranchToBranchTraffic")
@@ -369,6 +415,10 @@ class VirtualWan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualWanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

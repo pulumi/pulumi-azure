@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,21 +45,46 @@ class LinkedServiceArgs:
         :param pulumi.Input[str] name: The name which should be used for this Synapse Linked Service. Changing this forces a new Synapse Linked Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Synapse Linked Service.
         """
-        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "type_properties_json", type_properties_json)
+        LinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            synapse_workspace_id=synapse_workspace_id,
+            type=type,
+            type_properties_json=type_properties_json,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            description=description,
+            integration_runtime=integration_runtime,
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             synapse_workspace_id: pulumi.Input[str],
+             type: pulumi.Input[str],
+             type_properties_json: pulumi.Input[str],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             integration_runtime: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("synapse_workspace_id", synapse_workspace_id)
+        _setter("type", type)
+        _setter("type_properties_json", type_properties_json)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if integration_runtime is not None:
-            pulumi.set(__self__, "integration_runtime", integration_runtime)
+            _setter("integration_runtime", integration_runtime)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="synapseWorkspaceId")
@@ -210,24 +235,49 @@ class _LinkedServiceState:
                `SapTable`, `ServiceNow`, `Sftp`, `SharePointOnlineList`, `Shopify`, `Snowflake`, `Spark`, `Square`, `Sybase`, `Teradata`, `Vertica`, `Web`, `Xero`, `Zoho`.
         :param pulumi.Input[str] type_properties_json: A JSON object that contains the properties of the Synapse Linked Service.
         """
+        _LinkedServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+            annotations=annotations,
+            description=description,
+            integration_runtime=integration_runtime,
+            name=name,
+            parameters=parameters,
+            synapse_workspace_id=synapse_workspace_id,
+            type=type,
+            type_properties_json=type_properties_json,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             integration_runtime: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_properties_json: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if integration_runtime is not None:
-            pulumi.set(__self__, "integration_runtime", integration_runtime)
+            _setter("integration_runtime", integration_runtime)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if synapse_workspace_id is not None:
-            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+            _setter("synapse_workspace_id", synapse_workspace_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if type_properties_json is not None:
-            pulumi.set(__self__, "type_properties_json", type_properties_json)
+            _setter("type_properties_json", type_properties_json)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -507,6 +557,10 @@ class LinkedService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkedServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -533,6 +587,11 @@ class LinkedService(pulumi.CustomResource):
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
             __props__.__dict__["description"] = description
+            if integration_runtime is not None and not isinstance(integration_runtime, LinkedServiceIntegrationRuntimeArgs):
+                integration_runtime = integration_runtime or {}
+                def _setter(key, value):
+                    integration_runtime[key] = value
+                LinkedServiceIntegrationRuntimeArgs._configure(_setter, **integration_runtime)
             __props__.__dict__["integration_runtime"] = integration_runtime
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters

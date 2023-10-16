@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -54,8 +54,19 @@ class ActionHttpRunAfterArgs:
         :param pulumi.Input[str] action_name: Specifies the name of the precedent HTTP Action.
         :param pulumi.Input[str] action_result: Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
         """
-        pulumi.set(__self__, "action_name", action_name)
-        pulumi.set(__self__, "action_result", action_result)
+        ActionHttpRunAfterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_name=action_name,
+            action_result=action_result,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_name: pulumi.Input[str],
+             action_result: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_name", action_name)
+        _setter("action_result", action_result)
 
     @property
     @pulumi.getter(name="actionName")
@@ -91,8 +102,19 @@ class IntegrationAccountAgreementGuestIdentityArgs:
         :param pulumi.Input[str] qualifier: The authenticating body that provides unique guest identities to organizations.
         :param pulumi.Input[str] value: The value that identifies the documents that your logic apps receive.
         """
-        pulumi.set(__self__, "qualifier", qualifier)
-        pulumi.set(__self__, "value", value)
+        IntegrationAccountAgreementGuestIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            qualifier=qualifier,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             qualifier: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("qualifier", qualifier)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -128,8 +150,19 @@ class IntegrationAccountAgreementHostIdentityArgs:
         :param pulumi.Input[str] qualifier: The authenticating body that provides unique host identities to organizations.
         :param pulumi.Input[str] value: The value that identifies the documents that your logic apps receive.
         """
-        pulumi.set(__self__, "qualifier", qualifier)
-        pulumi.set(__self__, "value", value)
+        IntegrationAccountAgreementHostIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            qualifier=qualifier,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             qualifier: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("qualifier", qualifier)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -167,12 +200,25 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaArgs:
         :param pulumi.Input[int] message_count: The message count for the Logic App Integration Batch Configuration.
         :param pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs'] recurrence: A `recurrence` block as documented below.
         """
+        IntegrationAccountBatchConfigurationReleaseCriteriaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch_size=batch_size,
+            message_count=message_count,
+            recurrence=recurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch_size: Optional[pulumi.Input[int]] = None,
+             message_count: Optional[pulumi.Input[int]] = None,
+             recurrence: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if message_count is not None:
-            pulumi.set(__self__, "message_count", message_count)
+            _setter("message_count", message_count)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
 
     @property
     @pulumi.getter(name="batchSize")
@@ -228,16 +274,35 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs:
         :param pulumi.Input[str] start_time: The start time of the schedule, formatted as an RFC3339 string.
         :param pulumi.Input[str] time_zone: The timezone of the start/end time.
         """
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "interval", interval)
+        IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frequency=frequency,
+            interval=interval,
+            end_time=end_time,
+            schedule=schedule,
+            start_time=start_time,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frequency: pulumi.Input[str],
+             interval: pulumi.Input[int],
+             end_time: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("frequency", frequency)
+        _setter("interval", interval)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -327,16 +392,33 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]] monthlies: A `monthly` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         """
+        IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hours=hours,
+            minutes=minutes,
+            month_days=month_days,
+            monthlies=monthlies,
+            week_days=week_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]] = None,
+             week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if hours is not None:
-            pulumi.set(__self__, "hours", hours)
+            _setter("hours", hours)
         if minutes is not None:
-            pulumi.set(__self__, "minutes", minutes)
+            _setter("minutes", minutes)
         if month_days is not None:
-            pulumi.set(__self__, "month_days", month_days)
+            _setter("month_days", month_days)
         if monthlies is not None:
-            pulumi.set(__self__, "monthlies", monthlies)
+            _setter("monthlies", monthlies)
         if week_days is not None:
-            pulumi.set(__self__, "week_days", week_days)
+            _setter("week_days", week_days)
 
     @property
     @pulumi.getter
@@ -408,8 +490,19 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonth
         :param pulumi.Input[int] week: The occurrence of the week within the month.
         :param pulumi.Input[str] weekday: The day of the occurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
         """
-        pulumi.set(__self__, "week", week)
-        pulumi.set(__self__, "weekday", weekday)
+        IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            week=week,
+            weekday=weekday,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             week: pulumi.Input[int],
+             weekday: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("week", week)
+        _setter("weekday", weekday)
 
     @property
     @pulumi.getter
@@ -447,10 +540,23 @@ class IntegrationAccountCertificateKeyVaultKeyArgs:
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault.
         :param pulumi.Input[str] key_version: The version of Key Vault Key.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        IntegrationAccountCertificateKeyVaultKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_name=key_name,
+            key_vault_id=key_vault_id,
+            key_version=key_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_name: pulumi.Input[str],
+             key_vault_id: pulumi.Input[str],
+             key_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_name", key_name)
+        _setter("key_vault_id", key_vault_id)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
 
     @property
     @pulumi.getter(name="keyName")
@@ -498,8 +604,19 @@ class IntegrationAccountPartnerBusinessIdentityArgs:
         :param pulumi.Input[str] qualifier: The authenticating body that provides unique business identities to organizations.
         :param pulumi.Input[str] value: The value that identifies the documents that your logic apps receive.
         """
-        pulumi.set(__self__, "qualifier", qualifier)
-        pulumi.set(__self__, "value", value)
+        IntegrationAccountPartnerBusinessIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            qualifier=qualifier,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             qualifier: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("qualifier", qualifier)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -537,9 +654,22 @@ class StandardConnectionStringArgs:
         :param pulumi.Input[str] type: The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
         :param pulumi.Input[str] value: The value for the Connection String.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        StandardConnectionStringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -595,13 +725,28 @@ class StandardIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
         """
-        pulumi.set(__self__, "type", type)
+        StandardIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -709,48 +854,97 @@ class StandardSiteConfigArgs:
         :param pulumi.Input[bool] vnet_route_all_enabled: Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
         :param pulumi.Input[bool] websockets_enabled: Should WebSockets be enabled?
         """
+        StandardSiteConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            always_on=always_on,
+            app_scale_limit=app_scale_limit,
+            auto_swap_slot_name=auto_swap_slot_name,
+            cors=cors,
+            dotnet_framework_version=dotnet_framework_version,
+            elastic_instance_minimum=elastic_instance_minimum,
+            ftps_state=ftps_state,
+            health_check_path=health_check_path,
+            http2_enabled=http2_enabled,
+            ip_restrictions=ip_restrictions,
+            linux_fx_version=linux_fx_version,
+            min_tls_version=min_tls_version,
+            pre_warmed_instance_count=pre_warmed_instance_count,
+            runtime_scale_monitoring_enabled=runtime_scale_monitoring_enabled,
+            scm_ip_restrictions=scm_ip_restrictions,
+            scm_min_tls_version=scm_min_tls_version,
+            scm_type=scm_type,
+            scm_use_main_ip_restriction=scm_use_main_ip_restriction,
+            use32_bit_worker_process=use32_bit_worker_process,
+            vnet_route_all_enabled=vnet_route_all_enabled,
+            websockets_enabled=websockets_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             always_on: Optional[pulumi.Input[bool]] = None,
+             app_scale_limit: Optional[pulumi.Input[int]] = None,
+             auto_swap_slot_name: Optional[pulumi.Input[str]] = None,
+             cors: Optional[pulumi.Input['StandardSiteConfigCorsArgs']] = None,
+             dotnet_framework_version: Optional[pulumi.Input[str]] = None,
+             elastic_instance_minimum: Optional[pulumi.Input[int]] = None,
+             ftps_state: Optional[pulumi.Input[str]] = None,
+             health_check_path: Optional[pulumi.Input[str]] = None,
+             http2_enabled: Optional[pulumi.Input[bool]] = None,
+             ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]] = None,
+             linux_fx_version: Optional[pulumi.Input[str]] = None,
+             min_tls_version: Optional[pulumi.Input[str]] = None,
+             pre_warmed_instance_count: Optional[pulumi.Input[int]] = None,
+             runtime_scale_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+             scm_ip_restrictions: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]] = None,
+             scm_min_tls_version: Optional[pulumi.Input[str]] = None,
+             scm_type: Optional[pulumi.Input[str]] = None,
+             scm_use_main_ip_restriction: Optional[pulumi.Input[bool]] = None,
+             use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
+             vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
+             websockets_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if always_on is not None:
-            pulumi.set(__self__, "always_on", always_on)
+            _setter("always_on", always_on)
         if app_scale_limit is not None:
-            pulumi.set(__self__, "app_scale_limit", app_scale_limit)
+            _setter("app_scale_limit", app_scale_limit)
         if auto_swap_slot_name is not None:
-            pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
+            _setter("auto_swap_slot_name", auto_swap_slot_name)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if dotnet_framework_version is not None:
-            pulumi.set(__self__, "dotnet_framework_version", dotnet_framework_version)
+            _setter("dotnet_framework_version", dotnet_framework_version)
         if elastic_instance_minimum is not None:
-            pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
+            _setter("elastic_instance_minimum", elastic_instance_minimum)
         if ftps_state is not None:
-            pulumi.set(__self__, "ftps_state", ftps_state)
+            _setter("ftps_state", ftps_state)
         if health_check_path is not None:
-            pulumi.set(__self__, "health_check_path", health_check_path)
+            _setter("health_check_path", health_check_path)
         if http2_enabled is not None:
-            pulumi.set(__self__, "http2_enabled", http2_enabled)
+            _setter("http2_enabled", http2_enabled)
         if ip_restrictions is not None:
-            pulumi.set(__self__, "ip_restrictions", ip_restrictions)
+            _setter("ip_restrictions", ip_restrictions)
         if linux_fx_version is not None:
-            pulumi.set(__self__, "linux_fx_version", linux_fx_version)
+            _setter("linux_fx_version", linux_fx_version)
         if min_tls_version is not None:
-            pulumi.set(__self__, "min_tls_version", min_tls_version)
+            _setter("min_tls_version", min_tls_version)
         if pre_warmed_instance_count is not None:
-            pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
+            _setter("pre_warmed_instance_count", pre_warmed_instance_count)
         if runtime_scale_monitoring_enabled is not None:
-            pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+            _setter("runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
         if scm_ip_restrictions is not None:
-            pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
+            _setter("scm_ip_restrictions", scm_ip_restrictions)
         if scm_min_tls_version is not None:
-            pulumi.set(__self__, "scm_min_tls_version", scm_min_tls_version)
+            _setter("scm_min_tls_version", scm_min_tls_version)
         if scm_type is not None:
-            pulumi.set(__self__, "scm_type", scm_type)
+            _setter("scm_type", scm_type)
         if scm_use_main_ip_restriction is not None:
-            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
+            _setter("scm_use_main_ip_restriction", scm_use_main_ip_restriction)
         if use32_bit_worker_process is not None:
-            pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
+            _setter("use32_bit_worker_process", use32_bit_worker_process)
         if vnet_route_all_enabled is not None:
-            pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+            _setter("vnet_route_all_enabled", vnet_route_all_enabled)
         if websockets_enabled is not None:
-            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+            _setter("websockets_enabled", websockets_enabled)
 
     @property
     @pulumi.getter(name="alwaysOn")
@@ -1020,9 +1214,20 @@ class StandardSiteConfigCorsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_origins: A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
         :param pulumi.Input[bool] support_credentials: Are credentials supported?
         """
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        StandardSiteConfigCorsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_origins=allowed_origins,
+            support_credentials=support_credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
+             support_credentials: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
-            pulumi.set(__self__, "support_credentials", support_credentials)
+            _setter("support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
@@ -1070,20 +1275,41 @@ class StandardSiteConfigIpRestrictionArgs:
                
                > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
         """
+        StandardSiteConfigIpRestrictionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            headers=headers,
+            ip_address=ip_address,
+            name=name,
+            priority=priority,
+            service_tag=service_tag,
+            virtual_network_subnet_id=virtual_network_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             headers: Optional[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgs']] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             service_tag: Optional[pulumi.Input[str]] = None,
+             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if service_tag is not None:
-            pulumi.set(__self__, "service_tag", service_tag)
+            _setter("service_tag", service_tag)
         if virtual_network_subnet_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+            _setter("virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter
@@ -1185,14 +1411,29 @@ class StandardSiteConfigIpRestrictionHeadersArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
         """
+        StandardSiteConfigIpRestrictionHeadersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            x_azure_fdids=x_azure_fdids,
+            x_fd_health_probe=x_fd_health_probe,
+            x_forwarded_fors=x_forwarded_fors,
+            x_forwarded_hosts=x_forwarded_hosts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+             x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if x_azure_fdids is not None:
-            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+            _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
-            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+            _setter("x_fd_health_probe", x_fd_health_probe)
         if x_forwarded_fors is not None:
-            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+            _setter("x_forwarded_fors", x_forwarded_fors)
         if x_forwarded_hosts is not None:
-            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+            _setter("x_forwarded_hosts", x_forwarded_hosts)
 
     @property
     @pulumi.getter(name="xAzureFdids")
@@ -1264,20 +1505,41 @@ class StandardSiteConfigScmIpRestrictionArgs:
                
                > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
         """
+        StandardSiteConfigScmIpRestrictionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            headers=headers,
+            ip_address=ip_address,
+            name=name,
+            priority=priority,
+            service_tag=service_tag,
+            virtual_network_subnet_id=virtual_network_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             headers: Optional[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgs']] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             service_tag: Optional[pulumi.Input[str]] = None,
+             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if service_tag is not None:
-            pulumi.set(__self__, "service_tag", service_tag)
+            _setter("service_tag", service_tag)
         if virtual_network_subnet_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+            _setter("virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter
@@ -1379,14 +1641,29 @@ class StandardSiteConfigScmIpRestrictionHeadersArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_fors: A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x_forwarded_hosts: A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
         """
+        StandardSiteConfigScmIpRestrictionHeadersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            x_azure_fdids=x_azure_fdids,
+            x_fd_health_probe=x_fd_health_probe,
+            x_forwarded_fors=x_forwarded_fors,
+            x_forwarded_hosts=x_forwarded_hosts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             x_azure_fdids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             x_fd_health_probe: Optional[pulumi.Input[str]] = None,
+             x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if x_azure_fdids is not None:
-            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+            _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
-            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+            _setter("x_fd_health_probe", x_fd_health_probe)
         if x_forwarded_fors is not None:
-            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+            _setter("x_forwarded_fors", x_forwarded_fors)
         if x_forwarded_hosts is not None:
-            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+            _setter("x_forwarded_hosts", x_forwarded_hosts)
 
     @property
     @pulumi.getter(name="xAzureFdids")
@@ -1446,10 +1723,21 @@ class StandardSiteCredentialArgs:
         :param pulumi.Input[str] password: The password associated with the username, which can be used to publish to this App Service.
         :param pulumi.Input[str] username: The username which can be used to publish to this App Service
         """
+        StandardSiteCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -1487,12 +1775,25 @@ class TriggerRecurrenceScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] at_these_minutes: Specifies a list of minutes when the trigger should run. Valid values are between 0 and 59.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] on_these_days: Specifies a list of days when the trigger should run. Valid values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
         """
+        TriggerRecurrenceScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            at_these_hours=at_these_hours,
+            at_these_minutes=at_these_minutes,
+            on_these_days=on_these_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             at_these_hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             at_these_minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             on_these_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if at_these_hours is not None:
-            pulumi.set(__self__, "at_these_hours", at_these_hours)
+            _setter("at_these_hours", at_these_hours)
         if at_these_minutes is not None:
-            pulumi.set(__self__, "at_these_minutes", at_these_minutes)
+            _setter("at_these_minutes", at_these_minutes)
         if on_these_days is not None:
-            pulumi.set(__self__, "on_these_days", on_these_days)
+            _setter("on_these_days", on_these_days)
 
     @property
     @pulumi.getter(name="atTheseHours")
@@ -1544,14 +1845,29 @@ class WorkflowAccessControlArgs:
         :param pulumi.Input['WorkflowAccessControlTriggerArgs'] trigger: A `trigger` block as defined below.
         :param pulumi.Input['WorkflowAccessControlWorkflowManagementArgs'] workflow_management: A `workflow_management` block as defined below.
         """
+        WorkflowAccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            content=content,
+            trigger=trigger,
+            workflow_management=workflow_management,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['WorkflowAccessControlActionArgs']] = None,
+             content: Optional[pulumi.Input['WorkflowAccessControlContentArgs']] = None,
+             trigger: Optional[pulumi.Input['WorkflowAccessControlTriggerArgs']] = None,
+             workflow_management: Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if trigger is not None:
-            pulumi.set(__self__, "trigger", trigger)
+            _setter("trigger", trigger)
         if workflow_management is not None:
-            pulumi.set(__self__, "workflow_management", workflow_management)
+            _setter("workflow_management", workflow_management)
 
     @property
     @pulumi.getter
@@ -1609,7 +1925,16 @@ class WorkflowAccessControlActionArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
         """
-        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+        WorkflowAccessControlActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_caller_ip_address_ranges=allowed_caller_ip_address_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
 
     @property
     @pulumi.getter(name="allowedCallerIpAddressRanges")
@@ -1631,7 +1956,16 @@ class WorkflowAccessControlContentArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
         """
-        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+        WorkflowAccessControlContentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_caller_ip_address_ranges=allowed_caller_ip_address_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
 
     @property
     @pulumi.getter(name="allowedCallerIpAddressRanges")
@@ -1655,9 +1989,20 @@ class WorkflowAccessControlTriggerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]] open_authentication_policies: A `open_authentication_policy` block as defined below.
         """
-        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+        WorkflowAccessControlTriggerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_caller_ip_address_ranges=allowed_caller_ip_address_ranges,
+            open_authentication_policies=open_authentication_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
+             open_authentication_policies: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
         if open_authentication_policies is not None:
-            pulumi.set(__self__, "open_authentication_policies", open_authentication_policies)
+            _setter("open_authentication_policies", open_authentication_policies)
 
     @property
     @pulumi.getter(name="allowedCallerIpAddressRanges")
@@ -1693,8 +2038,19 @@ class WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs']]] claims: A `claim` block as defined below.
         :param pulumi.Input[str] name: The OAuth policy name for the Logic App Workflow.
         """
-        pulumi.set(__self__, "claims", claims)
-        pulumi.set(__self__, "name", name)
+        WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            claims=claims,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             claims: pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs']]],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("claims", claims)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1730,8 +2086,19 @@ class WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs:
         :param pulumi.Input[str] name: The name of the OAuth policy claim for the Logic App Workflow.
         :param pulumi.Input[str] value: The value of the OAuth policy claim for the Logic App Workflow.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1765,7 +2132,16 @@ class WorkflowAccessControlWorkflowManagementArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_caller_ip_address_ranges: A list of the allowed caller IP address ranges.
         """
-        pulumi.set(__self__, "allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
+        WorkflowAccessControlWorkflowManagementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_caller_ip_address_ranges=allowed_caller_ip_address_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
 
     @property
     @pulumi.getter(name="allowedCallerIpAddressRanges")
@@ -1795,13 +2171,28 @@ class WorkflowIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
         """
-        pulumi.set(__self__, "type", type)
+        WorkflowIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -1878,35 +2269,84 @@ class GetStandardSiteConfigArgs:
                  scm_use_main_ip_restriction: Optional[bool] = None,
                  use32_bit_worker_process: Optional[bool] = None,
                  websockets_enabled: Optional[bool] = None):
-        pulumi.set(__self__, "app_scale_limit", app_scale_limit)
-        pulumi.set(__self__, "auto_swap_slot_name", auto_swap_slot_name)
-        pulumi.set(__self__, "cors", cors)
-        pulumi.set(__self__, "elastic_instance_minimum", elastic_instance_minimum)
-        pulumi.set(__self__, "ftps_state", ftps_state)
-        pulumi.set(__self__, "ip_restrictions", ip_restrictions)
-        pulumi.set(__self__, "linux_fx_version", linux_fx_version)
-        pulumi.set(__self__, "min_tls_version", min_tls_version)
-        pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
-        pulumi.set(__self__, "scm_ip_restrictions", scm_ip_restrictions)
-        pulumi.set(__self__, "scm_min_tls_version", scm_min_tls_version)
-        pulumi.set(__self__, "scm_type", scm_type)
-        pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        GetStandardSiteConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_scale_limit=app_scale_limit,
+            auto_swap_slot_name=auto_swap_slot_name,
+            cors=cors,
+            elastic_instance_minimum=elastic_instance_minimum,
+            ftps_state=ftps_state,
+            ip_restrictions=ip_restrictions,
+            linux_fx_version=linux_fx_version,
+            min_tls_version=min_tls_version,
+            pre_warmed_instance_count=pre_warmed_instance_count,
+            scm_ip_restrictions=scm_ip_restrictions,
+            scm_min_tls_version=scm_min_tls_version,
+            scm_type=scm_type,
+            vnet_route_all_enabled=vnet_route_all_enabled,
+            always_on=always_on,
+            dotnet_framework_version=dotnet_framework_version,
+            health_check_path=health_check_path,
+            http2_enabled=http2_enabled,
+            runtime_scale_monitoring_enabled=runtime_scale_monitoring_enabled,
+            scm_use_main_ip_restriction=scm_use_main_ip_restriction,
+            use32_bit_worker_process=use32_bit_worker_process,
+            websockets_enabled=websockets_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_scale_limit: int,
+             auto_swap_slot_name: str,
+             cors: 'GetStandardSiteConfigCorsArgs',
+             elastic_instance_minimum: int,
+             ftps_state: str,
+             ip_restrictions: Sequence['GetStandardSiteConfigIpRestrictionArgs'],
+             linux_fx_version: str,
+             min_tls_version: str,
+             pre_warmed_instance_count: int,
+             scm_ip_restrictions: Sequence['GetStandardSiteConfigScmIpRestrictionArgs'],
+             scm_min_tls_version: str,
+             scm_type: str,
+             vnet_route_all_enabled: bool,
+             always_on: Optional[bool] = None,
+             dotnet_framework_version: Optional[str] = None,
+             health_check_path: Optional[str] = None,
+             http2_enabled: Optional[bool] = None,
+             runtime_scale_monitoring_enabled: Optional[bool] = None,
+             scm_use_main_ip_restriction: Optional[bool] = None,
+             use32_bit_worker_process: Optional[bool] = None,
+             websockets_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_scale_limit", app_scale_limit)
+        _setter("auto_swap_slot_name", auto_swap_slot_name)
+        _setter("cors", cors)
+        _setter("elastic_instance_minimum", elastic_instance_minimum)
+        _setter("ftps_state", ftps_state)
+        _setter("ip_restrictions", ip_restrictions)
+        _setter("linux_fx_version", linux_fx_version)
+        _setter("min_tls_version", min_tls_version)
+        _setter("pre_warmed_instance_count", pre_warmed_instance_count)
+        _setter("scm_ip_restrictions", scm_ip_restrictions)
+        _setter("scm_min_tls_version", scm_min_tls_version)
+        _setter("scm_type", scm_type)
+        _setter("vnet_route_all_enabled", vnet_route_all_enabled)
         if always_on is not None:
-            pulumi.set(__self__, "always_on", always_on)
+            _setter("always_on", always_on)
         if dotnet_framework_version is not None:
-            pulumi.set(__self__, "dotnet_framework_version", dotnet_framework_version)
+            _setter("dotnet_framework_version", dotnet_framework_version)
         if health_check_path is not None:
-            pulumi.set(__self__, "health_check_path", health_check_path)
+            _setter("health_check_path", health_check_path)
         if http2_enabled is not None:
-            pulumi.set(__self__, "http2_enabled", http2_enabled)
+            _setter("http2_enabled", http2_enabled)
         if runtime_scale_monitoring_enabled is not None:
-            pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
+            _setter("runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
         if scm_use_main_ip_restriction is not None:
-            pulumi.set(__self__, "scm_use_main_ip_restriction", scm_use_main_ip_restriction)
+            _setter("scm_use_main_ip_restriction", scm_use_main_ip_restriction)
         if use32_bit_worker_process is not None:
-            pulumi.set(__self__, "use32_bit_worker_process", use32_bit_worker_process)
+            _setter("use32_bit_worker_process", use32_bit_worker_process)
         if websockets_enabled is not None:
-            pulumi.set(__self__, "websockets_enabled", websockets_enabled)
+            _setter("websockets_enabled", websockets_enabled)
 
     @property
     @pulumi.getter(name="appScaleLimit")
@@ -2103,9 +2543,20 @@ class GetStandardSiteConfigCorsArgs:
     def __init__(__self__, *,
                  allowed_origins: Sequence[str],
                  support_credentials: Optional[bool] = None):
-        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        GetStandardSiteConfigCorsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_origins=allowed_origins,
+            support_credentials=support_credentials,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_origins: Sequence[str],
+             support_credentials: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
-            pulumi.set(__self__, "support_credentials", support_credentials)
+            _setter("support_credentials", support_credentials)
 
     @property
     @pulumi.getter(name="allowedOrigins")
@@ -2139,18 +2590,39 @@ class GetStandardSiteConfigIpRestrictionArgs:
         """
         :param str name: The name of this Logic App.
         """
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "name", name)
+        GetStandardSiteConfigIpRestrictionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            name=name,
+            action=action,
+            ip_address=ip_address,
+            priority=priority,
+            service_tag=service_tag,
+            virtual_network_subnet_id=virtual_network_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: 'GetStandardSiteConfigIpRestrictionHeadersArgs',
+             name: str,
+             action: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             priority: Optional[int] = None,
+             service_tag: Optional[str] = None,
+             virtual_network_subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("headers", headers)
+        _setter("name", name)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if service_tag is not None:
-            pulumi.set(__self__, "service_tag", service_tag)
+            _setter("service_tag", service_tag)
         if virtual_network_subnet_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+            _setter("virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter
@@ -2226,14 +2698,29 @@ class GetStandardSiteConfigIpRestrictionHeadersArgs:
                  x_fd_health_probe: Optional[str] = None,
                  x_forwarded_fors: Optional[Sequence[str]] = None,
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
+        GetStandardSiteConfigIpRestrictionHeadersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            x_azure_fdids=x_azure_fdids,
+            x_fd_health_probe=x_fd_health_probe,
+            x_forwarded_fors=x_forwarded_fors,
+            x_forwarded_hosts=x_forwarded_hosts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             x_azure_fdids: Optional[Sequence[str]] = None,
+             x_fd_health_probe: Optional[str] = None,
+             x_forwarded_fors: Optional[Sequence[str]] = None,
+             x_forwarded_hosts: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if x_azure_fdids is not None:
-            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+            _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
-            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+            _setter("x_fd_health_probe", x_fd_health_probe)
         if x_forwarded_fors is not None:
-            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+            _setter("x_forwarded_fors", x_forwarded_fors)
         if x_forwarded_hosts is not None:
-            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+            _setter("x_forwarded_hosts", x_forwarded_hosts)
 
     @property
     @pulumi.getter(name="xAzureFdids")
@@ -2285,18 +2772,39 @@ class GetStandardSiteConfigScmIpRestrictionArgs:
         """
         :param str name: The name of this Logic App.
         """
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "name", name)
+        GetStandardSiteConfigScmIpRestrictionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            name=name,
+            action=action,
+            ip_address=ip_address,
+            priority=priority,
+            service_tag=service_tag,
+            virtual_network_subnet_id=virtual_network_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: 'GetStandardSiteConfigScmIpRestrictionHeadersArgs',
+             name: str,
+             action: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             priority: Optional[int] = None,
+             service_tag: Optional[str] = None,
+             virtual_network_subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("headers", headers)
+        _setter("name", name)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if service_tag is not None:
-            pulumi.set(__self__, "service_tag", service_tag)
+            _setter("service_tag", service_tag)
         if virtual_network_subnet_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+            _setter("virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter
@@ -2372,14 +2880,29 @@ class GetStandardSiteConfigScmIpRestrictionHeadersArgs:
                  x_fd_health_probe: Optional[str] = None,
                  x_forwarded_fors: Optional[Sequence[str]] = None,
                  x_forwarded_hosts: Optional[Sequence[str]] = None):
+        GetStandardSiteConfigScmIpRestrictionHeadersArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            x_azure_fdids=x_azure_fdids,
+            x_fd_health_probe=x_fd_health_probe,
+            x_forwarded_fors=x_forwarded_fors,
+            x_forwarded_hosts=x_forwarded_hosts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             x_azure_fdids: Optional[Sequence[str]] = None,
+             x_fd_health_probe: Optional[str] = None,
+             x_forwarded_fors: Optional[Sequence[str]] = None,
+             x_forwarded_hosts: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if x_azure_fdids is not None:
-            pulumi.set(__self__, "x_azure_fdids", x_azure_fdids)
+            _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
-            pulumi.set(__self__, "x_fd_health_probe", x_fd_health_probe)
+            _setter("x_fd_health_probe", x_fd_health_probe)
         if x_forwarded_fors is not None:
-            pulumi.set(__self__, "x_forwarded_fors", x_forwarded_fors)
+            _setter("x_forwarded_fors", x_forwarded_fors)
         if x_forwarded_hosts is not None:
-            pulumi.set(__self__, "x_forwarded_hosts", x_forwarded_hosts)
+            _setter("x_forwarded_hosts", x_forwarded_hosts)
 
     @property
     @pulumi.getter(name="xAzureFdids")

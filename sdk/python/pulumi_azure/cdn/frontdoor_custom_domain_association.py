@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FrontdoorCustomDomainAssociationArgs', 'FrontdoorCustomDomainAssociation']
@@ -23,8 +23,19 @@ class FrontdoorCustomDomainAssociationArgs:
                
                > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
         """
-        pulumi.set(__self__, "cdn_frontdoor_custom_domain_id", cdn_frontdoor_custom_domain_id)
-        pulumi.set(__self__, "cdn_frontdoor_route_ids", cdn_frontdoor_route_ids)
+        FrontdoorCustomDomainAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdn_frontdoor_custom_domain_id=cdn_frontdoor_custom_domain_id,
+            cdn_frontdoor_route_ids=cdn_frontdoor_route_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdn_frontdoor_custom_domain_id: pulumi.Input[str],
+             cdn_frontdoor_route_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cdn_frontdoor_custom_domain_id", cdn_frontdoor_custom_domain_id)
+        _setter("cdn_frontdoor_route_ids", cdn_frontdoor_route_ids)
 
     @property
     @pulumi.getter(name="cdnFrontdoorCustomDomainId")
@@ -65,10 +76,21 @@ class _FrontdoorCustomDomainAssociationState:
                
                > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
         """
+        _FrontdoorCustomDomainAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdn_frontdoor_custom_domain_id=cdn_frontdoor_custom_domain_id,
+            cdn_frontdoor_route_ids=cdn_frontdoor_route_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdn_frontdoor_custom_domain_id: Optional[pulumi.Input[str]] = None,
+             cdn_frontdoor_route_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cdn_frontdoor_custom_domain_id is not None:
-            pulumi.set(__self__, "cdn_frontdoor_custom_domain_id", cdn_frontdoor_custom_domain_id)
+            _setter("cdn_frontdoor_custom_domain_id", cdn_frontdoor_custom_domain_id)
         if cdn_frontdoor_route_ids is not None:
-            pulumi.set(__self__, "cdn_frontdoor_route_ids", cdn_frontdoor_route_ids)
+            _setter("cdn_frontdoor_route_ids", cdn_frontdoor_route_ids)
 
     @property
     @pulumi.getter(name="cdnFrontdoorCustomDomainId")
@@ -150,6 +172,10 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FrontdoorCustomDomainAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

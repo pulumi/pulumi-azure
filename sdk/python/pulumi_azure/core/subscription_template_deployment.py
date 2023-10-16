@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SubscriptionTemplateDeploymentArgs', 'SubscriptionTemplateDeployment']
@@ -31,20 +31,41 @@ class SubscriptionTemplateDeploymentArgs:
         :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Subscription.
         :param pulumi.Input[str] template_spec_version_id: The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
         """
+        SubscriptionTemplateDeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            debug_level=debug_level,
+            location=location,
+            name=name,
+            parameters_content=parameters_content,
+            tags=tags,
+            template_content=template_content,
+            template_spec_version_id=template_spec_version_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             debug_level: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters_content: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_content: Optional[pulumi.Input[str]] = None,
+             template_spec_version_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if debug_level is not None:
-            pulumi.set(__self__, "debug_level", debug_level)
+            _setter("debug_level", debug_level)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters_content is not None:
-            pulumi.set(__self__, "parameters_content", parameters_content)
+            _setter("parameters_content", parameters_content)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_content is not None:
-            pulumi.set(__self__, "template_content", template_content)
+            _setter("template_content", template_content)
         if template_spec_version_id is not None:
-            pulumi.set(__self__, "template_spec_version_id", template_spec_version_id)
+            _setter("template_spec_version_id", template_spec_version_id)
 
     @property
     @pulumi.getter(name="debugLevel")
@@ -153,22 +174,45 @@ class _SubscriptionTemplateDeploymentState:
         :param pulumi.Input[str] template_content: The contents of the ARM Template which should be deployed into this Subscription.
         :param pulumi.Input[str] template_spec_version_id: The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`.
         """
+        _SubscriptionTemplateDeploymentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            debug_level=debug_level,
+            location=location,
+            name=name,
+            output_content=output_content,
+            parameters_content=parameters_content,
+            tags=tags,
+            template_content=template_content,
+            template_spec_version_id=template_spec_version_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             debug_level: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             output_content: Optional[pulumi.Input[str]] = None,
+             parameters_content: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template_content: Optional[pulumi.Input[str]] = None,
+             template_spec_version_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if debug_level is not None:
-            pulumi.set(__self__, "debug_level", debug_level)
+            _setter("debug_level", debug_level)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if output_content is not None:
-            pulumi.set(__self__, "output_content", output_content)
+            _setter("output_content", output_content)
         if parameters_content is not None:
-            pulumi.set(__self__, "parameters_content", parameters_content)
+            _setter("parameters_content", parameters_content)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template_content is not None:
-            pulumi.set(__self__, "template_content", template_content)
+            _setter("template_content", template_content)
         if template_spec_version_id is not None:
-            pulumi.set(__self__, "template_spec_version_id", template_spec_version_id)
+            _setter("template_spec_version_id", template_spec_version_id)
 
     @property
     @pulumi.getter(name="debugLevel")
@@ -382,6 +426,10 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubscriptionTemplateDeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -2038,7 +2038,7 @@ type PolicyPolicySettingsLogScrubbingRule struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
 	MatchVariable string `pulumi:"matchVariable"`
-	// Describes field of the matchVariable collection
+	// Describes field of the matchVariable collection.
 	Selector *string `pulumi:"selector"`
 	// Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
 	SelectorMatchOperator *string `pulumi:"selectorMatchOperator"`
@@ -2060,7 +2060,7 @@ type PolicyPolicySettingsLogScrubbingRuleArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
-	// Describes field of the matchVariable collection
+	// Describes field of the matchVariable collection.
 	Selector pulumi.StringPtrInput `pulumi:"selector"`
 	// Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
 	SelectorMatchOperator pulumi.StringPtrInput `pulumi:"selectorMatchOperator"`
@@ -2145,7 +2145,7 @@ func (o PolicyPolicySettingsLogScrubbingRuleOutput) MatchVariable() pulumi.Strin
 	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbingRule) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
 
-// Describes field of the matchVariable collection
+// Describes field of the matchVariable collection.
 func (o PolicyPolicySettingsLogScrubbingRuleOutput) Selector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettingsLogScrubbingRule) *string { return v.Selector }).(pulumi.StringPtrOutput)
 }

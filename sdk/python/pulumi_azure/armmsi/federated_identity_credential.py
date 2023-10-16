@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FederatedIdentityCredentialArgs', 'FederatedIdentityCredential']
@@ -29,13 +29,32 @@ class FederatedIdentityCredentialArgs:
         :param pulumi.Input[str] subject: Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
         :param pulumi.Input[str] name: Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
         """
-        pulumi.set(__self__, "audience", audience)
-        pulumi.set(__self__, "issuer", issuer)
-        pulumi.set(__self__, "parent_id", parent_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subject", subject)
+        FederatedIdentityCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audience=audience,
+            issuer=issuer,
+            parent_id=parent_id,
+            resource_group_name=resource_group_name,
+            subject=subject,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audience: pulumi.Input[str],
+             issuer: pulumi.Input[str],
+             parent_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             subject: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("audience", audience)
+        _setter("issuer", issuer)
+        _setter("parent_id", parent_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("subject", subject)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -128,18 +147,37 @@ class _FederatedIdentityCredentialState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
         :param pulumi.Input[str] subject: Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
         """
+        _FederatedIdentityCredentialState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audience=audience,
+            issuer=issuer,
+            name=name,
+            parent_id=parent_id,
+            resource_group_name=resource_group_name,
+            subject=subject,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audience: Optional[pulumi.Input[str]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parent_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subject: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if audience is not None:
-            pulumi.set(__self__, "audience", audience)
+            _setter("audience", audience)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent_id is not None:
-            pulumi.set(__self__, "parent_id", parent_id)
+            _setter("parent_id", parent_id)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
 
     @property
     @pulumi.getter
@@ -273,6 +311,10 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FederatedIdentityCredentialArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

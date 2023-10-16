@@ -117,8 +117,7 @@ type WindowsWebAppSlot struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// A `logs` block as defined below.
 	Logs WindowsWebAppSlotLogsPtrOutput `pulumi:"logs"`
-	// The Site Credentials Username used for publishing.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput            `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"outboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
@@ -225,8 +224,7 @@ type windowsWebAppSlotState struct {
 	Kind *string `pulumi:"kind"`
 	// A `logs` block as defined below.
 	Logs *WindowsWebAppSlotLogs `pulumi:"logs"`
-	// The Site Credentials Username used for publishing.
-	Name *string `pulumi:"name"`
+	Name *string                `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
@@ -293,7 +291,6 @@ type WindowsWebAppSlotState struct {
 	Kind pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs WindowsWebAppSlotLogsPtrInput
-	// The Site Credentials Username used for publishing.
 	Name pulumi.StringPtrInput
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayInput
@@ -357,8 +354,7 @@ type windowsWebAppSlotArgs struct {
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// A `logs` block as defined below.
 	Logs *WindowsWebAppSlotLogs `pulumi:"logs"`
-	// The Site Credentials Username used for publishing.
-	Name *string `pulumi:"name"`
+	Name *string                `pulumi:"name"`
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
@@ -408,7 +404,6 @@ type WindowsWebAppSlotArgs struct {
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs WindowsWebAppSlotLogsPtrInput
-	// The Site Credentials Username used for publishing.
 	Name pulumi.StringPtrInput
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -633,7 +628,6 @@ func (o WindowsWebAppSlotOutput) Logs() WindowsWebAppSlotLogsPtrOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) WindowsWebAppSlotLogsPtrOutput { return v.Logs }).(WindowsWebAppSlotLogsPtrOutput)
 }
 
-// The Site Credentials Username used for publishing.
 func (o WindowsWebAppSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsWebAppSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

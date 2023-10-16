@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,23 @@ class CustomHttpsConfigurationArgs:
         :param pulumi.Input[str] frontend_endpoint_id: The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         :param pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs'] custom_https_configuration: A `custom_https_configuration` block as defined above.
         """
-        pulumi.set(__self__, "custom_https_provisioning_enabled", custom_https_provisioning_enabled)
-        pulumi.set(__self__, "frontend_endpoint_id", frontend_endpoint_id)
+        CustomHttpsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_https_provisioning_enabled=custom_https_provisioning_enabled,
+            frontend_endpoint_id=frontend_endpoint_id,
+            custom_https_configuration=custom_https_configuration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_https_provisioning_enabled: pulumi.Input[bool],
+             frontend_endpoint_id: pulumi.Input[str],
+             custom_https_configuration: Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("custom_https_provisioning_enabled", custom_https_provisioning_enabled)
+        _setter("frontend_endpoint_id", frontend_endpoint_id)
         if custom_https_configuration is not None:
-            pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
+            _setter("custom_https_configuration", custom_https_configuration)
 
     @property
     @pulumi.getter(name="customHttpsProvisioningEnabled")
@@ -79,12 +92,25 @@ class _CustomHttpsConfigurationState:
         :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         :param pulumi.Input[str] frontend_endpoint_id: The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         """
+        _CustomHttpsConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_https_configuration=custom_https_configuration,
+            custom_https_provisioning_enabled=custom_https_provisioning_enabled,
+            frontend_endpoint_id=frontend_endpoint_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_https_configuration: Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] = None,
+             custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
+             frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_https_configuration is not None:
-            pulumi.set(__self__, "custom_https_configuration", custom_https_configuration)
+            _setter("custom_https_configuration", custom_https_configuration)
         if custom_https_provisioning_enabled is not None:
-            pulumi.set(__self__, "custom_https_provisioning_enabled", custom_https_provisioning_enabled)
+            _setter("custom_https_provisioning_enabled", custom_https_provisioning_enabled)
         if frontend_endpoint_id is not None:
-            pulumi.set(__self__, "frontend_endpoint_id", frontend_endpoint_id)
+            _setter("frontend_endpoint_id", frontend_endpoint_id)
 
     @property
     @pulumi.getter(name="customHttpsConfiguration")
@@ -172,6 +198,10 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomHttpsConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -189,6 +219,11 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomHttpsConfigurationArgs.__new__(CustomHttpsConfigurationArgs)
 
+            if custom_https_configuration is not None and not isinstance(custom_https_configuration, CustomHttpsConfigurationCustomHttpsConfigurationArgs):
+                custom_https_configuration = custom_https_configuration or {}
+                def _setter(key, value):
+                    custom_https_configuration[key] = value
+                CustomHttpsConfigurationCustomHttpsConfigurationArgs._configure(_setter, **custom_https_configuration)
             __props__.__dict__["custom_https_configuration"] = custom_https_configuration
             if custom_https_provisioning_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'custom_https_provisioning_enabled'")

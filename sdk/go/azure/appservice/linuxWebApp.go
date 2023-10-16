@@ -110,8 +110,7 @@ type LinuxWebApp struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// A `logs` block as defined below.
 	Logs LinuxWebAppLogsPtrOutput `pulumi:"logs"`
-	// The Site Credentials Username used for publishing.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput      `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"outboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
@@ -225,8 +224,7 @@ type linuxWebAppState struct {
 	Location *string `pulumi:"location"`
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppLogs `pulumi:"logs"`
-	// The Site Credentials Username used for publishing.
-	Name *string `pulumi:"name"`
+	Name *string          `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
@@ -297,7 +295,6 @@ type LinuxWebAppState struct {
 	Location pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs LinuxWebAppLogsPtrInput
-	// The Site Credentials Username used for publishing.
 	Name pulumi.StringPtrInput
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayInput
@@ -365,8 +362,7 @@ type linuxWebAppArgs struct {
 	Location *string `pulumi:"location"`
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppLogs `pulumi:"logs"`
-	// The Site Credentials Username used for publishing.
-	Name *string `pulumi:"name"`
+	Name *string          `pulumi:"name"`
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
@@ -420,7 +416,6 @@ type LinuxWebAppArgs struct {
 	Location pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs LinuxWebAppLogsPtrInput
-	// The Site Credentials Username used for publishing.
 	Name pulumi.StringPtrInput
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -649,7 +644,6 @@ func (o LinuxWebAppOutput) Logs() LinuxWebAppLogsPtrOutput {
 	return o.ApplyT(func(v *LinuxWebApp) LinuxWebAppLogsPtrOutput { return v.Logs }).(LinuxWebAppLogsPtrOutput)
 }
 
-// The Site Credentials Username used for publishing.
 func (o LinuxWebAppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

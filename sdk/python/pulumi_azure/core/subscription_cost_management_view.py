@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,19 +39,46 @@ class SubscriptionCostManagementViewArgs:
         :param pulumi.Input[str] name: The name which should be used for this Cost Management View for a Subscription. Changing this forces a new Cost Management View for a Subscription to be created.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewPivotArgs']]] pivots: One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
         """
-        pulumi.set(__self__, "accumulated", accumulated)
-        pulumi.set(__self__, "chart_type", chart_type)
-        pulumi.set(__self__, "dataset", dataset)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "report_type", report_type)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "timeframe", timeframe)
+        SubscriptionCostManagementViewArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accumulated=accumulated,
+            chart_type=chart_type,
+            dataset=dataset,
+            display_name=display_name,
+            report_type=report_type,
+            subscription_id=subscription_id,
+            timeframe=timeframe,
+            kpis=kpis,
+            name=name,
+            pivots=pivots,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accumulated: pulumi.Input[bool],
+             chart_type: pulumi.Input[str],
+             dataset: pulumi.Input['SubscriptionCostManagementViewDatasetArgs'],
+             display_name: pulumi.Input[str],
+             report_type: pulumi.Input[str],
+             subscription_id: pulumi.Input[str],
+             timeframe: pulumi.Input[str],
+             kpis: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewKpiArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             pivots: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewPivotArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("accumulated", accumulated)
+        _setter("chart_type", chart_type)
+        _setter("dataset", dataset)
+        _setter("display_name", display_name)
+        _setter("report_type", report_type)
+        _setter("subscription_id", subscription_id)
+        _setter("timeframe", timeframe)
         if kpis is not None:
-            pulumi.set(__self__, "kpis", kpis)
+            _setter("kpis", kpis)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if pivots is not None:
-            pulumi.set(__self__, "pivots", pivots)
+            _setter("pivots", pivots)
 
     @property
     @pulumi.getter
@@ -200,26 +227,53 @@ class _SubscriptionCostManagementViewState:
         :param pulumi.Input[str] subscription_id: The ID of the Subscription this View is scoped to. Changing this forces a new Cost Management View for a Subscription to be created.
         :param pulumi.Input[str] timeframe: The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`.
         """
+        _SubscriptionCostManagementViewState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accumulated=accumulated,
+            chart_type=chart_type,
+            dataset=dataset,
+            display_name=display_name,
+            kpis=kpis,
+            name=name,
+            pivots=pivots,
+            report_type=report_type,
+            subscription_id=subscription_id,
+            timeframe=timeframe,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accumulated: Optional[pulumi.Input[bool]] = None,
+             chart_type: Optional[pulumi.Input[str]] = None,
+             dataset: Optional[pulumi.Input['SubscriptionCostManagementViewDatasetArgs']] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             kpis: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewKpiArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             pivots: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewPivotArgs']]]] = None,
+             report_type: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             timeframe: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accumulated is not None:
-            pulumi.set(__self__, "accumulated", accumulated)
+            _setter("accumulated", accumulated)
         if chart_type is not None:
-            pulumi.set(__self__, "chart_type", chart_type)
+            _setter("chart_type", chart_type)
         if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+            _setter("dataset", dataset)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if kpis is not None:
-            pulumi.set(__self__, "kpis", kpis)
+            _setter("kpis", kpis)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if pivots is not None:
-            pulumi.set(__self__, "pivots", pivots)
+            _setter("pivots", pivots)
         if report_type is not None:
-            pulumi.set(__self__, "report_type", report_type)
+            _setter("report_type", report_type)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if timeframe is not None:
-            pulumi.set(__self__, "timeframe", timeframe)
+            _setter("timeframe", timeframe)
 
     @property
     @pulumi.getter
@@ -453,6 +507,10 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubscriptionCostManagementViewArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -483,6 +541,11 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
             if chart_type is None and not opts.urn:
                 raise TypeError("Missing required property 'chart_type'")
             __props__.__dict__["chart_type"] = chart_type
+            if dataset is not None and not isinstance(dataset, SubscriptionCostManagementViewDatasetArgs):
+                dataset = dataset or {}
+                def _setter(key, value):
+                    dataset[key] = value
+                SubscriptionCostManagementViewDatasetArgs._configure(_setter, **dataset)
             if dataset is None and not opts.urn:
                 raise TypeError("Missing required property 'dataset'")
             __props__.__dict__["dataset"] = dataset

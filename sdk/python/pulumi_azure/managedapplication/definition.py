@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,27 +45,58 @@ class DefinitionArgs:
                
                > **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "lock_level", lock_level)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            lock_level=lock_level,
+            resource_group_name=resource_group_name,
+            authorizations=authorizations,
+            create_ui_definition=create_ui_definition,
+            description=description,
+            location=location,
+            main_template=main_template,
+            name=name,
+            package_enabled=package_enabled,
+            package_file_uri=package_file_uri,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             lock_level: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
+             create_ui_definition: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             main_template: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             package_enabled: Optional[pulumi.Input[bool]] = None,
+             package_file_uri: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("lock_level", lock_level)
+        _setter("resource_group_name", resource_group_name)
         if authorizations is not None:
-            pulumi.set(__self__, "authorizations", authorizations)
+            _setter("authorizations", authorizations)
         if create_ui_definition is not None:
-            pulumi.set(__self__, "create_ui_definition", create_ui_definition)
+            _setter("create_ui_definition", create_ui_definition)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if main_template is not None:
-            pulumi.set(__self__, "main_template", main_template)
+            _setter("main_template", main_template)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if package_enabled is not None:
-            pulumi.set(__self__, "package_enabled", package_enabled)
+            _setter("package_enabled", package_enabled)
         if package_file_uri is not None:
-            pulumi.set(__self__, "package_file_uri", package_file_uri)
+            _setter("package_file_uri", package_file_uri)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="displayName")
@@ -246,30 +277,61 @@ class _DefinitionState:
                
                > **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
         """
+        _DefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorizations=authorizations,
+            create_ui_definition=create_ui_definition,
+            description=description,
+            display_name=display_name,
+            location=location,
+            lock_level=lock_level,
+            main_template=main_template,
+            name=name,
+            package_enabled=package_enabled,
+            package_file_uri=package_file_uri,
+            resource_group_name=resource_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionAuthorizationArgs']]]] = None,
+             create_ui_definition: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             lock_level: Optional[pulumi.Input[str]] = None,
+             main_template: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             package_enabled: Optional[pulumi.Input[bool]] = None,
+             package_file_uri: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authorizations is not None:
-            pulumi.set(__self__, "authorizations", authorizations)
+            _setter("authorizations", authorizations)
         if create_ui_definition is not None:
-            pulumi.set(__self__, "create_ui_definition", create_ui_definition)
+            _setter("create_ui_definition", create_ui_definition)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if lock_level is not None:
-            pulumi.set(__self__, "lock_level", lock_level)
+            _setter("lock_level", lock_level)
         if main_template is not None:
-            pulumi.set(__self__, "main_template", main_template)
+            _setter("main_template", main_template)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if package_enabled is not None:
-            pulumi.set(__self__, "package_enabled", package_enabled)
+            _setter("package_enabled", package_enabled)
         if package_file_uri is not None:
-            pulumi.set(__self__, "package_file_uri", package_file_uri)
+            _setter("package_file_uri", package_file_uri)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -533,6 +595,10 @@ class Definition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

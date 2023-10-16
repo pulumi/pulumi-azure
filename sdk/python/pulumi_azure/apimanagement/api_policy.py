@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApiPolicyArgs', 'ApiPolicy']
@@ -27,13 +27,30 @@ class ApiPolicyArgs:
         :param pulumi.Input[str] xml_content: The XML Content for this Policy as a string.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
-        pulumi.set(__self__, "api_management_name", api_management_name)
-        pulumi.set(__self__, "api_name", api_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ApiPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            api_name=api_name,
+            resource_group_name=resource_group_name,
+            xml_content=xml_content,
+            xml_link=xml_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: pulumi.Input[str],
+             api_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             xml_content: Optional[pulumi.Input[str]] = None,
+             xml_link: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_management_name", api_management_name)
+        _setter("api_name", api_name)
+        _setter("resource_group_name", resource_group_name)
         if xml_content is not None:
-            pulumi.set(__self__, "xml_content", xml_content)
+            _setter("xml_content", xml_content)
         if xml_link is not None:
-            pulumi.set(__self__, "xml_link", xml_link)
+            _setter("xml_link", xml_link)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -112,16 +129,33 @@ class _ApiPolicyState:
         :param pulumi.Input[str] xml_content: The XML Content for this Policy as a string.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
+        _ApiPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            api_name=api_name,
+            resource_group_name=resource_group_name,
+            xml_content=xml_content,
+            xml_link=xml_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             xml_content: Optional[pulumi.Input[str]] = None,
+             xml_link: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_management_name is not None:
-            pulumi.set(__self__, "api_management_name", api_management_name)
+            _setter("api_management_name", api_management_name)
         if api_name is not None:
-            pulumi.set(__self__, "api_name", api_name)
+            _setter("api_name", api_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if xml_content is not None:
-            pulumi.set(__self__, "xml_content", xml_content)
+            _setter("xml_content", xml_content)
         if xml_link is not None:
-            pulumi.set(__self__, "xml_link", xml_link)
+            _setter("xml_link", xml_link)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -285,6 +319,10 @@ class ApiPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

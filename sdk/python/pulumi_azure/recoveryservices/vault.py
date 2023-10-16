@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,32 +51,67 @@ class VaultArgs:
         :param pulumi.Input[str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        VaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            classic_vmware_replication_enabled=classic_vmware_replication_enabled,
+            cross_region_restore_enabled=cross_region_restore_enabled,
+            encryption=encryption,
+            identity=identity,
+            immutability=immutability,
+            location=location,
+            monitoring=monitoring,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            soft_delete_enabled=soft_delete_enabled,
+            storage_mode_type=storage_mode_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             sku: pulumi.Input[str],
+             classic_vmware_replication_enabled: Optional[pulumi.Input[bool]] = None,
+             cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
+             encryption: Optional[pulumi.Input['VaultEncryptionArgs']] = None,
+             identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
+             immutability: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             monitoring: Optional[pulumi.Input['VaultMonitoringArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
+             storage_mode_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if classic_vmware_replication_enabled is not None:
-            pulumi.set(__self__, "classic_vmware_replication_enabled", classic_vmware_replication_enabled)
+            _setter("classic_vmware_replication_enabled", classic_vmware_replication_enabled)
         if cross_region_restore_enabled is not None:
-            pulumi.set(__self__, "cross_region_restore_enabled", cross_region_restore_enabled)
+            _setter("cross_region_restore_enabled", cross_region_restore_enabled)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if immutability is not None:
-            pulumi.set(__self__, "immutability", immutability)
+            _setter("immutability", immutability)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if monitoring is not None:
-            pulumi.set(__self__, "monitoring", monitoring)
+            _setter("monitoring", monitoring)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if soft_delete_enabled is not None:
-            pulumi.set(__self__, "soft_delete_enabled", soft_delete_enabled)
+            _setter("soft_delete_enabled", soft_delete_enabled)
         if storage_mode_type is not None:
-            pulumi.set(__self__, "storage_mode_type", storage_mode_type)
+            _setter("storage_mode_type", storage_mode_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -289,34 +324,69 @@ class _VaultState:
         :param pulumi.Input[str] storage_mode_type: The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _VaultState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classic_vmware_replication_enabled=classic_vmware_replication_enabled,
+            cross_region_restore_enabled=cross_region_restore_enabled,
+            encryption=encryption,
+            identity=identity,
+            immutability=immutability,
+            location=location,
+            monitoring=monitoring,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            soft_delete_enabled=soft_delete_enabled,
+            storage_mode_type=storage_mode_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classic_vmware_replication_enabled: Optional[pulumi.Input[bool]] = None,
+             cross_region_restore_enabled: Optional[pulumi.Input[bool]] = None,
+             encryption: Optional[pulumi.Input['VaultEncryptionArgs']] = None,
+             identity: Optional[pulumi.Input['VaultIdentityArgs']] = None,
+             immutability: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             monitoring: Optional[pulumi.Input['VaultMonitoringArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             soft_delete_enabled: Optional[pulumi.Input[bool]] = None,
+             storage_mode_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if classic_vmware_replication_enabled is not None:
-            pulumi.set(__self__, "classic_vmware_replication_enabled", classic_vmware_replication_enabled)
+            _setter("classic_vmware_replication_enabled", classic_vmware_replication_enabled)
         if cross_region_restore_enabled is not None:
-            pulumi.set(__self__, "cross_region_restore_enabled", cross_region_restore_enabled)
+            _setter("cross_region_restore_enabled", cross_region_restore_enabled)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if immutability is not None:
-            pulumi.set(__self__, "immutability", immutability)
+            _setter("immutability", immutability)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if monitoring is not None:
-            pulumi.set(__self__, "monitoring", monitoring)
+            _setter("monitoring", monitoring)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if soft_delete_enabled is not None:
-            pulumi.set(__self__, "soft_delete_enabled", soft_delete_enabled)
+            _setter("soft_delete_enabled", soft_delete_enabled)
         if storage_mode_type is not None:
-            pulumi.set(__self__, "storage_mode_type", storage_mode_type)
+            _setter("storage_mode_type", storage_mode_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="classicVmwareReplicationEnabled")
@@ -598,6 +668,10 @@ class Vault(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VaultArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -628,10 +702,25 @@ class Vault(pulumi.CustomResource):
 
             __props__.__dict__["classic_vmware_replication_enabled"] = classic_vmware_replication_enabled
             __props__.__dict__["cross_region_restore_enabled"] = cross_region_restore_enabled
+            if encryption is not None and not isinstance(encryption, VaultEncryptionArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                VaultEncryptionArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
+            if identity is not None and not isinstance(identity, VaultIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                VaultIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["immutability"] = immutability
             __props__.__dict__["location"] = location
+            if monitoring is not None and not isinstance(monitoring, VaultMonitoringArgs):
+                monitoring = monitoring or {}
+                def _setter(key, value):
+                    monitoring[key] = value
+                VaultMonitoringArgs._configure(_setter, **monitoring)
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PolicyArgs', 'Policy']
@@ -23,11 +23,24 @@ class PolicyArgs:
         :param pulumi.Input[str] xml_content: The XML Content for this Policy as a string.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
-        pulumi.set(__self__, "api_management_id", api_management_id)
+        PolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_id=api_management_id,
+            xml_content=xml_content,
+            xml_link=xml_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_id: pulumi.Input[str],
+             xml_content: Optional[pulumi.Input[str]] = None,
+             xml_link: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_management_id", api_management_id)
         if xml_content is not None:
-            pulumi.set(__self__, "xml_content", xml_content)
+            _setter("xml_content", xml_content)
         if xml_link is not None:
-            pulumi.set(__self__, "xml_link", xml_link)
+            _setter("xml_link", xml_link)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -78,12 +91,25 @@ class _PolicyState:
         :param pulumi.Input[str] xml_content: The XML Content for this Policy as a string.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
+        _PolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_id=api_management_id,
+            xml_content=xml_content,
+            xml_link=xml_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             xml_content: Optional[pulumi.Input[str]] = None,
+             xml_link: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_management_id is not None:
-            pulumi.set(__self__, "api_management_id", api_management_id)
+            _setter("api_management_id", api_management_id)
         if xml_content is not None:
-            pulumi.set(__self__, "xml_content", xml_content)
+            _setter("xml_content", xml_content)
         if xml_link is not None:
-            pulumi.set(__self__, "xml_link", xml_link)
+            _setter("xml_link", xml_link)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -225,6 +251,10 @@ class Policy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

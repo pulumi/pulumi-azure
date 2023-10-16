@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NamespaceCustomerManagedKeyInitArgs', 'NamespaceCustomerManagedKey']
@@ -23,10 +23,23 @@ class NamespaceCustomerManagedKeyInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_vault_key_ids: The list of keys of Key Vault.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "eventhub_namespace_id", eventhub_namespace_id)
-        pulumi.set(__self__, "key_vault_key_ids", key_vault_key_ids)
+        NamespaceCustomerManagedKeyInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eventhub_namespace_id=eventhub_namespace_id,
+            key_vault_key_ids=key_vault_key_ids,
+            infrastructure_encryption_enabled=infrastructure_encryption_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eventhub_namespace_id: pulumi.Input[str],
+             key_vault_key_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("eventhub_namespace_id", eventhub_namespace_id)
+        _setter("key_vault_key_ids", key_vault_key_ids)
         if infrastructure_encryption_enabled is not None:
-            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+            _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
 
     @property
     @pulumi.getter(name="eventhubNamespaceId")
@@ -77,12 +90,25 @@ class _NamespaceCustomerManagedKeyState:
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_vault_key_ids: The list of keys of Key Vault.
         """
+        _NamespaceCustomerManagedKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eventhub_namespace_id=eventhub_namespace_id,
+            infrastructure_encryption_enabled=infrastructure_encryption_enabled,
+            key_vault_key_ids=key_vault_key_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
+             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if eventhub_namespace_id is not None:
-            pulumi.set(__self__, "eventhub_namespace_id", eventhub_namespace_id)
+            _setter("eventhub_namespace_id", eventhub_namespace_id)
         if infrastructure_encryption_enabled is not None:
-            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+            _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if key_vault_key_ids is not None:
-            pulumi.set(__self__, "key_vault_key_ids", key_vault_key_ids)
+            _setter("key_vault_key_ids", key_vault_key_ids)
 
     @property
     @pulumi.getter(name="eventhubNamespaceId")
@@ -316,6 +342,10 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceCustomerManagedKeyInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

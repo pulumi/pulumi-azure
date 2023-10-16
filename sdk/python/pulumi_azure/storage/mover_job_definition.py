@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MoverJobDefinitionArgs', 'MoverJobDefinition']
@@ -35,20 +35,45 @@ class MoverJobDefinitionArgs:
         :param pulumi.Input[str] source_sub_path: Specifies the sub path to use when reading from the Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_sub_path: Specifies the sub path to use when writing to the Storage Mover Target Endpoint. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "copy_mode", copy_mode)
-        pulumi.set(__self__, "source_name", source_name)
-        pulumi.set(__self__, "storage_mover_project_id", storage_mover_project_id)
-        pulumi.set(__self__, "target_name", target_name)
+        MoverJobDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_mode=copy_mode,
+            source_name=source_name,
+            storage_mover_project_id=storage_mover_project_id,
+            target_name=target_name,
+            agent_name=agent_name,
+            description=description,
+            name=name,
+            source_sub_path=source_sub_path,
+            target_sub_path=target_sub_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_mode: pulumi.Input[str],
+             source_name: pulumi.Input[str],
+             storage_mover_project_id: pulumi.Input[str],
+             target_name: pulumi.Input[str],
+             agent_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_sub_path: Optional[pulumi.Input[str]] = None,
+             target_sub_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("copy_mode", copy_mode)
+        _setter("source_name", source_name)
+        _setter("storage_mover_project_id", storage_mover_project_id)
+        _setter("target_name", target_name)
         if agent_name is not None:
-            pulumi.set(__self__, "agent_name", agent_name)
+            _setter("agent_name", agent_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_sub_path is not None:
-            pulumi.set(__self__, "source_sub_path", source_sub_path)
+            _setter("source_sub_path", source_sub_path)
         if target_sub_path is not None:
-            pulumi.set(__self__, "target_sub_path", target_sub_path)
+            _setter("target_sub_path", target_sub_path)
 
     @property
     @pulumi.getter(name="copyMode")
@@ -183,24 +208,49 @@ class _MoverJobDefinitionState:
         :param pulumi.Input[str] target_name: Specifies the name of the Storage Mover target Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_sub_path: Specifies the sub path to use when writing to the Storage Mover Target Endpoint. Changing this forces a new resource to be created.
         """
+        _MoverJobDefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_name=agent_name,
+            copy_mode=copy_mode,
+            description=description,
+            name=name,
+            source_name=source_name,
+            source_sub_path=source_sub_path,
+            storage_mover_project_id=storage_mover_project_id,
+            target_name=target_name,
+            target_sub_path=target_sub_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_name: Optional[pulumi.Input[str]] = None,
+             copy_mode: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_name: Optional[pulumi.Input[str]] = None,
+             source_sub_path: Optional[pulumi.Input[str]] = None,
+             storage_mover_project_id: Optional[pulumi.Input[str]] = None,
+             target_name: Optional[pulumi.Input[str]] = None,
+             target_sub_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if agent_name is not None:
-            pulumi.set(__self__, "agent_name", agent_name)
+            _setter("agent_name", agent_name)
         if copy_mode is not None:
-            pulumi.set(__self__, "copy_mode", copy_mode)
+            _setter("copy_mode", copy_mode)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if source_name is not None:
-            pulumi.set(__self__, "source_name", source_name)
+            _setter("source_name", source_name)
         if source_sub_path is not None:
-            pulumi.set(__self__, "source_sub_path", source_sub_path)
+            _setter("source_sub_path", source_sub_path)
         if storage_mover_project_id is not None:
-            pulumi.set(__self__, "storage_mover_project_id", storage_mover_project_id)
+            _setter("storage_mover_project_id", storage_mover_project_id)
         if target_name is not None:
-            pulumi.set(__self__, "target_name", target_name)
+            _setter("target_name", target_name)
         if target_sub_path is not None:
-            pulumi.set(__self__, "target_sub_path", target_sub_path)
+            _setter("target_sub_path", target_sub_path)
 
     @property
     @pulumi.getter(name="agentName")
@@ -460,6 +510,10 @@ class MoverJobDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MoverJobDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

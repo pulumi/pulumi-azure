@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProtectionContainerArgs', 'ProtectionContainer']
@@ -25,11 +25,26 @@ class ProtectionContainerArgs:
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the protection container. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "recovery_fabric_name", recovery_fabric_name)
-        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ProtectionContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recovery_fabric_name=recovery_fabric_name,
+            recovery_vault_name=recovery_vault_name,
+            resource_group_name=resource_group_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recovery_fabric_name: pulumi.Input[str],
+             recovery_vault_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("recovery_fabric_name", recovery_fabric_name)
+        _setter("recovery_vault_name", recovery_vault_name)
+        _setter("resource_group_name", resource_group_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="recoveryFabricName")
@@ -94,14 +109,29 @@ class _ProtectionContainerState:
         :param pulumi.Input[str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         """
+        _ProtectionContainerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            recovery_fabric_name=recovery_fabric_name,
+            recovery_vault_name=recovery_vault_name,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             recovery_fabric_name: Optional[pulumi.Input[str]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recovery_fabric_name is not None:
-            pulumi.set(__self__, "recovery_fabric_name", recovery_fabric_name)
+            _setter("recovery_fabric_name", recovery_fabric_name)
         if recovery_vault_name is not None:
-            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+            _setter("recovery_vault_name", recovery_vault_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter
@@ -251,6 +281,10 @@ class ProtectionContainer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProtectionContainerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -24,8 +24,6 @@ public final class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2 {
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
-     * 
      */
     private @Nullable List<String> allowedAudiences;
     /**
@@ -52,16 +50,6 @@ public final class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2 {
     private @Nullable String clientSecretCertificateThumbprint;
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -104,8 +92,6 @@ public final class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2 {
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
-     * 
      */
     public List<String> allowedAudiences() {
         return this.allowedAudiences == null ? List.of() : this.allowedAudiences;
@@ -142,16 +128,6 @@ public final class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2 {
     }
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Optional<String> clientSecretSettingName() {

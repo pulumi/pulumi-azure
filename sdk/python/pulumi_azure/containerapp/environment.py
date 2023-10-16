@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EnvironmentArgs', 'Environment']
@@ -41,23 +41,48 @@ class EnvironmentArgs:
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        EnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            dapr_application_insights_connection_string=dapr_application_insights_connection_string,
+            infrastructure_subnet_id=infrastructure_subnet_id,
+            internal_load_balancer_enabled=internal_load_balancer_enabled,
+            location=location,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            name=name,
+            tags=tags,
+            zone_redundancy_enabled=zone_redundancy_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
+             infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
+             internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if dapr_application_insights_connection_string is not None:
-            pulumi.set(__self__, "dapr_application_insights_connection_string", dapr_application_insights_connection_string)
+            _setter("dapr_application_insights_connection_string", dapr_application_insights_connection_string)
         if infrastructure_subnet_id is not None:
-            pulumi.set(__self__, "infrastructure_subnet_id", infrastructure_subnet_id)
+            _setter("infrastructure_subnet_id", infrastructure_subnet_id)
         if internal_load_balancer_enabled is not None:
-            pulumi.set(__self__, "internal_load_balancer_enabled", internal_load_balancer_enabled)
+            _setter("internal_load_balancer_enabled", internal_load_balancer_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_analytics_workspace_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_redundancy_enabled is not None:
-            pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
+            _setter("zone_redundancy_enabled", zone_redundancy_enabled)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -214,34 +239,69 @@ class _EnvironmentState:
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         """
+        _EnvironmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dapr_application_insights_connection_string=dapr_application_insights_connection_string,
+            default_domain=default_domain,
+            docker_bridge_cidr=docker_bridge_cidr,
+            infrastructure_subnet_id=infrastructure_subnet_id,
+            internal_load_balancer_enabled=internal_load_balancer_enabled,
+            location=location,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            name=name,
+            platform_reserved_cidr=platform_reserved_cidr,
+            platform_reserved_dns_ip_address=platform_reserved_dns_ip_address,
+            resource_group_name=resource_group_name,
+            static_ip_address=static_ip_address,
+            tags=tags,
+            zone_redundancy_enabled=zone_redundancy_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
+             default_domain: Optional[pulumi.Input[str]] = None,
+             docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
+             infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
+             internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             platform_reserved_cidr: Optional[pulumi.Input[str]] = None,
+             platform_reserved_dns_ip_address: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             static_ip_address: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dapr_application_insights_connection_string is not None:
-            pulumi.set(__self__, "dapr_application_insights_connection_string", dapr_application_insights_connection_string)
+            _setter("dapr_application_insights_connection_string", dapr_application_insights_connection_string)
         if default_domain is not None:
-            pulumi.set(__self__, "default_domain", default_domain)
+            _setter("default_domain", default_domain)
         if docker_bridge_cidr is not None:
-            pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+            _setter("docker_bridge_cidr", docker_bridge_cidr)
         if infrastructure_subnet_id is not None:
-            pulumi.set(__self__, "infrastructure_subnet_id", infrastructure_subnet_id)
+            _setter("infrastructure_subnet_id", infrastructure_subnet_id)
         if internal_load_balancer_enabled is not None:
-            pulumi.set(__self__, "internal_load_balancer_enabled", internal_load_balancer_enabled)
+            _setter("internal_load_balancer_enabled", internal_load_balancer_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_analytics_workspace_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if platform_reserved_cidr is not None:
-            pulumi.set(__self__, "platform_reserved_cidr", platform_reserved_cidr)
+            _setter("platform_reserved_cidr", platform_reserved_cidr)
         if platform_reserved_dns_ip_address is not None:
-            pulumi.set(__self__, "platform_reserved_dns_ip_address", platform_reserved_dns_ip_address)
+            _setter("platform_reserved_dns_ip_address", platform_reserved_dns_ip_address)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if static_ip_address is not None:
-            pulumi.set(__self__, "static_ip_address", static_ip_address)
+            _setter("static_ip_address", static_ip_address)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_redundancy_enabled is not None:
-            pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
+            _setter("zone_redundancy_enabled", zone_redundancy_enabled)
 
     @property
     @pulumi.getter(name="daprApplicationInsightsConnectionString")
@@ -525,6 +585,10 @@ class Environment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

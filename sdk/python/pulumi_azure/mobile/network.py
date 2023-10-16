@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkArgs', 'Network']
@@ -29,15 +29,34 @@ class NetworkArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network. Changing this forces a new Mobile Network to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network.
         """
-        pulumi.set(__self__, "mobile_country_code", mobile_country_code)
-        pulumi.set(__self__, "mobile_network_code", mobile_network_code)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mobile_country_code=mobile_country_code,
+            mobile_network_code=mobile_network_code,
+            resource_group_name=resource_group_name,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mobile_country_code: pulumi.Input[str],
+             mobile_network_code: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mobile_country_code", mobile_country_code)
+        _setter("mobile_network_code", mobile_network_code)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="mobileCountryCode")
@@ -132,20 +151,41 @@ class _NetworkState:
         :param pulumi.Input[str] service_key: The mobile network resource identifier.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network.
         """
+        _NetworkState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            mobile_country_code=mobile_country_code,
+            mobile_network_code=mobile_network_code,
+            name=name,
+            resource_group_name=resource_group_name,
+            service_key=service_key,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             mobile_country_code: Optional[pulumi.Input[str]] = None,
+             mobile_network_code: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_key: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mobile_country_code is not None:
-            pulumi.set(__self__, "mobile_country_code", mobile_country_code)
+            _setter("mobile_country_code", mobile_country_code)
         if mobile_network_code is not None:
-            pulumi.set(__self__, "mobile_network_code", mobile_network_code)
+            _setter("mobile_network_code", mobile_network_code)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if service_key is not None:
-            pulumi.set(__self__, "service_key", service_key)
+            _setter("service_key", service_key)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -325,6 +365,10 @@ class Network(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

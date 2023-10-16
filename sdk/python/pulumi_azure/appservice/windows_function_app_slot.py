@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -80,60 +80,123 @@ class WindowsFunctionAppSlotArgs:
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
         """
-        pulumi.set(__self__, "function_app_id", function_app_id)
-        pulumi.set(__self__, "site_config", site_config)
+        WindowsFunctionAppSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_app_id=function_app_id,
+            site_config=site_config,
+            app_settings=app_settings,
+            auth_settings=auth_settings,
+            auth_settings_v2=auth_settings_v2,
+            backup=backup,
+            builtin_logging_enabled=builtin_logging_enabled,
+            client_certificate_enabled=client_certificate_enabled,
+            client_certificate_exclusion_paths=client_certificate_exclusion_paths,
+            client_certificate_mode=client_certificate_mode,
+            connection_strings=connection_strings,
+            content_share_force_disabled=content_share_force_disabled,
+            daily_memory_time_quota=daily_memory_time_quota,
+            enabled=enabled,
+            functions_extension_version=functions_extension_version,
+            https_only=https_only,
+            identity=identity,
+            key_vault_reference_identity_id=key_vault_reference_identity_id,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            service_plan_id=service_plan_id,
+            storage_account_access_key=storage_account_access_key,
+            storage_account_name=storage_account_name,
+            storage_accounts=storage_accounts,
+            storage_key_vault_secret_id=storage_key_vault_secret_id,
+            storage_uses_managed_identity=storage_uses_managed_identity,
+            tags=tags,
+            virtual_network_subnet_id=virtual_network_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_app_id: pulumi.Input[str],
+             site_config: pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs'],
+             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             auth_settings: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs']] = None,
+             auth_settings_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Args']] = None,
+             backup: Optional[pulumi.Input['WindowsFunctionAppSlotBackupArgs']] = None,
+             builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
+             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+             client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
+             client_certificate_mode: Optional[pulumi.Input[str]] = None,
+             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArgs']]]] = None,
+             content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
+             daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             functions_extension_version: Optional[pulumi.Input[str]] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArgs']] = None,
+             key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             service_plan_id: Optional[pulumi.Input[str]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]] = None,
+             storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
+             storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("function_app_id", function_app_id)
+        _setter("site_config", site_config)
         if app_settings is not None:
-            pulumi.set(__self__, "app_settings", app_settings)
+            _setter("app_settings", app_settings)
         if auth_settings is not None:
-            pulumi.set(__self__, "auth_settings", auth_settings)
+            _setter("auth_settings", auth_settings)
         if auth_settings_v2 is not None:
-            pulumi.set(__self__, "auth_settings_v2", auth_settings_v2)
+            _setter("auth_settings_v2", auth_settings_v2)
         if backup is not None:
-            pulumi.set(__self__, "backup", backup)
+            _setter("backup", backup)
         if builtin_logging_enabled is not None:
-            pulumi.set(__self__, "builtin_logging_enabled", builtin_logging_enabled)
+            _setter("builtin_logging_enabled", builtin_logging_enabled)
         if client_certificate_enabled is not None:
-            pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+            _setter("client_certificate_enabled", client_certificate_enabled)
         if client_certificate_exclusion_paths is not None:
-            pulumi.set(__self__, "client_certificate_exclusion_paths", client_certificate_exclusion_paths)
+            _setter("client_certificate_exclusion_paths", client_certificate_exclusion_paths)
         if client_certificate_mode is not None:
-            pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
+            _setter("client_certificate_mode", client_certificate_mode)
         if connection_strings is not None:
-            pulumi.set(__self__, "connection_strings", connection_strings)
+            _setter("connection_strings", connection_strings)
         if content_share_force_disabled is not None:
-            pulumi.set(__self__, "content_share_force_disabled", content_share_force_disabled)
+            _setter("content_share_force_disabled", content_share_force_disabled)
         if daily_memory_time_quota is not None:
-            pulumi.set(__self__, "daily_memory_time_quota", daily_memory_time_quota)
+            _setter("daily_memory_time_quota", daily_memory_time_quota)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if functions_extension_version is not None:
-            pulumi.set(__self__, "functions_extension_version", functions_extension_version)
+            _setter("functions_extension_version", functions_extension_version)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_reference_identity_id is not None:
-            pulumi.set(__self__, "key_vault_reference_identity_id", key_vault_reference_identity_id)
+            _setter("key_vault_reference_identity_id", key_vault_reference_identity_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if service_plan_id is not None:
-            pulumi.set(__self__, "service_plan_id", service_plan_id)
+            _setter("service_plan_id", service_plan_id)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
         if storage_accounts is not None:
-            pulumi.set(__self__, "storage_accounts", storage_accounts)
+            _setter("storage_accounts", storage_accounts)
         if storage_key_vault_secret_id is not None:
-            pulumi.set(__self__, "storage_key_vault_secret_id", storage_key_vault_secret_id)
+            _setter("storage_key_vault_secret_id", storage_key_vault_secret_id)
         if storage_uses_managed_identity is not None:
-            pulumi.set(__self__, "storage_uses_managed_identity", storage_uses_managed_identity)
+            _setter("storage_uses_managed_identity", storage_uses_managed_identity)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network_subnet_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+            _setter("virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="functionAppId")
@@ -560,80 +623,161 @@ class _WindowsFunctionAppSlotState:
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
         """
+        _WindowsFunctionAppSlotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_settings=app_settings,
+            auth_settings=auth_settings,
+            auth_settings_v2=auth_settings_v2,
+            backup=backup,
+            builtin_logging_enabled=builtin_logging_enabled,
+            client_certificate_enabled=client_certificate_enabled,
+            client_certificate_exclusion_paths=client_certificate_exclusion_paths,
+            client_certificate_mode=client_certificate_mode,
+            connection_strings=connection_strings,
+            content_share_force_disabled=content_share_force_disabled,
+            custom_domain_verification_id=custom_domain_verification_id,
+            daily_memory_time_quota=daily_memory_time_quota,
+            default_hostname=default_hostname,
+            enabled=enabled,
+            function_app_id=function_app_id,
+            functions_extension_version=functions_extension_version,
+            hosting_environment_id=hosting_environment_id,
+            https_only=https_only,
+            identity=identity,
+            key_vault_reference_identity_id=key_vault_reference_identity_id,
+            kind=kind,
+            name=name,
+            outbound_ip_address_lists=outbound_ip_address_lists,
+            outbound_ip_addresses=outbound_ip_addresses,
+            possible_outbound_ip_address_lists=possible_outbound_ip_address_lists,
+            possible_outbound_ip_addresses=possible_outbound_ip_addresses,
+            public_network_access_enabled=public_network_access_enabled,
+            service_plan_id=service_plan_id,
+            site_config=site_config,
+            site_credentials=site_credentials,
+            storage_account_access_key=storage_account_access_key,
+            storage_account_name=storage_account_name,
+            storage_accounts=storage_accounts,
+            storage_key_vault_secret_id=storage_key_vault_secret_id,
+            storage_uses_managed_identity=storage_uses_managed_identity,
+            tags=tags,
+            virtual_network_subnet_id=virtual_network_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             auth_settings: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs']] = None,
+             auth_settings_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Args']] = None,
+             backup: Optional[pulumi.Input['WindowsFunctionAppSlotBackupArgs']] = None,
+             builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
+             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+             client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
+             client_certificate_mode: Optional[pulumi.Input[str]] = None,
+             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArgs']]]] = None,
+             content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
+             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
+             daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
+             default_hostname: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             function_app_id: Optional[pulumi.Input[str]] = None,
+             functions_extension_version: Optional[pulumi.Input[str]] = None,
+             hosting_environment_id: Optional[pulumi.Input[str]] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArgs']] = None,
+             key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+             possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             service_plan_id: Optional[pulumi.Input[str]] = None,
+             site_config: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs']] = None,
+             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArgs']]]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]] = None,
+             storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
+             storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_settings is not None:
-            pulumi.set(__self__, "app_settings", app_settings)
+            _setter("app_settings", app_settings)
         if auth_settings is not None:
-            pulumi.set(__self__, "auth_settings", auth_settings)
+            _setter("auth_settings", auth_settings)
         if auth_settings_v2 is not None:
-            pulumi.set(__self__, "auth_settings_v2", auth_settings_v2)
+            _setter("auth_settings_v2", auth_settings_v2)
         if backup is not None:
-            pulumi.set(__self__, "backup", backup)
+            _setter("backup", backup)
         if builtin_logging_enabled is not None:
-            pulumi.set(__self__, "builtin_logging_enabled", builtin_logging_enabled)
+            _setter("builtin_logging_enabled", builtin_logging_enabled)
         if client_certificate_enabled is not None:
-            pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+            _setter("client_certificate_enabled", client_certificate_enabled)
         if client_certificate_exclusion_paths is not None:
-            pulumi.set(__self__, "client_certificate_exclusion_paths", client_certificate_exclusion_paths)
+            _setter("client_certificate_exclusion_paths", client_certificate_exclusion_paths)
         if client_certificate_mode is not None:
-            pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
+            _setter("client_certificate_mode", client_certificate_mode)
         if connection_strings is not None:
-            pulumi.set(__self__, "connection_strings", connection_strings)
+            _setter("connection_strings", connection_strings)
         if content_share_force_disabled is not None:
-            pulumi.set(__self__, "content_share_force_disabled", content_share_force_disabled)
+            _setter("content_share_force_disabled", content_share_force_disabled)
         if custom_domain_verification_id is not None:
-            pulumi.set(__self__, "custom_domain_verification_id", custom_domain_verification_id)
+            _setter("custom_domain_verification_id", custom_domain_verification_id)
         if daily_memory_time_quota is not None:
-            pulumi.set(__self__, "daily_memory_time_quota", daily_memory_time_quota)
+            _setter("daily_memory_time_quota", daily_memory_time_quota)
         if default_hostname is not None:
-            pulumi.set(__self__, "default_hostname", default_hostname)
+            _setter("default_hostname", default_hostname)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if function_app_id is not None:
-            pulumi.set(__self__, "function_app_id", function_app_id)
+            _setter("function_app_id", function_app_id)
         if functions_extension_version is not None:
-            pulumi.set(__self__, "functions_extension_version", functions_extension_version)
+            _setter("functions_extension_version", functions_extension_version)
         if hosting_environment_id is not None:
-            pulumi.set(__self__, "hosting_environment_id", hosting_environment_id)
+            _setter("hosting_environment_id", hosting_environment_id)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_reference_identity_id is not None:
-            pulumi.set(__self__, "key_vault_reference_identity_id", key_vault_reference_identity_id)
+            _setter("key_vault_reference_identity_id", key_vault_reference_identity_id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outbound_ip_address_lists is not None:
-            pulumi.set(__self__, "outbound_ip_address_lists", outbound_ip_address_lists)
+            _setter("outbound_ip_address_lists", outbound_ip_address_lists)
         if outbound_ip_addresses is not None:
-            pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
+            _setter("outbound_ip_addresses", outbound_ip_addresses)
         if possible_outbound_ip_address_lists is not None:
-            pulumi.set(__self__, "possible_outbound_ip_address_lists", possible_outbound_ip_address_lists)
+            _setter("possible_outbound_ip_address_lists", possible_outbound_ip_address_lists)
         if possible_outbound_ip_addresses is not None:
-            pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+            _setter("possible_outbound_ip_addresses", possible_outbound_ip_addresses)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if service_plan_id is not None:
-            pulumi.set(__self__, "service_plan_id", service_plan_id)
+            _setter("service_plan_id", service_plan_id)
         if site_config is not None:
-            pulumi.set(__self__, "site_config", site_config)
+            _setter("site_config", site_config)
         if site_credentials is not None:
-            pulumi.set(__self__, "site_credentials", site_credentials)
+            _setter("site_credentials", site_credentials)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
         if storage_accounts is not None:
-            pulumi.set(__self__, "storage_accounts", storage_accounts)
+            _setter("storage_accounts", storage_accounts)
         if storage_key_vault_secret_id is not None:
-            pulumi.set(__self__, "storage_key_vault_secret_id", storage_key_vault_secret_id)
+            _setter("storage_key_vault_secret_id", storage_key_vault_secret_id)
         if storage_uses_managed_identity is not None:
-            pulumi.set(__self__, "storage_uses_managed_identity", storage_uses_managed_identity)
+            _setter("storage_uses_managed_identity", storage_uses_managed_identity)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network_subnet_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+            _setter("virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="appSettings")
@@ -1249,6 +1393,10 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WindowsFunctionAppSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1292,8 +1440,23 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             __props__ = WindowsFunctionAppSlotArgs.__new__(WindowsFunctionAppSlotArgs)
 
             __props__.__dict__["app_settings"] = app_settings
+            if auth_settings is not None and not isinstance(auth_settings, WindowsFunctionAppSlotAuthSettingsArgs):
+                auth_settings = auth_settings or {}
+                def _setter(key, value):
+                    auth_settings[key] = value
+                WindowsFunctionAppSlotAuthSettingsArgs._configure(_setter, **auth_settings)
             __props__.__dict__["auth_settings"] = auth_settings
+            if auth_settings_v2 is not None and not isinstance(auth_settings_v2, WindowsFunctionAppSlotAuthSettingsV2Args):
+                auth_settings_v2 = auth_settings_v2 or {}
+                def _setter(key, value):
+                    auth_settings_v2[key] = value
+                WindowsFunctionAppSlotAuthSettingsV2Args._configure(_setter, **auth_settings_v2)
             __props__.__dict__["auth_settings_v2"] = auth_settings_v2
+            if backup is not None and not isinstance(backup, WindowsFunctionAppSlotBackupArgs):
+                backup = backup or {}
+                def _setter(key, value):
+                    backup[key] = value
+                WindowsFunctionAppSlotBackupArgs._configure(_setter, **backup)
             __props__.__dict__["backup"] = backup
             __props__.__dict__["builtin_logging_enabled"] = builtin_logging_enabled
             __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
@@ -1308,11 +1471,21 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["function_app_id"] = function_app_id
             __props__.__dict__["functions_extension_version"] = functions_extension_version
             __props__.__dict__["https_only"] = https_only
+            if identity is not None and not isinstance(identity, WindowsFunctionAppSlotIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                WindowsFunctionAppSlotIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["service_plan_id"] = service_plan_id
+            if site_config is not None and not isinstance(site_config, WindowsFunctionAppSlotSiteConfigArgs):
+                site_config = site_config or {}
+                def _setter(key, value):
+                    site_config[key] = value
+                WindowsFunctionAppSlotSiteConfigArgs._configure(_setter, **site_config)
             if site_config is None and not opts.urn:
                 raise TypeError("Missing required property 'site_config'")
             __props__.__dict__["site_config"] = site_config

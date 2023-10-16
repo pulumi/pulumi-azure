@@ -119,8 +119,7 @@ type LinuxWebAppSlot struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// A `logs` block as defined below.
 	Logs LinuxWebAppSlotLogsPtrOutput `pulumi:"logs"`
-	// The Site Credentials Username used for publishing.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput          `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"outboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
@@ -229,8 +228,7 @@ type linuxWebAppSlotState struct {
 	Kind *string `pulumi:"kind"`
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppSlotLogs `pulumi:"logs"`
-	// The Site Credentials Username used for publishing.
-	Name *string `pulumi:"name"`
+	Name *string              `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
 	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
@@ -299,7 +297,6 @@ type LinuxWebAppSlotState struct {
 	Kind pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs LinuxWebAppSlotLogsPtrInput
-	// The Site Credentials Username used for publishing.
 	Name pulumi.StringPtrInput
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayInput
@@ -363,8 +360,7 @@ type linuxWebAppSlotArgs struct {
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppSlotLogs `pulumi:"logs"`
-	// The Site Credentials Username used for publishing.
-	Name *string `pulumi:"name"`
+	Name *string              `pulumi:"name"`
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
@@ -414,7 +410,6 @@ type LinuxWebAppSlotArgs struct {
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs LinuxWebAppSlotLogsPtrInput
-	// The Site Credentials Username used for publishing.
 	Name pulumi.StringPtrInput
 	// Should public network access be enabled for the Web App. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -644,7 +639,6 @@ func (o LinuxWebAppSlotOutput) Logs() LinuxWebAppSlotLogsPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) LinuxWebAppSlotLogsPtrOutput { return v.Logs }).(LinuxWebAppSlotLogsPtrOutput)
 }
 
-// The Site Credentials Username used for publishing.
 func (o LinuxWebAppSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

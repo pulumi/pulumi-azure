@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CustomHostnameBindingArgs', 'CustomHostnameBinding']
@@ -31,13 +31,30 @@ class CustomHostnameBindingArgs:
                
                > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         """
-        pulumi.set(__self__, "app_service_name", app_service_name)
-        pulumi.set(__self__, "hostname", hostname)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CustomHostnameBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_name=app_service_name,
+            hostname=hostname,
+            resource_group_name=resource_group_name,
+            ssl_state=ssl_state,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_name: pulumi.Input[str],
+             hostname: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             ssl_state: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_service_name", app_service_name)
+        _setter("hostname", hostname)
+        _setter("resource_group_name", resource_group_name)
         if ssl_state is not None:
-            pulumi.set(__self__, "ssl_state", ssl_state)
+            _setter("ssl_state", ssl_state)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="appServiceName")
@@ -126,18 +143,37 @@ class _CustomHostnameBindingState:
                > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         :param pulumi.Input[str] virtual_ip: The virtual IP address assigned to the hostname if IP based SSL is enabled.
         """
+        _CustomHostnameBindingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_name=app_service_name,
+            hostname=hostname,
+            resource_group_name=resource_group_name,
+            ssl_state=ssl_state,
+            thumbprint=thumbprint,
+            virtual_ip=virtual_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_name: Optional[pulumi.Input[str]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             ssl_state: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             virtual_ip: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_service_name is not None:
-            pulumi.set(__self__, "app_service_name", app_service_name)
+            _setter("app_service_name", app_service_name)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if ssl_state is not None:
-            pulumi.set(__self__, "ssl_state", ssl_state)
+            _setter("ssl_state", ssl_state)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
         if virtual_ip is not None:
-            pulumi.set(__self__, "virtual_ip", virtual_ip)
+            _setter("virtual_ip", virtual_ip)
 
     @property
     @pulumi.getter(name="appServiceName")
@@ -337,6 +373,10 @@ class CustomHostnameBinding(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomHostnameBindingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

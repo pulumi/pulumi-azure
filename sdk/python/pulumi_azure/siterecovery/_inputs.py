@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -51,12 +51,25 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
                
                > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
         """
+        ProtectionContainerMappingAutomaticUpdateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_type=authentication_type,
+            automation_account_id=automation_account_id,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             automation_account_id: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authentication_type is not None:
-            pulumi.set(__self__, "authentication_type", authentication_type)
+            _setter("authentication_type", authentication_type)
         if automation_account_id is not None:
-            pulumi.set(__self__, "automation_account_id", automation_account_id)
+            _setter("automation_account_id", automation_account_id)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="authenticationType")
@@ -124,15 +137,36 @@ class ReplicatedVMManagedDiskArgs:
                
                > **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
         """
-        pulumi.set(__self__, "disk_id", disk_id)
-        pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
-        pulumi.set(__self__, "target_disk_type", target_disk_type)
-        pulumi.set(__self__, "target_replica_disk_type", target_replica_disk_type)
-        pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+        ReplicatedVMManagedDiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_id=disk_id,
+            staging_storage_account_id=staging_storage_account_id,
+            target_disk_type=target_disk_type,
+            target_replica_disk_type=target_replica_disk_type,
+            target_resource_group_id=target_resource_group_id,
+            target_disk_encryption=target_disk_encryption,
+            target_disk_encryption_set_id=target_disk_encryption_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_id: pulumi.Input[str],
+             staging_storage_account_id: pulumi.Input[str],
+             target_disk_type: pulumi.Input[str],
+             target_replica_disk_type: pulumi.Input[str],
+             target_resource_group_id: pulumi.Input[str],
+             target_disk_encryption: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']] = None,
+             target_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_id", disk_id)
+        _setter("staging_storage_account_id", staging_storage_account_id)
+        _setter("target_disk_type", target_disk_type)
+        _setter("target_replica_disk_type", target_replica_disk_type)
+        _setter("target_resource_group_id", target_resource_group_id)
         if target_disk_encryption is not None:
-            pulumi.set(__self__, "target_disk_encryption", target_disk_encryption)
+            _setter("target_disk_encryption", target_disk_encryption)
         if target_disk_encryption_set_id is not None:
-            pulumi.set(__self__, "target_disk_encryption_set_id", target_disk_encryption_set_id)
+            _setter("target_disk_encryption_set_id", target_disk_encryption_set_id)
 
     @property
     @pulumi.getter(name="diskId")
@@ -230,9 +264,20 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionArgs:
         :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs'] disk_encryption_key: A `disk_encryption_key` block as defined below.
         :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs'] key_encryption_key: A `key_encryption_key` block as defined below.
         """
-        pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
+        ReplicatedVMManagedDiskTargetDiskEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_key=disk_encryption_key,
+            key_encryption_key=key_encryption_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_key: pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs'],
+             key_encryption_key: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_encryption_key", disk_encryption_key)
         if key_encryption_key is not None:
-            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+            _setter("key_encryption_key", key_encryption_key)
 
     @property
     @pulumi.getter(name="diskEncryptionKey")
@@ -268,8 +313,19 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs:
         :param pulumi.Input[str] secret_url: The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Secret` resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vault_id: The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "secret_url", secret_url)
-        pulumi.set(__self__, "vault_id", vault_id)
+        ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_url=secret_url,
+            vault_id=vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_url: pulumi.Input[str],
+             vault_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_url", secret_url)
+        _setter("vault_id", vault_id)
 
     @property
     @pulumi.getter(name="secretUrl")
@@ -305,8 +361,19 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs:
         :param pulumi.Input[str] key_url: The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Key` resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vault_id: The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "key_url", key_url)
-        pulumi.set(__self__, "vault_id", vault_id)
+        ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_url=key_url,
+            vault_id=vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_url: pulumi.Input[str],
+             vault_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_url", key_url)
+        _setter("vault_id", vault_id)
 
     @property
     @pulumi.getter(name="keyUrl")
@@ -353,25 +420,48 @@ class ReplicatedVMNetworkInterfaceArgs:
         :param pulumi.Input[str] target_static_ip: Static IP to assign when a failover is done.
         :param pulumi.Input[str] target_subnet_name: Name of the subnet to to use when a failover is done.
         """
+        ReplicatedVMNetworkInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failover_test_public_ip_address_id=failover_test_public_ip_address_id,
+            failover_test_static_ip=failover_test_static_ip,
+            failover_test_subnet_name=failover_test_subnet_name,
+            is_primary=is_primary,
+            recovery_public_ip_address_id=recovery_public_ip_address_id,
+            source_network_interface_id=source_network_interface_id,
+            target_static_ip=target_static_ip,
+            target_subnet_name=target_subnet_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failover_test_public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             failover_test_static_ip: Optional[pulumi.Input[str]] = None,
+             failover_test_subnet_name: Optional[pulumi.Input[str]] = None,
+             is_primary: Optional[pulumi.Input[bool]] = None,
+             recovery_public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             source_network_interface_id: Optional[pulumi.Input[str]] = None,
+             target_static_ip: Optional[pulumi.Input[str]] = None,
+             target_subnet_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if failover_test_public_ip_address_id is not None:
-            pulumi.set(__self__, "failover_test_public_ip_address_id", failover_test_public_ip_address_id)
+            _setter("failover_test_public_ip_address_id", failover_test_public_ip_address_id)
         if failover_test_static_ip is not None:
-            pulumi.set(__self__, "failover_test_static_ip", failover_test_static_ip)
+            _setter("failover_test_static_ip", failover_test_static_ip)
         if failover_test_subnet_name is not None:
-            pulumi.set(__self__, "failover_test_subnet_name", failover_test_subnet_name)
+            _setter("failover_test_subnet_name", failover_test_subnet_name)
         if is_primary is not None:
             warnings.warn("""this property is not used and will be removed in version 4.0 of the provider""", DeprecationWarning)
             pulumi.log.warn("""is_primary is deprecated: this property is not used and will be removed in version 4.0 of the provider""")
         if is_primary is not None:
-            pulumi.set(__self__, "is_primary", is_primary)
+            _setter("is_primary", is_primary)
         if recovery_public_ip_address_id is not None:
-            pulumi.set(__self__, "recovery_public_ip_address_id", recovery_public_ip_address_id)
+            _setter("recovery_public_ip_address_id", recovery_public_ip_address_id)
         if source_network_interface_id is not None:
-            pulumi.set(__self__, "source_network_interface_id", source_network_interface_id)
+            _setter("source_network_interface_id", source_network_interface_id)
         if target_static_ip is not None:
-            pulumi.set(__self__, "target_static_ip", target_static_ip)
+            _setter("target_static_ip", target_static_ip)
         if target_subnet_name is not None:
-            pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+            _setter("target_subnet_name", target_subnet_name)
 
     @property
     @pulumi.getter(name="failoverTestPublicIpAddressId")
@@ -481,9 +571,22 @@ class ReplicatedVMUnmanagedDiskArgs:
         :param pulumi.Input[str] staging_storage_account_id: Storage account that should be used for caching.
         :param pulumi.Input[str] target_storage_account_id: Storage account disk should belong to when a failover is done.
         """
-        pulumi.set(__self__, "disk_uri", disk_uri)
-        pulumi.set(__self__, "staging_storage_account_id", staging_storage_account_id)
-        pulumi.set(__self__, "target_storage_account_id", target_storage_account_id)
+        ReplicatedVMUnmanagedDiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_uri=disk_uri,
+            staging_storage_account_id=staging_storage_account_id,
+            target_storage_account_id=target_storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_uri: pulumi.Input[str],
+             staging_storage_account_id: pulumi.Input[str],
+             target_storage_account_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_uri", disk_uri)
+        _setter("staging_storage_account_id", staging_storage_account_id)
+        _setter("target_storage_account_id", target_storage_account_id)
 
     @property
     @pulumi.getter(name="diskUri")
@@ -539,14 +642,29 @@ class ReplicationRecoveryPlanAzureToAzureSettingsArgs:
                
                > **Note:** `primary_zone` and `recovery_zone` must be specified together.
         """
+        ReplicationRecoveryPlanAzureToAzureSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            primary_edge_zone=primary_edge_zone,
+            primary_zone=primary_zone,
+            recovery_edge_zone=recovery_edge_zone,
+            recovery_zone=recovery_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             primary_edge_zone: Optional[pulumi.Input[str]] = None,
+             primary_zone: Optional[pulumi.Input[str]] = None,
+             recovery_edge_zone: Optional[pulumi.Input[str]] = None,
+             recovery_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if primary_edge_zone is not None:
-            pulumi.set(__self__, "primary_edge_zone", primary_edge_zone)
+            _setter("primary_edge_zone", primary_edge_zone)
         if primary_zone is not None:
-            pulumi.set(__self__, "primary_zone", primary_zone)
+            _setter("primary_zone", primary_zone)
         if recovery_edge_zone is not None:
-            pulumi.set(__self__, "recovery_edge_zone", recovery_edge_zone)
+            _setter("recovery_edge_zone", recovery_edge_zone)
         if recovery_zone is not None:
-            pulumi.set(__self__, "recovery_zone", recovery_zone)
+            _setter("recovery_zone", recovery_zone)
 
     @property
     @pulumi.getter(name="primaryEdgeZone")
@@ -612,12 +730,25 @@ class ReplicationRecoveryPlanBootRecoveryGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replicated_protected_items: One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
         """
+        ReplicationRecoveryPlanBootRecoveryGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            post_actions=post_actions,
+            pre_actions=pre_actions,
+            replicated_protected_items=replicated_protected_items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]] = None,
+             pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]] = None,
+             replicated_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if post_actions is not None:
-            pulumi.set(__self__, "post_actions", post_actions)
+            _setter("post_actions", post_actions)
         if pre_actions is not None:
-            pulumi.set(__self__, "pre_actions", pre_actions)
+            _setter("pre_actions", pre_actions)
         if replicated_protected_items is not None:
-            pulumi.set(__self__, "replicated_protected_items", replicated_protected_items)
+            _setter("replicated_protected_items", replicated_protected_items)
 
     @property
     @pulumi.getter(name="postActions")
@@ -671,7 +802,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param pulumi.Input[str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
                > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
@@ -685,18 +816,41 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
                
                > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         """
-        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
-        pulumi.set(__self__, "fail_over_types", fail_over_types)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fail_over_directions=fail_over_directions,
+            fail_over_types=fail_over_types,
+            name=name,
+            type=type,
+            fabric_location=fabric_location,
+            manual_action_instruction=manual_action_instruction,
+            runbook_id=runbook_id,
+            script_path=script_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             fabric_location: Optional[pulumi.Input[str]] = None,
+             manual_action_instruction: Optional[pulumi.Input[str]] = None,
+             runbook_id: Optional[pulumi.Input[str]] = None,
+             script_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fail_over_directions", fail_over_directions)
+        _setter("fail_over_types", fail_over_types)
+        _setter("name", name)
+        _setter("type", type)
         if fabric_location is not None:
-            pulumi.set(__self__, "fabric_location", fabric_location)
+            _setter("fabric_location", fabric_location)
         if manual_action_instruction is not None:
-            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+            _setter("manual_action_instruction", manual_action_instruction)
         if runbook_id is not None:
-            pulumi.set(__self__, "runbook_id", runbook_id)
+            _setter("runbook_id", runbook_id)
         if script_path is not None:
-            pulumi.set(__self__, "script_path", script_path)
+            _setter("script_path", script_path)
 
     @property
     @pulumi.getter(name="failOverDirections")
@@ -738,7 +892,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         """
         return pulumi.get(self, "type")
 
@@ -818,7 +972,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param pulumi.Input[str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
                > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
@@ -832,18 +986,41 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
                
                > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         """
-        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
-        pulumi.set(__self__, "fail_over_types", fail_over_types)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fail_over_directions=fail_over_directions,
+            fail_over_types=fail_over_types,
+            name=name,
+            type=type,
+            fabric_location=fabric_location,
+            manual_action_instruction=manual_action_instruction,
+            runbook_id=runbook_id,
+            script_path=script_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             fabric_location: Optional[pulumi.Input[str]] = None,
+             manual_action_instruction: Optional[pulumi.Input[str]] = None,
+             runbook_id: Optional[pulumi.Input[str]] = None,
+             script_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fail_over_directions", fail_over_directions)
+        _setter("fail_over_types", fail_over_types)
+        _setter("name", name)
+        _setter("type", type)
         if fabric_location is not None:
-            pulumi.set(__self__, "fabric_location", fabric_location)
+            _setter("fabric_location", fabric_location)
         if manual_action_instruction is not None:
-            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+            _setter("manual_action_instruction", manual_action_instruction)
         if runbook_id is not None:
-            pulumi.set(__self__, "runbook_id", runbook_id)
+            _setter("runbook_id", runbook_id)
         if script_path is not None:
-            pulumi.set(__self__, "script_path", script_path)
+            _setter("script_path", script_path)
 
     @property
     @pulumi.getter(name="failOverDirections")
@@ -885,7 +1062,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         """
         return pulumi.get(self, "type")
 
@@ -959,10 +1136,21 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
         """
+        ReplicationRecoveryPlanFailoverRecoveryGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            post_actions=post_actions,
+            pre_actions=pre_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]] = None,
+             pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if post_actions is not None:
-            pulumi.set(__self__, "post_actions", post_actions)
+            _setter("post_actions", post_actions)
         if pre_actions is not None:
-            pulumi.set(__self__, "pre_actions", pre_actions)
+            _setter("pre_actions", pre_actions)
 
     @property
     @pulumi.getter(name="postActions")
@@ -1004,7 +1192,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param pulumi.Input[str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
                > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
@@ -1018,18 +1206,41 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
                
                > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         """
-        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
-        pulumi.set(__self__, "fail_over_types", fail_over_types)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fail_over_directions=fail_over_directions,
+            fail_over_types=fail_over_types,
+            name=name,
+            type=type,
+            fabric_location=fabric_location,
+            manual_action_instruction=manual_action_instruction,
+            runbook_id=runbook_id,
+            script_path=script_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             fabric_location: Optional[pulumi.Input[str]] = None,
+             manual_action_instruction: Optional[pulumi.Input[str]] = None,
+             runbook_id: Optional[pulumi.Input[str]] = None,
+             script_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fail_over_directions", fail_over_directions)
+        _setter("fail_over_types", fail_over_types)
+        _setter("name", name)
+        _setter("type", type)
         if fabric_location is not None:
-            pulumi.set(__self__, "fabric_location", fabric_location)
+            _setter("fabric_location", fabric_location)
         if manual_action_instruction is not None:
-            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+            _setter("manual_action_instruction", manual_action_instruction)
         if runbook_id is not None:
-            pulumi.set(__self__, "runbook_id", runbook_id)
+            _setter("runbook_id", runbook_id)
         if script_path is not None:
-            pulumi.set(__self__, "script_path", script_path)
+            _setter("script_path", script_path)
 
     @property
     @pulumi.getter(name="failOverDirections")
@@ -1071,7 +1282,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         """
         return pulumi.get(self, "type")
 
@@ -1151,7 +1362,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param pulumi.Input[str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
                > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
@@ -1165,18 +1376,41 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
                
                > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         """
-        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
-        pulumi.set(__self__, "fail_over_types", fail_over_types)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fail_over_directions=fail_over_directions,
+            fail_over_types=fail_over_types,
+            name=name,
+            type=type,
+            fabric_location=fabric_location,
+            manual_action_instruction=manual_action_instruction,
+            runbook_id=runbook_id,
+            script_path=script_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             fabric_location: Optional[pulumi.Input[str]] = None,
+             manual_action_instruction: Optional[pulumi.Input[str]] = None,
+             runbook_id: Optional[pulumi.Input[str]] = None,
+             script_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fail_over_directions", fail_over_directions)
+        _setter("fail_over_types", fail_over_types)
+        _setter("name", name)
+        _setter("type", type)
         if fabric_location is not None:
-            pulumi.set(__self__, "fabric_location", fabric_location)
+            _setter("fabric_location", fabric_location)
         if manual_action_instruction is not None:
-            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+            _setter("manual_action_instruction", manual_action_instruction)
         if runbook_id is not None:
-            pulumi.set(__self__, "runbook_id", runbook_id)
+            _setter("runbook_id", runbook_id)
         if script_path is not None:
-            pulumi.set(__self__, "script_path", script_path)
+            _setter("script_path", script_path)
 
     @property
     @pulumi.getter(name="failOverDirections")
@@ -1218,7 +1452,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         """
         return pulumi.get(self, "type")
 
@@ -1296,13 +1530,28 @@ class ReplicationRecoveryPlanRecoveryGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPreActionArgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replicated_protected_items: One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
         """
-        pulumi.set(__self__, "type", type)
+        ReplicationRecoveryPlanRecoveryGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            post_actions=post_actions,
+            pre_actions=pre_actions,
+            replicated_protected_items=replicated_protected_items,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPostActionArgs']]]] = None,
+             pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPreActionArgs']]]] = None,
+             replicated_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if post_actions is not None:
-            pulumi.set(__self__, "post_actions", post_actions)
+            _setter("post_actions", post_actions)
         if pre_actions is not None:
-            pulumi.set(__self__, "pre_actions", pre_actions)
+            _setter("pre_actions", pre_actions)
         if replicated_protected_items is not None:
-            pulumi.set(__self__, "replicated_protected_items", replicated_protected_items)
+            _setter("replicated_protected_items", replicated_protected_items)
 
     @property
     @pulumi.getter
@@ -1368,7 +1617,7 @@ class ReplicationRecoveryPlanRecoveryGroupPostActionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param pulumi.Input[str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
                > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
@@ -1382,18 +1631,41 @@ class ReplicationRecoveryPlanRecoveryGroupPostActionArgs:
                
                > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         """
-        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
-        pulumi.set(__self__, "fail_over_types", fail_over_types)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ReplicationRecoveryPlanRecoveryGroupPostActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fail_over_directions=fail_over_directions,
+            fail_over_types=fail_over_types,
+            name=name,
+            type=type,
+            fabric_location=fabric_location,
+            manual_action_instruction=manual_action_instruction,
+            runbook_id=runbook_id,
+            script_path=script_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             fabric_location: Optional[pulumi.Input[str]] = None,
+             manual_action_instruction: Optional[pulumi.Input[str]] = None,
+             runbook_id: Optional[pulumi.Input[str]] = None,
+             script_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fail_over_directions", fail_over_directions)
+        _setter("fail_over_types", fail_over_types)
+        _setter("name", name)
+        _setter("type", type)
         if fabric_location is not None:
-            pulumi.set(__self__, "fabric_location", fabric_location)
+            _setter("fabric_location", fabric_location)
         if manual_action_instruction is not None:
-            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+            _setter("manual_action_instruction", manual_action_instruction)
         if runbook_id is not None:
-            pulumi.set(__self__, "runbook_id", runbook_id)
+            _setter("runbook_id", runbook_id)
         if script_path is not None:
-            pulumi.set(__self__, "script_path", script_path)
+            _setter("script_path", script_path)
 
     @property
     @pulumi.getter(name="failOverDirections")
@@ -1435,7 +1707,7 @@ class ReplicationRecoveryPlanRecoveryGroupPostActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         """
         return pulumi.get(self, "type")
 
@@ -1515,7 +1787,7 @@ class ReplicationRecoveryPlanRecoveryGroupPreActionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param pulumi.Input[str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
                > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
@@ -1529,18 +1801,41 @@ class ReplicationRecoveryPlanRecoveryGroupPreActionArgs:
                
                > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         """
-        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
-        pulumi.set(__self__, "fail_over_types", fail_over_types)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ReplicationRecoveryPlanRecoveryGroupPreActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fail_over_directions=fail_over_directions,
+            fail_over_types=fail_over_types,
+            name=name,
+            type=type,
+            fabric_location=fabric_location,
+            manual_action_instruction=manual_action_instruction,
+            runbook_id=runbook_id,
+            script_path=script_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             fabric_location: Optional[pulumi.Input[str]] = None,
+             manual_action_instruction: Optional[pulumi.Input[str]] = None,
+             runbook_id: Optional[pulumi.Input[str]] = None,
+             script_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fail_over_directions", fail_over_directions)
+        _setter("fail_over_types", fail_over_types)
+        _setter("name", name)
+        _setter("type", type)
         if fabric_location is not None:
-            pulumi.set(__self__, "fabric_location", fabric_location)
+            _setter("fabric_location", fabric_location)
         if manual_action_instruction is not None:
-            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+            _setter("manual_action_instruction", manual_action_instruction)
         if runbook_id is not None:
-            pulumi.set(__self__, "runbook_id", runbook_id)
+            _setter("runbook_id", runbook_id)
         if script_path is not None:
-            pulumi.set(__self__, "script_path", script_path)
+            _setter("script_path", script_path)
 
     @property
     @pulumi.getter(name="failOverDirections")
@@ -1582,7 +1877,7 @@ class ReplicationRecoveryPlanRecoveryGroupPreActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         """
         return pulumi.get(self, "type")
 
@@ -1656,10 +1951,21 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
         """
+        ReplicationRecoveryPlanShutdownRecoveryGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            post_actions=post_actions,
+            pre_actions=pre_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]] = None,
+             pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if post_actions is not None:
-            pulumi.set(__self__, "post_actions", post_actions)
+            _setter("post_actions", post_actions)
         if pre_actions is not None:
-            pulumi.set(__self__, "pre_actions", pre_actions)
+            _setter("pre_actions", pre_actions)
 
     @property
     @pulumi.getter(name="postActions")
@@ -1701,7 +2007,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param pulumi.Input[str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
                > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
@@ -1715,18 +2021,41 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
                
                > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         """
-        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
-        pulumi.set(__self__, "fail_over_types", fail_over_types)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fail_over_directions=fail_over_directions,
+            fail_over_types=fail_over_types,
+            name=name,
+            type=type,
+            fabric_location=fabric_location,
+            manual_action_instruction=manual_action_instruction,
+            runbook_id=runbook_id,
+            script_path=script_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             fabric_location: Optional[pulumi.Input[str]] = None,
+             manual_action_instruction: Optional[pulumi.Input[str]] = None,
+             runbook_id: Optional[pulumi.Input[str]] = None,
+             script_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fail_over_directions", fail_over_directions)
+        _setter("fail_over_types", fail_over_types)
+        _setter("name", name)
+        _setter("type", type)
         if fabric_location is not None:
-            pulumi.set(__self__, "fabric_location", fabric_location)
+            _setter("fabric_location", fabric_location)
         if manual_action_instruction is not None:
-            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+            _setter("manual_action_instruction", manual_action_instruction)
         if runbook_id is not None:
-            pulumi.set(__self__, "runbook_id", runbook_id)
+            _setter("runbook_id", runbook_id)
         if script_path is not None:
-            pulumi.set(__self__, "script_path", script_path)
+            _setter("script_path", script_path)
 
     @property
     @pulumi.getter(name="failOverDirections")
@@ -1768,7 +2097,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         """
         return pulumi.get(self, "type")
 
@@ -1848,7 +2177,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_directions: Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fail_over_types: Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        :param pulumi.Input[str] type: Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         :param pulumi.Input[str] fabric_location: The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
                
                > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
@@ -1862,18 +2191,41 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
                
                > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
         """
-        pulumi.set(__self__, "fail_over_directions", fail_over_directions)
-        pulumi.set(__self__, "fail_over_types", fail_over_types)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fail_over_directions=fail_over_directions,
+            fail_over_types=fail_over_types,
+            name=name,
+            type=type,
+            fabric_location=fabric_location,
+            manual_action_instruction=manual_action_instruction,
+            runbook_id=runbook_id,
+            script_path=script_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             fabric_location: Optional[pulumi.Input[str]] = None,
+             manual_action_instruction: Optional[pulumi.Input[str]] = None,
+             runbook_id: Optional[pulumi.Input[str]] = None,
+             script_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("fail_over_directions", fail_over_directions)
+        _setter("fail_over_types", fail_over_types)
+        _setter("name", name)
+        _setter("type", type)
         if fabric_location is not None:
-            pulumi.set(__self__, "fabric_location", fabric_location)
+            _setter("fabric_location", fabric_location)
         if manual_action_instruction is not None:
-            pulumi.set(__self__, "manual_action_instruction", manual_action_instruction)
+            _setter("manual_action_instruction", manual_action_instruction)
         if runbook_id is not None:
-            pulumi.set(__self__, "runbook_id", runbook_id)
+            _setter("runbook_id", runbook_id)
         if script_path is not None:
-            pulumi.set(__self__, "script_path", script_path)
+            _setter("script_path", script_path)
 
     @property
     @pulumi.getter(name="failOverDirections")
@@ -1915,7 +2267,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+        Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
         """
         return pulumi.get(self, "type")
 

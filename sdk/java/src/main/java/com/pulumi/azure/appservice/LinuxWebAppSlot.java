@@ -377,17 +377,9 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
     public Output<Optional<LinuxWebAppSlotLogs>> logs() {
         return Codegen.optional(this.logs);
     }
-    /**
-     * The Site Credentials Username used for publishing.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The Site Credentials Username used for publishing.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }

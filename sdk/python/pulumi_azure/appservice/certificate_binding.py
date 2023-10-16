@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CertificateBindingArgs', 'CertificateBinding']
@@ -23,9 +23,22 @@ class CertificateBindingArgs:
         :param pulumi.Input[str] hostname_binding_id: The ID of the Custom Domain/Hostname Binding. Changing this forces a new App Service Certificate Binding to be created.
         :param pulumi.Input[str] ssl_state: The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created.
         """
-        pulumi.set(__self__, "certificate_id", certificate_id)
-        pulumi.set(__self__, "hostname_binding_id", hostname_binding_id)
-        pulumi.set(__self__, "ssl_state", ssl_state)
+        CertificateBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_id=certificate_id,
+            hostname_binding_id=hostname_binding_id,
+            ssl_state=ssl_state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_id: pulumi.Input[str],
+             hostname_binding_id: pulumi.Input[str],
+             ssl_state: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_id", certificate_id)
+        _setter("hostname_binding_id", hostname_binding_id)
+        _setter("ssl_state", ssl_state)
 
     @property
     @pulumi.getter(name="certificateId")
@@ -82,18 +95,37 @@ class _CertificateBindingState:
         :param pulumi.Input[str] ssl_state: The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created.
         :param pulumi.Input[str] thumbprint: The certificate thumbprint.
         """
+        _CertificateBindingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_name=app_service_name,
+            certificate_id=certificate_id,
+            hostname=hostname,
+            hostname_binding_id=hostname_binding_id,
+            ssl_state=ssl_state,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_name: Optional[pulumi.Input[str]] = None,
+             certificate_id: Optional[pulumi.Input[str]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             hostname_binding_id: Optional[pulumi.Input[str]] = None,
+             ssl_state: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_service_name is not None:
-            pulumi.set(__self__, "app_service_name", app_service_name)
+            _setter("app_service_name", app_service_name)
         if certificate_id is not None:
-            pulumi.set(__self__, "certificate_id", certificate_id)
+            _setter("certificate_id", certificate_id)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if hostname_binding_id is not None:
-            pulumi.set(__self__, "hostname_binding_id", hostname_binding_id)
+            _setter("hostname_binding_id", hostname_binding_id)
         if ssl_state is not None:
-            pulumi.set(__self__, "ssl_state", ssl_state)
+            _setter("ssl_state", ssl_state)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="appServiceName")
@@ -221,6 +253,10 @@ class CertificateBinding(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateBindingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -48,13 +48,34 @@ class GetComputeMachineAgentConfigurationResult(dict):
         :param Sequence[str] proxy_bypasses: List of service names which should not use the specified proxy server.
         :param str proxy_url: Specifies the URL of the proxy to be used.
         """
-        pulumi.set(__self__, "extensions_allow_lists", extensions_allow_lists)
-        pulumi.set(__self__, "extensions_block_lists", extensions_block_lists)
-        pulumi.set(__self__, "extensions_enabled", extensions_enabled)
-        pulumi.set(__self__, "guest_configuration_enabled", guest_configuration_enabled)
-        pulumi.set(__self__, "incoming_connections_ports", incoming_connections_ports)
-        pulumi.set(__self__, "proxy_bypasses", proxy_bypasses)
-        pulumi.set(__self__, "proxy_url", proxy_url)
+        GetComputeMachineAgentConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extensions_allow_lists=extensions_allow_lists,
+            extensions_block_lists=extensions_block_lists,
+            extensions_enabled=extensions_enabled,
+            guest_configuration_enabled=guest_configuration_enabled,
+            incoming_connections_ports=incoming_connections_ports,
+            proxy_bypasses=proxy_bypasses,
+            proxy_url=proxy_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extensions_allow_lists: Sequence['outputs.GetComputeMachineAgentConfigurationExtensionsAllowListResult'],
+             extensions_block_lists: Sequence['outputs.GetComputeMachineAgentConfigurationExtensionsBlockListResult'],
+             extensions_enabled: bool,
+             guest_configuration_enabled: bool,
+             incoming_connections_ports: Sequence[str],
+             proxy_bypasses: Sequence[str],
+             proxy_url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("extensions_allow_lists", extensions_allow_lists)
+        _setter("extensions_block_lists", extensions_block_lists)
+        _setter("extensions_enabled", extensions_enabled)
+        _setter("guest_configuration_enabled", guest_configuration_enabled)
+        _setter("incoming_connections_ports", incoming_connections_ports)
+        _setter("proxy_bypasses", proxy_bypasses)
+        _setter("proxy_url", proxy_url)
 
     @property
     @pulumi.getter(name="extensionsAllowLists")
@@ -122,8 +143,19 @@ class GetComputeMachineAgentConfigurationExtensionsAllowListResult(dict):
         :param str publisher: Publisher of the extension.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "type", type)
+        GetComputeMachineAgentConfigurationExtensionsAllowListResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            publisher=publisher,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             publisher: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("publisher", publisher)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -151,8 +183,19 @@ class GetComputeMachineAgentConfigurationExtensionsBlockListResult(dict):
         :param str publisher: Publisher of the extension.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "type", type)
+        GetComputeMachineAgentConfigurationExtensionsBlockListResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            publisher=publisher,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             publisher: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("publisher", publisher)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -178,7 +221,16 @@ class GetComputeMachineCloudMetadataResult(dict):
         """
         :param str provider: Specifies the cloud provider. For example `Azure`, `AWS` and `GCP`.
         """
-        pulumi.set(__self__, "provider", provider)
+        GetComputeMachineCloudMetadataResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            provider=provider,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             provider: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("provider", provider)
 
     @property
     @pulumi.getter
@@ -202,10 +254,25 @@ class GetComputeMachineErrorDetailResult(dict):
         :param str message: The error message.
         :param str target: The error target.
         """
-        pulumi.set(__self__, "additional_infos", additional_infos)
-        pulumi.set(__self__, "code", code)
-        pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "target", target)
+        GetComputeMachineErrorDetailResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_infos=additional_infos,
+            code=code,
+            message=message,
+            target=target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_infos: Sequence['outputs.GetComputeMachineErrorDetailAdditionalInfoResult'],
+             code: str,
+             message: str,
+             target: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("additional_infos", additional_infos)
+        _setter("code", code)
+        _setter("message", message)
+        _setter("target", target)
 
     @property
     @pulumi.getter(name="additionalInfos")
@@ -249,8 +316,19 @@ class GetComputeMachineErrorDetailAdditionalInfoResult(dict):
         :param str info: The additional information message.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "info", info)
-        pulumi.set(__self__, "type", type)
+        GetComputeMachineErrorDetailAdditionalInfoResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            info=info,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             info: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("info", info)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -280,9 +358,22 @@ class GetComputeMachineIdentityResult(dict):
         :param str tenant_id: The tenant ID of resource.
         :param str type: The identity type.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetComputeMachineIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -322,10 +413,25 @@ class GetComputeMachineLocationDataResult(dict):
         :param str district: The district, state, or province where the resource is located.
         :param str name: The name of this hybrid compute machine.
         """
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "country_or_region", country_or_region)
-        pulumi.set(__self__, "district", district)
-        pulumi.set(__self__, "name", name)
+        GetComputeMachineLocationDataResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            city=city,
+            country_or_region=country_or_region,
+            district=district,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             city: str,
+             country_or_region: str,
+             district: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("city", city)
+        _setter("country_or_region", country_or_region)
+        _setter("district", district)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -371,9 +477,22 @@ class GetComputeMachineOsProfileResult(dict):
         :param Sequence['GetComputeMachineOsProfileLinuxConfigurationArgs'] linux_configurations: A `linux_configuration` block as defined above.
         :param Sequence['GetComputeMachineOsProfileWindowsConfigurationArgs'] windows_configurations: A `windows_configuration` block as defined below.
         """
-        pulumi.set(__self__, "computer_name", computer_name)
-        pulumi.set(__self__, "linux_configurations", linux_configurations)
-        pulumi.set(__self__, "windows_configurations", windows_configurations)
+        GetComputeMachineOsProfileResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            computer_name=computer_name,
+            linux_configurations=linux_configurations,
+            windows_configurations=windows_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             computer_name: str,
+             linux_configurations: Sequence['outputs.GetComputeMachineOsProfileLinuxConfigurationResult'],
+             windows_configurations: Sequence['outputs.GetComputeMachineOsProfileWindowsConfigurationResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("computer_name", computer_name)
+        _setter("linux_configurations", linux_configurations)
+        _setter("windows_configurations", windows_configurations)
 
     @property
     @pulumi.getter(name="computerName")
@@ -407,7 +526,16 @@ class GetComputeMachineOsProfileLinuxConfigurationResult(dict):
         """
         :param Sequence['GetComputeMachineOsProfileLinuxConfigurationPatchSettingArgs'] patch_settings: A `patch_settings` block as defined above.
         """
-        pulumi.set(__self__, "patch_settings", patch_settings)
+        GetComputeMachineOsProfileLinuxConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            patch_settings=patch_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             patch_settings: Sequence['outputs.GetComputeMachineOsProfileLinuxConfigurationPatchSettingResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("patch_settings", patch_settings)
 
     @property
     @pulumi.getter(name="patchSettings")
@@ -427,8 +555,19 @@ class GetComputeMachineOsProfileLinuxConfigurationPatchSettingResult(dict):
         :param str assessment_mode: Specifies the assessment mode.
         :param str patch_mode: Specifies the patch mode.
         """
-        pulumi.set(__self__, "assessment_mode", assessment_mode)
-        pulumi.set(__self__, "patch_mode", patch_mode)
+        GetComputeMachineOsProfileLinuxConfigurationPatchSettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_mode=assessment_mode,
+            patch_mode=patch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_mode: str,
+             patch_mode: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assessment_mode", assessment_mode)
+        _setter("patch_mode", patch_mode)
 
     @property
     @pulumi.getter(name="assessmentMode")
@@ -454,7 +593,16 @@ class GetComputeMachineOsProfileWindowsConfigurationResult(dict):
         """
         :param Sequence['GetComputeMachineOsProfileWindowsConfigurationPatchSettingArgs'] patch_settings: A `patch_settings` block as defined above.
         """
-        pulumi.set(__self__, "patch_settings", patch_settings)
+        GetComputeMachineOsProfileWindowsConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            patch_settings=patch_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             patch_settings: Sequence['outputs.GetComputeMachineOsProfileWindowsConfigurationPatchSettingResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("patch_settings", patch_settings)
 
     @property
     @pulumi.getter(name="patchSettings")
@@ -474,8 +622,19 @@ class GetComputeMachineOsProfileWindowsConfigurationPatchSettingResult(dict):
         :param str assessment_mode: Specifies the assessment mode.
         :param str patch_mode: Specifies the patch mode.
         """
-        pulumi.set(__self__, "assessment_mode", assessment_mode)
-        pulumi.set(__self__, "patch_mode", patch_mode)
+        GetComputeMachineOsProfileWindowsConfigurationPatchSettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assessment_mode=assessment_mode,
+            patch_mode=patch_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assessment_mode: str,
+             patch_mode: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assessment_mode", assessment_mode)
+        _setter("patch_mode", patch_mode)
 
     @property
     @pulumi.getter(name="assessmentMode")
@@ -503,8 +662,19 @@ class GetComputeMachineServiceStatusResult(dict):
         :param Sequence['GetComputeMachineServiceStatusExtensionServiceArgs'] extension_services: A `extension_service` block as defined above.
         :param Sequence['GetComputeMachineServiceStatusGuestConfigurationServiceArgs'] guest_configuration_services: A `guest_configuration_service` block as defined above.
         """
-        pulumi.set(__self__, "extension_services", extension_services)
-        pulumi.set(__self__, "guest_configuration_services", guest_configuration_services)
+        GetComputeMachineServiceStatusResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extension_services=extension_services,
+            guest_configuration_services=guest_configuration_services,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extension_services: Sequence['outputs.GetComputeMachineServiceStatusExtensionServiceResult'],
+             guest_configuration_services: Sequence['outputs.GetComputeMachineServiceStatusGuestConfigurationServiceResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("extension_services", extension_services)
+        _setter("guest_configuration_services", guest_configuration_services)
 
     @property
     @pulumi.getter(name="extensionServices")
@@ -532,8 +702,19 @@ class GetComputeMachineServiceStatusExtensionServiceResult(dict):
         :param str startup_type: The behavior of the service when the Arc-enabled machine starts up.
         :param str status: The current status of the service.
         """
-        pulumi.set(__self__, "startup_type", startup_type)
-        pulumi.set(__self__, "status", status)
+        GetComputeMachineServiceStatusExtensionServiceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            startup_type=startup_type,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             startup_type: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("startup_type", startup_type)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="startupType")
@@ -561,8 +742,19 @@ class GetComputeMachineServiceStatusGuestConfigurationServiceResult(dict):
         :param str startup_type: The behavior of the service when the Arc-enabled machine starts up.
         :param str status: The current status of the service.
         """
-        pulumi.set(__self__, "startup_type", startup_type)
-        pulumi.set(__self__, "status", status)
+        GetComputeMachineServiceStatusGuestConfigurationServiceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            startup_type=startup_type,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             startup_type: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("startup_type", startup_type)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="startupType")

@@ -10,14 +10,14 @@ import java.util.Objects;
 @CustomType
 public final class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2 {
     /**
-     * @return The OpenID Connect Client ID for the Apple web application.
+     * @return The ID of the Client to use to authenticate with Azure Active Directory.
      * 
      */
     private String clientId;
 
     private WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2() {}
     /**
-     * @return The OpenID Connect Client ID for the Apple web application.
+     * @return The ID of the Client to use to authenticate with Azure Active Directory.
      * 
      */
     public String clientId() {

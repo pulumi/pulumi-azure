@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServicesCommunicationsGatewayTestLineArgs', 'ServicesCommunicationsGatewayTestLine']
@@ -29,15 +29,34 @@ class ServicesCommunicationsGatewayTestLineArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Voice Services Communications Gateway Test Line. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Voice Services Communications Gateway Test Line.
         """
-        pulumi.set(__self__, "phone_number", phone_number)
-        pulumi.set(__self__, "purpose", purpose)
-        pulumi.set(__self__, "voice_services_communications_gateway_id", voice_services_communications_gateway_id)
+        ServicesCommunicationsGatewayTestLineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            phone_number=phone_number,
+            purpose=purpose,
+            voice_services_communications_gateway_id=voice_services_communications_gateway_id,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             phone_number: pulumi.Input[str],
+             purpose: pulumi.Input[str],
+             voice_services_communications_gateway_id: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("phone_number", phone_number)
+        _setter("purpose", purpose)
+        _setter("voice_services_communications_gateway_id", voice_services_communications_gateway_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="phoneNumber")
@@ -130,18 +149,37 @@ class _ServicesCommunicationsGatewayTestLineState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Voice Services Communications Gateway Test Line.
         :param pulumi.Input[str] voice_services_communications_gateway_id: Specifies the ID of the Voice Services Communications Gateway. Changing this forces a new resource to be created.
         """
+        _ServicesCommunicationsGatewayTestLineState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            name=name,
+            phone_number=phone_number,
+            purpose=purpose,
+            tags=tags,
+            voice_services_communications_gateway_id=voice_services_communications_gateway_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             purpose: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             voice_services_communications_gateway_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
         if purpose is not None:
-            pulumi.set(__self__, "purpose", purpose)
+            _setter("purpose", purpose)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if voice_services_communications_gateway_id is not None:
-            pulumi.set(__self__, "voice_services_communications_gateway_id", voice_services_communications_gateway_id)
+            _setter("voice_services_communications_gateway_id", voice_services_communications_gateway_id)
 
     @property
     @pulumi.getter
@@ -311,6 +349,10 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServicesCommunicationsGatewayTestLineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

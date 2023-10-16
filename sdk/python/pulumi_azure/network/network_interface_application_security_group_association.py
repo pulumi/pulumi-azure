@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkInterfaceApplicationSecurityGroupAssociationArgs', 'NetworkInterfaceApplicationSecurityGroupAssociation']
@@ -21,8 +21,19 @@ class NetworkInterfaceApplicationSecurityGroupAssociationArgs:
         :param pulumi.Input[str] application_security_group_id: The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "application_security_group_id", application_security_group_id)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
+        NetworkInterfaceApplicationSecurityGroupAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_security_group_id=application_security_group_id,
+            network_interface_id=network_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_security_group_id: pulumi.Input[str],
+             network_interface_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_security_group_id", application_security_group_id)
+        _setter("network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="applicationSecurityGroupId")
@@ -59,10 +70,21 @@ class _NetworkInterfaceApplicationSecurityGroupAssociationState:
         :param pulumi.Input[str] application_security_group_id: The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         """
+        _NetworkInterfaceApplicationSecurityGroupAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_security_group_id=application_security_group_id,
+            network_interface_id=network_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_security_group_id: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_security_group_id is not None:
-            pulumi.set(__self__, "application_security_group_id", application_security_group_id)
+            _setter("application_security_group_id", application_security_group_id)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="applicationSecurityGroupId")
@@ -202,6 +224,10 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInterfaceApplicationSecurityGroupAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

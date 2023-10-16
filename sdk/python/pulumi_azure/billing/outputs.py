@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -40,8 +40,19 @@ class AccountCostManagementExportExportDataOptions(dict):
         :param str time_frame: The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
         :param str type: The type of the query. Possible values are `ActualCost`, `AmortizedCost` and `Usage`.
         """
-        pulumi.set(__self__, "time_frame", time_frame)
-        pulumi.set(__self__, "type", type)
+        AccountCostManagementExportExportDataOptions._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time_frame=time_frame,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time_frame: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("time_frame", time_frame)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="timeFrame")
@@ -90,8 +101,19 @@ class AccountCostManagementExportExportDataStorageLocation(dict):
                
                > **Note:** The Resource Manager ID of a Storage Container is exposed via the `resource_manager_id` attribute of the `storage.Container` resource.
         """
-        pulumi.set(__self__, "container_id", container_id)
-        pulumi.set(__self__, "root_folder_path", root_folder_path)
+        AccountCostManagementExportExportDataStorageLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_id=container_id,
+            root_folder_path=root_folder_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_id: str,
+             root_folder_path: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container_id", container_id)
+        _setter("root_folder_path", root_folder_path)
 
     @property
     @pulumi.getter(name="containerId")

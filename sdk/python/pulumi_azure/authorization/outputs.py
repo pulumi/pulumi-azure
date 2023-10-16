@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -48,14 +48,29 @@ class RoleDefinitionPermission(dict):
         :param Sequence[str] not_actions: One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
         :param Sequence[str] not_data_actions: One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
         """
+        RoleDefinitionPermission._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            data_actions=data_actions,
+            not_actions=not_actions,
+            not_data_actions=not_data_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Optional[Sequence[str]] = None,
+             data_actions: Optional[Sequence[str]] = None,
+             not_actions: Optional[Sequence[str]] = None,
+             not_data_actions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if actions is not None:
-            pulumi.set(__self__, "actions", actions)
+            _setter("actions", actions)
         if data_actions is not None:
-            pulumi.set(__self__, "data_actions", data_actions)
+            _setter("data_actions", data_actions)
         if not_actions is not None:
-            pulumi.set(__self__, "not_actions", not_actions)
+            _setter("not_actions", not_actions)
         if not_data_actions is not None:
-            pulumi.set(__self__, "not_data_actions", not_data_actions)
+            _setter("not_data_actions", not_data_actions)
 
     @property
     @pulumi.getter
@@ -101,12 +116,27 @@ class GetRoleDefinitionPermissionResult(dict):
         :param Sequence[str] actions: a list of actions supported by this role
         :param Sequence[str] not_actions: a list of actions which are denied by this role
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "not_actions", not_actions)
+        GetRoleDefinitionPermissionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            not_actions=not_actions,
+            data_actions=data_actions,
+            not_data_actions=not_data_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence[str],
+             not_actions: Sequence[str],
+             data_actions: Optional[Sequence[str]] = None,
+             not_data_actions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("not_actions", not_actions)
         if data_actions is not None:
-            pulumi.set(__self__, "data_actions", data_actions)
+            _setter("data_actions", data_actions)
         if not_data_actions is not None:
-            pulumi.set(__self__, "not_data_actions", not_data_actions)
+            _setter("not_data_actions", not_data_actions)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['InsightsArgs', 'Insights']
@@ -49,34 +49,71 @@ class InsightsArgs:
                
                > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
         """
-        pulumi.set(__self__, "application_type", application_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        InsightsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_type=application_type,
+            resource_group_name=resource_group_name,
+            daily_data_cap_in_gb=daily_data_cap_in_gb,
+            daily_data_cap_notifications_disabled=daily_data_cap_notifications_disabled,
+            disable_ip_masking=disable_ip_masking,
+            force_customer_storage_for_profiler=force_customer_storage_for_profiler,
+            internet_ingestion_enabled=internet_ingestion_enabled,
+            internet_query_enabled=internet_query_enabled,
+            local_authentication_disabled=local_authentication_disabled,
+            location=location,
+            name=name,
+            retention_in_days=retention_in_days,
+            sampling_percentage=sampling_percentage,
+            tags=tags,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_type: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             daily_data_cap_in_gb: Optional[pulumi.Input[float]] = None,
+             daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
+             disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+             force_customer_storage_for_profiler: Optional[pulumi.Input[bool]] = None,
+             internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
+             internet_query_enabled: Optional[pulumi.Input[bool]] = None,
+             local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sampling_percentage: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_type", application_type)
+        _setter("resource_group_name", resource_group_name)
         if daily_data_cap_in_gb is not None:
-            pulumi.set(__self__, "daily_data_cap_in_gb", daily_data_cap_in_gb)
+            _setter("daily_data_cap_in_gb", daily_data_cap_in_gb)
         if daily_data_cap_notifications_disabled is not None:
-            pulumi.set(__self__, "daily_data_cap_notifications_disabled", daily_data_cap_notifications_disabled)
+            _setter("daily_data_cap_notifications_disabled", daily_data_cap_notifications_disabled)
         if disable_ip_masking is not None:
-            pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
+            _setter("disable_ip_masking", disable_ip_masking)
         if force_customer_storage_for_profiler is not None:
-            pulumi.set(__self__, "force_customer_storage_for_profiler", force_customer_storage_for_profiler)
+            _setter("force_customer_storage_for_profiler", force_customer_storage_for_profiler)
         if internet_ingestion_enabled is not None:
-            pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
+            _setter("internet_ingestion_enabled", internet_ingestion_enabled)
         if internet_query_enabled is not None:
-            pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
+            _setter("internet_query_enabled", internet_query_enabled)
         if local_authentication_disabled is not None:
-            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
+            _setter("local_authentication_disabled", local_authentication_disabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if sampling_percentage is not None:
-            pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+            _setter("sampling_percentage", sampling_percentage)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="applicationType")
@@ -305,42 +342,85 @@ class _InsightsState:
                
                > **NOTE:** This can not be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process)
         """
+        _InsightsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            application_type=application_type,
+            connection_string=connection_string,
+            daily_data_cap_in_gb=daily_data_cap_in_gb,
+            daily_data_cap_notifications_disabled=daily_data_cap_notifications_disabled,
+            disable_ip_masking=disable_ip_masking,
+            force_customer_storage_for_profiler=force_customer_storage_for_profiler,
+            instrumentation_key=instrumentation_key,
+            internet_ingestion_enabled=internet_ingestion_enabled,
+            internet_query_enabled=internet_query_enabled,
+            local_authentication_disabled=local_authentication_disabled,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            retention_in_days=retention_in_days,
+            sampling_percentage=sampling_percentage,
+            tags=tags,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[pulumi.Input[str]] = None,
+             application_type: Optional[pulumi.Input[str]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             daily_data_cap_in_gb: Optional[pulumi.Input[float]] = None,
+             daily_data_cap_notifications_disabled: Optional[pulumi.Input[bool]] = None,
+             disable_ip_masking: Optional[pulumi.Input[bool]] = None,
+             force_customer_storage_for_profiler: Optional[pulumi.Input[bool]] = None,
+             instrumentation_key: Optional[pulumi.Input[str]] = None,
+             internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
+             internet_query_enabled: Optional[pulumi.Input[bool]] = None,
+             local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sampling_percentage: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_id is not None:
-            pulumi.set(__self__, "app_id", app_id)
+            _setter("app_id", app_id)
         if application_type is not None:
-            pulumi.set(__self__, "application_type", application_type)
+            _setter("application_type", application_type)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if daily_data_cap_in_gb is not None:
-            pulumi.set(__self__, "daily_data_cap_in_gb", daily_data_cap_in_gb)
+            _setter("daily_data_cap_in_gb", daily_data_cap_in_gb)
         if daily_data_cap_notifications_disabled is not None:
-            pulumi.set(__self__, "daily_data_cap_notifications_disabled", daily_data_cap_notifications_disabled)
+            _setter("daily_data_cap_notifications_disabled", daily_data_cap_notifications_disabled)
         if disable_ip_masking is not None:
-            pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
+            _setter("disable_ip_masking", disable_ip_masking)
         if force_customer_storage_for_profiler is not None:
-            pulumi.set(__self__, "force_customer_storage_for_profiler", force_customer_storage_for_profiler)
+            _setter("force_customer_storage_for_profiler", force_customer_storage_for_profiler)
         if instrumentation_key is not None:
-            pulumi.set(__self__, "instrumentation_key", instrumentation_key)
+            _setter("instrumentation_key", instrumentation_key)
         if internet_ingestion_enabled is not None:
-            pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
+            _setter("internet_ingestion_enabled", internet_ingestion_enabled)
         if internet_query_enabled is not None:
-            pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
+            _setter("internet_query_enabled", internet_query_enabled)
         if local_authentication_disabled is not None:
-            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
+            _setter("local_authentication_disabled", local_authentication_disabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if sampling_percentage is not None:
-            pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+            _setter("sampling_percentage", sampling_percentage)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="appId")
@@ -710,6 +790,10 @@ class Insights(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            InsightsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

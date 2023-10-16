@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -127,12 +127,25 @@ class ApiContact(dict):
         :param str name: The name of the contact person/organization.
         :param str url: Absolute URL of the contact information.
         """
+        ApiContact._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            name=name,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[str] = None,
+             name: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -191,12 +204,25 @@ class ApiDiagnosticBackendRequest(dict):
         :param 'ApiDiagnosticBackendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
+        ApiDiagnosticBackendRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body_bytes=body_bytes,
+            data_masking=data_masking,
+            headers_to_logs=headers_to_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body_bytes: Optional[int] = None,
+             data_masking: Optional['outputs.ApiDiagnosticBackendRequestDataMasking'] = None,
+             headers_to_logs: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body_bytes is not None:
-            pulumi.set(__self__, "body_bytes", body_bytes)
+            _setter("body_bytes", body_bytes)
         if data_masking is not None:
-            pulumi.set(__self__, "data_masking", data_masking)
+            _setter("data_masking", data_masking)
         if headers_to_logs is not None:
-            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+            _setter("headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -249,10 +275,21 @@ class ApiDiagnosticBackendRequestDataMasking(dict):
         :param Sequence['ApiDiagnosticBackendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
+        ApiDiagnosticBackendRequestDataMasking._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            query_params=query_params,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Optional[Sequence['outputs.ApiDiagnosticBackendRequestDataMaskingHeader']] = None,
+             query_params: Optional[Sequence['outputs.ApiDiagnosticBackendRequestDataMaskingQueryParam']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_params is not None:
-            pulumi.set(__self__, "query_params", query_params)
+            _setter("query_params", query_params)
 
     @property
     @pulumi.getter
@@ -280,8 +317,19 @@ class ApiDiagnosticBackendRequestDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        ApiDiagnosticBackendRequestDataMaskingHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -309,8 +357,19 @@ class ApiDiagnosticBackendRequestDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        ApiDiagnosticBackendRequestDataMaskingQueryParam._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -361,12 +420,25 @@ class ApiDiagnosticBackendResponse(dict):
         :param 'ApiDiagnosticBackendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
+        ApiDiagnosticBackendResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body_bytes=body_bytes,
+            data_masking=data_masking,
+            headers_to_logs=headers_to_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body_bytes: Optional[int] = None,
+             data_masking: Optional['outputs.ApiDiagnosticBackendResponseDataMasking'] = None,
+             headers_to_logs: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body_bytes is not None:
-            pulumi.set(__self__, "body_bytes", body_bytes)
+            _setter("body_bytes", body_bytes)
         if data_masking is not None:
-            pulumi.set(__self__, "data_masking", data_masking)
+            _setter("data_masking", data_masking)
         if headers_to_logs is not None:
-            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+            _setter("headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -419,10 +491,21 @@ class ApiDiagnosticBackendResponseDataMasking(dict):
         :param Sequence['ApiDiagnosticBackendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
+        ApiDiagnosticBackendResponseDataMasking._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            query_params=query_params,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Optional[Sequence['outputs.ApiDiagnosticBackendResponseDataMaskingHeader']] = None,
+             query_params: Optional[Sequence['outputs.ApiDiagnosticBackendResponseDataMaskingQueryParam']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_params is not None:
-            pulumi.set(__self__, "query_params", query_params)
+            _setter("query_params", query_params)
 
     @property
     @pulumi.getter
@@ -450,8 +533,19 @@ class ApiDiagnosticBackendResponseDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        ApiDiagnosticBackendResponseDataMaskingHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -479,8 +573,19 @@ class ApiDiagnosticBackendResponseDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        ApiDiagnosticBackendResponseDataMaskingQueryParam._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -531,12 +636,25 @@ class ApiDiagnosticFrontendRequest(dict):
         :param 'ApiDiagnosticFrontendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
+        ApiDiagnosticFrontendRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body_bytes=body_bytes,
+            data_masking=data_masking,
+            headers_to_logs=headers_to_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body_bytes: Optional[int] = None,
+             data_masking: Optional['outputs.ApiDiagnosticFrontendRequestDataMasking'] = None,
+             headers_to_logs: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body_bytes is not None:
-            pulumi.set(__self__, "body_bytes", body_bytes)
+            _setter("body_bytes", body_bytes)
         if data_masking is not None:
-            pulumi.set(__self__, "data_masking", data_masking)
+            _setter("data_masking", data_masking)
         if headers_to_logs is not None:
-            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+            _setter("headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -589,10 +707,21 @@ class ApiDiagnosticFrontendRequestDataMasking(dict):
         :param Sequence['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
+        ApiDiagnosticFrontendRequestDataMasking._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            query_params=query_params,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Optional[Sequence['outputs.ApiDiagnosticFrontendRequestDataMaskingHeader']] = None,
+             query_params: Optional[Sequence['outputs.ApiDiagnosticFrontendRequestDataMaskingQueryParam']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_params is not None:
-            pulumi.set(__self__, "query_params", query_params)
+            _setter("query_params", query_params)
 
     @property
     @pulumi.getter
@@ -620,8 +749,19 @@ class ApiDiagnosticFrontendRequestDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        ApiDiagnosticFrontendRequestDataMaskingHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -649,8 +789,19 @@ class ApiDiagnosticFrontendRequestDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        ApiDiagnosticFrontendRequestDataMaskingQueryParam._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -701,12 +852,25 @@ class ApiDiagnosticFrontendResponse(dict):
         :param 'ApiDiagnosticFrontendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
+        ApiDiagnosticFrontendResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body_bytes=body_bytes,
+            data_masking=data_masking,
+            headers_to_logs=headers_to_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body_bytes: Optional[int] = None,
+             data_masking: Optional['outputs.ApiDiagnosticFrontendResponseDataMasking'] = None,
+             headers_to_logs: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body_bytes is not None:
-            pulumi.set(__self__, "body_bytes", body_bytes)
+            _setter("body_bytes", body_bytes)
         if data_masking is not None:
-            pulumi.set(__self__, "data_masking", data_masking)
+            _setter("data_masking", data_masking)
         if headers_to_logs is not None:
-            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+            _setter("headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -759,10 +923,21 @@ class ApiDiagnosticFrontendResponseDataMasking(dict):
         :param Sequence['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
+        ApiDiagnosticFrontendResponseDataMasking._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            query_params=query_params,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Optional[Sequence['outputs.ApiDiagnosticFrontendResponseDataMaskingHeader']] = None,
+             query_params: Optional[Sequence['outputs.ApiDiagnosticFrontendResponseDataMaskingQueryParam']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_params is not None:
-            pulumi.set(__self__, "query_params", query_params)
+            _setter("query_params", query_params)
 
     @property
     @pulumi.getter
@@ -790,8 +965,19 @@ class ApiDiagnosticFrontendResponseDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        ApiDiagnosticFrontendResponseDataMaskingHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -819,8 +1005,19 @@ class ApiDiagnosticFrontendResponseDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        ApiDiagnosticFrontendResponseDataMaskingQueryParam._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -871,10 +1068,23 @@ class ApiImport(dict):
         :param str content_value: The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
         :param 'ApiImportWsdlSelectorArgs' wsdl_selector: A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
         """
-        pulumi.set(__self__, "content_format", content_format)
-        pulumi.set(__self__, "content_value", content_value)
+        ApiImport._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_format=content_format,
+            content_value=content_value,
+            wsdl_selector=wsdl_selector,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_format: str,
+             content_value: str,
+             wsdl_selector: Optional['outputs.ApiImportWsdlSelector'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content_format", content_format)
+        _setter("content_value", content_value)
         if wsdl_selector is not None:
-            pulumi.set(__self__, "wsdl_selector", wsdl_selector)
+            _setter("wsdl_selector", wsdl_selector)
 
     @property
     @pulumi.getter(name="contentFormat")
@@ -929,8 +1139,19 @@ class ApiImportWsdlSelector(dict):
         :param str endpoint_name: The name of endpoint (port) to import from WSDL.
         :param str service_name: The name of service to import from WSDL.
         """
-        pulumi.set(__self__, "endpoint_name", endpoint_name)
-        pulumi.set(__self__, "service_name", service_name)
+        ApiImportWsdlSelector._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_name=endpoint_name,
+            service_name=service_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_name: str,
+             service_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_name", endpoint_name)
+        _setter("service_name", service_name)
 
     @property
     @pulumi.getter(name="endpointName")
@@ -958,10 +1179,21 @@ class ApiLicense(dict):
         :param str name: The name of the license .
         :param str url: Absolute URL of the license.
         """
+        ApiLicense._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -1006,9 +1238,20 @@ class ApiOauth2Authorization(dict):
         :param str authorization_server_name: OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
         :param str scope: Operations scope.
         """
-        pulumi.set(__self__, "authorization_server_name", authorization_server_name)
+        ApiOauth2Authorization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_server_name=authorization_server_name,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_server_name: str,
+             scope: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("authorization_server_name", authorization_server_name)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter(name="authorizationServerName")
@@ -1055,9 +1298,20 @@ class ApiOpenidAuthentication(dict):
         :param str openid_provider_name: OpenID Connect provider identifier. The name of an OpenID Connect Provider.
         :param Sequence[str] bearer_token_sending_methods: How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
         """
-        pulumi.set(__self__, "openid_provider_name", openid_provider_name)
+        ApiOpenidAuthentication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            openid_provider_name=openid_provider_name,
+            bearer_token_sending_methods=bearer_token_sending_methods,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             openid_provider_name: str,
+             bearer_token_sending_methods: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("openid_provider_name", openid_provider_name)
         if bearer_token_sending_methods is not None:
-            pulumi.set(__self__, "bearer_token_sending_methods", bearer_token_sending_methods)
+            _setter("bearer_token_sending_methods", bearer_token_sending_methods)
 
     @property
     @pulumi.getter(name="openidProviderName")
@@ -1106,14 +1360,29 @@ class ApiOperationRequest(dict):
         :param Sequence['ApiOperationRequestQueryParameterArgs'] query_parameters: One or more `query_parameter` blocks as defined above.
         :param Sequence['ApiOperationRequestRepresentationArgs'] representations: One or more `representation` blocks as defined below.
         """
+        ApiOperationRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            headers=headers,
+            query_parameters=query_parameters,
+            representations=representations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             headers: Optional[Sequence['outputs.ApiOperationRequestHeader']] = None,
+             query_parameters: Optional[Sequence['outputs.ApiOperationRequestQueryParameter']] = None,
+             representations: Optional[Sequence['outputs.ApiOperationRequestRepresentation']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_parameters is not None:
-            pulumi.set(__self__, "query_parameters", query_parameters)
+            _setter("query_parameters", query_parameters)
         if representations is not None:
-            pulumi.set(__self__, "representations", representations)
+            _setter("representations", representations)
 
     @property
     @pulumi.getter
@@ -1192,21 +1461,46 @@ class ApiOperationRequestHeader(dict):
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "required", required)
-        pulumi.set(__self__, "type", type)
+        ApiOperationRequestHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            required=required,
+            type=type,
+            default_value=default_value,
+            description=description,
+            examples=examples,
+            schema_id=schema_id,
+            type_name=type_name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             required: bool,
+             type: str,
+             default_value: Optional[str] = None,
+             description: Optional[str] = None,
+             examples: Optional[Sequence['outputs.ApiOperationRequestHeaderExample']] = None,
+             schema_id: Optional[str] = None,
+             type_name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("required", required)
+        _setter("type", type)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if examples is not None:
-            pulumi.set(__self__, "examples", examples)
+            _setter("examples", examples)
         if schema_id is not None:
-            pulumi.set(__self__, "schema_id", schema_id)
+            _setter("schema_id", schema_id)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1313,15 +1607,32 @@ class ApiOperationRequestHeaderExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        pulumi.set(__self__, "name", name)
+        ApiOperationRequestHeaderExample._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            external_value=external_value,
+            summary=summary,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             description: Optional[str] = None,
+             external_value: Optional[str] = None,
+             summary: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_value is not None:
-            pulumi.set(__self__, "external_value", external_value)
+            _setter("external_value", external_value)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1408,21 +1719,46 @@ class ApiOperationRequestQueryParameter(dict):
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Query Parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "required", required)
-        pulumi.set(__self__, "type", type)
+        ApiOperationRequestQueryParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            required=required,
+            type=type,
+            default_value=default_value,
+            description=description,
+            examples=examples,
+            schema_id=schema_id,
+            type_name=type_name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             required: bool,
+             type: str,
+             default_value: Optional[str] = None,
+             description: Optional[str] = None,
+             examples: Optional[Sequence['outputs.ApiOperationRequestQueryParameterExample']] = None,
+             schema_id: Optional[str] = None,
+             type_name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("required", required)
+        _setter("type", type)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if examples is not None:
-            pulumi.set(__self__, "examples", examples)
+            _setter("examples", examples)
         if schema_id is not None:
-            pulumi.set(__self__, "schema_id", schema_id)
+            _setter("schema_id", schema_id)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1529,15 +1865,32 @@ class ApiOperationRequestQueryParameterExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        pulumi.set(__self__, "name", name)
+        ApiOperationRequestQueryParameterExample._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            external_value=external_value,
+            summary=summary,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             description: Optional[str] = None,
+             external_value: Optional[str] = None,
+             summary: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_value is not None:
-            pulumi.set(__self__, "external_value", external_value)
+            _setter("external_value", external_value)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1624,15 +1977,32 @@ class ApiOperationRequestRepresentation(dict):
                
                > **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         """
-        pulumi.set(__self__, "content_type", content_type)
+        ApiOperationRequestRepresentation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            examples=examples,
+            form_parameters=form_parameters,
+            schema_id=schema_id,
+            type_name=type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: str,
+             examples: Optional[Sequence['outputs.ApiOperationRequestRepresentationExample']] = None,
+             form_parameters: Optional[Sequence['outputs.ApiOperationRequestRepresentationFormParameter']] = None,
+             schema_id: Optional[str] = None,
+             type_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content_type", content_type)
         if examples is not None:
-            pulumi.set(__self__, "examples", examples)
+            _setter("examples", examples)
         if form_parameters is not None:
-            pulumi.set(__self__, "form_parameters", form_parameters)
+            _setter("form_parameters", form_parameters)
         if schema_id is not None:
-            pulumi.set(__self__, "schema_id", schema_id)
+            _setter("schema_id", schema_id)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
 
     @property
     @pulumi.getter(name="contentType")
@@ -1713,15 +2083,32 @@ class ApiOperationRequestRepresentationExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        pulumi.set(__self__, "name", name)
+        ApiOperationRequestRepresentationExample._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            external_value=external_value,
+            summary=summary,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             description: Optional[str] = None,
+             external_value: Optional[str] = None,
+             summary: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_value is not None:
-            pulumi.set(__self__, "external_value", external_value)
+            _setter("external_value", external_value)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1808,21 +2195,46 @@ class ApiOperationRequestRepresentationFormParameter(dict):
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Form Parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "required", required)
-        pulumi.set(__self__, "type", type)
+        ApiOperationRequestRepresentationFormParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            required=required,
+            type=type,
+            default_value=default_value,
+            description=description,
+            examples=examples,
+            schema_id=schema_id,
+            type_name=type_name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             required: bool,
+             type: str,
+             default_value: Optional[str] = None,
+             description: Optional[str] = None,
+             examples: Optional[Sequence['outputs.ApiOperationRequestRepresentationFormParameterExample']] = None,
+             schema_id: Optional[str] = None,
+             type_name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("required", required)
+        _setter("type", type)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if examples is not None:
-            pulumi.set(__self__, "examples", examples)
+            _setter("examples", examples)
         if schema_id is not None:
-            pulumi.set(__self__, "schema_id", schema_id)
+            _setter("schema_id", schema_id)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1929,15 +2341,32 @@ class ApiOperationRequestRepresentationFormParameterExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        pulumi.set(__self__, "name", name)
+        ApiOperationRequestRepresentationFormParameterExample._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            external_value=external_value,
+            summary=summary,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             description: Optional[str] = None,
+             external_value: Optional[str] = None,
+             summary: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_value is not None:
-            pulumi.set(__self__, "external_value", external_value)
+            _setter("external_value", external_value)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2010,13 +2439,28 @@ class ApiOperationResponse(dict):
         :param Sequence['ApiOperationResponseHeaderArgs'] headers: One or more `header` blocks as defined above.
         :param Sequence['ApiOperationResponseRepresentationArgs'] representations: One or more `representation` blocks as defined below.
         """
-        pulumi.set(__self__, "status_code", status_code)
+        ApiOperationResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status_code=status_code,
+            description=description,
+            headers=headers,
+            representations=representations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status_code: int,
+             description: Optional[str] = None,
+             headers: Optional[Sequence['outputs.ApiOperationResponseHeader']] = None,
+             representations: Optional[Sequence['outputs.ApiOperationResponseRepresentation']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("status_code", status_code)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if representations is not None:
-            pulumi.set(__self__, "representations", representations)
+            _setter("representations", representations)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -2095,21 +2539,46 @@ class ApiOperationResponseHeader(dict):
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Header.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "required", required)
-        pulumi.set(__self__, "type", type)
+        ApiOperationResponseHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            required=required,
+            type=type,
+            default_value=default_value,
+            description=description,
+            examples=examples,
+            schema_id=schema_id,
+            type_name=type_name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             required: bool,
+             type: str,
+             default_value: Optional[str] = None,
+             description: Optional[str] = None,
+             examples: Optional[Sequence['outputs.ApiOperationResponseHeaderExample']] = None,
+             schema_id: Optional[str] = None,
+             type_name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("required", required)
+        _setter("type", type)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if examples is not None:
-            pulumi.set(__self__, "examples", examples)
+            _setter("examples", examples)
         if schema_id is not None:
-            pulumi.set(__self__, "schema_id", schema_id)
+            _setter("schema_id", schema_id)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2216,15 +2685,32 @@ class ApiOperationResponseHeaderExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        pulumi.set(__self__, "name", name)
+        ApiOperationResponseHeaderExample._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            external_value=external_value,
+            summary=summary,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             description: Optional[str] = None,
+             external_value: Optional[str] = None,
+             summary: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_value is not None:
-            pulumi.set(__self__, "external_value", external_value)
+            _setter("external_value", external_value)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2311,15 +2797,32 @@ class ApiOperationResponseRepresentation(dict):
                
                > **NOTE:** This can only be specified when `content_type` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         """
-        pulumi.set(__self__, "content_type", content_type)
+        ApiOperationResponseRepresentation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            examples=examples,
+            form_parameters=form_parameters,
+            schema_id=schema_id,
+            type_name=type_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: str,
+             examples: Optional[Sequence['outputs.ApiOperationResponseRepresentationExample']] = None,
+             form_parameters: Optional[Sequence['outputs.ApiOperationResponseRepresentationFormParameter']] = None,
+             schema_id: Optional[str] = None,
+             type_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content_type", content_type)
         if examples is not None:
-            pulumi.set(__self__, "examples", examples)
+            _setter("examples", examples)
         if form_parameters is not None:
-            pulumi.set(__self__, "form_parameters", form_parameters)
+            _setter("form_parameters", form_parameters)
         if schema_id is not None:
-            pulumi.set(__self__, "schema_id", schema_id)
+            _setter("schema_id", schema_id)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
 
     @property
     @pulumi.getter(name="contentType")
@@ -2400,15 +2903,32 @@ class ApiOperationResponseRepresentationExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        pulumi.set(__self__, "name", name)
+        ApiOperationResponseRepresentationExample._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            external_value=external_value,
+            summary=summary,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             description: Optional[str] = None,
+             external_value: Optional[str] = None,
+             summary: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_value is not None:
-            pulumi.set(__self__, "external_value", external_value)
+            _setter("external_value", external_value)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2495,21 +3015,46 @@ class ApiOperationResponseRepresentationFormParameter(dict):
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Form Parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "required", required)
-        pulumi.set(__self__, "type", type)
+        ApiOperationResponseRepresentationFormParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            required=required,
+            type=type,
+            default_value=default_value,
+            description=description,
+            examples=examples,
+            schema_id=schema_id,
+            type_name=type_name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             required: bool,
+             type: str,
+             default_value: Optional[str] = None,
+             description: Optional[str] = None,
+             examples: Optional[Sequence['outputs.ApiOperationResponseRepresentationFormParameterExample']] = None,
+             schema_id: Optional[str] = None,
+             type_name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("required", required)
+        _setter("type", type)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if examples is not None:
-            pulumi.set(__self__, "examples", examples)
+            _setter("examples", examples)
         if schema_id is not None:
-            pulumi.set(__self__, "schema_id", schema_id)
+            _setter("schema_id", schema_id)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2616,15 +3161,32 @@ class ApiOperationResponseRepresentationFormParameterExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        pulumi.set(__self__, "name", name)
+        ApiOperationResponseRepresentationFormParameterExample._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            external_value=external_value,
+            summary=summary,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             description: Optional[str] = None,
+             external_value: Optional[str] = None,
+             summary: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_value is not None:
-            pulumi.set(__self__, "external_value", external_value)
+            _setter("external_value", external_value)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2711,21 +3273,46 @@ class ApiOperationTemplateParameter(dict):
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Template Parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "required", required)
-        pulumi.set(__self__, "type", type)
+        ApiOperationTemplateParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            required=required,
+            type=type,
+            default_value=default_value,
+            description=description,
+            examples=examples,
+            schema_id=schema_id,
+            type_name=type_name,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             required: bool,
+             type: str,
+             default_value: Optional[str] = None,
+             description: Optional[str] = None,
+             examples: Optional[Sequence['outputs.ApiOperationTemplateParameterExample']] = None,
+             schema_id: Optional[str] = None,
+             type_name: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("required", required)
+        _setter("type", type)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if examples is not None:
-            pulumi.set(__self__, "examples", examples)
+            _setter("examples", examples)
         if schema_id is not None:
-            pulumi.set(__self__, "schema_id", schema_id)
+            _setter("schema_id", schema_id)
         if type_name is not None:
-            pulumi.set(__self__, "type_name", type_name)
+            _setter("type_name", type_name)
         if values is not None:
-            pulumi.set(__self__, "values", values)
+            _setter("values", values)
 
     @property
     @pulumi.getter
@@ -2832,15 +3419,32 @@ class ApiOperationTemplateParameterExample(dict):
         :param str summary: A short description for this example.
         :param str value: The example of the representation.
         """
-        pulumi.set(__self__, "name", name)
+        ApiOperationTemplateParameterExample._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            external_value=external_value,
+            summary=summary,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             description: Optional[str] = None,
+             external_value: Optional[str] = None,
+             summary: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_value is not None:
-            pulumi.set(__self__, "external_value", external_value)
+            _setter("external_value", external_value)
         if summary is not None:
-            pulumi.set(__self__, "summary", summary)
+            _setter("summary", summary)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2892,8 +3496,19 @@ class ApiSubscriptionKeyParameterNames(dict):
         :param str header: The name of the HTTP Header which should be used for the Subscription Key.
         :param str query: The name of the QueryString parameter which should be used for the Subscription Key.
         """
-        pulumi.set(__self__, "header", header)
-        pulumi.set(__self__, "query", query)
+        ApiSubscriptionKeyParameterNames._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+            query=query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: str,
+             query: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("header", header)
+        _setter("query", query)
 
     @property
     @pulumi.getter
@@ -2921,8 +3536,19 @@ class AuthorizationServerTokenBodyParameter(dict):
         :param str name: The Name of the Parameter.
         :param str value: The Value of the Parameter.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        AuthorizationServerTokenBodyParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2954,14 +3580,29 @@ class BackendCredentials(dict):
         :param Mapping[str, str] header: A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
         :param Mapping[str, str] query: A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
         """
+        BackendCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization=authorization,
+            certificates=certificates,
+            header=header,
+            query=query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization: Optional['outputs.BackendCredentialsAuthorization'] = None,
+             certificates: Optional[Sequence[str]] = None,
+             header: Optional[Mapping[str, str]] = None,
+             query: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if header is not None:
-            pulumi.set(__self__, "header", header)
+            _setter("header", header)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
 
     @property
     @pulumi.getter
@@ -3005,10 +3646,21 @@ class BackendCredentialsAuthorization(dict):
         :param str parameter: The authentication Parameter value.
         :param str scheme: The authentication Scheme name.
         """
+        BackendCredentialsAuthorization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameter=parameter,
+            scheme=scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameter: Optional[str] = None,
+             scheme: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if parameter is not None:
-            pulumi.set(__self__, "parameter", parameter)
+            _setter("parameter", parameter)
         if scheme is not None:
-            pulumi.set(__self__, "scheme", scheme)
+            _setter("scheme", scheme)
 
     @property
     @pulumi.getter
@@ -3038,10 +3690,23 @@ class BackendProxy(dict):
         :param str username: The username to connect to the proxy server.
         :param str password: The password to connect to the proxy server.
         """
-        pulumi.set(__self__, "url", url)
-        pulumi.set(__self__, "username", username)
+        BackendProxy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            username=username,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: str,
+             username: str,
+             password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("url", url)
+        _setter("username", username)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
 
     @property
     @pulumi.getter
@@ -3115,16 +3780,35 @@ class BackendServiceFabricCluster(dict):
         :param Sequence[str] server_certificate_thumbprints: A list of thumbprints of the server certificates of the Service Fabric cluster.
         :param Sequence['BackendServiceFabricClusterServerX509NameArgs'] server_x509_names: One or more `server_x509_name` blocks as documented below.
         """
-        pulumi.set(__self__, "management_endpoints", management_endpoints)
-        pulumi.set(__self__, "max_partition_resolution_retries", max_partition_resolution_retries)
+        BackendServiceFabricCluster._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_endpoints=management_endpoints,
+            max_partition_resolution_retries=max_partition_resolution_retries,
+            client_certificate_id=client_certificate_id,
+            client_certificate_thumbprint=client_certificate_thumbprint,
+            server_certificate_thumbprints=server_certificate_thumbprints,
+            server_x509_names=server_x509_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_endpoints: Sequence[str],
+             max_partition_resolution_retries: int,
+             client_certificate_id: Optional[str] = None,
+             client_certificate_thumbprint: Optional[str] = None,
+             server_certificate_thumbprints: Optional[Sequence[str]] = None,
+             server_x509_names: Optional[Sequence['outputs.BackendServiceFabricClusterServerX509Name']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("management_endpoints", management_endpoints)
+        _setter("max_partition_resolution_retries", max_partition_resolution_retries)
         if client_certificate_id is not None:
-            pulumi.set(__self__, "client_certificate_id", client_certificate_id)
+            _setter("client_certificate_id", client_certificate_id)
         if client_certificate_thumbprint is not None:
-            pulumi.set(__self__, "client_certificate_thumbprint", client_certificate_thumbprint)
+            _setter("client_certificate_thumbprint", client_certificate_thumbprint)
         if server_certificate_thumbprints is not None:
-            pulumi.set(__self__, "server_certificate_thumbprints", server_certificate_thumbprints)
+            _setter("server_certificate_thumbprints", server_certificate_thumbprints)
         if server_x509_names is not None:
-            pulumi.set(__self__, "server_x509_names", server_x509_names)
+            _setter("server_x509_names", server_x509_names)
 
     @property
     @pulumi.getter(name="managementEndpoints")
@@ -3204,8 +3888,19 @@ class BackendServiceFabricClusterServerX509Name(dict):
         :param str issuer_certificate_thumbprint: The thumbprint for the issuer of the certificate.
         :param str name: The name of the API Management backend. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "issuer_certificate_thumbprint", issuer_certificate_thumbprint)
-        pulumi.set(__self__, "name", name)
+        BackendServiceFabricClusterServerX509Name._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            issuer_certificate_thumbprint=issuer_certificate_thumbprint,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             issuer_certificate_thumbprint: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("issuer_certificate_thumbprint", issuer_certificate_thumbprint)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="issuerCertificateThumbprint")
@@ -3252,10 +3947,21 @@ class BackendTls(dict):
         :param bool validate_certificate_chain: Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
         :param bool validate_certificate_name: Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
         """
+        BackendTls._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            validate_certificate_chain=validate_certificate_chain,
+            validate_certificate_name=validate_certificate_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             validate_certificate_chain: Optional[bool] = None,
+             validate_certificate_name: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if validate_certificate_chain is not None:
-            pulumi.set(__self__, "validate_certificate_chain", validate_certificate_chain)
+            _setter("validate_certificate_chain", validate_certificate_chain)
         if validate_certificate_name is not None:
-            pulumi.set(__self__, "validate_certificate_name", validate_certificate_name)
+            _setter("validate_certificate_name", validate_certificate_name)
 
     @property
     @pulumi.getter(name="validateCertificateChain")
@@ -3327,27 +4033,56 @@ class CustomDomainDeveloperPortal(dict):
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
-        pulumi.set(__self__, "host_name", host_name)
+        CustomDomainDeveloperPortal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            certificate=certificate,
+            certificate_password=certificate_password,
+            certificate_source=certificate_source,
+            certificate_status=certificate_status,
+            expiry=expiry,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
+            subject=subject,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             certificate: Optional[str] = None,
+             certificate_password: Optional[str] = None,
+             certificate_source: Optional[str] = None,
+             certificate_status: Optional[str] = None,
+             expiry: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             ssl_keyvault_identity_client_id: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if certificate_source is not None:
-            pulumi.set(__self__, "certificate_source", certificate_source)
+            _setter("certificate_source", certificate_source)
         if certificate_status is not None:
-            pulumi.set(__self__, "certificate_status", certificate_status)
+            _setter("certificate_status", certificate_status)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+            _setter("negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -3482,29 +4217,60 @@ class CustomDomainGateway(dict):
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
-        pulumi.set(__self__, "host_name", host_name)
+        CustomDomainGateway._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            certificate=certificate,
+            certificate_password=certificate_password,
+            certificate_source=certificate_source,
+            certificate_status=certificate_status,
+            default_ssl_binding=default_ssl_binding,
+            expiry=expiry,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
+            subject=subject,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             certificate: Optional[str] = None,
+             certificate_password: Optional[str] = None,
+             certificate_source: Optional[str] = None,
+             certificate_status: Optional[str] = None,
+             default_ssl_binding: Optional[bool] = None,
+             expiry: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             ssl_keyvault_identity_client_id: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if certificate_source is not None:
-            pulumi.set(__self__, "certificate_source", certificate_source)
+            _setter("certificate_source", certificate_source)
         if certificate_status is not None:
-            pulumi.set(__self__, "certificate_status", certificate_status)
+            _setter("certificate_status", certificate_status)
         if default_ssl_binding is not None:
-            pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
+            _setter("default_ssl_binding", default_ssl_binding)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+            _setter("negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -3642,31 +4408,57 @@ class CustomDomainManagement(dict):
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
-               
-               
-               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
-        pulumi.set(__self__, "host_name", host_name)
+        CustomDomainManagement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            certificate=certificate,
+            certificate_password=certificate_password,
+            certificate_source=certificate_source,
+            certificate_status=certificate_status,
+            expiry=expiry,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
+            subject=subject,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             certificate: Optional[str] = None,
+             certificate_password: Optional[str] = None,
+             certificate_source: Optional[str] = None,
+             certificate_status: Optional[str] = None,
+             expiry: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             ssl_keyvault_identity_client_id: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if certificate_source is not None:
-            pulumi.set(__self__, "certificate_source", certificate_source)
+            _setter("certificate_source", certificate_source)
         if certificate_status is not None:
-            pulumi.set(__self__, "certificate_status", certificate_status)
+            _setter("certificate_status", certificate_status)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+            _setter("negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -3728,9 +4520,6 @@ class CustomDomainManagement(dict):
     def ssl_keyvault_identity_client_id(self) -> Optional[str]:
         """
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
-
-        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
-
 
         > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
@@ -3799,31 +4588,57 @@ class CustomDomainPortal(dict):
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
-               
-               
-               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
-        pulumi.set(__self__, "host_name", host_name)
+        CustomDomainPortal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            certificate=certificate,
+            certificate_password=certificate_password,
+            certificate_source=certificate_source,
+            certificate_status=certificate_status,
+            expiry=expiry,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
+            subject=subject,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             certificate: Optional[str] = None,
+             certificate_password: Optional[str] = None,
+             certificate_source: Optional[str] = None,
+             certificate_status: Optional[str] = None,
+             expiry: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             ssl_keyvault_identity_client_id: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if certificate_source is not None:
-            pulumi.set(__self__, "certificate_source", certificate_source)
+            _setter("certificate_source", certificate_source)
         if certificate_status is not None:
-            pulumi.set(__self__, "certificate_status", certificate_status)
+            _setter("certificate_status", certificate_status)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+            _setter("negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -3885,9 +4700,6 @@ class CustomDomainPortal(dict):
     def ssl_keyvault_identity_client_id(self) -> Optional[str]:
         """
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
-
-        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
-
 
         > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
@@ -3956,31 +4768,57 @@ class CustomDomainScm(dict):
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
                
                > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
-               
-               
-               > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
-        pulumi.set(__self__, "host_name", host_name)
+        CustomDomainScm._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            certificate=certificate,
+            certificate_password=certificate_password,
+            certificate_source=certificate_source,
+            certificate_status=certificate_status,
+            expiry=expiry,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
+            subject=subject,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             certificate: Optional[str] = None,
+             certificate_password: Optional[str] = None,
+             certificate_source: Optional[str] = None,
+             certificate_status: Optional[str] = None,
+             expiry: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             ssl_keyvault_identity_client_id: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if certificate_source is not None:
-            pulumi.set(__self__, "certificate_source", certificate_source)
+            _setter("certificate_source", certificate_source)
         if certificate_status is not None:
-            pulumi.set(__self__, "certificate_status", certificate_status)
+            _setter("certificate_status", certificate_status)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+            _setter("negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -4044,9 +4882,6 @@ class CustomDomainScm(dict):
         System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 
         > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
-
-
-        > **NOTE:** If a User Assigned Managed identity is specified for `ssl_keyvault_identity_client_id` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
         """
         return pulumi.get(self, "ssl_keyvault_identity_client_id")
 
@@ -4093,12 +4928,25 @@ class DiagnosticBackendRequest(dict):
         :param 'DiagnosticBackendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
+        DiagnosticBackendRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body_bytes=body_bytes,
+            data_masking=data_masking,
+            headers_to_logs=headers_to_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body_bytes: Optional[int] = None,
+             data_masking: Optional['outputs.DiagnosticBackendRequestDataMasking'] = None,
+             headers_to_logs: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body_bytes is not None:
-            pulumi.set(__self__, "body_bytes", body_bytes)
+            _setter("body_bytes", body_bytes)
         if data_masking is not None:
-            pulumi.set(__self__, "data_masking", data_masking)
+            _setter("data_masking", data_masking)
         if headers_to_logs is not None:
-            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+            _setter("headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -4151,10 +4999,21 @@ class DiagnosticBackendRequestDataMasking(dict):
         :param Sequence['DiagnosticBackendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['DiagnosticBackendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
+        DiagnosticBackendRequestDataMasking._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            query_params=query_params,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Optional[Sequence['outputs.DiagnosticBackendRequestDataMaskingHeader']] = None,
+             query_params: Optional[Sequence['outputs.DiagnosticBackendRequestDataMaskingQueryParam']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_params is not None:
-            pulumi.set(__self__, "query_params", query_params)
+            _setter("query_params", query_params)
 
     @property
     @pulumi.getter
@@ -4182,8 +5041,19 @@ class DiagnosticBackendRequestDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        DiagnosticBackendRequestDataMaskingHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4211,8 +5081,19 @@ class DiagnosticBackendRequestDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        DiagnosticBackendRequestDataMaskingQueryParam._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4263,12 +5144,25 @@ class DiagnosticBackendResponse(dict):
         :param 'DiagnosticBackendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
+        DiagnosticBackendResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body_bytes=body_bytes,
+            data_masking=data_masking,
+            headers_to_logs=headers_to_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body_bytes: Optional[int] = None,
+             data_masking: Optional['outputs.DiagnosticBackendResponseDataMasking'] = None,
+             headers_to_logs: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body_bytes is not None:
-            pulumi.set(__self__, "body_bytes", body_bytes)
+            _setter("body_bytes", body_bytes)
         if data_masking is not None:
-            pulumi.set(__self__, "data_masking", data_masking)
+            _setter("data_masking", data_masking)
         if headers_to_logs is not None:
-            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+            _setter("headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -4321,10 +5215,21 @@ class DiagnosticBackendResponseDataMasking(dict):
         :param Sequence['DiagnosticBackendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['DiagnosticBackendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
+        DiagnosticBackendResponseDataMasking._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            query_params=query_params,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Optional[Sequence['outputs.DiagnosticBackendResponseDataMaskingHeader']] = None,
+             query_params: Optional[Sequence['outputs.DiagnosticBackendResponseDataMaskingQueryParam']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_params is not None:
-            pulumi.set(__self__, "query_params", query_params)
+            _setter("query_params", query_params)
 
     @property
     @pulumi.getter
@@ -4352,8 +5257,19 @@ class DiagnosticBackendResponseDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        DiagnosticBackendResponseDataMaskingHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4381,8 +5297,19 @@ class DiagnosticBackendResponseDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        DiagnosticBackendResponseDataMaskingQueryParam._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4433,12 +5360,25 @@ class DiagnosticFrontendRequest(dict):
         :param 'DiagnosticFrontendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
+        DiagnosticFrontendRequest._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body_bytes=body_bytes,
+            data_masking=data_masking,
+            headers_to_logs=headers_to_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body_bytes: Optional[int] = None,
+             data_masking: Optional['outputs.DiagnosticFrontendRequestDataMasking'] = None,
+             headers_to_logs: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body_bytes is not None:
-            pulumi.set(__self__, "body_bytes", body_bytes)
+            _setter("body_bytes", body_bytes)
         if data_masking is not None:
-            pulumi.set(__self__, "data_masking", data_masking)
+            _setter("data_masking", data_masking)
         if headers_to_logs is not None:
-            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+            _setter("headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -4491,10 +5431,21 @@ class DiagnosticFrontendRequestDataMasking(dict):
         :param Sequence['DiagnosticFrontendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['DiagnosticFrontendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
+        DiagnosticFrontendRequestDataMasking._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            query_params=query_params,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Optional[Sequence['outputs.DiagnosticFrontendRequestDataMaskingHeader']] = None,
+             query_params: Optional[Sequence['outputs.DiagnosticFrontendRequestDataMaskingQueryParam']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_params is not None:
-            pulumi.set(__self__, "query_params", query_params)
+            _setter("query_params", query_params)
 
     @property
     @pulumi.getter
@@ -4522,8 +5473,19 @@ class DiagnosticFrontendRequestDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        DiagnosticFrontendRequestDataMaskingHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4551,8 +5513,19 @@ class DiagnosticFrontendRequestDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        DiagnosticFrontendRequestDataMaskingQueryParam._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4603,12 +5576,25 @@ class DiagnosticFrontendResponse(dict):
         :param 'DiagnosticFrontendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
+        DiagnosticFrontendResponse._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body_bytes=body_bytes,
+            data_masking=data_masking,
+            headers_to_logs=headers_to_logs,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body_bytes: Optional[int] = None,
+             data_masking: Optional['outputs.DiagnosticFrontendResponseDataMasking'] = None,
+             headers_to_logs: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body_bytes is not None:
-            pulumi.set(__self__, "body_bytes", body_bytes)
+            _setter("body_bytes", body_bytes)
         if data_masking is not None:
-            pulumi.set(__self__, "data_masking", data_masking)
+            _setter("data_masking", data_masking)
         if headers_to_logs is not None:
-            pulumi.set(__self__, "headers_to_logs", headers_to_logs)
+            _setter("headers_to_logs", headers_to_logs)
 
     @property
     @pulumi.getter(name="bodyBytes")
@@ -4661,10 +5647,21 @@ class DiagnosticFrontendResponseDataMasking(dict):
         :param Sequence['DiagnosticFrontendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
         :param Sequence['DiagnosticFrontendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
         """
+        DiagnosticFrontendResponseDataMasking._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            headers=headers,
+            query_params=query_params,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             headers: Optional[Sequence['outputs.DiagnosticFrontendResponseDataMaskingHeader']] = None,
+             query_params: Optional[Sequence['outputs.DiagnosticFrontendResponseDataMaskingQueryParam']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if query_params is not None:
-            pulumi.set(__self__, "query_params", query_params)
+            _setter("query_params", query_params)
 
     @property
     @pulumi.getter
@@ -4692,8 +5689,19 @@ class DiagnosticFrontendResponseDataMaskingHeader(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        DiagnosticFrontendResponseDataMaskingHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4721,8 +5729,19 @@ class DiagnosticFrontendResponseDataMaskingQueryParam(dict):
         :param str mode: The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
         :param str value: The name of the header or the query parameter to mask.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "value", value)
+        DiagnosticFrontendResponseDataMaskingQueryParam._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -4754,13 +5773,28 @@ class GatewayLocationData(dict):
         :param str district: The district, state, or province where the resource is located.
         :param str region: The country or region where the resource is located.
         """
-        pulumi.set(__self__, "name", name)
+        GatewayLocationData._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            city=city,
+            district=district,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             city: Optional[str] = None,
+             district: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if city is not None:
-            pulumi.set(__self__, "city", city)
+            _setter("city", city)
         if district is not None:
-            pulumi.set(__self__, "district", district)
+            _setter("district", district)
         if region is not None:
-            pulumi.set(__self__, "region", region)
+            _setter("region", region)
 
     @property
     @pulumi.getter
@@ -4819,7 +5853,16 @@ class LoggerApplicationInsights(dict):
         """
         :param str instrumentation_key: The instrumentation key used to push data to Application Insights.
         """
-        pulumi.set(__self__, "instrumentation_key", instrumentation_key)
+        LoggerApplicationInsights._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            instrumentation_key=instrumentation_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             instrumentation_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("instrumentation_key", instrumentation_key)
 
     @property
     @pulumi.getter(name="instrumentationKey")
@@ -4856,8 +5899,19 @@ class LoggerEventhub(dict):
         :param str connection_string: The connection string of an EventHub Namespace.
         :param str name: The name of an EventHub.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "name", name)
+        LoggerEventhub._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("connection_string", connection_string)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -4904,9 +5958,20 @@ class NamedValueValueFromKeyVault(dict):
         :param str secret_id: The resource ID of the Key Vault Secret.
         :param str identity_client_id: The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
         """
-        pulumi.set(__self__, "secret_id", secret_id)
+        NamedValueValueFromKeyVault._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_id=secret_id,
+            identity_client_id=identity_client_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_id: str,
+             identity_client_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("secret_id", secret_id)
         if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
+            _setter("identity_client_id", identity_client_id)
 
     @property
     @pulumi.getter(name="secretId")
@@ -4977,23 +6042,48 @@ class ServiceAdditionalLocation(dict):
         :param 'ServiceAdditionalLocationVirtualNetworkConfigurationArgs' virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param Sequence[str] zones: A list of availability zones. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "location", location)
+        ServiceAdditionalLocation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            capacity=capacity,
+            gateway_disabled=gateway_disabled,
+            gateway_regional_url=gateway_regional_url,
+            private_ip_addresses=private_ip_addresses,
+            public_ip_address_id=public_ip_address_id,
+            public_ip_addresses=public_ip_addresses,
+            virtual_network_configuration=virtual_network_configuration,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: str,
+             capacity: Optional[int] = None,
+             gateway_disabled: Optional[bool] = None,
+             gateway_regional_url: Optional[str] = None,
+             private_ip_addresses: Optional[Sequence[str]] = None,
+             public_ip_address_id: Optional[str] = None,
+             public_ip_addresses: Optional[Sequence[str]] = None,
+             virtual_network_configuration: Optional['outputs.ServiceAdditionalLocationVirtualNetworkConfiguration'] = None,
+             zones: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("location", location)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if gateway_disabled is not None:
-            pulumi.set(__self__, "gateway_disabled", gateway_disabled)
+            _setter("gateway_disabled", gateway_disabled)
         if gateway_regional_url is not None:
-            pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
+            _setter("gateway_regional_url", gateway_regional_url)
         if private_ip_addresses is not None:
-            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+            _setter("private_ip_addresses", private_ip_addresses)
         if public_ip_address_id is not None:
-            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+            _setter("public_ip_address_id", public_ip_address_id)
         if public_ip_addresses is not None:
-            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+            _setter("public_ip_addresses", public_ip_addresses)
         if virtual_network_configuration is not None:
-            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+            _setter("virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -5094,7 +6184,16 @@ class ServiceAdditionalLocationVirtualNetworkConfiguration(dict):
         """
         :param str subnet_id: The id of the subnet that will be used for the API Management.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        ServiceAdditionalLocationVirtualNetworkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -5143,16 +6242,35 @@ class ServiceCertificate(dict):
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
-        pulumi.set(__self__, "encoded_certificate", encoded_certificate)
-        pulumi.set(__self__, "store_name", store_name)
+        ServiceCertificate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encoded_certificate=encoded_certificate,
+            store_name=store_name,
+            certificate_password=certificate_password,
+            expiry=expiry,
+            subject=subject,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encoded_certificate: str,
+             store_name: str,
+             certificate_password: Optional[str] = None,
+             expiry: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("encoded_certificate", encoded_certificate)
+        _setter("store_name", store_name)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="encodedCertificate")
@@ -5237,14 +6355,29 @@ class ServiceDelegation(dict):
         :param bool user_registration_enabled: Should user registration requests be delegated to an external url? Defaults to `false`.
         :param str validation_key: A base64-encoded validation key to validate, that a request is coming from Azure API Management.
         """
+        ServiceDelegation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subscriptions_enabled=subscriptions_enabled,
+            url=url,
+            user_registration_enabled=user_registration_enabled,
+            validation_key=validation_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subscriptions_enabled: Optional[bool] = None,
+             url: Optional[str] = None,
+             user_registration_enabled: Optional[bool] = None,
+             validation_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if subscriptions_enabled is not None:
-            pulumi.set(__self__, "subscriptions_enabled", subscriptions_enabled)
+            _setter("subscriptions_enabled", subscriptions_enabled)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if user_registration_enabled is not None:
-            pulumi.set(__self__, "user_registration_enabled", user_registration_enabled)
+            _setter("user_registration_enabled", user_registration_enabled)
         if validation_key is not None:
-            pulumi.set(__self__, "validation_key", validation_key)
+            _setter("validation_key", validation_key)
 
     @property
     @pulumi.getter(name="subscriptionsEnabled")
@@ -5311,16 +6444,33 @@ class ServiceHostnameConfiguration(dict):
         :param Sequence['ServiceHostnameConfigurationProxyArgs'] proxies: One or more `proxy` blocks as documented below.
         :param Sequence['ServiceHostnameConfigurationScmArgs'] scms: One or more `scm` blocks as documented below.
         """
+        ServiceHostnameConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            developer_portals=developer_portals,
+            managements=managements,
+            portals=portals,
+            proxies=proxies,
+            scms=scms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             developer_portals: Optional[Sequence['outputs.ServiceHostnameConfigurationDeveloperPortal']] = None,
+             managements: Optional[Sequence['outputs.ServiceHostnameConfigurationManagement']] = None,
+             portals: Optional[Sequence['outputs.ServiceHostnameConfigurationPortal']] = None,
+             proxies: Optional[Sequence['outputs.ServiceHostnameConfigurationProxy']] = None,
+             scms: Optional[Sequence['outputs.ServiceHostnameConfigurationScm']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if developer_portals is not None:
-            pulumi.set(__self__, "developer_portals", developer_portals)
+            _setter("developer_portals", developer_portals)
         if managements is not None:
-            pulumi.set(__self__, "managements", managements)
+            _setter("managements", managements)
         if portals is not None:
-            pulumi.set(__self__, "portals", portals)
+            _setter("portals", portals)
         if proxies is not None:
-            pulumi.set(__self__, "proxies", proxies)
+            _setter("proxies", proxies)
         if scms is not None:
-            pulumi.set(__self__, "scms", scms)
+            _setter("scms", scms)
 
     @property
     @pulumi.getter(name="developerPortals")
@@ -5410,21 +6560,12 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
         :param str certificate_password: The password for the certificate.
-               
-               
-               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
-               
-               
-               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param str certificate_source: The source of the certificate.
         :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
                
                > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
-               
-               
-               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
                
@@ -5432,27 +6573,56 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
-        pulumi.set(__self__, "host_name", host_name)
+        ServiceHostnameConfigurationDeveloperPortal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            certificate=certificate,
+            certificate_password=certificate_password,
+            certificate_source=certificate_source,
+            certificate_status=certificate_status,
+            expiry=expiry,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
+            subject=subject,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             certificate: Optional[str] = None,
+             certificate_password: Optional[str] = None,
+             certificate_source: Optional[str] = None,
+             certificate_status: Optional[str] = None,
+             expiry: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             ssl_keyvault_identity_client_id: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if certificate_source is not None:
-            pulumi.set(__self__, "certificate_source", certificate_source)
+            _setter("certificate_source", certificate_source)
         if certificate_status is not None:
-            pulumi.set(__self__, "certificate_status", certificate_status)
+            _setter("certificate_status", certificate_status)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+            _setter("negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -5475,12 +6645,6 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
     def certificate_password(self) -> Optional[str]:
         """
         The password for the certificate.
-
-
-        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
-
-
-        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -5515,9 +6679,6 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
         The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 
         > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
-
-
-        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -5618,27 +6779,56 @@ class ServiceHostnameConfigurationManagement(dict):
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
-        pulumi.set(__self__, "host_name", host_name)
+        ServiceHostnameConfigurationManagement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            certificate=certificate,
+            certificate_password=certificate_password,
+            certificate_source=certificate_source,
+            certificate_status=certificate_status,
+            expiry=expiry,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
+            subject=subject,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             certificate: Optional[str] = None,
+             certificate_password: Optional[str] = None,
+             certificate_source: Optional[str] = None,
+             certificate_status: Optional[str] = None,
+             expiry: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             ssl_keyvault_identity_client_id: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if certificate_source is not None:
-            pulumi.set(__self__, "certificate_source", certificate_source)
+            _setter("certificate_source", certificate_source)
         if certificate_status is not None:
-            pulumi.set(__self__, "certificate_status", certificate_status)
+            _setter("certificate_status", certificate_status)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+            _setter("negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -5782,21 +6972,12 @@ class ServiceHostnameConfigurationPortal(dict):
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
         :param str certificate_password: The password for the certificate.
-               
-               
-               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
-               
-               
-               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param str certificate_source: The source of the certificate.
         :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
                
                > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
-               
-               
-               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
                
@@ -5804,27 +6985,56 @@ class ServiceHostnameConfigurationPortal(dict):
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
-        pulumi.set(__self__, "host_name", host_name)
+        ServiceHostnameConfigurationPortal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            certificate=certificate,
+            certificate_password=certificate_password,
+            certificate_source=certificate_source,
+            certificate_status=certificate_status,
+            expiry=expiry,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
+            subject=subject,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             certificate: Optional[str] = None,
+             certificate_password: Optional[str] = None,
+             certificate_source: Optional[str] = None,
+             certificate_status: Optional[str] = None,
+             expiry: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             ssl_keyvault_identity_client_id: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if certificate_source is not None:
-            pulumi.set(__self__, "certificate_source", certificate_source)
+            _setter("certificate_source", certificate_source)
         if certificate_status is not None:
-            pulumi.set(__self__, "certificate_status", certificate_status)
+            _setter("certificate_status", certificate_status)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+            _setter("negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -5847,12 +7057,6 @@ class ServiceHostnameConfigurationPortal(dict):
     def certificate_password(self) -> Optional[str]:
         """
         The password for the certificate.
-
-
-        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
-
-
-        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -5887,9 +7091,6 @@ class ServiceHostnameConfigurationPortal(dict):
         The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 
         > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
-
-
-        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -5992,29 +7193,60 @@ class ServiceHostnameConfigurationProxy(dict):
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
-        pulumi.set(__self__, "host_name", host_name)
+        ServiceHostnameConfigurationProxy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            certificate=certificate,
+            certificate_password=certificate_password,
+            certificate_source=certificate_source,
+            certificate_status=certificate_status,
+            default_ssl_binding=default_ssl_binding,
+            expiry=expiry,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
+            subject=subject,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             certificate: Optional[str] = None,
+             certificate_password: Optional[str] = None,
+             certificate_source: Optional[str] = None,
+             certificate_status: Optional[str] = None,
+             default_ssl_binding: Optional[bool] = None,
+             expiry: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             ssl_keyvault_identity_client_id: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if certificate_source is not None:
-            pulumi.set(__self__, "certificate_source", certificate_source)
+            _setter("certificate_source", certificate_source)
         if certificate_status is not None:
-            pulumi.set(__self__, "certificate_status", certificate_status)
+            _setter("certificate_status", certificate_status)
         if default_ssl_binding is not None:
-            pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
+            _setter("default_ssl_binding", default_ssl_binding)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+            _setter("negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -6164,21 +7396,12 @@ class ServiceHostnameConfigurationScm(dict):
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
         :param str certificate_password: The password for the certificate.
-               
-               
-               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
-               
-               
-               > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         :param str certificate_source: The source of the certificate.
         :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
                
                > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
-               
-               
-               > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
         :param str ssl_keyvault_identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
                
@@ -6186,27 +7409,56 @@ class ServiceHostnameConfigurationScm(dict):
         :param str subject: The subject of the certificate.
         :param str thumbprint: The thumbprint of the certificate.
         """
-        pulumi.set(__self__, "host_name", host_name)
+        ServiceHostnameConfigurationScm._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            certificate=certificate,
+            certificate_password=certificate_password,
+            certificate_source=certificate_source,
+            certificate_status=certificate_status,
+            expiry=expiry,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+            ssl_keyvault_identity_client_id=ssl_keyvault_identity_client_id,
+            subject=subject,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             certificate: Optional[str] = None,
+             certificate_password: Optional[str] = None,
+             certificate_source: Optional[str] = None,
+             certificate_status: Optional[str] = None,
+             expiry: Optional[str] = None,
+             key_vault_id: Optional[str] = None,
+             negotiate_client_certificate: Optional[bool] = None,
+             ssl_keyvault_identity_client_id: Optional[str] = None,
+             subject: Optional[str] = None,
+             thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if certificate_password is not None:
-            pulumi.set(__self__, "certificate_password", certificate_password)
+            _setter("certificate_password", certificate_password)
         if certificate_source is not None:
-            pulumi.set(__self__, "certificate_source", certificate_source)
+            _setter("certificate_source", certificate_source)
         if certificate_status is not None:
-            pulumi.set(__self__, "certificate_status", certificate_status)
+            _setter("certificate_status", certificate_status)
         if expiry is not None:
-            pulumi.set(__self__, "expiry", expiry)
+            _setter("expiry", expiry)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if negotiate_client_certificate is not None:
-            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+            _setter("negotiate_client_certificate", negotiate_client_certificate)
         if ssl_keyvault_identity_client_id is not None:
-            pulumi.set(__self__, "ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
+            _setter("ssl_keyvault_identity_client_id", ssl_keyvault_identity_client_id)
         if subject is not None:
-            pulumi.set(__self__, "subject", subject)
+            _setter("subject", subject)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="hostName")
@@ -6229,12 +7481,6 @@ class ServiceHostnameConfigurationScm(dict):
     def certificate_password(self) -> Optional[str]:
         """
         The password for the certificate.
-
-
-        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
-
-
-        > **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
         """
         return pulumi.get(self, "certificate_password")
 
@@ -6269,9 +7515,6 @@ class ServiceHostnameConfigurationScm(dict):
         The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
 
         > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
-
-
-        > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -6346,13 +7589,28 @@ class ServiceIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The identifier for the tenant access information contract.
         """
-        pulumi.set(__self__, "type", type)
+        ServiceIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -6417,10 +7675,21 @@ class ServicePolicy(dict):
         :param str xml_content: The XML Content for this Policy.
         :param str xml_link: A link to an API Management Policy XML Document, which must be publicly available.
         """
+        ServicePolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            xml_content=xml_content,
+            xml_link=xml_link,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             xml_content: Optional[str] = None,
+             xml_link: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if xml_content is not None:
-            pulumi.set(__self__, "xml_content", xml_content)
+            _setter("xml_content", xml_content)
         if xml_link is not None:
-            pulumi.set(__self__, "xml_link", xml_link)
+            _setter("xml_link", xml_link)
 
     @property
     @pulumi.getter(name="xmlContent")
@@ -6463,8 +7732,17 @@ class ServiceProtocols(dict):
         """
         :param bool enable_http2: Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
         """
+        ServiceProtocols._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_http2=enable_http2,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_http2: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_http2 is not None:
-            pulumi.set(__self__, "enable_http2", enable_http2)
+            _setter("enable_http2", enable_http2)
 
     @property
     @pulumi.getter(name="enableHttp2")
@@ -6597,40 +7875,81 @@ class ServiceSecurity(dict):
                
                > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         """
+        ServiceSecurity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_backend_ssl30=enable_backend_ssl30,
+            enable_backend_tls10=enable_backend_tls10,
+            enable_backend_tls11=enable_backend_tls11,
+            enable_frontend_ssl30=enable_frontend_ssl30,
+            enable_frontend_tls10=enable_frontend_tls10,
+            enable_frontend_tls11=enable_frontend_tls11,
+            tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled=tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled,
+            tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled=tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled,
+            tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled=tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled,
+            tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled=tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled,
+            tls_rsa_with_aes128_cbc_sha256_ciphers_enabled=tls_rsa_with_aes128_cbc_sha256_ciphers_enabled,
+            tls_rsa_with_aes128_cbc_sha_ciphers_enabled=tls_rsa_with_aes128_cbc_sha_ciphers_enabled,
+            tls_rsa_with_aes128_gcm_sha256_ciphers_enabled=tls_rsa_with_aes128_gcm_sha256_ciphers_enabled,
+            tls_rsa_with_aes256_cbc_sha256_ciphers_enabled=tls_rsa_with_aes256_cbc_sha256_ciphers_enabled,
+            tls_rsa_with_aes256_cbc_sha_ciphers_enabled=tls_rsa_with_aes256_cbc_sha_ciphers_enabled,
+            tls_rsa_with_aes256_gcm_sha384_ciphers_enabled=tls_rsa_with_aes256_gcm_sha384_ciphers_enabled,
+            triple_des_ciphers_enabled=triple_des_ciphers_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_backend_ssl30: Optional[bool] = None,
+             enable_backend_tls10: Optional[bool] = None,
+             enable_backend_tls11: Optional[bool] = None,
+             enable_frontend_ssl30: Optional[bool] = None,
+             enable_frontend_tls10: Optional[bool] = None,
+             enable_frontend_tls11: Optional[bool] = None,
+             tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled: Optional[bool] = None,
+             tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled: Optional[bool] = None,
+             tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled: Optional[bool] = None,
+             tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled: Optional[bool] = None,
+             tls_rsa_with_aes128_cbc_sha256_ciphers_enabled: Optional[bool] = None,
+             tls_rsa_with_aes128_cbc_sha_ciphers_enabled: Optional[bool] = None,
+             tls_rsa_with_aes128_gcm_sha256_ciphers_enabled: Optional[bool] = None,
+             tls_rsa_with_aes256_cbc_sha256_ciphers_enabled: Optional[bool] = None,
+             tls_rsa_with_aes256_cbc_sha_ciphers_enabled: Optional[bool] = None,
+             tls_rsa_with_aes256_gcm_sha384_ciphers_enabled: Optional[bool] = None,
+             triple_des_ciphers_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_backend_ssl30 is not None:
-            pulumi.set(__self__, "enable_backend_ssl30", enable_backend_ssl30)
+            _setter("enable_backend_ssl30", enable_backend_ssl30)
         if enable_backend_tls10 is not None:
-            pulumi.set(__self__, "enable_backend_tls10", enable_backend_tls10)
+            _setter("enable_backend_tls10", enable_backend_tls10)
         if enable_backend_tls11 is not None:
-            pulumi.set(__self__, "enable_backend_tls11", enable_backend_tls11)
+            _setter("enable_backend_tls11", enable_backend_tls11)
         if enable_frontend_ssl30 is not None:
-            pulumi.set(__self__, "enable_frontend_ssl30", enable_frontend_ssl30)
+            _setter("enable_frontend_ssl30", enable_frontend_ssl30)
         if enable_frontend_tls10 is not None:
-            pulumi.set(__self__, "enable_frontend_tls10", enable_frontend_tls10)
+            _setter("enable_frontend_tls10", enable_frontend_tls10)
         if enable_frontend_tls11 is not None:
-            pulumi.set(__self__, "enable_frontend_tls11", enable_frontend_tls11)
+            _setter("enable_frontend_tls11", enable_frontend_tls11)
         if tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled is not None:
-            pulumi.set(__self__, "tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled", tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled)
+            _setter("tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled", tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled)
         if tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled is not None:
-            pulumi.set(__self__, "tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled", tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled)
+            _setter("tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled", tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled)
         if tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled is not None:
-            pulumi.set(__self__, "tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled", tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled)
+            _setter("tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled", tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled)
         if tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled is not None:
-            pulumi.set(__self__, "tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled", tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled)
+            _setter("tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled", tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled)
         if tls_rsa_with_aes128_cbc_sha256_ciphers_enabled is not None:
-            pulumi.set(__self__, "tls_rsa_with_aes128_cbc_sha256_ciphers_enabled", tls_rsa_with_aes128_cbc_sha256_ciphers_enabled)
+            _setter("tls_rsa_with_aes128_cbc_sha256_ciphers_enabled", tls_rsa_with_aes128_cbc_sha256_ciphers_enabled)
         if tls_rsa_with_aes128_cbc_sha_ciphers_enabled is not None:
-            pulumi.set(__self__, "tls_rsa_with_aes128_cbc_sha_ciphers_enabled", tls_rsa_with_aes128_cbc_sha_ciphers_enabled)
+            _setter("tls_rsa_with_aes128_cbc_sha_ciphers_enabled", tls_rsa_with_aes128_cbc_sha_ciphers_enabled)
         if tls_rsa_with_aes128_gcm_sha256_ciphers_enabled is not None:
-            pulumi.set(__self__, "tls_rsa_with_aes128_gcm_sha256_ciphers_enabled", tls_rsa_with_aes128_gcm_sha256_ciphers_enabled)
+            _setter("tls_rsa_with_aes128_gcm_sha256_ciphers_enabled", tls_rsa_with_aes128_gcm_sha256_ciphers_enabled)
         if tls_rsa_with_aes256_cbc_sha256_ciphers_enabled is not None:
-            pulumi.set(__self__, "tls_rsa_with_aes256_cbc_sha256_ciphers_enabled", tls_rsa_with_aes256_cbc_sha256_ciphers_enabled)
+            _setter("tls_rsa_with_aes256_cbc_sha256_ciphers_enabled", tls_rsa_with_aes256_cbc_sha256_ciphers_enabled)
         if tls_rsa_with_aes256_cbc_sha_ciphers_enabled is not None:
-            pulumi.set(__self__, "tls_rsa_with_aes256_cbc_sha_ciphers_enabled", tls_rsa_with_aes256_cbc_sha_ciphers_enabled)
+            _setter("tls_rsa_with_aes256_cbc_sha_ciphers_enabled", tls_rsa_with_aes256_cbc_sha_ciphers_enabled)
         if tls_rsa_with_aes256_gcm_sha384_ciphers_enabled is not None:
-            pulumi.set(__self__, "tls_rsa_with_aes256_gcm_sha384_ciphers_enabled", tls_rsa_with_aes256_gcm_sha384_ciphers_enabled)
+            _setter("tls_rsa_with_aes256_gcm_sha384_ciphers_enabled", tls_rsa_with_aes256_gcm_sha384_ciphers_enabled)
         if triple_des_ciphers_enabled is not None:
-            pulumi.set(__self__, "triple_des_ciphers_enabled", triple_des_ciphers_enabled)
+            _setter("triple_des_ciphers_enabled", triple_des_ciphers_enabled)
 
     @property
     @pulumi.getter(name="enableBackendSsl30")
@@ -6810,7 +8129,16 @@ class ServiceSignIn(dict):
         """
         :param bool enabled: Should anonymous users be redirected to the sign in page?
         """
-        pulumi.set(__self__, "enabled", enabled)
+        ServiceSignIn._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
 
     @property
     @pulumi.getter
@@ -6847,8 +8175,19 @@ class ServiceSignUp(dict):
         :param bool enabled: Can users sign up on the development portal?
         :param 'ServiceSignUpTermsOfServiceArgs' terms_of_service: A `terms_of_service` block as defined below.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "terms_of_service", terms_of_service)
+        ServiceSignUp._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            terms_of_service=terms_of_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             terms_of_service: 'outputs.ServiceSignUpTermsOfService',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("terms_of_service", terms_of_service)
 
     @property
     @pulumi.getter
@@ -6895,10 +8234,23 @@ class ServiceSignUpTermsOfService(dict):
         :param bool enabled: Should Terms of Service be displayed during sign up?.
         :param str text: The Terms of Service which users are required to agree to in order to sign up.
         """
-        pulumi.set(__self__, "consent_required", consent_required)
-        pulumi.set(__self__, "enabled", enabled)
+        ServiceSignUpTermsOfService._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consent_required=consent_required,
+            enabled=enabled,
+            text=text,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consent_required: bool,
+             enabled: bool,
+             text: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("consent_required", consent_required)
+        _setter("enabled", enabled)
         if text is not None:
-            pulumi.set(__self__, "text", text)
+            _setter("text", text)
 
     @property
     @pulumi.getter(name="consentRequired")
@@ -6959,13 +8311,28 @@ class ServiceTenantAccess(dict):
         :param str secondary_key: Secondary access key for the tenant access information contract.
         :param str tenant_id: The identifier for the tenant access information contract.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        ServiceTenantAccess._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            primary_key=primary_key,
+            secondary_key=secondary_key,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             primary_key: Optional[str] = None,
+             secondary_key: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -7024,7 +8391,16 @@ class ServiceVirtualNetworkConfiguration(dict):
         """
         :param str subnet_id: The id of the subnet that will be used for the API Management.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        ServiceVirtualNetworkConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -7044,8 +8420,19 @@ class GetApiSubscriptionKeyParameterNameResult(dict):
         :param str header: The name of the HTTP Header which should be used for the Subscription Key.
         :param str query: The name of the QueryString parameter which should be used for the Subscription Key.
         """
-        pulumi.set(__self__, "header", header)
-        pulumi.set(__self__, "query", query)
+        GetApiSubscriptionKeyParameterNameResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            header=header,
+            query=query,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             header: str,
+             query: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("header", header)
+        _setter("query", query)
 
     @property
     @pulumi.getter
@@ -7076,10 +8463,25 @@ class GetGatewayLocationDataResult(dict):
         :param str district: The district, state, or province where the resource is located.
         :param str name: The name of the API Management Gateway.
         """
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "district", district)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "region", region)
+        GetGatewayLocationDataResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            city=city,
+            district=district,
+            name=name,
+            region=region,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             city: str,
+             district: str,
+             name: str,
+             region: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("city", city)
+        _setter("district", district)
+        _setter("name", name)
+        _setter("region", region)
 
     @property
     @pulumi.getter
@@ -7130,13 +8532,34 @@ class GetServiceAdditionalLocationResult(dict):
         :param Sequence[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         :param Sequence[str] zones: List of the availability zones where API Management is deployed in the additional region exists.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
-        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
-        pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
-        pulumi.set(__self__, "zones", zones)
+        GetServiceAdditionalLocationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            gateway_regional_url=gateway_regional_url,
+            location=location,
+            private_ip_addresses=private_ip_addresses,
+            public_ip_address_id=public_ip_address_id,
+            public_ip_addresses=public_ip_addresses,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: int,
+             gateway_regional_url: str,
+             location: str,
+             private_ip_addresses: Sequence[str],
+             public_ip_address_id: str,
+             public_ip_addresses: Sequence[str],
+             zones: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity", capacity)
+        _setter("gateway_regional_url", gateway_regional_url)
+        _setter("location", location)
+        _setter("private_ip_addresses", private_ip_addresses)
+        _setter("public_ip_address_id", public_ip_address_id)
+        _setter("public_ip_addresses", public_ip_addresses)
+        _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -7210,11 +8633,28 @@ class GetServiceHostnameConfigurationResult(dict):
         :param Sequence['GetServiceHostnameConfigurationProxyArgs'] proxies: One or more `proxy` blocks as documented below.
         :param Sequence['GetServiceHostnameConfigurationScmArgs'] scms: One or more `scm` blocks as documented below.
         """
-        pulumi.set(__self__, "developer_portals", developer_portals)
-        pulumi.set(__self__, "managements", managements)
-        pulumi.set(__self__, "portals", portals)
-        pulumi.set(__self__, "proxies", proxies)
-        pulumi.set(__self__, "scms", scms)
+        GetServiceHostnameConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            developer_portals=developer_portals,
+            managements=managements,
+            portals=portals,
+            proxies=proxies,
+            scms=scms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             developer_portals: Sequence['outputs.GetServiceHostnameConfigurationDeveloperPortalResult'],
+             managements: Sequence['outputs.GetServiceHostnameConfigurationManagementResult'],
+             portals: Sequence['outputs.GetServiceHostnameConfigurationPortalResult'],
+             proxies: Sequence['outputs.GetServiceHostnameConfigurationProxyResult'],
+             scms: Sequence['outputs.GetServiceHostnameConfigurationScmResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("developer_portals", developer_portals)
+        _setter("managements", managements)
+        _setter("portals", portals)
+        _setter("proxies", proxies)
+        _setter("scms", scms)
 
     @property
     @pulumi.getter(name="developerPortals")
@@ -7268,9 +8708,22 @@ class GetServiceHostnameConfigurationDeveloperPortalResult(dict):
         :param str key_vault_id: The ID of the Key Vault Secret which contains the SSL Certificate.
         :param bool negotiate_client_certificate: Is Client Certificate Negotiation enabled?
         """
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        GetServiceHostnameConfigurationDeveloperPortalResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             key_vault_id: str,
+             negotiate_client_certificate: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
+        _setter("key_vault_id", key_vault_id)
+        _setter("negotiate_client_certificate", negotiate_client_certificate)
 
     @property
     @pulumi.getter(name="hostName")
@@ -7308,9 +8761,22 @@ class GetServiceHostnameConfigurationManagementResult(dict):
         :param str key_vault_id: The ID of the Key Vault Secret which contains the SSL Certificate.
         :param bool negotiate_client_certificate: Is Client Certificate Negotiation enabled?
         """
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        GetServiceHostnameConfigurationManagementResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             key_vault_id: str,
+             negotiate_client_certificate: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
+        _setter("key_vault_id", key_vault_id)
+        _setter("negotiate_client_certificate", negotiate_client_certificate)
 
     @property
     @pulumi.getter(name="hostName")
@@ -7348,9 +8814,22 @@ class GetServiceHostnameConfigurationPortalResult(dict):
         :param str key_vault_id: The ID of the Key Vault Secret which contains the SSL Certificate.
         :param bool negotiate_client_certificate: Is Client Certificate Negotiation enabled?
         """
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        GetServiceHostnameConfigurationPortalResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             key_vault_id: str,
+             negotiate_client_certificate: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
+        _setter("key_vault_id", key_vault_id)
+        _setter("negotiate_client_certificate", negotiate_client_certificate)
 
     @property
     @pulumi.getter(name="hostName")
@@ -7390,10 +8869,25 @@ class GetServiceHostnameConfigurationProxyResult(dict):
         :param str key_vault_id: The ID of the Key Vault Secret which contains the SSL Certificate.
         :param bool negotiate_client_certificate: Is Client Certificate Negotiation enabled?
         """
-        pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        GetServiceHostnameConfigurationProxyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_ssl_binding=default_ssl_binding,
+            host_name=host_name,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_ssl_binding: bool,
+             host_name: str,
+             key_vault_id: str,
+             negotiate_client_certificate: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_ssl_binding", default_ssl_binding)
+        _setter("host_name", host_name)
+        _setter("key_vault_id", key_vault_id)
+        _setter("negotiate_client_certificate", negotiate_client_certificate)
 
     @property
     @pulumi.getter(name="defaultSslBinding")
@@ -7439,9 +8933,22 @@ class GetServiceHostnameConfigurationScmResult(dict):
         :param str key_vault_id: The ID of the Key Vault Secret which contains the SSL Certificate.
         :param bool negotiate_client_certificate: Is Client Certificate Negotiation enabled?
         """
-        pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+        GetServiceHostnameConfigurationScmResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_name=host_name,
+            key_vault_id=key_vault_id,
+            negotiate_client_certificate=negotiate_client_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_name: str,
+             key_vault_id: str,
+             negotiate_client_certificate: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("host_name", host_name)
+        _setter("key_vault_id", key_vault_id)
+        _setter("negotiate_client_certificate", negotiate_client_certificate)
 
     @property
     @pulumi.getter(name="hostName")
@@ -7481,10 +8988,25 @@ class GetServiceIdentityResult(dict):
         :param str tenant_id: The ID of the Tenant which has access to this API Management instance.
         :param str type: The type of Managed Service Identity that is configured on this API Management Service.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetServiceIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Sequence[str],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -7532,10 +9054,25 @@ class GetServiceTenantAccessResult(dict):
         :param str secondary_key: Secondary access key for the tenant access information contract.
         :param str tenant_id: The ID of the Tenant which has access to this API Management instance.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "primary_key", primary_key)
-        pulumi.set(__self__, "secondary_key", secondary_key)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        GetServiceTenantAccessResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            primary_key=primary_key,
+            secondary_key=secondary_key,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             primary_key: str,
+             secondary_key: str,
+             tenant_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("primary_key", primary_key)
+        _setter("secondary_key", secondary_key)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter

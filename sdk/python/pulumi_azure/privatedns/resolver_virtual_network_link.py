@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResolverVirtualNetworkLinkArgs', 'ResolverVirtualNetworkLink']
@@ -25,12 +25,27 @@ class ResolverVirtualNetworkLinkArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Virtual Network Link.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
         """
-        pulumi.set(__self__, "dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
-        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+        ResolverVirtualNetworkLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_forwarding_ruleset_id=dns_forwarding_ruleset_id,
+            virtual_network_id=virtual_network_id,
+            metadata=metadata,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_forwarding_ruleset_id: pulumi.Input[str],
+             virtual_network_id: pulumi.Input[str],
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
+        _setter("virtual_network_id", virtual_network_id)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dnsForwardingRulesetId")
@@ -95,14 +110,29 @@ class _ResolverVirtualNetworkLinkState:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created.
         """
+        _ResolverVirtualNetworkLinkState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_forwarding_ruleset_id=dns_forwarding_ruleset_id,
+            metadata=metadata,
+            name=name,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_forwarding_ruleset_id: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_forwarding_ruleset_id is not None:
-            pulumi.set(__self__, "dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
+            _setter("dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter(name="dnsForwardingRulesetId")
@@ -304,6 +334,10 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResolverVirtualNetworkLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

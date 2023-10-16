@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,23 @@ class RoutingIntentArgs:
         :param pulumi.Input[str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "routing_policies", routing_policies)
-        pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+        RoutingIntentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            routing_policies=routing_policies,
+            virtual_hub_id=virtual_hub_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             routing_policies: pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]],
+             virtual_hub_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("routing_policies", routing_policies)
+        _setter("virtual_hub_id", virtual_hub_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="routingPolicies")
@@ -79,12 +92,25 @@ class _RoutingIntentState:
         :param pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]] routing_policies: One or more `routing_policy` blocks as defined below.
         :param pulumi.Input[str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         """
+        _RoutingIntentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            routing_policies=routing_policies,
+            virtual_hub_id=virtual_hub_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if routing_policies is not None:
-            pulumi.set(__self__, "routing_policies", routing_policies)
+            _setter("routing_policies", routing_policies)
         if virtual_hub_id is not None:
-            pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+            _setter("virtual_hub_id", virtual_hub_id)
 
     @property
     @pulumi.getter
@@ -242,6 +268,10 @@ class RoutingIntent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoutingIntentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

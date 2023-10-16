@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,16 +33,37 @@ class DataLakeGen2PathArgs:
         :param pulumi.Input[str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
         :param pulumi.Input[str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
         """
-        pulumi.set(__self__, "filesystem_name", filesystem_name)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "resource", resource)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        DataLakeGen2PathArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filesystem_name=filesystem_name,
+            path=path,
+            resource=resource,
+            storage_account_id=storage_account_id,
+            aces=aces,
+            group=group,
+            owner=owner,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filesystem_name: pulumi.Input[str],
+             path: pulumi.Input[str],
+             resource: pulumi.Input[str],
+             storage_account_id: pulumi.Input[str],
+             aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]] = None,
+             group: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filesystem_name", filesystem_name)
+        _setter("path", path)
+        _setter("resource", resource)
+        _setter("storage_account_id", storage_account_id)
         if aces is not None:
-            pulumi.set(__self__, "aces", aces)
+            _setter("aces", aces)
         if group is not None:
-            pulumi.set(__self__, "group", group)
+            _setter("group", group)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
 
     @property
     @pulumi.getter(name="filesystemName")
@@ -149,20 +170,41 @@ class _DataLakeGen2PathState:
         :param pulumi.Input[str] resource: Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
         """
+        _DataLakeGen2PathState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aces=aces,
+            filesystem_name=filesystem_name,
+            group=group,
+            owner=owner,
+            path=path,
+            resource=resource,
+            storage_account_id=storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aces: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeGen2PathAceArgs']]]] = None,
+             filesystem_name: Optional[pulumi.Input[str]] = None,
+             group: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             resource: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if aces is not None:
-            pulumi.set(__self__, "aces", aces)
+            _setter("aces", aces)
         if filesystem_name is not None:
-            pulumi.set(__self__, "filesystem_name", filesystem_name)
+            _setter("filesystem_name", filesystem_name)
         if group is not None:
-            pulumi.set(__self__, "group", group)
+            _setter("group", group)
         if owner is not None:
-            pulumi.set(__self__, "owner", owner)
+            _setter("owner", owner)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if resource is not None:
-            pulumi.set(__self__, "resource", resource)
+            _setter("resource", resource)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter
@@ -358,6 +400,10 @@ class DataLakeGen2Path(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataLakeGen2PathArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

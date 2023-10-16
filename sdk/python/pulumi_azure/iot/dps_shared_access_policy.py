@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DpsSharedAccessPolicyArgs', 'DpsSharedAccessPolicy']
@@ -41,20 +41,43 @@ class DpsSharedAccessPolicyArgs:
                
                > **NOTE** At least one of `registration_read`, `registration_write`, `service_config`, `enrollment_read`, `enrollment_write` permissions must be set to `true`.
         """
-        pulumi.set(__self__, "iothub_dps_name", iothub_dps_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DpsSharedAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iothub_dps_name=iothub_dps_name,
+            resource_group_name=resource_group_name,
+            enrollment_read=enrollment_read,
+            enrollment_write=enrollment_write,
+            name=name,
+            registration_read=registration_read,
+            registration_write=registration_write,
+            service_config=service_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iothub_dps_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             enrollment_read: Optional[pulumi.Input[bool]] = None,
+             enrollment_write: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             registration_read: Optional[pulumi.Input[bool]] = None,
+             registration_write: Optional[pulumi.Input[bool]] = None,
+             service_config: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("iothub_dps_name", iothub_dps_name)
+        _setter("resource_group_name", resource_group_name)
         if enrollment_read is not None:
-            pulumi.set(__self__, "enrollment_read", enrollment_read)
+            _setter("enrollment_read", enrollment_read)
         if enrollment_write is not None:
-            pulumi.set(__self__, "enrollment_write", enrollment_write)
+            _setter("enrollment_write", enrollment_write)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if registration_read is not None:
-            pulumi.set(__self__, "registration_read", registration_read)
+            _setter("registration_read", registration_read)
         if registration_write is not None:
-            pulumi.set(__self__, "registration_write", registration_write)
+            _setter("registration_write", registration_write)
         if service_config is not None:
-            pulumi.set(__self__, "service_config", service_config)
+            _setter("service_config", service_config)
 
     @property
     @pulumi.getter(name="iothubDpsName")
@@ -199,30 +222,61 @@ class _DpsSharedAccessPolicyState:
                
                > **NOTE** At least one of `registration_read`, `registration_write`, `service_config`, `enrollment_read`, `enrollment_write` permissions must be set to `true`.
         """
+        _DpsSharedAccessPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enrollment_read=enrollment_read,
+            enrollment_write=enrollment_write,
+            iothub_dps_name=iothub_dps_name,
+            name=name,
+            primary_connection_string=primary_connection_string,
+            primary_key=primary_key,
+            registration_read=registration_read,
+            registration_write=registration_write,
+            resource_group_name=resource_group_name,
+            secondary_connection_string=secondary_connection_string,
+            secondary_key=secondary_key,
+            service_config=service_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enrollment_read: Optional[pulumi.Input[bool]] = None,
+             enrollment_write: Optional[pulumi.Input[bool]] = None,
+             iothub_dps_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             primary_connection_string: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             registration_read: Optional[pulumi.Input[bool]] = None,
+             registration_write: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             service_config: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enrollment_read is not None:
-            pulumi.set(__self__, "enrollment_read", enrollment_read)
+            _setter("enrollment_read", enrollment_read)
         if enrollment_write is not None:
-            pulumi.set(__self__, "enrollment_write", enrollment_write)
+            _setter("enrollment_write", enrollment_write)
         if iothub_dps_name is not None:
-            pulumi.set(__self__, "iothub_dps_name", iothub_dps_name)
+            _setter("iothub_dps_name", iothub_dps_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if primary_connection_string is not None:
-            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+            _setter("primary_connection_string", primary_connection_string)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if registration_read is not None:
-            pulumi.set(__self__, "registration_read", registration_read)
+            _setter("registration_read", registration_read)
         if registration_write is not None:
-            pulumi.set(__self__, "registration_write", registration_write)
+            _setter("registration_write", registration_write)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if secondary_connection_string is not None:
-            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+            _setter("secondary_connection_string", secondary_connection_string)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
         if service_config is not None:
-            pulumi.set(__self__, "service_config", service_config)
+            _setter("service_config", service_config)
 
     @property
     @pulumi.getter(name="enrollmentRead")
@@ -490,6 +544,10 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DpsSharedAccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

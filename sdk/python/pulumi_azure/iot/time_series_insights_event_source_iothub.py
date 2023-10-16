@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TimeSeriesInsightsEventSourceIothubArgs', 'TimeSeriesInsightsEventSourceIothub']
@@ -37,20 +37,47 @@ class TimeSeriesInsightsEventSourceIothubArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timestamp_property_name: Specifies the value that will be used as the event source's timestamp. This value defaults to the event creation time.
         """
-        pulumi.set(__self__, "consumer_group_name", consumer_group_name)
-        pulumi.set(__self__, "environment_id", environment_id)
-        pulumi.set(__self__, "event_source_resource_id", event_source_resource_id)
-        pulumi.set(__self__, "iothub_name", iothub_name)
-        pulumi.set(__self__, "shared_access_key", shared_access_key)
-        pulumi.set(__self__, "shared_access_key_name", shared_access_key_name)
+        TimeSeriesInsightsEventSourceIothubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consumer_group_name=consumer_group_name,
+            environment_id=environment_id,
+            event_source_resource_id=event_source_resource_id,
+            iothub_name=iothub_name,
+            shared_access_key=shared_access_key,
+            shared_access_key_name=shared_access_key_name,
+            location=location,
+            name=name,
+            tags=tags,
+            timestamp_property_name=timestamp_property_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consumer_group_name: pulumi.Input[str],
+             environment_id: pulumi.Input[str],
+             event_source_resource_id: pulumi.Input[str],
+             iothub_name: pulumi.Input[str],
+             shared_access_key: pulumi.Input[str],
+             shared_access_key_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timestamp_property_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("consumer_group_name", consumer_group_name)
+        _setter("environment_id", environment_id)
+        _setter("event_source_resource_id", event_source_resource_id)
+        _setter("iothub_name", iothub_name)
+        _setter("shared_access_key", shared_access_key)
+        _setter("shared_access_key_name", shared_access_key_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timestamp_property_name is not None:
-            pulumi.set(__self__, "timestamp_property_name", timestamp_property_name)
+            _setter("timestamp_property_name", timestamp_property_name)
 
     @property
     @pulumi.getter(name="consumerGroupName")
@@ -199,26 +226,53 @@ class _TimeSeriesInsightsEventSourceIothubState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timestamp_property_name: Specifies the value that will be used as the event source's timestamp. This value defaults to the event creation time.
         """
+        _TimeSeriesInsightsEventSourceIothubState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            consumer_group_name=consumer_group_name,
+            environment_id=environment_id,
+            event_source_resource_id=event_source_resource_id,
+            iothub_name=iothub_name,
+            location=location,
+            name=name,
+            shared_access_key=shared_access_key,
+            shared_access_key_name=shared_access_key_name,
+            tags=tags,
+            timestamp_property_name=timestamp_property_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             consumer_group_name: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             event_source_resource_id: Optional[pulumi.Input[str]] = None,
+             iothub_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             shared_access_key: Optional[pulumi.Input[str]] = None,
+             shared_access_key_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timestamp_property_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if consumer_group_name is not None:
-            pulumi.set(__self__, "consumer_group_name", consumer_group_name)
+            _setter("consumer_group_name", consumer_group_name)
         if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
+            _setter("environment_id", environment_id)
         if event_source_resource_id is not None:
-            pulumi.set(__self__, "event_source_resource_id", event_source_resource_id)
+            _setter("event_source_resource_id", event_source_resource_id)
         if iothub_name is not None:
-            pulumi.set(__self__, "iothub_name", iothub_name)
+            _setter("iothub_name", iothub_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if shared_access_key is not None:
-            pulumi.set(__self__, "shared_access_key", shared_access_key)
+            _setter("shared_access_key", shared_access_key)
         if shared_access_key_name is not None:
-            pulumi.set(__self__, "shared_access_key_name", shared_access_key_name)
+            _setter("shared_access_key_name", shared_access_key_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timestamp_property_name is not None:
-            pulumi.set(__self__, "timestamp_property_name", timestamp_property_name)
+            _setter("timestamp_property_name", timestamp_property_name)
 
     @property
     @pulumi.getter(name="consumerGroupName")
@@ -492,6 +546,10 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TimeSeriesInsightsEventSourceIothubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

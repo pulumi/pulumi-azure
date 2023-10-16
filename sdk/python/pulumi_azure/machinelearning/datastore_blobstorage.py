@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DatastoreBlobstorageArgs', 'DatastoreBlobstorage']
@@ -39,22 +39,47 @@ class DatastoreBlobstorageArgs:
                > **Note:**  One of `account_key` or `shared_access_signature` must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         """
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        DatastoreBlobstorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_container_id=storage_container_id,
+            workspace_id=workspace_id,
+            account_key=account_key,
+            description=description,
+            is_default=is_default,
+            name=name,
+            service_data_auth_identity=service_data_auth_identity,
+            shared_access_signature=shared_access_signature,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_container_id: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             account_key: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             service_data_auth_identity: Optional[pulumi.Input[str]] = None,
+             shared_access_signature: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("storage_container_id", storage_container_id)
+        _setter("workspace_id", workspace_id)
         if account_key is not None:
-            pulumi.set(__self__, "account_key", account_key)
+            _setter("account_key", account_key)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if service_data_auth_identity is not None:
-            pulumi.set(__self__, "service_data_auth_identity", service_data_auth_identity)
+            _setter("service_data_auth_identity", service_data_auth_identity)
         if shared_access_signature is not None:
-            pulumi.set(__self__, "shared_access_signature", shared_access_signature)
+            _setter("shared_access_signature", shared_access_signature)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="storageContainerId")
@@ -197,24 +222,49 @@ class _DatastoreBlobstorageState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         :param pulumi.Input[str] workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         """
+        _DatastoreBlobstorageState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_key=account_key,
+            description=description,
+            is_default=is_default,
+            name=name,
+            service_data_auth_identity=service_data_auth_identity,
+            shared_access_signature=shared_access_signature,
+            storage_container_id=storage_container_id,
+            tags=tags,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_key: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             service_data_auth_identity: Optional[pulumi.Input[str]] = None,
+             shared_access_signature: Optional[pulumi.Input[str]] = None,
+             storage_container_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_key is not None:
-            pulumi.set(__self__, "account_key", account_key)
+            _setter("account_key", account_key)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if service_data_auth_identity is not None:
-            pulumi.set(__self__, "service_data_auth_identity", service_data_auth_identity)
+            _setter("service_data_auth_identity", service_data_auth_identity)
         if shared_access_signature is not None:
-            pulumi.set(__self__, "shared_access_signature", shared_access_signature)
+            _setter("shared_access_signature", shared_access_signature)
         if storage_container_id is not None:
-            pulumi.set(__self__, "storage_container_id", storage_container_id)
+            _setter("storage_container_id", storage_container_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="accountKey")
@@ -480,6 +530,10 @@ class DatastoreBlobstorage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatastoreBlobstorageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

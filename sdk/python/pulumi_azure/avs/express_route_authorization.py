@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ExpressRouteAuthorizationArgs', 'ExpressRouteAuthorization']
@@ -21,9 +21,20 @@ class ExpressRouteAuthorizationArgs:
         :param pulumi.Input[str] private_cloud_id: The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
         :param pulumi.Input[str] name: The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
         """
-        pulumi.set(__self__, "private_cloud_id", private_cloud_id)
+        ExpressRouteAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_cloud_id=private_cloud_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_cloud_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("private_cloud_id", private_cloud_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="privateCloudId")
@@ -64,14 +75,29 @@ class _ExpressRouteAuthorizationState:
         :param pulumi.Input[str] name: The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
         :param pulumi.Input[str] private_cloud_id: The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created.
         """
+        _ExpressRouteAuthorizationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            express_route_authorization_id=express_route_authorization_id,
+            express_route_authorization_key=express_route_authorization_key,
+            name=name,
+            private_cloud_id=private_cloud_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             express_route_authorization_id: Optional[pulumi.Input[str]] = None,
+             express_route_authorization_key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_cloud_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if express_route_authorization_id is not None:
-            pulumi.set(__self__, "express_route_authorization_id", express_route_authorization_id)
+            _setter("express_route_authorization_id", express_route_authorization_id)
         if express_route_authorization_key is not None:
-            pulumi.set(__self__, "express_route_authorization_key", express_route_authorization_key)
+            _setter("express_route_authorization_key", express_route_authorization_key)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_cloud_id is not None:
-            pulumi.set(__self__, "private_cloud_id", private_cloud_id)
+            _setter("private_cloud_id", private_cloud_id)
 
     @property
     @pulumi.getter(name="expressRouteAuthorizationId")
@@ -215,6 +241,10 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExpressRouteAuthorizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

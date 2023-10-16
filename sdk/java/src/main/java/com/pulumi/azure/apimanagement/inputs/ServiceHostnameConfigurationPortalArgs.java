@@ -34,20 +34,12 @@ public final class ServiceHostnameConfigurationPortalArgs extends com.pulumi.res
     /**
      * The password for the certificate.
      * 
-     * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
-     * 
-     * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
-     * 
      */
     @Import(name="certificatePassword")
     private @Nullable Output<String> certificatePassword;
 
     /**
      * @return The password for the certificate.
-     * 
-     * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
-     * 
-     * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
      * 
      */
     public Optional<Output<String>> certificatePassword() {
@@ -119,8 +111,6 @@ public final class ServiceHostnameConfigurationPortalArgs extends com.pulumi.res
      * 
      * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
      * 
-     * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
-     * 
      */
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
@@ -129,8 +119,6 @@ public final class ServiceHostnameConfigurationPortalArgs extends com.pulumi.res
      * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
      * 
      * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
-     * 
-     * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
      * 
      */
     public Optional<Output<String>> keyVaultId() {
@@ -259,10 +247,6 @@ public final class ServiceHostnameConfigurationPortalArgs extends com.pulumi.res
         /**
          * @param certificatePassword The password for the certificate.
          * 
-         * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
-         * 
-         * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
-         * 
          * @return builder
          * 
          */
@@ -273,10 +257,6 @@ public final class ServiceHostnameConfigurationPortalArgs extends com.pulumi.res
 
         /**
          * @param certificatePassword The password for the certificate.
-         * 
-         * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
-         * 
-         * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
          * 
          * @return builder
          * 
@@ -374,8 +354,6 @@ public final class ServiceHostnameConfigurationPortalArgs extends com.pulumi.res
          * 
          * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
          * 
-         * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
-         * 
          * @return builder
          * 
          */
@@ -388,8 +366,6 @@ public final class ServiceHostnameConfigurationPortalArgs extends com.pulumi.res
          * @param keyVaultId The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
          * 
          * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
-         * 
-         * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
          * 
          * @return builder
          * 

@@ -251,17 +251,9 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.logs);
     }
 
-    /**
-     * The Site Credentials Username used for publishing.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The Site Credentials Username used for publishing.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -738,23 +730,11 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
             return logs(Output.of(logs));
         }
 
-        /**
-         * @param name The Site Credentials Username used for publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The Site Credentials Username used for publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,35 +49,72 @@ class SpringCloudServiceArgs:
         :param pulumi.Input['SpringCloudServiceTraceArgs'] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SpringCloudServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            build_agent_pool_size=build_agent_pool_size,
+            config_server_git_setting=config_server_git_setting,
+            container_registries=container_registries,
+            default_build_service=default_build_service,
+            location=location,
+            log_stream_public_endpoint_enabled=log_stream_public_endpoint_enabled,
+            marketplace=marketplace,
+            name=name,
+            network=network,
+            service_registry_enabled=service_registry_enabled,
+            sku_name=sku_name,
+            tags=tags,
+            trace=trace,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             build_agent_pool_size: Optional[pulumi.Input[str]] = None,
+             config_server_git_setting: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']] = None,
+             container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArgs']]]] = None,
+             default_build_service: Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+             marketplace: Optional[pulumi.Input['SpringCloudServiceMarketplaceArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network: Optional[pulumi.Input['SpringCloudServiceNetworkArgs']] = None,
+             service_registry_enabled: Optional[pulumi.Input[bool]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if build_agent_pool_size is not None:
-            pulumi.set(__self__, "build_agent_pool_size", build_agent_pool_size)
+            _setter("build_agent_pool_size", build_agent_pool_size)
         if config_server_git_setting is not None:
-            pulumi.set(__self__, "config_server_git_setting", config_server_git_setting)
+            _setter("config_server_git_setting", config_server_git_setting)
         if container_registries is not None:
-            pulumi.set(__self__, "container_registries", container_registries)
+            _setter("container_registries", container_registries)
         if default_build_service is not None:
-            pulumi.set(__self__, "default_build_service", default_build_service)
+            _setter("default_build_service", default_build_service)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_stream_public_endpoint_enabled is not None:
-            pulumi.set(__self__, "log_stream_public_endpoint_enabled", log_stream_public_endpoint_enabled)
+            _setter("log_stream_public_endpoint_enabled", log_stream_public_endpoint_enabled)
         if marketplace is not None:
-            pulumi.set(__self__, "marketplace", marketplace)
+            _setter("marketplace", marketplace)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
         if service_registry_enabled is not None:
-            pulumi.set(__self__, "service_registry_enabled", service_registry_enabled)
+            _setter("service_registry_enabled", service_registry_enabled)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trace is not None:
-            pulumi.set(__self__, "trace", trace)
+            _setter("trace", trace)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -302,42 +339,85 @@ class _SpringCloudServiceState:
         :param pulumi.Input['SpringCloudServiceTraceArgs'] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
         """
+        _SpringCloudServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            build_agent_pool_size=build_agent_pool_size,
+            config_server_git_setting=config_server_git_setting,
+            container_registries=container_registries,
+            default_build_service=default_build_service,
+            location=location,
+            log_stream_public_endpoint_enabled=log_stream_public_endpoint_enabled,
+            marketplace=marketplace,
+            name=name,
+            network=network,
+            outbound_public_ip_addresses=outbound_public_ip_addresses,
+            required_network_traffic_rules=required_network_traffic_rules,
+            resource_group_name=resource_group_name,
+            service_registry_enabled=service_registry_enabled,
+            service_registry_id=service_registry_id,
+            sku_name=sku_name,
+            tags=tags,
+            trace=trace,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             build_agent_pool_size: Optional[pulumi.Input[str]] = None,
+             config_server_git_setting: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']] = None,
+             container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArgs']]]] = None,
+             default_build_service: Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+             marketplace: Optional[pulumi.Input['SpringCloudServiceMarketplaceArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network: Optional[pulumi.Input['SpringCloudServiceNetworkArgs']] = None,
+             outbound_public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             required_network_traffic_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_registry_enabled: Optional[pulumi.Input[bool]] = None,
+             service_registry_id: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if build_agent_pool_size is not None:
-            pulumi.set(__self__, "build_agent_pool_size", build_agent_pool_size)
+            _setter("build_agent_pool_size", build_agent_pool_size)
         if config_server_git_setting is not None:
-            pulumi.set(__self__, "config_server_git_setting", config_server_git_setting)
+            _setter("config_server_git_setting", config_server_git_setting)
         if container_registries is not None:
-            pulumi.set(__self__, "container_registries", container_registries)
+            _setter("container_registries", container_registries)
         if default_build_service is not None:
-            pulumi.set(__self__, "default_build_service", default_build_service)
+            _setter("default_build_service", default_build_service)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_stream_public_endpoint_enabled is not None:
-            pulumi.set(__self__, "log_stream_public_endpoint_enabled", log_stream_public_endpoint_enabled)
+            _setter("log_stream_public_endpoint_enabled", log_stream_public_endpoint_enabled)
         if marketplace is not None:
-            pulumi.set(__self__, "marketplace", marketplace)
+            _setter("marketplace", marketplace)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
         if outbound_public_ip_addresses is not None:
-            pulumi.set(__self__, "outbound_public_ip_addresses", outbound_public_ip_addresses)
+            _setter("outbound_public_ip_addresses", outbound_public_ip_addresses)
         if required_network_traffic_rules is not None:
-            pulumi.set(__self__, "required_network_traffic_rules", required_network_traffic_rules)
+            _setter("required_network_traffic_rules", required_network_traffic_rules)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if service_registry_enabled is not None:
-            pulumi.set(__self__, "service_registry_enabled", service_registry_enabled)
+            _setter("service_registry_enabled", service_registry_enabled)
         if service_registry_id is not None:
-            pulumi.set(__self__, "service_registry_id", service_registry_id)
+            _setter("service_registry_id", service_registry_id)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trace is not None:
-            pulumi.set(__self__, "trace", trace)
+            _setter("trace", trace)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="buildAgentPoolSize")
@@ -697,6 +777,10 @@ class SpringCloudService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpringCloudServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -727,13 +811,33 @@ class SpringCloudService(pulumi.CustomResource):
             __props__ = SpringCloudServiceArgs.__new__(SpringCloudServiceArgs)
 
             __props__.__dict__["build_agent_pool_size"] = build_agent_pool_size
+            if config_server_git_setting is not None and not isinstance(config_server_git_setting, SpringCloudServiceConfigServerGitSettingArgs):
+                config_server_git_setting = config_server_git_setting or {}
+                def _setter(key, value):
+                    config_server_git_setting[key] = value
+                SpringCloudServiceConfigServerGitSettingArgs._configure(_setter, **config_server_git_setting)
             __props__.__dict__["config_server_git_setting"] = config_server_git_setting
             __props__.__dict__["container_registries"] = container_registries
+            if default_build_service is not None and not isinstance(default_build_service, SpringCloudServiceDefaultBuildServiceArgs):
+                default_build_service = default_build_service or {}
+                def _setter(key, value):
+                    default_build_service[key] = value
+                SpringCloudServiceDefaultBuildServiceArgs._configure(_setter, **default_build_service)
             __props__.__dict__["default_build_service"] = default_build_service
             __props__.__dict__["location"] = location
             __props__.__dict__["log_stream_public_endpoint_enabled"] = log_stream_public_endpoint_enabled
+            if marketplace is not None and not isinstance(marketplace, SpringCloudServiceMarketplaceArgs):
+                marketplace = marketplace or {}
+                def _setter(key, value):
+                    marketplace[key] = value
+                SpringCloudServiceMarketplaceArgs._configure(_setter, **marketplace)
             __props__.__dict__["marketplace"] = marketplace
             __props__.__dict__["name"] = name
+            if network is not None and not isinstance(network, SpringCloudServiceNetworkArgs):
+                network = network or {}
+                def _setter(key, value):
+                    network[key] = value
+                SpringCloudServiceNetworkArgs._configure(_setter, **network)
             __props__.__dict__["network"] = network
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -741,6 +845,11 @@ class SpringCloudService(pulumi.CustomResource):
             __props__.__dict__["service_registry_enabled"] = service_registry_enabled
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["tags"] = tags
+            if trace is not None and not isinstance(trace, SpringCloudServiceTraceArgs):
+                trace = trace or {}
+                def _setter(key, value):
+                    trace[key] = value
+                SpringCloudServiceTraceArgs._configure(_setter, **trace)
             __props__.__dict__["trace"] = trace
             __props__.__dict__["zone_redundant"] = zone_redundant
             __props__.__dict__["outbound_public_ip_addresses"] = None

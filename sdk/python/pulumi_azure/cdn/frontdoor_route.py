@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,29 +53,64 @@ class FrontdoorRouteArgs:
         :param pulumi.Input[bool] link_to_default_domain: Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created.
         """
-        pulumi.set(__self__, "cdn_frontdoor_endpoint_id", cdn_frontdoor_endpoint_id)
-        pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
-        pulumi.set(__self__, "cdn_frontdoor_origin_ids", cdn_frontdoor_origin_ids)
-        pulumi.set(__self__, "patterns_to_matches", patterns_to_matches)
-        pulumi.set(__self__, "supported_protocols", supported_protocols)
+        FrontdoorRouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdn_frontdoor_endpoint_id=cdn_frontdoor_endpoint_id,
+            cdn_frontdoor_origin_group_id=cdn_frontdoor_origin_group_id,
+            cdn_frontdoor_origin_ids=cdn_frontdoor_origin_ids,
+            patterns_to_matches=patterns_to_matches,
+            supported_protocols=supported_protocols,
+            cache=cache,
+            cdn_frontdoor_custom_domain_ids=cdn_frontdoor_custom_domain_ids,
+            cdn_frontdoor_origin_path=cdn_frontdoor_origin_path,
+            cdn_frontdoor_rule_set_ids=cdn_frontdoor_rule_set_ids,
+            enabled=enabled,
+            forwarding_protocol=forwarding_protocol,
+            https_redirect_enabled=https_redirect_enabled,
+            link_to_default_domain=link_to_default_domain,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdn_frontdoor_endpoint_id: pulumi.Input[str],
+             cdn_frontdoor_origin_group_id: pulumi.Input[str],
+             cdn_frontdoor_origin_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             patterns_to_matches: pulumi.Input[Sequence[pulumi.Input[str]]],
+             supported_protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
+             cache: Optional[pulumi.Input['FrontdoorRouteCacheArgs']] = None,
+             cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cdn_frontdoor_origin_path: Optional[pulumi.Input[str]] = None,
+             cdn_frontdoor_rule_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             forwarding_protocol: Optional[pulumi.Input[str]] = None,
+             https_redirect_enabled: Optional[pulumi.Input[bool]] = None,
+             link_to_default_domain: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cdn_frontdoor_endpoint_id", cdn_frontdoor_endpoint_id)
+        _setter("cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
+        _setter("cdn_frontdoor_origin_ids", cdn_frontdoor_origin_ids)
+        _setter("patterns_to_matches", patterns_to_matches)
+        _setter("supported_protocols", supported_protocols)
         if cache is not None:
-            pulumi.set(__self__, "cache", cache)
+            _setter("cache", cache)
         if cdn_frontdoor_custom_domain_ids is not None:
-            pulumi.set(__self__, "cdn_frontdoor_custom_domain_ids", cdn_frontdoor_custom_domain_ids)
+            _setter("cdn_frontdoor_custom_domain_ids", cdn_frontdoor_custom_domain_ids)
         if cdn_frontdoor_origin_path is not None:
-            pulumi.set(__self__, "cdn_frontdoor_origin_path", cdn_frontdoor_origin_path)
+            _setter("cdn_frontdoor_origin_path", cdn_frontdoor_origin_path)
         if cdn_frontdoor_rule_set_ids is not None:
-            pulumi.set(__self__, "cdn_frontdoor_rule_set_ids", cdn_frontdoor_rule_set_ids)
+            _setter("cdn_frontdoor_rule_set_ids", cdn_frontdoor_rule_set_ids)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if forwarding_protocol is not None:
-            pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
+            _setter("forwarding_protocol", forwarding_protocol)
         if https_redirect_enabled is not None:
-            pulumi.set(__self__, "https_redirect_enabled", https_redirect_enabled)
+            _setter("https_redirect_enabled", https_redirect_enabled)
         if link_to_default_domain is not None:
-            pulumi.set(__self__, "link_to_default_domain", link_to_default_domain)
+            _setter("link_to_default_domain", link_to_default_domain)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="cdnFrontdoorEndpointId")
@@ -292,34 +327,69 @@ class _FrontdoorRouteState:
                
                > **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
         """
+        _FrontdoorRouteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache=cache,
+            cdn_frontdoor_custom_domain_ids=cdn_frontdoor_custom_domain_ids,
+            cdn_frontdoor_endpoint_id=cdn_frontdoor_endpoint_id,
+            cdn_frontdoor_origin_group_id=cdn_frontdoor_origin_group_id,
+            cdn_frontdoor_origin_ids=cdn_frontdoor_origin_ids,
+            cdn_frontdoor_origin_path=cdn_frontdoor_origin_path,
+            cdn_frontdoor_rule_set_ids=cdn_frontdoor_rule_set_ids,
+            enabled=enabled,
+            forwarding_protocol=forwarding_protocol,
+            https_redirect_enabled=https_redirect_enabled,
+            link_to_default_domain=link_to_default_domain,
+            name=name,
+            patterns_to_matches=patterns_to_matches,
+            supported_protocols=supported_protocols,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache: Optional[pulumi.Input['FrontdoorRouteCacheArgs']] = None,
+             cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cdn_frontdoor_endpoint_id: Optional[pulumi.Input[str]] = None,
+             cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
+             cdn_frontdoor_origin_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cdn_frontdoor_origin_path: Optional[pulumi.Input[str]] = None,
+             cdn_frontdoor_rule_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             forwarding_protocol: Optional[pulumi.Input[str]] = None,
+             https_redirect_enabled: Optional[pulumi.Input[bool]] = None,
+             link_to_default_domain: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             patterns_to_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if cache is not None:
-            pulumi.set(__self__, "cache", cache)
+            _setter("cache", cache)
         if cdn_frontdoor_custom_domain_ids is not None:
-            pulumi.set(__self__, "cdn_frontdoor_custom_domain_ids", cdn_frontdoor_custom_domain_ids)
+            _setter("cdn_frontdoor_custom_domain_ids", cdn_frontdoor_custom_domain_ids)
         if cdn_frontdoor_endpoint_id is not None:
-            pulumi.set(__self__, "cdn_frontdoor_endpoint_id", cdn_frontdoor_endpoint_id)
+            _setter("cdn_frontdoor_endpoint_id", cdn_frontdoor_endpoint_id)
         if cdn_frontdoor_origin_group_id is not None:
-            pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
+            _setter("cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
         if cdn_frontdoor_origin_ids is not None:
-            pulumi.set(__self__, "cdn_frontdoor_origin_ids", cdn_frontdoor_origin_ids)
+            _setter("cdn_frontdoor_origin_ids", cdn_frontdoor_origin_ids)
         if cdn_frontdoor_origin_path is not None:
-            pulumi.set(__self__, "cdn_frontdoor_origin_path", cdn_frontdoor_origin_path)
+            _setter("cdn_frontdoor_origin_path", cdn_frontdoor_origin_path)
         if cdn_frontdoor_rule_set_ids is not None:
-            pulumi.set(__self__, "cdn_frontdoor_rule_set_ids", cdn_frontdoor_rule_set_ids)
+            _setter("cdn_frontdoor_rule_set_ids", cdn_frontdoor_rule_set_ids)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if forwarding_protocol is not None:
-            pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
+            _setter("forwarding_protocol", forwarding_protocol)
         if https_redirect_enabled is not None:
-            pulumi.set(__self__, "https_redirect_enabled", https_redirect_enabled)
+            _setter("https_redirect_enabled", https_redirect_enabled)
         if link_to_default_domain is not None:
-            pulumi.set(__self__, "link_to_default_domain", link_to_default_domain)
+            _setter("link_to_default_domain", link_to_default_domain)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if patterns_to_matches is not None:
-            pulumi.set(__self__, "patterns_to_matches", patterns_to_matches)
+            _setter("patterns_to_matches", patterns_to_matches)
         if supported_protocols is not None:
-            pulumi.set(__self__, "supported_protocols", supported_protocols)
+            _setter("supported_protocols", supported_protocols)
 
     @property
     @pulumi.getter
@@ -577,6 +647,10 @@ class FrontdoorRoute(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FrontdoorRouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -605,6 +679,11 @@ class FrontdoorRoute(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FrontdoorRouteArgs.__new__(FrontdoorRouteArgs)
 
+            if cache is not None and not isinstance(cache, FrontdoorRouteCacheArgs):
+                cache = cache or {}
+                def _setter(key, value):
+                    cache[key] = value
+                FrontdoorRouteCacheArgs._configure(_setter, **cache)
             __props__.__dict__["cache"] = cache
             __props__.__dict__["cdn_frontdoor_custom_domain_ids"] = cdn_frontdoor_custom_domain_ids
             if cdn_frontdoor_endpoint_id is None and not opts.urn:

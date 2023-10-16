@@ -146,9 +146,6 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
      * A `logs` block as defined below.
      */
     public readonly logs!: pulumi.Output<outputs.appservice.WindowsWebAppSlotLogs | undefined>;
-    /**
-     * The Site Credentials Username used for publishing.
-     */
     public readonly name!: pulumi.Output<string>;
     /**
      * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
@@ -371,9 +368,6 @@ export interface WindowsWebAppSlotState {
      * A `logs` block as defined below.
      */
     logs?: pulumi.Input<inputs.appservice.WindowsWebAppSlotLogs>;
-    /**
-     * The Site Credentials Username used for publishing.
-     */
     name?: pulumi.Input<string>;
     /**
      * A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
@@ -488,9 +482,6 @@ export interface WindowsWebAppSlotArgs {
      * A `logs` block as defined below.
      */
     logs?: pulumi.Input<inputs.appservice.WindowsWebAppSlotLogs>;
-    /**
-     * The Site Credentials Username used for publishing.
-     */
     name?: pulumi.Input<string>;
     /**
      * Should public network access be enabled for the Web App. Defaults to `true`.

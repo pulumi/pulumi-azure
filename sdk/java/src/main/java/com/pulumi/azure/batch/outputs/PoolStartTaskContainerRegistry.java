@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PoolStartTaskContainerRegistry {
     /**
-     * @return The password to log into the registry server. Changing this forces a new resource to be created.
+     * @return The password to use for authentication against the CIFS file system.
      * 
      */
     private @Nullable String password;
@@ -22,21 +22,19 @@ public final class PoolStartTaskContainerRegistry {
      */
     private String registryServer;
     /**
-     * @return An identity reference from pool&#39;s user assigned managed identity list.
-     * 
-     * &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+     * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String userAssignedIdentityId;
     /**
-     * @return The username to be used by the Batch pool start task.
+     * @return The user to use for authentication against the CIFS file system.
      * 
      */
     private @Nullable String userName;
 
     private PoolStartTaskContainerRegistry() {}
     /**
-     * @return The password to log into the registry server. Changing this forces a new resource to be created.
+     * @return The password to use for authentication against the CIFS file system.
      * 
      */
     public Optional<String> password() {
@@ -50,16 +48,14 @@ public final class PoolStartTaskContainerRegistry {
         return this.registryServer;
     }
     /**
-     * @return An identity reference from pool&#39;s user assigned managed identity list.
-     * 
-     * &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+     * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> userAssignedIdentityId() {
         return Optional.ofNullable(this.userAssignedIdentityId);
     }
     /**
-     * @return The username to be used by the Batch pool start task.
+     * @return The user to use for authentication against the CIFS file system.
      * 
      */
     public Optional<String> userName() {

@@ -30,9 +30,7 @@ public final class LinuxWebAppAuthSettingsV2FacebookV2 {
      */
     private @Nullable String graphApiVersion;
     /**
-     * @return A list of Login Scopes provided by this Authentication Provider.
-     * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
      * 
      */
     private @Nullable List<String> loginScopes;
@@ -62,9 +60,7 @@ public final class LinuxWebAppAuthSettingsV2FacebookV2 {
         return Optional.ofNullable(this.graphApiVersion);
     }
     /**
-     * @return A list of Login Scopes provided by this Authentication Provider.
-     * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
      * 
      */
     public List<String> loginScopes() {

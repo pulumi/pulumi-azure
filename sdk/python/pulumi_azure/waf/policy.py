@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,39 @@ class PolicyArgs:
         :param pulumi.Input['PolicyPolicySettingsArgs'] policy_settings: A `policy_settings` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Web Application Firewall Policy.
         """
-        pulumi.set(__self__, "managed_rules", managed_rules)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_rules=managed_rules,
+            resource_group_name=resource_group_name,
+            custom_rules=custom_rules,
+            location=location,
+            name=name,
+            policy_settings=policy_settings,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_rules: pulumi.Input['PolicyManagedRulesArgs'],
+             resource_group_name: pulumi.Input[str],
+             custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_settings: Optional[pulumi.Input['PolicyPolicySettingsArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("managed_rules", managed_rules)
+        _setter("resource_group_name", resource_group_name)
         if custom_rules is not None:
-            pulumi.set(__self__, "custom_rules", custom_rules)
+            _setter("custom_rules", custom_rules)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_settings is not None:
-            pulumi.set(__self__, "policy_settings", policy_settings)
+            _setter("policy_settings", policy_settings)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="managedRules")
@@ -155,24 +176,49 @@ class _PolicyState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Web Application Firewall Policy.
         """
+        _PolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_rules=custom_rules,
+            http_listener_ids=http_listener_ids,
+            location=location,
+            managed_rules=managed_rules,
+            name=name,
+            path_based_rule_ids=path_based_rule_ids,
+            policy_settings=policy_settings,
+            resource_group_name=resource_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleArgs']]]] = None,
+             http_listener_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_rules: Optional[pulumi.Input['PolicyManagedRulesArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             path_based_rule_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             policy_settings: Optional[pulumi.Input['PolicyPolicySettingsArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_rules is not None:
-            pulumi.set(__self__, "custom_rules", custom_rules)
+            _setter("custom_rules", custom_rules)
         if http_listener_ids is not None:
-            pulumi.set(__self__, "http_listener_ids", http_listener_ids)
+            _setter("http_listener_ids", http_listener_ids)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_rules is not None:
-            pulumi.set(__self__, "managed_rules", managed_rules)
+            _setter("managed_rules", managed_rules)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if path_based_rule_ids is not None:
-            pulumi.set(__self__, "path_based_rule_ids", path_based_rule_ids)
+            _setter("path_based_rule_ids", path_based_rule_ids)
         if policy_settings is not None:
-            pulumi.set(__self__, "policy_settings", policy_settings)
+            _setter("policy_settings", policy_settings)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="customRules")
@@ -536,6 +582,10 @@ class Policy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -559,10 +609,20 @@ class Policy(pulumi.CustomResource):
 
             __props__.__dict__["custom_rules"] = custom_rules
             __props__.__dict__["location"] = location
+            if managed_rules is not None and not isinstance(managed_rules, PolicyManagedRulesArgs):
+                managed_rules = managed_rules or {}
+                def _setter(key, value):
+                    managed_rules[key] = value
+                PolicyManagedRulesArgs._configure(_setter, **managed_rules)
             if managed_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_rules'")
             __props__.__dict__["managed_rules"] = managed_rules
             __props__.__dict__["name"] = name
+            if policy_settings is not None and not isinstance(policy_settings, PolicyPolicySettingsArgs):
+                policy_settings = policy_settings or {}
+                def _setter(key, value):
+                    policy_settings[key] = value
+                PolicyPolicySettingsArgs._configure(_setter, **policy_settings)
             __props__.__dict__["policy_settings"] = policy_settings
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

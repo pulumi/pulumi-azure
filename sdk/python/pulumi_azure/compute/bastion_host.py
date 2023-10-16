@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -55,28 +55,59 @@ class BastionHostArgs:
                
                > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
         """
-        pulumi.set(__self__, "ip_configuration", ip_configuration)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        BastionHostArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_configuration=ip_configuration,
+            resource_group_name=resource_group_name,
+            copy_paste_enabled=copy_paste_enabled,
+            file_copy_enabled=file_copy_enabled,
+            ip_connect_enabled=ip_connect_enabled,
+            location=location,
+            name=name,
+            scale_units=scale_units,
+            shareable_link_enabled=shareable_link_enabled,
+            sku=sku,
+            tags=tags,
+            tunneling_enabled=tunneling_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_configuration: pulumi.Input['BastionHostIpConfigurationArgs'],
+             resource_group_name: pulumi.Input[str],
+             copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
+             file_copy_enabled: Optional[pulumi.Input[bool]] = None,
+             ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             scale_units: Optional[pulumi.Input[int]] = None,
+             shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tunneling_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_configuration", ip_configuration)
+        _setter("resource_group_name", resource_group_name)
         if copy_paste_enabled is not None:
-            pulumi.set(__self__, "copy_paste_enabled", copy_paste_enabled)
+            _setter("copy_paste_enabled", copy_paste_enabled)
         if file_copy_enabled is not None:
-            pulumi.set(__self__, "file_copy_enabled", file_copy_enabled)
+            _setter("file_copy_enabled", file_copy_enabled)
         if ip_connect_enabled is not None:
-            pulumi.set(__self__, "ip_connect_enabled", ip_connect_enabled)
+            _setter("ip_connect_enabled", ip_connect_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if scale_units is not None:
-            pulumi.set(__self__, "scale_units", scale_units)
+            _setter("scale_units", scale_units)
         if shareable_link_enabled is not None:
-            pulumi.set(__self__, "shareable_link_enabled", shareable_link_enabled)
+            _setter("shareable_link_enabled", shareable_link_enabled)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tunneling_enabled is not None:
-            pulumi.set(__self__, "tunneling_enabled", tunneling_enabled)
+            _setter("tunneling_enabled", tunneling_enabled)
 
     @property
     @pulumi.getter(name="ipConfiguration")
@@ -279,32 +310,65 @@ class _BastionHostState:
                
                > **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`.
         """
+        _BastionHostState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            copy_paste_enabled=copy_paste_enabled,
+            dns_name=dns_name,
+            file_copy_enabled=file_copy_enabled,
+            ip_configuration=ip_configuration,
+            ip_connect_enabled=ip_connect_enabled,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            scale_units=scale_units,
+            shareable_link_enabled=shareable_link_enabled,
+            sku=sku,
+            tags=tags,
+            tunneling_enabled=tunneling_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             copy_paste_enabled: Optional[pulumi.Input[bool]] = None,
+             dns_name: Optional[pulumi.Input[str]] = None,
+             file_copy_enabled: Optional[pulumi.Input[bool]] = None,
+             ip_configuration: Optional[pulumi.Input['BastionHostIpConfigurationArgs']] = None,
+             ip_connect_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scale_units: Optional[pulumi.Input[int]] = None,
+             shareable_link_enabled: Optional[pulumi.Input[bool]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tunneling_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if copy_paste_enabled is not None:
-            pulumi.set(__self__, "copy_paste_enabled", copy_paste_enabled)
+            _setter("copy_paste_enabled", copy_paste_enabled)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if file_copy_enabled is not None:
-            pulumi.set(__self__, "file_copy_enabled", file_copy_enabled)
+            _setter("file_copy_enabled", file_copy_enabled)
         if ip_configuration is not None:
-            pulumi.set(__self__, "ip_configuration", ip_configuration)
+            _setter("ip_configuration", ip_configuration)
         if ip_connect_enabled is not None:
-            pulumi.set(__self__, "ip_connect_enabled", ip_connect_enabled)
+            _setter("ip_connect_enabled", ip_connect_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if scale_units is not None:
-            pulumi.set(__self__, "scale_units", scale_units)
+            _setter("scale_units", scale_units)
         if shareable_link_enabled is not None:
-            pulumi.set(__self__, "shareable_link_enabled", shareable_link_enabled)
+            _setter("shareable_link_enabled", shareable_link_enabled)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tunneling_enabled is not None:
-            pulumi.set(__self__, "tunneling_enabled", tunneling_enabled)
+            _setter("tunneling_enabled", tunneling_enabled)
 
     @property
     @pulumi.getter(name="copyPasteEnabled")
@@ -622,6 +686,10 @@ class BastionHost(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BastionHostArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -650,6 +718,11 @@ class BastionHost(pulumi.CustomResource):
 
             __props__.__dict__["copy_paste_enabled"] = copy_paste_enabled
             __props__.__dict__["file_copy_enabled"] = file_copy_enabled
+            if ip_configuration is not None and not isinstance(ip_configuration, BastionHostIpConfigurationArgs):
+                ip_configuration = ip_configuration or {}
+                def _setter(key, value):
+                    ip_configuration[key] = value
+                BastionHostIpConfigurationArgs._configure(_setter, **ip_configuration)
             if ip_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_configuration'")
             __props__.__dict__["ip_configuration"] = ip_configuration

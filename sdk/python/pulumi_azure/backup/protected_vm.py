@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProtectedVMArgs', 'ProtectedVM']
@@ -34,18 +34,39 @@ class ProtectedVMArgs:
                > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
                This allows the source vm to be deleted without having to remove the backup.
         """
-        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ProtectedVMArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recovery_vault_name=recovery_vault_name,
+            resource_group_name=resource_group_name,
+            backup_policy_id=backup_policy_id,
+            exclude_disk_luns=exclude_disk_luns,
+            include_disk_luns=include_disk_luns,
+            protection_state=protection_state,
+            source_vm_id=source_vm_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recovery_vault_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             backup_policy_id: Optional[pulumi.Input[str]] = None,
+             exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             protection_state: Optional[pulumi.Input[str]] = None,
+             source_vm_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("recovery_vault_name", recovery_vault_name)
+        _setter("resource_group_name", resource_group_name)
         if backup_policy_id is not None:
-            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+            _setter("backup_policy_id", backup_policy_id)
         if exclude_disk_luns is not None:
-            pulumi.set(__self__, "exclude_disk_luns", exclude_disk_luns)
+            _setter("exclude_disk_luns", exclude_disk_luns)
         if include_disk_luns is not None:
-            pulumi.set(__self__, "include_disk_luns", include_disk_luns)
+            _setter("include_disk_luns", include_disk_luns)
         if protection_state is not None:
-            pulumi.set(__self__, "protection_state", protection_state)
+            _setter("protection_state", protection_state)
         if source_vm_id is not None:
-            pulumi.set(__self__, "source_vm_id", source_vm_id)
+            _setter("source_vm_id", source_vm_id)
 
     @property
     @pulumi.getter(name="recoveryVaultName")
@@ -158,20 +179,41 @@ class _ProtectedVMState:
                > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
                This allows the source vm to be deleted without having to remove the backup.
         """
+        _ProtectedVMState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_policy_id=backup_policy_id,
+            exclude_disk_luns=exclude_disk_luns,
+            include_disk_luns=include_disk_luns,
+            protection_state=protection_state,
+            recovery_vault_name=recovery_vault_name,
+            resource_group_name=resource_group_name,
+            source_vm_id=source_vm_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_policy_id: Optional[pulumi.Input[str]] = None,
+             exclude_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             include_disk_luns: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             protection_state: Optional[pulumi.Input[str]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_vm_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backup_policy_id is not None:
-            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+            _setter("backup_policy_id", backup_policy_id)
         if exclude_disk_luns is not None:
-            pulumi.set(__self__, "exclude_disk_luns", exclude_disk_luns)
+            _setter("exclude_disk_luns", exclude_disk_luns)
         if include_disk_luns is not None:
-            pulumi.set(__self__, "include_disk_luns", include_disk_luns)
+            _setter("include_disk_luns", include_disk_luns)
         if protection_state is not None:
-            pulumi.set(__self__, "protection_state", protection_state)
+            _setter("protection_state", protection_state)
         if recovery_vault_name is not None:
-            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+            _setter("recovery_vault_name", recovery_vault_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if source_vm_id is not None:
-            pulumi.set(__self__, "source_vm_id", source_vm_id)
+            _setter("source_vm_id", source_vm_id)
 
     @property
     @pulumi.getter(name="backupPolicyId")
@@ -389,6 +431,10 @@ class ProtectedVM(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProtectedVMArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

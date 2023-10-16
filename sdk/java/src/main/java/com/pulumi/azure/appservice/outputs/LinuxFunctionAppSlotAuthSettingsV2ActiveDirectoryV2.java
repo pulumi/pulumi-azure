@@ -20,9 +20,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
      */
     private @Nullable List<String> allowedApplications;
     /**
-     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-     * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * @return an `allowed_audiences` block as detailed below.
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
@@ -39,7 +37,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
      */
     private @Nullable List<String> allowedIdentities;
     /**
-     * @return The OpenID Connect Client ID for the Apple web application.
+     * @return The ID of the Client to use to authenticate with Azure Active Directory.
      * 
      */
     private String clientId;
@@ -51,17 +49,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
      */
     private @Nullable String clientSecretCertificateThumbprint;
     /**
-     * @return The app setting name that contains the `client_secret` value used for Apple Login.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -100,9 +88,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
         return this.allowedApplications == null ? List.of() : this.allowedApplications;
     }
     /**
-     * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-     * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * @return an `allowed_audiences` block as detailed below.
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
@@ -125,7 +111,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
         return this.allowedIdentities == null ? List.of() : this.allowedIdentities;
     }
     /**
-     * @return The OpenID Connect Client ID for the Apple web application.
+     * @return The ID of the Client to use to authenticate with Azure Active Directory.
      * 
      */
     public String clientId() {
@@ -141,17 +127,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
         return Optional.ofNullable(this.clientSecretCertificateThumbprint);
     }
     /**
-     * @return The app setting name that contains the `client_secret` value used for Apple Login.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     public Optional<String> clientSecretSettingName() {

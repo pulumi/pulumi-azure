@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,14 +31,33 @@ class MxRecordArgs:
         :param pulumi.Input[str] name: The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "records", records)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "ttl", ttl)
-        pulumi.set(__self__, "zone_name", zone_name)
+        MxRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            records=records,
+            resource_group_name=resource_group_name,
+            ttl=ttl,
+            zone_name=zone_name,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             records: pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]],
+             resource_group_name: pulumi.Input[str],
+             ttl: pulumi.Input[int],
+             zone_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("records", records)
+        _setter("resource_group_name", resource_group_name)
+        _setter("ttl", ttl)
+        _setter("zone_name", zone_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -133,20 +152,41 @@ class _MxRecordState:
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
+        _MxRecordState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            name=name,
+            records=records,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            ttl=ttl,
+            zone_name=zone_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             records: Optional[pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             zone_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if records is not None:
-            pulumi.set(__self__, "records", records)
+            _setter("records", records)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if zone_name is not None:
-            pulumi.set(__self__, "zone_name", zone_name)
+            _setter("zone_name", zone_name)
 
     @property
     @pulumi.getter
@@ -342,6 +382,10 @@ class MxRecord(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MxRecordArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

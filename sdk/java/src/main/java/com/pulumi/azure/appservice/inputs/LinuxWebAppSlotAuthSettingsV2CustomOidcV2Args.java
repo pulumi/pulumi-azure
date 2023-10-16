@@ -79,32 +79,12 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
     /**
      * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
      */
     @Import(name="clientSecretSettingName")
     private @Nullable Output<String> clientSecretSettingName;
 
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -126,17 +106,9 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
         return Optional.ofNullable(this.issuerEndpoint);
     }
 
-    /**
-     * The Site Credentials Username used for publishing.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The Site Credentials Username used for publishing.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -322,16 +294,6 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
          * @return builder
          * 
          */
@@ -342,16 +304,6 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
 
         /**
          * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -381,23 +333,11 @@ public final class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args extends com.pul
             return issuerEndpoint(Output.of(issuerEndpoint));
         }
 
-        /**
-         * @param name The Site Credentials Username used for publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The Site Credentials Username used for publishing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

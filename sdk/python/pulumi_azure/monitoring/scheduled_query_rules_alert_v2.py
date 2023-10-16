@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -65,39 +65,84 @@ class ScheduledQueryRulesAlertV2Args:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_resource_types: List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
         :param pulumi.Input[bool] workspace_alerts_storage_enabled: Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
         """
-        pulumi.set(__self__, "criterias", criterias)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scopes", scopes)
-        pulumi.set(__self__, "severity", severity)
-        pulumi.set(__self__, "window_duration", window_duration)
+        ScheduledQueryRulesAlertV2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criterias=criterias,
+            resource_group_name=resource_group_name,
+            scopes=scopes,
+            severity=severity,
+            window_duration=window_duration,
+            action=action,
+            auto_mitigation_enabled=auto_mitigation_enabled,
+            description=description,
+            display_name=display_name,
+            enabled=enabled,
+            evaluation_frequency=evaluation_frequency,
+            location=location,
+            mute_actions_after_alert_duration=mute_actions_after_alert_duration,
+            name=name,
+            query_time_range_override=query_time_range_override,
+            skip_query_validation=skip_query_validation,
+            tags=tags,
+            target_resource_types=target_resource_types,
+            workspace_alerts_storage_enabled=workspace_alerts_storage_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criterias: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]],
+             resource_group_name: pulumi.Input[str],
+             scopes: pulumi.Input[str],
+             severity: pulumi.Input[int],
+             window_duration: pulumi.Input[str],
+             action: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']] = None,
+             auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             evaluation_frequency: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mute_actions_after_alert_duration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             query_time_range_override: Optional[pulumi.Input[str]] = None,
+             skip_query_validation: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             workspace_alerts_storage_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("criterias", criterias)
+        _setter("resource_group_name", resource_group_name)
+        _setter("scopes", scopes)
+        _setter("severity", severity)
+        _setter("window_duration", window_duration)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if auto_mitigation_enabled is not None:
-            pulumi.set(__self__, "auto_mitigation_enabled", auto_mitigation_enabled)
+            _setter("auto_mitigation_enabled", auto_mitigation_enabled)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if evaluation_frequency is not None:
-            pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
+            _setter("evaluation_frequency", evaluation_frequency)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mute_actions_after_alert_duration is not None:
-            pulumi.set(__self__, "mute_actions_after_alert_duration", mute_actions_after_alert_duration)
+            _setter("mute_actions_after_alert_duration", mute_actions_after_alert_duration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if query_time_range_override is not None:
-            pulumi.set(__self__, "query_time_range_override", query_time_range_override)
+            _setter("query_time_range_override", query_time_range_override)
         if skip_query_validation is not None:
-            pulumi.set(__self__, "skip_query_validation", skip_query_validation)
+            _setter("skip_query_validation", skip_query_validation)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_types is not None:
-            pulumi.set(__self__, "target_resource_types", target_resource_types)
+            _setter("target_resource_types", target_resource_types)
         if workspace_alerts_storage_enabled is not None:
-            pulumi.set(__self__, "workspace_alerts_storage_enabled", workspace_alerts_storage_enabled)
+            _setter("workspace_alerts_storage_enabled", workspace_alerts_storage_enabled)
 
     @property
     @pulumi.getter
@@ -394,50 +439,101 @@ class _ScheduledQueryRulesAlertV2State:
         :param pulumi.Input[str] window_duration: Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`.
         :param pulumi.Input[bool] workspace_alerts_storage_enabled: Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`.
         """
+        _ScheduledQueryRulesAlertV2State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            auto_mitigation_enabled=auto_mitigation_enabled,
+            created_with_api_version=created_with_api_version,
+            criterias=criterias,
+            description=description,
+            display_name=display_name,
+            enabled=enabled,
+            evaluation_frequency=evaluation_frequency,
+            is_a_legacy_log_analytics_rule=is_a_legacy_log_analytics_rule,
+            is_workspace_alerts_storage_configured=is_workspace_alerts_storage_configured,
+            location=location,
+            mute_actions_after_alert_duration=mute_actions_after_alert_duration,
+            name=name,
+            query_time_range_override=query_time_range_override,
+            resource_group_name=resource_group_name,
+            scopes=scopes,
+            severity=severity,
+            skip_query_validation=skip_query_validation,
+            tags=tags,
+            target_resource_types=target_resource_types,
+            window_duration=window_duration,
+            workspace_alerts_storage_enabled=workspace_alerts_storage_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input['ScheduledQueryRulesAlertV2ActionArgs']] = None,
+             auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
+             created_with_api_version: Optional[pulumi.Input[str]] = None,
+             criterias: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             evaluation_frequency: Optional[pulumi.Input[str]] = None,
+             is_a_legacy_log_analytics_rule: Optional[pulumi.Input[bool]] = None,
+             is_workspace_alerts_storage_configured: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mute_actions_after_alert_duration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             query_time_range_override: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scopes: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[int]] = None,
+             skip_query_validation: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             window_duration: Optional[pulumi.Input[str]] = None,
+             workspace_alerts_storage_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if auto_mitigation_enabled is not None:
-            pulumi.set(__self__, "auto_mitigation_enabled", auto_mitigation_enabled)
+            _setter("auto_mitigation_enabled", auto_mitigation_enabled)
         if created_with_api_version is not None:
-            pulumi.set(__self__, "created_with_api_version", created_with_api_version)
+            _setter("created_with_api_version", created_with_api_version)
         if criterias is not None:
-            pulumi.set(__self__, "criterias", criterias)
+            _setter("criterias", criterias)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if evaluation_frequency is not None:
-            pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
+            _setter("evaluation_frequency", evaluation_frequency)
         if is_a_legacy_log_analytics_rule is not None:
-            pulumi.set(__self__, "is_a_legacy_log_analytics_rule", is_a_legacy_log_analytics_rule)
+            _setter("is_a_legacy_log_analytics_rule", is_a_legacy_log_analytics_rule)
         if is_workspace_alerts_storage_configured is not None:
-            pulumi.set(__self__, "is_workspace_alerts_storage_configured", is_workspace_alerts_storage_configured)
+            _setter("is_workspace_alerts_storage_configured", is_workspace_alerts_storage_configured)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mute_actions_after_alert_duration is not None:
-            pulumi.set(__self__, "mute_actions_after_alert_duration", mute_actions_after_alert_duration)
+            _setter("mute_actions_after_alert_duration", mute_actions_after_alert_duration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if query_time_range_override is not None:
-            pulumi.set(__self__, "query_time_range_override", query_time_range_override)
+            _setter("query_time_range_override", query_time_range_override)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if skip_query_validation is not None:
-            pulumi.set(__self__, "skip_query_validation", skip_query_validation)
+            _setter("skip_query_validation", skip_query_validation)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_types is not None:
-            pulumi.set(__self__, "target_resource_types", target_resource_types)
+            _setter("target_resource_types", target_resource_types)
         if window_duration is not None:
-            pulumi.set(__self__, "window_duration", window_duration)
+            _setter("window_duration", window_duration)
         if workspace_alerts_storage_enabled is not None:
-            pulumi.set(__self__, "workspace_alerts_storage_enabled", workspace_alerts_storage_enabled)
+            _setter("workspace_alerts_storage_enabled", workspace_alerts_storage_enabled)
 
     @property
     @pulumi.getter
@@ -805,6 +901,10 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduledQueryRulesAlertV2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -838,6 +938,11 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScheduledQueryRulesAlertV2Args.__new__(ScheduledQueryRulesAlertV2Args)
 
+            if action is not None and not isinstance(action, ScheduledQueryRulesAlertV2ActionArgs):
+                action = action or {}
+                def _setter(key, value):
+                    action[key] = value
+                ScheduledQueryRulesAlertV2ActionArgs._configure(_setter, **action)
             __props__.__dict__["action"] = action
             __props__.__dict__["auto_mitigation_enabled"] = auto_mitigation_enabled
             if criterias is None and not opts.urn:

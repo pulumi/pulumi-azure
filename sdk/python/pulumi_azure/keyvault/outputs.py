@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -75,9 +75,20 @@ class CertifiateCertificate(dict):
                
                The PEM content should look something like:
         """
-        pulumi.set(__self__, "contents", contents)
+        CertifiateCertificate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contents=contents,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contents: str,
+             password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contents", contents)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
 
     @property
     @pulumi.getter
@@ -141,18 +152,37 @@ class CertifiateCertificateAttribute(dict):
         :param str recovery_level: The deletion recovery level of the Key Vault Certificate.
         :param str updated: The recent update time of the Key Vault Certificate.
         """
+        CertifiateCertificateAttribute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created=created,
+            enabled=enabled,
+            expires=expires,
+            not_before=not_before,
+            recovery_level=recovery_level,
+            updated=updated,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             expires: Optional[str] = None,
+             not_before: Optional[str] = None,
+             recovery_level: Optional[str] = None,
+             updated: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if expires is not None:
-            pulumi.set(__self__, "expires", expires)
+            _setter("expires", expires)
         if not_before is not None:
-            pulumi.set(__self__, "not_before", not_before)
+            _setter("not_before", not_before)
         if recovery_level is not None:
-            pulumi.set(__self__, "recovery_level", recovery_level)
+            _setter("recovery_level", recovery_level)
         if updated is not None:
-            pulumi.set(__self__, "updated", updated)
+            _setter("updated", updated)
 
     @property
     @pulumi.getter
@@ -243,13 +273,30 @@ class CertifiateCertificatePolicy(dict):
         :param Sequence['CertifiateCertificatePolicyLifetimeActionArgs'] lifetime_actions: A `lifetime_action` block as defined below.
         :param 'CertifiateCertificatePolicyX509CertificatePropertiesArgs' x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
-        pulumi.set(__self__, "issuer_parameters", issuer_parameters)
-        pulumi.set(__self__, "key_properties", key_properties)
-        pulumi.set(__self__, "secret_properties", secret_properties)
+        CertifiateCertificatePolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            issuer_parameters=issuer_parameters,
+            key_properties=key_properties,
+            secret_properties=secret_properties,
+            lifetime_actions=lifetime_actions,
+            x509_certificate_properties=x509_certificate_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             issuer_parameters: 'outputs.CertifiateCertificatePolicyIssuerParameters',
+             key_properties: 'outputs.CertifiateCertificatePolicyKeyProperties',
+             secret_properties: 'outputs.CertifiateCertificatePolicySecretProperties',
+             lifetime_actions: Optional[Sequence['outputs.CertifiateCertificatePolicyLifetimeAction']] = None,
+             x509_certificate_properties: Optional['outputs.CertifiateCertificatePolicyX509CertificateProperties'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("issuer_parameters", issuer_parameters)
+        _setter("key_properties", key_properties)
+        _setter("secret_properties", secret_properties)
         if lifetime_actions is not None:
-            pulumi.set(__self__, "lifetime_actions", lifetime_actions)
+            _setter("lifetime_actions", lifetime_actions)
         if x509_certificate_properties is not None:
-            pulumi.set(__self__, "x509_certificate_properties", x509_certificate_properties)
+            _setter("x509_certificate_properties", x509_certificate_properties)
 
     @property
     @pulumi.getter(name="issuerParameters")
@@ -299,7 +346,16 @@ class CertifiateCertificatePolicyIssuerParameters(dict):
         """
         :param str name: The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "name", name)
+        CertifiateCertificatePolicyIssuerParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -346,13 +402,30 @@ class CertifiateCertificatePolicyKeyProperties(dict):
         :param str curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
         :param int key_size: The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "exportable", exportable)
-        pulumi.set(__self__, "key_type", key_type)
-        pulumi.set(__self__, "reuse_key", reuse_key)
+        CertifiateCertificatePolicyKeyProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exportable=exportable,
+            key_type=key_type,
+            reuse_key=reuse_key,
+            curve=curve,
+            key_size=key_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exportable: bool,
+             key_type: str,
+             reuse_key: bool,
+             curve: Optional[str] = None,
+             key_size: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exportable", exportable)
+        _setter("key_type", key_type)
+        _setter("reuse_key", reuse_key)
         if curve is not None:
-            pulumi.set(__self__, "curve", curve)
+            _setter("curve", curve)
         if key_size is not None:
-            pulumi.set(__self__, "key_size", key_size)
+            _setter("key_size", key_size)
 
     @property
     @pulumi.getter
@@ -404,8 +477,19 @@ class CertifiateCertificatePolicyLifetimeAction(dict):
         :param 'CertifiateCertificatePolicyLifetimeActionActionArgs' action: A `action` block as defined below.
         :param 'CertifiateCertificatePolicyLifetimeActionTriggerArgs' trigger: A `trigger` block as defined below.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "trigger", trigger)
+        CertifiateCertificatePolicyLifetimeAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            trigger=trigger,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'outputs.CertifiateCertificatePolicyLifetimeActionAction',
+             trigger: 'outputs.CertifiateCertificatePolicyLifetimeActionTrigger',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("trigger", trigger)
 
     @property
     @pulumi.getter
@@ -448,7 +532,16 @@ class CertifiateCertificatePolicyLifetimeActionAction(dict):
         """
         :param str action_type: The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "action_type", action_type)
+        CertifiateCertificatePolicyLifetimeActionAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_type", action_type)
 
     @property
     @pulumi.getter(name="actionType")
@@ -487,10 +580,21 @@ class CertifiateCertificatePolicyLifetimeActionTrigger(dict):
         :param int days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
         :param int lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
         """
+        CertifiateCertificatePolicyLifetimeActionTrigger._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_before_expiry=days_before_expiry,
+            lifetime_percentage=lifetime_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_before_expiry: Optional[int] = None,
+             lifetime_percentage: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if days_before_expiry is not None:
-            pulumi.set(__self__, "days_before_expiry", days_before_expiry)
+            _setter("days_before_expiry", days_before_expiry)
         if lifetime_percentage is not None:
-            pulumi.set(__self__, "lifetime_percentage", lifetime_percentage)
+            _setter("lifetime_percentage", lifetime_percentage)
 
     @property
     @pulumi.getter(name="daysBeforeExpiry")
@@ -533,7 +637,16 @@ class CertifiateCertificatePolicySecretProperties(dict):
         """
         :param str content_type: The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "content_type", content_type)
+        CertifiateCertificatePolicySecretProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content_type", content_type)
 
     @property
     @pulumi.getter(name="contentType")
@@ -582,13 +695,30 @@ class CertifiateCertificatePolicyX509CertificateProperties(dict):
         :param Sequence[str] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
         :param 'CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs' subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "key_usages", key_usages)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "validity_in_months", validity_in_months)
+        CertifiateCertificatePolicyX509CertificateProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_usages=key_usages,
+            subject=subject,
+            validity_in_months=validity_in_months,
+            extended_key_usages=extended_key_usages,
+            subject_alternative_names=subject_alternative_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_usages: Sequence[str],
+             subject: str,
+             validity_in_months: int,
+             extended_key_usages: Optional[Sequence[str]] = None,
+             subject_alternative_names: Optional['outputs.CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_usages", key_usages)
+        _setter("subject", subject)
+        _setter("validity_in_months", validity_in_months)
         if extended_key_usages is not None:
-            pulumi.set(__self__, "extended_key_usages", extended_key_usages)
+            _setter("extended_key_usages", extended_key_usages)
         if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+            _setter("subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter(name="keyUsages")
@@ -659,12 +789,25 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
         :param Sequence[str] emails: A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
         :param Sequence[str] upns: A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
         """
+        CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_names=dns_names,
+            emails=emails,
+            upns=upns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_names: Optional[Sequence[str]] = None,
+             emails: Optional[Sequence[str]] = None,
+             upns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_names is not None:
-            pulumi.set(__self__, "dns_names", dns_names)
+            _setter("dns_names", dns_names)
         if emails is not None:
-            pulumi.set(__self__, "emails", emails)
+            _setter("emails", emails)
         if upns is not None:
-            pulumi.set(__self__, "upns", upns)
+            _setter("upns", upns)
 
     @property
     @pulumi.getter(name="dnsNames")
@@ -709,9 +852,20 @@ class CertificateCertificate(dict):
                
                The PEM content should look something like:
         """
-        pulumi.set(__self__, "contents", contents)
+        CertificateCertificate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            contents=contents,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             contents: str,
+             password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("contents", contents)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
 
     @property
     @pulumi.getter
@@ -775,18 +929,37 @@ class CertificateCertificateAttribute(dict):
         :param str recovery_level: The deletion recovery level of the Key Vault Certificate.
         :param str updated: The recent update time of the Key Vault Certificate.
         """
+        CertificateCertificateAttribute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            created=created,
+            enabled=enabled,
+            expires=expires,
+            not_before=not_before,
+            recovery_level=recovery_level,
+            updated=updated,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             created: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             expires: Optional[str] = None,
+             not_before: Optional[str] = None,
+             recovery_level: Optional[str] = None,
+             updated: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if created is not None:
-            pulumi.set(__self__, "created", created)
+            _setter("created", created)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if expires is not None:
-            pulumi.set(__self__, "expires", expires)
+            _setter("expires", expires)
         if not_before is not None:
-            pulumi.set(__self__, "not_before", not_before)
+            _setter("not_before", not_before)
         if recovery_level is not None:
-            pulumi.set(__self__, "recovery_level", recovery_level)
+            _setter("recovery_level", recovery_level)
         if updated is not None:
-            pulumi.set(__self__, "updated", updated)
+            _setter("updated", updated)
 
     @property
     @pulumi.getter
@@ -877,13 +1050,30 @@ class CertificateCertificatePolicy(dict):
         :param Sequence['CertificateCertificatePolicyLifetimeActionArgs'] lifetime_actions: A `lifetime_action` block as defined below.
         :param 'CertificateCertificatePolicyX509CertificatePropertiesArgs' x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
-        pulumi.set(__self__, "issuer_parameters", issuer_parameters)
-        pulumi.set(__self__, "key_properties", key_properties)
-        pulumi.set(__self__, "secret_properties", secret_properties)
+        CertificateCertificatePolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            issuer_parameters=issuer_parameters,
+            key_properties=key_properties,
+            secret_properties=secret_properties,
+            lifetime_actions=lifetime_actions,
+            x509_certificate_properties=x509_certificate_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             issuer_parameters: 'outputs.CertificateCertificatePolicyIssuerParameters',
+             key_properties: 'outputs.CertificateCertificatePolicyKeyProperties',
+             secret_properties: 'outputs.CertificateCertificatePolicySecretProperties',
+             lifetime_actions: Optional[Sequence['outputs.CertificateCertificatePolicyLifetimeAction']] = None,
+             x509_certificate_properties: Optional['outputs.CertificateCertificatePolicyX509CertificateProperties'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("issuer_parameters", issuer_parameters)
+        _setter("key_properties", key_properties)
+        _setter("secret_properties", secret_properties)
         if lifetime_actions is not None:
-            pulumi.set(__self__, "lifetime_actions", lifetime_actions)
+            _setter("lifetime_actions", lifetime_actions)
         if x509_certificate_properties is not None:
-            pulumi.set(__self__, "x509_certificate_properties", x509_certificate_properties)
+            _setter("x509_certificate_properties", x509_certificate_properties)
 
     @property
     @pulumi.getter(name="issuerParameters")
@@ -933,7 +1123,16 @@ class CertificateCertificatePolicyIssuerParameters(dict):
         """
         :param str name: The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "name", name)
+        CertificateCertificatePolicyIssuerParameters._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -980,13 +1179,30 @@ class CertificateCertificatePolicyKeyProperties(dict):
         :param str curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
         :param int key_size: The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "exportable", exportable)
-        pulumi.set(__self__, "key_type", key_type)
-        pulumi.set(__self__, "reuse_key", reuse_key)
+        CertificateCertificatePolicyKeyProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exportable=exportable,
+            key_type=key_type,
+            reuse_key=reuse_key,
+            curve=curve,
+            key_size=key_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exportable: bool,
+             key_type: str,
+             reuse_key: bool,
+             curve: Optional[str] = None,
+             key_size: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("exportable", exportable)
+        _setter("key_type", key_type)
+        _setter("reuse_key", reuse_key)
         if curve is not None:
-            pulumi.set(__self__, "curve", curve)
+            _setter("curve", curve)
         if key_size is not None:
-            pulumi.set(__self__, "key_size", key_size)
+            _setter("key_size", key_size)
 
     @property
     @pulumi.getter
@@ -1038,8 +1254,19 @@ class CertificateCertificatePolicyLifetimeAction(dict):
         :param 'CertificateCertificatePolicyLifetimeActionActionArgs' action: A `action` block as defined below.
         :param 'CertificateCertificatePolicyLifetimeActionTriggerArgs' trigger: A `trigger` block as defined below.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "trigger", trigger)
+        CertificateCertificatePolicyLifetimeAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            trigger=trigger,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: 'outputs.CertificateCertificatePolicyLifetimeActionAction',
+             trigger: 'outputs.CertificateCertificatePolicyLifetimeActionTrigger',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action", action)
+        _setter("trigger", trigger)
 
     @property
     @pulumi.getter
@@ -1082,7 +1309,16 @@ class CertificateCertificatePolicyLifetimeActionAction(dict):
         """
         :param str action_type: The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "action_type", action_type)
+        CertificateCertificatePolicyLifetimeActionAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_type", action_type)
 
     @property
     @pulumi.getter(name="actionType")
@@ -1121,10 +1357,21 @@ class CertificateCertificatePolicyLifetimeActionTrigger(dict):
         :param int days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
         :param int lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
         """
+        CertificateCertificatePolicyLifetimeActionTrigger._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_before_expiry=days_before_expiry,
+            lifetime_percentage=lifetime_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_before_expiry: Optional[int] = None,
+             lifetime_percentage: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if days_before_expiry is not None:
-            pulumi.set(__self__, "days_before_expiry", days_before_expiry)
+            _setter("days_before_expiry", days_before_expiry)
         if lifetime_percentage is not None:
-            pulumi.set(__self__, "lifetime_percentage", lifetime_percentage)
+            _setter("lifetime_percentage", lifetime_percentage)
 
     @property
     @pulumi.getter(name="daysBeforeExpiry")
@@ -1167,7 +1414,16 @@ class CertificateCertificatePolicySecretProperties(dict):
         """
         :param str content_type: The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "content_type", content_type)
+        CertificateCertificatePolicySecretProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content_type", content_type)
 
     @property
     @pulumi.getter(name="contentType")
@@ -1216,13 +1472,30 @@ class CertificateCertificatePolicyX509CertificateProperties(dict):
         :param Sequence[str] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
         :param 'CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs' subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "key_usages", key_usages)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "validity_in_months", validity_in_months)
+        CertificateCertificatePolicyX509CertificateProperties._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_usages=key_usages,
+            subject=subject,
+            validity_in_months=validity_in_months,
+            extended_key_usages=extended_key_usages,
+            subject_alternative_names=subject_alternative_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_usages: Sequence[str],
+             subject: str,
+             validity_in_months: int,
+             extended_key_usages: Optional[Sequence[str]] = None,
+             subject_alternative_names: Optional['outputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_usages", key_usages)
+        _setter("subject", subject)
+        _setter("validity_in_months", validity_in_months)
         if extended_key_usages is not None:
-            pulumi.set(__self__, "extended_key_usages", extended_key_usages)
+            _setter("extended_key_usages", extended_key_usages)
         if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+            _setter("subject_alternative_names", subject_alternative_names)
 
     @property
     @pulumi.getter(name="keyUsages")
@@ -1293,12 +1566,25 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
         :param Sequence[str] emails: A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
         :param Sequence[str] upns: A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
         """
+        CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_names=dns_names,
+            emails=emails,
+            upns=upns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_names: Optional[Sequence[str]] = None,
+             emails: Optional[Sequence[str]] = None,
+             upns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_names is not None:
-            pulumi.set(__self__, "dns_names", dns_names)
+            _setter("dns_names", dns_names)
         if emails is not None:
-            pulumi.set(__self__, "emails", emails)
+            _setter("emails", emails)
         if upns is not None:
-            pulumi.set(__self__, "upns", upns)
+            _setter("upns", upns)
 
     @property
     @pulumi.getter(name="dnsNames")
@@ -1336,11 +1622,24 @@ class CertificateContactsContact(dict):
         :param str name: Name of the contact.
         :param str phone: Phone number of the contact.
         """
-        pulumi.set(__self__, "email", email)
+        CertificateContactsContact._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            name=name,
+            phone=phone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: str,
+             name: Optional[str] = None,
+             phone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email", email)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if phone is not None:
-            pulumi.set(__self__, "phone", phone)
+            _setter("phone", phone)
 
     @property
     @pulumi.getter
@@ -1401,13 +1700,28 @@ class CertificateIssuerAdmin(dict):
         :param str last_name: Last name of the admin.
         :param str phone: Phone number of the admin.
         """
-        pulumi.set(__self__, "email_address", email_address)
+        CertificateIssuerAdmin._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            first_name=first_name,
+            last_name=last_name,
+            phone=phone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: str,
+             first_name: Optional[str] = None,
+             last_name: Optional[str] = None,
+             phone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email_address", email_address)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if phone is not None:
-            pulumi.set(__self__, "phone", phone)
+            _setter("phone", phone)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -1472,12 +1786,25 @@ class KeyRotationPolicy(dict):
         :param str expire_after: Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param str notify_before_expiry: Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
         """
+        KeyRotationPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automatic=automatic,
+            expire_after=expire_after,
+            notify_before_expiry=notify_before_expiry,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automatic: Optional['outputs.KeyRotationPolicyAutomatic'] = None,
+             expire_after: Optional[str] = None,
+             notify_before_expiry: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if automatic is not None:
-            pulumi.set(__self__, "automatic", automatic)
+            _setter("automatic", automatic)
         if expire_after is not None:
-            pulumi.set(__self__, "expire_after", expire_after)
+            _setter("expire_after", expire_after)
         if notify_before_expiry is not None:
-            pulumi.set(__self__, "notify_before_expiry", notify_before_expiry)
+            _setter("notify_before_expiry", notify_before_expiry)
 
     @property
     @pulumi.getter
@@ -1532,10 +1859,21 @@ class KeyRotationPolicyAutomatic(dict):
         :param str time_after_creation: Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param str time_before_expiry: Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
+        KeyRotationPolicyAutomatic._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time_after_creation=time_after_creation,
+            time_before_expiry=time_before_expiry,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time_after_creation: Optional[str] = None,
+             time_before_expiry: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if time_after_creation is not None:
-            pulumi.set(__self__, "time_after_creation", time_after_creation)
+            _setter("time_after_creation", time_after_creation)
         if time_before_expiry is not None:
-            pulumi.set(__self__, "time_before_expiry", time_before_expiry)
+            _setter("time_before_expiry", time_before_expiry)
 
     @property
     @pulumi.getter(name="timeAfterCreation")
@@ -1602,18 +1940,39 @@ class KeyVaultAccessPolicy(dict):
         :param Sequence[str] secret_permissions: List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         :param Sequence[str] storage_permissions: List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         """
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        KeyVaultAccessPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_id=object_id,
+            tenant_id=tenant_id,
+            application_id=application_id,
+            certificate_permissions=certificate_permissions,
+            key_permissions=key_permissions,
+            secret_permissions=secret_permissions,
+            storage_permissions=storage_permissions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_id: str,
+             tenant_id: str,
+             application_id: Optional[str] = None,
+             certificate_permissions: Optional[Sequence[str]] = None,
+             key_permissions: Optional[Sequence[str]] = None,
+             secret_permissions: Optional[Sequence[str]] = None,
+             storage_permissions: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("object_id", object_id)
+        _setter("tenant_id", tenant_id)
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if certificate_permissions is not None:
-            pulumi.set(__self__, "certificate_permissions", certificate_permissions)
+            _setter("certificate_permissions", certificate_permissions)
         if key_permissions is not None:
-            pulumi.set(__self__, "key_permissions", key_permissions)
+            _setter("key_permissions", key_permissions)
         if secret_permissions is not None:
-            pulumi.set(__self__, "secret_permissions", secret_permissions)
+            _setter("secret_permissions", secret_permissions)
         if storage_permissions is not None:
-            pulumi.set(__self__, "storage_permissions", storage_permissions)
+            _setter("storage_permissions", storage_permissions)
 
     @property
     @pulumi.getter(name="objectId")
@@ -1683,11 +2042,24 @@ class KeyVaultContact(dict):
         :param str name: Name of the contact.
         :param str phone: Phone number of the contact.
         """
-        pulumi.set(__self__, "email", email)
+        KeyVaultContact._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            name=name,
+            phone=phone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: str,
+             name: Optional[str] = None,
+             phone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email", email)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if phone is not None:
-            pulumi.set(__self__, "phone", phone)
+            _setter("phone", phone)
 
     @property
     @pulumi.getter
@@ -1748,12 +2120,27 @@ class KeyVaultNetworkAcls(dict):
         :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
         :param Sequence[str] virtual_network_subnet_ids: One or more Subnet IDs which should be able to access this Key Vault.
         """
-        pulumi.set(__self__, "bypass", bypass)
-        pulumi.set(__self__, "default_action", default_action)
+        KeyVaultNetworkAcls._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bypass=bypass,
+            default_action=default_action,
+            ip_rules=ip_rules,
+            virtual_network_subnet_ids=virtual_network_subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bypass: str,
+             default_action: str,
+             ip_rules: Optional[Sequence[str]] = None,
+             virtual_network_subnet_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bypass", bypass)
+        _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if virtual_network_subnet_ids is not None:
-            pulumi.set(__self__, "virtual_network_subnet_ids", virtual_network_subnet_ids)
+            _setter("virtual_network_subnet_ids", virtual_network_subnet_ids)
 
     @property
     @pulumi.getter
@@ -1814,8 +2201,19 @@ class ManagedHardwareSecurityModuleNetworkAcls(dict):
         :param str bypass: Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
         :param str default_action: The Default Action to use. Possible values are `Allow` and `Deny`.
         """
-        pulumi.set(__self__, "bypass", bypass)
-        pulumi.set(__self__, "default_action", default_action)
+        ManagedHardwareSecurityModuleNetworkAcls._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bypass=bypass,
+            default_action=default_action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bypass: str,
+             default_action: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bypass", bypass)
+        _setter("default_action", default_action)
 
     @property
     @pulumi.getter
@@ -1849,11 +2247,28 @@ class GetCertificateCertificatePolicyResult(dict):
         :param Sequence['GetCertificateCertificatePolicySecretPropertyArgs'] secret_properties: A `secret_properties` block as defined below.
         :param Sequence['GetCertificateCertificatePolicyX509CertificatePropertyArgs'] x509_certificate_properties: An `x509_certificate_properties` block as defined below.
         """
-        pulumi.set(__self__, "issuer_parameters", issuer_parameters)
-        pulumi.set(__self__, "key_properties", key_properties)
-        pulumi.set(__self__, "lifetime_actions", lifetime_actions)
-        pulumi.set(__self__, "secret_properties", secret_properties)
-        pulumi.set(__self__, "x509_certificate_properties", x509_certificate_properties)
+        GetCertificateCertificatePolicyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            issuer_parameters=issuer_parameters,
+            key_properties=key_properties,
+            lifetime_actions=lifetime_actions,
+            secret_properties=secret_properties,
+            x509_certificate_properties=x509_certificate_properties,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             issuer_parameters: Sequence['outputs.GetCertificateCertificatePolicyIssuerParameterResult'],
+             key_properties: Sequence['outputs.GetCertificateCertificatePolicyKeyPropertyResult'],
+             lifetime_actions: Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionResult'],
+             secret_properties: Sequence['outputs.GetCertificateCertificatePolicySecretPropertyResult'],
+             x509_certificate_properties: Sequence['outputs.GetCertificateCertificatePolicyX509CertificatePropertyResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("issuer_parameters", issuer_parameters)
+        _setter("key_properties", key_properties)
+        _setter("lifetime_actions", lifetime_actions)
+        _setter("secret_properties", secret_properties)
+        _setter("x509_certificate_properties", x509_certificate_properties)
 
     @property
     @pulumi.getter(name="issuerParameters")
@@ -1903,7 +2318,16 @@ class GetCertificateCertificatePolicyIssuerParameterResult(dict):
         """
         :param str name: Specifies the name of the Key Vault Certificate.
         """
-        pulumi.set(__self__, "name", name)
+        GetCertificateCertificatePolicyIssuerParameterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1928,11 +2352,28 @@ class GetCertificateCertificatePolicyKeyPropertyResult(dict):
         :param str key_type: Specifies the Type of Key, for example `RSA`.
         :param bool reuse_key: Is the key reusable?
         """
-        pulumi.set(__self__, "curve", curve)
-        pulumi.set(__self__, "exportable", exportable)
-        pulumi.set(__self__, "key_size", key_size)
-        pulumi.set(__self__, "key_type", key_type)
-        pulumi.set(__self__, "reuse_key", reuse_key)
+        GetCertificateCertificatePolicyKeyPropertyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            curve=curve,
+            exportable=exportable,
+            key_size=key_size,
+            key_type=key_type,
+            reuse_key=reuse_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             curve: str,
+             exportable: bool,
+             key_size: int,
+             key_type: str,
+             reuse_key: bool,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("curve", curve)
+        _setter("exportable", exportable)
+        _setter("key_size", key_size)
+        _setter("key_type", key_type)
+        _setter("reuse_key", reuse_key)
 
     @property
     @pulumi.getter
@@ -1981,8 +2422,19 @@ class GetCertificateCertificatePolicyLifetimeActionResult(dict):
         :param Sequence['GetCertificateCertificatePolicyLifetimeActionActionArgs'] actions: A `action` block as defined below.
         :param Sequence['GetCertificateCertificatePolicyLifetimeActionTriggerArgs'] triggers: A `trigger` block as defined below.
         """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "triggers", triggers)
+        GetCertificateCertificatePolicyLifetimeActionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            actions=actions,
+            triggers=triggers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             actions: Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionActionResult'],
+             triggers: Sequence['outputs.GetCertificateCertificatePolicyLifetimeActionTriggerResult'],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("actions", actions)
+        _setter("triggers", triggers)
 
     @property
     @pulumi.getter
@@ -2008,7 +2460,16 @@ class GetCertificateCertificatePolicyLifetimeActionActionResult(dict):
         """
         :param str action_type: The Type of action to be performed when the lifetime trigger is triggerec.
         """
-        pulumi.set(__self__, "action_type", action_type)
+        GetCertificateCertificatePolicyLifetimeActionActionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_type=action_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_type", action_type)
 
     @property
     @pulumi.getter(name="actionType")
@@ -2028,8 +2489,19 @@ class GetCertificateCertificatePolicyLifetimeActionTriggerResult(dict):
         :param int days_before_expiry: The number of days before the Certificate expires that the action associated with this Trigger should run.
         :param int lifetime_percentage: The percentage at which during the Certificates Lifetime the action associated with this Trigger should run.
         """
-        pulumi.set(__self__, "days_before_expiry", days_before_expiry)
-        pulumi.set(__self__, "lifetime_percentage", lifetime_percentage)
+        GetCertificateCertificatePolicyLifetimeActionTriggerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_before_expiry=days_before_expiry,
+            lifetime_percentage=lifetime_percentage,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_before_expiry: int,
+             lifetime_percentage: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days_before_expiry", days_before_expiry)
+        _setter("lifetime_percentage", lifetime_percentage)
 
     @property
     @pulumi.getter(name="daysBeforeExpiry")
@@ -2055,7 +2527,16 @@ class GetCertificateCertificatePolicySecretPropertyResult(dict):
         """
         :param str content_type: The Content-Type of the Certificate, for example `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
         """
-        pulumi.set(__self__, "content_type", content_type)
+        GetCertificateCertificatePolicySecretPropertyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content_type", content_type)
 
     @property
     @pulumi.getter(name="contentType")
@@ -2081,11 +2562,28 @@ class GetCertificateCertificatePolicyX509CertificatePropertyResult(dict):
         :param Sequence['GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below.
         :param int validity_in_months: The Certificates Validity Period in Months.
         """
-        pulumi.set(__self__, "extended_key_usages", extended_key_usages)
-        pulumi.set(__self__, "key_usages", key_usages)
-        pulumi.set(__self__, "subject", subject)
-        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
-        pulumi.set(__self__, "validity_in_months", validity_in_months)
+        GetCertificateCertificatePolicyX509CertificatePropertyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            extended_key_usages=extended_key_usages,
+            key_usages=key_usages,
+            subject=subject,
+            subject_alternative_names=subject_alternative_names,
+            validity_in_months=validity_in_months,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             extended_key_usages: Sequence[str],
+             key_usages: Sequence[str],
+             subject: str,
+             subject_alternative_names: Sequence['outputs.GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameResult'],
+             validity_in_months: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("extended_key_usages", extended_key_usages)
+        _setter("key_usages", key_usages)
+        _setter("subject", subject)
+        _setter("subject_alternative_names", subject_alternative_names)
+        _setter("validity_in_months", validity_in_months)
 
     @property
     @pulumi.getter(name="extendedKeyUsages")
@@ -2139,9 +2637,22 @@ class GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNa
         :param Sequence[str] emails: A list of email addresses identified by this Certificate.
         :param Sequence[str] upns: A list of User Principal Names identified by the Certificate.
         """
-        pulumi.set(__self__, "dns_names", dns_names)
-        pulumi.set(__self__, "emails", emails)
-        pulumi.set(__self__, "upns", upns)
+        GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeNameResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_names=dns_names,
+            emails=emails,
+            upns=upns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_names: Sequence[str],
+             emails: Sequence[str],
+             upns: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dns_names", dns_names)
+        _setter("emails", emails)
+        _setter("upns", upns)
 
     @property
     @pulumi.getter(name="dnsNames")
@@ -2181,10 +2692,25 @@ class GetCertificateIssuerAdminResult(dict):
         :param str last_name: Last name of the admin.
         :param str phone: Phone number of the admin.
         """
-        pulumi.set(__self__, "email_address", email_address)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "last_name", last_name)
-        pulumi.set(__self__, "phone", phone)
+        GetCertificateIssuerAdminResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_address=email_address,
+            first_name=first_name,
+            last_name=last_name,
+            phone=phone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_address: str,
+             first_name: str,
+             last_name: str,
+             phone: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("email_address", email_address)
+        _setter("first_name", first_name)
+        _setter("last_name", last_name)
+        _setter("phone", phone)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -2229,9 +2755,22 @@ class GetCertificatesCertificateResult(dict):
         :param bool enabled: Whether this secret is enabled.
         :param str name: The name of secret.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        GetCertificatesCertificateResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             id: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("id", id)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -2274,13 +2813,34 @@ class GetKeyVaultAccessPolicyResult(dict):
         :param Sequence[str] storage_permissions: A list of storage permissions applicable to this Access Policy.
         :param str tenant_id: The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
         """
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "certificate_permissions", certificate_permissions)
-        pulumi.set(__self__, "key_permissions", key_permissions)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "secret_permissions", secret_permissions)
-        pulumi.set(__self__, "storage_permissions", storage_permissions)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        GetKeyVaultAccessPolicyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            certificate_permissions=certificate_permissions,
+            key_permissions=key_permissions,
+            object_id=object_id,
+            secret_permissions=secret_permissions,
+            storage_permissions=storage_permissions,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: str,
+             certificate_permissions: Sequence[str],
+             key_permissions: Sequence[str],
+             object_id: str,
+             secret_permissions: Sequence[str],
+             storage_permissions: Sequence[str],
+             tenant_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_id", application_id)
+        _setter("certificate_permissions", certificate_permissions)
+        _setter("key_permissions", key_permissions)
+        _setter("object_id", object_id)
+        _setter("secret_permissions", secret_permissions)
+        _setter("storage_permissions", storage_permissions)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -2346,10 +2906,25 @@ class GetKeyVaultNetworkAclResult(dict):
                  default_action: str,
                  ip_rules: Sequence[str],
                  virtual_network_subnet_ids: Sequence[str]):
-        pulumi.set(__self__, "bypass", bypass)
-        pulumi.set(__self__, "default_action", default_action)
-        pulumi.set(__self__, "ip_rules", ip_rules)
-        pulumi.set(__self__, "virtual_network_subnet_ids", virtual_network_subnet_ids)
+        GetKeyVaultNetworkAclResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bypass=bypass,
+            default_action=default_action,
+            ip_rules=ip_rules,
+            virtual_network_subnet_ids=virtual_network_subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bypass: str,
+             default_action: str,
+             ip_rules: Sequence[str],
+             virtual_network_subnet_ids: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bypass", bypass)
+        _setter("default_action", default_action)
+        _setter("ip_rules", ip_rules)
+        _setter("virtual_network_subnet_ids", virtual_network_subnet_ids)
 
     @property
     @pulumi.getter
@@ -2383,9 +2958,22 @@ class GetSecretsSecretResult(dict):
         :param str id: The ID of this secret.
         :param str name: The name of secret.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        GetSecretsSecretResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             id: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("id", id)
+        _setter("name", name)
 
     @property
     @pulumi.getter

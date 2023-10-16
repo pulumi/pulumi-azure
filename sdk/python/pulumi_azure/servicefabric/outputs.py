@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -70,9 +70,22 @@ class ClusterAzureActiveDirectory(dict):
         :param str cluster_application_id: The Azure Active Directory Cluster Application ID.
         :param str tenant_id: The Azure Active Directory Tenant ID.
         """
-        pulumi.set(__self__, "client_application_id", client_application_id)
-        pulumi.set(__self__, "cluster_application_id", cluster_application_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ClusterAzureActiveDirectory._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_application_id=client_application_id,
+            cluster_application_id=cluster_application_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_application_id: str,
+             cluster_application_id: str,
+             tenant_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_application_id", client_application_id)
+        _setter("cluster_application_id", cluster_application_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientApplicationId")
@@ -129,10 +142,23 @@ class ClusterCertificate(dict):
         :param str x509_store_name: The X509 Store where the Certificate Exists, such as `My`.
         :param str thumbprint_secondary: The Secondary Thumbprint of the Certificate.
         """
-        pulumi.set(__self__, "thumbprint", thumbprint)
-        pulumi.set(__self__, "x509_store_name", x509_store_name)
+        ClusterCertificate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            thumbprint=thumbprint,
+            x509_store_name=x509_store_name,
+            thumbprint_secondary=thumbprint_secondary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             thumbprint: str,
+             x509_store_name: str,
+             thumbprint_secondary: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("thumbprint", thumbprint)
+        _setter("x509_store_name", x509_store_name)
         if thumbprint_secondary is not None:
-            pulumi.set(__self__, "thumbprint_secondary", thumbprint_secondary)
+            _setter("thumbprint_secondary", thumbprint_secondary)
 
     @property
     @pulumi.getter
@@ -187,8 +213,19 @@ class ClusterCertificateCommonNames(dict):
         :param Sequence['ClusterCertificateCommonNamesCommonNameArgs'] common_names: A `common_names` block as defined below.
         :param str x509_store_name: The X509 Store where the Certificate Exists, such as `My`.
         """
-        pulumi.set(__self__, "common_names", common_names)
-        pulumi.set(__self__, "x509_store_name", x509_store_name)
+        ClusterCertificateCommonNames._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            common_names=common_names,
+            x509_store_name=x509_store_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             common_names: Sequence['outputs.ClusterCertificateCommonNamesCommonName'],
+             x509_store_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("common_names", common_names)
+        _setter("x509_store_name", x509_store_name)
 
     @property
     @pulumi.getter(name="commonNames")
@@ -237,9 +274,20 @@ class ClusterCertificateCommonNamesCommonName(dict):
                
                > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
         """
-        pulumi.set(__self__, "certificate_common_name", certificate_common_name)
+        ClusterCertificateCommonNamesCommonName._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_common_name=certificate_common_name,
+            certificate_issuer_thumbprint=certificate_issuer_thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_common_name: str,
+             certificate_issuer_thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_common_name", certificate_common_name)
         if certificate_issuer_thumbprint is not None:
-            pulumi.set(__self__, "certificate_issuer_thumbprint", certificate_issuer_thumbprint)
+            _setter("certificate_issuer_thumbprint", certificate_issuer_thumbprint)
 
     @property
     @pulumi.getter(name="certificateCommonName")
@@ -294,10 +342,23 @@ class ClusterClientCertificateCommonName(dict):
                
                > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
         """
-        pulumi.set(__self__, "common_name", common_name)
-        pulumi.set(__self__, "is_admin", is_admin)
+        ClusterClientCertificateCommonName._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            common_name=common_name,
+            is_admin=is_admin,
+            issuer_thumbprint=issuer_thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             common_name: str,
+             is_admin: bool,
+             issuer_thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("common_name", common_name)
+        _setter("is_admin", is_admin)
         if issuer_thumbprint is not None:
-            pulumi.set(__self__, "issuer_thumbprint", issuer_thumbprint)
+            _setter("issuer_thumbprint", issuer_thumbprint)
 
     @property
     @pulumi.getter(name="commonName")
@@ -352,8 +413,19 @@ class ClusterClientCertificateThumbprint(dict):
         :param bool is_admin: Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
         :param str thumbprint: The Thumbprint associated with the Client Certificate.
         """
-        pulumi.set(__self__, "is_admin", is_admin)
-        pulumi.set(__self__, "thumbprint", thumbprint)
+        ClusterClientCertificateThumbprint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_admin=is_admin,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_admin: bool,
+             thumbprint: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_admin", is_admin)
+        _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="isAdmin")
@@ -412,11 +484,28 @@ class ClusterDiagnosticsConfig(dict):
         :param str storage_account_name: The name of the Storage Account where the Diagnostics should be sent to.
         :param str table_endpoint: The Table Endpoint of the Storage Account.
         """
-        pulumi.set(__self__, "blob_endpoint", blob_endpoint)
-        pulumi.set(__self__, "protected_account_key_name", protected_account_key_name)
-        pulumi.set(__self__, "queue_endpoint", queue_endpoint)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "table_endpoint", table_endpoint)
+        ClusterDiagnosticsConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_endpoint=blob_endpoint,
+            protected_account_key_name=protected_account_key_name,
+            queue_endpoint=queue_endpoint,
+            storage_account_name=storage_account_name,
+            table_endpoint=table_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_endpoint: str,
+             protected_account_key_name: str,
+             queue_endpoint: str,
+             storage_account_name: str,
+             table_endpoint: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("blob_endpoint", blob_endpoint)
+        _setter("protected_account_key_name", protected_account_key_name)
+        _setter("queue_endpoint", queue_endpoint)
+        _setter("storage_account_name", storage_account_name)
+        _setter("table_endpoint", table_endpoint)
 
     @property
     @pulumi.getter(name="blobEndpoint")
@@ -468,9 +557,20 @@ class ClusterFabricSetting(dict):
         :param str name: The name of the Fabric Setting, such as `Security` or `Federation`.
         :param Mapping[str, str] parameters: A map containing settings for the specified Fabric Setting.
         """
-        pulumi.set(__self__, "name", name)
+        ClusterFabricSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             parameters: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -557,27 +657,60 @@ class ClusterNodeType(dict):
         :param Mapping[str, str] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         :param int reverse_proxy_endpoint_port: The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
         """
-        pulumi.set(__self__, "client_endpoint_port", client_endpoint_port)
-        pulumi.set(__self__, "http_endpoint_port", http_endpoint_port)
-        pulumi.set(__self__, "instance_count", instance_count)
-        pulumi.set(__self__, "is_primary", is_primary)
-        pulumi.set(__self__, "name", name)
+        ClusterNodeType._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_endpoint_port=client_endpoint_port,
+            http_endpoint_port=http_endpoint_port,
+            instance_count=instance_count,
+            is_primary=is_primary,
+            name=name,
+            application_ports=application_ports,
+            capacities=capacities,
+            durability_level=durability_level,
+            ephemeral_ports=ephemeral_ports,
+            is_stateless=is_stateless,
+            multiple_availability_zones=multiple_availability_zones,
+            placement_properties=placement_properties,
+            reverse_proxy_endpoint_port=reverse_proxy_endpoint_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_endpoint_port: int,
+             http_endpoint_port: int,
+             instance_count: int,
+             is_primary: bool,
+             name: str,
+             application_ports: Optional['outputs.ClusterNodeTypeApplicationPorts'] = None,
+             capacities: Optional[Mapping[str, str]] = None,
+             durability_level: Optional[str] = None,
+             ephemeral_ports: Optional['outputs.ClusterNodeTypeEphemeralPorts'] = None,
+             is_stateless: Optional[bool] = None,
+             multiple_availability_zones: Optional[bool] = None,
+             placement_properties: Optional[Mapping[str, str]] = None,
+             reverse_proxy_endpoint_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_endpoint_port", client_endpoint_port)
+        _setter("http_endpoint_port", http_endpoint_port)
+        _setter("instance_count", instance_count)
+        _setter("is_primary", is_primary)
+        _setter("name", name)
         if application_ports is not None:
-            pulumi.set(__self__, "application_ports", application_ports)
+            _setter("application_ports", application_ports)
         if capacities is not None:
-            pulumi.set(__self__, "capacities", capacities)
+            _setter("capacities", capacities)
         if durability_level is not None:
-            pulumi.set(__self__, "durability_level", durability_level)
+            _setter("durability_level", durability_level)
         if ephemeral_ports is not None:
-            pulumi.set(__self__, "ephemeral_ports", ephemeral_ports)
+            _setter("ephemeral_ports", ephemeral_ports)
         if is_stateless is not None:
-            pulumi.set(__self__, "is_stateless", is_stateless)
+            _setter("is_stateless", is_stateless)
         if multiple_availability_zones is not None:
-            pulumi.set(__self__, "multiple_availability_zones", multiple_availability_zones)
+            _setter("multiple_availability_zones", multiple_availability_zones)
         if placement_properties is not None:
-            pulumi.set(__self__, "placement_properties", placement_properties)
+            _setter("placement_properties", placement_properties)
         if reverse_proxy_endpoint_port is not None:
-            pulumi.set(__self__, "reverse_proxy_endpoint_port", reverse_proxy_endpoint_port)
+            _setter("reverse_proxy_endpoint_port", reverse_proxy_endpoint_port)
 
     @property
     @pulumi.getter(name="clientEndpointPort")
@@ -712,8 +845,19 @@ class ClusterNodeTypeApplicationPorts(dict):
         :param int end_port: The end of the Application Port Range on this Node Type.
         :param int start_port: The start of the Application Port Range on this Node Type.
         """
-        pulumi.set(__self__, "end_port", end_port)
-        pulumi.set(__self__, "start_port", start_port)
+        ClusterNodeTypeApplicationPorts._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_port=end_port,
+            start_port=start_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_port: int,
+             start_port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_port", end_port)
+        _setter("start_port", start_port)
 
     @property
     @pulumi.getter(name="endPort")
@@ -760,8 +904,19 @@ class ClusterNodeTypeEphemeralPorts(dict):
         :param int end_port: The end of the Ephemeral Port Range on this Node Type.
         :param int start_port: The start of the Ephemeral Port Range on this Node Type.
         """
-        pulumi.set(__self__, "end_port", end_port)
-        pulumi.set(__self__, "start_port", start_port)
+        ClusterNodeTypeEphemeralPorts._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_port=end_port,
+            start_port=start_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_port: int,
+             start_port: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("end_port", end_port)
+        _setter("start_port", start_port)
 
     @property
     @pulumi.getter(name="endPort")
@@ -810,10 +965,23 @@ class ClusterReverseProxyCertificate(dict):
         :param str x509_store_name: The X509 Store where the Certificate Exists, such as `My`.
         :param str thumbprint_secondary: The Secondary Thumbprint of the Certificate.
         """
-        pulumi.set(__self__, "thumbprint", thumbprint)
-        pulumi.set(__self__, "x509_store_name", x509_store_name)
+        ClusterReverseProxyCertificate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            thumbprint=thumbprint,
+            x509_store_name=x509_store_name,
+            thumbprint_secondary=thumbprint_secondary,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             thumbprint: str,
+             x509_store_name: str,
+             thumbprint_secondary: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("thumbprint", thumbprint)
+        _setter("x509_store_name", x509_store_name)
         if thumbprint_secondary is not None:
-            pulumi.set(__self__, "thumbprint_secondary", thumbprint_secondary)
+            _setter("thumbprint_secondary", thumbprint_secondary)
 
     @property
     @pulumi.getter
@@ -868,8 +1036,19 @@ class ClusterReverseProxyCertificateCommonNames(dict):
         :param Sequence['ClusterReverseProxyCertificateCommonNamesCommonNameArgs'] common_names: A `common_names` block as defined below.
         :param str x509_store_name: The X509 Store where the Certificate Exists, such as `My`.
         """
-        pulumi.set(__self__, "common_names", common_names)
-        pulumi.set(__self__, "x509_store_name", x509_store_name)
+        ClusterReverseProxyCertificateCommonNames._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            common_names=common_names,
+            x509_store_name=x509_store_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             common_names: Sequence['outputs.ClusterReverseProxyCertificateCommonNamesCommonName'],
+             x509_store_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("common_names", common_names)
+        _setter("x509_store_name", x509_store_name)
 
     @property
     @pulumi.getter(name="commonNames")
@@ -918,9 +1097,20 @@ class ClusterReverseProxyCertificateCommonNamesCommonName(dict):
                
                > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
         """
-        pulumi.set(__self__, "certificate_common_name", certificate_common_name)
+        ClusterReverseProxyCertificateCommonNamesCommonName._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_common_name=certificate_common_name,
+            certificate_issuer_thumbprint=certificate_issuer_thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_common_name: str,
+             certificate_issuer_thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_common_name", certificate_common_name)
         if certificate_issuer_thumbprint is not None:
-            pulumi.set(__self__, "certificate_issuer_thumbprint", certificate_issuer_thumbprint)
+            _setter("certificate_issuer_thumbprint", certificate_issuer_thumbprint)
 
     @property
     @pulumi.getter(name="certificateCommonName")
@@ -997,24 +1187,49 @@ class ClusterUpgradePolicy(dict):
         :param str upgrade_replica_set_check_timeout: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to `10675199.02:48:05.4775807`.
         :param str upgrade_timeout: Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to `12:00:00`.
         """
+        ClusterUpgradePolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delta_health_policy=delta_health_policy,
+            force_restart_enabled=force_restart_enabled,
+            health_check_retry_timeout=health_check_retry_timeout,
+            health_check_stable_duration=health_check_stable_duration,
+            health_check_wait_duration=health_check_wait_duration,
+            health_policy=health_policy,
+            upgrade_domain_timeout=upgrade_domain_timeout,
+            upgrade_replica_set_check_timeout=upgrade_replica_set_check_timeout,
+            upgrade_timeout=upgrade_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delta_health_policy: Optional['outputs.ClusterUpgradePolicyDeltaHealthPolicy'] = None,
+             force_restart_enabled: Optional[bool] = None,
+             health_check_retry_timeout: Optional[str] = None,
+             health_check_stable_duration: Optional[str] = None,
+             health_check_wait_duration: Optional[str] = None,
+             health_policy: Optional['outputs.ClusterUpgradePolicyHealthPolicy'] = None,
+             upgrade_domain_timeout: Optional[str] = None,
+             upgrade_replica_set_check_timeout: Optional[str] = None,
+             upgrade_timeout: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if delta_health_policy is not None:
-            pulumi.set(__self__, "delta_health_policy", delta_health_policy)
+            _setter("delta_health_policy", delta_health_policy)
         if force_restart_enabled is not None:
-            pulumi.set(__self__, "force_restart_enabled", force_restart_enabled)
+            _setter("force_restart_enabled", force_restart_enabled)
         if health_check_retry_timeout is not None:
-            pulumi.set(__self__, "health_check_retry_timeout", health_check_retry_timeout)
+            _setter("health_check_retry_timeout", health_check_retry_timeout)
         if health_check_stable_duration is not None:
-            pulumi.set(__self__, "health_check_stable_duration", health_check_stable_duration)
+            _setter("health_check_stable_duration", health_check_stable_duration)
         if health_check_wait_duration is not None:
-            pulumi.set(__self__, "health_check_wait_duration", health_check_wait_duration)
+            _setter("health_check_wait_duration", health_check_wait_duration)
         if health_policy is not None:
-            pulumi.set(__self__, "health_policy", health_policy)
+            _setter("health_policy", health_policy)
         if upgrade_domain_timeout is not None:
-            pulumi.set(__self__, "upgrade_domain_timeout", upgrade_domain_timeout)
+            _setter("upgrade_domain_timeout", upgrade_domain_timeout)
         if upgrade_replica_set_check_timeout is not None:
-            pulumi.set(__self__, "upgrade_replica_set_check_timeout", upgrade_replica_set_check_timeout)
+            _setter("upgrade_replica_set_check_timeout", upgrade_replica_set_check_timeout)
         if upgrade_timeout is not None:
-            pulumi.set(__self__, "upgrade_timeout", upgrade_timeout)
+            _setter("upgrade_timeout", upgrade_timeout)
 
     @property
     @pulumi.getter(name="deltaHealthPolicy")
@@ -1121,12 +1336,25 @@ class ClusterUpgradePolicyDeltaHealthPolicy(dict):
         :param int max_delta_unhealthy_nodes_percent: Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
         :param int max_upgrade_domain_delta_unhealthy_nodes_percent: Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
         """
+        ClusterUpgradePolicyDeltaHealthPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_delta_unhealthy_applications_percent=max_delta_unhealthy_applications_percent,
+            max_delta_unhealthy_nodes_percent=max_delta_unhealthy_nodes_percent,
+            max_upgrade_domain_delta_unhealthy_nodes_percent=max_upgrade_domain_delta_unhealthy_nodes_percent,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_delta_unhealthy_applications_percent: Optional[int] = None,
+             max_delta_unhealthy_nodes_percent: Optional[int] = None,
+             max_upgrade_domain_delta_unhealthy_nodes_percent: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_delta_unhealthy_applications_percent is not None:
-            pulumi.set(__self__, "max_delta_unhealthy_applications_percent", max_delta_unhealthy_applications_percent)
+            _setter("max_delta_unhealthy_applications_percent", max_delta_unhealthy_applications_percent)
         if max_delta_unhealthy_nodes_percent is not None:
-            pulumi.set(__self__, "max_delta_unhealthy_nodes_percent", max_delta_unhealthy_nodes_percent)
+            _setter("max_delta_unhealthy_nodes_percent", max_delta_unhealthy_nodes_percent)
         if max_upgrade_domain_delta_unhealthy_nodes_percent is not None:
-            pulumi.set(__self__, "max_upgrade_domain_delta_unhealthy_nodes_percent", max_upgrade_domain_delta_unhealthy_nodes_percent)
+            _setter("max_upgrade_domain_delta_unhealthy_nodes_percent", max_upgrade_domain_delta_unhealthy_nodes_percent)
 
     @property
     @pulumi.getter(name="maxDeltaUnhealthyApplicationsPercent")
@@ -1181,10 +1409,21 @@ class ClusterUpgradePolicyHealthPolicy(dict):
         :param int max_unhealthy_applications_percent: Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
         :param int max_unhealthy_nodes_percent: Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
         """
+        ClusterUpgradePolicyHealthPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_unhealthy_applications_percent=max_unhealthy_applications_percent,
+            max_unhealthy_nodes_percent=max_unhealthy_nodes_percent,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_unhealthy_applications_percent: Optional[int] = None,
+             max_unhealthy_nodes_percent: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if max_unhealthy_applications_percent is not None:
-            pulumi.set(__self__, "max_unhealthy_applications_percent", max_unhealthy_applications_percent)
+            _setter("max_unhealthy_applications_percent", max_unhealthy_applications_percent)
         if max_unhealthy_nodes_percent is not None:
-            pulumi.set(__self__, "max_unhealthy_nodes_percent", max_unhealthy_nodes_percent)
+            _setter("max_unhealthy_nodes_percent", max_unhealthy_nodes_percent)
 
     @property
     @pulumi.getter(name="maxUnhealthyApplicationsPercent")
@@ -1229,10 +1468,21 @@ class ManagedClusterAuthentication(dict):
         :param 'ManagedClusterAuthenticationActiveDirectoryArgs' active_directory: A `active_directory` block as defined above.
         :param Sequence['ManagedClusterAuthenticationCertificateArgs'] certificates: One or more `certificate` blocks as defined below.
         """
+        ManagedClusterAuthentication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_directory=active_directory,
+            certificates=certificates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_directory: Optional['outputs.ManagedClusterAuthenticationActiveDirectory'] = None,
+             certificates: Optional[Sequence['outputs.ManagedClusterAuthenticationCertificate']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if active_directory is not None:
-            pulumi.set(__self__, "active_directory", active_directory)
+            _setter("active_directory", active_directory)
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
 
     @property
     @pulumi.getter(name="activeDirectory")
@@ -1283,9 +1533,22 @@ class ManagedClusterAuthenticationActiveDirectory(dict):
         :param str cluster_application_id: The ID of the Cluster Application.
         :param str tenant_id: The ID of the Tenant.
         """
-        pulumi.set(__self__, "client_application_id", client_application_id)
-        pulumi.set(__self__, "cluster_application_id", cluster_application_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ManagedClusterAuthenticationActiveDirectory._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_application_id=client_application_id,
+            cluster_application_id=cluster_application_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_application_id: str,
+             cluster_application_id: str,
+             tenant_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_application_id", client_application_id)
+        _setter("cluster_application_id", cluster_application_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="clientApplicationId")
@@ -1340,10 +1603,23 @@ class ManagedClusterAuthenticationCertificate(dict):
         :param str type: The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
         :param str common_name: The certificate's CN.
         """
-        pulumi.set(__self__, "thumbprint", thumbprint)
-        pulumi.set(__self__, "type", type)
+        ManagedClusterAuthenticationCertificate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            thumbprint=thumbprint,
+            type=type,
+            common_name=common_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             thumbprint: str,
+             type: str,
+             common_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("thumbprint", thumbprint)
+        _setter("type", type)
         if common_name is not None:
-            pulumi.set(__self__, "common_name", common_name)
+            _setter("common_name", common_name)
 
     @property
     @pulumi.getter
@@ -1381,9 +1657,22 @@ class ManagedClusterCustomFabricSetting(dict):
         :param str section: Section name.
         :param str value: Parameter value.
         """
-        pulumi.set(__self__, "parameter", parameter)
-        pulumi.set(__self__, "section", section)
-        pulumi.set(__self__, "value", value)
+        ManagedClusterCustomFabricSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameter=parameter,
+            section=section,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameter: str,
+             section: str,
+             value: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("parameter", parameter)
+        _setter("section", section)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1448,12 +1737,29 @@ class ManagedClusterLbRule(dict):
         :param str protocol: The transport protocol used in this rule. Can be one of `tcp` or `udp`.
         :param str probe_request_path: Path for the probe to check, when probe protocol is set to `http`.
         """
-        pulumi.set(__self__, "backend_port", backend_port)
-        pulumi.set(__self__, "frontend_port", frontend_port)
-        pulumi.set(__self__, "probe_protocol", probe_protocol)
-        pulumi.set(__self__, "protocol", protocol)
+        ManagedClusterLbRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            frontend_port=frontend_port,
+            probe_protocol=probe_protocol,
+            protocol=protocol,
+            probe_request_path=probe_request_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: int,
+             frontend_port: int,
+             probe_protocol: str,
+             protocol: str,
+             probe_request_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backend_port", backend_port)
+        _setter("frontend_port", frontend_port)
+        _setter("probe_protocol", probe_protocol)
+        _setter("protocol", protocol)
         if probe_request_path is not None:
-            pulumi.set(__self__, "probe_request_path", probe_request_path)
+            _setter("probe_request_path", probe_request_path)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -1578,32 +1884,75 @@ class ManagedClusterNodeType(dict):
         :param bool stateless: If set to true, only stateless workloads can run on this node type.
         :param Sequence['ManagedClusterNodeTypeVmSecretArgs'] vm_secrets: One or more `vm_secrets` blocks as defined below.
         """
-        pulumi.set(__self__, "application_port_range", application_port_range)
-        pulumi.set(__self__, "data_disk_size_gb", data_disk_size_gb)
-        pulumi.set(__self__, "ephemeral_port_range", ephemeral_port_range)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "vm_image_offer", vm_image_offer)
-        pulumi.set(__self__, "vm_image_publisher", vm_image_publisher)
-        pulumi.set(__self__, "vm_image_sku", vm_image_sku)
-        pulumi.set(__self__, "vm_image_version", vm_image_version)
-        pulumi.set(__self__, "vm_instance_count", vm_instance_count)
-        pulumi.set(__self__, "vm_size", vm_size)
+        ManagedClusterNodeType._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_port_range=application_port_range,
+            data_disk_size_gb=data_disk_size_gb,
+            ephemeral_port_range=ephemeral_port_range,
+            name=name,
+            vm_image_offer=vm_image_offer,
+            vm_image_publisher=vm_image_publisher,
+            vm_image_sku=vm_image_sku,
+            vm_image_version=vm_image_version,
+            vm_instance_count=vm_instance_count,
+            vm_size=vm_size,
+            capacities=capacities,
+            data_disk_type=data_disk_type,
+            id=id,
+            multiple_placement_groups_enabled=multiple_placement_groups_enabled,
+            placement_properties=placement_properties,
+            primary=primary,
+            stateless=stateless,
+            vm_secrets=vm_secrets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_port_range: str,
+             data_disk_size_gb: int,
+             ephemeral_port_range: str,
+             name: str,
+             vm_image_offer: str,
+             vm_image_publisher: str,
+             vm_image_sku: str,
+             vm_image_version: str,
+             vm_instance_count: int,
+             vm_size: str,
+             capacities: Optional[Mapping[str, str]] = None,
+             data_disk_type: Optional[str] = None,
+             id: Optional[str] = None,
+             multiple_placement_groups_enabled: Optional[bool] = None,
+             placement_properties: Optional[Mapping[str, str]] = None,
+             primary: Optional[bool] = None,
+             stateless: Optional[bool] = None,
+             vm_secrets: Optional[Sequence['outputs.ManagedClusterNodeTypeVmSecret']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_port_range", application_port_range)
+        _setter("data_disk_size_gb", data_disk_size_gb)
+        _setter("ephemeral_port_range", ephemeral_port_range)
+        _setter("name", name)
+        _setter("vm_image_offer", vm_image_offer)
+        _setter("vm_image_publisher", vm_image_publisher)
+        _setter("vm_image_sku", vm_image_sku)
+        _setter("vm_image_version", vm_image_version)
+        _setter("vm_instance_count", vm_instance_count)
+        _setter("vm_size", vm_size)
         if capacities is not None:
-            pulumi.set(__self__, "capacities", capacities)
+            _setter("capacities", capacities)
         if data_disk_type is not None:
-            pulumi.set(__self__, "data_disk_type", data_disk_type)
+            _setter("data_disk_type", data_disk_type)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if multiple_placement_groups_enabled is not None:
-            pulumi.set(__self__, "multiple_placement_groups_enabled", multiple_placement_groups_enabled)
+            _setter("multiple_placement_groups_enabled", multiple_placement_groups_enabled)
         if placement_properties is not None:
-            pulumi.set(__self__, "placement_properties", placement_properties)
+            _setter("placement_properties", placement_properties)
         if primary is not None:
-            pulumi.set(__self__, "primary", primary)
+            _setter("primary", primary)
         if stateless is not None:
-            pulumi.set(__self__, "stateless", stateless)
+            _setter("stateless", stateless)
         if vm_secrets is not None:
-            pulumi.set(__self__, "vm_secrets", vm_secrets)
+            _setter("vm_secrets", vm_secrets)
 
     @property
     @pulumi.getter(name="applicationPortRange")
@@ -1776,8 +2125,19 @@ class ManagedClusterNodeTypeVmSecret(dict):
         :param Sequence['ManagedClusterNodeTypeVmSecretCertificateArgs'] certificates: One or more `certificates` blocks as defined above.
         :param str vault_id: The ID of the Vault that contain the certificates.
         """
-        pulumi.set(__self__, "certificates", certificates)
-        pulumi.set(__self__, "vault_id", vault_id)
+        ManagedClusterNodeTypeVmSecret._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificates=certificates,
+            vault_id=vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificates: Sequence['outputs.ManagedClusterNodeTypeVmSecretCertificate'],
+             vault_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificates", certificates)
+        _setter("vault_id", vault_id)
 
     @property
     @pulumi.getter
@@ -1805,8 +2165,19 @@ class ManagedClusterNodeTypeVmSecretCertificate(dict):
         :param str store: The certificate store on the Virtual Machine to which the certificate should be added.
         :param str url: The URL of a certificate that has been uploaded to Key Vault as a secret
         """
-        pulumi.set(__self__, "store", store)
-        pulumi.set(__self__, "url", url)
+        ManagedClusterNodeTypeVmSecretCertificate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            store=store,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             store: str,
+             url: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("store", store)
+        _setter("url", url)
 
     @property
     @pulumi.getter

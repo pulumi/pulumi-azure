@@ -77,14 +77,14 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
     }
 
     /**
-     * Specifies a list of destination ports.
+     * Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
      * 
      */
     @Import(name="destinationPorts", required=true)
     private Output<List<String>> destinationPorts;
 
     /**
-     * @return Specifies a list of destination ports.
+     * @return Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
      * 
      */
     public Output<List<String>> destinationPorts() {
@@ -298,7 +298,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
         }
 
         /**
-         * @param destinationPorts Specifies a list of destination ports.
+         * @param destinationPorts Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
         }
 
         /**
-         * @param destinationPorts Specifies a list of destination ports.
+         * @param destinationPorts Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
         }
 
         /**
-         * @param destinationPorts Specifies a list of destination ports.
+         * @param destinationPorts Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
          * 
          * @return builder
          * 

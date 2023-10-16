@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SavedSearchArgs', 'SavedSearch']
@@ -33,18 +33,41 @@ class SavedSearchArgs:
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "query", query)
+        SavedSearchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            display_name=display_name,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            query=query,
+            function_alias=function_alias,
+            function_parameters=function_parameters,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: pulumi.Input[str],
+             display_name: pulumi.Input[str],
+             log_analytics_workspace_id: pulumi.Input[str],
+             query: pulumi.Input[str],
+             function_alias: Optional[pulumi.Input[str]] = None,
+             function_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("category", category)
+        _setter("display_name", display_name)
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("query", query)
         if function_alias is not None:
-            pulumi.set(__self__, "function_alias", function_alias)
+            _setter("function_alias", function_alias)
         if function_parameters is not None:
-            pulumi.set(__self__, "function_parameters", function_parameters)
+            _setter("function_parameters", function_parameters)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -165,22 +188,45 @@ class _SavedSearchState:
         :param pulumi.Input[str] query: The query expression for the saved search. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         """
+        _SavedSearchState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            display_name=display_name,
+            function_alias=function_alias,
+            function_parameters=function_parameters,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            name=name,
+            query=query,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             function_alias: Optional[pulumi.Input[str]] = None,
+             function_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if function_alias is not None:
-            pulumi.set(__self__, "function_alias", function_alias)
+            _setter("function_alias", function_alias)
         if function_parameters is not None:
-            pulumi.set(__self__, "function_parameters", function_parameters)
+            _setter("function_parameters", function_parameters)
         if log_analytics_workspace_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -380,6 +426,10 @@ class SavedSearch(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SavedSearchArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

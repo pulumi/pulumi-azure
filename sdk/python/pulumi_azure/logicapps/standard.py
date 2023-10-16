@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,42 +59,89 @@ class StandardArgs:
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~3`.
         """
-        pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        StandardArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_plan_id=app_service_plan_id,
+            resource_group_name=resource_group_name,
+            storage_account_access_key=storage_account_access_key,
+            storage_account_name=storage_account_name,
+            app_settings=app_settings,
+            bundle_version=bundle_version,
+            client_affinity_enabled=client_affinity_enabled,
+            client_certificate_mode=client_certificate_mode,
+            connection_strings=connection_strings,
+            enabled=enabled,
+            https_only=https_only,
+            identity=identity,
+            location=location,
+            name=name,
+            site_config=site_config,
+            storage_account_share_name=storage_account_share_name,
+            tags=tags,
+            use_extension_bundle=use_extension_bundle,
+            version=version,
+            virtual_network_subnet_id=virtual_network_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_plan_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             storage_account_access_key: pulumi.Input[str],
+             storage_account_name: pulumi.Input[str],
+             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             bundle_version: Optional[pulumi.Input[str]] = None,
+             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
+             client_certificate_mode: Optional[pulumi.Input[str]] = None,
+             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['StandardIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             site_config: Optional[pulumi.Input['StandardSiteConfigArgs']] = None,
+             storage_account_share_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             use_extension_bundle: Optional[pulumi.Input[bool]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_service_plan_id", app_service_plan_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_account_access_key", storage_account_access_key)
+        _setter("storage_account_name", storage_account_name)
         if app_settings is not None:
-            pulumi.set(__self__, "app_settings", app_settings)
+            _setter("app_settings", app_settings)
         if bundle_version is not None:
-            pulumi.set(__self__, "bundle_version", bundle_version)
+            _setter("bundle_version", bundle_version)
         if client_affinity_enabled is not None:
-            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
+            _setter("client_affinity_enabled", client_affinity_enabled)
         if client_certificate_mode is not None:
-            pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
+            _setter("client_certificate_mode", client_certificate_mode)
         if connection_strings is not None:
-            pulumi.set(__self__, "connection_strings", connection_strings)
+            _setter("connection_strings", connection_strings)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if site_config is not None:
-            pulumi.set(__self__, "site_config", site_config)
+            _setter("site_config", site_config)
         if storage_account_share_name is not None:
-            pulumi.set(__self__, "storage_account_share_name", storage_account_share_name)
+            _setter("storage_account_share_name", storage_account_share_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if use_extension_bundle is not None:
-            pulumi.set(__self__, "use_extension_bundle", use_extension_bundle)
+            _setter("use_extension_bundle", use_extension_bundle)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if virtual_network_subnet_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+            _setter("virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="appServicePlanId")
@@ -391,58 +438,117 @@ class _StandardState:
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~3`.
         """
+        _StandardState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_plan_id=app_service_plan_id,
+            app_settings=app_settings,
+            bundle_version=bundle_version,
+            client_affinity_enabled=client_affinity_enabled,
+            client_certificate_mode=client_certificate_mode,
+            connection_strings=connection_strings,
+            custom_domain_verification_id=custom_domain_verification_id,
+            default_hostname=default_hostname,
+            enabled=enabled,
+            https_only=https_only,
+            identity=identity,
+            kind=kind,
+            location=location,
+            name=name,
+            outbound_ip_addresses=outbound_ip_addresses,
+            possible_outbound_ip_addresses=possible_outbound_ip_addresses,
+            resource_group_name=resource_group_name,
+            site_config=site_config,
+            site_credentials=site_credentials,
+            storage_account_access_key=storage_account_access_key,
+            storage_account_name=storage_account_name,
+            storage_account_share_name=storage_account_share_name,
+            tags=tags,
+            use_extension_bundle=use_extension_bundle,
+            version=version,
+            virtual_network_subnet_id=virtual_network_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_plan_id: Optional[pulumi.Input[str]] = None,
+             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             bundle_version: Optional[pulumi.Input[str]] = None,
+             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
+             client_certificate_mode: Optional[pulumi.Input[str]] = None,
+             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]]] = None,
+             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
+             default_hostname: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['StandardIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             site_config: Optional[pulumi.Input['StandardSiteConfigArgs']] = None,
+             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSiteCredentialArgs']]]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             storage_account_share_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             use_extension_bundle: Optional[pulumi.Input[bool]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_service_plan_id is not None:
-            pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
+            _setter("app_service_plan_id", app_service_plan_id)
         if app_settings is not None:
-            pulumi.set(__self__, "app_settings", app_settings)
+            _setter("app_settings", app_settings)
         if bundle_version is not None:
-            pulumi.set(__self__, "bundle_version", bundle_version)
+            _setter("bundle_version", bundle_version)
         if client_affinity_enabled is not None:
-            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
+            _setter("client_affinity_enabled", client_affinity_enabled)
         if client_certificate_mode is not None:
-            pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
+            _setter("client_certificate_mode", client_certificate_mode)
         if connection_strings is not None:
-            pulumi.set(__self__, "connection_strings", connection_strings)
+            _setter("connection_strings", connection_strings)
         if custom_domain_verification_id is not None:
-            pulumi.set(__self__, "custom_domain_verification_id", custom_domain_verification_id)
+            _setter("custom_domain_verification_id", custom_domain_verification_id)
         if default_hostname is not None:
-            pulumi.set(__self__, "default_hostname", default_hostname)
+            _setter("default_hostname", default_hostname)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outbound_ip_addresses is not None:
-            pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
+            _setter("outbound_ip_addresses", outbound_ip_addresses)
         if possible_outbound_ip_addresses is not None:
-            pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+            _setter("possible_outbound_ip_addresses", possible_outbound_ip_addresses)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if site_config is not None:
-            pulumi.set(__self__, "site_config", site_config)
+            _setter("site_config", site_config)
         if site_credentials is not None:
-            pulumi.set(__self__, "site_credentials", site_credentials)
+            _setter("site_credentials", site_credentials)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
         if storage_account_share_name is not None:
-            pulumi.set(__self__, "storage_account_share_name", storage_account_share_name)
+            _setter("storage_account_share_name", storage_account_share_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if use_extension_bundle is not None:
-            pulumi.set(__self__, "use_extension_bundle", use_extension_bundle)
+            _setter("use_extension_bundle", use_extension_bundle)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if virtual_network_subnet_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+            _setter("virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="appServicePlanId")
@@ -982,6 +1088,10 @@ class Standard(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StandardArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1026,12 +1136,22 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["https_only"] = https_only
+            if identity is not None and not isinstance(identity, StandardIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                StandardIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if site_config is not None and not isinstance(site_config, StandardSiteConfigArgs):
+                site_config = site_config or {}
+                def _setter(key, value):
+                    site_config[key] = value
+                StandardSiteConfigArgs._configure(_setter, **site_config)
             __props__.__dict__["site_config"] = site_config
             if storage_account_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_access_key'")

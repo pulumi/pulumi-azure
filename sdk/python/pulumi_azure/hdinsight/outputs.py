@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -148,7 +148,16 @@ class HBaseClusterComponentVersion(dict):
         """
         :param str hbase: The version of HBase which should be used for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "hbase", hbase)
+        HBaseClusterComponentVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hbase=hbase,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hbase: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hbase", hbase)
 
     @property
     @pulumi.getter
@@ -187,10 +196,21 @@ class HBaseClusterComputeIsolation(dict):
         :param bool compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param str host_sku: The name of the host SKU.
         """
+        HBaseClusterComputeIsolation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_isolation_enabled=compute_isolation_enabled,
+            host_sku=host_sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_isolation_enabled: Optional[bool] = None,
+             host_sku: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_isolation_enabled is not None:
-            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+            _setter("compute_isolation_enabled", compute_isolation_enabled)
         if host_sku is not None:
-            pulumi.set(__self__, "host_sku", host_sku)
+            _setter("host_sku", host_sku)
 
     @property
     @pulumi.getter(name="computeIsolationEnabled")
@@ -245,14 +265,29 @@ class HBaseClusterDiskEncryption(dict):
         :param str key_vault_key_id: The ID of the key vault key.
         :param str key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
         """
+        HBaseClusterDiskEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_algorithm=encryption_algorithm,
+            encryption_at_host_enabled=encryption_at_host_enabled,
+            key_vault_key_id=key_vault_key_id,
+            key_vault_managed_identity_id=key_vault_managed_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_algorithm: Optional[str] = None,
+             encryption_at_host_enabled: Optional[bool] = None,
+             key_vault_key_id: Optional[str] = None,
+             key_vault_managed_identity_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption_algorithm is not None:
-            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+            _setter("encryption_algorithm", encryption_algorithm)
         if encryption_at_host_enabled is not None:
-            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+            _setter("encryption_at_host_enabled", encryption_at_host_enabled)
         if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+            _setter("key_vault_key_id", key_vault_key_id)
         if key_vault_managed_identity_id is not None:
-            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+            _setter("key_vault_managed_identity_id", key_vault_managed_identity_id)
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
@@ -315,8 +350,19 @@ class HBaseClusterExtension(dict):
         :param str log_analytics_workspace_id: The workspace ID of the log analytics extension.
         :param str primary_key: The workspace key of the log analytics extension.
         """
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "primary_key", primary_key)
+        HBaseClusterExtension._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            primary_key=primary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics_workspace_id: str,
+             primary_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("primary_key", primary_key)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -346,8 +392,19 @@ class HBaseClusterGateway(dict):
                > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        HBaseClusterGateway._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -379,12 +436,25 @@ class HBaseClusterMetastores(dict):
         :param 'HBaseClusterMetastoresHiveArgs' hive: A `hive` block as defined below.
         :param 'HBaseClusterMetastoresOozieArgs' oozie: An `oozie` block as defined below.
         """
+        HBaseClusterMetastores._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ambari=ambari,
+            hive=hive,
+            oozie=oozie,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ambari: Optional['outputs.HBaseClusterMetastoresAmbari'] = None,
+             hive: Optional['outputs.HBaseClusterMetastoresHive'] = None,
+             oozie: Optional['outputs.HBaseClusterMetastoresOozie'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ambari is not None:
-            pulumi.set(__self__, "ambari", ambari)
+            _setter("ambari", ambari)
         if hive is not None:
-            pulumi.set(__self__, "hive", hive)
+            _setter("hive", hive)
         if oozie is not None:
-            pulumi.set(__self__, "oozie", oozie)
+            _setter("oozie", oozie)
 
     @property
     @pulumi.getter
@@ -441,10 +511,25 @@ class HBaseClusterMetastoresAmbari(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
         :param str username: The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        HBaseClusterMetastoresAmbari._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -509,10 +594,25 @@ class HBaseClusterMetastoresHive(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
         :param str username: The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        HBaseClusterMetastoresHive._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -577,10 +677,25 @@ class HBaseClusterMetastoresOozie(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
         :param str username: The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        HBaseClusterMetastoresOozie._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -643,8 +758,19 @@ class HBaseClusterMonitor(dict):
         :param str log_analytics_workspace_id: The Operations Management Suite (OMS) workspace ID.
         :param str primary_key: The Operations Management Suite (OMS) workspace key.
         """
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "primary_key", primary_key)
+        HBaseClusterMonitor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            primary_key=primary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics_workspace_id: str,
+             primary_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("primary_key", primary_key)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -693,10 +819,21 @@ class HBaseClusterNetwork(dict):
                > **NOTE:** To enable the private link the `connection_direction` must be set to `Outbound`.
         :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
         """
+        HBaseClusterNetwork._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_direction=connection_direction,
+            private_link_enabled=private_link_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_direction: Optional[str] = None,
+             private_link_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_direction is not None:
-            pulumi.set(__self__, "connection_direction", connection_direction)
+            _setter("connection_direction", connection_direction)
         if private_link_enabled is not None:
-            pulumi.set(__self__, "private_link_enabled", private_link_enabled)
+            _setter("private_link_enabled", private_link_enabled)
 
     @property
     @pulumi.getter(name="connectionDirection")
@@ -749,9 +886,22 @@ class HBaseClusterRoles(dict):
         :param 'HBaseClusterRolesWorkerNodeArgs' worker_node: A `worker_node` block as defined below.
         :param 'HBaseClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
         """
-        pulumi.set(__self__, "head_node", head_node)
-        pulumi.set(__self__, "worker_node", worker_node)
-        pulumi.set(__self__, "zookeeper_node", zookeeper_node)
+        HBaseClusterRoles._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            head_node=head_node,
+            worker_node=worker_node,
+            zookeeper_node=zookeeper_node,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             head_node: 'outputs.HBaseClusterRolesHeadNode',
+             worker_node: 'outputs.HBaseClusterRolesWorkerNode',
+             zookeeper_node: 'outputs.HBaseClusterRolesZookeeperNode',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("head_node", head_node)
+        _setter("worker_node", worker_node)
+        _setter("zookeeper_node", zookeeper_node)
 
     @property
     @pulumi.getter(name="headNode")
@@ -826,18 +976,39 @@ class HBaseClusterRolesHeadNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        HBaseClusterRolesHeadNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            vm_size=vm_size,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: str,
+             vm_size: str,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.HBaseClusterRolesHeadNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter
@@ -911,10 +1082,23 @@ class HBaseClusterRolesHeadNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        HBaseClusterRolesHeadNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -994,21 +1178,46 @@ class HBaseClusterRolesWorkerNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "target_instance_count", target_instance_count)
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        HBaseClusterRolesWorkerNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_instance_count=target_instance_count,
+            username=username,
+            vm_size=vm_size,
+            autoscale=autoscale,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_instance_count: int,
+             username: str,
+             vm_size: str,
+             autoscale: Optional['outputs.HBaseClusterRolesWorkerNodeAutoscale'] = None,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.HBaseClusterRolesWorkerNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_instance_count", target_instance_count)
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if autoscale is not None:
-            pulumi.set(__self__, "autoscale", autoscale)
+            _setter("autoscale", autoscale)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter(name="targetInstanceCount")
@@ -1088,8 +1297,17 @@ class HBaseClusterRolesWorkerNode(dict):
 class HBaseClusterRolesWorkerNodeAutoscale(dict):
     def __init__(__self__, *,
                  recurrence: Optional['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrence'] = None):
+        HBaseClusterRolesWorkerNodeAutoscale._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            recurrence=recurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             recurrence: Optional['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrence'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
 
     @property
     @pulumi.getter
@@ -1102,8 +1320,19 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrence(dict):
     def __init__(__self__, *,
                  schedules: Sequence['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
                  timezone: str):
-        pulumi.set(__self__, "schedules", schedules)
-        pulumi.set(__self__, "timezone", timezone)
+        HBaseClusterRolesWorkerNodeAutoscaleRecurrence._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedules=schedules,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedules: Sequence['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
+             timezone: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schedules", schedules)
+        _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -1142,9 +1371,22 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
         """
         :param int target_instance_count: The number of instances which should be run for the Worker Nodes.
         """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "target_instance_count", target_instance_count)
-        pulumi.set(__self__, "time", time)
+        HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            target_instance_count=target_instance_count,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: Sequence[str],
+             target_instance_count: int,
+             time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days", days)
+        _setter("target_instance_count", target_instance_count)
+        _setter("time", time)
 
     @property
     @pulumi.getter
@@ -1176,10 +1418,23 @@ class HBaseClusterRolesWorkerNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        HBaseClusterRolesWorkerNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1254,18 +1509,39 @@ class HBaseClusterRolesZookeeperNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        HBaseClusterRolesZookeeperNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            vm_size=vm_size,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: str,
+             vm_size: str,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.HBaseClusterRolesZookeeperNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter
@@ -1339,10 +1615,23 @@ class HBaseClusterRolesZookeeperNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        HBaseClusterRolesZookeeperNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1417,14 +1706,35 @@ class HBaseClusterSecurityProfile(dict):
         :param str msi_resource_id: The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
         :param Sequence[str] cluster_users_group_dns: A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "aadds_resource_id", aadds_resource_id)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "domain_user_password", domain_user_password)
-        pulumi.set(__self__, "domain_username", domain_username)
-        pulumi.set(__self__, "ldaps_urls", ldaps_urls)
-        pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        HBaseClusterSecurityProfile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aadds_resource_id=aadds_resource_id,
+            domain_name=domain_name,
+            domain_user_password=domain_user_password,
+            domain_username=domain_username,
+            ldaps_urls=ldaps_urls,
+            msi_resource_id=msi_resource_id,
+            cluster_users_group_dns=cluster_users_group_dns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aadds_resource_id: str,
+             domain_name: str,
+             domain_user_password: str,
+             domain_username: str,
+             ldaps_urls: Sequence[str],
+             msi_resource_id: str,
+             cluster_users_group_dns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aadds_resource_id", aadds_resource_id)
+        _setter("domain_name", domain_name)
+        _setter("domain_user_password", domain_user_password)
+        _setter("domain_username", domain_username)
+        _setter("ldaps_urls", ldaps_urls)
+        _setter("msi_resource_id", msi_resource_id)
         if cluster_users_group_dns is not None:
-            pulumi.set(__self__, "cluster_users_group_dns", cluster_users_group_dns)
+            _setter("cluster_users_group_dns", cluster_users_group_dns)
 
     @property
     @pulumi.getter(name="aaddsResourceId")
@@ -1523,11 +1833,26 @@ class HBaseClusterStorageAccount(dict):
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
+        HBaseClusterStorageAccount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_default=is_default,
+            storage_account_key=storage_account_key,
+            storage_container_id=storage_container_id,
+            storage_resource_id=storage_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_default: bool,
+             storage_account_key: str,
+             storage_container_id: str,
+             storage_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_default", is_default)
+        _setter("storage_account_key", storage_account_key)
+        _setter("storage_container_id", storage_container_id)
         if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+            _setter("storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -1601,18 +1926,30 @@ class HBaseClusterStorageAccountGen2(dict):
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-               
-               
-               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "filesystem_id", filesystem_id)
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        HBaseClusterStorageAccountGen2._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filesystem_id=filesystem_id,
+            is_default=is_default,
+            managed_identity_resource_id=managed_identity_resource_id,
+            storage_resource_id=storage_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filesystem_id: str,
+             is_default: bool,
+             managed_identity_resource_id: str,
+             storage_resource_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filesystem_id", filesystem_id)
+        _setter("is_default", is_default)
+        _setter("managed_identity_resource_id", managed_identity_resource_id)
+        _setter("storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="filesystemId")
@@ -1627,9 +1964,6 @@ class HBaseClusterStorageAccountGen2(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-
-        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-
 
         > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
@@ -1661,7 +1995,16 @@ class HadoopClusterComponentVersion(dict):
         """
         :param str hadoop: The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "hadoop", hadoop)
+        HadoopClusterComponentVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            hadoop=hadoop,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             hadoop: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("hadoop", hadoop)
 
     @property
     @pulumi.getter
@@ -1700,10 +2043,21 @@ class HadoopClusterComputeIsolation(dict):
         :param bool compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param str host_sku: The name of the host SKU.
         """
+        HadoopClusterComputeIsolation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_isolation_enabled=compute_isolation_enabled,
+            host_sku=host_sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_isolation_enabled: Optional[bool] = None,
+             host_sku: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_isolation_enabled is not None:
-            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+            _setter("compute_isolation_enabled", compute_isolation_enabled)
         if host_sku is not None:
-            pulumi.set(__self__, "host_sku", host_sku)
+            _setter("host_sku", host_sku)
 
     @property
     @pulumi.getter(name="computeIsolationEnabled")
@@ -1758,14 +2112,29 @@ class HadoopClusterDiskEncryption(dict):
         :param str key_vault_key_id: The ID of the key vault key.
         :param str key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
         """
+        HadoopClusterDiskEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_algorithm=encryption_algorithm,
+            encryption_at_host_enabled=encryption_at_host_enabled,
+            key_vault_key_id=key_vault_key_id,
+            key_vault_managed_identity_id=key_vault_managed_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_algorithm: Optional[str] = None,
+             encryption_at_host_enabled: Optional[bool] = None,
+             key_vault_key_id: Optional[str] = None,
+             key_vault_managed_identity_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption_algorithm is not None:
-            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+            _setter("encryption_algorithm", encryption_algorithm)
         if encryption_at_host_enabled is not None:
-            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+            _setter("encryption_at_host_enabled", encryption_at_host_enabled)
         if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+            _setter("key_vault_key_id", key_vault_key_id)
         if key_vault_managed_identity_id is not None:
-            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+            _setter("key_vault_managed_identity_id", key_vault_managed_identity_id)
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
@@ -1828,8 +2197,19 @@ class HadoopClusterExtension(dict):
         :param str log_analytics_workspace_id: The workspace ID of the log analytics extension.
         :param str primary_key: The workspace key of the log analytics extension.
         """
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "primary_key", primary_key)
+        HadoopClusterExtension._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            primary_key=primary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics_workspace_id: str,
+             primary_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("primary_key", primary_key)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -1859,8 +2239,19 @@ class HadoopClusterGateway(dict):
                > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        HadoopClusterGateway._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -1892,12 +2283,25 @@ class HadoopClusterMetastores(dict):
         :param 'HadoopClusterMetastoresHiveArgs' hive: A `hive` block as defined below.
         :param 'HadoopClusterMetastoresOozieArgs' oozie: An `oozie` block as defined below.
         """
+        HadoopClusterMetastores._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ambari=ambari,
+            hive=hive,
+            oozie=oozie,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ambari: Optional['outputs.HadoopClusterMetastoresAmbari'] = None,
+             hive: Optional['outputs.HadoopClusterMetastoresHive'] = None,
+             oozie: Optional['outputs.HadoopClusterMetastoresOozie'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ambari is not None:
-            pulumi.set(__self__, "ambari", ambari)
+            _setter("ambari", ambari)
         if hive is not None:
-            pulumi.set(__self__, "hive", hive)
+            _setter("hive", hive)
         if oozie is not None:
-            pulumi.set(__self__, "oozie", oozie)
+            _setter("oozie", oozie)
 
     @property
     @pulumi.getter
@@ -1954,10 +2358,25 @@ class HadoopClusterMetastoresAmbari(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
         :param str username: The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        HadoopClusterMetastoresAmbari._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -2022,10 +2441,25 @@ class HadoopClusterMetastoresHive(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
         :param str username: The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        HadoopClusterMetastoresHive._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -2090,10 +2524,25 @@ class HadoopClusterMetastoresOozie(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
         :param str username: The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        HadoopClusterMetastoresOozie._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -2156,8 +2605,19 @@ class HadoopClusterMonitor(dict):
         :param str log_analytics_workspace_id: The Operations Management Suite (OMS) workspace ID.
         :param str primary_key: The Operations Management Suite (OMS) workspace key.
         """
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "primary_key", primary_key)
+        HadoopClusterMonitor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            primary_key=primary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics_workspace_id: str,
+             primary_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("primary_key", primary_key)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -2206,10 +2666,21 @@ class HadoopClusterNetwork(dict):
                > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
         :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
         """
+        HadoopClusterNetwork._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_direction=connection_direction,
+            private_link_enabled=private_link_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_direction: Optional[str] = None,
+             private_link_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_direction is not None:
-            pulumi.set(__self__, "connection_direction", connection_direction)
+            _setter("connection_direction", connection_direction)
         if private_link_enabled is not None:
-            pulumi.set(__self__, "private_link_enabled", private_link_enabled)
+            _setter("private_link_enabled", private_link_enabled)
 
     @property
     @pulumi.getter(name="connectionDirection")
@@ -2266,11 +2737,26 @@ class HadoopClusterRoles(dict):
         :param 'HadoopClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
         :param 'HadoopClusterRolesEdgeNodeArgs' edge_node: A `edge_node` block as defined below.
         """
-        pulumi.set(__self__, "head_node", head_node)
-        pulumi.set(__self__, "worker_node", worker_node)
-        pulumi.set(__self__, "zookeeper_node", zookeeper_node)
+        HadoopClusterRoles._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            head_node=head_node,
+            worker_node=worker_node,
+            zookeeper_node=zookeeper_node,
+            edge_node=edge_node,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             head_node: 'outputs.HadoopClusterRolesHeadNode',
+             worker_node: 'outputs.HadoopClusterRolesWorkerNode',
+             zookeeper_node: 'outputs.HadoopClusterRolesZookeeperNode',
+             edge_node: Optional['outputs.HadoopClusterRolesEdgeNode'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("head_node", head_node)
+        _setter("worker_node", worker_node)
+        _setter("zookeeper_node", zookeeper_node)
         if edge_node is not None:
-            pulumi.set(__self__, "edge_node", edge_node)
+            _setter("edge_node", edge_node)
 
     @property
     @pulumi.getter(name="headNode")
@@ -2345,13 +2831,30 @@ class HadoopClusterRolesEdgeNode(dict):
         :param Sequence['HadoopClusterRolesEdgeNodeHttpsEndpointArgs'] https_endpoints: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
         :param Sequence['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs'] uninstall_script_actions: A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "install_script_actions", install_script_actions)
-        pulumi.set(__self__, "target_instance_count", target_instance_count)
-        pulumi.set(__self__, "vm_size", vm_size)
+        HadoopClusterRolesEdgeNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            install_script_actions=install_script_actions,
+            target_instance_count=target_instance_count,
+            vm_size=vm_size,
+            https_endpoints=https_endpoints,
+            uninstall_script_actions=uninstall_script_actions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             install_script_actions: Sequence['outputs.HadoopClusterRolesEdgeNodeInstallScriptAction'],
+             target_instance_count: int,
+             vm_size: str,
+             https_endpoints: Optional[Sequence['outputs.HadoopClusterRolesEdgeNodeHttpsEndpoint']] = None,
+             uninstall_script_actions: Optional[Sequence['outputs.HadoopClusterRolesEdgeNodeUninstallScriptAction']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("install_script_actions", install_script_actions)
+        _setter("target_instance_count", target_instance_count)
+        _setter("vm_size", vm_size)
         if https_endpoints is not None:
-            pulumi.set(__self__, "https_endpoints", https_endpoints)
+            _setter("https_endpoints", https_endpoints)
         if uninstall_script_actions is not None:
-            pulumi.set(__self__, "uninstall_script_actions", uninstall_script_actions)
+            _setter("uninstall_script_actions", uninstall_script_actions)
 
     @property
     @pulumi.getter(name="installScriptActions")
@@ -2434,16 +2937,33 @@ class HadoopClusterRolesEdgeNodeHttpsEndpoint(dict):
         :param str private_ip_address: The private ip address of the endpoint.
         :param str sub_domain_suffix: The application's subdomain suffix.
         """
+        HadoopClusterRolesEdgeNodeHttpsEndpoint._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_modes=access_modes,
+            destination_port=destination_port,
+            disable_gateway_auth=disable_gateway_auth,
+            private_ip_address=private_ip_address,
+            sub_domain_suffix=sub_domain_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_modes: Optional[Sequence[str]] = None,
+             destination_port: Optional[int] = None,
+             disable_gateway_auth: Optional[bool] = None,
+             private_ip_address: Optional[str] = None,
+             sub_domain_suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_modes is not None:
-            pulumi.set(__self__, "access_modes", access_modes)
+            _setter("access_modes", access_modes)
         if destination_port is not None:
-            pulumi.set(__self__, "destination_port", destination_port)
+            _setter("destination_port", destination_port)
         if disable_gateway_auth is not None:
-            pulumi.set(__self__, "disable_gateway_auth", disable_gateway_auth)
+            _setter("disable_gateway_auth", disable_gateway_auth)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if sub_domain_suffix is not None:
-            pulumi.set(__self__, "sub_domain_suffix", sub_domain_suffix)
+            _setter("sub_domain_suffix", sub_domain_suffix)
 
     @property
     @pulumi.getter(name="accessModes")
@@ -2497,10 +3017,23 @@ class HadoopClusterRolesEdgeNodeInstallScriptAction(dict):
         :param str uri: The URI pointing to the script to run during the installation of the edge node.
         :param str parameters: The parameters for the script.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        HadoopClusterRolesEdgeNodeInstallScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -2538,10 +3071,23 @@ class HadoopClusterRolesEdgeNodeUninstallScriptAction(dict):
         :param str uri: The URI pointing to the script to run during the installation of the edge node.
         :param str parameters: The parameters for the script.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        HadoopClusterRolesEdgeNodeUninstallScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -2616,18 +3162,39 @@ class HadoopClusterRolesHeadNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        HadoopClusterRolesHeadNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            vm_size=vm_size,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: str,
+             vm_size: str,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.HadoopClusterRolesHeadNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter
@@ -2701,10 +3268,23 @@ class HadoopClusterRolesHeadNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        HadoopClusterRolesHeadNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -2785,21 +3365,46 @@ class HadoopClusterRolesWorkerNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "target_instance_count", target_instance_count)
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        HadoopClusterRolesWorkerNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_instance_count=target_instance_count,
+            username=username,
+            vm_size=vm_size,
+            autoscale=autoscale,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_instance_count: int,
+             username: str,
+             vm_size: str,
+             autoscale: Optional['outputs.HadoopClusterRolesWorkerNodeAutoscale'] = None,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.HadoopClusterRolesWorkerNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_instance_count", target_instance_count)
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if autoscale is not None:
-            pulumi.set(__self__, "autoscale", autoscale)
+            _setter("autoscale", autoscale)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter(name="targetInstanceCount")
@@ -2889,10 +3494,21 @@ class HadoopClusterRolesWorkerNodeAutoscale(dict):
                
                > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
+        HadoopClusterRolesWorkerNodeAutoscale._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            recurrence=recurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional['outputs.HadoopClusterRolesWorkerNodeAutoscaleCapacity'] = None,
+             recurrence: Optional['outputs.HadoopClusterRolesWorkerNodeAutoscaleRecurrence'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
 
     @property
     @pulumi.getter
@@ -2941,8 +3557,19 @@ class HadoopClusterRolesWorkerNodeAutoscaleCapacity(dict):
         :param int max_instance_count: The maximum number of worker nodes to autoscale to based on the cluster's activity.
         :param int min_instance_count: The minimum number of worker nodes to autoscale to based on the cluster's activity.
         """
-        pulumi.set(__self__, "max_instance_count", max_instance_count)
-        pulumi.set(__self__, "min_instance_count", min_instance_count)
+        HadoopClusterRolesWorkerNodeAutoscaleCapacity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_instance_count=max_instance_count,
+            min_instance_count=min_instance_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_instance_count: int,
+             min_instance_count: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_instance_count", max_instance_count)
+        _setter("min_instance_count", min_instance_count)
 
     @property
     @pulumi.getter(name="maxInstanceCount")
@@ -2970,8 +3597,19 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrence(dict):
         :param Sequence['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs'] schedules: A list of `schedule` blocks as defined below.
         :param str timezone: The time zone for the autoscale schedule times.
         """
-        pulumi.set(__self__, "schedules", schedules)
-        pulumi.set(__self__, "timezone", timezone)
+        HadoopClusterRolesWorkerNodeAutoscaleRecurrence._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedules=schedules,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedules: Sequence['outputs.HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
+             timezone: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schedules", schedules)
+        _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -3018,9 +3656,22 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
         :param int target_instance_count: The number of worker nodes to autoscale at the specified time.
         :param str time: The time of day to perform the autoscale in 24hour format.
         """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "target_instance_count", target_instance_count)
-        pulumi.set(__self__, "time", time)
+        HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            target_instance_count=target_instance_count,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: Sequence[str],
+             target_instance_count: int,
+             time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days", days)
+        _setter("target_instance_count", target_instance_count)
+        _setter("time", time)
 
     @property
     @pulumi.getter
@@ -3058,10 +3709,23 @@ class HadoopClusterRolesWorkerNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        HadoopClusterRolesWorkerNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3136,18 +3800,39 @@ class HadoopClusterRolesZookeeperNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        HadoopClusterRolesZookeeperNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            vm_size=vm_size,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: str,
+             vm_size: str,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.HadoopClusterRolesZookeeperNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter
@@ -3221,10 +3906,23 @@ class HadoopClusterRolesZookeeperNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        HadoopClusterRolesZookeeperNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3299,14 +3997,35 @@ class HadoopClusterSecurityProfile(dict):
         :param str msi_resource_id: The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
         :param Sequence[str] cluster_users_group_dns: A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "aadds_resource_id", aadds_resource_id)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "domain_user_password", domain_user_password)
-        pulumi.set(__self__, "domain_username", domain_username)
-        pulumi.set(__self__, "ldaps_urls", ldaps_urls)
-        pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        HadoopClusterSecurityProfile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aadds_resource_id=aadds_resource_id,
+            domain_name=domain_name,
+            domain_user_password=domain_user_password,
+            domain_username=domain_username,
+            ldaps_urls=ldaps_urls,
+            msi_resource_id=msi_resource_id,
+            cluster_users_group_dns=cluster_users_group_dns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aadds_resource_id: str,
+             domain_name: str,
+             domain_user_password: str,
+             domain_username: str,
+             ldaps_urls: Sequence[str],
+             msi_resource_id: str,
+             cluster_users_group_dns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aadds_resource_id", aadds_resource_id)
+        _setter("domain_name", domain_name)
+        _setter("domain_user_password", domain_user_password)
+        _setter("domain_username", domain_username)
+        _setter("ldaps_urls", ldaps_urls)
+        _setter("msi_resource_id", msi_resource_id)
         if cluster_users_group_dns is not None:
-            pulumi.set(__self__, "cluster_users_group_dns", cluster_users_group_dns)
+            _setter("cluster_users_group_dns", cluster_users_group_dns)
 
     @property
     @pulumi.getter(name="aaddsResourceId")
@@ -3405,11 +4124,26 @@ class HadoopClusterStorageAccount(dict):
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
+        HadoopClusterStorageAccount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_default=is_default,
+            storage_account_key=storage_account_key,
+            storage_container_id=storage_container_id,
+            storage_resource_id=storage_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_default: bool,
+             storage_account_key: str,
+             storage_container_id: str,
+             storage_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_default", is_default)
+        _setter("storage_account_key", storage_account_key)
+        _setter("storage_container_id", storage_container_id)
         if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+            _setter("storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -3483,18 +4217,30 @@ class HadoopClusterStorageAccountGen2(dict):
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-               
-               
-               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "filesystem_id", filesystem_id)
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        HadoopClusterStorageAccountGen2._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filesystem_id=filesystem_id,
+            is_default=is_default,
+            managed_identity_resource_id=managed_identity_resource_id,
+            storage_resource_id=storage_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filesystem_id: str,
+             is_default: bool,
+             managed_identity_resource_id: str,
+             storage_resource_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filesystem_id", filesystem_id)
+        _setter("is_default", is_default)
+        _setter("managed_identity_resource_id", managed_identity_resource_id)
+        _setter("storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="filesystemId")
@@ -3509,9 +4255,6 @@ class HadoopClusterStorageAccountGen2(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-
-        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-
 
         > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
@@ -3560,7 +4303,16 @@ class InteractiveQueryClusterComponentVersion(dict):
         """
         :param str interactive_hive: The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "interactive_hive", interactive_hive)
+        InteractiveQueryClusterComponentVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            interactive_hive=interactive_hive,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             interactive_hive: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("interactive_hive", interactive_hive)
 
     @property
     @pulumi.getter(name="interactiveHive")
@@ -3599,10 +4351,21 @@ class InteractiveQueryClusterComputeIsolation(dict):
         :param bool compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param str host_sku: The name of the host SKU.
         """
+        InteractiveQueryClusterComputeIsolation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_isolation_enabled=compute_isolation_enabled,
+            host_sku=host_sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_isolation_enabled: Optional[bool] = None,
+             host_sku: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_isolation_enabled is not None:
-            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+            _setter("compute_isolation_enabled", compute_isolation_enabled)
         if host_sku is not None:
-            pulumi.set(__self__, "host_sku", host_sku)
+            _setter("host_sku", host_sku)
 
     @property
     @pulumi.getter(name="computeIsolationEnabled")
@@ -3657,14 +4420,29 @@ class InteractiveQueryClusterDiskEncryption(dict):
         :param str key_vault_key_id: The ID of the key vault key.
         :param str key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
         """
+        InteractiveQueryClusterDiskEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_algorithm=encryption_algorithm,
+            encryption_at_host_enabled=encryption_at_host_enabled,
+            key_vault_key_id=key_vault_key_id,
+            key_vault_managed_identity_id=key_vault_managed_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_algorithm: Optional[str] = None,
+             encryption_at_host_enabled: Optional[bool] = None,
+             key_vault_key_id: Optional[str] = None,
+             key_vault_managed_identity_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption_algorithm is not None:
-            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+            _setter("encryption_algorithm", encryption_algorithm)
         if encryption_at_host_enabled is not None:
-            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+            _setter("encryption_at_host_enabled", encryption_at_host_enabled)
         if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+            _setter("key_vault_key_id", key_vault_key_id)
         if key_vault_managed_identity_id is not None:
-            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+            _setter("key_vault_managed_identity_id", key_vault_managed_identity_id)
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
@@ -3727,8 +4505,19 @@ class InteractiveQueryClusterExtension(dict):
         :param str log_analytics_workspace_id: The workspace ID of the log analytics extension.
         :param str primary_key: The workspace key of the log analytics extension.
         """
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "primary_key", primary_key)
+        InteractiveQueryClusterExtension._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            primary_key=primary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics_workspace_id: str,
+             primary_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("primary_key", primary_key)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -3758,8 +4547,19 @@ class InteractiveQueryClusterGateway(dict):
                > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        InteractiveQueryClusterGateway._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -3791,12 +4591,25 @@ class InteractiveQueryClusterMetastores(dict):
         :param 'InteractiveQueryClusterMetastoresHiveArgs' hive: A `hive` block as defined below.
         :param 'InteractiveQueryClusterMetastoresOozieArgs' oozie: An `oozie` block as defined below.
         """
+        InteractiveQueryClusterMetastores._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ambari=ambari,
+            hive=hive,
+            oozie=oozie,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ambari: Optional['outputs.InteractiveQueryClusterMetastoresAmbari'] = None,
+             hive: Optional['outputs.InteractiveQueryClusterMetastoresHive'] = None,
+             oozie: Optional['outputs.InteractiveQueryClusterMetastoresOozie'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ambari is not None:
-            pulumi.set(__self__, "ambari", ambari)
+            _setter("ambari", ambari)
         if hive is not None:
-            pulumi.set(__self__, "hive", hive)
+            _setter("hive", hive)
         if oozie is not None:
-            pulumi.set(__self__, "oozie", oozie)
+            _setter("oozie", oozie)
 
     @property
     @pulumi.getter
@@ -3853,10 +4666,25 @@ class InteractiveQueryClusterMetastoresAmbari(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
         :param str username: The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        InteractiveQueryClusterMetastoresAmbari._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -3921,10 +4749,25 @@ class InteractiveQueryClusterMetastoresHive(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
         :param str username: The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        InteractiveQueryClusterMetastoresHive._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -3989,10 +4832,25 @@ class InteractiveQueryClusterMetastoresOozie(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
         :param str username: The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        InteractiveQueryClusterMetastoresOozie._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -4055,8 +4913,19 @@ class InteractiveQueryClusterMonitor(dict):
         :param str log_analytics_workspace_id: The Operations Management Suite (OMS) workspace ID.
         :param str primary_key: The Operations Management Suite (OMS) workspace key.
         """
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "primary_key", primary_key)
+        InteractiveQueryClusterMonitor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            primary_key=primary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics_workspace_id: str,
+             primary_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("primary_key", primary_key)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -4105,10 +4974,21 @@ class InteractiveQueryClusterNetwork(dict):
                > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
         :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
         """
+        InteractiveQueryClusterNetwork._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_direction=connection_direction,
+            private_link_enabled=private_link_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_direction: Optional[str] = None,
+             private_link_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_direction is not None:
-            pulumi.set(__self__, "connection_direction", connection_direction)
+            _setter("connection_direction", connection_direction)
         if private_link_enabled is not None:
-            pulumi.set(__self__, "private_link_enabled", private_link_enabled)
+            _setter("private_link_enabled", private_link_enabled)
 
     @property
     @pulumi.getter(name="connectionDirection")
@@ -4161,9 +5041,22 @@ class InteractiveQueryClusterRoles(dict):
         :param 'InteractiveQueryClusterRolesWorkerNodeArgs' worker_node: A `worker_node` block as defined below.
         :param 'InteractiveQueryClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
         """
-        pulumi.set(__self__, "head_node", head_node)
-        pulumi.set(__self__, "worker_node", worker_node)
-        pulumi.set(__self__, "zookeeper_node", zookeeper_node)
+        InteractiveQueryClusterRoles._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            head_node=head_node,
+            worker_node=worker_node,
+            zookeeper_node=zookeeper_node,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             head_node: 'outputs.InteractiveQueryClusterRolesHeadNode',
+             worker_node: 'outputs.InteractiveQueryClusterRolesWorkerNode',
+             zookeeper_node: 'outputs.InteractiveQueryClusterRolesZookeeperNode',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("head_node", head_node)
+        _setter("worker_node", worker_node)
+        _setter("zookeeper_node", zookeeper_node)
 
     @property
     @pulumi.getter(name="headNode")
@@ -4240,18 +5133,39 @@ class InteractiveQueryClusterRolesHeadNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        InteractiveQueryClusterRolesHeadNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            vm_size=vm_size,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: str,
+             vm_size: str,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.InteractiveQueryClusterRolesHeadNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter
@@ -4327,10 +5241,23 @@ class InteractiveQueryClusterRolesHeadNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        InteractiveQueryClusterRolesHeadNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -4413,21 +5340,46 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "target_instance_count", target_instance_count)
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        InteractiveQueryClusterRolesWorkerNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_instance_count=target_instance_count,
+            username=username,
+            vm_size=vm_size,
+            autoscale=autoscale,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_instance_count: int,
+             username: str,
+             vm_size: str,
+             autoscale: Optional['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscale'] = None,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.InteractiveQueryClusterRolesWorkerNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_instance_count", target_instance_count)
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if autoscale is not None:
-            pulumi.set(__self__, "autoscale", autoscale)
+            _setter("autoscale", autoscale)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter(name="targetInstanceCount")
@@ -4516,10 +5468,21 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscale(dict):
         """
         :param 'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs' recurrence: A `recurrence` block as defined below.
         """
+        InteractiveQueryClusterRolesWorkerNodeAutoscale._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            recurrence=recurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity'] = None,
+             recurrence: Optional['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
 
     @property
     @pulumi.getter
@@ -4562,8 +5525,19 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity(dict):
     def __init__(__self__, *,
                  max_instance_count: int,
                  min_instance_count: int):
-        pulumi.set(__self__, "max_instance_count", max_instance_count)
-        pulumi.set(__self__, "min_instance_count", min_instance_count)
+        InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_instance_count=max_instance_count,
+            min_instance_count=min_instance_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_instance_count: int,
+             min_instance_count: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_instance_count", max_instance_count)
+        _setter("min_instance_count", min_instance_count)
 
     @property
     @pulumi.getter(name="maxInstanceCount")
@@ -4585,8 +5559,19 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence(dict):
         :param Sequence['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs'] schedules: A list of `schedule` blocks as defined below.
         :param str timezone: The time zone for the autoscale schedule times.
         """
-        pulumi.set(__self__, "schedules", schedules)
-        pulumi.set(__self__, "timezone", timezone)
+        InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedules=schedules,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedules: Sequence['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
+             timezone: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schedules", schedules)
+        _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -4633,9 +5618,22 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
         :param int target_instance_count: The number of worker nodes to autoscale at the specified time.
         :param str time: The time of day to perform the autoscale in 24hour format.
         """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "target_instance_count", target_instance_count)
-        pulumi.set(__self__, "time", time)
+        InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            target_instance_count=target_instance_count,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: Sequence[str],
+             target_instance_count: int,
+             time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days", days)
+        _setter("target_instance_count", target_instance_count)
+        _setter("time", time)
 
     @property
     @pulumi.getter
@@ -4673,10 +5671,23 @@ class InteractiveQueryClusterRolesWorkerNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        InteractiveQueryClusterRolesWorkerNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -4751,18 +5762,39 @@ class InteractiveQueryClusterRolesZookeeperNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        InteractiveQueryClusterRolesZookeeperNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            vm_size=vm_size,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: str,
+             vm_size: str,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.InteractiveQueryClusterRolesZookeeperNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter
@@ -4836,10 +5868,23 @@ class InteractiveQueryClusterRolesZookeeperNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        InteractiveQueryClusterRolesZookeeperNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -4914,14 +5959,35 @@ class InteractiveQueryClusterSecurityProfile(dict):
         :param str msi_resource_id: The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
         :param Sequence[str] cluster_users_group_dns: A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "aadds_resource_id", aadds_resource_id)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "domain_user_password", domain_user_password)
-        pulumi.set(__self__, "domain_username", domain_username)
-        pulumi.set(__self__, "ldaps_urls", ldaps_urls)
-        pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        InteractiveQueryClusterSecurityProfile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aadds_resource_id=aadds_resource_id,
+            domain_name=domain_name,
+            domain_user_password=domain_user_password,
+            domain_username=domain_username,
+            ldaps_urls=ldaps_urls,
+            msi_resource_id=msi_resource_id,
+            cluster_users_group_dns=cluster_users_group_dns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aadds_resource_id: str,
+             domain_name: str,
+             domain_user_password: str,
+             domain_username: str,
+             ldaps_urls: Sequence[str],
+             msi_resource_id: str,
+             cluster_users_group_dns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aadds_resource_id", aadds_resource_id)
+        _setter("domain_name", domain_name)
+        _setter("domain_user_password", domain_user_password)
+        _setter("domain_username", domain_username)
+        _setter("ldaps_urls", ldaps_urls)
+        _setter("msi_resource_id", msi_resource_id)
         if cluster_users_group_dns is not None:
-            pulumi.set(__self__, "cluster_users_group_dns", cluster_users_group_dns)
+            _setter("cluster_users_group_dns", cluster_users_group_dns)
 
     @property
     @pulumi.getter(name="aaddsResourceId")
@@ -5020,11 +6086,26 @@ class InteractiveQueryClusterStorageAccount(dict):
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
+        InteractiveQueryClusterStorageAccount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_default=is_default,
+            storage_account_key=storage_account_key,
+            storage_container_id=storage_container_id,
+            storage_resource_id=storage_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_default: bool,
+             storage_account_key: str,
+             storage_container_id: str,
+             storage_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_default", is_default)
+        _setter("storage_account_key", storage_account_key)
+        _setter("storage_container_id", storage_container_id)
         if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+            _setter("storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -5098,18 +6179,30 @@ class InteractiveQueryClusterStorageAccountGen2(dict):
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-               
-               
-               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "filesystem_id", filesystem_id)
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        InteractiveQueryClusterStorageAccountGen2._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filesystem_id=filesystem_id,
+            is_default=is_default,
+            managed_identity_resource_id=managed_identity_resource_id,
+            storage_resource_id=storage_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filesystem_id: str,
+             is_default: bool,
+             managed_identity_resource_id: str,
+             storage_resource_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filesystem_id", filesystem_id)
+        _setter("is_default", is_default)
+        _setter("managed_identity_resource_id", managed_identity_resource_id)
+        _setter("storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="filesystemId")
@@ -5124,9 +6217,6 @@ class InteractiveQueryClusterStorageAccountGen2(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-
-        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-
 
         > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
@@ -5158,7 +6248,16 @@ class KafkaClusterComponentVersion(dict):
         """
         :param str kafka: The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "kafka", kafka)
+        KafkaClusterComponentVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kafka=kafka,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kafka: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("kafka", kafka)
 
     @property
     @pulumi.getter
@@ -5197,10 +6296,21 @@ class KafkaClusterComputeIsolation(dict):
         :param bool compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param str host_sku: The name of the host SKU.
         """
+        KafkaClusterComputeIsolation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_isolation_enabled=compute_isolation_enabled,
+            host_sku=host_sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_isolation_enabled: Optional[bool] = None,
+             host_sku: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_isolation_enabled is not None:
-            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+            _setter("compute_isolation_enabled", compute_isolation_enabled)
         if host_sku is not None:
-            pulumi.set(__self__, "host_sku", host_sku)
+            _setter("host_sku", host_sku)
 
     @property
     @pulumi.getter(name="computeIsolationEnabled")
@@ -5255,14 +6365,29 @@ class KafkaClusterDiskEncryption(dict):
         :param str key_vault_key_id: The ID of the key vault key.
         :param str key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
         """
+        KafkaClusterDiskEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_algorithm=encryption_algorithm,
+            encryption_at_host_enabled=encryption_at_host_enabled,
+            key_vault_key_id=key_vault_key_id,
+            key_vault_managed_identity_id=key_vault_managed_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_algorithm: Optional[str] = None,
+             encryption_at_host_enabled: Optional[bool] = None,
+             key_vault_key_id: Optional[str] = None,
+             key_vault_managed_identity_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption_algorithm is not None:
-            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+            _setter("encryption_algorithm", encryption_algorithm)
         if encryption_at_host_enabled is not None:
-            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+            _setter("encryption_at_host_enabled", encryption_at_host_enabled)
         if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+            _setter("key_vault_key_id", key_vault_key_id)
         if key_vault_managed_identity_id is not None:
-            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+            _setter("key_vault_managed_identity_id", key_vault_managed_identity_id)
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
@@ -5325,8 +6450,19 @@ class KafkaClusterExtension(dict):
         :param str log_analytics_workspace_id: The workspace ID of the log analytics extension.
         :param str primary_key: The workspace key of the log analytics extension.
         """
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "primary_key", primary_key)
+        KafkaClusterExtension._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            primary_key=primary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics_workspace_id: str,
+             primary_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("primary_key", primary_key)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -5356,8 +6492,19 @@ class KafkaClusterGateway(dict):
                > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        KafkaClusterGateway._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -5389,12 +6536,25 @@ class KafkaClusterMetastores(dict):
         :param 'KafkaClusterMetastoresHiveArgs' hive: A `hive` block as defined below.
         :param 'KafkaClusterMetastoresOozieArgs' oozie: An `oozie` block as defined below.
         """
+        KafkaClusterMetastores._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ambari=ambari,
+            hive=hive,
+            oozie=oozie,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ambari: Optional['outputs.KafkaClusterMetastoresAmbari'] = None,
+             hive: Optional['outputs.KafkaClusterMetastoresHive'] = None,
+             oozie: Optional['outputs.KafkaClusterMetastoresOozie'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ambari is not None:
-            pulumi.set(__self__, "ambari", ambari)
+            _setter("ambari", ambari)
         if hive is not None:
-            pulumi.set(__self__, "hive", hive)
+            _setter("hive", hive)
         if oozie is not None:
-            pulumi.set(__self__, "oozie", oozie)
+            _setter("oozie", oozie)
 
     @property
     @pulumi.getter
@@ -5451,10 +6611,25 @@ class KafkaClusterMetastoresAmbari(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
         :param str username: The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        KafkaClusterMetastoresAmbari._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -5519,10 +6694,25 @@ class KafkaClusterMetastoresHive(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
         :param str username: The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        KafkaClusterMetastoresHive._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -5587,10 +6777,25 @@ class KafkaClusterMetastoresOozie(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
         :param str username: The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        KafkaClusterMetastoresOozie._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -5653,8 +6858,19 @@ class KafkaClusterMonitor(dict):
         :param str log_analytics_workspace_id: The Operations Management Suite (OMS) workspace ID.
         :param str primary_key: The Operations Management Suite (OMS) workspace key.
         """
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "primary_key", primary_key)
+        KafkaClusterMonitor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            primary_key=primary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics_workspace_id: str,
+             primary_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("primary_key", primary_key)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -5703,10 +6919,21 @@ class KafkaClusterNetwork(dict):
                > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
         :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
         """
+        KafkaClusterNetwork._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_direction=connection_direction,
+            private_link_enabled=private_link_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_direction: Optional[str] = None,
+             private_link_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_direction is not None:
-            pulumi.set(__self__, "connection_direction", connection_direction)
+            _setter("connection_direction", connection_direction)
         if private_link_enabled is not None:
-            pulumi.set(__self__, "private_link_enabled", private_link_enabled)
+            _setter("private_link_enabled", private_link_enabled)
 
     @property
     @pulumi.getter(name="connectionDirection")
@@ -5757,8 +6984,19 @@ class KafkaClusterRestProxy(dict):
                
                > **Note:** The `security_group_name` property will be Required in version 3.0 of the AzureRM Provider.
         """
-        pulumi.set(__self__, "security_group_id", security_group_id)
-        pulumi.set(__self__, "security_group_name", security_group_name)
+        KafkaClusterRestProxy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            security_group_id=security_group_id,
+            security_group_name=security_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             security_group_id: str,
+             security_group_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("security_group_id", security_group_id)
+        _setter("security_group_name", security_group_name)
 
     @property
     @pulumi.getter(name="securityGroupId")
@@ -5817,11 +7055,26 @@ class KafkaClusterRoles(dict):
                
                > **Note:** This property has been deprecated and will be removed in version 4.0.
         """
-        pulumi.set(__self__, "head_node", head_node)
-        pulumi.set(__self__, "worker_node", worker_node)
-        pulumi.set(__self__, "zookeeper_node", zookeeper_node)
+        KafkaClusterRoles._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            head_node=head_node,
+            worker_node=worker_node,
+            zookeeper_node=zookeeper_node,
+            kafka_management_node=kafka_management_node,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             head_node: 'outputs.KafkaClusterRolesHeadNode',
+             worker_node: 'outputs.KafkaClusterRolesWorkerNode',
+             zookeeper_node: 'outputs.KafkaClusterRolesZookeeperNode',
+             kafka_management_node: Optional['outputs.KafkaClusterRolesKafkaManagementNode'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("head_node", head_node)
+        _setter("worker_node", worker_node)
+        _setter("zookeeper_node", zookeeper_node)
         if kafka_management_node is not None:
-            pulumi.set(__self__, "kafka_management_node", kafka_management_node)
+            _setter("kafka_management_node", kafka_management_node)
 
     @property
     @pulumi.getter(name="headNode")
@@ -5906,18 +7159,39 @@ class KafkaClusterRolesHeadNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        KafkaClusterRolesHeadNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            vm_size=vm_size,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: str,
+             vm_size: str,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.KafkaClusterRolesHeadNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter
@@ -5991,10 +7265,23 @@ class KafkaClusterRolesHeadNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        KafkaClusterRolesHeadNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -6069,18 +7356,39 @@ class KafkaClusterRolesKafkaManagementNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        KafkaClusterRolesKafkaManagementNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            vm_size=vm_size,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: str,
+             vm_size: str,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.KafkaClusterRolesKafkaManagementNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter
@@ -6154,10 +7462,23 @@ class KafkaClusterRolesKafkaManagementNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        KafkaClusterRolesKafkaManagementNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -6240,20 +7561,45 @@ class KafkaClusterRolesWorkerNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "number_of_disks_per_node", number_of_disks_per_node)
-        pulumi.set(__self__, "target_instance_count", target_instance_count)
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        KafkaClusterRolesWorkerNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            number_of_disks_per_node=number_of_disks_per_node,
+            target_instance_count=target_instance_count,
+            username=username,
+            vm_size=vm_size,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             number_of_disks_per_node: int,
+             target_instance_count: int,
+             username: str,
+             vm_size: str,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.KafkaClusterRolesWorkerNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("number_of_disks_per_node", number_of_disks_per_node)
+        _setter("target_instance_count", target_instance_count)
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter(name="numberOfDisksPerNode")
@@ -6343,10 +7689,23 @@ class KafkaClusterRolesWorkerNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        KafkaClusterRolesWorkerNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -6421,18 +7780,39 @@ class KafkaClusterRolesZookeeperNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        KafkaClusterRolesZookeeperNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            vm_size=vm_size,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: str,
+             vm_size: str,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.KafkaClusterRolesZookeeperNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter
@@ -6506,10 +7886,23 @@ class KafkaClusterRolesZookeeperNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        KafkaClusterRolesZookeeperNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -6584,14 +7977,35 @@ class KafkaClusterSecurityProfile(dict):
         :param str msi_resource_id: The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
         :param Sequence[str] cluster_users_group_dns: A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "aadds_resource_id", aadds_resource_id)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "domain_user_password", domain_user_password)
-        pulumi.set(__self__, "domain_username", domain_username)
-        pulumi.set(__self__, "ldaps_urls", ldaps_urls)
-        pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        KafkaClusterSecurityProfile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aadds_resource_id=aadds_resource_id,
+            domain_name=domain_name,
+            domain_user_password=domain_user_password,
+            domain_username=domain_username,
+            ldaps_urls=ldaps_urls,
+            msi_resource_id=msi_resource_id,
+            cluster_users_group_dns=cluster_users_group_dns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aadds_resource_id: str,
+             domain_name: str,
+             domain_user_password: str,
+             domain_username: str,
+             ldaps_urls: Sequence[str],
+             msi_resource_id: str,
+             cluster_users_group_dns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aadds_resource_id", aadds_resource_id)
+        _setter("domain_name", domain_name)
+        _setter("domain_user_password", domain_user_password)
+        _setter("domain_username", domain_username)
+        _setter("ldaps_urls", ldaps_urls)
+        _setter("msi_resource_id", msi_resource_id)
         if cluster_users_group_dns is not None:
-            pulumi.set(__self__, "cluster_users_group_dns", cluster_users_group_dns)
+            _setter("cluster_users_group_dns", cluster_users_group_dns)
 
     @property
     @pulumi.getter(name="aaddsResourceId")
@@ -6690,11 +8104,26 @@ class KafkaClusterStorageAccount(dict):
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
+        KafkaClusterStorageAccount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_default=is_default,
+            storage_account_key=storage_account_key,
+            storage_container_id=storage_container_id,
+            storage_resource_id=storage_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_default: bool,
+             storage_account_key: str,
+             storage_container_id: str,
+             storage_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_default", is_default)
+        _setter("storage_account_key", storage_account_key)
+        _setter("storage_container_id", storage_container_id)
         if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+            _setter("storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -6768,18 +8197,30 @@ class KafkaClusterStorageAccountGen2(dict):
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-               
-               
-               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "filesystem_id", filesystem_id)
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        KafkaClusterStorageAccountGen2._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filesystem_id=filesystem_id,
+            is_default=is_default,
+            managed_identity_resource_id=managed_identity_resource_id,
+            storage_resource_id=storage_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filesystem_id: str,
+             is_default: bool,
+             managed_identity_resource_id: str,
+             storage_resource_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filesystem_id", filesystem_id)
+        _setter("is_default", is_default)
+        _setter("managed_identity_resource_id", managed_identity_resource_id)
+        _setter("storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="filesystemId")
@@ -6794,9 +8235,6 @@ class KafkaClusterStorageAccountGen2(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-
-        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-
 
         > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
@@ -6828,7 +8266,16 @@ class SparkClusterComponentVersion(dict):
         """
         :param str spark: The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "spark", spark)
+        SparkClusterComponentVersion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            spark=spark,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             spark: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("spark", spark)
 
     @property
     @pulumi.getter
@@ -6867,10 +8314,21 @@ class SparkClusterComputeIsolation(dict):
         :param bool compute_isolation_enabled: This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
         :param str host_sku: The name of the host SKU.
         """
+        SparkClusterComputeIsolation._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_isolation_enabled=compute_isolation_enabled,
+            host_sku=host_sku,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_isolation_enabled: Optional[bool] = None,
+             host_sku: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_isolation_enabled is not None:
-            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+            _setter("compute_isolation_enabled", compute_isolation_enabled)
         if host_sku is not None:
-            pulumi.set(__self__, "host_sku", host_sku)
+            _setter("host_sku", host_sku)
 
     @property
     @pulumi.getter(name="computeIsolationEnabled")
@@ -6925,14 +8383,29 @@ class SparkClusterDiskEncryption(dict):
         :param str key_vault_key_id: The ID of the key vault key.
         :param str key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
         """
+        SparkClusterDiskEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_algorithm=encryption_algorithm,
+            encryption_at_host_enabled=encryption_at_host_enabled,
+            key_vault_key_id=key_vault_key_id,
+            key_vault_managed_identity_id=key_vault_managed_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_algorithm: Optional[str] = None,
+             encryption_at_host_enabled: Optional[bool] = None,
+             key_vault_key_id: Optional[str] = None,
+             key_vault_managed_identity_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption_algorithm is not None:
-            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+            _setter("encryption_algorithm", encryption_algorithm)
         if encryption_at_host_enabled is not None:
-            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+            _setter("encryption_at_host_enabled", encryption_at_host_enabled)
         if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+            _setter("key_vault_key_id", key_vault_key_id)
         if key_vault_managed_identity_id is not None:
-            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+            _setter("key_vault_managed_identity_id", key_vault_managed_identity_id)
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
@@ -6995,8 +8468,19 @@ class SparkClusterExtension(dict):
         :param str log_analytics_workspace_id: The workspace ID of the log analytics extension.
         :param str primary_key: The workspace key of the log analytics extension.
         """
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "primary_key", primary_key)
+        SparkClusterExtension._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            primary_key=primary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics_workspace_id: str,
+             primary_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("primary_key", primary_key)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -7026,8 +8510,19 @@ class SparkClusterGateway(dict):
                > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
         :param str username: The username used for the Ambari Portal. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        SparkClusterGateway._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -7059,12 +8554,25 @@ class SparkClusterMetastores(dict):
         :param 'SparkClusterMetastoresHiveArgs' hive: A `hive` block as defined below.
         :param 'SparkClusterMetastoresOozieArgs' oozie: An `oozie` block as defined below.
         """
+        SparkClusterMetastores._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ambari=ambari,
+            hive=hive,
+            oozie=oozie,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ambari: Optional['outputs.SparkClusterMetastoresAmbari'] = None,
+             hive: Optional['outputs.SparkClusterMetastoresHive'] = None,
+             oozie: Optional['outputs.SparkClusterMetastoresOozie'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ambari is not None:
-            pulumi.set(__self__, "ambari", ambari)
+            _setter("ambari", ambari)
         if hive is not None:
-            pulumi.set(__self__, "hive", hive)
+            _setter("hive", hive)
         if oozie is not None:
-            pulumi.set(__self__, "oozie", oozie)
+            _setter("oozie", oozie)
 
     @property
     @pulumi.getter
@@ -7121,10 +8629,25 @@ class SparkClusterMetastoresAmbari(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
         :param str username: The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        SparkClusterMetastoresAmbari._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -7189,10 +8712,25 @@ class SparkClusterMetastoresHive(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
         :param str username: The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        SparkClusterMetastoresHive._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -7257,10 +8795,25 @@ class SparkClusterMetastoresOozie(dict):
         :param str server: The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
         :param str username: The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        SparkClusterMetastoresOozie._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: str,
+             password: str,
+             server: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -7323,8 +8876,19 @@ class SparkClusterMonitor(dict):
         :param str log_analytics_workspace_id: The Operations Management Suite (OMS) workspace ID.
         :param str primary_key: The Operations Management Suite (OMS) workspace key.
         """
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "primary_key", primary_key)
+        SparkClusterMonitor._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            primary_key=primary_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_analytics_workspace_id: str,
+             primary_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("primary_key", primary_key)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -7373,10 +8937,21 @@ class SparkClusterNetwork(dict):
                > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
         :param bool private_link_enabled: Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
         """
+        SparkClusterNetwork._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_direction=connection_direction,
+            private_link_enabled=private_link_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_direction: Optional[str] = None,
+             private_link_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_direction is not None:
-            pulumi.set(__self__, "connection_direction", connection_direction)
+            _setter("connection_direction", connection_direction)
         if private_link_enabled is not None:
-            pulumi.set(__self__, "private_link_enabled", private_link_enabled)
+            _setter("private_link_enabled", private_link_enabled)
 
     @property
     @pulumi.getter(name="connectionDirection")
@@ -7429,9 +9004,22 @@ class SparkClusterRoles(dict):
         :param 'SparkClusterRolesWorkerNodeArgs' worker_node: A `worker_node` block as defined below.
         :param 'SparkClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
         """
-        pulumi.set(__self__, "head_node", head_node)
-        pulumi.set(__self__, "worker_node", worker_node)
-        pulumi.set(__self__, "zookeeper_node", zookeeper_node)
+        SparkClusterRoles._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            head_node=head_node,
+            worker_node=worker_node,
+            zookeeper_node=zookeeper_node,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             head_node: 'outputs.SparkClusterRolesHeadNode',
+             worker_node: 'outputs.SparkClusterRolesWorkerNode',
+             zookeeper_node: 'outputs.SparkClusterRolesZookeeperNode',
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("head_node", head_node)
+        _setter("worker_node", worker_node)
+        _setter("zookeeper_node", zookeeper_node)
 
     @property
     @pulumi.getter(name="headNode")
@@ -7506,18 +9094,39 @@ class SparkClusterRolesHeadNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        SparkClusterRolesHeadNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            vm_size=vm_size,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: str,
+             vm_size: str,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.SparkClusterRolesHeadNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter
@@ -7591,10 +9200,23 @@ class SparkClusterRolesHeadNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        SparkClusterRolesHeadNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -7675,21 +9297,46 @@ class SparkClusterRolesWorkerNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "target_instance_count", target_instance_count)
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        SparkClusterRolesWorkerNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_instance_count=target_instance_count,
+            username=username,
+            vm_size=vm_size,
+            autoscale=autoscale,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_instance_count: int,
+             username: str,
+             vm_size: str,
+             autoscale: Optional['outputs.SparkClusterRolesWorkerNodeAutoscale'] = None,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.SparkClusterRolesWorkerNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_instance_count", target_instance_count)
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if autoscale is not None:
-            pulumi.set(__self__, "autoscale", autoscale)
+            _setter("autoscale", autoscale)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter(name="targetInstanceCount")
@@ -7779,10 +9426,21 @@ class SparkClusterRolesWorkerNodeAutoscale(dict):
                
                > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
         """
+        SparkClusterRolesWorkerNodeAutoscale._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            recurrence=recurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional['outputs.SparkClusterRolesWorkerNodeAutoscaleCapacity'] = None,
+             recurrence: Optional['outputs.SparkClusterRolesWorkerNodeAutoscaleRecurrence'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
+            _setter("recurrence", recurrence)
 
     @property
     @pulumi.getter
@@ -7831,8 +9489,19 @@ class SparkClusterRolesWorkerNodeAutoscaleCapacity(dict):
         :param int max_instance_count: The maximum number of worker nodes to autoscale to based on the cluster's activity.
         :param int min_instance_count: The minimum number of worker nodes to autoscale to based on the cluster's activity.
         """
-        pulumi.set(__self__, "max_instance_count", max_instance_count)
-        pulumi.set(__self__, "min_instance_count", min_instance_count)
+        SparkClusterRolesWorkerNodeAutoscaleCapacity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_instance_count=max_instance_count,
+            min_instance_count=min_instance_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_instance_count: int,
+             min_instance_count: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_instance_count", max_instance_count)
+        _setter("min_instance_count", min_instance_count)
 
     @property
     @pulumi.getter(name="maxInstanceCount")
@@ -7860,8 +9529,19 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrence(dict):
         :param Sequence['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs'] schedules: A list of `schedule` blocks as defined below.
         :param str timezone: The time zone for the autoscale schedule times.
         """
-        pulumi.set(__self__, "schedules", schedules)
-        pulumi.set(__self__, "timezone", timezone)
+        SparkClusterRolesWorkerNodeAutoscaleRecurrence._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedules=schedules,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedules: Sequence['outputs.SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
+             timezone: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("schedules", schedules)
+        _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -7908,9 +9588,22 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
         :param int target_instance_count: The number of worker nodes to autoscale at the specified time.
         :param str time: The time of day to perform the autoscale in 24hour format.
         """
-        pulumi.set(__self__, "days", days)
-        pulumi.set(__self__, "target_instance_count", target_instance_count)
-        pulumi.set(__self__, "time", time)
+        SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days=days,
+            target_instance_count=target_instance_count,
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days: Sequence[str],
+             target_instance_count: int,
+             time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("days", days)
+        _setter("target_instance_count", target_instance_count)
+        _setter("time", time)
 
     @property
     @pulumi.getter
@@ -7948,10 +9641,23 @@ class SparkClusterRolesWorkerNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        SparkClusterRolesWorkerNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -8026,18 +9732,39 @@ class SparkClusterRolesZookeeperNode(dict):
         :param str subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param str virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "username", username)
-        pulumi.set(__self__, "vm_size", vm_size)
+        SparkClusterRolesZookeeperNode._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            username=username,
+            vm_size=vm_size,
+            password=password,
+            script_actions=script_actions,
+            ssh_keys=ssh_keys,
+            subnet_id=subnet_id,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             username: str,
+             vm_size: str,
+             password: Optional[str] = None,
+             script_actions: Optional[Sequence['outputs.SparkClusterRolesZookeeperNodeScriptAction']] = None,
+             ssh_keys: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             virtual_network_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("username", username)
+        _setter("vm_size", vm_size)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if script_actions is not None:
-            pulumi.set(__self__, "script_actions", script_actions)
+            _setter("script_actions", script_actions)
         if ssh_keys is not None:
-            pulumi.set(__self__, "ssh_keys", ssh_keys)
+            _setter("ssh_keys", ssh_keys)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter
@@ -8111,10 +9838,23 @@ class SparkClusterRolesZookeeperNodeScriptAction(dict):
         :param str uri: The URI to the script.
         :param str parameters: The parameters for the script provided.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        SparkClusterRolesZookeeperNodeScriptAction._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             uri: str,
+             parameters: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("uri", uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -8189,14 +9929,35 @@ class SparkClusterSecurityProfile(dict):
         :param str msi_resource_id: The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
         :param Sequence[str] cluster_users_group_dns: A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "aadds_resource_id", aadds_resource_id)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "domain_user_password", domain_user_password)
-        pulumi.set(__self__, "domain_username", domain_username)
-        pulumi.set(__self__, "ldaps_urls", ldaps_urls)
-        pulumi.set(__self__, "msi_resource_id", msi_resource_id)
+        SparkClusterSecurityProfile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aadds_resource_id=aadds_resource_id,
+            domain_name=domain_name,
+            domain_user_password=domain_user_password,
+            domain_username=domain_username,
+            ldaps_urls=ldaps_urls,
+            msi_resource_id=msi_resource_id,
+            cluster_users_group_dns=cluster_users_group_dns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aadds_resource_id: str,
+             domain_name: str,
+             domain_user_password: str,
+             domain_username: str,
+             ldaps_urls: Sequence[str],
+             msi_resource_id: str,
+             cluster_users_group_dns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("aadds_resource_id", aadds_resource_id)
+        _setter("domain_name", domain_name)
+        _setter("domain_user_password", domain_user_password)
+        _setter("domain_username", domain_username)
+        _setter("ldaps_urls", ldaps_urls)
+        _setter("msi_resource_id", msi_resource_id)
         if cluster_users_group_dns is not None:
-            pulumi.set(__self__, "cluster_users_group_dns", cluster_users_group_dns)
+            _setter("cluster_users_group_dns", cluster_users_group_dns)
 
     @property
     @pulumi.getter(name="aaddsResourceId")
@@ -8295,11 +10056,26 @@ class SparkClusterStorageAccount(dict):
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
+        SparkClusterStorageAccount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_default=is_default,
+            storage_account_key=storage_account_key,
+            storage_container_id=storage_container_id,
+            storage_resource_id=storage_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_default: bool,
+             storage_account_key: str,
+             storage_container_id: str,
+             storage_resource_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_default", is_default)
+        _setter("storage_account_key", storage_account_key)
+        _setter("storage_container_id", storage_container_id)
         if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+            _setter("storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -8373,18 +10149,30 @@ class SparkClusterStorageAccountGen2(dict):
         :param bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-               
-               
-               > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
                
                > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
         :param str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "filesystem_id", filesystem_id)
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        SparkClusterStorageAccountGen2._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filesystem_id=filesystem_id,
+            is_default=is_default,
+            managed_identity_resource_id=managed_identity_resource_id,
+            storage_resource_id=storage_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filesystem_id: str,
+             is_default: bool,
+             managed_identity_resource_id: str,
+             storage_resource_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filesystem_id", filesystem_id)
+        _setter("is_default", is_default)
+        _setter("managed_identity_resource_id", managed_identity_resource_id)
+        _setter("storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="filesystemId")
@@ -8399,9 +10187,6 @@ class SparkClusterStorageAccountGen2(dict):
     def is_default(self) -> bool:
         """
         Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-
-        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-
 
         > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         """
@@ -8437,9 +10222,22 @@ class GetClusterGatewayResult(dict):
         :param str password: The password used for the Ambari Portal.
         :param str username: The username used for the Ambari Portal.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        GetClusterGatewayResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             password: str,
+             username: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter

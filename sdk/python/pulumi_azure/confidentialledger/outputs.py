@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -46,9 +46,22 @@ class LedgerAzureadBasedServicePrincipal(dict):
         :param str principal_id: Specifies the Principal ID of the AzureAD Service Principal.
         :param str tenant_id: Specifies the Tenant ID for this AzureAD Service Principal.
         """
-        pulumi.set(__self__, "ledger_role_name", ledger_role_name)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        LedgerAzureadBasedServicePrincipal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ledger_role_name=ledger_role_name,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ledger_role_name: str,
+             principal_id: str,
+             tenant_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ledger_role_name", ledger_role_name)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="ledgerRoleName")
@@ -103,8 +116,19 @@ class LedgerCertificateBasedSecurityPrincipal(dict):
         :param str ledger_role_name: Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
         :param str pem_public_key: The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
         """
-        pulumi.set(__self__, "ledger_role_name", ledger_role_name)
-        pulumi.set(__self__, "pem_public_key", pem_public_key)
+        LedgerCertificateBasedSecurityPrincipal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ledger_role_name=ledger_role_name,
+            pem_public_key=pem_public_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ledger_role_name: str,
+             pem_public_key: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ledger_role_name", ledger_role_name)
+        _setter("pem_public_key", pem_public_key)
 
     @property
     @pulumi.getter(name="ledgerRoleName")

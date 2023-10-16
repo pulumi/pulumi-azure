@@ -31,28 +31,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string>? ClientCredentialMethod { get; set; }
 
         /// <summary>
-        /// The OpenID Connect Client ID for the Apple web application.
+        /// The ID of the Client to use to authenticate with Azure Active Directory.
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// The app setting name that contains the `client_secret` value used for Apple Login.
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-        /// 
-        /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
         /// </summary>
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }

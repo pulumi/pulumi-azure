@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -28,8 +28,19 @@ class ConfigurationConfigFileArgs:
         :param pulumi.Input[str] content: Specifies the base-64 encoded contents of this config file.
         :param pulumi.Input[str] virtual_path: Specify the path of this config file.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "virtual_path", virtual_path)
+        ConfigurationConfigFileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            virtual_path=virtual_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: pulumi.Input[str],
+             virtual_path: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
+        _setter("virtual_path", virtual_path)
 
     @property
     @pulumi.getter
@@ -65,8 +76,19 @@ class ConfigurationProtectedFileArgs:
         :param pulumi.Input[str] content: Specifies the base-64 encoded contents of this config file (Sensitive).
         :param pulumi.Input[str] virtual_path: Specify the path of this config file.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "virtual_path", virtual_path)
+        ConfigurationProtectedFileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            virtual_path=virtual_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: pulumi.Input[str],
+             virtual_path: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
+        _setter("virtual_path", virtual_path)
 
     @property
     @pulumi.getter
@@ -104,9 +126,22 @@ class DeploymentFrontendPrivateArgs:
         :param pulumi.Input[str] ip_address: Specify the IP Address of this private IP.
         :param pulumi.Input[str] subnet_id: Specify the SubNet Resource ID to this Nginx Deployment.
         """
-        pulumi.set(__self__, "allocation_method", allocation_method)
-        pulumi.set(__self__, "ip_address", ip_address)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        DeploymentFrontendPrivateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allocation_method=allocation_method,
+            ip_address=ip_address,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allocation_method: pulumi.Input[str],
+             ip_address: pulumi.Input[str],
+             subnet_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allocation_method", allocation_method)
+        _setter("ip_address", ip_address)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="allocationMethod")
@@ -152,8 +187,17 @@ class DeploymentFrontendPublicArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: Specifies a list of Public IP Resouce ID to this Nginx Deployment.
         """
+        DeploymentFrontendPublicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter(name="ipAddresses")
@@ -179,13 +223,28 @@ class DeploymentIdentityArgs:
         :param pulumi.Input[str] type: Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
         """
-        pulumi.set(__self__, "type", type)
+        DeploymentIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -239,10 +298,21 @@ class DeploymentLoggingStorageAccountArgs:
         :param pulumi.Input[str] container_name: Specify the container name of Stoage Account for logging.
         :param pulumi.Input[str] name: The account name of the StorageAccount for Nginx Logging.
         """
+        DeploymentLoggingStorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_name=container_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+            _setter("container_name", container_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="containerName")
@@ -276,7 +346,16 @@ class DeploymentNetworkInterfaceArgs:
         """
         :param pulumi.Input[str] subnet_id: Specify The SubNet Resource ID to this Nginx Deployment.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        DeploymentNetworkInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")

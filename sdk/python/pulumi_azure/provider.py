@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from ._inputs import *
 
@@ -75,68 +75,127 @@ class ProviderArgs:
         :param pulumi.Input[bool] use_msi: Allow Managed Service Identity to be used for Authentication.
         :param pulumi.Input[bool] use_oidc: Allow OpenID Connect to be used for authentication
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auxiliary_tenant_ids=auxiliary_tenant_ids,
+            client_certificate=client_certificate,
+            client_certificate_password=client_certificate_password,
+            client_certificate_path=client_certificate_path,
+            client_id=client_id,
+            client_id_file_path=client_id_file_path,
+            client_secret=client_secret,
+            client_secret_file_path=client_secret_file_path,
+            disable_correlation_request_id=disable_correlation_request_id,
+            disable_terraform_partner_id=disable_terraform_partner_id,
+            environment=environment,
+            features=features,
+            metadata_host=metadata_host,
+            msi_endpoint=msi_endpoint,
+            oidc_request_token=oidc_request_token,
+            oidc_request_url=oidc_request_url,
+            oidc_token=oidc_token,
+            oidc_token_file_path=oidc_token_file_path,
+            partner_id=partner_id,
+            skip_provider_registration=skip_provider_registration,
+            storage_use_azuread=storage_use_azuread,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            use_cli=use_cli,
+            use_msi=use_msi,
+            use_oidc=use_oidc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             client_certificate: Optional[pulumi.Input[str]] = None,
+             client_certificate_password: Optional[pulumi.Input[str]] = None,
+             client_certificate_path: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_id_file_path: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             client_secret_file_path: Optional[pulumi.Input[str]] = None,
+             disable_correlation_request_id: Optional[pulumi.Input[bool]] = None,
+             disable_terraform_partner_id: Optional[pulumi.Input[bool]] = None,
+             environment: Optional[pulumi.Input[str]] = None,
+             features: Optional[pulumi.Input['ProviderFeaturesArgs']] = None,
+             metadata_host: Optional[pulumi.Input[str]] = None,
+             msi_endpoint: Optional[pulumi.Input[str]] = None,
+             oidc_request_token: Optional[pulumi.Input[str]] = None,
+             oidc_request_url: Optional[pulumi.Input[str]] = None,
+             oidc_token: Optional[pulumi.Input[str]] = None,
+             oidc_token_file_path: Optional[pulumi.Input[str]] = None,
+             partner_id: Optional[pulumi.Input[str]] = None,
+             skip_provider_registration: Optional[pulumi.Input[bool]] = None,
+             storage_use_azuread: Optional[pulumi.Input[bool]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             use_cli: Optional[pulumi.Input[bool]] = None,
+             use_msi: Optional[pulumi.Input[bool]] = None,
+             use_oidc: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auxiliary_tenant_ids is not None:
-            pulumi.set(__self__, "auxiliary_tenant_ids", auxiliary_tenant_ids)
+            _setter("auxiliary_tenant_ids", auxiliary_tenant_ids)
         if client_certificate is not None:
-            pulumi.set(__self__, "client_certificate", client_certificate)
+            _setter("client_certificate", client_certificate)
         if client_certificate_password is not None:
-            pulumi.set(__self__, "client_certificate_password", client_certificate_password)
+            _setter("client_certificate_password", client_certificate_password)
         if client_certificate_path is not None:
-            pulumi.set(__self__, "client_certificate_path", client_certificate_path)
+            _setter("client_certificate_path", client_certificate_path)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_id_file_path is not None:
-            pulumi.set(__self__, "client_id_file_path", client_id_file_path)
+            _setter("client_id_file_path", client_id_file_path)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if client_secret_file_path is not None:
-            pulumi.set(__self__, "client_secret_file_path", client_secret_file_path)
+            _setter("client_secret_file_path", client_secret_file_path)
         if disable_correlation_request_id is not None:
-            pulumi.set(__self__, "disable_correlation_request_id", disable_correlation_request_id)
+            _setter("disable_correlation_request_id", disable_correlation_request_id)
         if disable_terraform_partner_id is not None:
-            pulumi.set(__self__, "disable_terraform_partner_id", disable_terraform_partner_id)
+            _setter("disable_terraform_partner_id", disable_terraform_partner_id)
         if environment is None:
             environment = (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if metadata_host is None:
             metadata_host = _utilities.get_env('ARM_METADATA_HOSTNAME')
         if metadata_host is not None:
-            pulumi.set(__self__, "metadata_host", metadata_host)
+            _setter("metadata_host", metadata_host)
         if msi_endpoint is not None:
-            pulumi.set(__self__, "msi_endpoint", msi_endpoint)
+            _setter("msi_endpoint", msi_endpoint)
         if oidc_request_token is not None:
-            pulumi.set(__self__, "oidc_request_token", oidc_request_token)
+            _setter("oidc_request_token", oidc_request_token)
         if oidc_request_url is not None:
-            pulumi.set(__self__, "oidc_request_url", oidc_request_url)
+            _setter("oidc_request_url", oidc_request_url)
         if oidc_token is not None:
-            pulumi.set(__self__, "oidc_token", oidc_token)
+            _setter("oidc_token", oidc_token)
         if oidc_token_file_path is not None:
-            pulumi.set(__self__, "oidc_token_file_path", oidc_token_file_path)
+            _setter("oidc_token_file_path", oidc_token_file_path)
         if partner_id is not None:
-            pulumi.set(__self__, "partner_id", partner_id)
+            _setter("partner_id", partner_id)
         if skip_provider_registration is None:
             skip_provider_registration = (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
         if skip_provider_registration is not None:
-            pulumi.set(__self__, "skip_provider_registration", skip_provider_registration)
+            _setter("skip_provider_registration", skip_provider_registration)
         if storage_use_azuread is None:
             storage_use_azuread = (_utilities.get_env_bool('ARM_STORAGE_USE_AZUREAD') or False)
         if storage_use_azuread is not None:
-            pulumi.set(__self__, "storage_use_azuread", storage_use_azuread)
+            _setter("storage_use_azuread", storage_use_azuread)
         if subscription_id is None:
             subscription_id = (_utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if use_cli is not None:
-            pulumi.set(__self__, "use_cli", use_cli)
+            _setter("use_cli", use_cli)
         if use_msi is not None:
-            pulumi.set(__self__, "use_msi", use_msi)
+            _setter("use_msi", use_msi)
         if use_oidc is not None:
-            pulumi.set(__self__, "use_oidc", use_oidc)
+            _setter("use_oidc", use_oidc)
 
     @property
     @pulumi.getter(name="auxiliaryTenantIds")
@@ -546,6 +605,10 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -599,6 +662,11 @@ class Provider(pulumi.ProviderResource):
             if environment is None:
                 environment = (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
             __props__.__dict__["environment"] = environment
+            if features is not None and not isinstance(features, ProviderFeaturesArgs):
+                features = features or {}
+                def _setter(key, value):
+                    features[key] = value
+                ProviderFeaturesArgs._configure(_setter, **features)
             __props__.__dict__["features"] = pulumi.Output.from_input(features).apply(pulumi.runtime.to_json) if features is not None else None
             if metadata_host is None:
                 metadata_host = _utilities.get_env('ARM_METADATA_HOSTNAME')

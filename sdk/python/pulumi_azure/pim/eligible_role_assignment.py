@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,34 @@ class EligibleRoleAssignmentArgs:
         :param pulumi.Input['EligibleRoleAssignmentScheduleArgs'] schedule: A `schedule` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
         :param pulumi.Input['EligibleRoleAssignmentTicketArgs'] ticket: A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
-        pulumi.set(__self__, "scope", scope)
+        EligibleRoleAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            role_definition_id=role_definition_id,
+            scope=scope,
+            justification=justification,
+            schedule=schedule,
+            ticket=ticket,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: pulumi.Input[str],
+             role_definition_id: pulumi.Input[str],
+             scope: pulumi.Input[str],
+             justification: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['EligibleRoleAssignmentScheduleArgs']] = None,
+             ticket: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("role_definition_id", role_definition_id)
+        _setter("scope", scope)
         if justification is not None:
-            pulumi.set(__self__, "justification", justification)
+            _setter("justification", justification)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if ticket is not None:
-            pulumi.set(__self__, "ticket", ticket)
+            _setter("ticket", ticket)
 
     @property
     @pulumi.getter(name="principalId")
@@ -135,20 +154,41 @@ class _EligibleRoleAssignmentState:
         :param pulumi.Input[str] scope: The scope. Changing this forces a new Pim Eligible Role Assignment to be created.
         :param pulumi.Input['EligibleRoleAssignmentTicketArgs'] ticket: A `ticket` block as defined below. Changing this forces a new Pim Eligible Role Assignment to be created.
         """
+        _EligibleRoleAssignmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            justification=justification,
+            principal_id=principal_id,
+            principal_type=principal_type,
+            role_definition_id=role_definition_id,
+            schedule=schedule,
+            scope=scope,
+            ticket=ticket,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             justification: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['EligibleRoleAssignmentScheduleArgs']] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             ticket: Optional[pulumi.Input['EligibleRoleAssignmentTicketArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if justification is not None:
-            pulumi.set(__self__, "justification", justification)
+            _setter("justification", justification)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
+            _setter("principal_type", principal_type)
         if role_definition_id is not None:
-            pulumi.set(__self__, "role_definition_id", role_definition_id)
+            _setter("role_definition_id", role_definition_id)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if ticket is not None:
-            pulumi.set(__self__, "ticket", ticket)
+            _setter("ticket", ticket)
 
     @property
     @pulumi.getter
@@ -407,6 +447,10 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EligibleRoleAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -434,10 +478,20 @@ class EligibleRoleAssignment(pulumi.CustomResource):
             if role_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'role_definition_id'")
             __props__.__dict__["role_definition_id"] = role_definition_id
+            if schedule is not None and not isinstance(schedule, EligibleRoleAssignmentScheduleArgs):
+                schedule = schedule or {}
+                def _setter(key, value):
+                    schedule[key] = value
+                EligibleRoleAssignmentScheduleArgs._configure(_setter, **schedule)
             __props__.__dict__["schedule"] = schedule
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            if ticket is not None and not isinstance(ticket, EligibleRoleAssignmentTicketArgs):
+                ticket = ticket or {}
+                def _setter(key, value):
+                    ticket[key] = value
+                EligibleRoleAssignmentTicketArgs._configure(_setter, **ticket)
             __props__.__dict__["ticket"] = ticket
             __props__.__dict__["principal_type"] = None
         super(EligibleRoleAssignment, __self__).__init__(

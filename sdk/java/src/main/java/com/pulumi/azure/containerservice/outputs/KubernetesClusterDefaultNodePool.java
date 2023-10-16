@@ -101,9 +101,7 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private String name;
     /**
-     * @return The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-     * 
-     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+     * @return The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
      * 
      * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
      * 
@@ -345,9 +343,7 @@ public final class KubernetesClusterDefaultNodePool {
         return this.name;
     }
     /**
-     * @return The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
-     * 
-     * &gt; **Note:** If specified you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+     * @return The number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
      * 
      * &gt; **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
      * 

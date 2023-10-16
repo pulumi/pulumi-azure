@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly string MatchVariable;
         /// <summary>
-        /// Describes field of the matchVariable collection
+        /// Describes field of the matchVariable collection.
         /// </summary>
         public readonly string? Selector;
         /// <summary>

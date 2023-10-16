@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,14 +31,31 @@ class CassandraKeyspaceArgs:
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CassandraKeyspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            resource_group_name=resource_group_name,
+            autoscale_settings=autoscale_settings,
+            name=name,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             autoscale_settings: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             throughput: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("resource_group_name", resource_group_name)
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="accountName")
@@ -121,16 +138,33 @@ class _CassandraKeyspaceState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
+        _CassandraKeyspaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            autoscale_settings=autoscale_settings,
+            name=name,
+            resource_group_name=resource_group_name,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             autoscale_settings: Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             throughput: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="accountName")
@@ -308,6 +342,10 @@ class CassandraKeyspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CassandraKeyspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -330,6 +368,11 @@ class CassandraKeyspace(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            if autoscale_settings is not None and not isinstance(autoscale_settings, CassandraKeyspaceAutoscaleSettingsArgs):
+                autoscale_settings = autoscale_settings or {}
+                def _setter(key, value):
+                    autoscale_settings[key] = value
+                CassandraKeyspaceAutoscaleSettingsArgs._configure(_setter, **autoscale_settings)
             __props__.__dict__["autoscale_settings"] = autoscale_settings
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:

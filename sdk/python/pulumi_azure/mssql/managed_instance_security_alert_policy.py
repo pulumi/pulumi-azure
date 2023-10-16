@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagedInstanceSecurityAlertPolicyArgs', 'ManagedInstanceSecurityAlertPolicy']
@@ -37,22 +37,47 @@ class ManagedInstanceSecurityAlertPolicyArgs:
                > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
-        pulumi.set(__self__, "managed_instance_name", managed_instance_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedInstanceSecurityAlertPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_instance_name=managed_instance_name,
+            resource_group_name=resource_group_name,
+            disabled_alerts=disabled_alerts,
+            email_account_admins_enabled=email_account_admins_enabled,
+            email_addresses=email_addresses,
+            enabled=enabled,
+            retention_days=retention_days,
+            storage_account_access_key=storage_account_access_key,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_instance_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             email_account_admins_enabled: Optional[pulumi.Input[bool]] = None,
+             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             retention_days: Optional[pulumi.Input[int]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("managed_instance_name", managed_instance_name)
+        _setter("resource_group_name", resource_group_name)
         if disabled_alerts is not None:
-            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
+            _setter("disabled_alerts", disabled_alerts)
         if email_account_admins_enabled is not None:
-            pulumi.set(__self__, "email_account_admins_enabled", email_account_admins_enabled)
+            _setter("email_account_admins_enabled", email_account_admins_enabled)
         if email_addresses is not None:
-            pulumi.set(__self__, "email_addresses", email_addresses)
+            _setter("email_addresses", email_addresses)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if retention_days is not None:
-            pulumi.set(__self__, "retention_days", retention_days)
+            _setter("retention_days", retention_days)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="managedInstanceName")
@@ -191,24 +216,49 @@ class _ManagedInstanceSecurityAlertPolicyState:
                > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
+        _ManagedInstanceSecurityAlertPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disabled_alerts=disabled_alerts,
+            email_account_admins_enabled=email_account_admins_enabled,
+            email_addresses=email_addresses,
+            enabled=enabled,
+            managed_instance_name=managed_instance_name,
+            resource_group_name=resource_group_name,
+            retention_days=retention_days,
+            storage_account_access_key=storage_account_access_key,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             email_account_admins_enabled: Optional[pulumi.Input[bool]] = None,
+             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             managed_instance_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retention_days: Optional[pulumi.Input[int]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disabled_alerts is not None:
-            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
+            _setter("disabled_alerts", disabled_alerts)
         if email_account_admins_enabled is not None:
-            pulumi.set(__self__, "email_account_admins_enabled", email_account_admins_enabled)
+            _setter("email_account_admins_enabled", email_account_admins_enabled)
         if email_addresses is not None:
-            pulumi.set(__self__, "email_addresses", email_addresses)
+            _setter("email_addresses", email_addresses)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if managed_instance_name is not None:
-            pulumi.set(__self__, "managed_instance_name", managed_instance_name)
+            _setter("managed_instance_name", managed_instance_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if retention_days is not None:
-            pulumi.set(__self__, "retention_days", retention_days)
+            _setter("retention_days", retention_days)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="disabledAlerts")
@@ -718,6 +768,10 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedInstanceSecurityAlertPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

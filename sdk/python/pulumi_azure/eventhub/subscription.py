@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,34 +51,71 @@ class SubscriptionArgs:
         :param pulumi.Input[bool] requires_session: Boolean flag which controls whether this Subscription supports the concept of a session. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         """
-        pulumi.set(__self__, "max_delivery_count", max_delivery_count)
-        pulumi.set(__self__, "topic_id", topic_id)
+        SubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_delivery_count=max_delivery_count,
+            topic_id=topic_id,
+            auto_delete_on_idle=auto_delete_on_idle,
+            client_scoped_subscription=client_scoped_subscription,
+            client_scoped_subscription_enabled=client_scoped_subscription_enabled,
+            dead_lettering_on_filter_evaluation_error=dead_lettering_on_filter_evaluation_error,
+            dead_lettering_on_message_expiration=dead_lettering_on_message_expiration,
+            default_message_ttl=default_message_ttl,
+            enable_batched_operations=enable_batched_operations,
+            forward_dead_lettered_messages_to=forward_dead_lettered_messages_to,
+            forward_to=forward_to,
+            lock_duration=lock_duration,
+            name=name,
+            requires_session=requires_session,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_delivery_count: pulumi.Input[int],
+             topic_id: pulumi.Input[str],
+             auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+             client_scoped_subscription: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']] = None,
+             client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
+             dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
+             dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
+             default_message_ttl: Optional[pulumi.Input[str]] = None,
+             enable_batched_operations: Optional[pulumi.Input[bool]] = None,
+             forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
+             forward_to: Optional[pulumi.Input[str]] = None,
+             lock_duration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             requires_session: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_delivery_count", max_delivery_count)
+        _setter("topic_id", topic_id)
         if auto_delete_on_idle is not None:
-            pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+            _setter("auto_delete_on_idle", auto_delete_on_idle)
         if client_scoped_subscription is not None:
-            pulumi.set(__self__, "client_scoped_subscription", client_scoped_subscription)
+            _setter("client_scoped_subscription", client_scoped_subscription)
         if client_scoped_subscription_enabled is not None:
-            pulumi.set(__self__, "client_scoped_subscription_enabled", client_scoped_subscription_enabled)
+            _setter("client_scoped_subscription_enabled", client_scoped_subscription_enabled)
         if dead_lettering_on_filter_evaluation_error is not None:
-            pulumi.set(__self__, "dead_lettering_on_filter_evaluation_error", dead_lettering_on_filter_evaluation_error)
+            _setter("dead_lettering_on_filter_evaluation_error", dead_lettering_on_filter_evaluation_error)
         if dead_lettering_on_message_expiration is not None:
-            pulumi.set(__self__, "dead_lettering_on_message_expiration", dead_lettering_on_message_expiration)
+            _setter("dead_lettering_on_message_expiration", dead_lettering_on_message_expiration)
         if default_message_ttl is not None:
-            pulumi.set(__self__, "default_message_ttl", default_message_ttl)
+            _setter("default_message_ttl", default_message_ttl)
         if enable_batched_operations is not None:
-            pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
+            _setter("enable_batched_operations", enable_batched_operations)
         if forward_dead_lettered_messages_to is not None:
-            pulumi.set(__self__, "forward_dead_lettered_messages_to", forward_dead_lettered_messages_to)
+            _setter("forward_dead_lettered_messages_to", forward_dead_lettered_messages_to)
         if forward_to is not None:
-            pulumi.set(__self__, "forward_to", forward_to)
+            _setter("forward_to", forward_to)
         if lock_duration is not None:
-            pulumi.set(__self__, "lock_duration", lock_duration)
+            _setter("lock_duration", lock_duration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if requires_session is not None:
-            pulumi.set(__self__, "requires_session", requires_session)
+            _setter("requires_session", requires_session)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="maxDeliveryCount")
@@ -301,36 +338,73 @@ class _SubscriptionState:
         :param pulumi.Input[str] status: The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[str] topic_id: The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created.
         """
+        _SubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_delete_on_idle=auto_delete_on_idle,
+            client_scoped_subscription=client_scoped_subscription,
+            client_scoped_subscription_enabled=client_scoped_subscription_enabled,
+            dead_lettering_on_filter_evaluation_error=dead_lettering_on_filter_evaluation_error,
+            dead_lettering_on_message_expiration=dead_lettering_on_message_expiration,
+            default_message_ttl=default_message_ttl,
+            enable_batched_operations=enable_batched_operations,
+            forward_dead_lettered_messages_to=forward_dead_lettered_messages_to,
+            forward_to=forward_to,
+            lock_duration=lock_duration,
+            max_delivery_count=max_delivery_count,
+            name=name,
+            requires_session=requires_session,
+            status=status,
+            topic_id=topic_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+             client_scoped_subscription: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']] = None,
+             client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
+             dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
+             dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
+             default_message_ttl: Optional[pulumi.Input[str]] = None,
+             enable_batched_operations: Optional[pulumi.Input[bool]] = None,
+             forward_dead_lettered_messages_to: Optional[pulumi.Input[str]] = None,
+             forward_to: Optional[pulumi.Input[str]] = None,
+             lock_duration: Optional[pulumi.Input[str]] = None,
+             max_delivery_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             requires_session: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             topic_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_delete_on_idle is not None:
-            pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+            _setter("auto_delete_on_idle", auto_delete_on_idle)
         if client_scoped_subscription is not None:
-            pulumi.set(__self__, "client_scoped_subscription", client_scoped_subscription)
+            _setter("client_scoped_subscription", client_scoped_subscription)
         if client_scoped_subscription_enabled is not None:
-            pulumi.set(__self__, "client_scoped_subscription_enabled", client_scoped_subscription_enabled)
+            _setter("client_scoped_subscription_enabled", client_scoped_subscription_enabled)
         if dead_lettering_on_filter_evaluation_error is not None:
-            pulumi.set(__self__, "dead_lettering_on_filter_evaluation_error", dead_lettering_on_filter_evaluation_error)
+            _setter("dead_lettering_on_filter_evaluation_error", dead_lettering_on_filter_evaluation_error)
         if dead_lettering_on_message_expiration is not None:
-            pulumi.set(__self__, "dead_lettering_on_message_expiration", dead_lettering_on_message_expiration)
+            _setter("dead_lettering_on_message_expiration", dead_lettering_on_message_expiration)
         if default_message_ttl is not None:
-            pulumi.set(__self__, "default_message_ttl", default_message_ttl)
+            _setter("default_message_ttl", default_message_ttl)
         if enable_batched_operations is not None:
-            pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
+            _setter("enable_batched_operations", enable_batched_operations)
         if forward_dead_lettered_messages_to is not None:
-            pulumi.set(__self__, "forward_dead_lettered_messages_to", forward_dead_lettered_messages_to)
+            _setter("forward_dead_lettered_messages_to", forward_dead_lettered_messages_to)
         if forward_to is not None:
-            pulumi.set(__self__, "forward_to", forward_to)
+            _setter("forward_to", forward_to)
         if lock_duration is not None:
-            pulumi.set(__self__, "lock_duration", lock_duration)
+            _setter("lock_duration", lock_duration)
         if max_delivery_count is not None:
-            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+            _setter("max_delivery_count", max_delivery_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if requires_session is not None:
-            pulumi.set(__self__, "requires_session", requires_session)
+            _setter("requires_session", requires_session)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if topic_id is not None:
-            pulumi.set(__self__, "topic_id", topic_id)
+            _setter("topic_id", topic_id)
 
     @property
     @pulumi.getter(name="autoDeleteOnIdle")
@@ -643,6 +717,10 @@ class Subscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -674,6 +752,11 @@ class Subscription(pulumi.CustomResource):
             __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
 
             __props__.__dict__["auto_delete_on_idle"] = auto_delete_on_idle
+            if client_scoped_subscription is not None and not isinstance(client_scoped_subscription, SubscriptionClientScopedSubscriptionArgs):
+                client_scoped_subscription = client_scoped_subscription or {}
+                def _setter(key, value):
+                    client_scoped_subscription[key] = value
+                SubscriptionClientScopedSubscriptionArgs._configure(_setter, **client_scoped_subscription)
             __props__.__dict__["client_scoped_subscription"] = client_scoped_subscription
             __props__.__dict__["client_scoped_subscription_enabled"] = client_scoped_subscription_enabled
             __props__.__dict__["dead_lettering_on_filter_evaluation_error"] = dead_lettering_on_filter_evaluation_error

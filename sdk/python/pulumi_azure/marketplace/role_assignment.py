@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RoleAssignmentArgs', 'RoleAssignment']
@@ -26,23 +26,48 @@ class RoleAssignmentArgs:
         """
         The set of arguments for constructing a RoleAssignment resource.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
+        RoleAssignmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            condition=condition,
+            condition_version=condition_version,
+            delegated_managed_identity_resource_id=delegated_managed_identity_resource_id,
+            description=description,
+            name=name,
+            role_definition_id=role_definition_id,
+            role_definition_name=role_definition_name,
+            skip_service_principal_aad_check=skip_service_principal_aad_check,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: pulumi.Input[str],
+             condition: Optional[pulumi.Input[str]] = None,
+             condition_version: Optional[pulumi.Input[str]] = None,
+             delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             role_definition_name: Optional[pulumi.Input[str]] = None,
+             skip_service_principal_aad_check: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
         if condition is not None:
-            pulumi.set(__self__, "condition", condition)
+            _setter("condition", condition)
         if condition_version is not None:
-            pulumi.set(__self__, "condition_version", condition_version)
+            _setter("condition_version", condition_version)
         if delegated_managed_identity_resource_id is not None:
-            pulumi.set(__self__, "delegated_managed_identity_resource_id", delegated_managed_identity_resource_id)
+            _setter("delegated_managed_identity_resource_id", delegated_managed_identity_resource_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if role_definition_id is not None:
-            pulumi.set(__self__, "role_definition_id", role_definition_id)
+            _setter("role_definition_id", role_definition_id)
         if role_definition_name is not None:
-            pulumi.set(__self__, "role_definition_name", role_definition_name)
+            _setter("role_definition_name", role_definition_name)
         if skip_service_principal_aad_check is not None:
-            pulumi.set(__self__, "skip_service_principal_aad_check", skip_service_principal_aad_check)
+            _setter("skip_service_principal_aad_check", skip_service_principal_aad_check)
 
     @property
     @pulumi.getter(name="principalId")
@@ -142,26 +167,53 @@ class _RoleAssignmentState:
         """
         Input properties used for looking up and filtering RoleAssignment resources.
         """
+        _RoleAssignmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            condition=condition,
+            condition_version=condition_version,
+            delegated_managed_identity_resource_id=delegated_managed_identity_resource_id,
+            description=description,
+            name=name,
+            principal_id=principal_id,
+            principal_type=principal_type,
+            role_definition_id=role_definition_id,
+            role_definition_name=role_definition_name,
+            skip_service_principal_aad_check=skip_service_principal_aad_check,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             condition: Optional[pulumi.Input[str]] = None,
+             condition_version: Optional[pulumi.Input[str]] = None,
+             delegated_managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             role_definition_name: Optional[pulumi.Input[str]] = None,
+             skip_service_principal_aad_check: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if condition is not None:
-            pulumi.set(__self__, "condition", condition)
+            _setter("condition", condition)
         if condition_version is not None:
-            pulumi.set(__self__, "condition_version", condition_version)
+            _setter("condition_version", condition_version)
         if delegated_managed_identity_resource_id is not None:
-            pulumi.set(__self__, "delegated_managed_identity_resource_id", delegated_managed_identity_resource_id)
+            _setter("delegated_managed_identity_resource_id", delegated_managed_identity_resource_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
+            _setter("principal_type", principal_type)
         if role_definition_id is not None:
-            pulumi.set(__self__, "role_definition_id", role_definition_id)
+            _setter("role_definition_id", role_definition_id)
         if role_definition_name is not None:
-            pulumi.set(__self__, "role_definition_name", role_definition_name)
+            _setter("role_definition_name", role_definition_name)
         if skip_service_principal_aad_check is not None:
-            pulumi.set(__self__, "skip_service_principal_aad_check", skip_service_principal_aad_check)
+            _setter("skip_service_principal_aad_check", skip_service_principal_aad_check)
 
     @property
     @pulumi.getter
@@ -292,6 +344,10 @@ class RoleAssignment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RoleAssignmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -4524,8 +4524,6 @@ type HBaseClusterStorageAccountGen2 struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
-	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
@@ -4550,8 +4548,6 @@ type HBaseClusterStorageAccountGen2Args struct {
 	// The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
 	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	//
 	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
@@ -4666,8 +4662,6 @@ func (o HBaseClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
 // > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
-//
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o HBaseClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
@@ -4725,8 +4719,6 @@ func (o HBaseClusterStorageAccountGen2PtrOutput) FilesystemId() pulumi.StringPtr
 }
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-//
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 //
 // > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o HBaseClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutput {
@@ -10198,8 +10190,6 @@ type HadoopClusterStorageAccountGen2 struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
-	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
@@ -10224,8 +10214,6 @@ type HadoopClusterStorageAccountGen2Args struct {
 	// The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
 	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	//
 	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
@@ -10340,8 +10328,6 @@ func (o HadoopClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutpu
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
 // > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
-//
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o HadoopClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
@@ -10399,8 +10385,6 @@ func (o HadoopClusterStorageAccountGen2PtrOutput) FilesystemId() pulumi.StringPt
 }
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-//
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 //
 // > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o HadoopClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutput {
@@ -15183,8 +15167,6 @@ type InteractiveQueryClusterStorageAccountGen2 struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
-	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
@@ -15209,8 +15191,6 @@ type InteractiveQueryClusterStorageAccountGen2Args struct {
 	// The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
 	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	//
 	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
@@ -15325,8 +15305,6 @@ func (o InteractiveQueryClusterStorageAccountGen2Output) FilesystemId() pulumi.S
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
 // > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
-//
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o InteractiveQueryClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
@@ -15384,8 +15362,6 @@ func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) FilesystemId() pulum
 }
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-//
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 //
 // > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutput {
@@ -20114,8 +20090,6 @@ type KafkaClusterStorageAccountGen2 struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
-	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
@@ -20140,8 +20114,6 @@ type KafkaClusterStorageAccountGen2Args struct {
 	// The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
 	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	//
 	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
@@ -20256,8 +20228,6 @@ func (o KafkaClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
 // > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
-//
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o KafkaClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
@@ -20315,8 +20285,6 @@ func (o KafkaClusterStorageAccountGen2PtrOutput) FilesystemId() pulumi.StringPtr
 }
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-//
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 //
 // > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o KafkaClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutput {
@@ -25091,8 +25059,6 @@ type SparkClusterStorageAccountGen2 struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
-	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
@@ -25117,8 +25083,6 @@ type SparkClusterStorageAccountGen2Args struct {
 	// The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
 	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	//
 	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
@@ -25233,8 +25197,6 @@ func (o SparkClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
 // > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
-//
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o SparkClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v SparkClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
@@ -25292,8 +25254,6 @@ func (o SparkClusterStorageAccountGen2PtrOutput) FilesystemId() pulumi.StringPtr
 }
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
-//
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 //
 // > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o SparkClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutput {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -36,15 +36,40 @@ class GetRecommendationsRecommendationResult(dict):
         :param Sequence[str] suppression_names: A list of Advisor Suppression names of the Advisor Recommendation.
         :param str updated_time: The most recent time that Advisor checked the validity of the recommendation..
         """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "impact", impact)
-        pulumi.set(__self__, "recommendation_name", recommendation_name)
-        pulumi.set(__self__, "recommendation_type_id", recommendation_type_id)
-        pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "suppression_names", suppression_names)
-        pulumi.set(__self__, "updated_time", updated_time)
+        GetRecommendationsRecommendationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            category=category,
+            description=description,
+            impact=impact,
+            recommendation_name=recommendation_name,
+            recommendation_type_id=recommendation_type_id,
+            resource_name=resource_name,
+            resource_type=resource_type,
+            suppression_names=suppression_names,
+            updated_time=updated_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             category: str,
+             description: str,
+             impact: str,
+             recommendation_name: str,
+             recommendation_type_id: str,
+             resource_name: str,
+             resource_type: str,
+             suppression_names: Sequence[str],
+             updated_time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("category", category)
+        _setter("description", description)
+        _setter("impact", impact)
+        _setter("recommendation_name", recommendation_name)
+        _setter("recommendation_type_id", recommendation_type_id)
+        _setter("resource_name", resource_name)
+        _setter("resource_type", resource_type)
+        _setter("suppression_names", suppression_names)
+        _setter("updated_time", updated_time)
 
     @property
     @pulumi.getter

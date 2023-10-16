@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,19 +35,42 @@ class ElasticsearchArgs:
         :param pulumi.Input[str] name: The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Elasticsearch resource.
         """
-        pulumi.set(__self__, "elastic_cloud_email_address", elastic_cloud_email_address)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
+        ElasticsearchArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elastic_cloud_email_address=elastic_cloud_email_address,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            location=location,
+            logs=logs,
+            monitoring_enabled=monitoring_enabled,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elastic_cloud_email_address: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             sku_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             logs: Optional[pulumi.Input['ElasticsearchLogsArgs']] = None,
+             monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("elastic_cloud_email_address", elastic_cloud_email_address)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku_name", sku_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if logs is not None:
-            pulumi.set(__self__, "logs", logs)
+            _setter("logs", logs)
         if monitoring_enabled is not None:
-            pulumi.set(__self__, "monitoring_enabled", monitoring_enabled)
+            _setter("monitoring_enabled", monitoring_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="elasticCloudEmailAddress")
@@ -180,34 +203,69 @@ class _ElasticsearchState:
         :param pulumi.Input[str] sku_name: Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Elasticsearch resource.
         """
+        _ElasticsearchState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elastic_cloud_deployment_id=elastic_cloud_deployment_id,
+            elastic_cloud_email_address=elastic_cloud_email_address,
+            elastic_cloud_sso_default_url=elastic_cloud_sso_default_url,
+            elastic_cloud_user_id=elastic_cloud_user_id,
+            elasticsearch_service_url=elasticsearch_service_url,
+            kibana_service_url=kibana_service_url,
+            kibana_sso_uri=kibana_sso_uri,
+            location=location,
+            logs=logs,
+            monitoring_enabled=monitoring_enabled,
+            name=name,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elastic_cloud_deployment_id: Optional[pulumi.Input[str]] = None,
+             elastic_cloud_email_address: Optional[pulumi.Input[str]] = None,
+             elastic_cloud_sso_default_url: Optional[pulumi.Input[str]] = None,
+             elastic_cloud_user_id: Optional[pulumi.Input[str]] = None,
+             elasticsearch_service_url: Optional[pulumi.Input[str]] = None,
+             kibana_service_url: Optional[pulumi.Input[str]] = None,
+             kibana_sso_uri: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             logs: Optional[pulumi.Input['ElasticsearchLogsArgs']] = None,
+             monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if elastic_cloud_deployment_id is not None:
-            pulumi.set(__self__, "elastic_cloud_deployment_id", elastic_cloud_deployment_id)
+            _setter("elastic_cloud_deployment_id", elastic_cloud_deployment_id)
         if elastic_cloud_email_address is not None:
-            pulumi.set(__self__, "elastic_cloud_email_address", elastic_cloud_email_address)
+            _setter("elastic_cloud_email_address", elastic_cloud_email_address)
         if elastic_cloud_sso_default_url is not None:
-            pulumi.set(__self__, "elastic_cloud_sso_default_url", elastic_cloud_sso_default_url)
+            _setter("elastic_cloud_sso_default_url", elastic_cloud_sso_default_url)
         if elastic_cloud_user_id is not None:
-            pulumi.set(__self__, "elastic_cloud_user_id", elastic_cloud_user_id)
+            _setter("elastic_cloud_user_id", elastic_cloud_user_id)
         if elasticsearch_service_url is not None:
-            pulumi.set(__self__, "elasticsearch_service_url", elasticsearch_service_url)
+            _setter("elasticsearch_service_url", elasticsearch_service_url)
         if kibana_service_url is not None:
-            pulumi.set(__self__, "kibana_service_url", kibana_service_url)
+            _setter("kibana_service_url", kibana_service_url)
         if kibana_sso_uri is not None:
-            pulumi.set(__self__, "kibana_sso_uri", kibana_sso_uri)
+            _setter("kibana_sso_uri", kibana_sso_uri)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if logs is not None:
-            pulumi.set(__self__, "logs", logs)
+            _setter("logs", logs)
         if monitoring_enabled is not None:
-            pulumi.set(__self__, "monitoring_enabled", monitoring_enabled)
+            _setter("monitoring_enabled", monitoring_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="elasticCloudDeploymentId")
@@ -469,6 +527,10 @@ class Elasticsearch(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ElasticsearchArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -495,6 +557,11 @@ class Elasticsearch(pulumi.CustomResource):
                 raise TypeError("Missing required property 'elastic_cloud_email_address'")
             __props__.__dict__["elastic_cloud_email_address"] = elastic_cloud_email_address
             __props__.__dict__["location"] = location
+            if logs is not None and not isinstance(logs, ElasticsearchLogsArgs):
+                logs = logs or {}
+                def _setter(key, value):
+                    logs[key] = value
+                ElasticsearchLogsArgs._configure(_setter, **logs)
             __props__.__dict__["logs"] = logs
             __props__.__dict__["monitoring_enabled"] = monitoring_enabled
             __props__.__dict__["name"] = name

@@ -56,9 +56,7 @@ public final class WindowsWebAppSlotAuthSettingsV2 {
      */
     private @Nullable List<WindowsWebAppSlotAuthSettingsV2CustomOidcV2> customOidcV2s;
     /**
-     * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
-     * 
-     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * @return The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
      * 
      * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
      * 
@@ -127,7 +125,7 @@ public final class WindowsWebAppSlotAuthSettingsV2 {
      */
     private @Nullable Boolean requireHttps;
     /**
-     * @return The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App Slot.
+     * @return The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
      * 
      */
     private @Nullable String runtimeVersion;
@@ -188,9 +186,7 @@ public final class WindowsWebAppSlotAuthSettingsV2 {
         return this.customOidcV2s == null ? List.of() : this.customOidcV2s;
     }
     /**
-     * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
-     * 
-     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * @return The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
      * 
      * &gt; **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
      * 
@@ -285,7 +281,7 @@ public final class WindowsWebAppSlotAuthSettingsV2 {
         return Optional.ofNullable(this.requireHttps);
     }
     /**
-     * @return The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App Slot.
+     * @return The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
      * 
      */
     public Optional<String> runtimeVersion() {

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,22 +43,51 @@ class FrontdoorArgs:
         :param pulumi.Input[str] name: Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "backend_pool_health_probes", backend_pool_health_probes)
-        pulumi.set(__self__, "backend_pool_load_balancings", backend_pool_load_balancings)
-        pulumi.set(__self__, "backend_pools", backend_pools)
-        pulumi.set(__self__, "frontend_endpoints", frontend_endpoints)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "routing_rules", routing_rules)
+        FrontdoorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_pool_health_probes=backend_pool_health_probes,
+            backend_pool_load_balancings=backend_pool_load_balancings,
+            backend_pools=backend_pools,
+            frontend_endpoints=frontend_endpoints,
+            resource_group_name=resource_group_name,
+            routing_rules=routing_rules,
+            backend_pool_settings=backend_pool_settings,
+            friendly_name=friendly_name,
+            load_balancer_enabled=load_balancer_enabled,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_pool_health_probes: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]],
+             backend_pool_load_balancings: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]],
+             backend_pools: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]],
+             frontend_endpoints: pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]],
+             resource_group_name: pulumi.Input[str],
+             routing_rules: pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]],
+             backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backend_pool_health_probes", backend_pool_health_probes)
+        _setter("backend_pool_load_balancings", backend_pool_load_balancings)
+        _setter("backend_pools", backend_pools)
+        _setter("frontend_endpoints", frontend_endpoints)
+        _setter("resource_group_name", resource_group_name)
+        _setter("routing_rules", routing_rules)
         if backend_pool_settings is not None:
-            pulumi.set(__self__, "backend_pool_settings", backend_pool_settings)
+            _setter("backend_pool_settings", backend_pool_settings)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if load_balancer_enabled is not None:
-            pulumi.set(__self__, "load_balancer_enabled", load_balancer_enabled)
+            _setter("load_balancer_enabled", load_balancer_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="backendPoolHealthProbes")
@@ -240,44 +269,89 @@ class _FrontdoorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] routing_rules_map: A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _FrontdoorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_pool_health_probes=backend_pool_health_probes,
+            backend_pool_health_probes_map=backend_pool_health_probes_map,
+            backend_pool_load_balancing_settings_map=backend_pool_load_balancing_settings_map,
+            backend_pool_load_balancings=backend_pool_load_balancings,
+            backend_pool_settings=backend_pool_settings,
+            backend_pools=backend_pools,
+            backend_pools_map=backend_pools_map,
+            cname=cname,
+            explicit_resource_orders=explicit_resource_orders,
+            friendly_name=friendly_name,
+            frontend_endpoints=frontend_endpoints,
+            frontend_endpoints_map=frontend_endpoints_map,
+            header_frontdoor_id=header_frontdoor_id,
+            load_balancer_enabled=load_balancer_enabled,
+            name=name,
+            resource_group_name=resource_group_name,
+            routing_rules=routing_rules,
+            routing_rules_map=routing_rules_map,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolHealthProbeArgs']]]] = None,
+             backend_pool_health_probes_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             backend_pool_load_balancing_settings_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]]] = None,
+             backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]]] = None,
+             backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]]] = None,
+             backend_pools_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             cname: Optional[pulumi.Input[str]] = None,
+             explicit_resource_orders: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorExplicitResourceOrderArgs']]]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]]] = None,
+             frontend_endpoints_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             header_frontdoor_id: Optional[pulumi.Input[str]] = None,
+             load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]] = None,
+             routing_rules_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backend_pool_health_probes is not None:
-            pulumi.set(__self__, "backend_pool_health_probes", backend_pool_health_probes)
+            _setter("backend_pool_health_probes", backend_pool_health_probes)
         if backend_pool_health_probes_map is not None:
-            pulumi.set(__self__, "backend_pool_health_probes_map", backend_pool_health_probes_map)
+            _setter("backend_pool_health_probes_map", backend_pool_health_probes_map)
         if backend_pool_load_balancing_settings_map is not None:
-            pulumi.set(__self__, "backend_pool_load_balancing_settings_map", backend_pool_load_balancing_settings_map)
+            _setter("backend_pool_load_balancing_settings_map", backend_pool_load_balancing_settings_map)
         if backend_pool_load_balancings is not None:
-            pulumi.set(__self__, "backend_pool_load_balancings", backend_pool_load_balancings)
+            _setter("backend_pool_load_balancings", backend_pool_load_balancings)
         if backend_pool_settings is not None:
-            pulumi.set(__self__, "backend_pool_settings", backend_pool_settings)
+            _setter("backend_pool_settings", backend_pool_settings)
         if backend_pools is not None:
-            pulumi.set(__self__, "backend_pools", backend_pools)
+            _setter("backend_pools", backend_pools)
         if backend_pools_map is not None:
-            pulumi.set(__self__, "backend_pools_map", backend_pools_map)
+            _setter("backend_pools_map", backend_pools_map)
         if cname is not None:
-            pulumi.set(__self__, "cname", cname)
+            _setter("cname", cname)
         if explicit_resource_orders is not None:
-            pulumi.set(__self__, "explicit_resource_orders", explicit_resource_orders)
+            _setter("explicit_resource_orders", explicit_resource_orders)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if frontend_endpoints is not None:
-            pulumi.set(__self__, "frontend_endpoints", frontend_endpoints)
+            _setter("frontend_endpoints", frontend_endpoints)
         if frontend_endpoints_map is not None:
-            pulumi.set(__self__, "frontend_endpoints_map", frontend_endpoints_map)
+            _setter("frontend_endpoints_map", frontend_endpoints_map)
         if header_frontdoor_id is not None:
-            pulumi.set(__self__, "header_frontdoor_id", header_frontdoor_id)
+            _setter("header_frontdoor_id", header_frontdoor_id)
         if load_balancer_enabled is not None:
-            pulumi.set(__self__, "load_balancer_enabled", load_balancer_enabled)
+            _setter("load_balancer_enabled", load_balancer_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if routing_rules is not None:
-            pulumi.set(__self__, "routing_rules", routing_rules)
+            _setter("routing_rules", routing_rules)
         if routing_rules_map is not None:
-            pulumi.set(__self__, "routing_rules_map", routing_rules_map)
+            _setter("routing_rules_map", routing_rules_map)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="backendPoolHealthProbes")
@@ -688,6 +762,10 @@ class Frontdoor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FrontdoorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

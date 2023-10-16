@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -71,48 +71,101 @@ class AlertRuleScheduledArgs:
         :param pulumi.Input[str] trigger_operator: The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
         :param pulumi.Input[int] trigger_threshold: The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "query", query)
-        pulumi.set(__self__, "severity", severity)
+        AlertRuleScheduledArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            query=query,
+            severity=severity,
+            alert_details_overrides=alert_details_overrides,
+            alert_rule_template_guid=alert_rule_template_guid,
+            alert_rule_template_version=alert_rule_template_version,
+            custom_details=custom_details,
+            description=description,
+            enabled=enabled,
+            entity_mappings=entity_mappings,
+            event_grouping=event_grouping,
+            incident_configuration=incident_configuration,
+            name=name,
+            query_frequency=query_frequency,
+            query_period=query_period,
+            sentinel_entity_mappings=sentinel_entity_mappings,
+            suppression_duration=suppression_duration,
+            suppression_enabled=suppression_enabled,
+            tactics=tactics,
+            techniques=techniques,
+            trigger_operator=trigger_operator,
+            trigger_threshold=trigger_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             log_analytics_workspace_id: pulumi.Input[str],
+             query: pulumi.Input[str],
+             severity: pulumi.Input[str],
+             alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]] = None,
+             alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+             alert_rule_template_version: Optional[pulumi.Input[str]] = None,
+             custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]] = None,
+             event_grouping: Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']] = None,
+             incident_configuration: Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             query_frequency: Optional[pulumi.Input[str]] = None,
+             query_period: Optional[pulumi.Input[str]] = None,
+             sentinel_entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]] = None,
+             suppression_duration: Optional[pulumi.Input[str]] = None,
+             suppression_enabled: Optional[pulumi.Input[bool]] = None,
+             tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             trigger_operator: Optional[pulumi.Input[str]] = None,
+             trigger_threshold: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("query", query)
+        _setter("severity", severity)
         if alert_details_overrides is not None:
-            pulumi.set(__self__, "alert_details_overrides", alert_details_overrides)
+            _setter("alert_details_overrides", alert_details_overrides)
         if alert_rule_template_guid is not None:
-            pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
+            _setter("alert_rule_template_guid", alert_rule_template_guid)
         if alert_rule_template_version is not None:
-            pulumi.set(__self__, "alert_rule_template_version", alert_rule_template_version)
+            _setter("alert_rule_template_version", alert_rule_template_version)
         if custom_details is not None:
-            pulumi.set(__self__, "custom_details", custom_details)
+            _setter("custom_details", custom_details)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if entity_mappings is not None:
-            pulumi.set(__self__, "entity_mappings", entity_mappings)
+            _setter("entity_mappings", entity_mappings)
         if event_grouping is not None:
-            pulumi.set(__self__, "event_grouping", event_grouping)
+            _setter("event_grouping", event_grouping)
         if incident_configuration is not None:
-            pulumi.set(__self__, "incident_configuration", incident_configuration)
+            _setter("incident_configuration", incident_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if query_frequency is not None:
-            pulumi.set(__self__, "query_frequency", query_frequency)
+            _setter("query_frequency", query_frequency)
         if query_period is not None:
-            pulumi.set(__self__, "query_period", query_period)
+            _setter("query_period", query_period)
         if sentinel_entity_mappings is not None:
-            pulumi.set(__self__, "sentinel_entity_mappings", sentinel_entity_mappings)
+            _setter("sentinel_entity_mappings", sentinel_entity_mappings)
         if suppression_duration is not None:
-            pulumi.set(__self__, "suppression_duration", suppression_duration)
+            _setter("suppression_duration", suppression_duration)
         if suppression_enabled is not None:
-            pulumi.set(__self__, "suppression_enabled", suppression_enabled)
+            _setter("suppression_enabled", suppression_enabled)
         if tactics is not None:
-            pulumi.set(__self__, "tactics", tactics)
+            _setter("tactics", tactics)
         if techniques is not None:
-            pulumi.set(__self__, "techniques", techniques)
+            _setter("techniques", techniques)
         if trigger_operator is not None:
-            pulumi.set(__self__, "trigger_operator", trigger_operator)
+            _setter("trigger_operator", trigger_operator)
         if trigger_threshold is not None:
-            pulumi.set(__self__, "trigger_threshold", trigger_threshold)
+            _setter("trigger_threshold", trigger_threshold)
 
     @property
     @pulumi.getter(name="displayName")
@@ -455,52 +508,105 @@ class _AlertRuleScheduledState:
         :param pulumi.Input[str] trigger_operator: The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
         :param pulumi.Input[int] trigger_threshold: The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`.
         """
+        _AlertRuleScheduledState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_details_overrides=alert_details_overrides,
+            alert_rule_template_guid=alert_rule_template_guid,
+            alert_rule_template_version=alert_rule_template_version,
+            custom_details=custom_details,
+            description=description,
+            display_name=display_name,
+            enabled=enabled,
+            entity_mappings=entity_mappings,
+            event_grouping=event_grouping,
+            incident_configuration=incident_configuration,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            name=name,
+            query=query,
+            query_frequency=query_frequency,
+            query_period=query_period,
+            sentinel_entity_mappings=sentinel_entity_mappings,
+            severity=severity,
+            suppression_duration=suppression_duration,
+            suppression_enabled=suppression_enabled,
+            tactics=tactics,
+            techniques=techniques,
+            trigger_operator=trigger_operator,
+            trigger_threshold=trigger_threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_details_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideArgs']]]] = None,
+             alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
+             alert_rule_template_version: Optional[pulumi.Input[str]] = None,
+             custom_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingArgs']]]] = None,
+             event_grouping: Optional[pulumi.Input['AlertRuleScheduledEventGroupingArgs']] = None,
+             incident_configuration: Optional[pulumi.Input['AlertRuleScheduledIncidentConfigurationArgs']] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             query: Optional[pulumi.Input[str]] = None,
+             query_frequency: Optional[pulumi.Input[str]] = None,
+             query_period: Optional[pulumi.Input[str]] = None,
+             sentinel_entity_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledSentinelEntityMappingArgs']]]] = None,
+             severity: Optional[pulumi.Input[str]] = None,
+             suppression_duration: Optional[pulumi.Input[str]] = None,
+             suppression_enabled: Optional[pulumi.Input[bool]] = None,
+             tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             trigger_operator: Optional[pulumi.Input[str]] = None,
+             trigger_threshold: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alert_details_overrides is not None:
-            pulumi.set(__self__, "alert_details_overrides", alert_details_overrides)
+            _setter("alert_details_overrides", alert_details_overrides)
         if alert_rule_template_guid is not None:
-            pulumi.set(__self__, "alert_rule_template_guid", alert_rule_template_guid)
+            _setter("alert_rule_template_guid", alert_rule_template_guid)
         if alert_rule_template_version is not None:
-            pulumi.set(__self__, "alert_rule_template_version", alert_rule_template_version)
+            _setter("alert_rule_template_version", alert_rule_template_version)
         if custom_details is not None:
-            pulumi.set(__self__, "custom_details", custom_details)
+            _setter("custom_details", custom_details)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if entity_mappings is not None:
-            pulumi.set(__self__, "entity_mappings", entity_mappings)
+            _setter("entity_mappings", entity_mappings)
         if event_grouping is not None:
-            pulumi.set(__self__, "event_grouping", event_grouping)
+            _setter("event_grouping", event_grouping)
         if incident_configuration is not None:
-            pulumi.set(__self__, "incident_configuration", incident_configuration)
+            _setter("incident_configuration", incident_configuration)
         if log_analytics_workspace_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if query is not None:
-            pulumi.set(__self__, "query", query)
+            _setter("query", query)
         if query_frequency is not None:
-            pulumi.set(__self__, "query_frequency", query_frequency)
+            _setter("query_frequency", query_frequency)
         if query_period is not None:
-            pulumi.set(__self__, "query_period", query_period)
+            _setter("query_period", query_period)
         if sentinel_entity_mappings is not None:
-            pulumi.set(__self__, "sentinel_entity_mappings", sentinel_entity_mappings)
+            _setter("sentinel_entity_mappings", sentinel_entity_mappings)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if suppression_duration is not None:
-            pulumi.set(__self__, "suppression_duration", suppression_duration)
+            _setter("suppression_duration", suppression_duration)
         if suppression_enabled is not None:
-            pulumi.set(__self__, "suppression_enabled", suppression_enabled)
+            _setter("suppression_enabled", suppression_enabled)
         if tactics is not None:
-            pulumi.set(__self__, "tactics", tactics)
+            _setter("tactics", tactics)
         if techniques is not None:
-            pulumi.set(__self__, "techniques", techniques)
+            _setter("techniques", techniques)
         if trigger_operator is not None:
-            pulumi.set(__self__, "trigger_operator", trigger_operator)
+            _setter("trigger_operator", trigger_operator)
         if trigger_threshold is not None:
-            pulumi.set(__self__, "trigger_threshold", trigger_threshold)
+            _setter("trigger_threshold", trigger_threshold)
 
     @property
     @pulumi.getter(name="alertDetailsOverrides")
@@ -930,6 +1036,10 @@ class AlertRuleScheduled(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AlertRuleScheduledArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -977,7 +1087,17 @@ class AlertRuleScheduled(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["entity_mappings"] = entity_mappings
+            if event_grouping is not None and not isinstance(event_grouping, AlertRuleScheduledEventGroupingArgs):
+                event_grouping = event_grouping or {}
+                def _setter(key, value):
+                    event_grouping[key] = value
+                AlertRuleScheduledEventGroupingArgs._configure(_setter, **event_grouping)
             __props__.__dict__["event_grouping"] = event_grouping
+            if incident_configuration is not None and not isinstance(incident_configuration, AlertRuleScheduledIncidentConfigurationArgs):
+                incident_configuration = incident_configuration or {}
+                def _setter(key, value):
+                    incident_configuration[key] = value
+                AlertRuleScheduledIncidentConfigurationArgs._configure(_setter, **incident_configuration)
             __props__.__dict__["incident_configuration"] = incident_configuration
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")

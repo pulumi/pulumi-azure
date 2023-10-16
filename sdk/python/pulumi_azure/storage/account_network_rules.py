@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,16 +41,35 @@ class AccountNetworkRulesInitArgs:
                
                > **NOTE** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
         """
-        pulumi.set(__self__, "default_action", default_action)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        AccountNetworkRulesInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            storage_account_id=storage_account_id,
+            bypasses=bypasses,
+            ip_rules=ip_rules,
+            private_link_access_rules=private_link_access_rules,
+            virtual_network_subnet_ids=virtual_network_subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: pulumi.Input[str],
+             storage_account_id: pulumi.Input[str],
+             bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
+             virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("default_action", default_action)
+        _setter("storage_account_id", storage_account_id)
         if bypasses is not None:
-            pulumi.set(__self__, "bypasses", bypasses)
+            _setter("bypasses", bypasses)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if private_link_access_rules is not None:
-            pulumi.set(__self__, "private_link_access_rules", private_link_access_rules)
+            _setter("private_link_access_rules", private_link_access_rules)
         if virtual_network_subnet_ids is not None:
-            pulumi.set(__self__, "virtual_network_subnet_ids", virtual_network_subnet_ids)
+            _setter("virtual_network_subnet_ids", virtual_network_subnet_ids)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -163,18 +182,37 @@ class _AccountNetworkRulesState:
                
                > **NOTE** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
         """
+        _AccountNetworkRulesState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bypasses=bypasses,
+            default_action=default_action,
+            ip_rules=ip_rules,
+            private_link_access_rules=private_link_access_rules,
+            storage_account_id=storage_account_id,
+            virtual_network_subnet_ids=virtual_network_subnet_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_action: Optional[pulumi.Input[str]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bypasses is not None:
-            pulumi.set(__self__, "bypasses", bypasses)
+            _setter("bypasses", bypasses)
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if private_link_access_rules is not None:
-            pulumi.set(__self__, "private_link_access_rules", private_link_access_rules)
+            _setter("private_link_access_rules", private_link_access_rules)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if virtual_network_subnet_ids is not None:
-            pulumi.set(__self__, "virtual_network_subnet_ids", virtual_network_subnet_ids)
+            _setter("virtual_network_subnet_ids", virtual_network_subnet_ids)
 
     @property
     @pulumi.getter
@@ -404,6 +442,10 @@ class AccountNetworkRules(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountNetworkRulesInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -37,9 +37,20 @@ class LinkedServiceIntegrationRuntime(dict):
         :param str name: The integration runtime reference to associate with the Synapse Linked Service.
         :param Mapping[str, str] parameters: A map of parameters to associate with the integration runtime.
         """
-        pulumi.set(__self__, "name", name)
+        LinkedServiceIntegrationRuntime._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             parameters: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -82,7 +93,16 @@ class SparkPoolAutoPause(dict):
         """
         :param int delay_in_minutes: Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
         """
-        pulumi.set(__self__, "delay_in_minutes", delay_in_minutes)
+        SparkPoolAutoPause._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delay_in_minutes=delay_in_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delay_in_minutes: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("delay_in_minutes", delay_in_minutes)
 
     @property
     @pulumi.getter(name="delayInMinutes")
@@ -121,8 +141,19 @@ class SparkPoolAutoScale(dict):
         :param int max_node_count: The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
         :param int min_node_count: The minimum number of nodes the Spark Pool can support. Must be between `3` and `200`.
         """
-        pulumi.set(__self__, "max_node_count", max_node_count)
-        pulumi.set(__self__, "min_node_count", min_node_count)
+        SparkPoolAutoScale._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_node_count=max_node_count,
+            min_node_count=min_node_count,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_node_count: int,
+             min_node_count: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("max_node_count", max_node_count)
+        _setter("min_node_count", min_node_count)
 
     @property
     @pulumi.getter(name="maxNodeCount")
@@ -150,8 +181,19 @@ class SparkPoolLibraryRequirement(dict):
         :param str content: The content of library requirements.
         :param str filename: The name of the library requirements file.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "filename", filename)
+        SparkPoolLibraryRequirement._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            filename=filename,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: str,
+             filename: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
+        _setter("filename", filename)
 
     @property
     @pulumi.getter
@@ -179,8 +221,19 @@ class SparkPoolSparkConfig(dict):
         :param str content: The contents of a spark configuration.
         :param str filename: The name of the file where the spark configuration `content` will be stored.
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "filename", filename)
+        SparkPoolSparkConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            filename=filename,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: str,
+             filename: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
+        _setter("filename", filename)
 
     @property
     @pulumi.getter
@@ -227,8 +280,19 @@ class SqlPoolRestore(dict):
         :param str point_in_time: Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
         :param str source_database_id: The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
         """
-        pulumi.set(__self__, "point_in_time", point_in_time)
-        pulumi.set(__self__, "source_database_id", source_database_id)
+        SqlPoolRestore._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            point_in_time=point_in_time,
+            source_database_id=source_database_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             point_in_time: str,
+             source_database_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("point_in_time", point_in_time)
+        _setter("source_database_id", source_database_id)
 
     @property
     @pulumi.getter(name="pointInTime")
@@ -254,7 +318,16 @@ class SqlPoolVulnerabilityAssessmentBaselineBaseline(dict):
         """
         :param Sequence[str] results: Specifies a list of rule baseline result.
         """
-        pulumi.set(__self__, "results", results)
+        SqlPoolVulnerabilityAssessmentBaselineBaseline._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            results=results,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             results: Sequence[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("results", results)
 
     @property
     @pulumi.getter
@@ -293,12 +366,25 @@ class SqlPoolVulnerabilityAssessmentRecurringScans(dict):
         :param Sequence[str] emails: Specifies an array of email addresses to which the scan notification is sent.
         :param bool enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
+        SqlPoolVulnerabilityAssessmentRecurringScans._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_subscription_admins_enabled=email_subscription_admins_enabled,
+            emails=emails,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_subscription_admins_enabled: Optional[bool] = None,
+             emails: Optional[Sequence[str]] = None,
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email_subscription_admins_enabled is not None:
-            pulumi.set(__self__, "email_subscription_admins_enabled", email_subscription_admins_enabled)
+            _setter("email_subscription_admins_enabled", email_subscription_admins_enabled)
         if emails is not None:
-            pulumi.set(__self__, "emails", emails)
+            _setter("emails", emails)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="emailSubscriptionAdminsEnabled")
@@ -355,9 +441,22 @@ class WorkspaceAadAdmin(dict):
         :param str object_id: The object id of the Azure AD Administrator of this Synapse Workspace.
         :param str tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
         """
-        pulumi.set(__self__, "login", login)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        WorkspaceAadAdmin._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            login=login,
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             login: str,
+             object_id: str,
+             tenant_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("login", login)
+        _setter("object_id", object_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -432,15 +531,36 @@ class WorkspaceAzureDevopsRepo(dict):
         :param str last_commit_id: The last commit ID.
         :param str tenant_id: the ID of the tenant for the Azure DevOps account.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "branch_name", branch_name)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "repository_name", repository_name)
-        pulumi.set(__self__, "root_folder", root_folder)
+        WorkspaceAzureDevopsRepo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            branch_name=branch_name,
+            project_name=project_name,
+            repository_name=repository_name,
+            root_folder=root_folder,
+            last_commit_id=last_commit_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: str,
+             branch_name: str,
+             project_name: str,
+             repository_name: str,
+             root_folder: str,
+             last_commit_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("branch_name", branch_name)
+        _setter("project_name", project_name)
+        _setter("repository_name", repository_name)
+        _setter("root_folder", root_folder)
         if last_commit_id is not None:
-            pulumi.set(__self__, "last_commit_id", last_commit_id)
+            _setter("last_commit_id", last_commit_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="accountName")
@@ -527,9 +647,20 @@ class WorkspaceCustomerManagedKey(dict):
         :param str key_versionless_id: The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
         :param str key_name: An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
         """
-        pulumi.set(__self__, "key_versionless_id", key_versionless_id)
+        WorkspaceCustomerManagedKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_versionless_id=key_versionless_id,
+            key_name=key_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_versionless_id: str,
+             key_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_versionless_id", key_versionless_id)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
 
     @property
     @pulumi.getter(name="keyVersionlessId")
@@ -594,14 +725,33 @@ class WorkspaceGithubRepo(dict):
                > **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
         :param str last_commit_id: The last commit ID.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "branch_name", branch_name)
-        pulumi.set(__self__, "repository_name", repository_name)
-        pulumi.set(__self__, "root_folder", root_folder)
+        WorkspaceGithubRepo._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            branch_name=branch_name,
+            repository_name=repository_name,
+            root_folder=root_folder,
+            git_url=git_url,
+            last_commit_id=last_commit_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: str,
+             branch_name: str,
+             repository_name: str,
+             root_folder: str,
+             git_url: Optional[str] = None,
+             last_commit_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("branch_name", branch_name)
+        _setter("repository_name", repository_name)
+        _setter("root_folder", root_folder)
         if git_url is not None:
-            pulumi.set(__self__, "git_url", git_url)
+            _setter("git_url", git_url)
         if last_commit_id is not None:
-            pulumi.set(__self__, "last_commit_id", last_commit_id)
+            _setter("last_commit_id", last_commit_id)
 
     @property
     @pulumi.getter(name="accountName")
@@ -690,13 +840,28 @@ class WorkspaceIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         :param str tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
         """
-        pulumi.set(__self__, "type", type)
+        WorkspaceIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -763,9 +928,22 @@ class WorkspaceSqlAadAdmin(dict):
         :param str object_id: The object id of the Azure AD Administrator of this Synapse Workspace SQL.
         :param str tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
         """
-        pulumi.set(__self__, "login", login)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        WorkspaceSqlAadAdmin._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            login=login,
+            object_id=object_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             login: str,
+             object_id: str,
+             tenant_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("login", login)
+        _setter("object_id", object_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -820,12 +998,25 @@ class WorkspaceVulnerabilityAssessmentRecurringScans(dict):
         :param Sequence[str] emails: Specifies an array of email addresses to which the scan notification is sent.
         :param bool enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
+        WorkspaceVulnerabilityAssessmentRecurringScans._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_subscription_admins_enabled=email_subscription_admins_enabled,
+            emails=emails,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_subscription_admins_enabled: Optional[bool] = None,
+             emails: Optional[Sequence[str]] = None,
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if email_subscription_admins_enabled is not None:
-            pulumi.set(__self__, "email_subscription_admins_enabled", email_subscription_admins_enabled)
+            _setter("email_subscription_admins_enabled", email_subscription_admins_enabled)
         if emails is not None:
-            pulumi.set(__self__, "emails", emails)
+            _setter("emails", emails)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="emailSubscriptionAdminsEnabled")
@@ -864,10 +1055,25 @@ class GetWorkspaceIdentityResult(dict):
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         :param str type: The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetWorkspaceIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Sequence[str],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -62,14 +62,29 @@ class FlexibleServerCustomerManagedKey(dict):
         :param str key_vault_key_id: The ID of the Key Vault Key.
         :param str primary_user_assigned_identity_id: Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
         """
+        FlexibleServerCustomerManagedKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            geo_backup_key_vault_key_id=geo_backup_key_vault_key_id,
+            geo_backup_user_assigned_identity_id=geo_backup_user_assigned_identity_id,
+            key_vault_key_id=key_vault_key_id,
+            primary_user_assigned_identity_id=primary_user_assigned_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             geo_backup_key_vault_key_id: Optional[str] = None,
+             geo_backup_user_assigned_identity_id: Optional[str] = None,
+             key_vault_key_id: Optional[str] = None,
+             primary_user_assigned_identity_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if geo_backup_key_vault_key_id is not None:
-            pulumi.set(__self__, "geo_backup_key_vault_key_id", geo_backup_key_vault_key_id)
+            _setter("geo_backup_key_vault_key_id", geo_backup_key_vault_key_id)
         if geo_backup_user_assigned_identity_id is not None:
-            pulumi.set(__self__, "geo_backup_user_assigned_identity_id", geo_backup_user_assigned_identity_id)
+            _setter("geo_backup_user_assigned_identity_id", geo_backup_user_assigned_identity_id)
         if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+            _setter("key_vault_key_id", key_vault_key_id)
         if primary_user_assigned_identity_id is not None:
-            pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
+            _setter("primary_user_assigned_identity_id", primary_user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="geoBackupKeyVaultKeyId")
@@ -133,9 +148,20 @@ class FlexibleServerHighAvailability(dict):
                
                > **NOTE:** `storage.0.auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
         """
-        pulumi.set(__self__, "mode", mode)
+        FlexibleServerHighAvailability._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            standby_availability_zone=standby_availability_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             standby_availability_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
         if standby_availability_zone is not None:
-            pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
+            _setter("standby_availability_zone", standby_availability_zone)
 
     @property
     @pulumi.getter
@@ -179,8 +205,19 @@ class FlexibleServerIdentity(dict):
         :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
         :param str type: Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is `UserAssigned`.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "type", type)
+        FlexibleServerIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Sequence[str],
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -231,12 +268,25 @@ class FlexibleServerMaintenanceWindow(dict):
         :param int start_hour: The start hour for maintenance window. Defaults to `0`.
         :param int start_minute: The start minute for maintenance window. Defaults to `0`.
         """
+        FlexibleServerMaintenanceWindow._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            start_hour=start_hour,
+            start_minute=start_minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: Optional[int] = None,
+             start_hour: Optional[int] = None,
+             start_minute: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if day_of_week is not None:
-            pulumi.set(__self__, "day_of_week", day_of_week)
+            _setter("day_of_week", day_of_week)
         if start_hour is not None:
-            pulumi.set(__self__, "start_hour", start_hour)
+            _setter("start_hour", start_hour)
         if start_minute is not None:
-            pulumi.set(__self__, "start_minute", start_minute)
+            _setter("start_minute", start_minute)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -297,14 +347,29 @@ class FlexibleServerStorage(dict):
         :param int iops: The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
         :param int size_gb: The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
         """
+        FlexibleServerStorage._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_grow_enabled=auto_grow_enabled,
+            io_scaling_enabled=io_scaling_enabled,
+            iops=iops,
+            size_gb=size_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_grow_enabled: Optional[bool] = None,
+             io_scaling_enabled: Optional[bool] = None,
+             iops: Optional[int] = None,
+             size_gb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_grow_enabled is not None:
-            pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
+            _setter("auto_grow_enabled", auto_grow_enabled)
         if io_scaling_enabled is not None:
-            pulumi.set(__self__, "io_scaling_enabled", io_scaling_enabled)
+            _setter("io_scaling_enabled", io_scaling_enabled)
         if iops is not None:
-            pulumi.set(__self__, "iops", iops)
+            _setter("iops", iops)
         if size_gb is not None:
-            pulumi.set(__self__, "size_gb", size_gb)
+            _setter("size_gb", size_gb)
 
     @property
     @pulumi.getter(name="autoGrowEnabled")
@@ -369,11 +434,24 @@ class ServerIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        ServerIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -446,20 +524,41 @@ class ServerThreatDetectionPolicy(dict):
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
         :param str storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
+        ServerThreatDetectionPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disabled_alerts=disabled_alerts,
+            email_account_admins=email_account_admins,
+            email_addresses=email_addresses,
+            enabled=enabled,
+            retention_days=retention_days,
+            storage_account_access_key=storage_account_access_key,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disabled_alerts: Optional[Sequence[str]] = None,
+             email_account_admins: Optional[bool] = None,
+             email_addresses: Optional[Sequence[str]] = None,
+             enabled: Optional[bool] = None,
+             retention_days: Optional[int] = None,
+             storage_account_access_key: Optional[str] = None,
+             storage_endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disabled_alerts is not None:
-            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
+            _setter("disabled_alerts", disabled_alerts)
         if email_account_admins is not None:
-            pulumi.set(__self__, "email_account_admins", email_account_admins)
+            _setter("email_account_admins", email_account_admins)
         if email_addresses is not None:
-            pulumi.set(__self__, "email_addresses", email_addresses)
+            _setter("email_addresses", email_addresses)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if retention_days is not None:
-            pulumi.set(__self__, "retention_days", retention_days)
+            _setter("retention_days", retention_days)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="disabledAlerts")
@@ -527,8 +626,19 @@ class GetFlexibleServerHighAvailabilityResult(dict):
         :param str mode: The high availability mode of the MySQL Flexible Server.
         :param str standby_availability_zone: The availability zone of the standby Flexible Server.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
+        GetFlexibleServerHighAvailabilityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            standby_availability_zone=standby_availability_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             standby_availability_zone: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
+        _setter("standby_availability_zone", standby_availability_zone)
 
     @property
     @pulumi.getter
@@ -558,9 +668,22 @@ class GetFlexibleServerMaintenanceWindowResult(dict):
         :param int start_hour: The start hour of the maintenance window.
         :param int start_minute: The start minute of the maintenance window.
         """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "start_hour", start_hour)
-        pulumi.set(__self__, "start_minute", start_minute)
+        GetFlexibleServerMaintenanceWindowResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            start_hour=start_hour,
+            start_minute=start_minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: int,
+             start_hour: int,
+             start_minute: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("day_of_week", day_of_week)
+        _setter("start_hour", start_hour)
+        _setter("start_minute", start_minute)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -600,10 +723,25 @@ class GetFlexibleServerStorageResult(dict):
         :param int iops: The storage IOPS of the MySQL Flexible Server.
         :param int size_gb: The max storage allowed for the MySQL Flexible Server.
         """
-        pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
-        pulumi.set(__self__, "io_scaling_enabled", io_scaling_enabled)
-        pulumi.set(__self__, "iops", iops)
-        pulumi.set(__self__, "size_gb", size_gb)
+        GetFlexibleServerStorageResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_grow_enabled=auto_grow_enabled,
+            io_scaling_enabled=io_scaling_enabled,
+            iops=iops,
+            size_gb=size_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_grow_enabled: bool,
+             io_scaling_enabled: bool,
+             iops: int,
+             size_gb: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("auto_grow_enabled", auto_grow_enabled)
+        _setter("io_scaling_enabled", io_scaling_enabled)
+        _setter("iops", iops)
+        _setter("size_gb", size_gb)
 
     @property
     @pulumi.getter(name="autoGrowEnabled")
@@ -649,9 +787,22 @@ class GetServerIdentityResult(dict):
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         :param str type: The identity type of this Managed Service Identity.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetServerIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -697,13 +848,34 @@ class GetServerThreatDetectionPolicyResult(dict):
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
         :param str storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
         """
-        pulumi.set(__self__, "disabled_alerts", disabled_alerts)
-        pulumi.set(__self__, "email_account_admins", email_account_admins)
-        pulumi.set(__self__, "email_addresses", email_addresses)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "retention_days", retention_days)
-        pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+        GetServerThreatDetectionPolicyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disabled_alerts=disabled_alerts,
+            email_account_admins=email_account_admins,
+            email_addresses=email_addresses,
+            enabled=enabled,
+            retention_days=retention_days,
+            storage_account_access_key=storage_account_access_key,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disabled_alerts: Sequence[str],
+             email_account_admins: bool,
+             email_addresses: Sequence[str],
+             enabled: bool,
+             retention_days: int,
+             storage_account_access_key: str,
+             storage_endpoint: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disabled_alerts", disabled_alerts)
+        _setter("email_account_admins", email_account_admins)
+        _setter("email_addresses", email_addresses)
+        _setter("enabled", enabled)
+        _setter("retention_days", retention_days)
+        _setter("storage_account_access_key", storage_account_access_key)
+        _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="disabledAlerts")

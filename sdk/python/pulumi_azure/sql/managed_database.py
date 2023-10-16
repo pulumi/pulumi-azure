@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagedDatabaseArgs', 'ManagedDatabase']
@@ -23,11 +23,24 @@ class ManagedDatabaseArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "sql_managed_instance_id", sql_managed_instance_id)
+        ManagedDatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sql_managed_instance_id=sql_managed_instance_id,
+            location=location,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sql_managed_instance_id: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("sql_managed_instance_id", sql_managed_instance_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="sqlManagedInstanceId")
@@ -78,12 +91,25 @@ class _ManagedDatabaseState:
         :param pulumi.Input[str] name: The name of the SQL Managed Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_managed_instance_id: The SQL Managed Instance ID that this Managed Database will be associated with. Changing this forces a new resource to be created.
         """
+        _ManagedDatabaseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            name=name,
+            sql_managed_instance_id=sql_managed_instance_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sql_managed_instance_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sql_managed_instance_id is not None:
-            pulumi.set(__self__, "sql_managed_instance_id", sql_managed_instance_id)
+            _setter("sql_managed_instance_id", sql_managed_instance_id)
 
     @property
     @pulumi.getter
@@ -239,6 +265,10 @@ class ManagedDatabase(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedDatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NatPoolArgs', 'NatPool']
@@ -39,21 +39,50 @@ class NatPoolArgs:
         :param pulumi.Input[str] name: Specifies the name of the NAT pool. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule?
         """
-        pulumi.set(__self__, "backend_port", backend_port)
-        pulumi.set(__self__, "frontend_ip_configuration_name", frontend_ip_configuration_name)
-        pulumi.set(__self__, "frontend_port_end", frontend_port_end)
-        pulumi.set(__self__, "frontend_port_start", frontend_port_start)
-        pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NatPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            frontend_ip_configuration_name=frontend_ip_configuration_name,
+            frontend_port_end=frontend_port_end,
+            frontend_port_start=frontend_port_start,
+            loadbalancer_id=loadbalancer_id,
+            protocol=protocol,
+            resource_group_name=resource_group_name,
+            floating_ip_enabled=floating_ip_enabled,
+            idle_timeout_in_minutes=idle_timeout_in_minutes,
+            name=name,
+            tcp_reset_enabled=tcp_reset_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: pulumi.Input[int],
+             frontend_ip_configuration_name: pulumi.Input[str],
+             frontend_port_end: pulumi.Input[int],
+             frontend_port_start: pulumi.Input[int],
+             loadbalancer_id: pulumi.Input[str],
+             protocol: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             floating_ip_enabled: Optional[pulumi.Input[bool]] = None,
+             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tcp_reset_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backend_port", backend_port)
+        _setter("frontend_ip_configuration_name", frontend_ip_configuration_name)
+        _setter("frontend_port_end", frontend_port_end)
+        _setter("frontend_port_start", frontend_port_start)
+        _setter("loadbalancer_id", loadbalancer_id)
+        _setter("protocol", protocol)
+        _setter("resource_group_name", resource_group_name)
         if floating_ip_enabled is not None:
-            pulumi.set(__self__, "floating_ip_enabled", floating_ip_enabled)
+            _setter("floating_ip_enabled", floating_ip_enabled)
         if idle_timeout_in_minutes is not None:
-            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tcp_reset_enabled is not None:
-            pulumi.set(__self__, "tcp_reset_enabled", tcp_reset_enabled)
+            _setter("tcp_reset_enabled", tcp_reset_enabled)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -217,30 +246,61 @@ class _NatPoolState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] tcp_reset_enabled: Is TCP Reset enabled for this Load Balancer Rule?
         """
+        _NatPoolState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            floating_ip_enabled=floating_ip_enabled,
+            frontend_ip_configuration_id=frontend_ip_configuration_id,
+            frontend_ip_configuration_name=frontend_ip_configuration_name,
+            frontend_port_end=frontend_port_end,
+            frontend_port_start=frontend_port_start,
+            idle_timeout_in_minutes=idle_timeout_in_minutes,
+            loadbalancer_id=loadbalancer_id,
+            name=name,
+            protocol=protocol,
+            resource_group_name=resource_group_name,
+            tcp_reset_enabled=tcp_reset_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: Optional[pulumi.Input[int]] = None,
+             floating_ip_enabled: Optional[pulumi.Input[bool]] = None,
+             frontend_ip_configuration_id: Optional[pulumi.Input[str]] = None,
+             frontend_ip_configuration_name: Optional[pulumi.Input[str]] = None,
+             frontend_port_end: Optional[pulumi.Input[int]] = None,
+             frontend_port_start: Optional[pulumi.Input[int]] = None,
+             idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+             loadbalancer_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tcp_reset_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if backend_port is not None:
-            pulumi.set(__self__, "backend_port", backend_port)
+            _setter("backend_port", backend_port)
         if floating_ip_enabled is not None:
-            pulumi.set(__self__, "floating_ip_enabled", floating_ip_enabled)
+            _setter("floating_ip_enabled", floating_ip_enabled)
         if frontend_ip_configuration_id is not None:
-            pulumi.set(__self__, "frontend_ip_configuration_id", frontend_ip_configuration_id)
+            _setter("frontend_ip_configuration_id", frontend_ip_configuration_id)
         if frontend_ip_configuration_name is not None:
-            pulumi.set(__self__, "frontend_ip_configuration_name", frontend_ip_configuration_name)
+            _setter("frontend_ip_configuration_name", frontend_ip_configuration_name)
         if frontend_port_end is not None:
-            pulumi.set(__self__, "frontend_port_end", frontend_port_end)
+            _setter("frontend_port_end", frontend_port_end)
         if frontend_port_start is not None:
-            pulumi.set(__self__, "frontend_port_start", frontend_port_start)
+            _setter("frontend_port_start", frontend_port_start)
         if idle_timeout_in_minutes is not None:
-            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+            _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
         if loadbalancer_id is not None:
-            pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
+            _setter("loadbalancer_id", loadbalancer_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tcp_reset_enabled is not None:
-            pulumi.set(__self__, "tcp_reset_enabled", tcp_reset_enabled)
+            _setter("tcp_reset_enabled", tcp_reset_enabled)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -517,6 +577,10 @@ class NatPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NatPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

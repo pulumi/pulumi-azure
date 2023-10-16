@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ContactArgs', 'Contact']
@@ -27,13 +27,30 @@ class ContactArgs:
         :param pulumi.Input[str] name: The name of the Security Center Contact. Defaults to `default1`.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
         """
-        pulumi.set(__self__, "alert_notifications", alert_notifications)
-        pulumi.set(__self__, "alerts_to_admins", alerts_to_admins)
-        pulumi.set(__self__, "email", email)
+        ContactArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_notifications=alert_notifications,
+            alerts_to_admins=alerts_to_admins,
+            email=email,
+            name=name,
+            phone=phone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_notifications: pulumi.Input[bool],
+             alerts_to_admins: pulumi.Input[bool],
+             email: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             phone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("alert_notifications", alert_notifications)
+        _setter("alerts_to_admins", alerts_to_admins)
+        _setter("email", email)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if phone is not None:
-            pulumi.set(__self__, "phone", phone)
+            _setter("phone", phone)
 
     @property
     @pulumi.getter(name="alertNotifications")
@@ -112,16 +129,33 @@ class _ContactState:
         :param pulumi.Input[str] name: The name of the Security Center Contact. Defaults to `default1`.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
         """
+        _ContactState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_notifications=alert_notifications,
+            alerts_to_admins=alerts_to_admins,
+            email=email,
+            name=name,
+            phone=phone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_notifications: Optional[pulumi.Input[bool]] = None,
+             alerts_to_admins: Optional[pulumi.Input[bool]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             phone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alert_notifications is not None:
-            pulumi.set(__self__, "alert_notifications", alert_notifications)
+            _setter("alert_notifications", alert_notifications)
         if alerts_to_admins is not None:
-            pulumi.set(__self__, "alerts_to_admins", alerts_to_admins)
+            _setter("alerts_to_admins", alerts_to_admins)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if phone is not None:
-            pulumi.set(__self__, "phone", phone)
+            _setter("phone", phone)
 
     @property
     @pulumi.getter(name="alertNotifications")
@@ -271,6 +305,10 @@ class Contact(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContactArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

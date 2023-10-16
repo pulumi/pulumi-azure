@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,28 +47,63 @@ class ServicesCommunicationsGatewayArgs:
         :param pulumi.Input[bool] on_prem_mcp_enabled: Whether an on-premises Mobile Control Point is in use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Voice Services Communications Gateways.
         """
-        pulumi.set(__self__, "codecs", codecs)
-        pulumi.set(__self__, "connectivity", connectivity)
-        pulumi.set(__self__, "e911_type", e911_type)
-        pulumi.set(__self__, "platforms", platforms)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_locations", service_locations)
+        ServicesCommunicationsGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            codecs=codecs,
+            connectivity=connectivity,
+            e911_type=e911_type,
+            platforms=platforms,
+            resource_group_name=resource_group_name,
+            service_locations=service_locations,
+            api_bridge=api_bridge,
+            auto_generated_domain_name_label_scope=auto_generated_domain_name_label_scope,
+            emergency_dial_strings=emergency_dial_strings,
+            location=location,
+            microsoft_teams_voicemail_pilot_number=microsoft_teams_voicemail_pilot_number,
+            name=name,
+            on_prem_mcp_enabled=on_prem_mcp_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             codecs: pulumi.Input[str],
+             connectivity: pulumi.Input[str],
+             e911_type: pulumi.Input[str],
+             platforms: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_group_name: pulumi.Input[str],
+             service_locations: pulumi.Input[Sequence[pulumi.Input['ServicesCommunicationsGatewayServiceLocationArgs']]],
+             api_bridge: Optional[pulumi.Input[str]] = None,
+             auto_generated_domain_name_label_scope: Optional[pulumi.Input[str]] = None,
+             emergency_dial_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             microsoft_teams_voicemail_pilot_number: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             on_prem_mcp_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("codecs", codecs)
+        _setter("connectivity", connectivity)
+        _setter("e911_type", e911_type)
+        _setter("platforms", platforms)
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_locations", service_locations)
         if api_bridge is not None:
-            pulumi.set(__self__, "api_bridge", api_bridge)
+            _setter("api_bridge", api_bridge)
         if auto_generated_domain_name_label_scope is not None:
-            pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
+            _setter("auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
         if emergency_dial_strings is not None:
-            pulumi.set(__self__, "emergency_dial_strings", emergency_dial_strings)
+            _setter("emergency_dial_strings", emergency_dial_strings)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if microsoft_teams_voicemail_pilot_number is not None:
-            pulumi.set(__self__, "microsoft_teams_voicemail_pilot_number", microsoft_teams_voicemail_pilot_number)
+            _setter("microsoft_teams_voicemail_pilot_number", microsoft_teams_voicemail_pilot_number)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if on_prem_mcp_enabled is not None:
-            pulumi.set(__self__, "on_prem_mcp_enabled", on_prem_mcp_enabled)
+            _setter("on_prem_mcp_enabled", on_prem_mcp_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -273,34 +308,69 @@ class _ServicesCommunicationsGatewayState:
         :param pulumi.Input[Sequence[pulumi.Input['ServicesCommunicationsGatewayServiceLocationArgs']]] service_locations: A `service_location` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Voice Services Communications Gateways.
         """
+        _ServicesCommunicationsGatewayState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_bridge=api_bridge,
+            auto_generated_domain_name_label_scope=auto_generated_domain_name_label_scope,
+            codecs=codecs,
+            connectivity=connectivity,
+            e911_type=e911_type,
+            emergency_dial_strings=emergency_dial_strings,
+            location=location,
+            microsoft_teams_voicemail_pilot_number=microsoft_teams_voicemail_pilot_number,
+            name=name,
+            on_prem_mcp_enabled=on_prem_mcp_enabled,
+            platforms=platforms,
+            resource_group_name=resource_group_name,
+            service_locations=service_locations,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_bridge: Optional[pulumi.Input[str]] = None,
+             auto_generated_domain_name_label_scope: Optional[pulumi.Input[str]] = None,
+             codecs: Optional[pulumi.Input[str]] = None,
+             connectivity: Optional[pulumi.Input[str]] = None,
+             e911_type: Optional[pulumi.Input[str]] = None,
+             emergency_dial_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             microsoft_teams_voicemail_pilot_number: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             on_prem_mcp_enabled: Optional[pulumi.Input[bool]] = None,
+             platforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ServicesCommunicationsGatewayServiceLocationArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_bridge is not None:
-            pulumi.set(__self__, "api_bridge", api_bridge)
+            _setter("api_bridge", api_bridge)
         if auto_generated_domain_name_label_scope is not None:
-            pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
+            _setter("auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
         if codecs is not None:
-            pulumi.set(__self__, "codecs", codecs)
+            _setter("codecs", codecs)
         if connectivity is not None:
-            pulumi.set(__self__, "connectivity", connectivity)
+            _setter("connectivity", connectivity)
         if e911_type is not None:
-            pulumi.set(__self__, "e911_type", e911_type)
+            _setter("e911_type", e911_type)
         if emergency_dial_strings is not None:
-            pulumi.set(__self__, "emergency_dial_strings", emergency_dial_strings)
+            _setter("emergency_dial_strings", emergency_dial_strings)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if microsoft_teams_voicemail_pilot_number is not None:
-            pulumi.set(__self__, "microsoft_teams_voicemail_pilot_number", microsoft_teams_voicemail_pilot_number)
+            _setter("microsoft_teams_voicemail_pilot_number", microsoft_teams_voicemail_pilot_number)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if on_prem_mcp_enabled is not None:
-            pulumi.set(__self__, "on_prem_mcp_enabled", on_prem_mcp_enabled)
+            _setter("on_prem_mcp_enabled", on_prem_mcp_enabled)
         if platforms is not None:
-            pulumi.set(__self__, "platforms", platforms)
+            _setter("platforms", platforms)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if service_locations is not None:
-            pulumi.set(__self__, "service_locations", service_locations)
+            _setter("service_locations", service_locations)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="apiBridge")
@@ -648,6 +718,10 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServicesCommunicationsGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

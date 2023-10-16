@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -56,13 +56,28 @@ class GlobalVMShutdownScheduleNotificationSettings(dict):
         :param int time_in_minutes: Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
         :param str webhook_url: The webhook URL to which the notification will be sent.
         """
-        pulumi.set(__self__, "enabled", enabled)
+        GlobalVMShutdownScheduleNotificationSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            email=email,
+            time_in_minutes=time_in_minutes,
+            webhook_url=webhook_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: bool,
+             email: Optional[str] = None,
+             time_in_minutes: Optional[int] = None,
+             webhook_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if time_in_minutes is not None:
-            pulumi.set(__self__, "time_in_minutes", time_in_minutes)
+            _setter("time_in_minutes", time_in_minutes)
         if webhook_url is not None:
-            pulumi.set(__self__, "webhook_url", webhook_url)
+            _setter("webhook_url", webhook_url)
 
     @property
     @pulumi.getter
@@ -110,10 +125,25 @@ class LinuxVirtualMachineGalleryImageReference(dict):
         :param str sku: The SKU of the Gallery Image. Changing this forces a new resource to be created.
         :param str version: The Version of the Gallery Image. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "offer", offer)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "version", version)
+        LinuxVirtualMachineGalleryImageReference._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offer=offer,
+            publisher=publisher,
+            sku=sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offer: str,
+             publisher: str,
+             sku: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("offer", offer)
+        _setter("publisher", publisher)
+        _setter("sku", sku)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -178,10 +208,23 @@ class LinuxVirtualMachineInboundNatRule(dict):
         :param str protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
         :param int frontend_port: The frontend port associated with this Inbound NAT Rule.
         """
-        pulumi.set(__self__, "backend_port", backend_port)
-        pulumi.set(__self__, "protocol", protocol)
+        LinuxVirtualMachineInboundNatRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            protocol=protocol,
+            frontend_port=frontend_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: int,
+             protocol: str,
+             frontend_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backend_port", backend_port)
+        _setter("protocol", protocol)
         if frontend_port is not None:
-            pulumi.set(__self__, "frontend_port", frontend_port)
+            _setter("frontend_port", frontend_port)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -215,7 +258,16 @@ class ScheduleDailyRecurrence(dict):
         """
         :param str time: The time each day when the schedule takes effect.
         """
-        pulumi.set(__self__, "time", time)
+        ScheduleDailyRecurrence._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time=time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("time", time)
 
     @property
     @pulumi.getter
@@ -233,7 +285,16 @@ class ScheduleHourlyRecurrence(dict):
         """
         :param int minute: Minutes of the hour the schedule will run.
         """
-        pulumi.set(__self__, "minute", minute)
+        ScheduleHourlyRecurrence._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            minute=minute,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             minute: int,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("minute", minute)
 
     @property
     @pulumi.getter
@@ -274,12 +335,25 @@ class ScheduleNotificationSettings(dict):
         :param int time_in_minutes: Time in minutes before event at which notification will be sent.
         :param str webhook_url: The webhook URL to which the notification will be sent.
         """
+        ScheduleNotificationSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            status=status,
+            time_in_minutes=time_in_minutes,
+            webhook_url=webhook_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             status: Optional[str] = None,
+             time_in_minutes: Optional[int] = None,
+             webhook_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if time_in_minutes is not None:
-            pulumi.set(__self__, "time_in_minutes", time_in_minutes)
+            _setter("time_in_minutes", time_in_minutes)
         if webhook_url is not None:
-            pulumi.set(__self__, "webhook_url", webhook_url)
+            _setter("webhook_url", webhook_url)
 
     @property
     @pulumi.getter
@@ -332,9 +406,20 @@ class ScheduleWeeklyRecurrence(dict):
         :param str time: The time when the schedule takes effect.
         :param Sequence[str] week_days: A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         """
-        pulumi.set(__self__, "time", time)
+        ScheduleWeeklyRecurrence._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            time=time,
+            week_days=week_days,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             time: str,
+             week_days: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("time", time)
         if week_days is not None:
-            pulumi.set(__self__, "week_days", week_days)
+            _setter("week_days", week_days)
 
     @property
     @pulumi.getter
@@ -383,12 +468,25 @@ class VirtualNetworkSubnet(dict):
         :param str use_in_virtual_machine_creation: Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`.
         :param str use_public_ip_address: Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`.
         """
+        VirtualNetworkSubnet._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            use_in_virtual_machine_creation=use_in_virtual_machine_creation,
+            use_public_ip_address=use_public_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             use_in_virtual_machine_creation: Optional[str] = None,
+             use_public_ip_address: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if use_in_virtual_machine_creation is not None:
-            pulumi.set(__self__, "use_in_virtual_machine_creation", use_in_virtual_machine_creation)
+            _setter("use_in_virtual_machine_creation", use_in_virtual_machine_creation)
         if use_public_ip_address is not None:
-            pulumi.set(__self__, "use_public_ip_address", use_public_ip_address)
+            _setter("use_public_ip_address", use_public_ip_address)
 
     @property
     @pulumi.getter
@@ -428,10 +526,25 @@ class WindowsVirtualMachineGalleryImageReference(dict):
         :param str sku: The SKU of the Gallery Image. Changing this forces a new resource to be created.
         :param str version: The Version of the Gallery Image. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "offer", offer)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "version", version)
+        WindowsVirtualMachineGalleryImageReference._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offer=offer,
+            publisher=publisher,
+            sku=sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offer: str,
+             publisher: str,
+             sku: str,
+             version: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("offer", offer)
+        _setter("publisher", publisher)
+        _setter("sku", sku)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -496,10 +609,23 @@ class WindowsVirtualMachineInboundNatRule(dict):
         :param str protocol: The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
         :param int frontend_port: The frontend port associated with this Inbound NAT Rule.
         """
-        pulumi.set(__self__, "backend_port", backend_port)
-        pulumi.set(__self__, "protocol", protocol)
+        WindowsVirtualMachineInboundNatRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            protocol=protocol,
+            frontend_port=frontend_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: int,
+             protocol: str,
+             frontend_port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backend_port", backend_port)
+        _setter("protocol", protocol)
         if frontend_port is not None:
-            pulumi.set(__self__, "frontend_port", frontend_port)
+            _setter("frontend_port", frontend_port)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -537,9 +663,22 @@ class GetVirtualNetworkAllowedSubnetResult(dict):
         :param str lab_subnet_name: The name of the subnet.
         :param str resource_id: The resource identifier for the subnet.
         """
-        pulumi.set(__self__, "allow_public_ip", allow_public_ip)
-        pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
-        pulumi.set(__self__, "resource_id", resource_id)
+        GetVirtualNetworkAllowedSubnetResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_public_ip=allow_public_ip,
+            lab_subnet_name=lab_subnet_name,
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_public_ip: str,
+             lab_subnet_name: str,
+             resource_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow_public_ip", allow_public_ip)
+        _setter("lab_subnet_name", lab_subnet_name)
+        _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="allowPublicIp")
@@ -580,11 +719,28 @@ class GetVirtualNetworkSubnetOverrideResult(dict):
         :param str use_in_vm_creation_permission: Indicates if the subnet can be used for VM creation.  Possible values are `Allow`, `Default` and `Deny`.
         :param str virtual_network_pool_name: The virtual network pool associated with this subnet.
         """
-        pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "use_in_vm_creation_permission", use_in_vm_creation_permission)
-        pulumi.set(__self__, "use_public_ip_address_permission", use_public_ip_address_permission)
-        pulumi.set(__self__, "virtual_network_pool_name", virtual_network_pool_name)
+        GetVirtualNetworkSubnetOverrideResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            lab_subnet_name=lab_subnet_name,
+            resource_id=resource_id,
+            use_in_vm_creation_permission=use_in_vm_creation_permission,
+            use_public_ip_address_permission=use_public_ip_address_permission,
+            virtual_network_pool_name=virtual_network_pool_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             lab_subnet_name: str,
+             resource_id: str,
+             use_in_vm_creation_permission: str,
+             use_public_ip_address_permission: str,
+             virtual_network_pool_name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("lab_subnet_name", lab_subnet_name)
+        _setter("resource_id", resource_id)
+        _setter("use_in_vm_creation_permission", use_in_vm_creation_permission)
+        _setter("use_public_ip_address_permission", use_public_ip_address_permission)
+        _setter("virtual_network_pool_name", virtual_network_pool_name)
 
     @property
     @pulumi.getter(name="labSubnetName")

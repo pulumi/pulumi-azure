@@ -66,9 +66,17 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.dscServerEndpoint);
     }
 
+    /**
+     * An `encryption` block as defined below.
+     * 
+     */
     @Import(name="encryptions")
     private @Nullable Output<List<AccountEncryptionArgs>> encryptions;
 
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
     public Optional<Output<List<AccountEncryptionArgs>>> encryptions() {
         return Optional.ofNullable(this.encryptions);
     }
@@ -315,15 +323,33 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
             return dscServerEndpoint(Output.of(dscServerEndpoint));
         }
 
+        /**
+         * @param encryptions An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptions(@Nullable Output<List<AccountEncryptionArgs>> encryptions) {
             $.encryptions = encryptions;
             return this;
         }
 
+        /**
+         * @param encryptions An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptions(List<AccountEncryptionArgs> encryptions) {
             return encryptions(Output.of(encryptions));
         }
 
+        /**
+         * @param encryptions An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encryptions(AccountEncryptionArgs... encryptions) {
             return encryptions(List.of(encryptions));
         }

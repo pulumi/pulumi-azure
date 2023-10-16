@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -120,9 +120,20 @@ class CustomDatasetLinkedServiceArgs:
         :param pulumi.Input[str] name: The name of the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        CustomDatasetLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -168,19 +179,40 @@ class DataFlowSinkArgs:
         :param pulumi.Input['DataFlowSinkRejectedLinkedServiceArgs'] rejected_linked_service: A `rejected_linked_service` block as defined below.
         :param pulumi.Input['DataFlowSinkSchemaLinkedServiceArgs'] schema_linked_service: A `schema_linked_service` block as defined below.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowSinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dataset=dataset,
+            description=description,
+            flowlet=flowlet,
+            linked_service=linked_service,
+            rejected_linked_service=rejected_linked_service,
+            schema_linked_service=schema_linked_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             dataset: Optional[pulumi.Input['DataFlowSinkDatasetArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             flowlet: Optional[pulumi.Input['DataFlowSinkFlowletArgs']] = None,
+             linked_service: Optional[pulumi.Input['DataFlowSinkLinkedServiceArgs']] = None,
+             rejected_linked_service: Optional[pulumi.Input['DataFlowSinkRejectedLinkedServiceArgs']] = None,
+             schema_linked_service: Optional[pulumi.Input['DataFlowSinkSchemaLinkedServiceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+            _setter("dataset", dataset)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if flowlet is not None:
-            pulumi.set(__self__, "flowlet", flowlet)
+            _setter("flowlet", flowlet)
         if linked_service is not None:
-            pulumi.set(__self__, "linked_service", linked_service)
+            _setter("linked_service", linked_service)
         if rejected_linked_service is not None:
-            pulumi.set(__self__, "rejected_linked_service", rejected_linked_service)
+            _setter("rejected_linked_service", rejected_linked_service)
         if schema_linked_service is not None:
-            pulumi.set(__self__, "schema_linked_service", schema_linked_service)
+            _setter("schema_linked_service", schema_linked_service)
 
     @property
     @pulumi.getter
@@ -276,9 +308,20 @@ class DataFlowSinkDatasetArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory dataset.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowSinkDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -316,11 +359,24 @@ class DataFlowSinkFlowletArgs:
         :param pulumi.Input[str] dataset_parameters: Specifies the reference data flow parameters from dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Flowlet.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowSinkFlowletArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dataset_parameters=dataset_parameters,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             dataset_parameters: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if dataset_parameters is not None:
-            pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+            _setter("dataset_parameters", dataset_parameters)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -368,9 +424,20 @@ class DataFlowSinkLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowSinkLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -406,9 +473,20 @@ class DataFlowSinkRejectedLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowSinkRejectedLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -444,9 +522,20 @@ class DataFlowSinkSchemaLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowSinkSchemaLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -492,19 +581,40 @@ class DataFlowSourceArgs:
         :param pulumi.Input['DataFlowSourceRejectedLinkedServiceArgs'] rejected_linked_service: A `rejected_linked_service` block as defined below.
         :param pulumi.Input['DataFlowSourceSchemaLinkedServiceArgs'] schema_linked_service: A `schema_linked_service` block as defined below.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dataset=dataset,
+            description=description,
+            flowlet=flowlet,
+            linked_service=linked_service,
+            rejected_linked_service=rejected_linked_service,
+            schema_linked_service=schema_linked_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             dataset: Optional[pulumi.Input['DataFlowSourceDatasetArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             flowlet: Optional[pulumi.Input['DataFlowSourceFlowletArgs']] = None,
+             linked_service: Optional[pulumi.Input['DataFlowSourceLinkedServiceArgs']] = None,
+             rejected_linked_service: Optional[pulumi.Input['DataFlowSourceRejectedLinkedServiceArgs']] = None,
+             schema_linked_service: Optional[pulumi.Input['DataFlowSourceSchemaLinkedServiceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+            _setter("dataset", dataset)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if flowlet is not None:
-            pulumi.set(__self__, "flowlet", flowlet)
+            _setter("flowlet", flowlet)
         if linked_service is not None:
-            pulumi.set(__self__, "linked_service", linked_service)
+            _setter("linked_service", linked_service)
         if rejected_linked_service is not None:
-            pulumi.set(__self__, "rejected_linked_service", rejected_linked_service)
+            _setter("rejected_linked_service", rejected_linked_service)
         if schema_linked_service is not None:
-            pulumi.set(__self__, "schema_linked_service", schema_linked_service)
+            _setter("schema_linked_service", schema_linked_service)
 
     @property
     @pulumi.getter
@@ -600,9 +710,20 @@ class DataFlowSourceDatasetArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory dataset.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowSourceDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -640,11 +761,24 @@ class DataFlowSourceFlowletArgs:
         :param pulumi.Input[str] dataset_parameters: Specifies the reference data flow parameters from dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Flowlet.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowSourceFlowletArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dataset_parameters=dataset_parameters,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             dataset_parameters: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if dataset_parameters is not None:
-            pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+            _setter("dataset_parameters", dataset_parameters)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -692,9 +826,20 @@ class DataFlowSourceLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowSourceLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -730,9 +875,20 @@ class DataFlowSourceRejectedLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowSourceRejectedLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -768,9 +924,20 @@ class DataFlowSourceSchemaLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowSourceSchemaLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -812,15 +979,32 @@ class DataFlowTransformationArgs:
         :param pulumi.Input['DataFlowTransformationFlowletArgs'] flowlet: A `flowlet` block as defined below.
         :param pulumi.Input['DataFlowTransformationLinkedServiceArgs'] linked_service: A `linked_service` block as defined below.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowTransformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dataset=dataset,
+            description=description,
+            flowlet=flowlet,
+            linked_service=linked_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             dataset: Optional[pulumi.Input['DataFlowTransformationDatasetArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             flowlet: Optional[pulumi.Input['DataFlowTransformationFlowletArgs']] = None,
+             linked_service: Optional[pulumi.Input['DataFlowTransformationLinkedServiceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+            _setter("dataset", dataset)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if flowlet is not None:
-            pulumi.set(__self__, "flowlet", flowlet)
+            _setter("flowlet", flowlet)
         if linked_service is not None:
-            pulumi.set(__self__, "linked_service", linked_service)
+            _setter("linked_service", linked_service)
 
     @property
     @pulumi.getter
@@ -892,9 +1076,20 @@ class DataFlowTransformationDatasetArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory dataset.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowTransformationDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -932,11 +1127,24 @@ class DataFlowTransformationFlowletArgs:
         :param pulumi.Input[str] dataset_parameters: Specifies the reference data flow parameters from dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Flowlet.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowTransformationFlowletArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dataset_parameters=dataset_parameters,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             dataset_parameters: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if dataset_parameters is not None:
-            pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+            _setter("dataset_parameters", dataset_parameters)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -984,9 +1192,20 @@ class DataFlowTransformationLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        DataFlowTransformationLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1024,11 +1243,24 @@ class DatasetAzureBlobSchemaColumnArgs:
         :param pulumi.Input[str] description: The description of the column.
         :param pulumi.Input[str] type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
-        pulumi.set(__self__, "name", name)
+        DatasetAzureBlobSchemaColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1078,11 +1310,24 @@ class DatasetAzureSqlTableSchemaColumnArgs:
         :param pulumi.Input[str] description: The description of the column.
         :param pulumi.Input[str] type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
-        pulumi.set(__self__, "name", name)
+        DatasetAzureSqlTableSchemaColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1138,17 +1383,36 @@ class DatasetBinaryAzureBlobStorageLocationArgs:
         :param pulumi.Input[str] filename: The filename of the file in the blob container.
         :param pulumi.Input[str] path: The folder path to the file in the blob container.
         """
-        pulumi.set(__self__, "container", container)
+        DatasetBinaryAzureBlobStorageLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            dynamic_container_enabled=dynamic_container_enabled,
+            dynamic_filename_enabled=dynamic_filename_enabled,
+            dynamic_path_enabled=dynamic_path_enabled,
+            filename=filename,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: pulumi.Input[str],
+             dynamic_container_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container", container)
         if dynamic_container_enabled is not None:
-            pulumi.set(__self__, "dynamic_container_enabled", dynamic_container_enabled)
+            _setter("dynamic_container_enabled", dynamic_container_enabled)
         if dynamic_filename_enabled is not None:
-            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+            _setter("dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
-            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+            _setter("dynamic_path_enabled", dynamic_path_enabled)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -1232,9 +1496,20 @@ class DatasetBinaryCompressionArgs:
         :param pulumi.Input[str] type: The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
         :param pulumi.Input[str] level: The level of compression. Possible values are `Fastest` and `Optimal`.
         """
-        pulumi.set(__self__, "type", type)
+        DatasetBinaryCompressionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            level=level,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             level: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if level is not None:
-            pulumi.set(__self__, "level", level)
+            _setter("level", level)
 
     @property
     @pulumi.getter
@@ -1276,13 +1551,30 @@ class DatasetBinaryHttpServerLocationArgs:
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
-        pulumi.set(__self__, "filename", filename)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "relative_url", relative_url)
+        DatasetBinaryHttpServerLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename=filename,
+            path=path,
+            relative_url=relative_url,
+            dynamic_filename_enabled=dynamic_filename_enabled,
+            dynamic_path_enabled=dynamic_path_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename: pulumi.Input[str],
+             path: pulumi.Input[str],
+             relative_url: pulumi.Input[str],
+             dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filename", filename)
+        _setter("path", path)
+        _setter("relative_url", relative_url)
         if dynamic_filename_enabled is not None:
-            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+            _setter("dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
-            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+            _setter("dynamic_path_enabled", dynamic_path_enabled)
 
     @property
     @pulumi.getter
@@ -1358,12 +1650,27 @@ class DatasetBinarySftpServerLocationArgs:
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
-        pulumi.set(__self__, "filename", filename)
-        pulumi.set(__self__, "path", path)
+        DatasetBinarySftpServerLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename=filename,
+            path=path,
+            dynamic_filename_enabled=dynamic_filename_enabled,
+            dynamic_path_enabled=dynamic_path_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename: pulumi.Input[str],
+             path: pulumi.Input[str],
+             dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filename", filename)
+        _setter("path", path)
         if dynamic_filename_enabled is not None:
-            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+            _setter("dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
-            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+            _setter("dynamic_path_enabled", dynamic_path_enabled)
 
     @property
     @pulumi.getter
@@ -1425,11 +1732,24 @@ class DatasetCosmosDBApiSchemaColumnArgs:
         :param pulumi.Input[str] description: The description of the column.
         :param pulumi.Input[str] type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
-        pulumi.set(__self__, "name", name)
+        DatasetCosmosDBApiSchemaColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1485,18 +1805,37 @@ class DatasetDelimitedTextAzureBlobFsLocationArgs:
         :param pulumi.Input[str] filename: The filename of the file.
         :param pulumi.Input[str] path: The folder path to the file.
         """
+        DatasetDelimitedTextAzureBlobFsLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dynamic_file_system_enabled=dynamic_file_system_enabled,
+            dynamic_filename_enabled=dynamic_filename_enabled,
+            dynamic_path_enabled=dynamic_path_enabled,
+            file_system=file_system,
+            filename=filename,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dynamic_file_system_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+             file_system: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dynamic_file_system_enabled is not None:
-            pulumi.set(__self__, "dynamic_file_system_enabled", dynamic_file_system_enabled)
+            _setter("dynamic_file_system_enabled", dynamic_file_system_enabled)
         if dynamic_filename_enabled is not None:
-            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+            _setter("dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
-            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+            _setter("dynamic_path_enabled", dynamic_path_enabled)
         if file_system is not None:
-            pulumi.set(__self__, "file_system", file_system)
+            _setter("file_system", file_system)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="dynamicFileSystemEnabled")
@@ -1588,17 +1927,36 @@ class DatasetDelimitedTextAzureBlobStorageLocationArgs:
         :param pulumi.Input[str] filename: The filename of the file.
         :param pulumi.Input[str] path: The folder path to the file. This can be an empty string.
         """
-        pulumi.set(__self__, "container", container)
+        DatasetDelimitedTextAzureBlobStorageLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            dynamic_container_enabled=dynamic_container_enabled,
+            dynamic_filename_enabled=dynamic_filename_enabled,
+            dynamic_path_enabled=dynamic_path_enabled,
+            filename=filename,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: pulumi.Input[str],
+             dynamic_container_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container", container)
         if dynamic_container_enabled is not None:
-            pulumi.set(__self__, "dynamic_container_enabled", dynamic_container_enabled)
+            _setter("dynamic_container_enabled", dynamic_container_enabled)
         if dynamic_filename_enabled is not None:
-            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+            _setter("dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
-            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+            _setter("dynamic_path_enabled", dynamic_path_enabled)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -1688,13 +2046,30 @@ class DatasetDelimitedTextHttpServerLocationArgs:
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
-        pulumi.set(__self__, "filename", filename)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "relative_url", relative_url)
+        DatasetDelimitedTextHttpServerLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename=filename,
+            path=path,
+            relative_url=relative_url,
+            dynamic_filename_enabled=dynamic_filename_enabled,
+            dynamic_path_enabled=dynamic_path_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename: pulumi.Input[str],
+             path: pulumi.Input[str],
+             relative_url: pulumi.Input[str],
+             dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filename", filename)
+        _setter("path", path)
+        _setter("relative_url", relative_url)
         if dynamic_filename_enabled is not None:
-            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+            _setter("dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
-            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+            _setter("dynamic_path_enabled", dynamic_path_enabled)
 
     @property
     @pulumi.getter
@@ -1768,11 +2143,24 @@ class DatasetDelimitedTextSchemaColumnArgs:
         :param pulumi.Input[str] description: The description of the column.
         :param pulumi.Input[str] type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
-        pulumi.set(__self__, "name", name)
+        DatasetDelimitedTextSchemaColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1822,11 +2210,24 @@ class DatasetHttpSchemaColumnArgs:
         :param pulumi.Input[str] description: The description of the column.
         :param pulumi.Input[str] type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
-        pulumi.set(__self__, "name", name)
+        DatasetHttpSchemaColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -1882,15 +2283,34 @@ class DatasetJsonAzureBlobStorageLocationArgs:
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
-        pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "filename", filename)
-        pulumi.set(__self__, "path", path)
+        DatasetJsonAzureBlobStorageLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            filename=filename,
+            path=path,
+            dynamic_container_enabled=dynamic_container_enabled,
+            dynamic_filename_enabled=dynamic_filename_enabled,
+            dynamic_path_enabled=dynamic_path_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: pulumi.Input[str],
+             filename: pulumi.Input[str],
+             path: pulumi.Input[str],
+             dynamic_container_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container", container)
+        _setter("filename", filename)
+        _setter("path", path)
         if dynamic_container_enabled is not None:
-            pulumi.set(__self__, "dynamic_container_enabled", dynamic_container_enabled)
+            _setter("dynamic_container_enabled", dynamic_container_enabled)
         if dynamic_filename_enabled is not None:
-            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+            _setter("dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
-            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+            _setter("dynamic_path_enabled", dynamic_path_enabled)
 
     @property
     @pulumi.getter
@@ -1980,13 +2400,30 @@ class DatasetJsonHttpServerLocationArgs:
         :param pulumi.Input[bool] dynamic_filename_enabled: Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         """
-        pulumi.set(__self__, "filename", filename)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "relative_url", relative_url)
+        DatasetJsonHttpServerLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename=filename,
+            path=path,
+            relative_url=relative_url,
+            dynamic_filename_enabled=dynamic_filename_enabled,
+            dynamic_path_enabled=dynamic_path_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename: pulumi.Input[str],
+             path: pulumi.Input[str],
+             relative_url: pulumi.Input[str],
+             dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filename", filename)
+        _setter("path", path)
+        _setter("relative_url", relative_url)
         if dynamic_filename_enabled is not None:
-            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+            _setter("dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
-            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+            _setter("dynamic_path_enabled", dynamic_path_enabled)
 
     @property
     @pulumi.getter
@@ -2060,11 +2497,24 @@ class DatasetJsonSchemaColumnArgs:
         :param pulumi.Input[str] description: The description of the column.
         :param pulumi.Input[str] type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
-        pulumi.set(__self__, "name", name)
+        DatasetJsonSchemaColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2114,11 +2564,24 @@ class DatasetMysqlSchemaColumnArgs:
         :param pulumi.Input[str] description: The description of the column.
         :param pulumi.Input[str] type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
-        pulumi.set(__self__, "name", name)
+        DatasetMysqlSchemaColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2174,18 +2637,37 @@ class DatasetParquetAzureBlobFsLocationArgs:
         :param pulumi.Input[str] filename: The filename of the file on the Azure Data Lake Storage Account.
         :param pulumi.Input[str] path: The folder path to the file on the Azure Data Lake Storage Account.
         """
+        DatasetParquetAzureBlobFsLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dynamic_file_system_enabled=dynamic_file_system_enabled,
+            dynamic_filename_enabled=dynamic_filename_enabled,
+            dynamic_path_enabled=dynamic_path_enabled,
+            file_system=file_system,
+            filename=filename,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dynamic_file_system_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+             file_system: Optional[pulumi.Input[str]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dynamic_file_system_enabled is not None:
-            pulumi.set(__self__, "dynamic_file_system_enabled", dynamic_file_system_enabled)
+            _setter("dynamic_file_system_enabled", dynamic_file_system_enabled)
         if dynamic_filename_enabled is not None:
-            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+            _setter("dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
-            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+            _setter("dynamic_path_enabled", dynamic_path_enabled)
         if file_system is not None:
-            pulumi.set(__self__, "file_system", file_system)
+            _setter("file_system", file_system)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="dynamicFileSystemEnabled")
@@ -2277,17 +2759,36 @@ class DatasetParquetAzureBlobStorageLocationArgs:
         :param pulumi.Input[str] filename: The filename of the file on the Azure Blob Storage Account.
         :param pulumi.Input[str] path: The folder path to the file on the Azure Blob Storage Account.
         """
-        pulumi.set(__self__, "container", container)
+        DatasetParquetAzureBlobStorageLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container=container,
+            dynamic_container_enabled=dynamic_container_enabled,
+            dynamic_filename_enabled=dynamic_filename_enabled,
+            dynamic_path_enabled=dynamic_path_enabled,
+            filename=filename,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container: pulumi.Input[str],
+             dynamic_container_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+             filename: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("container", container)
         if dynamic_container_enabled is not None:
-            pulumi.set(__self__, "dynamic_container_enabled", dynamic_container_enabled)
+            _setter("dynamic_container_enabled", dynamic_container_enabled)
         if dynamic_filename_enabled is not None:
-            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+            _setter("dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
-            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+            _setter("dynamic_path_enabled", dynamic_path_enabled)
         if filename is not None:
-            pulumi.set(__self__, "filename", filename)
+            _setter("filename", filename)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -2377,14 +2878,31 @@ class DatasetParquetHttpServerLocationArgs:
         :param pulumi.Input[bool] dynamic_path_enabled: Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
         :param pulumi.Input[str] path: The folder path to the file on the web server.
         """
-        pulumi.set(__self__, "filename", filename)
-        pulumi.set(__self__, "relative_url", relative_url)
+        DatasetParquetHttpServerLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filename=filename,
+            relative_url=relative_url,
+            dynamic_filename_enabled=dynamic_filename_enabled,
+            dynamic_path_enabled=dynamic_path_enabled,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filename: pulumi.Input[str],
+             relative_url: pulumi.Input[str],
+             dynamic_filename_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_path_enabled: Optional[pulumi.Input[bool]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("filename", filename)
+        _setter("relative_url", relative_url)
         if dynamic_filename_enabled is not None:
-            pulumi.set(__self__, "dynamic_filename_enabled", dynamic_filename_enabled)
+            _setter("dynamic_filename_enabled", dynamic_filename_enabled)
         if dynamic_path_enabled is not None:
-            pulumi.set(__self__, "dynamic_path_enabled", dynamic_path_enabled)
+            _setter("dynamic_path_enabled", dynamic_path_enabled)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter
@@ -2458,11 +2976,24 @@ class DatasetParquetSchemaColumnArgs:
         :param pulumi.Input[str] description: The description of the column.
         :param pulumi.Input[str] type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
-        pulumi.set(__self__, "name", name)
+        DatasetParquetSchemaColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2512,11 +3043,24 @@ class DatasetPostgresqlSchemaColumnArgs:
         :param pulumi.Input[str] description: The description of the column.
         :param pulumi.Input[str] type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
-        pulumi.set(__self__, "name", name)
+        DatasetPostgresqlSchemaColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2568,13 +3112,28 @@ class DatasetSnowflakeSchemaColumnArgs:
         :param pulumi.Input[int] scale: The number of digits allowed to the right of the decimal point.
         :param pulumi.Input[str] type: Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
         """
-        pulumi.set(__self__, "name", name)
+        DatasetSnowflakeSchemaColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            precision=precision,
+            scale=scale,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             precision: Optional[pulumi.Input[int]] = None,
+             scale: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if precision is not None:
-            pulumi.set(__self__, "precision", precision)
+            _setter("precision", precision)
         if scale is not None:
-            pulumi.set(__self__, "scale", scale)
+            _setter("scale", scale)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2636,11 +3195,24 @@ class DatasetSqlServerTableSchemaColumnArgs:
         :param pulumi.Input[str] description: The description of the column.
         :param pulumi.Input[str] type: Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
         """
-        pulumi.set(__self__, "name", name)
+        DatasetSqlServerTableSchemaColumnArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            description=description,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -2698,13 +3270,32 @@ class FactoryGithubConfigurationArgs:
                
                > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "branch_name", branch_name)
-        pulumi.set(__self__, "git_url", git_url)
-        pulumi.set(__self__, "repository_name", repository_name)
-        pulumi.set(__self__, "root_folder", root_folder)
+        FactoryGithubConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            branch_name=branch_name,
+            git_url=git_url,
+            repository_name=repository_name,
+            root_folder=root_folder,
+            publishing_enabled=publishing_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             branch_name: pulumi.Input[str],
+             git_url: pulumi.Input[str],
+             repository_name: pulumi.Input[str],
+             root_folder: pulumi.Input[str],
+             publishing_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("branch_name", branch_name)
+        _setter("git_url", git_url)
+        _setter("repository_name", repository_name)
+        _setter("root_folder", root_folder)
         if publishing_enabled is not None:
-            pulumi.set(__self__, "publishing_enabled", publishing_enabled)
+            _setter("publishing_enabled", publishing_enabled)
 
     @property
     @pulumi.getter(name="accountName")
@@ -2794,9 +3385,22 @@ class FactoryGlobalParameterArgs:
                
                > **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
+        FactoryGlobalParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2852,13 +3456,28 @@ class FactoryIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: Specifies the Tenant ID associated with the VSTS account.
         """
-        pulumi.set(__self__, "type", type)
+        FactoryIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -2930,14 +3549,35 @@ class FactoryVstsConfigurationArgs:
         :param pulumi.Input[str] tenant_id: Specifies the Tenant ID associated with the VSTS account.
         :param pulumi.Input[bool] publishing_enabled: Is automated publishing enabled? Defaults to `false`.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "branch_name", branch_name)
-        pulumi.set(__self__, "project_name", project_name)
-        pulumi.set(__self__, "repository_name", repository_name)
-        pulumi.set(__self__, "root_folder", root_folder)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        FactoryVstsConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            branch_name=branch_name,
+            project_name=project_name,
+            repository_name=repository_name,
+            root_folder=root_folder,
+            tenant_id=tenant_id,
+            publishing_enabled=publishing_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             branch_name: pulumi.Input[str],
+             project_name: pulumi.Input[str],
+             repository_name: pulumi.Input[str],
+             root_folder: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             publishing_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("branch_name", branch_name)
+        _setter("project_name", project_name)
+        _setter("repository_name", repository_name)
+        _setter("root_folder", root_folder)
+        _setter("tenant_id", tenant_id)
         if publishing_enabled is not None:
-            pulumi.set(__self__, "publishing_enabled", publishing_enabled)
+            _setter("publishing_enabled", publishing_enabled)
 
     @property
     @pulumi.getter(name="accountName")
@@ -3043,19 +3683,40 @@ class FlowletDataFlowSinkArgs:
         :param pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArgs'] rejected_linked_service: A `rejected_linked_service` block as defined below.
         :param pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArgs'] schema_linked_service: A `schema_linked_service` block as defined below.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowSinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dataset=dataset,
+            description=description,
+            flowlet=flowlet,
+            linked_service=linked_service,
+            rejected_linked_service=rejected_linked_service,
+            schema_linked_service=schema_linked_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             dataset: Optional[pulumi.Input['FlowletDataFlowSinkDatasetArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             flowlet: Optional[pulumi.Input['FlowletDataFlowSinkFlowletArgs']] = None,
+             linked_service: Optional[pulumi.Input['FlowletDataFlowSinkLinkedServiceArgs']] = None,
+             rejected_linked_service: Optional[pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArgs']] = None,
+             schema_linked_service: Optional[pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+            _setter("dataset", dataset)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if flowlet is not None:
-            pulumi.set(__self__, "flowlet", flowlet)
+            _setter("flowlet", flowlet)
         if linked_service is not None:
-            pulumi.set(__self__, "linked_service", linked_service)
+            _setter("linked_service", linked_service)
         if rejected_linked_service is not None:
-            pulumi.set(__self__, "rejected_linked_service", rejected_linked_service)
+            _setter("rejected_linked_service", rejected_linked_service)
         if schema_linked_service is not None:
-            pulumi.set(__self__, "schema_linked_service", schema_linked_service)
+            _setter("schema_linked_service", schema_linked_service)
 
     @property
     @pulumi.getter
@@ -3151,9 +3812,20 @@ class FlowletDataFlowSinkDatasetArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory dataset.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowSinkDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3191,11 +3863,24 @@ class FlowletDataFlowSinkFlowletArgs:
         :param pulumi.Input[str] dataset_parameters: Specifies the reference data flow parameters from dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Flowlet.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowSinkFlowletArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dataset_parameters=dataset_parameters,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             dataset_parameters: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if dataset_parameters is not None:
-            pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+            _setter("dataset_parameters", dataset_parameters)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3243,9 +3928,20 @@ class FlowletDataFlowSinkLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowSinkLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3281,9 +3977,20 @@ class FlowletDataFlowSinkRejectedLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowSinkRejectedLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3319,9 +4026,20 @@ class FlowletDataFlowSinkSchemaLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowSinkSchemaLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3367,19 +4085,40 @@ class FlowletDataFlowSourceArgs:
         :param pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArgs'] rejected_linked_service: A `rejected_linked_service` block as defined below.
         :param pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArgs'] schema_linked_service: A `schema_linked_service` block as defined below.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dataset=dataset,
+            description=description,
+            flowlet=flowlet,
+            linked_service=linked_service,
+            rejected_linked_service=rejected_linked_service,
+            schema_linked_service=schema_linked_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             dataset: Optional[pulumi.Input['FlowletDataFlowSourceDatasetArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             flowlet: Optional[pulumi.Input['FlowletDataFlowSourceFlowletArgs']] = None,
+             linked_service: Optional[pulumi.Input['FlowletDataFlowSourceLinkedServiceArgs']] = None,
+             rejected_linked_service: Optional[pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArgs']] = None,
+             schema_linked_service: Optional[pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+            _setter("dataset", dataset)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if flowlet is not None:
-            pulumi.set(__self__, "flowlet", flowlet)
+            _setter("flowlet", flowlet)
         if linked_service is not None:
-            pulumi.set(__self__, "linked_service", linked_service)
+            _setter("linked_service", linked_service)
         if rejected_linked_service is not None:
-            pulumi.set(__self__, "rejected_linked_service", rejected_linked_service)
+            _setter("rejected_linked_service", rejected_linked_service)
         if schema_linked_service is not None:
-            pulumi.set(__self__, "schema_linked_service", schema_linked_service)
+            _setter("schema_linked_service", schema_linked_service)
 
     @property
     @pulumi.getter
@@ -3475,9 +4214,20 @@ class FlowletDataFlowSourceDatasetArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory dataset.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowSourceDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3515,11 +4265,24 @@ class FlowletDataFlowSourceFlowletArgs:
         :param pulumi.Input[str] dataset_parameters: Specifies the reference data flow parameters from dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Flowlet.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowSourceFlowletArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dataset_parameters=dataset_parameters,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             dataset_parameters: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if dataset_parameters is not None:
-            pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+            _setter("dataset_parameters", dataset_parameters)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3567,9 +4330,20 @@ class FlowletDataFlowSourceLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowSourceLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3605,9 +4379,20 @@ class FlowletDataFlowSourceRejectedLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowSourceRejectedLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3643,9 +4428,20 @@ class FlowletDataFlowSourceSchemaLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service with schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowSourceSchemaLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3687,15 +4483,32 @@ class FlowletDataFlowTransformationArgs:
         :param pulumi.Input['FlowletDataFlowTransformationFlowletArgs'] flowlet: A `flowlet` block as defined below.
         :param pulumi.Input['FlowletDataFlowTransformationLinkedServiceArgs'] linked_service: A `linked_service` block as defined below.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowTransformationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dataset=dataset,
+            description=description,
+            flowlet=flowlet,
+            linked_service=linked_service,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             dataset: Optional[pulumi.Input['FlowletDataFlowTransformationDatasetArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             flowlet: Optional[pulumi.Input['FlowletDataFlowTransformationFlowletArgs']] = None,
+             linked_service: Optional[pulumi.Input['FlowletDataFlowTransformationLinkedServiceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+            _setter("dataset", dataset)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if flowlet is not None:
-            pulumi.set(__self__, "flowlet", flowlet)
+            _setter("flowlet", flowlet)
         if linked_service is not None:
-            pulumi.set(__self__, "linked_service", linked_service)
+            _setter("linked_service", linked_service)
 
     @property
     @pulumi.getter
@@ -3767,9 +4580,20 @@ class FlowletDataFlowTransformationDatasetArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory dataset.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowTransformationDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3807,11 +4631,24 @@ class FlowletDataFlowTransformationFlowletArgs:
         :param pulumi.Input[str] dataset_parameters: Specifies the reference data flow parameters from dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Flowlet.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowTransformationFlowletArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            dataset_parameters=dataset_parameters,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             dataset_parameters: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if dataset_parameters is not None:
-            pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+            _setter("dataset_parameters", dataset_parameters)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3859,9 +4696,20 @@ class FlowletDataFlowTransformationLinkedServiceArgs:
         :param pulumi.Input[str] name: The name for the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "name", name)
+        FlowletDataFlowTransformationLinkedServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -3901,13 +4749,28 @@ class IntegrationRuntimeManagedCatalogInfoArgs:
         :param pulumi.Input[str] administrator_password: Administrator login password for the SQL Server.
         :param pulumi.Input[str] pricing_tier: Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`.
         """
-        pulumi.set(__self__, "server_endpoint", server_endpoint)
+        IntegrationRuntimeManagedCatalogInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_endpoint=server_endpoint,
+            administrator_login=administrator_login,
+            administrator_password=administrator_password,
+            pricing_tier=pricing_tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_endpoint: pulumi.Input[str],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_password: Optional[pulumi.Input[str]] = None,
+             pricing_tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("server_endpoint", server_endpoint)
         if administrator_login is not None:
-            pulumi.set(__self__, "administrator_login", administrator_login)
+            _setter("administrator_login", administrator_login)
         if administrator_password is not None:
-            pulumi.set(__self__, "administrator_password", administrator_password)
+            _setter("administrator_password", administrator_password)
         if pricing_tier is not None:
-            pulumi.set(__self__, "pricing_tier", pricing_tier)
+            _setter("pricing_tier", pricing_tier)
 
     @property
     @pulumi.getter(name="serverEndpoint")
@@ -3967,8 +4830,19 @@ class IntegrationRuntimeManagedCustomSetupScriptArgs:
         :param pulumi.Input[str] blob_container_uri: The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
         :param pulumi.Input[str] sas_token: A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
         """
-        pulumi.set(__self__, "blob_container_uri", blob_container_uri)
-        pulumi.set(__self__, "sas_token", sas_token)
+        IntegrationRuntimeManagedCustomSetupScriptArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_container_uri=blob_container_uri,
+            sas_token=sas_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_container_uri: pulumi.Input[str],
+             sas_token: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("blob_container_uri", blob_container_uri)
+        _setter("sas_token", sas_token)
 
     @property
     @pulumi.getter(name="blobContainerUri")
@@ -4004,8 +4878,19 @@ class IntegrationRuntimeManagedVnetIntegrationArgs:
         :param pulumi.Input[str] subnet_name: Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
         :param pulumi.Input[str] vnet_id: ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
         """
-        pulumi.set(__self__, "subnet_name", subnet_name)
-        pulumi.set(__self__, "vnet_id", vnet_id)
+        IntegrationRuntimeManagedVnetIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_name=subnet_name,
+            vnet_id=vnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_name: pulumi.Input[str],
+             vnet_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_name", subnet_name)
+        _setter("vnet_id", vnet_id)
 
     @property
     @pulumi.getter(name="subnetName")
@@ -4043,7 +4928,16 @@ class IntegrationRuntimeSelfHostedRbacAuthorizationArgs:
                
                For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
         """
-        pulumi.set(__self__, "resource_id", resource_id)
+        IntegrationRuntimeSelfHostedRbacAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_id=resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_id", resource_id)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -4079,17 +4973,36 @@ class IntegrationRuntimeSsisCatalogInfoArgs:
         :param pulumi.Input[str] elastic_pool_name: The name of SQL elastic pool where the database will be created for the SSIS catalog. Mutually exclusive with `pricing_tier`.
         :param pulumi.Input[str] pricing_tier: Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `S0`, `S1`, `S2`, `S3`, `S4`, `S6`, `S7`, `S9`, `S12`, `P1`, `P2`, `P4`, `P6`, `P11`, `P15`, `GP_S_Gen5_1`, `GP_S_Gen5_2`, `GP_S_Gen5_4`, `GP_S_Gen5_6`, `GP_S_Gen5_8`, `GP_S_Gen5_10`, `GP_S_Gen5_12`, `GP_S_Gen5_14`, `GP_S_Gen5_16`, `GP_S_Gen5_18`, `GP_S_Gen5_20`, `GP_S_Gen5_24`, `GP_S_Gen5_32`, `GP_S_Gen5_40`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_6`, `GP_Gen5_8`, `GP_Gen5_10`, `GP_Gen5_12`, `GP_Gen5_14`, `GP_Gen5_16`, `GP_Gen5_18`, `GP_Gen5_20`, `GP_Gen5_24`, `GP_Gen5_32`, `GP_Gen5_40`, `GP_Gen5_80`, `BC_Gen5_2`, `BC_Gen5_4`, `BC_Gen5_6`, `BC_Gen5_8`, `BC_Gen5_10`, `BC_Gen5_12`, `BC_Gen5_14`, `BC_Gen5_16`, `BC_Gen5_18`, `BC_Gen5_20`, `BC_Gen5_24`, `BC_Gen5_32`, `BC_Gen5_40`, `BC_Gen5_80`, `HS_Gen5_2`, `HS_Gen5_4`, `HS_Gen5_6`, `HS_Gen5_8`, `HS_Gen5_10`, `HS_Gen5_12`, `HS_Gen5_14`, `HS_Gen5_16`, `HS_Gen5_18`, `HS_Gen5_20`, `HS_Gen5_24`, `HS_Gen5_32`, `HS_Gen5_40` and `HS_Gen5_80`. Mutually exclusive with `elastic_pool_name`.
         """
-        pulumi.set(__self__, "server_endpoint", server_endpoint)
+        IntegrationRuntimeSsisCatalogInfoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_endpoint=server_endpoint,
+            administrator_login=administrator_login,
+            administrator_password=administrator_password,
+            dual_standby_pair_name=dual_standby_pair_name,
+            elastic_pool_name=elastic_pool_name,
+            pricing_tier=pricing_tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_endpoint: pulumi.Input[str],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_password: Optional[pulumi.Input[str]] = None,
+             dual_standby_pair_name: Optional[pulumi.Input[str]] = None,
+             elastic_pool_name: Optional[pulumi.Input[str]] = None,
+             pricing_tier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("server_endpoint", server_endpoint)
         if administrator_login is not None:
-            pulumi.set(__self__, "administrator_login", administrator_login)
+            _setter("administrator_login", administrator_login)
         if administrator_password is not None:
-            pulumi.set(__self__, "administrator_password", administrator_password)
+            _setter("administrator_password", administrator_password)
         if dual_standby_pair_name is not None:
-            pulumi.set(__self__, "dual_standby_pair_name", dual_standby_pair_name)
+            _setter("dual_standby_pair_name", dual_standby_pair_name)
         if elastic_pool_name is not None:
-            pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
+            _setter("elastic_pool_name", elastic_pool_name)
         if pricing_tier is not None:
-            pulumi.set(__self__, "pricing_tier", pricing_tier)
+            _setter("pricing_tier", pricing_tier)
 
     @property
     @pulumi.getter(name="serverEndpoint")
@@ -4173,8 +5086,19 @@ class IntegrationRuntimeSsisCustomSetupScriptArgs:
         :param pulumi.Input[str] blob_container_uri: The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
         :param pulumi.Input[str] sas_token: A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
         """
-        pulumi.set(__self__, "blob_container_uri", blob_container_uri)
-        pulumi.set(__self__, "sas_token", sas_token)
+        IntegrationRuntimeSsisCustomSetupScriptArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_container_uri=blob_container_uri,
+            sas_token=sas_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_container_uri: pulumi.Input[str],
+             sas_token: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("blob_container_uri", blob_container_uri)
+        _setter("sas_token", sas_token)
 
     @property
     @pulumi.getter(name="blobContainerUri")
@@ -4216,14 +5140,29 @@ class IntegrationRuntimeSsisExpressCustomSetupArgs:
                
                > **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
         """
+        IntegrationRuntimeSsisExpressCustomSetupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            command_keys=command_keys,
+            components=components,
+            environment=environment,
+            powershell_version=powershell_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             command_keys: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]]] = None,
+             components: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]]] = None,
+             environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             powershell_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if command_keys is not None:
-            pulumi.set(__self__, "command_keys", command_keys)
+            _setter("command_keys", command_keys)
         if components is not None:
-            pulumi.set(__self__, "components", components)
+            _setter("components", components)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if powershell_version is not None:
-            pulumi.set(__self__, "powershell_version", powershell_version)
+            _setter("powershell_version", powershell_version)
 
     @property
     @pulumi.getter(name="commandKeys")
@@ -4289,12 +5228,27 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs:
         :param pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs'] key_vault_password: A `key_vault_secret_reference` block as defined below.
         :param pulumi.Input[str] password: The password for the target device.
         """
-        pulumi.set(__self__, "target_name", target_name)
-        pulumi.set(__self__, "user_name", user_name)
+        IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_name=target_name,
+            user_name=user_name,
+            key_vault_password=key_vault_password,
+            password=password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_name: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             key_vault_password: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs']] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("target_name", target_name)
+        _setter("user_name", user_name)
         if key_vault_password is not None:
-            pulumi.set(__self__, "key_vault_password", key_vault_password)
+            _setter("key_vault_password", key_vault_password)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
 
     @property
     @pulumi.getter(name="targetName")
@@ -4358,12 +5312,27 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] secret_version: Specifies the secret version in Azure Key Vault.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
+        IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            secret_name=secret_name,
+            parameters=parameters,
+            secret_version=secret_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             secret_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("secret_name", secret_name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if secret_version is not None:
-            pulumi.set(__self__, "secret_version", secret_version)
+            _setter("secret_version", secret_version)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -4425,11 +5394,24 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentArgs:
         :param pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs'] key_vault_license: A `key_vault_secret_reference` block as defined below.
         :param pulumi.Input[str] license: The license used for the Component.
         """
-        pulumi.set(__self__, "name", name)
+        IntegrationRuntimeSsisExpressCustomSetupComponentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            key_vault_license=key_vault_license,
+            license=license,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             key_vault_license: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs']] = None,
+             license: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if key_vault_license is not None:
-            pulumi.set(__self__, "key_vault_license", key_vault_license)
+            _setter("key_vault_license", key_vault_license)
         if license is not None:
-            pulumi.set(__self__, "license", license)
+            _setter("license", license)
 
     @property
     @pulumi.getter
@@ -4481,12 +5463,27 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] secret_version: Specifies the secret version in Azure Key Vault.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
+        IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            secret_name=secret_name,
+            parameters=parameters,
+            secret_version=secret_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             secret_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("secret_name", secret_name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if secret_version is not None:
-            pulumi.set(__self__, "secret_version", secret_version)
+            _setter("secret_version", secret_version)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -4544,7 +5541,16 @@ class IntegrationRuntimeSsisExpressVnetIntegrationArgs:
         """
         :param pulumi.Input[str] subnet_id: id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        IntegrationRuntimeSsisExpressVnetIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -4568,8 +5574,19 @@ class IntegrationRuntimeSsisPackageStoreArgs:
         :param pulumi.Input[str] linked_service_name: Name of the Linked Service to associate with the packages.
         :param pulumi.Input[str] name: Name of the package store.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "name", name)
+        IntegrationRuntimeSsisPackageStoreArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -4607,10 +5624,23 @@ class IntegrationRuntimeSsisProxyArgs:
         :param pulumi.Input[str] staging_storage_linked_service_name: Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes.
         :param pulumi.Input[str] path: The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
         """
-        pulumi.set(__self__, "self_hosted_integration_runtime_name", self_hosted_integration_runtime_name)
-        pulumi.set(__self__, "staging_storage_linked_service_name", staging_storage_linked_service_name)
+        IntegrationRuntimeSsisProxyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            self_hosted_integration_runtime_name=self_hosted_integration_runtime_name,
+            staging_storage_linked_service_name=staging_storage_linked_service_name,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             self_hosted_integration_runtime_name: pulumi.Input[str],
+             staging_storage_linked_service_name: pulumi.Input[str],
+             path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("self_hosted_integration_runtime_name", self_hosted_integration_runtime_name)
+        _setter("staging_storage_linked_service_name", staging_storage_linked_service_name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
 
     @property
     @pulumi.getter(name="selfHostedIntegrationRuntimeName")
@@ -4664,14 +5694,29 @@ class IntegrationRuntimeSsisVnetIntegrationArgs:
         :param pulumi.Input[str] subnet_name: Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
         :param pulumi.Input[str] vnet_id: ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
         """
+        IntegrationRuntimeSsisVnetIntegrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_ips=public_ips,
+            subnet_id=subnet_id,
+            subnet_name=subnet_name,
+            vnet_id=vnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             subnet_name: Optional[pulumi.Input[str]] = None,
+             vnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if public_ips is not None:
-            pulumi.set(__self__, "public_ips", public_ips)
+            _setter("public_ips", public_ips)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if subnet_name is not None:
-            pulumi.set(__self__, "subnet_name", subnet_name)
+            _setter("subnet_name", subnet_name)
         if vnet_id is not None:
-            pulumi.set(__self__, "vnet_id", vnet_id)
+            _setter("vnet_id", vnet_id)
 
     @property
     @pulumi.getter(name="publicIps")
@@ -4733,9 +5778,20 @@ class LinkedCustomServiceIntegrationRuntimeArgs:
         :param pulumi.Input[str] name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the integration runtime.
         """
-        pulumi.set(__self__, "name", name)
+        LinkedCustomServiceIntegrationRuntimeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -4771,8 +5827,19 @@ class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs:
         :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores the SAS token.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
+        LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -4808,8 +5875,19 @@ class LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs:
         :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores the Service Principal key.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
+        LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -4849,12 +5927,27 @@ class LinkedServiceAzureDatabricksInstancePoolArgs:
         :param pulumi.Input[int] max_number_of_workers: The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
         :param pulumi.Input[int] min_number_of_workers: The minimum number of worker nodes. Defaults to `1`.
         """
-        pulumi.set(__self__, "cluster_version", cluster_version)
-        pulumi.set(__self__, "instance_pool_id", instance_pool_id)
+        LinkedServiceAzureDatabricksInstancePoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_version=cluster_version,
+            instance_pool_id=instance_pool_id,
+            max_number_of_workers=max_number_of_workers,
+            min_number_of_workers=min_number_of_workers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_version: pulumi.Input[str],
+             instance_pool_id: pulumi.Input[str],
+             max_number_of_workers: Optional[pulumi.Input[int]] = None,
+             min_number_of_workers: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_version", cluster_version)
+        _setter("instance_pool_id", instance_pool_id)
         if max_number_of_workers is not None:
-            pulumi.set(__self__, "max_number_of_workers", max_number_of_workers)
+            _setter("max_number_of_workers", max_number_of_workers)
         if min_number_of_workers is not None:
-            pulumi.set(__self__, "min_number_of_workers", min_number_of_workers)
+            _setter("min_number_of_workers", min_number_of_workers)
 
     @property
     @pulumi.getter(name="clusterVersion")
@@ -4914,8 +6007,19 @@ class LinkedServiceAzureDatabricksKeyVaultPasswordArgs:
         :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores ADB access token.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
+        LinkedServiceAzureDatabricksKeyVaultPasswordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -4967,24 +6071,51 @@ class LinkedServiceAzureDatabricksNewClusterConfigArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] spark_config: User-specified Spark configuration variables key-value pairs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] spark_environment_variables: User-specified Spark environment variables key-value pairs.
         """
-        pulumi.set(__self__, "cluster_version", cluster_version)
-        pulumi.set(__self__, "node_type", node_type)
+        LinkedServiceAzureDatabricksNewClusterConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_version=cluster_version,
+            node_type=node_type,
+            custom_tags=custom_tags,
+            driver_node_type=driver_node_type,
+            init_scripts=init_scripts,
+            log_destination=log_destination,
+            max_number_of_workers=max_number_of_workers,
+            min_number_of_workers=min_number_of_workers,
+            spark_config=spark_config,
+            spark_environment_variables=spark_environment_variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_version: pulumi.Input[str],
+             node_type: pulumi.Input[str],
+             custom_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             driver_node_type: Optional[pulumi.Input[str]] = None,
+             init_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             log_destination: Optional[pulumi.Input[str]] = None,
+             max_number_of_workers: Optional[pulumi.Input[int]] = None,
+             min_number_of_workers: Optional[pulumi.Input[int]] = None,
+             spark_config: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             spark_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_version", cluster_version)
+        _setter("node_type", node_type)
         if custom_tags is not None:
-            pulumi.set(__self__, "custom_tags", custom_tags)
+            _setter("custom_tags", custom_tags)
         if driver_node_type is not None:
-            pulumi.set(__self__, "driver_node_type", driver_node_type)
+            _setter("driver_node_type", driver_node_type)
         if init_scripts is not None:
-            pulumi.set(__self__, "init_scripts", init_scripts)
+            _setter("init_scripts", init_scripts)
         if log_destination is not None:
-            pulumi.set(__self__, "log_destination", log_destination)
+            _setter("log_destination", log_destination)
         if max_number_of_workers is not None:
-            pulumi.set(__self__, "max_number_of_workers", max_number_of_workers)
+            _setter("max_number_of_workers", max_number_of_workers)
         if min_number_of_workers is not None:
-            pulumi.set(__self__, "min_number_of_workers", min_number_of_workers)
+            _setter("min_number_of_workers", min_number_of_workers)
         if spark_config is not None:
-            pulumi.set(__self__, "spark_config", spark_config)
+            _setter("spark_config", spark_config)
         if spark_environment_variables is not None:
-            pulumi.set(__self__, "spark_environment_variables", spark_environment_variables)
+            _setter("spark_environment_variables", spark_environment_variables)
 
     @property
     @pulumi.getter(name="clusterVersion")
@@ -5116,8 +6247,19 @@ class LinkedServiceAzureFileStorageKeyVaultPasswordArgs:
         :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
+        LinkedServiceAzureFileStorageKeyVaultPasswordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -5153,8 +6295,19 @@ class LinkedServiceAzureFunctionKeyVaultKeyArgs:
         :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores the system key of the Azure Function.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
+        LinkedServiceAzureFunctionKeyVaultKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -5190,8 +6343,19 @@ class LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs:
         :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
+        LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -5227,8 +6391,19 @@ class LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs:
         :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores SQL Server password.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
+        LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -5264,8 +6439,19 @@ class LinkedServiceOdataBasicAuthenticationArgs:
         :param pulumi.Input[str] password: The password associated with the username, which can be used to authenticate to the OData endpoint.
         :param pulumi.Input[str] username: The username which can be used to authenticate to the OData endpoint.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        LinkedServiceOdataBasicAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: pulumi.Input[str],
+             username: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -5301,8 +6487,19 @@ class LinkedServiceOdbcBasicAuthenticationArgs:
         :param pulumi.Input[str] password: The password associated with the username, which can be used to authenticate to the ODBC endpoint.
         :param pulumi.Input[str] username: The username which can be used to authenticate to the ODBC endpoint.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        LinkedServiceOdbcBasicAuthenticationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: pulumi.Input[str],
+             username: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -5338,8 +6535,19 @@ class LinkedServiceSnowflakeKeyVaultPasswordArgs:
         :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores Snowflake password.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
+        LinkedServiceSnowflakeKeyVaultPasswordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -5375,8 +6583,19 @@ class LinkedServiceSqlServerKeyVaultConnectionStringArgs:
         :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
+        LinkedServiceSqlServerKeyVaultConnectionStringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -5412,8 +6631,19 @@ class LinkedServiceSqlServerKeyVaultPasswordArgs:
         :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores SQL Server password.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
+        LinkedServiceSqlServerKeyVaultPasswordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -5449,8 +6679,19 @@ class LinkedServiceSynapseKeyVaultPasswordArgs:
         :param pulumi.Input[str] linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[str] secret_name: Specifies the secret name in Azure Key Vault that stores Synapse password.
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
+        LinkedServiceSynapseKeyVaultPasswordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_service_name=linked_service_name,
+            secret_name=secret_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_service_name: pulumi.Input[str],
+             secret_name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("linked_service_name", linked_service_name)
+        _setter("secret_name", secret_name)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -5486,9 +6727,20 @@ class TriggerBlobEventPipelineArgs:
         :param pulumi.Input[str] name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The Data Factory Pipeline parameters that the trigger will act on.
         """
-        pulumi.set(__self__, "name", name)
+        TriggerBlobEventPipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -5524,9 +6776,20 @@ class TriggerCustomEventPipelineArgs:
         :param pulumi.Input[str] name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The Data Factory Pipeline parameters that the trigger will act on.
         """
-        pulumi.set(__self__, "name", name)
+        TriggerCustomEventPipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -5562,9 +6825,20 @@ class TriggerSchedulePipelineArgs:
         :param pulumi.Input[str] name: Reference pipeline name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The pipeline parameters that the trigger will act upon.
         """
-        pulumi.set(__self__, "name", name)
+        TriggerSchedulePipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -5606,16 +6880,33 @@ class TriggerScheduleScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] minutes: Minutes of the hour on which the trigger is scheduled.
         :param pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]] monthlies: A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
         """
+        TriggerScheduleScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_of_months=days_of_months,
+            days_of_weeks=days_of_weeks,
+            hours=hours,
+            minutes=minutes,
+            monthlies=monthlies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if days_of_months is not None:
-            pulumi.set(__self__, "days_of_months", days_of_months)
+            _setter("days_of_months", days_of_months)
         if days_of_weeks is not None:
-            pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+            _setter("days_of_weeks", days_of_weeks)
         if hours is not None:
-            pulumi.set(__self__, "hours", hours)
+            _setter("hours", hours)
         if minutes is not None:
-            pulumi.set(__self__, "minutes", minutes)
+            _setter("minutes", minutes)
         if monthlies is not None:
-            pulumi.set(__self__, "monthlies", monthlies)
+            _setter("monthlies", monthlies)
 
     @property
     @pulumi.getter(name="daysOfMonths")
@@ -5687,9 +6978,20 @@ class TriggerScheduleScheduleMonthlyArgs:
         :param pulumi.Input[str] weekday: The day of the week on which the trigger runs. For example, a `monthly` property with a `weekday` value of `Sunday` means every Sunday of the month.
         :param pulumi.Input[int] week: The occurrence of the specified day during the month. For example, a `monthly` property with `weekday` and `week` values of `Sunday, -1` means the last Sunday of the month.
         """
-        pulumi.set(__self__, "weekday", weekday)
+        TriggerScheduleScheduleMonthlyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            weekday=weekday,
+            week=week,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             weekday: pulumi.Input[str],
+             week: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("weekday", weekday)
         if week is not None:
-            pulumi.set(__self__, "week", week)
+            _setter("week", week)
 
     @property
     @pulumi.getter
@@ -5725,9 +7027,20 @@ class TriggerTumblingWindowPipelineArgs:
         :param pulumi.Input[str] name: The Data Factory Pipeline name that the trigger will act on.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: The Data Factory Pipeline parameters that the trigger will act on.
         """
-        pulumi.set(__self__, "name", name)
+        TriggerTumblingWindowPipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter
@@ -5763,9 +7076,20 @@ class TriggerTumblingWindowRetryArgs:
         :param pulumi.Input[int] count: The maximum retry attempts if the pipeline run failed.
         :param pulumi.Input[int] interval: The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
         """
-        pulumi.set(__self__, "count", count)
+        TriggerTumblingWindowRetryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            count=count,
+            interval=interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             count: pulumi.Input[int],
+             interval: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("count", count)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
 
     @property
     @pulumi.getter
@@ -5803,12 +7127,25 @@ class TriggerTumblingWindowTriggerDependencyArgs:
         :param pulumi.Input[str] size: The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
         :param pulumi.Input[str] trigger_name: The dependency trigger name. If not specified, it will use self dependency.
         """
+        TriggerTumblingWindowTriggerDependencyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offset=offset,
+            size=size,
+            trigger_name=trigger_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offset: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             trigger_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if offset is not None:
-            pulumi.set(__self__, "offset", offset)
+            _setter("offset", offset)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if trigger_name is not None:
-            pulumi.set(__self__, "trigger_name", trigger_name)
+            _setter("trigger_name", trigger_name)
 
     @property
     @pulumi.getter

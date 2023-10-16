@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -44,27 +44,56 @@ class ServiceArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is enabled or disabled for this service instance. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            access_policy_object_ids=access_policy_object_ids,
+            authentication_configuration=authentication_configuration,
+            cors_configuration=cors_configuration,
+            cosmosdb_key_vault_key_versionless_id=cosmosdb_key_vault_key_versionless_id,
+            cosmosdb_throughput=cosmosdb_throughput,
+            kind=kind,
+            location=location,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             authentication_configuration: Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']] = None,
+             cors_configuration: Optional[pulumi.Input['ServiceCorsConfigurationArgs']] = None,
+             cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[str]] = None,
+             cosmosdb_throughput: Optional[pulumi.Input[int]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if access_policy_object_ids is not None:
-            pulumi.set(__self__, "access_policy_object_ids", access_policy_object_ids)
+            _setter("access_policy_object_ids", access_policy_object_ids)
         if authentication_configuration is not None:
-            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+            _setter("authentication_configuration", authentication_configuration)
         if cors_configuration is not None:
-            pulumi.set(__self__, "cors_configuration", cors_configuration)
+            _setter("cors_configuration", cors_configuration)
         if cosmosdb_key_vault_key_versionless_id is not None:
-            pulumi.set(__self__, "cosmosdb_key_vault_key_versionless_id", cosmosdb_key_vault_key_versionless_id)
+            _setter("cosmosdb_key_vault_key_versionless_id", cosmosdb_key_vault_key_versionless_id)
         if cosmosdb_throughput is not None:
-            pulumi.set(__self__, "cosmosdb_throughput", cosmosdb_throughput)
+            _setter("cosmosdb_throughput", cosmosdb_throughput)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -231,28 +260,57 @@ class _ServiceState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _ServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policy_object_ids=access_policy_object_ids,
+            authentication_configuration=authentication_configuration,
+            cors_configuration=cors_configuration,
+            cosmosdb_key_vault_key_versionless_id=cosmosdb_key_vault_key_versionless_id,
+            cosmosdb_throughput=cosmosdb_throughput,
+            kind=kind,
+            location=location,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_group_name=resource_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             authentication_configuration: Optional[pulumi.Input['ServiceAuthenticationConfigurationArgs']] = None,
+             cors_configuration: Optional[pulumi.Input['ServiceCorsConfigurationArgs']] = None,
+             cosmosdb_key_vault_key_versionless_id: Optional[pulumi.Input[str]] = None,
+             cosmosdb_throughput: Optional[pulumi.Input[int]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if access_policy_object_ids is not None:
-            pulumi.set(__self__, "access_policy_object_ids", access_policy_object_ids)
+            _setter("access_policy_object_ids", access_policy_object_ids)
         if authentication_configuration is not None:
-            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+            _setter("authentication_configuration", authentication_configuration)
         if cors_configuration is not None:
-            pulumi.set(__self__, "cors_configuration", cors_configuration)
+            _setter("cors_configuration", cors_configuration)
         if cosmosdb_key_vault_key_versionless_id is not None:
-            pulumi.set(__self__, "cosmosdb_key_vault_key_versionless_id", cosmosdb_key_vault_key_versionless_id)
+            _setter("cosmosdb_key_vault_key_versionless_id", cosmosdb_key_vault_key_versionless_id)
         if cosmosdb_throughput is not None:
-            pulumi.set(__self__, "cosmosdb_throughput", cosmosdb_throughput)
+            _setter("cosmosdb_throughput", cosmosdb_throughput)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accessPolicyObjectIds")
@@ -540,6 +598,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -566,7 +628,17 @@ class Service(pulumi.CustomResource):
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
             __props__.__dict__["access_policy_object_ids"] = access_policy_object_ids
+            if authentication_configuration is not None and not isinstance(authentication_configuration, ServiceAuthenticationConfigurationArgs):
+                authentication_configuration = authentication_configuration or {}
+                def _setter(key, value):
+                    authentication_configuration[key] = value
+                ServiceAuthenticationConfigurationArgs._configure(_setter, **authentication_configuration)
             __props__.__dict__["authentication_configuration"] = authentication_configuration
+            if cors_configuration is not None and not isinstance(cors_configuration, ServiceCorsConfigurationArgs):
+                cors_configuration = cors_configuration or {}
+                def _setter(key, value):
+                    cors_configuration[key] = value
+                ServiceCorsConfigurationArgs._configure(_setter, **cors_configuration)
             __props__.__dict__["cors_configuration"] = cors_configuration
             __props__.__dict__["cosmosdb_key_vault_key_versionless_id"] = cosmosdb_key_vault_key_versionless_id
             __props__.__dict__["cosmosdb_throughput"] = cosmosdb_throughput

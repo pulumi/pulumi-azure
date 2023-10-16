@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SubnetNatGatewayAssociationArgs', 'SubnetNatGatewayAssociation']
@@ -21,8 +21,19 @@ class SubnetNatGatewayAssociationArgs:
         :param pulumi.Input[str] nat_gateway_id: The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        SubnetNatGatewayAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nat_gateway_id=nat_gateway_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nat_gateway_id: pulumi.Input[str],
+             subnet_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("nat_gateway_id", nat_gateway_id)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="natGatewayId")
@@ -59,10 +70,21 @@ class _SubnetNatGatewayAssociationState:
         :param pulumi.Input[str] nat_gateway_id: The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
         """
+        _SubnetNatGatewayAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nat_gateway_id=nat_gateway_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nat_gateway_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if nat_gateway_id is not None:
-            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
+            _setter("nat_gateway_id", nat_gateway_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="natGatewayId")
@@ -186,6 +208,10 @@ class SubnetNatGatewayAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubnetNatGatewayAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

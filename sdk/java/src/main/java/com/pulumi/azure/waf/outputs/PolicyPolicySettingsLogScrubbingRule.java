@@ -23,7 +23,7 @@ public final class PolicyPolicySettingsLogScrubbingRule {
      */
     private String matchVariable;
     /**
-     * @return Describes field of the matchVariable collection
+     * @return Describes field of the matchVariable collection.
      * 
      */
     private @Nullable String selector;
@@ -49,7 +49,7 @@ public final class PolicyPolicySettingsLogScrubbingRule {
         return this.matchVariable;
     }
     /**
-     * @return Describes field of the matchVariable collection
+     * @return Describes field of the matchVariable collection.
      * 
      */
     public Optional<String> selector() {

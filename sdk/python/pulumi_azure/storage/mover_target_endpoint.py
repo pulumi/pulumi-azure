@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MoverTargetEndpointArgs', 'MoverTargetEndpoint']
@@ -27,13 +27,30 @@ class MoverTargetEndpointArgs:
         :param pulumi.Input[str] description: Specifies a description for the Storage Mover Target Endpoint.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "storage_container_name", storage_container_name)
-        pulumi.set(__self__, "storage_mover_id", storage_mover_id)
+        MoverTargetEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_account_id=storage_account_id,
+            storage_container_name=storage_container_name,
+            storage_mover_id=storage_mover_id,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_account_id: pulumi.Input[str],
+             storage_container_name: pulumi.Input[str],
+             storage_mover_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("storage_account_id", storage_account_id)
+        _setter("storage_container_name", storage_container_name)
+        _setter("storage_mover_id", storage_mover_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="storageAccountId")
@@ -112,16 +129,33 @@ class _MoverTargetEndpointState:
         :param pulumi.Input[str] storage_container_name: Specifies the name of the storage blob container for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_mover_id: Specifies the ID of the storage mover for this Storage Mover Target Endpoint. Changing this forces a new resource to be created.
         """
+        _MoverTargetEndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            storage_account_id=storage_account_id,
+            storage_container_name=storage_container_name,
+            storage_mover_id=storage_mover_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_container_name: Optional[pulumi.Input[str]] = None,
+             storage_mover_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if storage_container_name is not None:
-            pulumi.set(__self__, "storage_container_name", storage_container_name)
+            _setter("storage_container_name", storage_container_name)
         if storage_mover_id is not None:
-            pulumi.set(__self__, "storage_mover_id", storage_mover_id)
+            _setter("storage_mover_id", storage_mover_id)
 
     @property
     @pulumi.getter
@@ -293,6 +327,10 @@ class MoverTargetEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MoverTargetEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

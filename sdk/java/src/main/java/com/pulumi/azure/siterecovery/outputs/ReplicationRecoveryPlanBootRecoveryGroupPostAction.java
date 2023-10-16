@@ -56,7 +56,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupPostAction {
      */
     private @Nullable String scriptPath;
     /**
-     * @return The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+     * @return Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
      * 
      */
     private String type;
@@ -120,7 +120,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupPostAction {
         return Optional.ofNullable(this.scriptPath);
     }
     /**
-     * @return The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+     * @return Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
      * 
      */
     public String type() {

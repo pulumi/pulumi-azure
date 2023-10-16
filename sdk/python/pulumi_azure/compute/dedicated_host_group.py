@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DedicatedHostGroupArgs', 'DedicatedHostGroup']
@@ -31,18 +31,39 @@ class DedicatedHostGroupArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
         """
-        pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DedicatedHostGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            platform_fault_domain_count=platform_fault_domain_count,
+            resource_group_name=resource_group_name,
+            automatic_placement_enabled=automatic_placement_enabled,
+            location=location,
+            name=name,
+            tags=tags,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             platform_fault_domain_count: pulumi.Input[int],
+             resource_group_name: pulumi.Input[str],
+             automatic_placement_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("platform_fault_domain_count", platform_fault_domain_count)
+        _setter("resource_group_name", resource_group_name)
         if automatic_placement_enabled is not None:
-            pulumi.set(__self__, "automatic_placement_enabled", automatic_placement_enabled)
+            _setter("automatic_placement_enabled", automatic_placement_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="platformFaultDomainCount")
@@ -149,20 +170,41 @@ class _DedicatedHostGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone: Specifies the Availability Zone in which this Dedicated Host Group should be located. Changing this forces a new Dedicated Host Group to be created.
         """
+        _DedicatedHostGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automatic_placement_enabled=automatic_placement_enabled,
+            location=location,
+            name=name,
+            platform_fault_domain_count=platform_fault_domain_count,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automatic_placement_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if automatic_placement_enabled is not None:
-            pulumi.set(__self__, "automatic_placement_enabled", automatic_placement_enabled)
+            _setter("automatic_placement_enabled", automatic_placement_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if platform_fault_domain_count is not None:
-            pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
+            _setter("platform_fault_domain_count", platform_fault_domain_count)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="automaticPlacementEnabled")
@@ -336,6 +378,10 @@ class DedicatedHostGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DedicatedHostGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

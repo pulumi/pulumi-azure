@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerMicrosoftSupportAuditingPolicyArgs', 'ServerMicrosoftSupportAuditingPolicy']
@@ -31,17 +31,36 @@ class ServerMicrosoftSupportAuditingPolicyArgs:
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
         """
-        pulumi.set(__self__, "server_id", server_id)
+        ServerMicrosoftSupportAuditingPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server_id=server_id,
+            blob_storage_endpoint=blob_storage_endpoint,
+            enabled=enabled,
+            log_monitoring_enabled=log_monitoring_enabled,
+            storage_account_access_key=storage_account_access_key,
+            storage_account_subscription_id=storage_account_subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server_id: pulumi.Input[str],
+             blob_storage_endpoint: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("server_id", server_id)
         if blob_storage_endpoint is not None:
-            pulumi.set(__self__, "blob_storage_endpoint", blob_storage_endpoint)
+            _setter("blob_storage_endpoint", blob_storage_endpoint)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_monitoring_enabled is not None:
-            pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
+            _setter("log_monitoring_enabled", log_monitoring_enabled)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_account_subscription_id is not None:
-            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
+            _setter("storage_account_subscription_id", storage_account_subscription_id)
 
     @property
     @pulumi.getter(name="serverId")
@@ -138,18 +157,37 @@ class _ServerMicrosoftSupportAuditingPolicyState:
         :param pulumi.Input[str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
         """
+        _ServerMicrosoftSupportAuditingPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_storage_endpoint=blob_storage_endpoint,
+            enabled=enabled,
+            log_monitoring_enabled=log_monitoring_enabled,
+            server_id=server_id,
+            storage_account_access_key=storage_account_access_key,
+            storage_account_subscription_id=storage_account_subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_storage_endpoint: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if blob_storage_endpoint is not None:
-            pulumi.set(__self__, "blob_storage_endpoint", blob_storage_endpoint)
+            _setter("blob_storage_endpoint", blob_storage_endpoint)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if log_monitoring_enabled is not None:
-            pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
+            _setter("log_monitoring_enabled", log_monitoring_enabled)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_account_subscription_id is not None:
-            pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
+            _setter("storage_account_subscription_id", storage_account_subscription_id)
 
     @property
     @pulumi.getter(name="blobStorageEndpoint")
@@ -475,6 +513,10 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerMicrosoftSupportAuditingPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

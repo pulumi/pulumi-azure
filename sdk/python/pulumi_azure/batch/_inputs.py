@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -58,7 +58,16 @@ class AccountEncryptionArgs:
         """
         :param pulumi.Input[str] key_vault_key_id: The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.
         """
-        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        AccountEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_key_id=key_vault_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_key_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_vault_key_id", key_vault_key_id)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -88,13 +97,28 @@ class AccountIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        AccountIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: pulumi.Input[str],
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -156,8 +180,19 @@ class AccountKeyVaultReferenceArgs:
         :param pulumi.Input[str] id: The Azure identifier of the Azure KeyVault to use.
         :param pulumi.Input[str] url: The HTTPS URL of the Azure KeyVault to use.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "url", url)
+        AccountKeyVaultReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             url: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("url", url)
 
     @property
     @pulumi.getter
@@ -195,10 +230,21 @@ class AccountNetworkProfileArgs:
                
                > **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
         """
+        AccountNetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_access=account_access,
+            node_management_access=node_management_access,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_access: Optional[pulumi.Input['AccountNetworkProfileAccountAccessArgs']] = None,
+             node_management_access: Optional[pulumi.Input['AccountNetworkProfileNodeManagementAccessArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_access is not None:
-            pulumi.set(__self__, "account_access", account_access)
+            _setter("account_access", account_access)
         if node_management_access is not None:
-            pulumi.set(__self__, "node_management_access", node_management_access)
+            _setter("node_management_access", node_management_access)
 
     @property
     @pulumi.getter(name="accountAccess")
@@ -236,10 +282,21 @@ class AccountNetworkProfileAccountAccessArgs:
         :param pulumi.Input[str] default_action: Specifies the default action for the account access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileAccountAccessIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
         """
+        AccountNetworkProfileAccountAccessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            ip_rules=ip_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[pulumi.Input[str]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileAccountAccessIpRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -275,9 +332,20 @@ class AccountNetworkProfileAccountAccessIpRuleArgs:
         :param pulumi.Input[str] ip_range: The CIDR block from which requests will match the rule.
         :param pulumi.Input[str] action: Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
         """
-        pulumi.set(__self__, "ip_range", ip_range)
+        AccountNetworkProfileAccountAccessIpRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_range=ip_range,
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_range: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_range", ip_range)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter(name="ipRange")
@@ -313,10 +381,21 @@ class AccountNetworkProfileNodeManagementAccessArgs:
         :param pulumi.Input[str] default_action: Specifies the default action for the node management access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileNodeManagementAccessIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
         """
+        AccountNetworkProfileNodeManagementAccessArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            ip_rules=ip_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[pulumi.Input[str]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkProfileNodeManagementAccessIpRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -352,9 +431,20 @@ class AccountNetworkProfileNodeManagementAccessIpRuleArgs:
         :param pulumi.Input[str] ip_range: The CIDR block from which requests will match the rule.
         :param pulumi.Input[str] action: Specifies the action of the ip rule. The only possible value is `Allow`. Defaults to `Allow`.
         """
-        pulumi.set(__self__, "ip_range", ip_range)
+        AccountNetworkProfileNodeManagementAccessIpRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_range=ip_range,
+            action=action,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_range: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("ip_range", ip_range)
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
 
     @property
     @pulumi.getter(name="ipRange")
@@ -390,9 +480,20 @@ class PoolAutoScaleArgs:
         :param pulumi.Input[str] formula: The autoscale formula that needs to be used for scaling the Batch pool.
         :param pulumi.Input[str] evaluation_interval: The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
         """
-        pulumi.set(__self__, "formula", formula)
+        PoolAutoScaleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            formula=formula,
+            evaluation_interval=evaluation_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             formula: pulumi.Input[str],
+             evaluation_interval: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("formula", formula)
         if evaluation_interval is not None:
-            pulumi.set(__self__, "evaluation_interval", evaluation_interval)
+            _setter("evaluation_interval", evaluation_interval)
 
     @property
     @pulumi.getter
@@ -434,12 +535,27 @@ class PoolCertificateArgs:
         :param pulumi.Input[str] store_name: The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] visibilities: Which user accounts on the compute node should have access to the private data of the certificate. Possible values are `StartTask`, `Task` and `RemoteUser`.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "store_location", store_location)
+        PoolCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            store_location=store_location,
+            store_name=store_name,
+            visibilities=visibilities,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: pulumi.Input[str],
+             store_location: pulumi.Input[str],
+             store_name: Optional[pulumi.Input[str]] = None,
+             visibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("store_location", store_location)
         if store_name is not None:
-            pulumi.set(__self__, "store_name", store_name)
+            _setter("store_name", store_name)
         if visibilities is not None:
-            pulumi.set(__self__, "visibilities", visibilities)
+            _setter("visibilities", visibilities)
 
     @property
     @pulumi.getter
@@ -503,12 +619,25 @@ class PoolContainerConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]] container_registries: One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of container configuration. Possible value is `DockerCompatible`.
         """
+        PoolContainerConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_image_names=container_image_names,
+            container_registries=container_registries,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_image_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if container_image_names is not None:
-            pulumi.set(__self__, "container_image_names", container_image_names)
+            _setter("container_image_names", container_image_names)
         if container_registries is not None:
-            pulumi.set(__self__, "container_registries", container_registries)
+            _setter("container_registries", container_registries)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="containerImageNames")
@@ -560,13 +689,28 @@ class PoolContainerConfigurationContainerRegistryArgs:
         :param pulumi.Input[str] user_assigned_identity_id: The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_name: The user name to log into the registry server. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "registry_server", registry_server)
+        PoolContainerConfigurationContainerRegistryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_server=registry_server,
+            password=password,
+            user_assigned_identity_id=user_assigned_identity_id,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_server: pulumi.Input[str],
+             password: Optional[pulumi.Input[str]] = None,
+             user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("registry_server", registry_server)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_assigned_identity_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+            _setter("user_assigned_identity_id", user_assigned_identity_id)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="registryServer")
@@ -630,12 +774,27 @@ class PoolDataDiskArgs:
         :param pulumi.Input[str] caching: Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] storage_account_type: The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
         """
-        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
-        pulumi.set(__self__, "lun", lun)
+        PoolDataDiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_size_gb=disk_size_gb,
+            lun=lun,
+            caching=caching,
+            storage_account_type=storage_account_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_size_gb: pulumi.Input[int],
+             lun: pulumi.Input[int],
+             caching: Optional[pulumi.Input[str]] = None,
+             storage_account_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_size_gb", disk_size_gb)
+        _setter("lun", lun)
         if caching is not None:
-            pulumi.set(__self__, "caching", caching)
+            _setter("caching", caching)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
 
     @property
     @pulumi.getter(name="diskSizeGb")
@@ -693,7 +852,16 @@ class PoolDiskEncryptionArgs:
         """
         :param pulumi.Input[str] disk_encryption_target: On Linux pool, only \\"TemporaryDisk\\" is supported; on Windows pool, \\"OsDisk\\" and \\"TemporaryDisk\\" must be specified.
         """
-        pulumi.set(__self__, "disk_encryption_target", disk_encryption_target)
+        PoolDiskEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_encryption_target=disk_encryption_target,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_encryption_target: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("disk_encryption_target", disk_encryption_target)
 
     @property
     @pulumi.getter(name="diskEncryptionTarget")
@@ -733,21 +901,46 @@ class PoolExtensionArgs:
         :param pulumi.Input[str] settings_json: JSON formatted public settings for the extension.
         :param pulumi.Input[str] type_handler_version: The version of script handler.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "type", type)
+        PoolExtensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            publisher=publisher,
+            type=type,
+            auto_upgrade_minor_version=auto_upgrade_minor_version,
+            automatic_upgrade_enabled=automatic_upgrade_enabled,
+            protected_settings=protected_settings,
+            provision_after_extensions=provision_after_extensions,
+            settings_json=settings_json,
+            type_handler_version=type_handler_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             publisher: pulumi.Input[str],
+             type: pulumi.Input[str],
+             auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+             automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
+             protected_settings: Optional[pulumi.Input[str]] = None,
+             provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             settings_json: Optional[pulumi.Input[str]] = None,
+             type_handler_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("publisher", publisher)
+        _setter("type", type)
         if auto_upgrade_minor_version is not None:
-            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+            _setter("auto_upgrade_minor_version", auto_upgrade_minor_version)
         if automatic_upgrade_enabled is not None:
-            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
+            _setter("automatic_upgrade_enabled", automatic_upgrade_enabled)
         if protected_settings is not None:
-            pulumi.set(__self__, "protected_settings", protected_settings)
+            _setter("protected_settings", protected_settings)
         if provision_after_extensions is not None:
-            pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
+            _setter("provision_after_extensions", provision_after_extensions)
         if settings_json is not None:
-            pulumi.set(__self__, "settings_json", settings_json)
+            _setter("settings_json", settings_json)
         if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
+            _setter("type_handler_version", type_handler_version)
 
     @property
     @pulumi.getter
@@ -873,14 +1066,29 @@ class PoolFixedScaleArgs:
         :param pulumi.Input[int] target_dedicated_nodes: The number of nodes in the Batch pool. Defaults to `1`.
         :param pulumi.Input[int] target_low_priority_nodes: The number of low priority nodes in the Batch pool. Defaults to `0`.
         """
+        PoolFixedScaleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_deallocation_method=node_deallocation_method,
+            resize_timeout=resize_timeout,
+            target_dedicated_nodes=target_dedicated_nodes,
+            target_low_priority_nodes=target_low_priority_nodes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_deallocation_method: Optional[pulumi.Input[str]] = None,
+             resize_timeout: Optional[pulumi.Input[str]] = None,
+             target_dedicated_nodes: Optional[pulumi.Input[int]] = None,
+             target_low_priority_nodes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if node_deallocation_method is not None:
-            pulumi.set(__self__, "node_deallocation_method", node_deallocation_method)
+            _setter("node_deallocation_method", node_deallocation_method)
         if resize_timeout is not None:
-            pulumi.set(__self__, "resize_timeout", resize_timeout)
+            _setter("resize_timeout", resize_timeout)
         if target_dedicated_nodes is not None:
-            pulumi.set(__self__, "target_dedicated_nodes", target_dedicated_nodes)
+            _setter("target_dedicated_nodes", target_dedicated_nodes)
         if target_low_priority_nodes is not None:
-            pulumi.set(__self__, "target_low_priority_nodes", target_low_priority_nodes)
+            _setter("target_low_priority_nodes", target_low_priority_nodes)
 
     @property
     @pulumi.getter(name="nodeDeallocationMethod")
@@ -940,8 +1148,19 @@ class PoolIdentityArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
         :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is `UserAssigned`.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "type", type)
+        PoolIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity_ids", identity_ids)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -981,14 +1200,29 @@ class PoolMountArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PoolMountCifsMountArgs']]] cifs_mounts: A `cifs_mount` block defined as below.
         :param pulumi.Input[Sequence[pulumi.Input['PoolMountNfsMountArgs']]] nfs_mounts: A `nfs_mount` block defined as below.
         """
+        PoolMountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_blob_file_system=azure_blob_file_system,
+            azure_file_shares=azure_file_shares,
+            cifs_mounts=cifs_mounts,
+            nfs_mounts=nfs_mounts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_blob_file_system: Optional[pulumi.Input['PoolMountAzureBlobFileSystemArgs']] = None,
+             azure_file_shares: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountAzureFileShareArgs']]]] = None,
+             cifs_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountCifsMountArgs']]]] = None,
+             nfs_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountNfsMountArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if azure_blob_file_system is not None:
-            pulumi.set(__self__, "azure_blob_file_system", azure_blob_file_system)
+            _setter("azure_blob_file_system", azure_blob_file_system)
         if azure_file_shares is not None:
-            pulumi.set(__self__, "azure_file_shares", azure_file_shares)
+            _setter("azure_file_shares", azure_file_shares)
         if cifs_mounts is not None:
-            pulumi.set(__self__, "cifs_mounts", cifs_mounts)
+            _setter("cifs_mounts", cifs_mounts)
         if nfs_mounts is not None:
-            pulumi.set(__self__, "nfs_mounts", nfs_mounts)
+            _setter("nfs_mounts", nfs_mounts)
 
     @property
     @pulumi.getter(name="azureBlobFileSystem")
@@ -1058,17 +1292,38 @@ class PoolMountAzureBlobFileSystemArgs:
         :param pulumi.Input[str] identity_id: The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
         :param pulumi.Input[str] sas_key: The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "container_name", container_name)
-        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        PoolMountAzureBlobFileSystemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            container_name=container_name,
+            relative_mount_path=relative_mount_path,
+            account_key=account_key,
+            blobfuse_options=blobfuse_options,
+            identity_id=identity_id,
+            sas_key=sas_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             container_name: pulumi.Input[str],
+             relative_mount_path: pulumi.Input[str],
+             account_key: Optional[pulumi.Input[str]] = None,
+             blobfuse_options: Optional[pulumi.Input[str]] = None,
+             identity_id: Optional[pulumi.Input[str]] = None,
+             sas_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("container_name", container_name)
+        _setter("relative_mount_path", relative_mount_path)
         if account_key is not None:
-            pulumi.set(__self__, "account_key", account_key)
+            _setter("account_key", account_key)
         if blobfuse_options is not None:
-            pulumi.set(__self__, "blobfuse_options", blobfuse_options)
+            _setter("blobfuse_options", blobfuse_options)
         if identity_id is not None:
-            pulumi.set(__self__, "identity_id", identity_id)
+            _setter("identity_id", identity_id)
         if sas_key is not None:
-            pulumi.set(__self__, "sas_key", sas_key)
+            _setter("sas_key", sas_key)
 
     @property
     @pulumi.getter(name="accountName")
@@ -1170,12 +1425,29 @@ class PoolMountAzureFileShareArgs:
         :param pulumi.Input[str] relative_mount_path: The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
         :param pulumi.Input[str] mount_options: Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
         """
-        pulumi.set(__self__, "account_key", account_key)
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "azure_file_url", azure_file_url)
-        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        PoolMountAzureFileShareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_key=account_key,
+            account_name=account_name,
+            azure_file_url=azure_file_url,
+            relative_mount_path=relative_mount_path,
+            mount_options=mount_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_key: pulumi.Input[str],
+             account_name: pulumi.Input[str],
+             azure_file_url: pulumi.Input[str],
+             relative_mount_path: pulumi.Input[str],
+             mount_options: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_key", account_key)
+        _setter("account_name", account_name)
+        _setter("azure_file_url", azure_file_url)
+        _setter("relative_mount_path", relative_mount_path)
         if mount_options is not None:
-            pulumi.set(__self__, "mount_options", mount_options)
+            _setter("mount_options", mount_options)
 
     @property
     @pulumi.getter(name="accountKey")
@@ -1253,12 +1525,29 @@ class PoolMountCifsMountArgs:
         :param pulumi.Input[str] user_name: The user to use for authentication against the CIFS file system.
         :param pulumi.Input[str] mount_options: Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "user_name", user_name)
+        PoolMountCifsMountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            relative_mount_path=relative_mount_path,
+            source=source,
+            user_name=user_name,
+            mount_options=mount_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: pulumi.Input[str],
+             relative_mount_path: pulumi.Input[str],
+             source: pulumi.Input[str],
+             user_name: pulumi.Input[str],
+             mount_options: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("password", password)
+        _setter("relative_mount_path", relative_mount_path)
+        _setter("source", source)
+        _setter("user_name", user_name)
         if mount_options is not None:
-            pulumi.set(__self__, "mount_options", mount_options)
+            _setter("mount_options", mount_options)
 
     @property
     @pulumi.getter
@@ -1332,10 +1621,23 @@ class PoolMountNfsMountArgs:
         :param pulumi.Input[str] source: The URI of the file system to mount.
         :param pulumi.Input[str] mount_options: Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
         """
-        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
-        pulumi.set(__self__, "source", source)
+        PoolMountNfsMountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            relative_mount_path=relative_mount_path,
+            source=source,
+            mount_options=mount_options,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             relative_mount_path: pulumi.Input[str],
+             source: pulumi.Input[str],
+             mount_options: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("relative_mount_path", relative_mount_path)
+        _setter("source", source)
         if mount_options is not None:
-            pulumi.set(__self__, "mount_options", mount_options)
+            _setter("mount_options", mount_options)
 
     @property
     @pulumi.getter(name="relativeMountPath")
@@ -1391,18 +1693,37 @@ class PoolNetworkConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips: A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
         """
+        PoolNetworkConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accelerated_networking_enabled=accelerated_networking_enabled,
+            dynamic_vnet_assignment_scope=dynamic_vnet_assignment_scope,
+            endpoint_configurations=endpoint_configurations,
+            public_address_provisioning_type=public_address_provisioning_type,
+            public_ips=public_ips,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accelerated_networking_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_vnet_assignment_scope: Optional[pulumi.Input[str]] = None,
+             endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArgs']]]] = None,
+             public_address_provisioning_type: Optional[pulumi.Input[str]] = None,
+             public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accelerated_networking_enabled is not None:
-            pulumi.set(__self__, "accelerated_networking_enabled", accelerated_networking_enabled)
+            _setter("accelerated_networking_enabled", accelerated_networking_enabled)
         if dynamic_vnet_assignment_scope is not None:
-            pulumi.set(__self__, "dynamic_vnet_assignment_scope", dynamic_vnet_assignment_scope)
+            _setter("dynamic_vnet_assignment_scope", dynamic_vnet_assignment_scope)
         if endpoint_configurations is not None:
-            pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
+            _setter("endpoint_configurations", endpoint_configurations)
         if public_address_provisioning_type is not None:
-            pulumi.set(__self__, "public_address_provisioning_type", public_address_provisioning_type)
+            _setter("public_address_provisioning_type", public_address_provisioning_type)
         if public_ips is not None:
-            pulumi.set(__self__, "public_ips", public_ips)
+            _setter("public_ips", public_ips)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="acceleratedNetworkingEnabled")
@@ -1492,12 +1813,29 @@ class PoolNetworkConfigurationEndpointConfigurationArgs:
         :param pulumi.Input[str] protocol: The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs']]] network_security_group_rules: A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "backend_port", backend_port)
-        pulumi.set(__self__, "frontend_port_range", frontend_port_range)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "protocol", protocol)
+        PoolNetworkConfigurationEndpointConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_port=backend_port,
+            frontend_port_range=frontend_port_range,
+            name=name,
+            protocol=protocol,
+            network_security_group_rules=network_security_group_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_port: pulumi.Input[int],
+             frontend_port_range: pulumi.Input[str],
+             name: pulumi.Input[str],
+             protocol: pulumi.Input[str],
+             network_security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("backend_port", backend_port)
+        _setter("frontend_port_range", frontend_port_range)
+        _setter("name", name)
+        _setter("protocol", protocol)
         if network_security_group_rules is not None:
-            pulumi.set(__self__, "network_security_group_rules", network_security_group_rules)
+            _setter("network_security_group_rules", network_security_group_rules)
 
     @property
     @pulumi.getter(name="backendPort")
@@ -1573,11 +1911,26 @@ class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs:
         :param pulumi.Input[str] source_address_prefix: The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_port_ranges: The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "access", access)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "source_address_prefix", source_address_prefix)
+        PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access=access,
+            priority=priority,
+            source_address_prefix=source_address_prefix,
+            source_port_ranges=source_port_ranges,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access: pulumi.Input[str],
+             priority: pulumi.Input[int],
+             source_address_prefix: pulumi.Input[str],
+             source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("access", access)
+        _setter("priority", priority)
+        _setter("source_address_prefix", source_address_prefix)
         if source_port_ranges is not None:
-            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+            _setter("source_port_ranges", source_port_ranges)
 
     @property
     @pulumi.getter
@@ -1635,8 +1988,17 @@ class PoolNodePlacementArgs:
         """
         :param pulumi.Input[str] policy: The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
         """
+        PoolNodePlacementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy=policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
 
     @property
     @pulumi.getter
@@ -1670,18 +2032,39 @@ class PoolStartTaskArgs:
         :param pulumi.Input[int] task_retry_maximum: The number of retry count.
         :param pulumi.Input[bool] wait_for_success: A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
         """
-        pulumi.set(__self__, "command_line", command_line)
-        pulumi.set(__self__, "user_identity", user_identity)
+        PoolStartTaskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            command_line=command_line,
+            user_identity=user_identity,
+            common_environment_properties=common_environment_properties,
+            containers=containers,
+            resource_files=resource_files,
+            task_retry_maximum=task_retry_maximum,
+            wait_for_success=wait_for_success,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             command_line: pulumi.Input[str],
+             user_identity: pulumi.Input['PoolStartTaskUserIdentityArgs'],
+             common_environment_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             containers: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerArgs']]]] = None,
+             resource_files: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]]] = None,
+             task_retry_maximum: Optional[pulumi.Input[int]] = None,
+             wait_for_success: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("command_line", command_line)
+        _setter("user_identity", user_identity)
         if common_environment_properties is not None:
-            pulumi.set(__self__, "common_environment_properties", common_environment_properties)
+            _setter("common_environment_properties", common_environment_properties)
         if containers is not None:
-            pulumi.set(__self__, "containers", containers)
+            _setter("containers", containers)
         if resource_files is not None:
-            pulumi.set(__self__, "resource_files", resource_files)
+            _setter("resource_files", resource_files)
         if task_retry_maximum is not None:
-            pulumi.set(__self__, "task_retry_maximum", task_retry_maximum)
+            _setter("task_retry_maximum", task_retry_maximum)
         if wait_for_success is not None:
-            pulumi.set(__self__, "wait_for_success", wait_for_success)
+            _setter("wait_for_success", wait_for_success)
 
     @property
     @pulumi.getter(name="commandLine")
@@ -1781,13 +2164,28 @@ class PoolStartTaskContainerArgs:
         :param pulumi.Input[str] run_options: Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
         :param pulumi.Input[str] working_directory: A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
         """
-        pulumi.set(__self__, "image_name", image_name)
+        PoolStartTaskContainerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image_name=image_name,
+            registries=registries,
+            run_options=run_options,
+            working_directory=working_directory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image_name: pulumi.Input[str],
+             registries: Optional[pulumi.Input[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgs']]]] = None,
+             run_options: Optional[pulumi.Input[str]] = None,
+             working_directory: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("image_name", image_name)
         if registries is not None:
-            pulumi.set(__self__, "registries", registries)
+            _setter("registries", registries)
         if run_options is not None:
-            pulumi.set(__self__, "run_options", run_options)
+            _setter("run_options", run_options)
         if working_directory is not None:
-            pulumi.set(__self__, "working_directory", working_directory)
+            _setter("working_directory", working_directory)
 
     @property
     @pulumi.getter(name="imageName")
@@ -1847,19 +2245,32 @@ class PoolStartTaskContainerRegistryArgs:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] registry_server: The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The password to log into the registry server. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] user_assigned_identity_id: An identity reference from pool's user assigned managed identity list.
-               
-               > **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
-        :param pulumi.Input[str] user_name: The username to be used by the Batch pool start task.
+        :param pulumi.Input[str] password: The password to use for authentication against the CIFS file system.
+        :param pulumi.Input[str] user_assigned_identity_id: The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] user_name: The user to use for authentication against the CIFS file system.
         """
-        pulumi.set(__self__, "registry_server", registry_server)
+        PoolStartTaskContainerRegistryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            registry_server=registry_server,
+            password=password,
+            user_assigned_identity_id=user_assigned_identity_id,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             registry_server: pulumi.Input[str],
+             password: Optional[pulumi.Input[str]] = None,
+             user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("registry_server", registry_server)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_assigned_identity_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+            _setter("user_assigned_identity_id", user_assigned_identity_id)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="registryServer")
@@ -1877,7 +2288,7 @@ class PoolStartTaskContainerRegistryArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password to log into the registry server. Changing this forces a new resource to be created.
+        The password to use for authentication against the CIFS file system.
         """
         return pulumi.get(self, "password")
 
@@ -1889,9 +2300,7 @@ class PoolStartTaskContainerRegistryArgs:
     @pulumi.getter(name="userAssignedIdentityId")
     def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        An identity reference from pool's user assigned managed identity list.
-
-        > **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+        The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -1903,7 +2312,7 @@ class PoolStartTaskContainerRegistryArgs:
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The username to be used by the Batch pool start task.
+        The user to use for authentication against the CIFS file system.
         """
         return pulumi.get(self, "user_name")
 
@@ -1933,20 +2342,41 @@ class PoolStartTaskResourceFileArgs:
                
                > **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
         """
+        PoolStartTaskResourceFileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_storage_container_name=auto_storage_container_name,
+            blob_prefix=blob_prefix,
+            file_mode=file_mode,
+            file_path=file_path,
+            http_url=http_url,
+            storage_container_url=storage_container_url,
+            user_assigned_identity_id=user_assigned_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_storage_container_name: Optional[pulumi.Input[str]] = None,
+             blob_prefix: Optional[pulumi.Input[str]] = None,
+             file_mode: Optional[pulumi.Input[str]] = None,
+             file_path: Optional[pulumi.Input[str]] = None,
+             http_url: Optional[pulumi.Input[str]] = None,
+             storage_container_url: Optional[pulumi.Input[str]] = None,
+             user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_storage_container_name is not None:
-            pulumi.set(__self__, "auto_storage_container_name", auto_storage_container_name)
+            _setter("auto_storage_container_name", auto_storage_container_name)
         if blob_prefix is not None:
-            pulumi.set(__self__, "blob_prefix", blob_prefix)
+            _setter("blob_prefix", blob_prefix)
         if file_mode is not None:
-            pulumi.set(__self__, "file_mode", file_mode)
+            _setter("file_mode", file_mode)
         if file_path is not None:
-            pulumi.set(__self__, "file_path", file_path)
+            _setter("file_path", file_path)
         if http_url is not None:
-            pulumi.set(__self__, "http_url", http_url)
+            _setter("http_url", http_url)
         if storage_container_url is not None:
-            pulumi.set(__self__, "storage_container_url", storage_container_url)
+            _setter("storage_container_url", storage_container_url)
         if user_assigned_identity_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+            _setter("user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="autoStorageContainerName")
@@ -2046,10 +2476,21 @@ class PoolStartTaskUserIdentityArgs:
                > **Please Note:** `user_name` and `auto_user` blocks cannot be used both at the same time, but you need to define one or the other.
         :param pulumi.Input[str] user_name: The username to be used by the Batch pool start task.
         """
+        PoolStartTaskUserIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_user=auto_user,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_user: Optional[pulumi.Input['PoolStartTaskUserIdentityAutoUserArgs']] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_user is not None:
-            pulumi.set(__self__, "auto_user", auto_user)
+            _setter("auto_user", auto_user)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="autoUser")
@@ -2087,10 +2528,21 @@ class PoolStartTaskUserIdentityAutoUserArgs:
         :param pulumi.Input[str] elevation_level: The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
         :param pulumi.Input[str] scope: The scope of the user identity under which the start task runs. Possible values are `Task` or `Pool`. Defaults to `Task`.
         """
+        PoolStartTaskUserIdentityAutoUserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elevation_level=elevation_level,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elevation_level: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if elevation_level is not None:
-            pulumi.set(__self__, "elevation_level", elevation_level)
+            _setter("elevation_level", elevation_level)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter(name="elevationLevel")
@@ -2134,16 +2586,33 @@ class PoolStorageImageReferenceArgs:
                
                To provision a Custom Image, the following fields are applicable:
         """
+        PoolStorageImageReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            offer=offer,
+            publisher=publisher,
+            sku=sku,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             offer: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if offer is not None:
-            pulumi.set(__self__, "offer", offer)
+            _setter("offer", offer)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -2215,8 +2684,17 @@ class PoolTaskSchedulingPolicyArgs:
         """
         :param pulumi.Input[str] node_fill_type: Supported values are "Pack" and "Spread". "Pack" means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. "Spread" means that tasks should be assigned evenly across all nodes in the pool.
         """
+        PoolTaskSchedulingPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_fill_type=node_fill_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_fill_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if node_fill_type is not None:
-            pulumi.set(__self__, "node_fill_type", node_fill_type)
+            _setter("node_fill_type", node_fill_type)
 
     @property
     @pulumi.getter(name="nodeFillType")
@@ -2246,13 +2724,30 @@ class PoolUserAccountArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArgs']]] linux_user_configurations: The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
         :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArgs']]] windows_user_configurations: The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
         """
-        pulumi.set(__self__, "elevation_level", elevation_level)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "password", password)
+        PoolUserAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            elevation_level=elevation_level,
+            name=name,
+            password=password,
+            linux_user_configurations=linux_user_configurations,
+            windows_user_configurations=windows_user_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             elevation_level: pulumi.Input[str],
+             name: pulumi.Input[str],
+             password: pulumi.Input[str],
+             linux_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArgs']]]] = None,
+             windows_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("elevation_level", elevation_level)
+        _setter("name", name)
+        _setter("password", password)
         if linux_user_configurations is not None:
-            pulumi.set(__self__, "linux_user_configurations", linux_user_configurations)
+            _setter("linux_user_configurations", linux_user_configurations)
         if windows_user_configurations is not None:
-            pulumi.set(__self__, "windows_user_configurations", windows_user_configurations)
+            _setter("windows_user_configurations", windows_user_configurations)
 
     @property
     @pulumi.getter(name="elevationLevel")
@@ -2326,12 +2821,25 @@ class PoolUserAccountLinuxUserConfigurationArgs:
         :param pulumi.Input[str] ssh_private_key: The SSH private key for the user account. The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).
         :param pulumi.Input[int] uid: The group ID for the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
         """
+        PoolUserAccountLinuxUserConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gid=gid,
+            ssh_private_key=ssh_private_key,
+            uid=uid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gid: Optional[pulumi.Input[int]] = None,
+             ssh_private_key: Optional[pulumi.Input[str]] = None,
+             uid: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if gid is not None:
-            pulumi.set(__self__, "gid", gid)
+            _setter("gid", gid)
         if ssh_private_key is not None:
-            pulumi.set(__self__, "ssh_private_key", ssh_private_key)
+            _setter("ssh_private_key", ssh_private_key)
         if uid is not None:
-            pulumi.set(__self__, "uid", uid)
+            _setter("uid", uid)
 
     @property
     @pulumi.getter
@@ -2377,7 +2885,16 @@ class PoolUserAccountWindowsUserConfigurationArgs:
         """
         :param pulumi.Input[str] login_mode: Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode. Values supported are "Batch" and "Interactive".
         """
-        pulumi.set(__self__, "login_mode", login_mode)
+        PoolUserAccountWindowsUserConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            login_mode=login_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             login_mode: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("login_mode", login_mode)
 
     @property
     @pulumi.getter(name="loginMode")
@@ -2399,8 +2916,17 @@ class PoolWindowArgs:
         """
         :param pulumi.Input[bool] enable_automatic_updates: Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
         """
+        PoolWindowArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enable_automatic_updates=enable_automatic_updates,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enable_automatic_updates is not None:
-            pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
+            _setter("enable_automatic_updates", enable_automatic_updates)
 
     @property
     @pulumi.getter(name="enableAutomaticUpdates")
@@ -2422,7 +2948,16 @@ class GetAccountEncryptionArgs:
         """
         :param str key_vault_key_id: The full URL path of the Key Vault Key used to encrypt data for this Batch account.
         """
-        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        GetAccountEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_key_id=key_vault_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_key_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("key_vault_key_id", key_vault_key_id)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")

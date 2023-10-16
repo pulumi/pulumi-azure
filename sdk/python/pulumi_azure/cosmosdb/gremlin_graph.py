@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -46,28 +46,61 @@ class GremlinGraphArgs:
         :param pulumi.Input[int] throughput: The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphUniqueKeyArgs']]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "partition_key_path", partition_key_path)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        GremlinGraphArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            database_name=database_name,
+            partition_key_path=partition_key_path,
+            resource_group_name=resource_group_name,
+            analytical_storage_ttl=analytical_storage_ttl,
+            autoscale_settings=autoscale_settings,
+            conflict_resolution_policy=conflict_resolution_policy,
+            default_ttl=default_ttl,
+            index_policy=index_policy,
+            name=name,
+            partition_key_version=partition_key_version,
+            throughput=throughput,
+            unique_keys=unique_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: pulumi.Input[str],
+             database_name: pulumi.Input[str],
+             partition_key_path: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
+             autoscale_settings: Optional[pulumi.Input['GremlinGraphAutoscaleSettingsArgs']] = None,
+             conflict_resolution_policy: Optional[pulumi.Input['GremlinGraphConflictResolutionPolicyArgs']] = None,
+             default_ttl: Optional[pulumi.Input[int]] = None,
+             index_policy: Optional[pulumi.Input['GremlinGraphIndexPolicyArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_key_version: Optional[pulumi.Input[int]] = None,
+             throughput: Optional[pulumi.Input[int]] = None,
+             unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphUniqueKeyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("account_name", account_name)
+        _setter("database_name", database_name)
+        _setter("partition_key_path", partition_key_path)
+        _setter("resource_group_name", resource_group_name)
         if analytical_storage_ttl is not None:
-            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+            _setter("analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if conflict_resolution_policy is not None:
-            pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
+            _setter("conflict_resolution_policy", conflict_resolution_policy)
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if index_policy is not None:
-            pulumi.set(__self__, "index_policy", index_policy)
+            _setter("index_policy", index_policy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_key_version is not None:
-            pulumi.set(__self__, "partition_key_version", partition_key_version)
+            _setter("partition_key_version", partition_key_version)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
         if unique_keys is not None:
-            pulumi.set(__self__, "unique_keys", unique_keys)
+            _setter("unique_keys", unique_keys)
 
     @property
     @pulumi.getter(name="accountName")
@@ -258,32 +291,65 @@ class _GremlinGraphState:
         :param pulumi.Input[int] throughput: The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphUniqueKeyArgs']]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
+        _GremlinGraphState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            analytical_storage_ttl=analytical_storage_ttl,
+            autoscale_settings=autoscale_settings,
+            conflict_resolution_policy=conflict_resolution_policy,
+            database_name=database_name,
+            default_ttl=default_ttl,
+            index_policy=index_policy,
+            name=name,
+            partition_key_path=partition_key_path,
+            partition_key_version=partition_key_version,
+            resource_group_name=resource_group_name,
+            throughput=throughput,
+            unique_keys=unique_keys,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
+             autoscale_settings: Optional[pulumi.Input['GremlinGraphAutoscaleSettingsArgs']] = None,
+             conflict_resolution_policy: Optional[pulumi.Input['GremlinGraphConflictResolutionPolicyArgs']] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             default_ttl: Optional[pulumi.Input[int]] = None,
+             index_policy: Optional[pulumi.Input['GremlinGraphIndexPolicyArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_key_path: Optional[pulumi.Input[str]] = None,
+             partition_key_version: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             throughput: Optional[pulumi.Input[int]] = None,
+             unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphUniqueKeyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if analytical_storage_ttl is not None:
-            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+            _setter("analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if conflict_resolution_policy is not None:
-            pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
+            _setter("conflict_resolution_policy", conflict_resolution_policy)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if index_policy is not None:
-            pulumi.set(__self__, "index_policy", index_policy)
+            _setter("index_policy", index_policy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_key_path is not None:
-            pulumi.set(__self__, "partition_key_path", partition_key_path)
+            _setter("partition_key_path", partition_key_path)
         if partition_key_version is not None:
-            pulumi.set(__self__, "partition_key_version", partition_key_version)
+            _setter("partition_key_version", partition_key_version)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
         if unique_keys is not None:
-            pulumi.set(__self__, "unique_keys", unique_keys)
+            _setter("unique_keys", unique_keys)
 
     @property
     @pulumi.getter(name="accountName")
@@ -589,6 +655,10 @@ class GremlinGraph(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GremlinGraphArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -620,12 +690,27 @@ class GremlinGraph(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["analytical_storage_ttl"] = analytical_storage_ttl
+            if autoscale_settings is not None and not isinstance(autoscale_settings, GremlinGraphAutoscaleSettingsArgs):
+                autoscale_settings = autoscale_settings or {}
+                def _setter(key, value):
+                    autoscale_settings[key] = value
+                GremlinGraphAutoscaleSettingsArgs._configure(_setter, **autoscale_settings)
             __props__.__dict__["autoscale_settings"] = autoscale_settings
+            if conflict_resolution_policy is not None and not isinstance(conflict_resolution_policy, GremlinGraphConflictResolutionPolicyArgs):
+                conflict_resolution_policy = conflict_resolution_policy or {}
+                def _setter(key, value):
+                    conflict_resolution_policy[key] = value
+                GremlinGraphConflictResolutionPolicyArgs._configure(_setter, **conflict_resolution_policy)
             __props__.__dict__["conflict_resolution_policy"] = conflict_resolution_policy
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["default_ttl"] = default_ttl
+            if index_policy is not None and not isinstance(index_policy, GremlinGraphIndexPolicyArgs):
+                index_policy = index_policy or {}
+                def _setter(key, value):
+                    index_policy[key] = value
+                GremlinGraphIndexPolicyArgs._configure(_setter, **index_policy)
             __props__.__dict__["index_policy"] = index_policy
             __props__.__dict__["name"] = name
             if partition_key_path is None and not opts.urn:

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
@@ -27,13 +27,30 @@ class CertificateArgs:
         :param pulumi.Input[bool] is_verified: Is the certificate verified? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the IotHub Certificate resource. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "certificate_content", certificate_content)
-        pulumi.set(__self__, "iothub_name", iothub_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_content=certificate_content,
+            iothub_name=iothub_name,
+            resource_group_name=resource_group_name,
+            is_verified=is_verified,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_content: pulumi.Input[str],
+             iothub_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             is_verified: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("certificate_content", certificate_content)
+        _setter("iothub_name", iothub_name)
+        _setter("resource_group_name", resource_group_name)
         if is_verified is not None:
-            pulumi.set(__self__, "is_verified", is_verified)
+            _setter("is_verified", is_verified)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="certificateContent")
@@ -112,16 +129,33 @@ class _CertificateState:
         :param pulumi.Input[str] name: Specifies the name of the IotHub Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Certificate resource has to be created. Changing this forces a new resource to be created.
         """
+        _CertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_content=certificate_content,
+            iothub_name=iothub_name,
+            is_verified=is_verified,
+            name=name,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_content: Optional[pulumi.Input[str]] = None,
+             iothub_name: Optional[pulumi.Input[str]] = None,
+             is_verified: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_content is not None:
-            pulumi.set(__self__, "certificate_content", certificate_content)
+            _setter("certificate_content", certificate_content)
         if iothub_name is not None:
-            pulumi.set(__self__, "iothub_name", iothub_name)
+            _setter("iothub_name", iothub_name)
         if is_verified is not None:
-            pulumi.set(__self__, "is_verified", is_verified)
+            _setter("is_verified", is_verified)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="certificateContent")
@@ -285,6 +319,10 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

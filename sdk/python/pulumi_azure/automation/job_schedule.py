@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['JobScheduleArgs', 'JobSchedule']
@@ -33,16 +33,37 @@ class JobScheduleArgs:
                > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         :param pulumi.Input[str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "runbook_name", runbook_name)
-        pulumi.set(__self__, "schedule_name", schedule_name)
+        JobScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            resource_group_name=resource_group_name,
+            runbook_name=runbook_name,
+            schedule_name=schedule_name,
+            job_schedule_id=job_schedule_id,
+            parameters=parameters,
+            run_on=run_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             runbook_name: pulumi.Input[str],
+             schedule_name: pulumi.Input[str],
+             job_schedule_id: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             run_on: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("automation_account_name", automation_account_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("runbook_name", runbook_name)
+        _setter("schedule_name", schedule_name)
         if job_schedule_id is not None:
-            pulumi.set(__self__, "job_schedule_id", job_schedule_id)
+            _setter("job_schedule_id", job_schedule_id)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if run_on is not None:
-            pulumi.set(__self__, "run_on", run_on)
+            _setter("run_on", run_on)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -153,20 +174,41 @@ class _JobScheduleState:
         :param pulumi.Input[str] runbook_name: The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] schedule_name: The name of the Schedule. Changing this forces a new resource to be created.
         """
+        _JobScheduleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            job_schedule_id=job_schedule_id,
+            parameters=parameters,
+            resource_group_name=resource_group_name,
+            run_on=run_on,
+            runbook_name=runbook_name,
+            schedule_name=schedule_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             job_schedule_id: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             run_on: Optional[pulumi.Input[str]] = None,
+             runbook_name: Optional[pulumi.Input[str]] = None,
+             schedule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if automation_account_name is not None:
-            pulumi.set(__self__, "automation_account_name", automation_account_name)
+            _setter("automation_account_name", automation_account_name)
         if job_schedule_id is not None:
-            pulumi.set(__self__, "job_schedule_id", job_schedule_id)
+            _setter("job_schedule_id", job_schedule_id)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if run_on is not None:
-            pulumi.set(__self__, "run_on", run_on)
+            _setter("run_on", run_on)
         if runbook_name is not None:
-            pulumi.set(__self__, "runbook_name", runbook_name)
+            _setter("runbook_name", runbook_name)
         if schedule_name is not None:
-            pulumi.set(__self__, "schedule_name", schedule_name)
+            _setter("schedule_name", schedule_name)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -356,6 +398,10 @@ class JobSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

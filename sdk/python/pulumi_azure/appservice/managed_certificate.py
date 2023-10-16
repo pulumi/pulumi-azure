@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagedCertificateArgs', 'ManagedCertificate']
@@ -21,9 +21,20 @@ class ManagedCertificateArgs:
         :param pulumi.Input[str] custom_hostname_binding_id: The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the App Service Managed Certificate.
         """
-        pulumi.set(__self__, "custom_hostname_binding_id", custom_hostname_binding_id)
+        ManagedCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_hostname_binding_id=custom_hostname_binding_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_hostname_binding_id: pulumi.Input[str],
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("custom_hostname_binding_id", custom_hostname_binding_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="customHostnameBindingId")
@@ -76,26 +87,53 @@ class _ManagedCertificateState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the App Service Managed Certificate.
         :param pulumi.Input[str] thumbprint: The Certificate Thumbprint.
         """
+        _ManagedCertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            canonical_name=canonical_name,
+            custom_hostname_binding_id=custom_hostname_binding_id,
+            expiration_date=expiration_date,
+            friendly_name=friendly_name,
+            host_names=host_names,
+            issue_date=issue_date,
+            issuer=issuer,
+            subject_name=subject_name,
+            tags=tags,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             canonical_name: Optional[pulumi.Input[str]] = None,
+             custom_hostname_binding_id: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             issue_date: Optional[pulumi.Input[str]] = None,
+             issuer: Optional[pulumi.Input[str]] = None,
+             subject_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if canonical_name is not None:
-            pulumi.set(__self__, "canonical_name", canonical_name)
+            _setter("canonical_name", canonical_name)
         if custom_hostname_binding_id is not None:
-            pulumi.set(__self__, "custom_hostname_binding_id", custom_hostname_binding_id)
+            _setter("custom_hostname_binding_id", custom_hostname_binding_id)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if host_names is not None:
-            pulumi.set(__self__, "host_names", host_names)
+            _setter("host_names", host_names)
         if issue_date is not None:
-            pulumi.set(__self__, "issue_date", issue_date)
+            _setter("issue_date", issue_date)
         if issuer is not None:
-            pulumi.set(__self__, "issuer", issuer)
+            _setter("issuer", issuer)
         if subject_name is not None:
-            pulumi.set(__self__, "subject_name", subject_name)
+            _setter("subject_name", subject_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="canonicalName")
@@ -273,6 +311,10 @@ class ManagedCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

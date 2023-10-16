@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConnectionServicePrincipalArgs', 'ConnectionServicePrincipal']
@@ -33,16 +33,39 @@ class ConnectionServicePrincipalArgs:
         :param pulumi.Input[str] description: A description for this Connection.
         :param pulumi.Input[str] name: Specifies the name of the Connection. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "application_id", application_id)
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ConnectionServicePrincipalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            automation_account_name=automation_account_name,
+            certificate_thumbprint=certificate_thumbprint,
+            resource_group_name=resource_group_name,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: pulumi.Input[str],
+             automation_account_name: pulumi.Input[str],
+             certificate_thumbprint: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             subscription_id: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("application_id", application_id)
+        _setter("automation_account_name", automation_account_name)
+        _setter("certificate_thumbprint", certificate_thumbprint)
+        _setter("resource_group_name", resource_group_name)
+        _setter("subscription_id", subscription_id)
+        _setter("tenant_id", tenant_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -163,22 +186,45 @@ class _ConnectionServicePrincipalState:
         :param pulumi.Input[str] subscription_id: The subscription GUID.
         :param pulumi.Input[str] tenant_id: The ID of the Tenant the Service Principal is assigned in.
         """
+        _ConnectionServicePrincipalState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_id=application_id,
+            automation_account_name=automation_account_name,
+            certificate_thumbprint=certificate_thumbprint,
+            description=description,
+            name=name,
+            resource_group_name=resource_group_name,
+            subscription_id=subscription_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_id: Optional[pulumi.Input[str]] = None,
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
+            _setter("application_id", application_id)
         if automation_account_name is not None:
-            pulumi.set(__self__, "automation_account_name", automation_account_name)
+            _setter("automation_account_name", automation_account_name)
         if certificate_thumbprint is not None:
-            pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
+            _setter("certificate_thumbprint", certificate_thumbprint)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -382,6 +428,10 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectionServicePrincipalArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

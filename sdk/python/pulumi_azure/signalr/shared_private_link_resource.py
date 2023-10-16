@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResource']
@@ -29,13 +29,30 @@ class SharedPrivateLinkResourceArgs:
         :param pulumi.Input[str] name: The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] request_message: The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         """
-        pulumi.set(__self__, "signalr_service_id", signalr_service_id)
-        pulumi.set(__self__, "sub_resource_name", sub_resource_name)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        SharedPrivateLinkResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            signalr_service_id=signalr_service_id,
+            sub_resource_name=sub_resource_name,
+            target_resource_id=target_resource_id,
+            name=name,
+            request_message=request_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             signalr_service_id: pulumi.Input[str],
+             sub_resource_name: pulumi.Input[str],
+             target_resource_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             request_message: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("signalr_service_id", signalr_service_id)
+        _setter("sub_resource_name", sub_resource_name)
+        _setter("target_resource_id", target_resource_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
 
     @property
     @pulumi.getter(name="signalrServiceId")
@@ -120,18 +137,37 @@ class _SharedPrivateLinkResourceState:
                
                > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         """
+        _SharedPrivateLinkResourceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            request_message=request_message,
+            signalr_service_id=signalr_service_id,
+            status=status,
+            sub_resource_name=sub_resource_name,
+            target_resource_id=target_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             request_message: Optional[pulumi.Input[str]] = None,
+             signalr_service_id: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             sub_resource_name: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
         if signalr_service_id is not None:
-            pulumi.set(__self__, "signalr_service_id", signalr_service_id)
+            _setter("signalr_service_id", signalr_service_id)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if sub_resource_name is not None:
-            pulumi.set(__self__, "sub_resource_name", sub_resource_name)
+            _setter("sub_resource_name", sub_resource_name)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
 
     @property
     @pulumi.getter
@@ -335,6 +371,10 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SharedPrivateLinkResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

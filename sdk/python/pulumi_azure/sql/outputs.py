@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -72,14 +72,35 @@ class DatabaseImport(dict):
         :param str storage_uri: Specifies the blob URI of the .bacpac file.
         :param str operation_mode: Specifies the type of import operation being performed. The only allowable value is `Import`.
         """
-        pulumi.set(__self__, "administrator_login", administrator_login)
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
-        pulumi.set(__self__, "authentication_type", authentication_type)
-        pulumi.set(__self__, "storage_key", storage_key)
-        pulumi.set(__self__, "storage_key_type", storage_key_type)
-        pulumi.set(__self__, "storage_uri", storage_uri)
+        DatabaseImport._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            authentication_type=authentication_type,
+            storage_key=storage_key,
+            storage_key_type=storage_key_type,
+            storage_uri=storage_uri,
+            operation_mode=operation_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_login: str,
+             administrator_login_password: str,
+             authentication_type: str,
+             storage_key: str,
+             storage_key_type: str,
+             storage_uri: str,
+             operation_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("administrator_login", administrator_login)
+        _setter("administrator_login_password", administrator_login_password)
+        _setter("authentication_type", authentication_type)
+        _setter("storage_key", storage_key)
+        _setter("storage_key_type", storage_key_type)
+        _setter("storage_uri", storage_uri)
         if operation_mode is not None:
-            pulumi.set(__self__, "operation_mode", operation_mode)
+            _setter("operation_mode", operation_mode)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -184,20 +205,41 @@ class DatabaseThreatDetectionPolicy(dict):
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param str storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
+        DatabaseThreatDetectionPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disabled_alerts=disabled_alerts,
+            email_account_admins=email_account_admins,
+            email_addresses=email_addresses,
+            retention_days=retention_days,
+            state=state,
+            storage_account_access_key=storage_account_access_key,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disabled_alerts: Optional[Sequence[str]] = None,
+             email_account_admins: Optional[str] = None,
+             email_addresses: Optional[Sequence[str]] = None,
+             retention_days: Optional[int] = None,
+             state: Optional[str] = None,
+             storage_account_access_key: Optional[str] = None,
+             storage_endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disabled_alerts is not None:
-            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
+            _setter("disabled_alerts", disabled_alerts)
         if email_account_admins is not None:
-            pulumi.set(__self__, "email_account_admins", email_account_admins)
+            _setter("email_account_admins", email_account_admins)
         if email_addresses is not None:
-            pulumi.set(__self__, "email_addresses", email_addresses)
+            _setter("email_addresses", email_addresses)
         if retention_days is not None:
-            pulumi.set(__self__, "retention_days", retention_days)
+            _setter("retention_days", retention_days)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="disabledAlerts")
@@ -267,11 +309,24 @@ class FailoverGroupPartnerServer(dict):
         :param str location: the location of the failover group.
         :param str role: local replication role of the failover group instance.
         """
-        pulumi.set(__self__, "id", id)
+        FailoverGroupPartnerServer._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            location=location,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             location: Optional[str] = None,
+             role: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -324,9 +379,20 @@ class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
         :param str mode: the failover mode. Possible values are `Manual`, `Automatic`
         :param int grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
         """
-        pulumi.set(__self__, "mode", mode)
+        FailoverGroupReadWriteEndpointFailoverPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            grace_minutes=grace_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             grace_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
         if grace_minutes is not None:
-            pulumi.set(__self__, "grace_minutes", grace_minutes)
+            _setter("grace_minutes", grace_minutes)
 
     @property
     @pulumi.getter
@@ -352,7 +418,16 @@ class FailoverGroupReadonlyEndpointFailoverPolicy(dict):
         """
         :param str mode: Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
         """
-        pulumi.set(__self__, "mode", mode)
+        FailoverGroupReadonlyEndpointFailoverPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
 
     @property
     @pulumi.getter
@@ -372,10 +447,21 @@ class ManagedInstanceFailoverGroupPartnerRegion(dict):
         :param str location: The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
         :param str role: The partner replication role of the SQL Instance Failover Group.
         """
+        ManagedInstanceFailoverGroupPartnerRegion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[str] = None,
+             role: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -420,9 +506,20 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy(dict):
         :param str mode: The failover mode. Possible values are `Manual`, `Automatic`
         :param int grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
         """
-        pulumi.set(__self__, "mode", mode)
+        ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            grace_minutes=grace_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: str,
+             grace_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mode", mode)
         if grace_minutes is not None:
-            pulumi.set(__self__, "grace_minutes", grace_minutes)
+            _setter("grace_minutes", grace_minutes)
 
     @property
     @pulumi.getter
@@ -471,11 +568,24 @@ class ManagedInstanceIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedInstanceIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -534,11 +644,24 @@ class SqlServerIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
         """
-        pulumi.set(__self__, "type", type)
+        SqlServerIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: str,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("type", type)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -613,20 +736,41 @@ class SqlServerThreatDetectionPolicy(dict):
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param str storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
+        SqlServerThreatDetectionPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disabled_alerts=disabled_alerts,
+            email_account_admins=email_account_admins,
+            email_addresses=email_addresses,
+            retention_days=retention_days,
+            state=state,
+            storage_account_access_key=storage_account_access_key,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disabled_alerts: Optional[Sequence[str]] = None,
+             email_account_admins: Optional[bool] = None,
+             email_addresses: Optional[Sequence[str]] = None,
+             retention_days: Optional[int] = None,
+             state: Optional[str] = None,
+             storage_account_access_key: Optional[str] = None,
+             storage_endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if disabled_alerts is not None:
-            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
+            _setter("disabled_alerts", disabled_alerts)
         if email_account_admins is not None:
-            pulumi.set(__self__, "email_account_admins", email_account_admins)
+            _setter("email_account_admins", email_account_admins)
         if email_addresses is not None:
-            pulumi.set(__self__, "email_addresses", email_addresses)
+            _setter("email_addresses", email_addresses)
         if retention_days is not None:
-            pulumi.set(__self__, "retention_days", retention_days)
+            _setter("retention_days", retention_days)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="disabledAlerts")
@@ -696,9 +840,22 @@ class GetServerIdentityResult(dict):
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         :param str type: The identity type of this Managed Service Identity.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetServerIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")
@@ -735,9 +892,22 @@ class GetSqlManagedInstanceIdentityResult(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetSqlManagedInstanceIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: str,
+             tenant_id: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")

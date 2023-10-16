@@ -16,14 +16,14 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
     public static final PoolStartTaskContainerRegistryArgs Empty = new PoolStartTaskContainerRegistryArgs();
 
     /**
-     * The password to log into the registry server. Changing this forces a new resource to be created.
+     * The password to use for authentication against the CIFS file system.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return The password to log into the registry server. Changing this forces a new resource to be created.
+     * @return The password to use for authentication against the CIFS file system.
      * 
      */
     public Optional<Output<String>> password() {
@@ -46,18 +46,14 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
     }
 
     /**
-     * An identity reference from pool&#39;s user assigned managed identity list.
-     * 
-     * &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+     * The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="userAssignedIdentityId")
     private @Nullable Output<String> userAssignedIdentityId;
 
     /**
-     * @return An identity reference from pool&#39;s user assigned managed identity list.
-     * 
-     * &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+     * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> userAssignedIdentityId() {
@@ -65,14 +61,14 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
     }
 
     /**
-     * The username to be used by the Batch pool start task.
+     * The user to use for authentication against the CIFS file system.
      * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
-     * @return The username to be used by the Batch pool start task.
+     * @return The user to use for authentication against the CIFS file system.
      * 
      */
     public Optional<Output<String>> userName() {
@@ -107,7 +103,7 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param password The password to log into the registry server. Changing this forces a new resource to be created.
+         * @param password The password to use for authentication against the CIFS file system.
          * 
          * @return builder
          * 
@@ -118,7 +114,7 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param password The password to log into the registry server. Changing this forces a new resource to be created.
+         * @param password The password to use for authentication against the CIFS file system.
          * 
          * @return builder
          * 
@@ -149,9 +145,7 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param userAssignedIdentityId An identity reference from pool&#39;s user assigned managed identity list.
-         * 
-         * &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+         * @param userAssignedIdentityId The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -162,9 +156,7 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param userAssignedIdentityId An identity reference from pool&#39;s user assigned managed identity list.
-         * 
-         * &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+         * @param userAssignedIdentityId The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -174,7 +166,7 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param userName The username to be used by the Batch pool start task.
+         * @param userName The user to use for authentication against the CIFS file system.
          * 
          * @return builder
          * 
@@ -185,7 +177,7 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param userName The username to be used by the Batch pool start task.
+         * @param userName The user to use for authentication against the CIFS file system.
          * 
          * @return builder
          * 

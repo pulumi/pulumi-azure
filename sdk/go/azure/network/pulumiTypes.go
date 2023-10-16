@@ -12514,7 +12514,7 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionRule struct {
 	Description *string `pulumi:"description"`
 	// The destination IP address (including CIDR).
 	DestinationAddress *string `pulumi:"destinationAddress"`
-	// Specifies a list of destination ports.
+	// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
 	DestinationPorts *string `pulumi:"destinationPorts"`
 	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name string `pulumi:"name"`
@@ -12550,7 +12550,7 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The destination IP address (including CIDR).
 	DestinationAddress pulumi.StringPtrInput `pulumi:"destinationAddress"`
-	// Specifies a list of destination ports.
+	// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
 	DestinationPorts pulumi.StringPtrInput `pulumi:"destinationPorts"`
 	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -12649,7 +12649,7 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) Destinatio
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.DestinationAddress }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a list of destination ports.
+// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) DestinationPorts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.DestinationPorts }).(pulumi.StringPtrOutput)
 }
@@ -12876,7 +12876,7 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule struct {
 	DestinationFqdns []string `pulumi:"destinationFqdns"`
 	// Specifies a list of destination IP groups.
 	DestinationIpGroups []string `pulumi:"destinationIpGroups"`
-	// Specifies a list of destination ports.
+	// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
 	DestinationPorts []string `pulumi:"destinationPorts"`
 	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name string `pulumi:"name"`
@@ -12908,7 +12908,7 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs struct {
 	DestinationFqdns pulumi.StringArrayInput `pulumi:"destinationFqdns"`
 	// Specifies a list of destination IP groups.
 	DestinationIpGroups pulumi.StringArrayInput `pulumi:"destinationIpGroups"`
-	// Specifies a list of destination ports.
+	// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
 	DestinationPorts pulumi.StringArrayInput `pulumi:"destinationPorts"`
 	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -13013,7 +13013,7 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) Destin
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies a list of destination ports.
+// Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
 func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) DestinationPorts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string { return v.DestinationPorts }).(pulumi.StringArrayOutput)
 }

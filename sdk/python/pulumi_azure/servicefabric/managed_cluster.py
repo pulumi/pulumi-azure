@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,36 +53,77 @@ class ManagedClusterArgs:
         :param pulumi.Input[str] upgrade_wave: Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
         :param pulumi.Input[str] username: Administrator password for the VMs that will be created as part of this cluster.
         """
-        pulumi.set(__self__, "client_connection_port", client_connection_port)
-        pulumi.set(__self__, "http_gateway_port", http_gateway_port)
-        pulumi.set(__self__, "lb_rules", lb_rules)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ManagedClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_connection_port=client_connection_port,
+            http_gateway_port=http_gateway_port,
+            lb_rules=lb_rules,
+            resource_group_name=resource_group_name,
+            authentication=authentication,
+            backup_service_enabled=backup_service_enabled,
+            custom_fabric_settings=custom_fabric_settings,
+            dns_name=dns_name,
+            dns_service_enabled=dns_service_enabled,
+            location=location,
+            name=name,
+            node_types=node_types,
+            password=password,
+            sku=sku,
+            tags=tags,
+            upgrade_wave=upgrade_wave,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_connection_port: pulumi.Input[int],
+             http_gateway_port: pulumi.Input[int],
+             lb_rules: pulumi.Input[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]],
+             resource_group_name: pulumi.Input[str],
+             authentication: Optional[pulumi.Input['ManagedClusterAuthenticationArgs']] = None,
+             backup_service_enabled: Optional[pulumi.Input[bool]] = None,
+             custom_fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]] = None,
+             dns_name: Optional[pulumi.Input[str]] = None,
+             dns_service_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             node_types: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             upgrade_wave: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("client_connection_port", client_connection_port)
+        _setter("http_gateway_port", http_gateway_port)
+        _setter("lb_rules", lb_rules)
+        _setter("resource_group_name", resource_group_name)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if backup_service_enabled is not None:
-            pulumi.set(__self__, "backup_service_enabled", backup_service_enabled)
+            _setter("backup_service_enabled", backup_service_enabled)
         if custom_fabric_settings is not None:
-            pulumi.set(__self__, "custom_fabric_settings", custom_fabric_settings)
+            _setter("custom_fabric_settings", custom_fabric_settings)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if dns_service_enabled is not None:
-            pulumi.set(__self__, "dns_service_enabled", dns_service_enabled)
+            _setter("dns_service_enabled", dns_service_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_types is not None:
-            pulumi.set(__self__, "node_types", node_types)
+            _setter("node_types", node_types)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if upgrade_wave is not None:
-            pulumi.set(__self__, "upgrade_wave", upgrade_wave)
+            _setter("upgrade_wave", upgrade_wave)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="clientConnectionPort")
@@ -329,40 +370,81 @@ class _ManagedClusterState:
         :param pulumi.Input[str] upgrade_wave: Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`.
         :param pulumi.Input[str] username: Administrator password for the VMs that will be created as part of this cluster.
         """
+        _ManagedClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            backup_service_enabled=backup_service_enabled,
+            client_connection_port=client_connection_port,
+            custom_fabric_settings=custom_fabric_settings,
+            dns_name=dns_name,
+            dns_service_enabled=dns_service_enabled,
+            http_gateway_port=http_gateway_port,
+            lb_rules=lb_rules,
+            location=location,
+            name=name,
+            node_types=node_types,
+            password=password,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            tags=tags,
+            upgrade_wave=upgrade_wave,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Optional[pulumi.Input['ManagedClusterAuthenticationArgs']] = None,
+             backup_service_enabled: Optional[pulumi.Input[bool]] = None,
+             client_connection_port: Optional[pulumi.Input[int]] = None,
+             custom_fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterCustomFabricSettingArgs']]]] = None,
+             dns_name: Optional[pulumi.Input[str]] = None,
+             dns_service_enabled: Optional[pulumi.Input[bool]] = None,
+             http_gateway_port: Optional[pulumi.Input[int]] = None,
+             lb_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterLbRuleArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             node_types: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeArgs']]]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             upgrade_wave: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if backup_service_enabled is not None:
-            pulumi.set(__self__, "backup_service_enabled", backup_service_enabled)
+            _setter("backup_service_enabled", backup_service_enabled)
         if client_connection_port is not None:
-            pulumi.set(__self__, "client_connection_port", client_connection_port)
+            _setter("client_connection_port", client_connection_port)
         if custom_fabric_settings is not None:
-            pulumi.set(__self__, "custom_fabric_settings", custom_fabric_settings)
+            _setter("custom_fabric_settings", custom_fabric_settings)
         if dns_name is not None:
-            pulumi.set(__self__, "dns_name", dns_name)
+            _setter("dns_name", dns_name)
         if dns_service_enabled is not None:
-            pulumi.set(__self__, "dns_service_enabled", dns_service_enabled)
+            _setter("dns_service_enabled", dns_service_enabled)
         if http_gateway_port is not None:
-            pulumi.set(__self__, "http_gateway_port", http_gateway_port)
+            _setter("http_gateway_port", http_gateway_port)
         if lb_rules is not None:
-            pulumi.set(__self__, "lb_rules", lb_rules)
+            _setter("lb_rules", lb_rules)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_types is not None:
-            pulumi.set(__self__, "node_types", node_types)
+            _setter("node_types", node_types)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if upgrade_wave is not None:
-            pulumi.set(__self__, "upgrade_wave", upgrade_wave)
+            _setter("upgrade_wave", upgrade_wave)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -716,6 +798,10 @@ class ManagedCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -747,6 +833,11 @@ class ManagedCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedClusterArgs.__new__(ManagedClusterArgs)
 
+            if authentication is not None and not isinstance(authentication, ManagedClusterAuthenticationArgs):
+                authentication = authentication or {}
+                def _setter(key, value):
+                    authentication[key] = value
+                ManagedClusterAuthenticationArgs._configure(_setter, **authentication)
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["backup_service_enabled"] = backup_service_enabled
             if client_connection_port is None and not opts.urn:

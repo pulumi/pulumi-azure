@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkManagerScopeConnectionArgs', 'NetworkManagerScopeConnection']
@@ -27,13 +27,30 @@ class NetworkManagerScopeConnectionArgs:
         :param pulumi.Input[str] description: A description of the Network Manager Scope Connection.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Scope Connection. Changing this forces a new Network Manager Scope Connection to be created.
         """
-        pulumi.set(__self__, "network_manager_id", network_manager_id)
-        pulumi.set(__self__, "target_scope_id", target_scope_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        NetworkManagerScopeConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_manager_id=network_manager_id,
+            target_scope_id=target_scope_id,
+            tenant_id=tenant_id,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_manager_id: pulumi.Input[str],
+             target_scope_id: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("network_manager_id", network_manager_id)
+        _setter("target_scope_id", target_scope_id)
+        _setter("tenant_id", tenant_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="networkManagerId")
@@ -114,18 +131,37 @@ class _NetworkManagerScopeConnectionState:
         :param pulumi.Input[str] target_scope_id: Specifies the Resource ID of the target scope which the Network Manager is connected to. It should be either Subscription ID or Management Group ID.
         :param pulumi.Input[str] tenant_id: Specifies the Tenant ID of the Resource which the Network Manager is connected to.
         """
+        _NetworkManagerScopeConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_state=connection_state,
+            description=description,
+            name=name,
+            network_manager_id=network_manager_id,
+            target_scope_id=target_scope_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_state: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_manager_id: Optional[pulumi.Input[str]] = None,
+             target_scope_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_state is not None:
-            pulumi.set(__self__, "connection_state", connection_state)
+            _setter("connection_state", connection_state)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_manager_id is not None:
-            pulumi.set(__self__, "network_manager_id", network_manager_id)
+            _setter("network_manager_id", network_manager_id)
         if target_scope_id is not None:
-            pulumi.set(__self__, "target_scope_id", target_scope_id)
+            _setter("target_scope_id", target_scope_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="connectionState")
@@ -305,6 +341,10 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkManagerScopeConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

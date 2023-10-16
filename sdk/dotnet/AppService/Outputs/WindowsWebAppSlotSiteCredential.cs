@@ -13,9 +13,6 @@ namespace Pulumi.Azure.AppService.Outputs
     [OutputType]
     public sealed class WindowsWebAppSlotSiteCredential
     {
-        /// <summary>
-        /// The Site Credentials Username used for publishing.
-        /// </summary>
         public readonly string? Name;
         /// <summary>
         /// The Site Credentials Password used for publishing.

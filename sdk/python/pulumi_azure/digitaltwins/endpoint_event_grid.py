@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EndpointEventGridArgs', 'EndpointEventGrid']
@@ -29,14 +29,33 @@ class EndpointEventGridArgs:
         :param pulumi.Input[str] dead_letter_storage_secret: The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins Eventgrid Endpoint. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
         """
-        pulumi.set(__self__, "digital_twins_id", digital_twins_id)
-        pulumi.set(__self__, "eventgrid_topic_endpoint", eventgrid_topic_endpoint)
-        pulumi.set(__self__, "eventgrid_topic_primary_access_key", eventgrid_topic_primary_access_key)
-        pulumi.set(__self__, "eventgrid_topic_secondary_access_key", eventgrid_topic_secondary_access_key)
+        EndpointEventGridArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            digital_twins_id=digital_twins_id,
+            eventgrid_topic_endpoint=eventgrid_topic_endpoint,
+            eventgrid_topic_primary_access_key=eventgrid_topic_primary_access_key,
+            eventgrid_topic_secondary_access_key=eventgrid_topic_secondary_access_key,
+            dead_letter_storage_secret=dead_letter_storage_secret,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             digital_twins_id: pulumi.Input[str],
+             eventgrid_topic_endpoint: pulumi.Input[str],
+             eventgrid_topic_primary_access_key: pulumi.Input[str],
+             eventgrid_topic_secondary_access_key: pulumi.Input[str],
+             dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("digital_twins_id", digital_twins_id)
+        _setter("eventgrid_topic_endpoint", eventgrid_topic_endpoint)
+        _setter("eventgrid_topic_primary_access_key", eventgrid_topic_primary_access_key)
+        _setter("eventgrid_topic_secondary_access_key", eventgrid_topic_secondary_access_key)
         if dead_letter_storage_secret is not None:
-            pulumi.set(__self__, "dead_letter_storage_secret", dead_letter_storage_secret)
+            _setter("dead_letter_storage_secret", dead_letter_storage_secret)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="digitalTwinsId")
@@ -129,18 +148,37 @@ class _EndpointEventGridState:
         :param pulumi.Input[str] eventgrid_topic_secondary_access_key: The secondary access key of the Event Grid Topic.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins Eventgrid Endpoint. Changing this forces a new Digital Twins Eventgrid Endpoint to be created.
         """
+        _EndpointEventGridState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dead_letter_storage_secret=dead_letter_storage_secret,
+            digital_twins_id=digital_twins_id,
+            eventgrid_topic_endpoint=eventgrid_topic_endpoint,
+            eventgrid_topic_primary_access_key=eventgrid_topic_primary_access_key,
+            eventgrid_topic_secondary_access_key=eventgrid_topic_secondary_access_key,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
+             digital_twins_id: Optional[pulumi.Input[str]] = None,
+             eventgrid_topic_endpoint: Optional[pulumi.Input[str]] = None,
+             eventgrid_topic_primary_access_key: Optional[pulumi.Input[str]] = None,
+             eventgrid_topic_secondary_access_key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dead_letter_storage_secret is not None:
-            pulumi.set(__self__, "dead_letter_storage_secret", dead_letter_storage_secret)
+            _setter("dead_letter_storage_secret", dead_letter_storage_secret)
         if digital_twins_id is not None:
-            pulumi.set(__self__, "digital_twins_id", digital_twins_id)
+            _setter("digital_twins_id", digital_twins_id)
         if eventgrid_topic_endpoint is not None:
-            pulumi.set(__self__, "eventgrid_topic_endpoint", eventgrid_topic_endpoint)
+            _setter("eventgrid_topic_endpoint", eventgrid_topic_endpoint)
         if eventgrid_topic_primary_access_key is not None:
-            pulumi.set(__self__, "eventgrid_topic_primary_access_key", eventgrid_topic_primary_access_key)
+            _setter("eventgrid_topic_primary_access_key", eventgrid_topic_primary_access_key)
         if eventgrid_topic_secondary_access_key is not None:
-            pulumi.set(__self__, "eventgrid_topic_secondary_access_key", eventgrid_topic_secondary_access_key)
+            _setter("eventgrid_topic_secondary_access_key", eventgrid_topic_secondary_access_key)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="deadLetterStorageSecret")
@@ -314,6 +352,10 @@ class EndpointEventGrid(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointEventGridArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

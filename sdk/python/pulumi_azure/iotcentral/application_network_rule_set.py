@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,13 +27,28 @@ class ApplicationNetworkRuleSetArgs:
         :param pulumi.Input[str] default_action: Specifies the default action for the IoT Central Application Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
         """
-        pulumi.set(__self__, "iotcentral_application_id", iotcentral_application_id)
+        ApplicationNetworkRuleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iotcentral_application_id=iotcentral_application_id,
+            apply_to_device=apply_to_device,
+            default_action=default_action,
+            ip_rules=ip_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iotcentral_application_id: pulumi.Input[str],
+             apply_to_device: Optional[pulumi.Input[bool]] = None,
+             default_action: Optional[pulumi.Input[str]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("iotcentral_application_id", iotcentral_application_id)
         if apply_to_device is not None:
-            pulumi.set(__self__, "apply_to_device", apply_to_device)
+            _setter("apply_to_device", apply_to_device)
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
 
     @property
     @pulumi.getter(name="iotcentralApplicationId")
@@ -98,14 +113,29 @@ class _ApplicationNetworkRuleSetState:
         :param pulumi.Input[str] iotcentral_application_id: The ID of the IoT Central Application. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
         """
+        _ApplicationNetworkRuleSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apply_to_device=apply_to_device,
+            default_action=default_action,
+            iotcentral_application_id=iotcentral_application_id,
+            ip_rules=ip_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apply_to_device: Optional[pulumi.Input[bool]] = None,
+             default_action: Optional[pulumi.Input[str]] = None,
+             iotcentral_application_id: Optional[pulumi.Input[str]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if apply_to_device is not None:
-            pulumi.set(__self__, "apply_to_device", apply_to_device)
+            _setter("apply_to_device", apply_to_device)
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if iotcentral_application_id is not None:
-            pulumi.set(__self__, "iotcentral_application_id", iotcentral_application_id)
+            _setter("iotcentral_application_id", iotcentral_application_id)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
 
     @property
     @pulumi.getter(name="applyToDevice")
@@ -271,6 +301,10 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApplicationNetworkRuleSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

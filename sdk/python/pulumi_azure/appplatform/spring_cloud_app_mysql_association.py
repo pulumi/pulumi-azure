@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SpringCloudAppMysqlAssociationArgs', 'SpringCloudAppMysqlAssociation']
@@ -29,13 +29,32 @@ class SpringCloudAppMysqlAssociationArgs:
         :param pulumi.Input[str] username: Specifies the username which should be used when connecting to the MySQL Database from the Spring Cloud App.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "mysql_server_id", mysql_server_id)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
-        pulumi.set(__self__, "username", username)
+        SpringCloudAppMysqlAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            mysql_server_id=mysql_server_id,
+            password=password,
+            spring_cloud_app_id=spring_cloud_app_id,
+            username=username,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: pulumi.Input[str],
+             mysql_server_id: pulumi.Input[str],
+             password: pulumi.Input[str],
+             spring_cloud_app_id: pulumi.Input[str],
+             username: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("database_name", database_name)
+        _setter("mysql_server_id", mysql_server_id)
+        _setter("password", password)
+        _setter("spring_cloud_app_id", spring_cloud_app_id)
+        _setter("username", username)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -128,18 +147,37 @@ class _SpringCloudAppMysqlAssociationState:
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] username: Specifies the username which should be used when connecting to the MySQL Database from the Spring Cloud App.
         """
+        _SpringCloudAppMysqlAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database_name=database_name,
+            mysql_server_id=mysql_server_id,
+            name=name,
+            password=password,
+            spring_cloud_app_id=spring_cloud_app_id,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database_name: Optional[pulumi.Input[str]] = None,
+             mysql_server_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if mysql_server_id is not None:
-            pulumi.set(__self__, "mysql_server_id", mysql_server_id)
+            _setter("mysql_server_id", mysql_server_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if spring_cloud_app_id is not None:
-            pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+            _setter("spring_cloud_app_id", spring_cloud_app_id)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -345,6 +383,10 @@ class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpringCloudAppMysqlAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

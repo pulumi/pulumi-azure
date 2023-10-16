@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,17 +31,34 @@ class ChannelWebChatArgs:
                > **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
         """
-        pulumi.set(__self__, "bot_name", bot_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ChannelWebChatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            resource_group_name=resource_group_name,
+            location=location,
+            site_names=site_names,
+            sites=sites,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             site_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sites: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("bot_name", bot_name)
+        _setter("resource_group_name", resource_group_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if site_names is not None:
             warnings.warn("""`site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""site_names is deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""")
         if site_names is not None:
-            pulumi.set(__self__, "site_names", site_names)
+            _setter("site_names", site_names)
         if sites is not None:
-            pulumi.set(__self__, "sites", sites)
+            _setter("sites", sites)
 
     @property
     @pulumi.getter(name="botName")
@@ -127,19 +144,36 @@ class _ChannelWebChatState:
                > **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]] sites: A site represents a client application that you want to connect to your bot. Multiple `site` blocks may be defined as below
         """
+        _ChannelWebChatState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            location=location,
+            resource_group_name=resource_group_name,
+            site_names=site_names,
+            sites=sites,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             site_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sites: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bot_name is not None:
-            pulumi.set(__self__, "bot_name", bot_name)
+            _setter("bot_name", bot_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if site_names is not None:
             warnings.warn("""`site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""site_names is deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""")
         if site_names is not None:
-            pulumi.set(__self__, "site_names", site_names)
+            _setter("site_names", site_names)
         if sites is not None:
-            pulumi.set(__self__, "sites", sites)
+            _setter("sites", sites)
 
     @property
     @pulumi.getter(name="botName")
@@ -310,6 +344,10 @@ class ChannelWebChat(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelWebChatArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -336,9 +374,6 @@ class ChannelWebChat(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if site_names is not None and not opts.urn:
-                warnings.warn("""`site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-                pulumi.log.warn("""site_names is deprecated: `site_names` will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.""")
             __props__.__dict__["site_names"] = site_names
             __props__.__dict__["sites"] = sites
         super(ChannelWebChat, __self__).__init__(

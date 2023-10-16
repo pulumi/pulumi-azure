@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,38 @@ class NetworkServiceArgs:
         :param pulumi.Input['NetworkServiceServiceQosPolicyArgs'] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Service.
         """
-        pulumi.set(__self__, "mobile_network_id", mobile_network_id)
-        pulumi.set(__self__, "pcc_rules", pcc_rules)
-        pulumi.set(__self__, "service_precedence", service_precedence)
+        NetworkServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mobile_network_id=mobile_network_id,
+            pcc_rules=pcc_rules,
+            service_precedence=service_precedence,
+            location=location,
+            name=name,
+            service_qos_policy=service_qos_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mobile_network_id: pulumi.Input[str],
+             pcc_rules: pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]],
+             service_precedence: pulumi.Input[int],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             service_qos_policy: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("mobile_network_id", mobile_network_id)
+        _setter("pcc_rules", pcc_rules)
+        _setter("service_precedence", service_precedence)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if service_qos_policy is not None:
-            pulumi.set(__self__, "service_qos_policy", service_qos_policy)
+            _setter("service_qos_policy", service_qos_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="mobileNetworkId")
@@ -150,20 +171,41 @@ class _NetworkServiceState:
         :param pulumi.Input['NetworkServiceServiceQosPolicyArgs'] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Service.
         """
+        _NetworkServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            mobile_network_id=mobile_network_id,
+            name=name,
+            pcc_rules=pcc_rules,
+            service_precedence=service_precedence,
+            service_qos_policy=service_qos_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleArgs']]]] = None,
+             service_precedence: Optional[pulumi.Input[int]] = None,
+             service_qos_policy: Optional[pulumi.Input['NetworkServiceServiceQosPolicyArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mobile_network_id is not None:
-            pulumi.set(__self__, "mobile_network_id", mobile_network_id)
+            _setter("mobile_network_id", mobile_network_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if pcc_rules is not None:
-            pulumi.set(__self__, "pcc_rules", pcc_rules)
+            _setter("pcc_rules", pcc_rules)
         if service_precedence is not None:
-            pulumi.set(__self__, "service_precedence", service_precedence)
+            _setter("service_precedence", service_precedence)
         if service_qos_policy is not None:
-            pulumi.set(__self__, "service_qos_policy", service_qos_policy)
+            _setter("service_qos_policy", service_qos_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -425,6 +467,10 @@ class NetworkService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -457,6 +503,11 @@ class NetworkService(pulumi.CustomResource):
             if service_precedence is None and not opts.urn:
                 raise TypeError("Missing required property 'service_precedence'")
             __props__.__dict__["service_precedence"] = service_precedence
+            if service_qos_policy is not None and not isinstance(service_qos_policy, NetworkServiceServiceQosPolicyArgs):
+                service_qos_policy = service_qos_policy or {}
+                def _setter(key, value):
+                    service_qos_policy[key] = value
+                NetworkServiceServiceQosPolicyArgs._configure(_setter, **service_qos_policy)
             __props__.__dict__["service_qos_policy"] = service_qos_policy
             __props__.__dict__["tags"] = tags
         super(NetworkService, __self__).__init__(

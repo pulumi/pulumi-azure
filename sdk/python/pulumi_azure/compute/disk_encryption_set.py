@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,21 +41,46 @@ class DiskEncryptionSetArgs:
         :param pulumi.Input[str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Disk Encryption Set.
         """
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DiskEncryptionSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity=identity,
+            key_vault_key_id=key_vault_key_id,
+            resource_group_name=resource_group_name,
+            auto_key_rotation_enabled=auto_key_rotation_enabled,
+            encryption_type=encryption_type,
+            federated_client_id=federated_client_id,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity: pulumi.Input['DiskEncryptionSetIdentityArgs'],
+             key_vault_key_id: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
+             encryption_type: Optional[pulumi.Input[str]] = None,
+             federated_client_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("identity", identity)
+        _setter("key_vault_key_id", key_vault_key_id)
+        _setter("resource_group_name", resource_group_name)
         if auto_key_rotation_enabled is not None:
-            pulumi.set(__self__, "auto_key_rotation_enabled", auto_key_rotation_enabled)
+            _setter("auto_key_rotation_enabled", auto_key_rotation_enabled)
         if encryption_type is not None:
-            pulumi.set(__self__, "encryption_type", encryption_type)
+            _setter("encryption_type", encryption_type)
         if federated_client_id is not None:
-            pulumi.set(__self__, "federated_client_id", federated_client_id)
+            _setter("federated_client_id", federated_client_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -198,26 +223,53 @@ class _DiskEncryptionSetState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Disk Encryption Set.
         """
+        _DiskEncryptionSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_key_rotation_enabled=auto_key_rotation_enabled,
+            encryption_type=encryption_type,
+            federated_client_id=federated_client_id,
+            identity=identity,
+            key_vault_key_id=key_vault_key_id,
+            key_vault_key_url=key_vault_key_url,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_key_rotation_enabled: Optional[pulumi.Input[bool]] = None,
+             encryption_type: Optional[pulumi.Input[str]] = None,
+             federated_client_id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['DiskEncryptionSetIdentityArgs']] = None,
+             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             key_vault_key_url: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_key_rotation_enabled is not None:
-            pulumi.set(__self__, "auto_key_rotation_enabled", auto_key_rotation_enabled)
+            _setter("auto_key_rotation_enabled", auto_key_rotation_enabled)
         if encryption_type is not None:
-            pulumi.set(__self__, "encryption_type", encryption_type)
+            _setter("encryption_type", encryption_type)
         if federated_client_id is not None:
-            pulumi.set(__self__, "federated_client_id", federated_client_id)
+            _setter("federated_client_id", federated_client_id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+            _setter("key_vault_key_id", key_vault_key_id)
         if key_vault_key_url is not None:
-            pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
+            _setter("key_vault_key_url", key_vault_key_url)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="autoKeyRotationEnabled")
@@ -703,6 +755,10 @@ class DiskEncryptionSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DiskEncryptionSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -729,6 +785,11 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__.__dict__["auto_key_rotation_enabled"] = auto_key_rotation_enabled
             __props__.__dict__["encryption_type"] = encryption_type
             __props__.__dict__["federated_client_id"] = federated_client_id
+            if identity is not None and not isinstance(identity, DiskEncryptionSetIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                DiskEncryptionSetIdentityArgs._configure(_setter, **identity)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity

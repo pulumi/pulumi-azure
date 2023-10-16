@@ -138,14 +138,14 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
     }
 
     /**
-     * The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+     * Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+     * @return Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
      * 
      */
     public Output<String> type() {
@@ -367,7 +367,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
         }
 
         /**
-         * @param type The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         * @param type Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class ReplicationRecoveryPlanRecoveryGroupPreActionArgs extends com
         }
 
         /**
-         * @param type The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
+         * @param type Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
          * 
          * @return builder
          * 

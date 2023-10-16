@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NotificationRecipientEmailArgs', 'NotificationRecipientEmail']
@@ -23,9 +23,22 @@ class NotificationRecipientEmailArgs:
         :param pulumi.Input[str] email: The recipient email address. Changing this forces a new API Management Notification Recipient Email to be created.
         :param pulumi.Input[str] notification_type: The Notification Name to be received. Changing this forces a new API Management Notification Recipient Email to be created. Possible values are `AccountClosedPublisher`, `BCC`, `NewApplicationNotificationMessage`, `NewIssuePublisherNotificationMessage`, `PurchasePublisherNotificationMessage`, `QuotaLimitApproachingPublisherNotificationMessage`, and `RequestPublisherNotificationMessage`.
         """
-        pulumi.set(__self__, "api_management_id", api_management_id)
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "notification_type", notification_type)
+        NotificationRecipientEmailArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_id=api_management_id,
+            email=email,
+            notification_type=notification_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_id: pulumi.Input[str],
+             email: pulumi.Input[str],
+             notification_type: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("api_management_id", api_management_id)
+        _setter("email", email)
+        _setter("notification_type", notification_type)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -76,12 +89,25 @@ class _NotificationRecipientEmailState:
         :param pulumi.Input[str] email: The recipient email address. Changing this forces a new API Management Notification Recipient Email to be created.
         :param pulumi.Input[str] notification_type: The Notification Name to be received. Changing this forces a new API Management Notification Recipient Email to be created. Possible values are `AccountClosedPublisher`, `BCC`, `NewApplicationNotificationMessage`, `NewIssuePublisherNotificationMessage`, `PurchasePublisherNotificationMessage`, `QuotaLimitApproachingPublisherNotificationMessage`, and `RequestPublisherNotificationMessage`.
         """
+        _NotificationRecipientEmailState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_id=api_management_id,
+            email=email,
+            notification_type=notification_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             notification_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if api_management_id is not None:
-            pulumi.set(__self__, "api_management_id", api_management_id)
+            _setter("api_management_id", api_management_id)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if notification_type is not None:
-            pulumi.set(__self__, "notification_type", notification_type)
+            _setter("notification_type", notification_type)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -211,6 +237,10 @@ class NotificationRecipientEmail(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NotificationRecipientEmailArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

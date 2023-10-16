@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SubscriptionArgs', 'Subscription']
@@ -33,17 +33,36 @@ class SubscriptionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Subscription.
         :param pulumi.Input[str] workload: The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
-        pulumi.set(__self__, "subscription_name", subscription_name)
+        SubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subscription_name=subscription_name,
+            alias=alias,
+            billing_scope_id=billing_scope_id,
+            subscription_id=subscription_id,
+            tags=tags,
+            workload=workload,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subscription_name: pulumi.Input[str],
+             alias: Optional[pulumi.Input[str]] = None,
+             billing_scope_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workload: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("subscription_name", subscription_name)
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if billing_scope_id is not None:
-            pulumi.set(__self__, "billing_scope_id", billing_scope_id)
+            _setter("billing_scope_id", billing_scope_id)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workload is not None:
-            pulumi.set(__self__, "workload", workload)
+            _setter("workload", workload)
 
     @property
     @pulumi.getter(name="subscriptionName")
@@ -146,20 +165,41 @@ class _SubscriptionState:
         :param pulumi.Input[str] tenant_id: The ID of the Tenant to which the subscription belongs.
         :param pulumi.Input[str] workload: The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
+        _SubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias=alias,
+            billing_scope_id=billing_scope_id,
+            subscription_id=subscription_id,
+            subscription_name=subscription_name,
+            tags=tags,
+            tenant_id=tenant_id,
+            workload=workload,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias: Optional[pulumi.Input[str]] = None,
+             billing_scope_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             subscription_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             workload: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if billing_scope_id is not None:
-            pulumi.set(__self__, "billing_scope_id", billing_scope_id)
+            _setter("billing_scope_id", billing_scope_id)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
         if subscription_name is not None:
-            pulumi.set(__self__, "subscription_name", subscription_name)
+            _setter("subscription_name", subscription_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
         if workload is not None:
-            pulumi.set(__self__, "workload", workload)
+            _setter("workload", workload)
 
     @property
     @pulumi.getter
@@ -413,6 +453,10 @@ class Subscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -16,8 +16,6 @@ public final class LinuxWebAppAuthSettingsV2MicrosoftV2 {
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
      * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
-     * 
      */
     private @Nullable List<String> allowedAudiences;
     /**
@@ -28,22 +26,10 @@ public final class LinuxWebAppAuthSettingsV2MicrosoftV2 {
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
      */
     private String clientSecretSettingName;
     /**
-     * @return A list of Login Scopes provided by this Authentication Provider.
-     * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
      * 
      */
     private @Nullable List<String> loginScopes;
@@ -53,8 +39,6 @@ public final class LinuxWebAppAuthSettingsV2MicrosoftV2 {
      * @return Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
      * &gt; **Note:** The `client_id` value is always considered an allowed audience.
-     * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     public List<String> allowedAudiences() {
@@ -70,24 +54,12 @@ public final class LinuxWebAppAuthSettingsV2MicrosoftV2 {
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
      */
     public String clientSecretSettingName() {
         return this.clientSecretSettingName;
     }
     /**
-     * @return A list of Login Scopes provided by this Authentication Provider.
-     * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * @return The list of Login scopes that should be requested as part of Microsoft Account authentication.
      * 
      */
     public List<String> loginScopes() {

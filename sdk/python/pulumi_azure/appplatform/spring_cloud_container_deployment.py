@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,25 +41,54 @@ class SpringCloudContainerDeploymentArgs:
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
         :param pulumi.Input['SpringCloudContainerDeploymentQuotaArgs'] quota: A `quota` block as defined below.
         """
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+        SpringCloudContainerDeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            image=image,
+            server=server,
+            spring_cloud_app_id=spring_cloud_app_id,
+            addon_json=addon_json,
+            arguments=arguments,
+            commands=commands,
+            environment_variables=environment_variables,
+            instance_count=instance_count,
+            language_framework=language_framework,
+            name=name,
+            quota=quota,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             image: pulumi.Input[str],
+             server: pulumi.Input[str],
+             spring_cloud_app_id: pulumi.Input[str],
+             addon_json: Optional[pulumi.Input[str]] = None,
+             arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             language_framework: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             quota: Optional[pulumi.Input['SpringCloudContainerDeploymentQuotaArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("image", image)
+        _setter("server", server)
+        _setter("spring_cloud_app_id", spring_cloud_app_id)
         if addon_json is not None:
-            pulumi.set(__self__, "addon_json", addon_json)
+            _setter("addon_json", addon_json)
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if commands is not None:
-            pulumi.set(__self__, "commands", commands)
+            _setter("commands", commands)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if language_framework is not None:
-            pulumi.set(__self__, "language_framework", language_framework)
+            _setter("language_framework", language_framework)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if quota is not None:
-            pulumi.set(__self__, "quota", quota)
+            _setter("quota", quota)
 
     @property
     @pulumi.getter
@@ -222,28 +251,57 @@ class _SpringCloudContainerDeploymentState:
         :param pulumi.Input[str] server: The name of the registry that contains the container image.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Container Deployment to be created.
         """
+        _SpringCloudContainerDeploymentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            addon_json=addon_json,
+            arguments=arguments,
+            commands=commands,
+            environment_variables=environment_variables,
+            image=image,
+            instance_count=instance_count,
+            language_framework=language_framework,
+            name=name,
+            quota=quota,
+            server=server,
+            spring_cloud_app_id=spring_cloud_app_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             addon_json: Optional[pulumi.Input[str]] = None,
+             arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             image: Optional[pulumi.Input[str]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             language_framework: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             quota: Optional[pulumi.Input['SpringCloudContainerDeploymentQuotaArgs']] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if addon_json is not None:
-            pulumi.set(__self__, "addon_json", addon_json)
+            _setter("addon_json", addon_json)
         if arguments is not None:
-            pulumi.set(__self__, "arguments", arguments)
+            _setter("arguments", arguments)
         if commands is not None:
-            pulumi.set(__self__, "commands", commands)
+            _setter("commands", commands)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if image is not None:
-            pulumi.set(__self__, "image", image)
+            _setter("image", image)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if language_framework is not None:
-            pulumi.set(__self__, "language_framework", language_framework)
+            _setter("language_framework", language_framework)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if quota is not None:
-            pulumi.set(__self__, "quota", quota)
+            _setter("quota", quota)
         if server is not None:
-            pulumi.set(__self__, "server", server)
+            _setter("server", server)
         if spring_cloud_app_id is not None:
-            pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+            _setter("spring_cloud_app_id", spring_cloud_app_id)
 
     @property
     @pulumi.getter(name="addonJson")
@@ -511,6 +569,10 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpringCloudContainerDeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -546,6 +608,11 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
             __props__.__dict__["instance_count"] = instance_count
             __props__.__dict__["language_framework"] = language_framework
             __props__.__dict__["name"] = name
+            if quota is not None and not isinstance(quota, SpringCloudContainerDeploymentQuotaArgs):
+                quota = quota or {}
+                def _setter(key, value):
+                    quota[key] = value
+                SpringCloudContainerDeploymentQuotaArgs._configure(_setter, **quota)
             __props__.__dict__["quota"] = quota
             if server is None and not opts.urn:
                 raise TypeError("Missing required property 'server'")

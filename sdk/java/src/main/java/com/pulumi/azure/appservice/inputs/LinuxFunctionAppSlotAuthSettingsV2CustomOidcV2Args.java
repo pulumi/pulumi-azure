@@ -62,14 +62,14 @@ public final class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args extends co
     }
 
     /**
-     * The OpenID Connect Client ID for the Apple web application.
+     * The ID of the Client to use to authenticate with Azure Active Directory.
      * 
      */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
     /**
-     * @return The OpenID Connect Client ID for the Apple web application.
+     * @return The ID of the Client to use to authenticate with Azure Active Directory.
      * 
      */
     public Output<String> clientId() {
@@ -77,34 +77,14 @@ public final class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args extends co
     }
 
     /**
-     * The app setting name that contains the `client_secret` value used for Apple Login.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     @Import(name="clientSecretSettingName")
     private @Nullable Output<String> clientSecretSettingName;
 
     /**
-     * @return The app setting name that contains the `client_secret` value used for Apple Login.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-     * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
     public Optional<Output<String>> clientSecretSettingName() {
@@ -299,7 +279,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args extends co
         }
 
         /**
-         * @param clientId The OpenID Connect Client ID for the Apple web application.
+         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
          * 
          * @return builder
          * 
@@ -310,7 +290,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args extends co
         }
 
         /**
-         * @param clientId The OpenID Connect Client ID for the Apple web application.
+         * @param clientId The ID of the Client to use to authenticate with Azure Active Directory.
          * 
          * @return builder
          * 
@@ -320,17 +300,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args extends co
         }
 
         /**
-         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Apple Login.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
          * 
          * @return builder
          * 
@@ -341,17 +311,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args extends co
         }
 
         /**
-         * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Apple Login.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
-         * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * @param clientSecretSettingName The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
          * 
          * @return builder
          * 

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MonitorSsoConfigurationArgs', 'MonitorSsoConfiguration']
@@ -25,11 +25,26 @@ class MonitorSsoConfigurationArgs:
         :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration.
         :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `default`.
         """
-        pulumi.set(__self__, "datadog_monitor_id", datadog_monitor_id)
-        pulumi.set(__self__, "enterprise_application_id", enterprise_application_id)
-        pulumi.set(__self__, "single_sign_on_enabled", single_sign_on_enabled)
+        MonitorSsoConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datadog_monitor_id=datadog_monitor_id,
+            enterprise_application_id=enterprise_application_id,
+            single_sign_on_enabled=single_sign_on_enabled,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datadog_monitor_id: pulumi.Input[str],
+             enterprise_application_id: pulumi.Input[str],
+             single_sign_on_enabled: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("datadog_monitor_id", datadog_monitor_id)
+        _setter("enterprise_application_id", enterprise_application_id)
+        _setter("single_sign_on_enabled", single_sign_on_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="datadogMonitorId")
@@ -96,16 +111,33 @@ class _MonitorSsoConfigurationState:
         :param pulumi.Input[str] name: The name of the SingleSignOn configuration. Defaults to `default`.
         :param pulumi.Input[str] single_sign_on_enabled: The state of SingleSignOn configuration.
         """
+        _MonitorSsoConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datadog_monitor_id=datadog_monitor_id,
+            enterprise_application_id=enterprise_application_id,
+            login_url=login_url,
+            name=name,
+            single_sign_on_enabled=single_sign_on_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datadog_monitor_id: Optional[pulumi.Input[str]] = None,
+             enterprise_application_id: Optional[pulumi.Input[str]] = None,
+             login_url: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             single_sign_on_enabled: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if datadog_monitor_id is not None:
-            pulumi.set(__self__, "datadog_monitor_id", datadog_monitor_id)
+            _setter("datadog_monitor_id", datadog_monitor_id)
         if enterprise_application_id is not None:
-            pulumi.set(__self__, "enterprise_application_id", enterprise_application_id)
+            _setter("enterprise_application_id", enterprise_application_id)
         if login_url is not None:
-            pulumi.set(__self__, "login_url", login_url)
+            _setter("login_url", login_url)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if single_sign_on_enabled is not None:
-            pulumi.set(__self__, "single_sign_on_enabled", single_sign_on_enabled)
+            _setter("single_sign_on_enabled", single_sign_on_enabled)
 
     @property
     @pulumi.getter(name="datadogMonitorId")
@@ -279,6 +311,10 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MonitorSsoConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

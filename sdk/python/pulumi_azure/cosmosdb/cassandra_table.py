@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,39 @@ class CassandraTableArgs:
         :param pulumi.Input[int] default_ttl: Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "cassandra_keyspace_id", cassandra_keyspace_id)
-        pulumi.set(__self__, "schema", schema)
+        CassandraTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cassandra_keyspace_id=cassandra_keyspace_id,
+            schema=schema,
+            analytical_storage_ttl=analytical_storage_ttl,
+            autoscale_settings=autoscale_settings,
+            default_ttl=default_ttl,
+            name=name,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cassandra_keyspace_id: pulumi.Input[str],
+             schema: pulumi.Input['CassandraTableSchemaArgs'],
+             analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
+             autoscale_settings: Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']] = None,
+             default_ttl: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             throughput: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cassandra_keyspace_id", cassandra_keyspace_id)
+        _setter("schema", schema)
         if analytical_storage_ttl is not None:
-            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+            _setter("analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="cassandraKeyspaceId")
@@ -147,20 +168,41 @@ class _CassandraTableState:
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
         :param pulumi.Input['CassandraTableSchemaArgs'] schema: A `schema` block as defined below.
         """
+        _CassandraTableState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            analytical_storage_ttl=analytical_storage_ttl,
+            autoscale_settings=autoscale_settings,
+            cassandra_keyspace_id=cassandra_keyspace_id,
+            default_ttl=default_ttl,
+            name=name,
+            schema=schema,
+            throughput=throughput,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
+             autoscale_settings: Optional[pulumi.Input['CassandraTableAutoscaleSettingsArgs']] = None,
+             cassandra_keyspace_id: Optional[pulumi.Input[str]] = None,
+             default_ttl: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input['CassandraTableSchemaArgs']] = None,
+             throughput: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if analytical_storage_ttl is not None:
-            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+            _setter("analytical_storage_ttl", analytical_storage_ttl)
         if autoscale_settings is not None:
-            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+            _setter("autoscale_settings", autoscale_settings)
         if cassandra_keyspace_id is not None:
-            pulumi.set(__self__, "cassandra_keyspace_id", cassandra_keyspace_id)
+            _setter("cassandra_keyspace_id", cassandra_keyspace_id)
         if default_ttl is not None:
-            pulumi.set(__self__, "default_ttl", default_ttl)
+            _setter("default_ttl", default_ttl)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
         if throughput is not None:
-            pulumi.set(__self__, "throughput", throughput)
+            _setter("throughput", throughput)
 
     @property
     @pulumi.getter(name="analyticalStorageTtl")
@@ -392,6 +434,10 @@ class CassandraTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CassandraTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -414,12 +460,22 @@ class CassandraTable(pulumi.CustomResource):
             __props__ = CassandraTableArgs.__new__(CassandraTableArgs)
 
             __props__.__dict__["analytical_storage_ttl"] = analytical_storage_ttl
+            if autoscale_settings is not None and not isinstance(autoscale_settings, CassandraTableAutoscaleSettingsArgs):
+                autoscale_settings = autoscale_settings or {}
+                def _setter(key, value):
+                    autoscale_settings[key] = value
+                CassandraTableAutoscaleSettingsArgs._configure(_setter, **autoscale_settings)
             __props__.__dict__["autoscale_settings"] = autoscale_settings
             if cassandra_keyspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cassandra_keyspace_id'")
             __props__.__dict__["cassandra_keyspace_id"] = cassandra_keyspace_id
             __props__.__dict__["default_ttl"] = default_ttl
             __props__.__dict__["name"] = name
+            if schema is not None and not isinstance(schema, CassandraTableSchemaArgs):
+                schema = schema or {}
+                def _setter(key, value):
+                    schema[key] = value
+                CassandraTableSchemaArgs._configure(_setter, **schema)
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema

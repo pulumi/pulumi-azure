@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EdgeModuleArgs', 'EdgeModule']
@@ -23,10 +23,23 @@ class EdgeModuleArgs:
         :param pulumi.Input[str] video_analyzer_name: The name of the Video Analyzer in which to create the Edge Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Video Analyzer Edge Module. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "video_analyzer_name", video_analyzer_name)
+        EdgeModuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            video_analyzer_name=video_analyzer_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             video_analyzer_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("video_analyzer_name", video_analyzer_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -77,12 +90,25 @@ class _EdgeModuleState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Video Analyzer Edge Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] video_analyzer_name: The name of the Video Analyzer in which to create the Edge Module. Changing this forces a new resource to be created.
         """
+        _EdgeModuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_group_name=resource_group_name,
+            video_analyzer_name=video_analyzer_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             video_analyzer_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if video_analyzer_name is not None:
-            pulumi.set(__self__, "video_analyzer_name", video_analyzer_name)
+            _setter("video_analyzer_name", video_analyzer_name)
 
     @property
     @pulumi.getter
@@ -272,6 +298,10 @@ class EdgeModule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EdgeModuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

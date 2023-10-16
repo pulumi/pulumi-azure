@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -74,28 +74,57 @@ class DeviceDeviceProperty(dict):
         :param str time_zone: The Data Box Edge/Gateway device timezone.
         :param str type: The type of the Data Box Edge/Gateway device.
         """
+        DeviceDeviceProperty._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            configured_role_types=configured_role_types,
+            culture=culture,
+            hcs_version=hcs_version,
+            model=model,
+            node_count=node_count,
+            serial_number=serial_number,
+            software_version=software_version,
+            status=status,
+            time_zone=time_zone,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[int] = None,
+             configured_role_types: Optional[Sequence[str]] = None,
+             culture: Optional[str] = None,
+             hcs_version: Optional[str] = None,
+             model: Optional[str] = None,
+             node_count: Optional[int] = None,
+             serial_number: Optional[str] = None,
+             software_version: Optional[str] = None,
+             status: Optional[str] = None,
+             time_zone: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if configured_role_types is not None:
-            pulumi.set(__self__, "configured_role_types", configured_role_types)
+            _setter("configured_role_types", configured_role_types)
         if culture is not None:
-            pulumi.set(__self__, "culture", culture)
+            _setter("culture", culture)
         if hcs_version is not None:
-            pulumi.set(__self__, "hcs_version", hcs_version)
+            _setter("hcs_version", hcs_version)
         if model is not None:
-            pulumi.set(__self__, "model", model)
+            _setter("model", model)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
         if serial_number is not None:
-            pulumi.set(__self__, "serial_number", serial_number)
+            _setter("serial_number", serial_number)
         if software_version is not None:
-            pulumi.set(__self__, "software_version", software_version)
+            _setter("software_version", software_version)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -218,10 +247,25 @@ class OrderContact(dict):
         :param str name: The contact person name. Changing this forces a new Databox Edge Order to be created.
         :param str phone_number: The phone number. Changing this forces a new Databox Edge Order to be created.
         """
-        pulumi.set(__self__, "company_name", company_name)
-        pulumi.set(__self__, "emails", emails)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "phone_number", phone_number)
+        OrderContact._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            company_name=company_name,
+            emails=emails,
+            name=name,
+            phone_number=phone_number,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             company_name: str,
+             emails: Sequence[str],
+             name: str,
+             phone_number: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("company_name", company_name)
+        _setter("emails", emails)
+        _setter("name", name)
+        _setter("phone_number", phone_number)
 
     @property
     @pulumi.getter(name="companyName")
@@ -292,14 +336,29 @@ class OrderReturnTracking(dict):
         :param str tracking_id: The ID of the tracking.
         :param str tracking_url: Tracking URL of the shipment.
         """
+        OrderReturnTracking._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            carrier_name=carrier_name,
+            serial_number=serial_number,
+            tracking_id=tracking_id,
+            tracking_url=tracking_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             carrier_name: Optional[str] = None,
+             serial_number: Optional[str] = None,
+             tracking_id: Optional[str] = None,
+             tracking_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if carrier_name is not None:
-            pulumi.set(__self__, "carrier_name", carrier_name)
+            _setter("carrier_name", carrier_name)
         if serial_number is not None:
-            pulumi.set(__self__, "serial_number", serial_number)
+            _setter("serial_number", serial_number)
         if tracking_id is not None:
-            pulumi.set(__self__, "tracking_id", tracking_id)
+            _setter("tracking_id", tracking_id)
         if tracking_url is not None:
-            pulumi.set(__self__, "tracking_url", tracking_url)
+            _setter("tracking_url", tracking_url)
 
     @property
     @pulumi.getter(name="carrierName")
@@ -366,11 +425,28 @@ class OrderShipmentAddress(dict):
         :param str postal_code: The postal code. Changing this forces a new Databox Edge Order to be created.
         :param str state: The name of the state to ship the Databox Edge Device to. Changing this forces a new Databox Edge Order to be created.
         """
-        pulumi.set(__self__, "addresses", addresses)
-        pulumi.set(__self__, "city", city)
-        pulumi.set(__self__, "country", country)
-        pulumi.set(__self__, "postal_code", postal_code)
-        pulumi.set(__self__, "state", state)
+        OrderShipmentAddress._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            addresses=addresses,
+            city=city,
+            country=country,
+            postal_code=postal_code,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             addresses: Sequence[str],
+             city: str,
+             country: str,
+             postal_code: str,
+             state: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("addresses", addresses)
+        _setter("city", city)
+        _setter("country", country)
+        _setter("postal_code", postal_code)
+        _setter("state", state)
 
     @property
     @pulumi.getter
@@ -443,12 +519,25 @@ class OrderShipmentHistory(dict):
         :param str comments: Comments related to this status change.
         :param str last_update: Time of status update.
         """
+        OrderShipmentHistory._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_details=additional_details,
+            comments=comments,
+            last_update=last_update,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_details: Optional[Mapping[str, str]] = None,
+             comments: Optional[str] = None,
+             last_update: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_details is not None:
-            pulumi.set(__self__, "additional_details", additional_details)
+            _setter("additional_details", additional_details)
         if comments is not None:
-            pulumi.set(__self__, "comments", comments)
+            _setter("comments", comments)
         if last_update is not None:
-            pulumi.set(__self__, "last_update", last_update)
+            _setter("last_update", last_update)
 
     @property
     @pulumi.getter(name="additionalDetails")
@@ -511,14 +600,29 @@ class OrderShipmentTracking(dict):
         :param str tracking_id: The ID of the tracking.
         :param str tracking_url: Tracking URL of the shipment.
         """
+        OrderShipmentTracking._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            carrier_name=carrier_name,
+            serial_number=serial_number,
+            tracking_id=tracking_id,
+            tracking_url=tracking_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             carrier_name: Optional[str] = None,
+             serial_number: Optional[str] = None,
+             tracking_id: Optional[str] = None,
+             tracking_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if carrier_name is not None:
-            pulumi.set(__self__, "carrier_name", carrier_name)
+            _setter("carrier_name", carrier_name)
         if serial_number is not None:
-            pulumi.set(__self__, "serial_number", serial_number)
+            _setter("serial_number", serial_number)
         if tracking_id is not None:
-            pulumi.set(__self__, "tracking_id", tracking_id)
+            _setter("tracking_id", tracking_id)
         if tracking_url is not None:
-            pulumi.set(__self__, "tracking_url", tracking_url)
+            _setter("tracking_url", tracking_url)
 
     @property
     @pulumi.getter(name="carrierName")
@@ -585,14 +689,29 @@ class OrderStatus(dict):
         :param str info: The current status of the order. Possible values include `Untracked`, `AwaitingFulfilment`, `AwaitingPreparation`, `AwaitingShipment`, `Shipped`, `Arriving`, `Delivered`, `ReplacementRequested`, `LostDevice`, `Declined`, `ReturnInitiated`, `AwaitingReturnShipment`, `ShippedBack` or `CollectedAtMicrosoft`.
         :param str last_update: Time of status update.
         """
+        OrderStatus._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_details=additional_details,
+            comments=comments,
+            info=info,
+            last_update=last_update,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_details: Optional[Mapping[str, str]] = None,
+             comments: Optional[str] = None,
+             info: Optional[str] = None,
+             last_update: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_details is not None:
-            pulumi.set(__self__, "additional_details", additional_details)
+            _setter("additional_details", additional_details)
         if comments is not None:
-            pulumi.set(__self__, "comments", comments)
+            _setter("comments", comments)
         if info is not None:
-            pulumi.set(__self__, "info", info)
+            _setter("info", info)
         if last_update is not None:
-            pulumi.set(__self__, "last_update", last_update)
+            _setter("last_update", last_update)
 
     @property
     @pulumi.getter(name="additionalDetails")
@@ -654,17 +773,46 @@ class GetDeviceDevicePropertyResult(dict):
         :param str time_zone: The Data Box Edge/Gateway device timezone.
         :param str type: The type of the Data Box Edge/Gateway device.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "configured_role_types", configured_role_types)
-        pulumi.set(__self__, "culture", culture)
-        pulumi.set(__self__, "hcs_version", hcs_version)
-        pulumi.set(__self__, "model", model)
-        pulumi.set(__self__, "node_count", node_count)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "software_version", software_version)
-        pulumi.set(__self__, "status", status)
-        pulumi.set(__self__, "time_zone", time_zone)
-        pulumi.set(__self__, "type", type)
+        GetDeviceDevicePropertyResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            configured_role_types=configured_role_types,
+            culture=culture,
+            hcs_version=hcs_version,
+            model=model,
+            node_count=node_count,
+            serial_number=serial_number,
+            software_version=software_version,
+            status=status,
+            time_zone=time_zone,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: int,
+             configured_role_types: Sequence[str],
+             culture: str,
+             hcs_version: str,
+             model: str,
+             node_count: int,
+             serial_number: str,
+             software_version: str,
+             status: str,
+             time_zone: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("capacity", capacity)
+        _setter("configured_role_types", configured_role_types)
+        _setter("culture", culture)
+        _setter("hcs_version", hcs_version)
+        _setter("model", model)
+        _setter("node_count", node_count)
+        _setter("serial_number", serial_number)
+        _setter("software_version", software_version)
+        _setter("status", status)
+        _setter("time_zone", time_zone)
+        _setter("type", type)
 
     @property
     @pulumi.getter

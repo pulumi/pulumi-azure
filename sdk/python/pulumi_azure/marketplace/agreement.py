@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AgreementArgs', 'Agreement']
@@ -23,9 +23,22 @@ class AgreementArgs:
         :param pulumi.Input[str] plan: The Plan of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] publisher: The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "offer", offer)
-        pulumi.set(__self__, "plan", plan)
-        pulumi.set(__self__, "publisher", publisher)
+        AgreementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            offer=offer,
+            plan=plan,
+            publisher=publisher,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             offer: pulumi.Input[str],
+             plan: pulumi.Input[str],
+             publisher: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("offer", offer)
+        _setter("plan", plan)
+        _setter("publisher", publisher)
 
     @property
     @pulumi.getter
@@ -78,16 +91,33 @@ class _AgreementState:
         :param pulumi.Input[str] plan: The Plan of the Marketplace Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] publisher: The Publisher of the Marketplace Image. Changing this forces a new resource to be created.
         """
+        _AgreementState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            license_text_link=license_text_link,
+            offer=offer,
+            plan=plan,
+            privacy_policy_link=privacy_policy_link,
+            publisher=publisher,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             license_text_link: Optional[pulumi.Input[str]] = None,
+             offer: Optional[pulumi.Input[str]] = None,
+             plan: Optional[pulumi.Input[str]] = None,
+             privacy_policy_link: Optional[pulumi.Input[str]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if license_text_link is not None:
-            pulumi.set(__self__, "license_text_link", license_text_link)
+            _setter("license_text_link", license_text_link)
         if offer is not None:
-            pulumi.set(__self__, "offer", offer)
+            _setter("offer", offer)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if privacy_policy_link is not None:
-            pulumi.set(__self__, "privacy_policy_link", privacy_policy_link)
+            _setter("privacy_policy_link", privacy_policy_link)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
 
     @property
     @pulumi.getter(name="licenseTextLink")
@@ -221,6 +251,10 @@ class Agreement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AgreementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

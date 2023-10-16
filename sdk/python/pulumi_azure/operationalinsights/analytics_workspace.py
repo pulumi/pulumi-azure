@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AnalyticsWorkspaceArgs', 'AnalyticsWorkspace']
@@ -57,33 +57,68 @@ class AnalyticsWorkspaceArgs:
                
                > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AnalyticsWorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            allow_resource_only_permissions=allow_resource_only_permissions,
+            cmk_for_query_forced=cmk_for_query_forced,
+            daily_quota_gb=daily_quota_gb,
+            data_collection_rule_id=data_collection_rule_id,
+            internet_ingestion_enabled=internet_ingestion_enabled,
+            internet_query_enabled=internet_query_enabled,
+            local_authentication_disabled=local_authentication_disabled,
+            location=location,
+            name=name,
+            reservation_capacity_in_gb_per_day=reservation_capacity_in_gb_per_day,
+            retention_in_days=retention_in_days,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             allow_resource_only_permissions: Optional[pulumi.Input[bool]] = None,
+             cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
+             daily_quota_gb: Optional[pulumi.Input[float]] = None,
+             data_collection_rule_id: Optional[pulumi.Input[str]] = None,
+             internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
+             internet_query_enabled: Optional[pulumi.Input[bool]] = None,
+             local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
         if allow_resource_only_permissions is not None:
-            pulumi.set(__self__, "allow_resource_only_permissions", allow_resource_only_permissions)
+            _setter("allow_resource_only_permissions", allow_resource_only_permissions)
         if cmk_for_query_forced is not None:
-            pulumi.set(__self__, "cmk_for_query_forced", cmk_for_query_forced)
+            _setter("cmk_for_query_forced", cmk_for_query_forced)
         if daily_quota_gb is not None:
-            pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
+            _setter("daily_quota_gb", daily_quota_gb)
         if data_collection_rule_id is not None:
-            pulumi.set(__self__, "data_collection_rule_id", data_collection_rule_id)
+            _setter("data_collection_rule_id", data_collection_rule_id)
         if internet_ingestion_enabled is not None:
-            pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
+            _setter("internet_ingestion_enabled", internet_ingestion_enabled)
         if internet_query_enabled is not None:
-            pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
+            _setter("internet_query_enabled", internet_query_enabled)
         if local_authentication_disabled is not None:
-            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
+            _setter("local_authentication_disabled", local_authentication_disabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if reservation_capacity_in_gb_per_day is not None:
-            pulumi.set(__self__, "reservation_capacity_in_gb_per_day", reservation_capacity_in_gb_per_day)
+            _setter("reservation_capacity_in_gb_per_day", reservation_capacity_in_gb_per_day)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -318,40 +353,81 @@ class _AnalyticsWorkspaceState:
                > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
         :param pulumi.Input[str] workspace_id: The Workspace (or Customer) ID for the Log Analytics Workspace.
         """
+        _AnalyticsWorkspaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_resource_only_permissions=allow_resource_only_permissions,
+            cmk_for_query_forced=cmk_for_query_forced,
+            daily_quota_gb=daily_quota_gb,
+            data_collection_rule_id=data_collection_rule_id,
+            internet_ingestion_enabled=internet_ingestion_enabled,
+            internet_query_enabled=internet_query_enabled,
+            local_authentication_disabled=local_authentication_disabled,
+            location=location,
+            name=name,
+            primary_shared_key=primary_shared_key,
+            reservation_capacity_in_gb_per_day=reservation_capacity_in_gb_per_day,
+            resource_group_name=resource_group_name,
+            retention_in_days=retention_in_days,
+            secondary_shared_key=secondary_shared_key,
+            sku=sku,
+            tags=tags,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_resource_only_permissions: Optional[pulumi.Input[bool]] = None,
+             cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
+             daily_quota_gb: Optional[pulumi.Input[float]] = None,
+             data_collection_rule_id: Optional[pulumi.Input[str]] = None,
+             internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
+             internet_query_enabled: Optional[pulumi.Input[bool]] = None,
+             local_authentication_disabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             primary_shared_key: Optional[pulumi.Input[str]] = None,
+             reservation_capacity_in_gb_per_day: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             secondary_shared_key: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_resource_only_permissions is not None:
-            pulumi.set(__self__, "allow_resource_only_permissions", allow_resource_only_permissions)
+            _setter("allow_resource_only_permissions", allow_resource_only_permissions)
         if cmk_for_query_forced is not None:
-            pulumi.set(__self__, "cmk_for_query_forced", cmk_for_query_forced)
+            _setter("cmk_for_query_forced", cmk_for_query_forced)
         if daily_quota_gb is not None:
-            pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
+            _setter("daily_quota_gb", daily_quota_gb)
         if data_collection_rule_id is not None:
-            pulumi.set(__self__, "data_collection_rule_id", data_collection_rule_id)
+            _setter("data_collection_rule_id", data_collection_rule_id)
         if internet_ingestion_enabled is not None:
-            pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
+            _setter("internet_ingestion_enabled", internet_ingestion_enabled)
         if internet_query_enabled is not None:
-            pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
+            _setter("internet_query_enabled", internet_query_enabled)
         if local_authentication_disabled is not None:
-            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
+            _setter("local_authentication_disabled", local_authentication_disabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if primary_shared_key is not None:
-            pulumi.set(__self__, "primary_shared_key", primary_shared_key)
+            _setter("primary_shared_key", primary_shared_key)
         if reservation_capacity_in_gb_per_day is not None:
-            pulumi.set(__self__, "reservation_capacity_in_gb_per_day", reservation_capacity_in_gb_per_day)
+            _setter("reservation_capacity_in_gb_per_day", reservation_capacity_in_gb_per_day)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if secondary_shared_key is not None:
-            pulumi.set(__self__, "secondary_shared_key", secondary_shared_key)
+            _setter("secondary_shared_key", secondary_shared_key)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="allowResourceOnlyPermissions")
@@ -685,6 +761,10 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AnalyticsWorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

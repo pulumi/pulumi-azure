@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkspaceAadAdminInitArgs', 'WorkspaceAadAdmin']
@@ -25,10 +25,25 @@ class WorkspaceAadAdminInitArgs:
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
         :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
         """
-        pulumi.set(__self__, "login", login)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        WorkspaceAadAdminInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            login=login,
+            object_id=object_id,
+            synapse_workspace_id=synapse_workspace_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             login: pulumi.Input[str],
+             object_id: pulumi.Input[str],
+             synapse_workspace_id: pulumi.Input[str],
+             tenant_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("login", login)
+        _setter("object_id", object_id)
+        _setter("synapse_workspace_id", synapse_workspace_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -93,14 +108,29 @@ class _WorkspaceAadAdminState:
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Azure AD Administrator should be configured.
         :param pulumi.Input[str] tenant_id: The tenant id of the Azure AD Administrator of this Synapse Workspace.
         """
+        _WorkspaceAadAdminState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            login=login,
+            object_id=object_id,
+            synapse_workspace_id=synapse_workspace_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             login: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if synapse_workspace_id is not None:
-            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+            _setter("synapse_workspace_id", synapse_workspace_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -328,6 +358,10 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceAadAdminInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

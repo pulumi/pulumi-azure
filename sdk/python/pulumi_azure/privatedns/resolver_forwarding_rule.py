@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,34 @@ class ResolverForwardingRuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata attached to the Private DNS Resolver Forwarding Rule.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         """
-        pulumi.set(__self__, "dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "target_dns_servers", target_dns_servers)
+        ResolverForwardingRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_forwarding_ruleset_id=dns_forwarding_ruleset_id,
+            domain_name=domain_name,
+            target_dns_servers=target_dns_servers,
+            enabled=enabled,
+            metadata=metadata,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_forwarding_ruleset_id: pulumi.Input[str],
+             domain_name: pulumi.Input[str],
+             target_dns_servers: pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
+        _setter("domain_name", domain_name)
+        _setter("target_dns_servers", target_dns_servers)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dnsForwardingRulesetId")
@@ -132,18 +151,37 @@ class _ResolverForwardingRuleState:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]] target_dns_servers: Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
         """
+        _ResolverForwardingRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_forwarding_ruleset_id=dns_forwarding_ruleset_id,
+            domain_name=domain_name,
+            enabled=enabled,
+            metadata=metadata,
+            name=name,
+            target_dns_servers=target_dns_servers,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_forwarding_ruleset_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             target_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverForwardingRuleTargetDnsServerArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_forwarding_ruleset_id is not None:
-            pulumi.set(__self__, "dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
+            _setter("dns_forwarding_ruleset_id", dns_forwarding_ruleset_id)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if target_dns_servers is not None:
-            pulumi.set(__self__, "target_dns_servers", target_dns_servers)
+            _setter("target_dns_servers", target_dns_servers)
 
     @property
     @pulumi.getter(name="dnsForwardingRulesetId")
@@ -377,6 +415,10 @@ class ResolverForwardingRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResolverForwardingRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

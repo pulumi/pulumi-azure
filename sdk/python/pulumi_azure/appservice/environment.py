@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,22 +41,47 @@ class EnvironmentArgs:
         :param pulumi.Input[str] pricing_tier: Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        EnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            subnet_id=subnet_id,
+            allowed_user_ip_cidrs=allowed_user_ip_cidrs,
+            cluster_settings=cluster_settings,
+            front_end_scale_factor=front_end_scale_factor,
+            internal_load_balancing_mode=internal_load_balancing_mode,
+            name=name,
+            pricing_tier=pricing_tier,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: pulumi.Input[str],
+             subnet_id: pulumi.Input[str],
+             allowed_user_ip_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentClusterSettingArgs']]]] = None,
+             front_end_scale_factor: Optional[pulumi.Input[int]] = None,
+             internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             pricing_tier: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("resource_group_name", resource_group_name)
+        _setter("subnet_id", subnet_id)
         if allowed_user_ip_cidrs is not None:
-            pulumi.set(__self__, "allowed_user_ip_cidrs", allowed_user_ip_cidrs)
+            _setter("allowed_user_ip_cidrs", allowed_user_ip_cidrs)
         if cluster_settings is not None:
-            pulumi.set(__self__, "cluster_settings", cluster_settings)
+            _setter("cluster_settings", cluster_settings)
         if front_end_scale_factor is not None:
-            pulumi.set(__self__, "front_end_scale_factor", front_end_scale_factor)
+            _setter("front_end_scale_factor", front_end_scale_factor)
         if internal_load_balancing_mode is not None:
-            pulumi.set(__self__, "internal_load_balancing_mode", internal_load_balancing_mode)
+            _setter("internal_load_balancing_mode", internal_load_balancing_mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if pricing_tier is not None:
-            pulumi.set(__self__, "pricing_tier", pricing_tier)
+            _setter("pricing_tier", pricing_tier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -207,32 +232,65 @@ class _EnvironmentState:
                > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE this size cannot be changed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
+        _EnvironmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_user_ip_cidrs=allowed_user_ip_cidrs,
+            cluster_settings=cluster_settings,
+            front_end_scale_factor=front_end_scale_factor,
+            internal_ip_address=internal_ip_address,
+            internal_load_balancing_mode=internal_load_balancing_mode,
+            location=location,
+            name=name,
+            outbound_ip_addresses=outbound_ip_addresses,
+            pricing_tier=pricing_tier,
+            resource_group_name=resource_group_name,
+            service_ip_address=service_ip_address,
+            subnet_id=subnet_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_user_ip_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentClusterSettingArgs']]]] = None,
+             front_end_scale_factor: Optional[pulumi.Input[int]] = None,
+             internal_ip_address: Optional[pulumi.Input[str]] = None,
+             internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             pricing_tier: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_ip_address: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_user_ip_cidrs is not None:
-            pulumi.set(__self__, "allowed_user_ip_cidrs", allowed_user_ip_cidrs)
+            _setter("allowed_user_ip_cidrs", allowed_user_ip_cidrs)
         if cluster_settings is not None:
-            pulumi.set(__self__, "cluster_settings", cluster_settings)
+            _setter("cluster_settings", cluster_settings)
         if front_end_scale_factor is not None:
-            pulumi.set(__self__, "front_end_scale_factor", front_end_scale_factor)
+            _setter("front_end_scale_factor", front_end_scale_factor)
         if internal_ip_address is not None:
-            pulumi.set(__self__, "internal_ip_address", internal_ip_address)
+            _setter("internal_ip_address", internal_ip_address)
         if internal_load_balancing_mode is not None:
-            pulumi.set(__self__, "internal_load_balancing_mode", internal_load_balancing_mode)
+            _setter("internal_load_balancing_mode", internal_load_balancing_mode)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outbound_ip_addresses is not None:
-            pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
+            _setter("outbound_ip_addresses", outbound_ip_addresses)
         if pricing_tier is not None:
-            pulumi.set(__self__, "pricing_tier", pricing_tier)
+            _setter("pricing_tier", pricing_tier)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if service_ip_address is not None:
-            pulumi.set(__self__, "service_ip_address", service_ip_address)
+            _setter("service_ip_address", service_ip_address)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="allowedUserIpCidrs")
@@ -534,6 +592,10 @@ class Environment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

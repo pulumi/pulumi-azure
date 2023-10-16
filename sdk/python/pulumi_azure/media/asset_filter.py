@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,15 +29,32 @@ class AssetFilterArgs:
         :param pulumi.Input['AssetFilterPresentationTimeRangeArgs'] presentation_time_range: A `presentation_time_range` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]] track_selections: One or more `track_selection` blocks as defined below.
         """
-        pulumi.set(__self__, "asset_id", asset_id)
+        AssetFilterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_id=asset_id,
+            first_quality_bitrate=first_quality_bitrate,
+            name=name,
+            presentation_time_range=presentation_time_range,
+            track_selections=track_selections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_id: pulumi.Input[str],
+             first_quality_bitrate: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             presentation_time_range: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArgs']] = None,
+             track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("asset_id", asset_id)
         if first_quality_bitrate is not None:
-            pulumi.set(__self__, "first_quality_bitrate", first_quality_bitrate)
+            _setter("first_quality_bitrate", first_quality_bitrate)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if presentation_time_range is not None:
-            pulumi.set(__self__, "presentation_time_range", presentation_time_range)
+            _setter("presentation_time_range", presentation_time_range)
         if track_selections is not None:
-            pulumi.set(__self__, "track_selections", track_selections)
+            _setter("track_selections", track_selections)
 
     @property
     @pulumi.getter(name="assetId")
@@ -116,16 +133,33 @@ class _AssetFilterState:
         :param pulumi.Input['AssetFilterPresentationTimeRangeArgs'] presentation_time_range: A `presentation_time_range` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]] track_selections: One or more `track_selection` blocks as defined below.
         """
+        _AssetFilterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            asset_id=asset_id,
+            first_quality_bitrate=first_quality_bitrate,
+            name=name,
+            presentation_time_range=presentation_time_range,
+            track_selections=track_selections,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             asset_id: Optional[pulumi.Input[str]] = None,
+             first_quality_bitrate: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             presentation_time_range: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArgs']] = None,
+             track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if asset_id is not None:
-            pulumi.set(__self__, "asset_id", asset_id)
+            _setter("asset_id", asset_id)
         if first_quality_bitrate is not None:
-            pulumi.set(__self__, "first_quality_bitrate", first_quality_bitrate)
+            _setter("first_quality_bitrate", first_quality_bitrate)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if presentation_time_range is not None:
-            pulumi.set(__self__, "presentation_time_range", presentation_time_range)
+            _setter("presentation_time_range", presentation_time_range)
         if track_selections is not None:
-            pulumi.set(__self__, "track_selections", track_selections)
+            _setter("track_selections", track_selections)
 
     @property
     @pulumi.getter(name="assetId")
@@ -387,6 +421,10 @@ class AssetFilter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssetFilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -411,6 +449,11 @@ class AssetFilter(pulumi.CustomResource):
             __props__.__dict__["asset_id"] = asset_id
             __props__.__dict__["first_quality_bitrate"] = first_quality_bitrate
             __props__.__dict__["name"] = name
+            if presentation_time_range is not None and not isinstance(presentation_time_range, AssetFilterPresentationTimeRangeArgs):
+                presentation_time_range = presentation_time_range or {}
+                def _setter(key, value):
+                    presentation_time_range[key] = value
+                AssetFilterPresentationTimeRangeArgs._configure(_setter, **presentation_time_range)
             __props__.__dict__["presentation_time_range"] = presentation_time_range
             __props__.__dict__["track_selections"] = track_selections
         super(AssetFilter, __self__).__init__(

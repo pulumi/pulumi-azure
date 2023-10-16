@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AdvancedThreatProtectionArgs', 'AdvancedThreatProtection']
@@ -21,8 +21,19 @@ class AdvancedThreatProtectionArgs:
         :param pulumi.Input[bool] enabled: Should Advanced Threat Protection be enabled on this resource?
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        AdvancedThreatProtectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            target_resource_id=target_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: pulumi.Input[bool],
+             target_resource_id: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("enabled", enabled)
+        _setter("target_resource_id", target_resource_id)
 
     @property
     @pulumi.getter
@@ -59,10 +70,21 @@ class _AdvancedThreatProtectionState:
         :param pulumi.Input[bool] enabled: Should Advanced Threat Protection be enabled on this resource?
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created.
         """
+        _AdvancedThreatProtectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            target_resource_id=target_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
 
     @property
     @pulumi.getter
@@ -180,6 +202,10 @@ class AdvancedThreatProtection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AdvancedThreatProtectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TopicArgs', 'Topic']
@@ -48,31 +48,64 @@ class TopicArgs:
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
         """
-        pulumi.set(__self__, "namespace_id", namespace_id)
+        TopicArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_id=namespace_id,
+            auto_delete_on_idle=auto_delete_on_idle,
+            default_message_ttl=default_message_ttl,
+            duplicate_detection_history_time_window=duplicate_detection_history_time_window,
+            enable_batched_operations=enable_batched_operations,
+            enable_express=enable_express,
+            enable_partitioning=enable_partitioning,
+            max_message_size_in_kilobytes=max_message_size_in_kilobytes,
+            max_size_in_megabytes=max_size_in_megabytes,
+            name=name,
+            requires_duplicate_detection=requires_duplicate_detection,
+            status=status,
+            support_ordering=support_ordering,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_id: pulumi.Input[str],
+             auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+             default_message_ttl: Optional[pulumi.Input[str]] = None,
+             duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
+             enable_batched_operations: Optional[pulumi.Input[bool]] = None,
+             enable_express: Optional[pulumi.Input[bool]] = None,
+             enable_partitioning: Optional[pulumi.Input[bool]] = None,
+             max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
+             max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             support_ordering: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("namespace_id", namespace_id)
         if auto_delete_on_idle is not None:
-            pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+            _setter("auto_delete_on_idle", auto_delete_on_idle)
         if default_message_ttl is not None:
-            pulumi.set(__self__, "default_message_ttl", default_message_ttl)
+            _setter("default_message_ttl", default_message_ttl)
         if duplicate_detection_history_time_window is not None:
-            pulumi.set(__self__, "duplicate_detection_history_time_window", duplicate_detection_history_time_window)
+            _setter("duplicate_detection_history_time_window", duplicate_detection_history_time_window)
         if enable_batched_operations is not None:
-            pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
+            _setter("enable_batched_operations", enable_batched_operations)
         if enable_express is not None:
-            pulumi.set(__self__, "enable_express", enable_express)
+            _setter("enable_express", enable_express)
         if enable_partitioning is not None:
-            pulumi.set(__self__, "enable_partitioning", enable_partitioning)
+            _setter("enable_partitioning", enable_partitioning)
         if max_message_size_in_kilobytes is not None:
-            pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
+            _setter("max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes is not None:
-            pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
+            _setter("max_size_in_megabytes", max_size_in_megabytes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if requires_duplicate_detection is not None:
-            pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
+            _setter("requires_duplicate_detection", requires_duplicate_detection)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if support_ordering is not None:
-            pulumi.set(__self__, "support_ordering", support_ordering)
+            _setter("support_ordering", support_ordering)
 
     @property
     @pulumi.getter(name="namespaceId")
@@ -275,36 +308,73 @@ class _TopicState:
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
         """
+        _TopicState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_delete_on_idle=auto_delete_on_idle,
+            default_message_ttl=default_message_ttl,
+            duplicate_detection_history_time_window=duplicate_detection_history_time_window,
+            enable_batched_operations=enable_batched_operations,
+            enable_express=enable_express,
+            enable_partitioning=enable_partitioning,
+            max_message_size_in_kilobytes=max_message_size_in_kilobytes,
+            max_size_in_megabytes=max_size_in_megabytes,
+            name=name,
+            namespace_id=namespace_id,
+            namespace_name=namespace_name,
+            requires_duplicate_detection=requires_duplicate_detection,
+            resource_group_name=resource_group_name,
+            status=status,
+            support_ordering=support_ordering,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+             default_message_ttl: Optional[pulumi.Input[str]] = None,
+             duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
+             enable_batched_operations: Optional[pulumi.Input[bool]] = None,
+             enable_express: Optional[pulumi.Input[bool]] = None,
+             enable_partitioning: Optional[pulumi.Input[bool]] = None,
+             max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
+             max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace_id: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             support_ordering: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_delete_on_idle is not None:
-            pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+            _setter("auto_delete_on_idle", auto_delete_on_idle)
         if default_message_ttl is not None:
-            pulumi.set(__self__, "default_message_ttl", default_message_ttl)
+            _setter("default_message_ttl", default_message_ttl)
         if duplicate_detection_history_time_window is not None:
-            pulumi.set(__self__, "duplicate_detection_history_time_window", duplicate_detection_history_time_window)
+            _setter("duplicate_detection_history_time_window", duplicate_detection_history_time_window)
         if enable_batched_operations is not None:
-            pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
+            _setter("enable_batched_operations", enable_batched_operations)
         if enable_express is not None:
-            pulumi.set(__self__, "enable_express", enable_express)
+            _setter("enable_express", enable_express)
         if enable_partitioning is not None:
-            pulumi.set(__self__, "enable_partitioning", enable_partitioning)
+            _setter("enable_partitioning", enable_partitioning)
         if max_message_size_in_kilobytes is not None:
-            pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
+            _setter("max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes is not None:
-            pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
+            _setter("max_size_in_megabytes", max_size_in_megabytes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace_id is not None:
-            pulumi.set(__self__, "namespace_id", namespace_id)
+            _setter("namespace_id", namespace_id)
         if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
+            _setter("namespace_name", namespace_name)
         if requires_duplicate_detection is not None:
-            pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
+            _setter("requires_duplicate_detection", requires_duplicate_detection)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if support_ordering is not None:
-            pulumi.set(__self__, "support_ordering", support_ordering)
+            _setter("support_ordering", support_ordering)
 
     @property
     @pulumi.getter(name="autoDeleteOnIdle")
@@ -606,6 +676,10 @@ class Topic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

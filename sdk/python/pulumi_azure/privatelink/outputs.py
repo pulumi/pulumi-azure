@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -50,10 +50,21 @@ class EndpointCustomDnsConfig(dict):
         :param str fqdn: The fully qualified domain name to the `private_dns_zone`.
         :param Sequence[str] ip_addresses: A list of all IP Addresses that map to the `private_dns_zone` fqdn.
         """
+        EndpointCustomDnsConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: Optional[str] = None,
+             ip_addresses: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter
@@ -108,12 +119,27 @@ class EndpointIpConfiguration(dict):
                > **NOTE:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
         :param str subresource_name: Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        EndpointIpConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            private_ip_address=private_ip_address,
+            member_name=member_name,
+            subresource_name=subresource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             private_ip_address: str,
+             member_name: Optional[str] = None,
+             subresource_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("private_ip_address", private_ip_address)
         if member_name is not None:
-            pulumi.set(__self__, "member_name", member_name)
+            _setter("member_name", member_name)
         if subresource_name is not None:
-            pulumi.set(__self__, "subresource_name", subresource_name)
+            _setter("subresource_name", subresource_name)
 
     @property
     @pulumi.getter
@@ -159,10 +185,21 @@ class EndpointNetworkInterface(dict):
         :param str id: The ID of the Private DNS Zone Config.
         :param str name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         """
+        EndpointNetworkInterface._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -213,14 +250,29 @@ class EndpointPrivateDnsZoneConfig(dict):
         :param str private_dns_zone_id: A list of IP Addresses
         :param Sequence['EndpointPrivateDnsZoneConfigRecordSetArgs'] record_sets: A `record_sets` block as defined below.
         """
+        EndpointPrivateDnsZoneConfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            private_dns_zone_id=private_dns_zone_id,
+            record_sets=record_sets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             private_dns_zone_id: Optional[str] = None,
+             record_sets: Optional[Sequence['outputs.EndpointPrivateDnsZoneConfigRecordSet']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_dns_zone_id is not None:
-            pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
+            _setter("private_dns_zone_id", private_dns_zone_id)
         if record_sets is not None:
-            pulumi.set(__self__, "record_sets", record_sets)
+            _setter("record_sets", record_sets)
 
     @property
     @pulumi.getter
@@ -287,16 +339,33 @@ class EndpointPrivateDnsZoneConfigRecordSet(dict):
         :param int ttl: The time to live for each connection to the `private_dns_zone`.
         :param str type: The type of DNS record.
         """
+        EndpointPrivateDnsZoneConfigRecordSet._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            ip_addresses=ip_addresses,
+            name=name,
+            ttl=ttl,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: Optional[str] = None,
+             ip_addresses: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             ttl: Optional[int] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -367,10 +436,23 @@ class EndpointPrivateDnsZoneGroup(dict):
         :param Sequence[str] private_dns_zone_ids: Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
         :param str id: The ID of the Private DNS Zone Config.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_dns_zone_ids", private_dns_zone_ids)
+        EndpointPrivateDnsZoneGroup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            private_dns_zone_ids=private_dns_zone_ids,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             private_dns_zone_ids: Sequence[str],
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("private_dns_zone_ids", private_dns_zone_ids)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -447,18 +529,39 @@ class EndpointPrivateServiceConnection(dict):
                
                > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
         """
-        pulumi.set(__self__, "is_manual_connection", is_manual_connection)
-        pulumi.set(__self__, "name", name)
+        EndpointPrivateServiceConnection._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_manual_connection=is_manual_connection,
+            name=name,
+            private_connection_resource_alias=private_connection_resource_alias,
+            private_connection_resource_id=private_connection_resource_id,
+            private_ip_address=private_ip_address,
+            request_message=request_message,
+            subresource_names=subresource_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_manual_connection: bool,
+             name: str,
+             private_connection_resource_alias: Optional[str] = None,
+             private_connection_resource_id: Optional[str] = None,
+             private_ip_address: Optional[str] = None,
+             request_message: Optional[str] = None,
+             subresource_names: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_manual_connection", is_manual_connection)
+        _setter("name", name)
         if private_connection_resource_alias is not None:
-            pulumi.set(__self__, "private_connection_resource_alias", private_connection_resource_alias)
+            _setter("private_connection_resource_alias", private_connection_resource_alias)
         if private_connection_resource_id is not None:
-            pulumi.set(__self__, "private_connection_resource_id", private_connection_resource_id)
+            _setter("private_connection_resource_id", private_connection_resource_id)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
         if subresource_names is not None:
-            pulumi.set(__self__, "subresource_names", subresource_names)
+            _setter("subresource_names", subresource_names)
 
     @property
     @pulumi.getter(name="isManualConnection")
@@ -530,8 +633,19 @@ class GetEndpointConnectionNetworkInterfaceResult(dict):
         :param str id: The ID of the network interface associated with the private endpoint.
         :param str name: Specifies the Name of the private endpoint.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        GetEndpointConnectionNetworkInterfaceResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: str,
+             name: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("id", id)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -568,10 +682,25 @@ class GetEndpointConnectionPrivateServiceConnectionResult(dict):
                `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `request_response` will display the same text from your `request_message` in the `private_service_connection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `request_response` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `request_response` text
         :param str status: The current status of the private endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
-        pulumi.set(__self__, "request_response", request_response)
-        pulumi.set(__self__, "status", status)
+        GetEndpointConnectionPrivateServiceConnectionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            private_ip_address=private_ip_address,
+            request_response=request_response,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             private_ip_address: str,
+             request_response: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("private_ip_address", private_ip_address)
+        _setter("request_response", request_response)
+        _setter("status", status)
 
     @property
     @pulumi.getter
@@ -630,13 +759,34 @@ class GetServiceEndpointConnectionsPrivateEndpointConnectionResult(dict):
         :param str private_endpoint_name: The name of the private link endpoint.
         :param str status: Indicates the state of the connection between the private link service and the private link endpoint, possible values are `Pending`, `Approved` or `Rejected`.
         """
-        pulumi.set(__self__, "action_required", action_required)
-        pulumi.set(__self__, "connection_id", connection_id)
-        pulumi.set(__self__, "connection_name", connection_name)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "private_endpoint_id", private_endpoint_id)
-        pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
-        pulumi.set(__self__, "status", status)
+        GetServiceEndpointConnectionsPrivateEndpointConnectionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action_required=action_required,
+            connection_id=connection_id,
+            connection_name=connection_name,
+            description=description,
+            private_endpoint_id=private_endpoint_id,
+            private_endpoint_name=private_endpoint_name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action_required: str,
+             connection_id: str,
+             connection_name: str,
+             description: str,
+             private_endpoint_id: str,
+             private_endpoint_name: str,
+             status: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("action_required", action_required)
+        _setter("connection_id", connection_id)
+        _setter("connection_name", connection_name)
+        _setter("description", description)
+        _setter("private_endpoint_id", private_endpoint_id)
+        _setter("private_endpoint_name", private_endpoint_name)
+        _setter("status", status)
 
     @property
     @pulumi.getter(name="actionRequired")
@@ -710,11 +860,28 @@ class GetServiceNatIpConfigurationResult(dict):
         :param str private_ip_address_version: The version of the IP Protocol.
         :param str subnet_id: The ID of the subnet to be used by the service.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "primary", primary)
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
-        pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        GetServiceNatIpConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            primary=primary,
+            private_ip_address=private_ip_address,
+            private_ip_address_version=private_ip_address_version,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: str,
+             primary: bool,
+             private_ip_address: str,
+             private_ip_address_version: str,
+             subnet_id: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("primary", primary)
+        _setter("private_ip_address", private_ip_address)
+        _setter("private_ip_address_version", private_ip_address_version)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter

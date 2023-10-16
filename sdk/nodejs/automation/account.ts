@@ -74,6 +74,9 @@ export class Account extends pulumi.CustomResource {
      * The DSC Server Endpoint associated with this Automation Account.
      */
     public /*out*/ readonly dscServerEndpoint!: pulumi.Output<string>;
+    /**
+     * An `encryption` block as defined below.
+     */
     public readonly encryptions!: pulumi.Output<outputs.automation.AccountEncryption[] | undefined>;
     /**
      * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
@@ -186,6 +189,9 @@ export interface AccountState {
      * The DSC Server Endpoint associated with this Automation Account.
      */
     dscServerEndpoint?: pulumi.Input<string>;
+    /**
+     * An `encryption` block as defined below.
+     */
     encryptions?: pulumi.Input<pulumi.Input<inputs.automation.AccountEncryption>[]>;
     /**
      * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
@@ -230,6 +236,9 @@ export interface AccountState {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * An `encryption` block as defined below.
+     */
     encryptions?: pulumi.Input<pulumi.Input<inputs.automation.AccountEncryption>[]>;
     /**
      * An `identity` block as defined below.

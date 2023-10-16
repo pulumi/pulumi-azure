@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Batch.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// The password to log into the registry server. Changing this forces a new resource to be created.
+        /// The password to use for authentication against the CIFS file system.
         /// </summary>
         public Input<string>? Password
         {
@@ -35,15 +35,13 @@ namespace Pulumi.Azure.Batch.Inputs
         public Input<string> RegistryServer { get; set; } = null!;
 
         /// <summary>
-        /// An identity reference from pool's user assigned managed identity list.
-        /// 
-        /// &gt; **Please Note:** Exactly one of `auto_storage_container_name`, `storage_container_url` and `auto_user` must be specified.
+        /// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
         /// </summary>
         [Input("userAssignedIdentityId")]
         public Input<string>? UserAssignedIdentityId { get; set; }
 
         /// <summary>
-        /// The username to be used by the Batch pool start task.
+        /// The user to use for authentication against the CIFS file system.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

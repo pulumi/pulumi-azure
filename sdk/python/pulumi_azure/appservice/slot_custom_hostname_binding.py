@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SlotCustomHostnameBindingArgs', 'SlotCustomHostnameBinding']
@@ -29,12 +29,27 @@ class SlotCustomHostnameBindingArgs:
                
                > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         """
-        pulumi.set(__self__, "app_service_slot_id", app_service_slot_id)
-        pulumi.set(__self__, "hostname", hostname)
+        SlotCustomHostnameBindingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_slot_id=app_service_slot_id,
+            hostname=hostname,
+            ssl_state=ssl_state,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_slot_id: pulumi.Input[str],
+             hostname: pulumi.Input[str],
+             ssl_state: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("app_service_slot_id", app_service_slot_id)
+        _setter("hostname", hostname)
         if ssl_state is not None:
-            pulumi.set(__self__, "ssl_state", ssl_state)
+            _setter("ssl_state", ssl_state)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="appServiceSlotId")
@@ -109,16 +124,33 @@ class _SlotCustomHostnameBindingState:
                > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         :param pulumi.Input[str] virtual_ip: The virtual IP address assigned to the hostname if IP based SSL is enabled.
         """
+        _SlotCustomHostnameBindingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_slot_id=app_service_slot_id,
+            hostname=hostname,
+            ssl_state=ssl_state,
+            thumbprint=thumbprint,
+            virtual_ip=virtual_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_slot_id: Optional[pulumi.Input[str]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             ssl_state: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             virtual_ip: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_service_slot_id is not None:
-            pulumi.set(__self__, "app_service_slot_id", app_service_slot_id)
+            _setter("app_service_slot_id", app_service_slot_id)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if ssl_state is not None:
-            pulumi.set(__self__, "ssl_state", ssl_state)
+            _setter("ssl_state", ssl_state)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
         if virtual_ip is not None:
-            pulumi.set(__self__, "virtual_ip", virtual_ip)
+            _setter("virtual_ip", virtual_ip)
 
     @property
     @pulumi.getter(name="appServiceSlotId")
@@ -300,6 +332,10 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SlotCustomHostnameBindingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

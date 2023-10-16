@@ -13,9 +13,6 @@ namespace Pulumi.Azure.Core.Outputs
     [OutputType]
     public sealed class ResourceProviderRegistrationFeature
     {
-        /// <summary>
-        /// The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
-        /// </summary>
         public readonly string Name;
         /// <summary>
         /// Should this feature be Registered or Unregistered?

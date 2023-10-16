@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,28 +43,55 @@ class EnterpriseDatabaseArgs:
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         """
-        pulumi.set(__self__, "cluster_id", cluster_id)
+        EnterpriseDatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_id=cluster_id,
+            client_protocol=client_protocol,
+            clustering_policy=clustering_policy,
+            eviction_policy=eviction_policy,
+            linked_database_group_nickname=linked_database_group_nickname,
+            linked_database_ids=linked_database_ids,
+            modules=modules,
+            name=name,
+            port=port,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_id: pulumi.Input[str],
+             client_protocol: Optional[pulumi.Input[str]] = None,
+             clustering_policy: Optional[pulumi.Input[str]] = None,
+             eviction_policy: Optional[pulumi.Input[str]] = None,
+             linked_database_group_nickname: Optional[pulumi.Input[str]] = None,
+             linked_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             modules: Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("cluster_id", cluster_id)
         if client_protocol is not None:
-            pulumi.set(__self__, "client_protocol", client_protocol)
+            _setter("client_protocol", client_protocol)
         if clustering_policy is not None:
-            pulumi.set(__self__, "clustering_policy", clustering_policy)
+            _setter("clustering_policy", clustering_policy)
         if eviction_policy is not None:
-            pulumi.set(__self__, "eviction_policy", eviction_policy)
+            _setter("eviction_policy", eviction_policy)
         if linked_database_group_nickname is not None:
-            pulumi.set(__self__, "linked_database_group_nickname", linked_database_group_nickname)
+            _setter("linked_database_group_nickname", linked_database_group_nickname)
         if linked_database_ids is not None:
-            pulumi.set(__self__, "linked_database_ids", linked_database_ids)
+            _setter("linked_database_ids", linked_database_ids)
         if modules is not None:
-            pulumi.set(__self__, "modules", modules)
+            _setter("modules", modules)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if resource_group_name is not None:
             warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
             pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -228,33 +255,64 @@ class _EnterpriseDatabaseState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created.
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Enterprise Database Instance.
         """
+        _EnterpriseDatabaseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_protocol=client_protocol,
+            cluster_id=cluster_id,
+            clustering_policy=clustering_policy,
+            eviction_policy=eviction_policy,
+            linked_database_group_nickname=linked_database_group_nickname,
+            linked_database_ids=linked_database_ids,
+            modules=modules,
+            name=name,
+            port=port,
+            primary_access_key=primary_access_key,
+            resource_group_name=resource_group_name,
+            secondary_access_key=secondary_access_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_protocol: Optional[pulumi.Input[str]] = None,
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             clustering_policy: Optional[pulumi.Input[str]] = None,
+             eviction_policy: Optional[pulumi.Input[str]] = None,
+             linked_database_group_nickname: Optional[pulumi.Input[str]] = None,
+             linked_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             modules: Optional[pulumi.Input[Sequence[pulumi.Input['EnterpriseDatabaseModuleArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             primary_access_key: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             secondary_access_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_protocol is not None:
-            pulumi.set(__self__, "client_protocol", client_protocol)
+            _setter("client_protocol", client_protocol)
         if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
+            _setter("cluster_id", cluster_id)
         if clustering_policy is not None:
-            pulumi.set(__self__, "clustering_policy", clustering_policy)
+            _setter("clustering_policy", clustering_policy)
         if eviction_policy is not None:
-            pulumi.set(__self__, "eviction_policy", eviction_policy)
+            _setter("eviction_policy", eviction_policy)
         if linked_database_group_nickname is not None:
-            pulumi.set(__self__, "linked_database_group_nickname", linked_database_group_nickname)
+            _setter("linked_database_group_nickname", linked_database_group_nickname)
         if linked_database_ids is not None:
-            pulumi.set(__self__, "linked_database_ids", linked_database_ids)
+            _setter("linked_database_ids", linked_database_ids)
         if modules is not None:
-            pulumi.set(__self__, "modules", modules)
+            _setter("modules", modules)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if primary_access_key is not None:
-            pulumi.set(__self__, "primary_access_key", primary_access_key)
+            _setter("primary_access_key", primary_access_key)
         if resource_group_name is not None:
             warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
             pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if secondary_access_key is not None:
-            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
+            _setter("secondary_access_key", secondary_access_key)
 
     @property
     @pulumi.getter(name="clientProtocol")
@@ -537,6 +595,10 @@ class EnterpriseDatabase(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnterpriseDatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -572,9 +634,6 @@ class EnterpriseDatabase(pulumi.CustomResource):
             __props__.__dict__["modules"] = modules
             __props__.__dict__["name"] = name
             __props__.__dict__["port"] = port
-            if resource_group_name is not None and not opts.urn:
-                warnings.warn("""This field is no longer used and will be removed in the next major version of the Azure Provider""", DeprecationWarning)
-                pulumi.log.warn("""resource_group_name is deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider""")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["primary_access_key"] = None
             __props__.__dict__["secondary_access_key"] = None

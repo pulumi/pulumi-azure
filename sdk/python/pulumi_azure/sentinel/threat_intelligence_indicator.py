@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,40 +59,87 @@ class ThreatIntelligenceIndicatorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threat_types: Specifies a list of threat types of this Threat Intelligence Indicator.
         :param pulumi.Input[str] validate_until_utc: The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "pattern", pattern)
-        pulumi.set(__self__, "pattern_type", pattern_type)
-        pulumi.set(__self__, "source", source)
-        pulumi.set(__self__, "validate_from_utc", validate_from_utc)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        ThreatIntelligenceIndicatorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            pattern=pattern,
+            pattern_type=pattern_type,
+            source=source,
+            validate_from_utc=validate_from_utc,
+            workspace_id=workspace_id,
+            confidence=confidence,
+            created_by=created_by,
+            description=description,
+            extension=extension,
+            external_references=external_references,
+            granular_markings=granular_markings,
+            kill_chain_phases=kill_chain_phases,
+            language=language,
+            object_marking_refs=object_marking_refs,
+            pattern_version=pattern_version,
+            revoked=revoked,
+            tags=tags,
+            threat_types=threat_types,
+            validate_until_utc=validate_until_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: pulumi.Input[str],
+             pattern: pulumi.Input[str],
+             pattern_type: pulumi.Input[str],
+             source: pulumi.Input[str],
+             validate_from_utc: pulumi.Input[str],
+             workspace_id: pulumi.Input[str],
+             confidence: Optional[pulumi.Input[int]] = None,
+             created_by: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             extension: Optional[pulumi.Input[str]] = None,
+             external_references: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorExternalReferenceArgs']]]] = None,
+             granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorGranularMarkingArgs']]]] = None,
+             kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorKillChainPhaseArgs']]]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             pattern_version: Optional[pulumi.Input[str]] = None,
+             revoked: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             threat_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             validate_until_utc: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("display_name", display_name)
+        _setter("pattern", pattern)
+        _setter("pattern_type", pattern_type)
+        _setter("source", source)
+        _setter("validate_from_utc", validate_from_utc)
+        _setter("workspace_id", workspace_id)
         if confidence is not None:
-            pulumi.set(__self__, "confidence", confidence)
+            _setter("confidence", confidence)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if extension is not None:
-            pulumi.set(__self__, "extension", extension)
+            _setter("extension", extension)
         if external_references is not None:
-            pulumi.set(__self__, "external_references", external_references)
+            _setter("external_references", external_references)
         if granular_markings is not None:
-            pulumi.set(__self__, "granular_markings", granular_markings)
+            _setter("granular_markings", granular_markings)
         if kill_chain_phases is not None:
-            pulumi.set(__self__, "kill_chain_phases", kill_chain_phases)
+            _setter("kill_chain_phases", kill_chain_phases)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if object_marking_refs is not None:
-            pulumi.set(__self__, "object_marking_refs", object_marking_refs)
+            _setter("object_marking_refs", object_marking_refs)
         if pattern_version is not None:
-            pulumi.set(__self__, "pattern_version", pattern_version)
+            _setter("pattern_version", pattern_version)
         if revoked is not None:
-            pulumi.set(__self__, "revoked", revoked)
+            _setter("revoked", revoked)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threat_types is not None:
-            pulumi.set(__self__, "threat_types", threat_types)
+            _setter("threat_types", threat_types)
         if validate_until_utc is not None:
-            pulumi.set(__self__, "validate_until_utc", validate_until_utc)
+            _setter("validate_until_utc", validate_until_utc)
 
     @property
     @pulumi.getter(name="displayName")
@@ -396,62 +443,125 @@ class _ThreatIntelligenceIndicatorState:
         :param pulumi.Input[str] validate_until_utc: The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
         """
+        _ThreatIntelligenceIndicatorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            confidence=confidence,
+            created_by=created_by,
+            created_on=created_on,
+            defanged=defanged,
+            description=description,
+            display_name=display_name,
+            extension=extension,
+            external_id=external_id,
+            external_last_updated_time_utc=external_last_updated_time_utc,
+            external_references=external_references,
+            granular_markings=granular_markings,
+            guid=guid,
+            indicator_types=indicator_types,
+            kill_chain_phases=kill_chain_phases,
+            language=language,
+            last_updated_time_utc=last_updated_time_utc,
+            object_marking_refs=object_marking_refs,
+            parsed_patterns=parsed_patterns,
+            pattern=pattern,
+            pattern_type=pattern_type,
+            pattern_version=pattern_version,
+            revoked=revoked,
+            source=source,
+            tags=tags,
+            threat_types=threat_types,
+            validate_from_utc=validate_from_utc,
+            validate_until_utc=validate_until_utc,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             confidence: Optional[pulumi.Input[int]] = None,
+             created_by: Optional[pulumi.Input[str]] = None,
+             created_on: Optional[pulumi.Input[str]] = None,
+             defanged: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             extension: Optional[pulumi.Input[str]] = None,
+             external_id: Optional[pulumi.Input[str]] = None,
+             external_last_updated_time_utc: Optional[pulumi.Input[str]] = None,
+             external_references: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorExternalReferenceArgs']]]] = None,
+             granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorGranularMarkingArgs']]]] = None,
+             guid: Optional[pulumi.Input[str]] = None,
+             indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorKillChainPhaseArgs']]]] = None,
+             language: Optional[pulumi.Input[str]] = None,
+             last_updated_time_utc: Optional[pulumi.Input[str]] = None,
+             object_marking_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             parsed_patterns: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternArgs']]]] = None,
+             pattern: Optional[pulumi.Input[str]] = None,
+             pattern_type: Optional[pulumi.Input[str]] = None,
+             pattern_version: Optional[pulumi.Input[str]] = None,
+             revoked: Optional[pulumi.Input[bool]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             threat_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             validate_from_utc: Optional[pulumi.Input[str]] = None,
+             validate_until_utc: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if confidence is not None:
-            pulumi.set(__self__, "confidence", confidence)
+            _setter("confidence", confidence)
         if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
+            _setter("created_by", created_by)
         if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
+            _setter("created_on", created_on)
         if defanged is not None:
-            pulumi.set(__self__, "defanged", defanged)
+            _setter("defanged", defanged)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if extension is not None:
-            pulumi.set(__self__, "extension", extension)
+            _setter("extension", extension)
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if external_last_updated_time_utc is not None:
-            pulumi.set(__self__, "external_last_updated_time_utc", external_last_updated_time_utc)
+            _setter("external_last_updated_time_utc", external_last_updated_time_utc)
         if external_references is not None:
-            pulumi.set(__self__, "external_references", external_references)
+            _setter("external_references", external_references)
         if granular_markings is not None:
-            pulumi.set(__self__, "granular_markings", granular_markings)
+            _setter("granular_markings", granular_markings)
         if guid is not None:
-            pulumi.set(__self__, "guid", guid)
+            _setter("guid", guid)
         if indicator_types is not None:
-            pulumi.set(__self__, "indicator_types", indicator_types)
+            _setter("indicator_types", indicator_types)
         if kill_chain_phases is not None:
-            pulumi.set(__self__, "kill_chain_phases", kill_chain_phases)
+            _setter("kill_chain_phases", kill_chain_phases)
         if language is not None:
-            pulumi.set(__self__, "language", language)
+            _setter("language", language)
         if last_updated_time_utc is not None:
-            pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
+            _setter("last_updated_time_utc", last_updated_time_utc)
         if object_marking_refs is not None:
-            pulumi.set(__self__, "object_marking_refs", object_marking_refs)
+            _setter("object_marking_refs", object_marking_refs)
         if parsed_patterns is not None:
-            pulumi.set(__self__, "parsed_patterns", parsed_patterns)
+            _setter("parsed_patterns", parsed_patterns)
         if pattern is not None:
-            pulumi.set(__self__, "pattern", pattern)
+            _setter("pattern", pattern)
         if pattern_type is not None:
-            pulumi.set(__self__, "pattern_type", pattern_type)
+            _setter("pattern_type", pattern_type)
         if pattern_version is not None:
-            pulumi.set(__self__, "pattern_version", pattern_version)
+            _setter("pattern_version", pattern_version)
         if revoked is not None:
-            pulumi.set(__self__, "revoked", revoked)
+            _setter("revoked", revoked)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threat_types is not None:
-            pulumi.set(__self__, "threat_types", threat_types)
+            _setter("threat_types", threat_types)
         if validate_from_utc is not None:
-            pulumi.set(__self__, "validate_from_utc", validate_from_utc)
+            _setter("validate_from_utc", validate_from_utc)
         if validate_until_utc is not None:
-            pulumi.set(__self__, "validate_until_utc", validate_until_utc)
+            _setter("validate_until_utc", validate_until_utc)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter
@@ -924,6 +1034,10 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ThreatIntelligenceIndicatorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

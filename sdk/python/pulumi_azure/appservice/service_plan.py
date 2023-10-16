@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServicePlanArgs', 'ServicePlan']
@@ -47,25 +47,54 @@ class ServicePlanArgs:
                
                > **NOTE:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         """
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
+        ServicePlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            os_type=os_type,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            app_service_environment_id=app_service_environment_id,
+            location=location,
+            maximum_elastic_worker_count=maximum_elastic_worker_count,
+            name=name,
+            per_site_scaling_enabled=per_site_scaling_enabled,
+            tags=tags,
+            worker_count=worker_count,
+            zone_balancing_enabled=zone_balancing_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             os_type: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             sku_name: pulumi.Input[str],
+             app_service_environment_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maximum_elastic_worker_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             per_site_scaling_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             worker_count: Optional[pulumi.Input[int]] = None,
+             zone_balancing_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("os_type", os_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku_name", sku_name)
         if app_service_environment_id is not None:
-            pulumi.set(__self__, "app_service_environment_id", app_service_environment_id)
+            _setter("app_service_environment_id", app_service_environment_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maximum_elastic_worker_count is not None:
-            pulumi.set(__self__, "maximum_elastic_worker_count", maximum_elastic_worker_count)
+            _setter("maximum_elastic_worker_count", maximum_elastic_worker_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if per_site_scaling_enabled is not None:
-            pulumi.set(__self__, "per_site_scaling_enabled", per_site_scaling_enabled)
+            _setter("per_site_scaling_enabled", per_site_scaling_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if worker_count is not None:
-            pulumi.set(__self__, "worker_count", worker_count)
+            _setter("worker_count", worker_count)
         if zone_balancing_enabled is not None:
-            pulumi.set(__self__, "zone_balancing_enabled", zone_balancing_enabled)
+            _setter("zone_balancing_enabled", zone_balancing_enabled)
 
     @property
     @pulumi.getter(name="osType")
@@ -248,32 +277,65 @@ class _ServicePlanState:
                
                > **NOTE:** If this setting is set to `true` and the `worker_count` value is specified, it should be set to a multiple of the number of availability zones in the region. Please see the Azure documentation for the number of Availability Zones in your region.
         """
+        _ServicePlanState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_environment_id=app_service_environment_id,
+            kind=kind,
+            location=location,
+            maximum_elastic_worker_count=maximum_elastic_worker_count,
+            name=name,
+            os_type=os_type,
+            per_site_scaling_enabled=per_site_scaling_enabled,
+            reserved=reserved,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            tags=tags,
+            worker_count=worker_count,
+            zone_balancing_enabled=zone_balancing_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_environment_id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maximum_elastic_worker_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             per_site_scaling_enabled: Optional[pulumi.Input[bool]] = None,
+             reserved: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             worker_count: Optional[pulumi.Input[int]] = None,
+             zone_balancing_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if app_service_environment_id is not None:
-            pulumi.set(__self__, "app_service_environment_id", app_service_environment_id)
+            _setter("app_service_environment_id", app_service_environment_id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maximum_elastic_worker_count is not None:
-            pulumi.set(__self__, "maximum_elastic_worker_count", maximum_elastic_worker_count)
+            _setter("maximum_elastic_worker_count", maximum_elastic_worker_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if per_site_scaling_enabled is not None:
-            pulumi.set(__self__, "per_site_scaling_enabled", per_site_scaling_enabled)
+            _setter("per_site_scaling_enabled", per_site_scaling_enabled)
         if reserved is not None:
-            pulumi.set(__self__, "reserved", reserved)
+            _setter("reserved", reserved)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if worker_count is not None:
-            pulumi.set(__self__, "worker_count", worker_count)
+            _setter("worker_count", worker_count)
         if zone_balancing_enabled is not None:
-            pulumi.set(__self__, "zone_balancing_enabled", zone_balancing_enabled)
+            _setter("zone_balancing_enabled", zone_balancing_enabled)
 
     @property
     @pulumi.getter(name="appServiceEnvironmentId")
@@ -545,6 +607,10 @@ class ServicePlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServicePlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

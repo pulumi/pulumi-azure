@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EnrichmentArgs', 'Enrichment']
@@ -27,11 +27,28 @@ class EnrichmentArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
         """
-        pulumi.set(__self__, "endpoint_names", endpoint_names)
-        pulumi.set(__self__, "iothub_name", iothub_name)
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "value", value)
+        EnrichmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_names=endpoint_names,
+            iothub_name=iothub_name,
+            key=key,
+            resource_group_name=resource_group_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             iothub_name: pulumi.Input[str],
+             key: pulumi.Input[str],
+             resource_group_name: pulumi.Input[str],
+             value: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("endpoint_names", endpoint_names)
+        _setter("iothub_name", iothub_name)
+        _setter("key", key)
+        _setter("resource_group_name", resource_group_name)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="endpointNames")
@@ -110,16 +127,33 @@ class _EnrichmentState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
         """
+        _EnrichmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            endpoint_names=endpoint_names,
+            iothub_name=iothub_name,
+            key=key,
+            resource_group_name=resource_group_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             endpoint_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             iothub_name: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoint_names is not None:
-            pulumi.set(__self__, "endpoint_names", endpoint_names)
+            _setter("endpoint_names", endpoint_names)
         if iothub_name is not None:
-            pulumi.set(__self__, "iothub_name", iothub_name)
+            _setter("iothub_name", iothub_name)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter(name="endpointNames")
@@ -243,6 +277,10 @@ class Enrichment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnrichmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

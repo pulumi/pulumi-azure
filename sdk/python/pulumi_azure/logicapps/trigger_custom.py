@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TriggerCustomArgs', 'TriggerCustom']
@@ -25,10 +25,23 @@ class TriggerCustomArgs:
                
                > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         """
-        pulumi.set(__self__, "body", body)
-        pulumi.set(__self__, "logic_app_id", logic_app_id)
+        TriggerCustomArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            logic_app_id=logic_app_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: pulumi.Input[str],
+             logic_app_id: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("body", body)
+        _setter("logic_app_id", logic_app_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -83,12 +96,25 @@ class _TriggerCustomState:
                
                > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         """
+        _TriggerCustomState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            logic_app_id=logic_app_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: Optional[pulumi.Input[str]] = None,
+             logic_app_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if logic_app_id is not None:
-            pulumi.set(__self__, "logic_app_id", logic_app_id)
+            _setter("logic_app_id", logic_app_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -228,6 +254,10 @@ class TriggerCustom(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TriggerCustomArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

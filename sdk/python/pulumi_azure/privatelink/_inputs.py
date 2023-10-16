@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -28,10 +28,21 @@ class EndpointCustomDnsConfigArgs:
         :param pulumi.Input[str] fqdn: The fully qualified domain name to the `private_dns_zone`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: A list of all IP Addresses that map to the `private_dns_zone` fqdn.
         """
+        EndpointCustomDnsConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            ip_addresses=ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: Optional[pulumi.Input[str]] = None,
+             ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
 
     @property
     @pulumi.getter
@@ -73,12 +84,27 @@ class EndpointIpConfigurationArgs:
                > **NOTE:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
         :param pulumi.Input[str] subresource_name: Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        EndpointIpConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            private_ip_address=private_ip_address,
+            member_name=member_name,
+            subresource_name=subresource_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             private_ip_address: pulumi.Input[str],
+             member_name: Optional[pulumi.Input[str]] = None,
+             subresource_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("private_ip_address", private_ip_address)
         if member_name is not None:
-            pulumi.set(__self__, "member_name", member_name)
+            _setter("member_name", member_name)
         if subresource_name is not None:
-            pulumi.set(__self__, "subresource_name", subresource_name)
+            _setter("subresource_name", subresource_name)
 
     @property
     @pulumi.getter
@@ -140,10 +166,21 @@ class EndpointNetworkInterfaceArgs:
         :param pulumi.Input[str] id: The ID of the Private DNS Zone Config.
         :param pulumi.Input[str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         """
+        EndpointNetworkInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -183,14 +220,29 @@ class EndpointPrivateDnsZoneConfigArgs:
         :param pulumi.Input[str] private_dns_zone_id: A list of IP Addresses
         :param pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]] record_sets: A `record_sets` block as defined below.
         """
+        EndpointPrivateDnsZoneConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+            private_dns_zone_id=private_dns_zone_id,
+            record_sets=record_sets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_dns_zone_id: Optional[pulumi.Input[str]] = None,
+             record_sets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_dns_zone_id is not None:
-            pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
+            _setter("private_dns_zone_id", private_dns_zone_id)
         if record_sets is not None:
-            pulumi.set(__self__, "record_sets", record_sets)
+            _setter("record_sets", record_sets)
 
     @property
     @pulumi.getter
@@ -256,16 +308,33 @@ class EndpointPrivateDnsZoneConfigRecordSetArgs:
         :param pulumi.Input[int] ttl: The time to live for each connection to the `private_dns_zone`.
         :param pulumi.Input[str] type: The type of DNS record.
         """
+        EndpointPrivateDnsZoneConfigRecordSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            ip_addresses=ip_addresses,
+            name=name,
+            ttl=ttl,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: Optional[pulumi.Input[str]] = None,
+             ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -339,10 +408,23 @@ class EndpointPrivateDnsZoneGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_dns_zone_ids: Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
         :param pulumi.Input[str] id: The ID of the Private DNS Zone Config.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_dns_zone_ids", private_dns_zone_ids)
+        EndpointPrivateDnsZoneGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            private_dns_zone_ids=private_dns_zone_ids,
+            id=id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             private_dns_zone_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("private_dns_zone_ids", private_dns_zone_ids)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
 
     @property
     @pulumi.getter
@@ -404,18 +486,39 @@ class EndpointPrivateServiceConnectionArgs:
                
                > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
         """
-        pulumi.set(__self__, "is_manual_connection", is_manual_connection)
-        pulumi.set(__self__, "name", name)
+        EndpointPrivateServiceConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_manual_connection=is_manual_connection,
+            name=name,
+            private_connection_resource_alias=private_connection_resource_alias,
+            private_connection_resource_id=private_connection_resource_id,
+            private_ip_address=private_ip_address,
+            request_message=request_message,
+            subresource_names=subresource_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_manual_connection: pulumi.Input[bool],
+             name: pulumi.Input[str],
+             private_connection_resource_alias: Optional[pulumi.Input[str]] = None,
+             private_connection_resource_id: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             request_message: Optional[pulumi.Input[str]] = None,
+             subresource_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("is_manual_connection", is_manual_connection)
+        _setter("name", name)
         if private_connection_resource_alias is not None:
-            pulumi.set(__self__, "private_connection_resource_alias", private_connection_resource_alias)
+            _setter("private_connection_resource_alias", private_connection_resource_alias)
         if private_connection_resource_id is not None:
-            pulumi.set(__self__, "private_connection_resource_id", private_connection_resource_id)
+            _setter("private_connection_resource_id", private_connection_resource_id)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
         if subresource_names is not None:
-            pulumi.set(__self__, "subresource_names", subresource_names)
+            _setter("subresource_names", subresource_names)
 
     @property
     @pulumi.getter(name="isManualConnection")
