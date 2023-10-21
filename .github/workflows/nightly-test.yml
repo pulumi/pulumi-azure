@@ -129,6 +129,7 @@ jobs:
         - dotnet
         - go
         - java
+
   prerequisites:
     name: prerequisites
     runs-on: pulumi-ubuntu-8core
@@ -204,6 +205,8 @@ jobs:
         author_name: Failure in building provider prerequisites
         fields: repo,commit,author,action
         status: ${{ job.status }}
+
+
   test:
     name: test
     needs: build_sdk
