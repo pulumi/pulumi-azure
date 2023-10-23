@@ -51,10 +51,10 @@ public final class FeaturesAppConfiguration {
             return this;
         }
         public FeaturesAppConfiguration build() {
-            final var o = new FeaturesAppConfiguration();
-            o.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
-            o.recoverSoftDeleted = recoverSoftDeleted;
-            return o;
+            final var _resultValue = new FeaturesAppConfiguration();
+            _resultValue.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
+            _resultValue.recoverSoftDeleted = recoverSoftDeleted;
+            return _resultValue;
         }
     }
 }

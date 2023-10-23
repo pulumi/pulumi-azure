@@ -87,7 +87,35 @@ class SubscriptionArgs:
              name: Optional[pulumi.Input[str]] = None,
              requires_session: Optional[pulumi.Input[bool]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxDeliveryCount' in kwargs:
+            max_delivery_count = kwargs['maxDeliveryCount']
+        if 'topicId' in kwargs:
+            topic_id = kwargs['topicId']
+        if 'autoDeleteOnIdle' in kwargs:
+            auto_delete_on_idle = kwargs['autoDeleteOnIdle']
+        if 'clientScopedSubscription' in kwargs:
+            client_scoped_subscription = kwargs['clientScopedSubscription']
+        if 'clientScopedSubscriptionEnabled' in kwargs:
+            client_scoped_subscription_enabled = kwargs['clientScopedSubscriptionEnabled']
+        if 'deadLetteringOnFilterEvaluationError' in kwargs:
+            dead_lettering_on_filter_evaluation_error = kwargs['deadLetteringOnFilterEvaluationError']
+        if 'deadLetteringOnMessageExpiration' in kwargs:
+            dead_lettering_on_message_expiration = kwargs['deadLetteringOnMessageExpiration']
+        if 'defaultMessageTtl' in kwargs:
+            default_message_ttl = kwargs['defaultMessageTtl']
+        if 'enableBatchedOperations' in kwargs:
+            enable_batched_operations = kwargs['enableBatchedOperations']
+        if 'forwardDeadLetteredMessagesTo' in kwargs:
+            forward_dead_lettered_messages_to = kwargs['forwardDeadLetteredMessagesTo']
+        if 'forwardTo' in kwargs:
+            forward_to = kwargs['forwardTo']
+        if 'lockDuration' in kwargs:
+            lock_duration = kwargs['lockDuration']
+        if 'requiresSession' in kwargs:
+            requires_session = kwargs['requiresSession']
+
         _setter("max_delivery_count", max_delivery_count)
         _setter("topic_id", topic_id)
         if auto_delete_on_idle is not None:
@@ -374,7 +402,35 @@ class _SubscriptionState:
              requires_session: Optional[pulumi.Input[bool]] = None,
              status: Optional[pulumi.Input[str]] = None,
              topic_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoDeleteOnIdle' in kwargs:
+            auto_delete_on_idle = kwargs['autoDeleteOnIdle']
+        if 'clientScopedSubscription' in kwargs:
+            client_scoped_subscription = kwargs['clientScopedSubscription']
+        if 'clientScopedSubscriptionEnabled' in kwargs:
+            client_scoped_subscription_enabled = kwargs['clientScopedSubscriptionEnabled']
+        if 'deadLetteringOnFilterEvaluationError' in kwargs:
+            dead_lettering_on_filter_evaluation_error = kwargs['deadLetteringOnFilterEvaluationError']
+        if 'deadLetteringOnMessageExpiration' in kwargs:
+            dead_lettering_on_message_expiration = kwargs['deadLetteringOnMessageExpiration']
+        if 'defaultMessageTtl' in kwargs:
+            default_message_ttl = kwargs['defaultMessageTtl']
+        if 'enableBatchedOperations' in kwargs:
+            enable_batched_operations = kwargs['enableBatchedOperations']
+        if 'forwardDeadLetteredMessagesTo' in kwargs:
+            forward_dead_lettered_messages_to = kwargs['forwardDeadLetteredMessagesTo']
+        if 'forwardTo' in kwargs:
+            forward_to = kwargs['forwardTo']
+        if 'lockDuration' in kwargs:
+            lock_duration = kwargs['lockDuration']
+        if 'maxDeliveryCount' in kwargs:
+            max_delivery_count = kwargs['maxDeliveryCount']
+        if 'requiresSession' in kwargs:
+            requires_session = kwargs['requiresSession']
+        if 'topicId' in kwargs:
+            topic_id = kwargs['topicId']
+
         if auto_delete_on_idle is not None:
             _setter("auto_delete_on_idle", auto_delete_on_idle)
         if client_scoped_subscription is not None:

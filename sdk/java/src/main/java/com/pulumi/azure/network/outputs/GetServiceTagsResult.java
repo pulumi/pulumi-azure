@@ -34,6 +34,11 @@ public final class GetServiceTagsResult {
     private List<String> ipv6Cidrs;
     private String location;
     private @Nullable String locationFilter;
+    /**
+     * @return The name of this Service Tags block.
+     * 
+     */
+    private String name;
     private String service;
 
     private GetServiceTagsResult() {}
@@ -71,6 +76,13 @@ public final class GetServiceTagsResult {
     public Optional<String> locationFilter() {
         return Optional.ofNullable(this.locationFilter);
     }
+    /**
+     * @return The name of this Service Tags block.
+     * 
+     */
+    public String name() {
+        return this.name;
+    }
     public String service() {
         return this.service;
     }
@@ -90,6 +102,7 @@ public final class GetServiceTagsResult {
         private List<String> ipv6Cidrs;
         private String location;
         private @Nullable String locationFilter;
+        private String name;
         private String service;
         public Builder() {}
         public Builder(GetServiceTagsResult defaults) {
@@ -100,6 +113,7 @@ public final class GetServiceTagsResult {
     	      this.ipv6Cidrs = defaults.ipv6Cidrs;
     	      this.location = defaults.location;
     	      this.locationFilter = defaults.locationFilter;
+    	      this.name = defaults.name;
     	      this.service = defaults.service;
         }
 
@@ -143,20 +157,26 @@ public final class GetServiceTagsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder name(String name) {
+            this.name = Objects.requireNonNull(name);
+            return this;
+        }
+        @CustomType.Setter
         public Builder service(String service) {
             this.service = Objects.requireNonNull(service);
             return this;
         }
         public GetServiceTagsResult build() {
-            final var o = new GetServiceTagsResult();
-            o.addressPrefixes = addressPrefixes;
-            o.id = id;
-            o.ipv4Cidrs = ipv4Cidrs;
-            o.ipv6Cidrs = ipv6Cidrs;
-            o.location = location;
-            o.locationFilter = locationFilter;
-            o.service = service;
-            return o;
+            final var _resultValue = new GetServiceTagsResult();
+            _resultValue.addressPrefixes = addressPrefixes;
+            _resultValue.id = id;
+            _resultValue.ipv4Cidrs = ipv4Cidrs;
+            _resultValue.ipv6Cidrs = ipv6Cidrs;
+            _resultValue.location = location;
+            _resultValue.locationFilter = locationFilter;
+            _resultValue.name = name;
+            _resultValue.service = service;
+            return _resultValue;
         }
     }
 }

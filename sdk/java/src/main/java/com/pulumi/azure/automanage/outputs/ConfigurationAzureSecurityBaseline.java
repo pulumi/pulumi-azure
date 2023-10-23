@@ -48,9 +48,9 @@ public final class ConfigurationAzureSecurityBaseline {
             return this;
         }
         public ConfigurationAzureSecurityBaseline build() {
-            final var o = new ConfigurationAzureSecurityBaseline();
-            o.assignmentType = assignmentType;
-            return o;
+            final var _resultValue = new ConfigurationAzureSecurityBaseline();
+            _resultValue.assignmentType = assignmentType;
+            return _resultValue;
         }
     }
 }

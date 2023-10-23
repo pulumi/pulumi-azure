@@ -420,25 +420,25 @@ public final class ServiceSecurity {
             return this;
         }
         public ServiceSecurity build() {
-            final var o = new ServiceSecurity();
-            o.enableBackendSsl30 = enableBackendSsl30;
-            o.enableBackendTls10 = enableBackendTls10;
-            o.enableBackendTls11 = enableBackendTls11;
-            o.enableFrontendSsl30 = enableFrontendSsl30;
-            o.enableFrontendTls10 = enableFrontendTls10;
-            o.enableFrontendTls11 = enableFrontendTls11;
-            o.tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
-            o.tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
-            o.tlsEcdheRsaWithAes128CbcShaCiphersEnabled = tlsEcdheRsaWithAes128CbcShaCiphersEnabled;
-            o.tlsEcdheRsaWithAes256CbcShaCiphersEnabled = tlsEcdheRsaWithAes256CbcShaCiphersEnabled;
-            o.tlsRsaWithAes128CbcSha256CiphersEnabled = tlsRsaWithAes128CbcSha256CiphersEnabled;
-            o.tlsRsaWithAes128CbcShaCiphersEnabled = tlsRsaWithAes128CbcShaCiphersEnabled;
-            o.tlsRsaWithAes128GcmSha256CiphersEnabled = tlsRsaWithAes128GcmSha256CiphersEnabled;
-            o.tlsRsaWithAes256CbcSha256CiphersEnabled = tlsRsaWithAes256CbcSha256CiphersEnabled;
-            o.tlsRsaWithAes256CbcShaCiphersEnabled = tlsRsaWithAes256CbcShaCiphersEnabled;
-            o.tlsRsaWithAes256GcmSha384CiphersEnabled = tlsRsaWithAes256GcmSha384CiphersEnabled;
-            o.tripleDesCiphersEnabled = tripleDesCiphersEnabled;
-            return o;
+            final var _resultValue = new ServiceSecurity();
+            _resultValue.enableBackendSsl30 = enableBackendSsl30;
+            _resultValue.enableBackendTls10 = enableBackendTls10;
+            _resultValue.enableBackendTls11 = enableBackendTls11;
+            _resultValue.enableFrontendSsl30 = enableFrontendSsl30;
+            _resultValue.enableFrontendTls10 = enableFrontendTls10;
+            _resultValue.enableFrontendTls11 = enableFrontendTls11;
+            _resultValue.tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
+            _resultValue.tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
+            _resultValue.tlsEcdheRsaWithAes128CbcShaCiphersEnabled = tlsEcdheRsaWithAes128CbcShaCiphersEnabled;
+            _resultValue.tlsEcdheRsaWithAes256CbcShaCiphersEnabled = tlsEcdheRsaWithAes256CbcShaCiphersEnabled;
+            _resultValue.tlsRsaWithAes128CbcSha256CiphersEnabled = tlsRsaWithAes128CbcSha256CiphersEnabled;
+            _resultValue.tlsRsaWithAes128CbcShaCiphersEnabled = tlsRsaWithAes128CbcShaCiphersEnabled;
+            _resultValue.tlsRsaWithAes128GcmSha256CiphersEnabled = tlsRsaWithAes128GcmSha256CiphersEnabled;
+            _resultValue.tlsRsaWithAes256CbcSha256CiphersEnabled = tlsRsaWithAes256CbcSha256CiphersEnabled;
+            _resultValue.tlsRsaWithAes256CbcShaCiphersEnabled = tlsRsaWithAes256CbcShaCiphersEnabled;
+            _resultValue.tlsRsaWithAes256GcmSha384CiphersEnabled = tlsRsaWithAes256GcmSha384CiphersEnabled;
+            _resultValue.tripleDesCiphersEnabled = tripleDesCiphersEnabled;
+            return _resultValue;
         }
     }
 }

@@ -49,7 +49,19 @@ class BackupPolicyPostgresqlArgs:
              vault_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupRepeatingTimeIntervals' in kwargs:
+            backup_repeating_time_intervals = kwargs['backupRepeatingTimeIntervals']
+        if 'defaultRetentionDuration' in kwargs:
+            default_retention_duration = kwargs['defaultRetentionDuration']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+        if 'retentionRules' in kwargs:
+            retention_rules = kwargs['retentionRules']
+
         _setter("backup_repeating_time_intervals", backup_repeating_time_intervals)
         _setter("default_retention_duration", default_retention_duration)
         _setter("resource_group_name", resource_group_name)
@@ -168,7 +180,19 @@ class _BackupPolicyPostgresqlState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]]] = None,
              vault_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupRepeatingTimeIntervals' in kwargs:
+            backup_repeating_time_intervals = kwargs['backupRepeatingTimeIntervals']
+        if 'defaultRetentionDuration' in kwargs:
+            default_retention_duration = kwargs['defaultRetentionDuration']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retentionRules' in kwargs:
+            retention_rules = kwargs['retentionRules']
+        if 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+
         if backup_repeating_time_intervals is not None:
             _setter("backup_repeating_time_intervals", backup_repeating_time_intervals)
         if default_retention_duration is not None:

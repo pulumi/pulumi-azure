@@ -85,11 +85,11 @@ public final class GetManagedDiskEncryptionSetting {
             return keyEncryptionKeys(List.of(keyEncryptionKeys));
         }
         public GetManagedDiskEncryptionSetting build() {
-            final var o = new GetManagedDiskEncryptionSetting();
-            o.diskEncryptionKeys = diskEncryptionKeys;
-            o.enabled = enabled;
-            o.keyEncryptionKeys = keyEncryptionKeys;
-            return o;
+            final var _resultValue = new GetManagedDiskEncryptionSetting();
+            _resultValue.diskEncryptionKeys = diskEncryptionKeys;
+            _resultValue.enabled = enabled;
+            _resultValue.keyEncryptionKeys = keyEncryptionKeys;
+            return _resultValue;
         }
     }
 }

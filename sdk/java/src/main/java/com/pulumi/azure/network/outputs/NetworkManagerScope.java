@@ -73,10 +73,10 @@ public final class NetworkManagerScope {
             return subscriptionIds(List.of(subscriptionIds));
         }
         public NetworkManagerScope build() {
-            final var o = new NetworkManagerScope();
-            o.managementGroupIds = managementGroupIds;
-            o.subscriptionIds = subscriptionIds;
-            return o;
+            final var _resultValue = new NetworkManagerScope();
+            _resultValue.managementGroupIds = managementGroupIds;
+            _resultValue.subscriptionIds = subscriptionIds;
+            return _resultValue;
         }
     }
 }

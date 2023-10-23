@@ -70,10 +70,10 @@ public final class GetLinuxWebAppLogApplicationLog {
             return this;
         }
         public GetLinuxWebAppLogApplicationLog build() {
-            final var o = new GetLinuxWebAppLogApplicationLog();
-            o.azureBlobStorages = azureBlobStorages;
-            o.fileSystemLevel = fileSystemLevel;
-            return o;
+            final var _resultValue = new GetLinuxWebAppLogApplicationLog();
+            _resultValue.azureBlobStorages = azureBlobStorages;
+            _resultValue.fileSystemLevel = fileSystemLevel;
+            return _resultValue;
         }
     }
 }

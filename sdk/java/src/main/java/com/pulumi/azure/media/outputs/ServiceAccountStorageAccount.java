@@ -92,11 +92,11 @@ public final class ServiceAccountStorageAccount {
             return this;
         }
         public ServiceAccountStorageAccount build() {
-            final var o = new ServiceAccountStorageAccount();
-            o.id = id;
-            o.isPrimary = isPrimary;
-            o.managedIdentity = managedIdentity;
-            return o;
+            final var _resultValue = new ServiceAccountStorageAccount();
+            _resultValue.id = id;
+            _resultValue.isPrimary = isPrimary;
+            _resultValue.managedIdentity = managedIdentity;
+            return _resultValue;
         }
     }
 }

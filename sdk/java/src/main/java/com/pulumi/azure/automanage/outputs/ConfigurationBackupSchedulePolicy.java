@@ -112,12 +112,12 @@ public final class ConfigurationBackupSchedulePolicy {
             return scheduleRunTimes(List.of(scheduleRunTimes));
         }
         public ConfigurationBackupSchedulePolicy build() {
-            final var o = new ConfigurationBackupSchedulePolicy();
-            o.schedulePolicyType = schedulePolicyType;
-            o.scheduleRunDays = scheduleRunDays;
-            o.scheduleRunFrequency = scheduleRunFrequency;
-            o.scheduleRunTimes = scheduleRunTimes;
-            return o;
+            final var _resultValue = new ConfigurationBackupSchedulePolicy();
+            _resultValue.schedulePolicyType = schedulePolicyType;
+            _resultValue.scheduleRunDays = scheduleRunDays;
+            _resultValue.scheduleRunFrequency = scheduleRunFrequency;
+            _resultValue.scheduleRunTimes = scheduleRunTimes;
+            return _resultValue;
         }
     }
 }

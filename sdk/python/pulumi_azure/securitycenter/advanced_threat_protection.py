@@ -31,7 +31,11 @@ class AdvancedThreatProtectionArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              target_resource_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         _setter("enabled", enabled)
         _setter("target_resource_id", target_resource_id)
 
@@ -80,7 +84,11 @@ class _AdvancedThreatProtectionState:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if target_resource_id is not None:

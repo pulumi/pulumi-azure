@@ -201,7 +201,13 @@ class BastionHostIpConfigurationArgs:
              name: pulumi.Input[str],
              public_ip_address_id: pulumi.Input[str],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("name", name)
         _setter("public_ip_address_id", public_ip_address_id)
         _setter("subnet_id", subnet_id)
@@ -264,7 +270,9 @@ class CapacityReservationSkuArgs:
              _setter: Callable[[Any, Any], None],
              capacity: pulumi.Input[int],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("capacity", capacity)
         _setter("name", name)
 
@@ -322,7 +330,15 @@ class DiskEncryptionSetIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -401,7 +417,13 @@ class ExtensionProtectedSettingsFromKeyVaultArgs:
              _setter: Callable[[Any, Any], None],
              secret_url: pulumi.Input[str],
              source_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretUrl' in kwargs:
+            secret_url = kwargs['secretUrl']
+        if 'sourceVaultId' in kwargs:
+            source_vault_id = kwargs['sourceVaultId']
+
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
 
@@ -453,7 +475,9 @@ class GalleryApplicationVersionManageActionArgs:
              install: pulumi.Input[str],
              remove: pulumi.Input[str],
              update: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("install", install)
         _setter("remove", remove)
         if update is not None:
@@ -515,7 +539,13 @@ class GalleryApplicationVersionSourceArgs:
              _setter: Callable[[Any, Any], None],
              media_link: pulumi.Input[str],
              default_configuration_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mediaLink' in kwargs:
+            media_link = kwargs['mediaLink']
+        if 'defaultConfigurationLink' in kwargs:
+            default_configuration_link = kwargs['defaultConfigurationLink']
+
         _setter("media_link", media_link)
         if default_configuration_link is not None:
             _setter("default_configuration_link", default_configuration_link)
@@ -568,7 +598,13 @@ class GalleryApplicationVersionTargetRegionArgs:
              name: pulumi.Input[str],
              regional_replica_count: pulumi.Input[int],
              storage_account_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'regionalReplicaCount' in kwargs:
+            regional_replica_count = kwargs['regionalReplicaCount']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+
         _setter("name", name)
         _setter("regional_replica_count", regional_replica_count)
         if storage_account_type is not None:
@@ -642,7 +678,15 @@ class ImageDataDiskArgs:
              lun: Optional[pulumi.Input[int]] = None,
              managed_disk_id: Optional[pulumi.Input[str]] = None,
              size_gb: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobUri' in kwargs:
+            blob_uri = kwargs['blobUri']
+        if 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+        if 'sizeGb' in kwargs:
+            size_gb = kwargs['sizeGb']
+
         if blob_uri is not None:
             _setter("blob_uri", blob_uri)
         if caching is not None:
@@ -754,7 +798,21 @@ class ImageOsDiskArgs:
              os_state: Optional[pulumi.Input[str]] = None,
              os_type: Optional[pulumi.Input[str]] = None,
              size_gb: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobUri' in kwargs:
+            blob_uri = kwargs['blobUri']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+        if 'osState' in kwargs:
+            os_state = kwargs['osState']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'sizeGb' in kwargs:
+            size_gb = kwargs['sizeGb']
+
         if blob_uri is not None:
             _setter("blob_uri", blob_uri)
         if caching is not None:
@@ -870,7 +928,11 @@ class LinuxVirtualMachineAdditionalCapabilitiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ultraSsdEnabled' in kwargs:
+            ultra_ssd_enabled = kwargs['ultraSsdEnabled']
+
         if ultra_ssd_enabled is not None:
             _setter("ultra_ssd_enabled", ultra_ssd_enabled)
 
@@ -908,7 +970,11 @@ class LinuxVirtualMachineAdminSshKeyArgs:
              _setter: Callable[[Any, Any], None],
              public_key: pulumi.Input[str],
              username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+
         _setter("public_key", public_key)
         _setter("username", username)
 
@@ -956,7 +1022,11 @@ class LinuxVirtualMachineBootDiagnosticsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              storage_account_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUri' in kwargs:
+            storage_account_uri = kwargs['storageAccountUri']
+
         if storage_account_uri is not None:
             _setter("storage_account_uri", storage_account_uri)
 
@@ -1002,7 +1072,13 @@ class LinuxVirtualMachineGalleryApplicationArgs:
              configuration_blob_uri: Optional[pulumi.Input[str]] = None,
              order: Optional[pulumi.Input[int]] = None,
              tag: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+        if 'configurationBlobUri' in kwargs:
+            configuration_blob_uri = kwargs['configurationBlobUri']
+
         _setter("version_id", version_id)
         if configuration_blob_uri is not None:
             _setter("configuration_blob_uri", configuration_blob_uri)
@@ -1089,7 +1165,15 @@ class LinuxVirtualMachineIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -1210,7 +1294,23 @@ class LinuxVirtualMachineOsDiskArgs:
              secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
              security_encryption_type: Optional[pulumi.Input[str]] = None,
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'diffDiskSettings' in kwargs:
+            diff_disk_settings = kwargs['diffDiskSettings']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'secureVmDiskEncryptionSetId' in kwargs:
+            secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
+        if 'securityEncryptionType' in kwargs:
+            security_encryption_type = kwargs['securityEncryptionType']
+        if 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
         _setter("caching", caching)
         _setter("storage_account_type", storage_account_type)
         if diff_disk_settings is not None:
@@ -1370,7 +1470,9 @@ class LinuxVirtualMachineOsDiskDiffDiskSettingsArgs:
              _setter: Callable[[Any, Any], None],
              option: pulumi.Input[str],
              placement: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("option", option)
         if placement is not None:
             _setter("placement", placement)
@@ -1423,7 +1525,9 @@ class LinuxVirtualMachinePlanArgs:
              name: pulumi.Input[str],
              product: pulumi.Input[str],
              publisher: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("product", product)
         _setter("publisher", publisher)
@@ -1480,7 +1584,11 @@ class LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ultraSsdEnabled' in kwargs:
+            ultra_ssd_enabled = kwargs['ultraSsdEnabled']
+
         if ultra_ssd_enabled is not None:
             _setter("ultra_ssd_enabled", ultra_ssd_enabled)
 
@@ -1518,7 +1626,11 @@ class LinuxVirtualMachineScaleSetAdminSshKeyArgs:
              _setter: Callable[[Any, Any], None],
              public_key: pulumi.Input[str],
              username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+
         _setter("public_key", public_key)
         _setter("username", username)
 
@@ -1568,7 +1680,11 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              grace_period: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'gracePeriod' in kwargs:
+            grace_period = kwargs['gracePeriod']
+
         _setter("enabled", enabled)
         if grace_period is not None:
             _setter("grace_period", grace_period)
@@ -1617,7 +1733,13 @@ class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs:
              _setter: Callable[[Any, Any], None],
              disable_automatic_rollback: pulumi.Input[bool],
              enable_automatic_os_upgrade: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disableAutomaticRollback' in kwargs:
+            disable_automatic_rollback = kwargs['disableAutomaticRollback']
+        if 'enableAutomaticOsUpgrade' in kwargs:
+            enable_automatic_os_upgrade = kwargs['enableAutomaticOsUpgrade']
+
         _setter("disable_automatic_rollback", disable_automatic_rollback)
         _setter("enable_automatic_os_upgrade", enable_automatic_os_upgrade)
 
@@ -1663,7 +1785,11 @@ class LinuxVirtualMachineScaleSetBootDiagnosticsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              storage_account_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUri' in kwargs:
+            storage_account_uri = kwargs['storageAccountUri']
+
         if storage_account_uri is not None:
             _setter("storage_account_uri", storage_account_uri)
 
@@ -1741,7 +1867,23 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
              ultra_ssd_disk_iops_read_write: Optional[pulumi.Input[int]] = None,
              ultra_ssd_disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'ultraSsdDiskIopsReadWrite' in kwargs:
+            ultra_ssd_disk_iops_read_write = kwargs['ultraSsdDiskIopsReadWrite']
+        if 'ultraSsdDiskMbpsReadWrite' in kwargs:
+            ultra_ssd_disk_mbps_read_write = kwargs['ultraSsdDiskMbpsReadWrite']
+        if 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
         _setter("caching", caching)
         _setter("disk_size_gb", disk_size_gb)
         _setter("lun", lun)
@@ -1946,7 +2088,23 @@ class LinuxVirtualMachineScaleSetExtensionArgs:
              protected_settings_from_key_vault: Optional[pulumi.Input['LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
              provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              settings: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+        if 'autoUpgradeMinorVersion' in kwargs:
+            auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
+        if 'automaticUpgradeEnabled' in kwargs:
+            automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if 'protectedSettingsFromKeyVault' in kwargs:
+            protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
+        if 'provisionAfterExtensions' in kwargs:
+            provision_after_extensions = kwargs['provisionAfterExtensions']
+
         _setter("name", name)
         _setter("publisher", publisher)
         _setter("type", type)
@@ -2119,7 +2277,13 @@ class LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
              _setter: Callable[[Any, Any], None],
              secret_url: pulumi.Input[str],
              source_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretUrl' in kwargs:
+            secret_url = kwargs['secretUrl']
+        if 'sourceVaultId' in kwargs:
+            source_vault_id = kwargs['sourceVaultId']
+
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
 
@@ -2173,7 +2337,13 @@ class LinuxVirtualMachineScaleSetGalleryApplicationArgs:
              configuration_reference_blob_uri: Optional[pulumi.Input[str]] = None,
              order: Optional[pulumi.Input[int]] = None,
              tag: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packageReferenceId' in kwargs:
+            package_reference_id = kwargs['packageReferenceId']
+        if 'configurationReferenceBlobUri' in kwargs:
+            configuration_reference_blob_uri = kwargs['configurationReferenceBlobUri']
+
         if package_reference_id is not None:
             warnings.warn("""`package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""", DeprecationWarning)
             pulumi.log.warn("""package_reference_id is deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""")
@@ -2266,7 +2436,15 @@ class LinuxVirtualMachineScaleSetIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -2367,7 +2545,19 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceArgs:
              enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
              network_security_group_id: Optional[pulumi.Input[str]] = None,
              primary: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'enableAcceleratedNetworking' in kwargs:
+            enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
+        if 'enableIpForwarding' in kwargs:
+            enable_ip_forwarding = kwargs['enableIpForwarding']
+        if 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+
         _setter("ip_configurations", ip_configurations)
         _setter("name", name)
         if dns_servers is not None:
@@ -2525,7 +2715,21 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
              public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationGatewayBackendAddressPoolIds' in kwargs:
+            application_gateway_backend_address_pool_ids = kwargs['applicationGatewayBackendAddressPoolIds']
+        if 'applicationSecurityGroupIds' in kwargs:
+            application_security_group_ids = kwargs['applicationSecurityGroupIds']
+        if 'loadBalancerBackendAddressPoolIds' in kwargs:
+            load_balancer_backend_address_pool_ids = kwargs['loadBalancerBackendAddressPoolIds']
+        if 'loadBalancerInboundNatRulesIds' in kwargs:
+            load_balancer_inbound_nat_rules_ids = kwargs['loadBalancerInboundNatRulesIds']
+        if 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("name", name)
         if application_gateway_backend_address_pool_ids is not None:
             _setter("application_gateway_backend_address_pool_ids", application_gateway_backend_address_pool_ids)
@@ -2700,7 +2904,17 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressA
              ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]] = None,
              public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainNameLabel' in kwargs:
+            domain_name_label = kwargs['domainNameLabel']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'ipTags' in kwargs:
+            ip_tags = kwargs['ipTags']
+        if 'publicIpPrefixId' in kwargs:
+            public_ip_prefix_id = kwargs['publicIpPrefixId']
+
         _setter("name", name)
         if domain_name_label is not None:
             _setter("domain_name_label", domain_name_label)
@@ -2807,7 +3021,9 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressI
              _setter: Callable[[Any, Any], None],
              tag: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("tag", tag)
         _setter("type", type)
 
@@ -2893,7 +3109,23 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
              secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
              security_encryption_type: Optional[pulumi.Input[str]] = None,
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'diffDiskSettings' in kwargs:
+            diff_disk_settings = kwargs['diffDiskSettings']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'secureVmDiskEncryptionSetId' in kwargs:
+            secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
+        if 'securityEncryptionType' in kwargs:
+            security_encryption_type = kwargs['securityEncryptionType']
+        if 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
         _setter("caching", caching)
         _setter("storage_account_type", storage_account_type)
         if diff_disk_settings is not None:
@@ -3039,7 +3271,9 @@ class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs:
              _setter: Callable[[Any, Any], None],
              option: pulumi.Input[str],
              placement: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("option", option)
         if placement is not None:
             _setter("placement", placement)
@@ -3092,7 +3326,9 @@ class LinuxVirtualMachineScaleSetPlanArgs:
              name: pulumi.Input[str],
              product: pulumi.Input[str],
              publisher: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("product", product)
         _setter("publisher", publisher)
@@ -3169,7 +3405,21 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs:
              pause_time_between_batches: pulumi.Input[str],
              cross_zone_upgrades_enabled: Optional[pulumi.Input[bool]] = None,
              prioritize_unhealthy_instances_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxBatchInstancePercent' in kwargs:
+            max_batch_instance_percent = kwargs['maxBatchInstancePercent']
+        if 'maxUnhealthyInstancePercent' in kwargs:
+            max_unhealthy_instance_percent = kwargs['maxUnhealthyInstancePercent']
+        if 'maxUnhealthyUpgradedInstancePercent' in kwargs:
+            max_unhealthy_upgraded_instance_percent = kwargs['maxUnhealthyUpgradedInstancePercent']
+        if 'pauseTimeBetweenBatches' in kwargs:
+            pause_time_between_batches = kwargs['pauseTimeBetweenBatches']
+        if 'crossZoneUpgradesEnabled' in kwargs:
+            cross_zone_upgrades_enabled = kwargs['crossZoneUpgradesEnabled']
+        if 'prioritizeUnhealthyInstancesEnabled' in kwargs:
+            prioritize_unhealthy_instances_enabled = kwargs['prioritizeUnhealthyInstancesEnabled']
+
         _setter("max_batch_instance_percent", max_batch_instance_percent)
         _setter("max_unhealthy_instance_percent", max_unhealthy_instance_percent)
         _setter("max_unhealthy_upgraded_instance_percent", max_unhealthy_upgraded_instance_percent)
@@ -3271,7 +3521,11 @@ class LinuxVirtualMachineScaleSetScaleInArgs:
              _setter: Callable[[Any, Any], None],
              force_deletion_enabled: Optional[pulumi.Input[bool]] = None,
              rule: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'forceDeletionEnabled' in kwargs:
+            force_deletion_enabled = kwargs['forceDeletionEnabled']
+
         if force_deletion_enabled is not None:
             _setter("force_deletion_enabled", force_deletion_enabled)
         if rule is not None:
@@ -3321,7 +3575,11 @@ class LinuxVirtualMachineScaleSetSecretArgs:
              _setter: Callable[[Any, Any], None],
              certificates: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretCertificateArgs']]],
              key_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+
         _setter("certificates", certificates)
         _setter("key_vault_id", key_vault_id)
 
@@ -3369,7 +3627,9 @@ class LinuxVirtualMachineScaleSetSecretCertificateArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("url", url)
 
     @property
@@ -3416,7 +3676,9 @@ class LinuxVirtualMachineScaleSetSourceImageReferenceArgs:
              publisher: pulumi.Input[str],
              sku: pulumi.Input[str],
              version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("offer", offer)
         _setter("publisher", publisher)
         _setter("sku", sku)
@@ -3490,7 +3752,9 @@ class LinuxVirtualMachineScaleSetSpotRestoreArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
         if timeout is not None:
@@ -3542,7 +3806,9 @@ class LinuxVirtualMachineScaleSetTerminateNotificationArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if timeout is not None:
             _setter("timeout", timeout)
@@ -3595,7 +3861,9 @@ class LinuxVirtualMachineScaleSetTerminationNotificationArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if timeout is not None:
             _setter("timeout", timeout)
@@ -3646,7 +3914,11 @@ class LinuxVirtualMachineSecretArgs:
              _setter: Callable[[Any, Any], None],
              certificates: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretCertificateArgs']]],
              key_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+
         _setter("certificates", certificates)
         _setter("key_vault_id", key_vault_id)
 
@@ -3692,7 +3964,9 @@ class LinuxVirtualMachineSecretCertificateArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("url", url)
 
     @property
@@ -3737,7 +4011,9 @@ class LinuxVirtualMachineSourceImageReferenceArgs:
              publisher: pulumi.Input[str],
              sku: pulumi.Input[str],
              version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("offer", offer)
         _setter("publisher", publisher)
         _setter("sku", sku)
@@ -3813,7 +4089,9 @@ class LinuxVirtualMachineTerminationNotificationArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if timeout is not None:
             _setter("timeout", timeout)
@@ -3867,7 +4145,13 @@ class ManagedDiskEncryptionSettingsArgs:
              disk_encryption_key: Optional[pulumi.Input['ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs']] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              key_encryption_key: Optional[pulumi.Input['ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskEncryptionKey' in kwargs:
+            disk_encryption_key = kwargs['diskEncryptionKey']
+        if 'keyEncryptionKey' in kwargs:
+            key_encryption_key = kwargs['keyEncryptionKey']
+
         if disk_encryption_key is not None:
             _setter("disk_encryption_key", disk_encryption_key)
         if enabled is not None:
@@ -3934,7 +4218,13 @@ class ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs:
              _setter: Callable[[Any, Any], None],
              secret_url: pulumi.Input[str],
              source_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretUrl' in kwargs:
+            secret_url = kwargs['secretUrl']
+        if 'sourceVaultId' in kwargs:
+            source_vault_id = kwargs['sourceVaultId']
+
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
 
@@ -3982,7 +4272,13 @@ class ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs:
              _setter: Callable[[Any, Any], None],
              key_url: pulumi.Input[str],
              source_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUrl' in kwargs:
+            key_url = kwargs['keyUrl']
+        if 'sourceVaultId' in kwargs:
+            source_vault_id = kwargs['sourceVaultId']
+
         _setter("key_url", key_url)
         _setter("source_vault_id", source_vault_id)
 
@@ -4026,7 +4322,11 @@ class OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ultraSsdEnabled' in kwargs:
+            ultra_ssd_enabled = kwargs['ultraSsdEnabled']
+
         if ultra_ssd_enabled is not None:
             _setter("ultra_ssd_enabled", ultra_ssd_enabled)
 
@@ -4062,7 +4362,11 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              grace_period: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'gracePeriod' in kwargs:
+            grace_period = kwargs['gracePeriod']
+
         _setter("enabled", enabled)
         if grace_period is not None:
             _setter("grace_period", grace_period)
@@ -4107,7 +4411,11 @@ class OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              storage_account_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUri' in kwargs:
+            storage_account_uri = kwargs['storageAccountUri']
+
         if storage_account_uri is not None:
             _setter("storage_account_uri", storage_account_uri)
 
@@ -4169,7 +4477,23 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
              ultra_ssd_disk_iops_read_write: Optional[pulumi.Input[int]] = None,
              ultra_ssd_disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'ultraSsdDiskIopsReadWrite' in kwargs:
+            ultra_ssd_disk_iops_read_write = kwargs['ultraSsdDiskIopsReadWrite']
+        if 'ultraSsdDiskMbpsReadWrite' in kwargs:
+            ultra_ssd_disk_mbps_read_write = kwargs['ultraSsdDiskMbpsReadWrite']
+        if 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
         _setter("caching", caching)
         _setter("disk_size_gb", disk_size_gb)
         _setter("lun", lun)
@@ -4349,7 +4673,23 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
              protected_settings: Optional[pulumi.Input[str]] = None,
              protected_settings_from_key_vault: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
              settings: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+        if 'autoUpgradeMinorVersionEnabled' in kwargs:
+            auto_upgrade_minor_version_enabled = kwargs['autoUpgradeMinorVersionEnabled']
+        if 'extensionsToProvisionAfterVmCreations' in kwargs:
+            extensions_to_provision_after_vm_creations = kwargs['extensionsToProvisionAfterVmCreations']
+        if 'failureSuppressionEnabled' in kwargs:
+            failure_suppression_enabled = kwargs['failureSuppressionEnabled']
+        if 'forceExtensionExecutionOnChange' in kwargs:
+            force_extension_execution_on_change = kwargs['forceExtensionExecutionOnChange']
+        if 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if 'protectedSettingsFromKeyVault' in kwargs:
+            protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
+
         _setter("name", name)
         _setter("publisher", publisher)
         _setter("type", type)
@@ -4527,7 +4867,13 @@ class OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultAr
              _setter: Callable[[Any, Any], None],
              secret_url: pulumi.Input[str],
              source_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretUrl' in kwargs:
+            secret_url = kwargs['secretUrl']
+        if 'sourceVaultId' in kwargs:
+            source_vault_id = kwargs['sourceVaultId']
+
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
 
@@ -4575,7 +4921,11 @@ class OrchestratedVirtualMachineScaleSetIdentityArgs:
              _setter: Callable[[Any, Any], None],
              identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+
         _setter("identity_ids", identity_ids)
         _setter("type", type)
 
@@ -4645,7 +4995,19 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
              enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
              network_security_group_id: Optional[pulumi.Input[str]] = None,
              primary: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'enableAcceleratedNetworking' in kwargs:
+            enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
+        if 'enableIpForwarding' in kwargs:
+            enable_ip_forwarding = kwargs['enableIpForwarding']
+        if 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+
         _setter("ip_configurations", ip_configurations)
         _setter("name", name)
         if dns_servers is not None:
@@ -4795,7 +5157,19 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
              public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationGatewayBackendAddressPoolIds' in kwargs:
+            application_gateway_backend_address_pool_ids = kwargs['applicationGatewayBackendAddressPoolIds']
+        if 'applicationSecurityGroupIds' in kwargs:
+            application_security_group_ids = kwargs['applicationSecurityGroupIds']
+        if 'loadBalancerBackendAddressPoolIds' in kwargs:
+            load_balancer_backend_address_pool_ids = kwargs['loadBalancerBackendAddressPoolIds']
+        if 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("name", name)
         if application_gateway_backend_address_pool_ids is not None:
             _setter("application_gateway_backend_address_pool_ids", application_gateway_backend_address_pool_ids)
@@ -4954,7 +5328,19 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
              public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainNameLabel' in kwargs:
+            domain_name_label = kwargs['domainNameLabel']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'ipTags' in kwargs:
+            ip_tags = kwargs['ipTags']
+        if 'publicIpPrefixId' in kwargs:
+            public_ip_prefix_id = kwargs['publicIpPrefixId']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         _setter("name", name)
         if domain_name_label is not None:
             _setter("domain_name_label", domain_name_label)
@@ -5073,7 +5459,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
              _setter: Callable[[Any, Any], None],
              tag: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("tag", tag)
         _setter("type", type)
 
@@ -5139,7 +5527,19 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
              disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
              disk_size_gb: Optional[pulumi.Input[int]] = None,
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'diffDiskSettings' in kwargs:
+            diff_disk_settings = kwargs['diffDiskSettings']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
         _setter("caching", caching)
         _setter("storage_account_type", storage_account_type)
         if diff_disk_settings is not None:
@@ -5245,7 +5645,9 @@ class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs:
              _setter: Callable[[Any, Any], None],
              option: pulumi.Input[str],
              placement: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("option", option)
         if placement is not None:
             _setter("placement", placement)
@@ -5300,7 +5702,15 @@ class OrchestratedVirtualMachineScaleSetOsProfileArgs:
              custom_data: Optional[pulumi.Input[str]] = None,
              linux_configuration: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs']] = None,
              windows_configuration: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customData' in kwargs:
+            custom_data = kwargs['customData']
+        if 'linuxConfiguration' in kwargs:
+            linux_configuration = kwargs['linuxConfiguration']
+        if 'windowsConfiguration' in kwargs:
+            windows_configuration = kwargs['windowsConfiguration']
+
         if custom_data is not None:
             _setter("custom_data", custom_data)
         if linux_configuration is not None:
@@ -5397,7 +5807,25 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
              patch_mode: Optional[pulumi.Input[str]] = None,
              provision_vm_agent: Optional[pulumi.Input[bool]] = None,
              secrets: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'adminSshKeys' in kwargs:
+            admin_ssh_keys = kwargs['adminSshKeys']
+        if 'computerNamePrefix' in kwargs:
+            computer_name_prefix = kwargs['computerNamePrefix']
+        if 'disablePasswordAuthentication' in kwargs:
+            disable_password_authentication = kwargs['disablePasswordAuthentication']
+        if 'patchAssessmentMode' in kwargs:
+            patch_assessment_mode = kwargs['patchAssessmentMode']
+        if 'patchMode' in kwargs:
+            patch_mode = kwargs['patchMode']
+        if 'provisionVmAgent' in kwargs:
+            provision_vm_agent = kwargs['provisionVmAgent']
+
         _setter("admin_username", admin_username)
         if admin_password is not None:
             _setter("admin_password", admin_password)
@@ -5547,7 +5975,11 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyAr
              _setter: Callable[[Any, Any], None],
              public_key: pulumi.Input[str],
              username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+
         _setter("public_key", public_key)
         _setter("username", username)
 
@@ -5599,7 +6031,11 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs:
              _setter: Callable[[Any, Any], None],
              certificates: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]],
              key_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+
         _setter("certificates", certificates)
         _setter("key_vault_id", key_vault_id)
 
@@ -5647,7 +6083,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertifi
     def _configure(
              _setter: Callable[[Any, Any], None],
              url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("url", url)
 
     @property
@@ -5723,7 +6161,27 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
              secrets: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs']]]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
              winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'computerNamePrefix' in kwargs:
+            computer_name_prefix = kwargs['computerNamePrefix']
+        if 'enableAutomaticUpdates' in kwargs:
+            enable_automatic_updates = kwargs['enableAutomaticUpdates']
+        if 'hotpatchingEnabled' in kwargs:
+            hotpatching_enabled = kwargs['hotpatchingEnabled']
+        if 'patchAssessmentMode' in kwargs:
+            patch_assessment_mode = kwargs['patchAssessmentMode']
+        if 'patchMode' in kwargs:
+            patch_mode = kwargs['patchMode']
+        if 'provisionVmAgent' in kwargs:
+            provision_vm_agent = kwargs['provisionVmAgent']
+        if 'winrmListeners' in kwargs:
+            winrm_listeners = kwargs['winrmListeners']
+
         _setter("admin_password", admin_password)
         _setter("admin_username", admin_username)
         if computer_name_prefix is not None:
@@ -5900,7 +6358,11 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs:
              _setter: Callable[[Any, Any], None],
              certificates: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]],
              key_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+
         _setter("certificates", certificates)
         _setter("key_vault_id", key_vault_id)
 
@@ -5952,7 +6414,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCerti
              _setter: Callable[[Any, Any], None],
              store: pulumi.Input[str],
              url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("store", store)
         _setter("url", url)
 
@@ -6004,7 +6468,11 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
              _setter: Callable[[Any, Any], None],
              protocol: pulumi.Input[str],
              certificate_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+
         _setter("protocol", protocol)
         if certificate_url is not None:
             _setter("certificate_url", certificate_url)
@@ -6059,7 +6527,9 @@ class OrchestratedVirtualMachineScaleSetPlanArgs:
              name: pulumi.Input[str],
              product: pulumi.Input[str],
              publisher: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("product", product)
         _setter("publisher", publisher)
@@ -6120,7 +6590,13 @@ class OrchestratedVirtualMachineScaleSetPriorityMixArgs:
              _setter: Callable[[Any, Any], None],
              base_regular_count: Optional[pulumi.Input[int]] = None,
              regular_percentage_above_base: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'baseRegularCount' in kwargs:
+            base_regular_count = kwargs['baseRegularCount']
+        if 'regularPercentageAboveBase' in kwargs:
+            regular_percentage_above_base = kwargs['regularPercentageAboveBase']
+
         if base_regular_count is not None:
             _setter("base_regular_count", base_regular_count)
         if regular_percentage_above_base is not None:
@@ -6178,7 +6654,9 @@ class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs:
              publisher: pulumi.Input[str],
              sku: pulumi.Input[str],
              version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("offer", offer)
         _setter("publisher", publisher)
         _setter("sku", sku)
@@ -6252,7 +6730,9 @@ class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if timeout is not None:
             _setter("timeout", timeout)
@@ -6313,7 +6793,17 @@ class PacketCaptureFilterArgs:
              local_port: Optional[pulumi.Input[str]] = None,
              remote_ip_address: Optional[pulumi.Input[str]] = None,
              remote_port: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localIpAddress' in kwargs:
+            local_ip_address = kwargs['localIpAddress']
+        if 'localPort' in kwargs:
+            local_port = kwargs['localPort']
+        if 'remoteIpAddress' in kwargs:
+            remote_ip_address = kwargs['remoteIpAddress']
+        if 'remotePort' in kwargs:
+            remote_port = kwargs['remotePort']
+
         _setter("protocol", protocol)
         if local_ip_address is not None:
             _setter("local_ip_address", local_ip_address)
@@ -6410,7 +6900,15 @@ class PacketCaptureStorageLocationArgs:
              file_path: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              storage_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filePath' in kwargs:
+            file_path = kwargs['filePath']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storagePath' in kwargs:
+            storage_path = kwargs['storagePath']
+
         if file_path is not None:
             _setter("file_path", file_path)
         if storage_account_id is not None:
@@ -6476,7 +6974,11 @@ class ScaleSetBootDiagnosticsArgs:
              _setter: Callable[[Any, Any], None],
              storage_uri: pulumi.Input[str],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageUri' in kwargs:
+            storage_uri = kwargs['storageUri']
+
         _setter("storage_uri", storage_uri)
         if enabled is not None:
             _setter("enabled", enabled)
@@ -6549,7 +7051,17 @@ class ScaleSetExtensionArgs:
              protected_settings: Optional[pulumi.Input[str]] = None,
              provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              settings: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+        if 'autoUpgradeMinorVersion' in kwargs:
+            auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
+        if 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if 'provisionAfterExtensions' in kwargs:
+            provision_after_extensions = kwargs['provisionAfterExtensions']
+
         _setter("name", name)
         _setter("publisher", publisher)
         _setter("type", type)
@@ -6708,7 +7220,13 @@ class ScaleSetIdentityArgs:
              type: pulumi.Input[str],
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -6814,7 +7332,19 @@ class ScaleSetNetworkProfileArgs:
              dns_settings: Optional[pulumi.Input['ScaleSetNetworkProfileDnsSettingsArgs']] = None,
              ip_forwarding: Optional[pulumi.Input[bool]] = None,
              network_security_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'acceleratedNetworking' in kwargs:
+            accelerated_networking = kwargs['acceleratedNetworking']
+        if 'dnsSettings' in kwargs:
+            dns_settings = kwargs['dnsSettings']
+        if 'ipForwarding' in kwargs:
+            ip_forwarding = kwargs['ipForwarding']
+        if 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+
         _setter("ip_configurations", ip_configurations)
         _setter("name", name)
         _setter("primary", primary)
@@ -6927,7 +7457,11 @@ class ScaleSetNetworkProfileDnsSettingsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              dns_servers: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+
         _setter("dns_servers", dns_servers)
 
     @property
@@ -6990,7 +7524,21 @@ class ScaleSetNetworkProfileIpConfigurationArgs:
              load_balancer_backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              load_balancer_inbound_nat_rules_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              public_ip_address_configuration: Optional[pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'applicationGatewayBackendAddressPoolIds' in kwargs:
+            application_gateway_backend_address_pool_ids = kwargs['applicationGatewayBackendAddressPoolIds']
+        if 'applicationSecurityGroupIds' in kwargs:
+            application_security_group_ids = kwargs['applicationSecurityGroupIds']
+        if 'loadBalancerBackendAddressPoolIds' in kwargs:
+            load_balancer_backend_address_pool_ids = kwargs['loadBalancerBackendAddressPoolIds']
+        if 'loadBalancerInboundNatRulesIds' in kwargs:
+            load_balancer_inbound_nat_rules_ids = kwargs['loadBalancerInboundNatRulesIds']
+        if 'publicIpAddressConfiguration' in kwargs:
+            public_ip_address_configuration = kwargs['publicIpAddressConfiguration']
+
         _setter("name", name)
         _setter("primary", primary)
         _setter("subnet_id", subnet_id)
@@ -7129,7 +7677,13 @@ class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs:
              domain_name_label: pulumi.Input[str],
              idle_timeout: pulumi.Input[int],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainNameLabel' in kwargs:
+            domain_name_label = kwargs['domainNameLabel']
+        if 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+
         _setter("domain_name_label", domain_name_label)
         _setter("idle_timeout", idle_timeout)
         _setter("name", name)
@@ -7198,7 +7752,17 @@ class ScaleSetOsProfileArgs:
              computer_name_prefix: pulumi.Input[str],
              admin_password: Optional[pulumi.Input[str]] = None,
              custom_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'computerNamePrefix' in kwargs:
+            computer_name_prefix = kwargs['computerNamePrefix']
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'customData' in kwargs:
+            custom_data = kwargs['customData']
+
         _setter("admin_username", admin_username)
         _setter("computer_name_prefix", computer_name_prefix)
         if admin_password is not None:
@@ -7278,7 +7842,13 @@ class ScaleSetOsProfileLinuxConfigArgs:
              _setter: Callable[[Any, Any], None],
              disable_password_authentication: Optional[pulumi.Input[bool]] = None,
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileLinuxConfigSshKeyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disablePasswordAuthentication' in kwargs:
+            disable_password_authentication = kwargs['disablePasswordAuthentication']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+
         if disable_password_authentication is not None:
             _setter("disable_password_authentication", disable_password_authentication)
         if ssh_keys is not None:
@@ -7338,7 +7908,11 @@ class ScaleSetOsProfileLinuxConfigSshKeyArgs:
              _setter: Callable[[Any, Any], None],
              path: pulumi.Input[str],
              key_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyData' in kwargs:
+            key_data = kwargs['keyData']
+
         _setter("path", path)
         if key_data is not None:
             _setter("key_data", key_data)
@@ -7393,7 +7967,13 @@ class ScaleSetOsProfileSecretArgs:
              _setter: Callable[[Any, Any], None],
              source_vault_id: pulumi.Input[str],
              vault_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceVaultId' in kwargs:
+            source_vault_id = kwargs['sourceVaultId']
+        if 'vaultCertificates' in kwargs:
+            vault_certificates = kwargs['vaultCertificates']
+
         _setter("source_vault_id", source_vault_id)
         if vault_certificates is not None:
             _setter("vault_certificates", vault_certificates)
@@ -7442,7 +8022,13 @@ class ScaleSetOsProfileSecretVaultCertificateArgs:
              _setter: Callable[[Any, Any], None],
              certificate_url: pulumi.Input[str],
              certificate_store: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+        if 'certificateStore' in kwargs:
+            certificate_store = kwargs['certificateStore']
+
         _setter("certificate_url", certificate_url)
         if certificate_store is not None:
             _setter("certificate_store", certificate_store)
@@ -7499,7 +8085,15 @@ class ScaleSetOsProfileWindowsConfigArgs:
              enable_automatic_upgrades: Optional[pulumi.Input[bool]] = None,
              provision_vm_agent: Optional[pulumi.Input[bool]] = None,
              winrms: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalUnattendConfigs' in kwargs:
+            additional_unattend_configs = kwargs['additionalUnattendConfigs']
+        if 'enableAutomaticUpgrades' in kwargs:
+            enable_automatic_upgrades = kwargs['enableAutomaticUpgrades']
+        if 'provisionVmAgent' in kwargs:
+            provision_vm_agent = kwargs['provisionVmAgent']
+
         if additional_unattend_configs is not None:
             _setter("additional_unattend_configs", additional_unattend_configs)
         if enable_automatic_upgrades is not None:
@@ -7585,7 +8179,13 @@ class ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs:
              content: pulumi.Input[str],
              pass_: pulumi.Input[str],
              setting_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pass' in kwargs:
+            pass_ = kwargs['pass']
+        if 'settingName' in kwargs:
+            setting_name = kwargs['settingName']
+
         _setter("component", component)
         _setter("content", content)
         _setter("pass_", pass_)
@@ -7659,7 +8259,11 @@ class ScaleSetOsProfileWindowsConfigWinrmArgs:
              _setter: Callable[[Any, Any], None],
              protocol: pulumi.Input[str],
              certificate_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+
         _setter("protocol", protocol)
         if certificate_url is not None:
             _setter("certificate_url", certificate_url)
@@ -7720,7 +8324,17 @@ class ScaleSetPacketCaptureFilterArgs:
              local_port: Optional[pulumi.Input[str]] = None,
              remote_ip_address: Optional[pulumi.Input[str]] = None,
              remote_port: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localIpAddress' in kwargs:
+            local_ip_address = kwargs['localIpAddress']
+        if 'localPort' in kwargs:
+            local_port = kwargs['localPort']
+        if 'remoteIpAddress' in kwargs:
+            remote_ip_address = kwargs['remoteIpAddress']
+        if 'remotePort' in kwargs:
+            remote_port = kwargs['remotePort']
+
         _setter("protocol", protocol)
         if local_ip_address is not None:
             _setter("local_ip_address", local_ip_address)
@@ -7811,7 +8425,13 @@ class ScaleSetPacketCaptureMachineScopeArgs:
              _setter: Callable[[Any, Any], None],
              exclude_instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              include_instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'excludeInstanceIds' in kwargs:
+            exclude_instance_ids = kwargs['excludeInstanceIds']
+        if 'includeInstanceIds' in kwargs:
+            include_instance_ids = kwargs['includeInstanceIds']
+
         if exclude_instance_ids is not None:
             _setter("exclude_instance_ids", exclude_instance_ids)
         if include_instance_ids is not None:
@@ -7867,7 +8487,15 @@ class ScaleSetPacketCaptureStorageLocationArgs:
              file_path: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              storage_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filePath' in kwargs:
+            file_path = kwargs['filePath']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storagePath' in kwargs:
+            storage_path = kwargs['storagePath']
+
         if file_path is not None:
             _setter("file_path", file_path)
         if storage_account_id is not None:
@@ -7937,7 +8565,9 @@ class ScaleSetPlanArgs:
              name: pulumi.Input[str],
              product: pulumi.Input[str],
              publisher: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("product", product)
         _setter("publisher", publisher)
@@ -8006,7 +8636,17 @@ class ScaleSetRollingUpgradePolicyArgs:
              max_unhealthy_instance_percent: Optional[pulumi.Input[int]] = None,
              max_unhealthy_upgraded_instance_percent: Optional[pulumi.Input[int]] = None,
              pause_time_between_batches: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxBatchInstancePercent' in kwargs:
+            max_batch_instance_percent = kwargs['maxBatchInstancePercent']
+        if 'maxUnhealthyInstancePercent' in kwargs:
+            max_unhealthy_instance_percent = kwargs['maxUnhealthyInstancePercent']
+        if 'maxUnhealthyUpgradedInstancePercent' in kwargs:
+            max_unhealthy_upgraded_instance_percent = kwargs['maxUnhealthyUpgradedInstancePercent']
+        if 'pauseTimeBetweenBatches' in kwargs:
+            pause_time_between_batches = kwargs['pauseTimeBetweenBatches']
+
         if max_batch_instance_percent is not None:
             _setter("max_batch_instance_percent", max_batch_instance_percent)
         if max_unhealthy_instance_percent is not None:
@@ -8088,7 +8728,9 @@ class ScaleSetSkuArgs:
              capacity: pulumi.Input[int],
              name: pulumi.Input[str],
              tier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("capacity", capacity)
         _setter("name", name)
         if tier is not None:
@@ -8162,7 +8804,15 @@ class ScaleSetStorageProfileDataDiskArgs:
              caching: Optional[pulumi.Input[str]] = None,
              disk_size_gb: Optional[pulumi.Input[int]] = None,
              managed_disk_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'managedDiskType' in kwargs:
+            managed_disk_type = kwargs['managedDiskType']
+
         _setter("create_option", create_option)
         _setter("lun", lun)
         if caching is not None:
@@ -8264,7 +8914,9 @@ class ScaleSetStorageProfileImageReferenceArgs:
              publisher: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if offer is not None:
@@ -8378,7 +9030,17 @@ class ScaleSetStorageProfileOsDiskArgs:
              name: Optional[pulumi.Input[str]] = None,
              os_type: Optional[pulumi.Input[str]] = None,
              vhd_containers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'managedDiskType' in kwargs:
+            managed_disk_type = kwargs['managedDiskType']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'vhdContainers' in kwargs:
+            vhd_containers = kwargs['vhdContainers']
+
         _setter("create_option", create_option)
         if caching is not None:
             _setter("caching", caching)
@@ -8486,7 +9148,7 @@ class SharedImageGallerySharingArgs:
                  permission: pulumi.Input[str],
                  community_gallery: Optional[pulumi.Input['SharedImageGallerySharingCommunityGalleryArgs']] = None):
         """
-        :param pulumi.Input[str] permission: The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] permission: The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
                
                > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
         :param pulumi.Input['SharedImageGallerySharingCommunityGalleryArgs'] community_gallery: A `community_gallery` block as defined below. Changing this forces a new resource to be created.
@@ -8503,7 +9165,11 @@ class SharedImageGallerySharingArgs:
              _setter: Callable[[Any, Any], None],
              permission: pulumi.Input[str],
              community_gallery: Optional[pulumi.Input['SharedImageGallerySharingCommunityGalleryArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'communityGallery' in kwargs:
+            community_gallery = kwargs['communityGallery']
+
         _setter("permission", permission)
         if community_gallery is not None:
             _setter("community_gallery", community_gallery)
@@ -8512,7 +9178,7 @@ class SharedImageGallerySharingArgs:
     @pulumi.getter
     def permission(self) -> pulumi.Input[str]:
         """
-        The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+        The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
 
         > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
         """
@@ -8568,7 +9234,13 @@ class SharedImageGallerySharingCommunityGalleryArgs:
              publisher_email: pulumi.Input[str],
              publisher_uri: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publisherEmail' in kwargs:
+            publisher_email = kwargs['publisherEmail']
+        if 'publisherUri' in kwargs:
+            publisher_uri = kwargs['publisherUri']
+
         _setter("eula", eula)
         _setter("prefix", prefix)
         _setter("publisher_email", publisher_email)
@@ -8660,7 +9332,9 @@ class SharedImageIdentifierArgs:
              offer: pulumi.Input[str],
              publisher: pulumi.Input[str],
              sku: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("offer", offer)
         _setter("publisher", publisher)
         _setter("sku", sku)
@@ -8725,7 +9399,9 @@ class SharedImagePurchasePlanArgs:
              name: pulumi.Input[str],
              product: Optional[pulumi.Input[str]] = None,
              publisher: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if product is not None:
             _setter("product", product)
@@ -8800,7 +9476,17 @@ class SharedImageVersionTargetRegionArgs:
              disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
              exclude_from_latest_enabled: Optional[pulumi.Input[bool]] = None,
              storage_account_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'regionalReplicaCount' in kwargs:
+            regional_replica_count = kwargs['regionalReplicaCount']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'excludeFromLatestEnabled' in kwargs:
+            exclude_from_latest_enabled = kwargs['excludeFromLatestEnabled']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+
         _setter("name", name)
         _setter("regional_replica_count", regional_replica_count)
         if disk_encryption_set_id is not None:
@@ -8893,7 +9579,13 @@ class SnapshotEncryptionSettingsArgs:
              disk_encryption_key: Optional[pulumi.Input['SnapshotEncryptionSettingsDiskEncryptionKeyArgs']] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              key_encryption_key: Optional[pulumi.Input['SnapshotEncryptionSettingsKeyEncryptionKeyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskEncryptionKey' in kwargs:
+            disk_encryption_key = kwargs['diskEncryptionKey']
+        if 'keyEncryptionKey' in kwargs:
+            key_encryption_key = kwargs['keyEncryptionKey']
+
         if disk_encryption_key is not None:
             _setter("disk_encryption_key", disk_encryption_key)
         if enabled is not None:
@@ -8960,7 +9652,13 @@ class SnapshotEncryptionSettingsDiskEncryptionKeyArgs:
              _setter: Callable[[Any, Any], None],
              secret_url: pulumi.Input[str],
              source_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretUrl' in kwargs:
+            secret_url = kwargs['secretUrl']
+        if 'sourceVaultId' in kwargs:
+            source_vault_id = kwargs['sourceVaultId']
+
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
 
@@ -9008,7 +9706,13 @@ class SnapshotEncryptionSettingsKeyEncryptionKeyArgs:
              _setter: Callable[[Any, Any], None],
              key_url: pulumi.Input[str],
              source_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUrl' in kwargs:
+            key_url = kwargs['keyUrl']
+        if 'sourceVaultId' in kwargs:
+            source_vault_id = kwargs['sourceVaultId']
+
         _setter("key_url", key_url)
         _setter("source_vault_id", source_vault_id)
 
@@ -9054,7 +9758,11 @@ class VirtualMachineAdditionalCapabilitiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ultra_ssd_enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ultraSsdEnabled' in kwargs:
+            ultra_ssd_enabled = kwargs['ultraSsdEnabled']
+
         _setter("ultra_ssd_enabled", ultra_ssd_enabled)
 
     @property
@@ -9093,7 +9801,11 @@ class VirtualMachineBootDiagnosticsArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              storage_uri: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageUri' in kwargs:
+            storage_uri = kwargs['storageUri']
+
         _setter("enabled", enabled)
         _setter("storage_uri", storage_uri)
 
@@ -9153,7 +9865,13 @@ class VirtualMachineIdentityArgs:
              type: pulumi.Input[str],
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -9232,7 +9950,17 @@ class VirtualMachineOsProfileArgs:
              computer_name: pulumi.Input[str],
              admin_password: Optional[pulumi.Input[str]] = None,
              custom_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'computerName' in kwargs:
+            computer_name = kwargs['computerName']
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'customData' in kwargs:
+            custom_data = kwargs['customData']
+
         _setter("admin_username", admin_username)
         _setter("computer_name", computer_name)
         if admin_password is not None:
@@ -9310,7 +10038,13 @@ class VirtualMachineOsProfileLinuxConfigArgs:
              _setter: Callable[[Any, Any], None],
              disable_password_authentication: pulumi.Input[bool],
              ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disablePasswordAuthentication' in kwargs:
+            disable_password_authentication = kwargs['disablePasswordAuthentication']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+
         _setter("disable_password_authentication", disable_password_authentication)
         if ssh_keys is not None:
             _setter("ssh_keys", ssh_keys)
@@ -9363,7 +10097,11 @@ class VirtualMachineOsProfileLinuxConfigSshKeyArgs:
              _setter: Callable[[Any, Any], None],
              key_data: pulumi.Input[str],
              path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyData' in kwargs:
+            key_data = kwargs['keyData']
+
         _setter("key_data", key_data)
         _setter("path", path)
 
@@ -9415,7 +10153,13 @@ class VirtualMachineOsProfileSecretArgs:
              _setter: Callable[[Any, Any], None],
              source_vault_id: pulumi.Input[str],
              vault_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceVaultId' in kwargs:
+            source_vault_id = kwargs['sourceVaultId']
+        if 'vaultCertificates' in kwargs:
+            vault_certificates = kwargs['vaultCertificates']
+
         _setter("source_vault_id", source_vault_id)
         if vault_certificates is not None:
             _setter("vault_certificates", vault_certificates)
@@ -9467,7 +10211,13 @@ class VirtualMachineOsProfileSecretVaultCertificateArgs:
              _setter: Callable[[Any, Any], None],
              certificate_url: pulumi.Input[str],
              certificate_store: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+        if 'certificateStore' in kwargs:
+            certificate_store = kwargs['certificateStore']
+
         _setter("certificate_url", certificate_url)
         if certificate_store is not None:
             _setter("certificate_store", certificate_store)
@@ -9533,7 +10283,15 @@ class VirtualMachineOsProfileWindowsConfigArgs:
              provision_vm_agent: Optional[pulumi.Input[bool]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
              winrms: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalUnattendConfigs' in kwargs:
+            additional_unattend_configs = kwargs['additionalUnattendConfigs']
+        if 'enableAutomaticUpgrades' in kwargs:
+            enable_automatic_upgrades = kwargs['enableAutomaticUpgrades']
+        if 'provisionVmAgent' in kwargs:
+            provision_vm_agent = kwargs['provisionVmAgent']
+
         if additional_unattend_configs is not None:
             _setter("additional_unattend_configs", additional_unattend_configs)
         if enable_automatic_upgrades is not None:
@@ -9635,7 +10393,13 @@ class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs:
              content: pulumi.Input[str],
              pass_: pulumi.Input[str],
              setting_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'pass' in kwargs:
+            pass_ = kwargs['pass']
+        if 'settingName' in kwargs:
+            setting_name = kwargs['settingName']
+
         _setter("component", component)
         _setter("content", content)
         _setter("pass_", pass_)
@@ -9711,7 +10475,11 @@ class VirtualMachineOsProfileWindowsConfigWinrmArgs:
              _setter: Callable[[Any, Any], None],
              protocol: pulumi.Input[str],
              certificate_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+
         _setter("protocol", protocol)
         if certificate_url is not None:
             _setter("certificate_url", certificate_url)
@@ -9766,7 +10534,9 @@ class VirtualMachinePlanArgs:
              name: pulumi.Input[str],
              product: pulumi.Input[str],
              publisher: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("product", product)
         _setter("publisher", publisher)
@@ -9827,7 +10597,13 @@ class VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
              _setter: Callable[[Any, Any], None],
              secret_url: pulumi.Input[str],
              source_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretUrl' in kwargs:
+            secret_url = kwargs['secretUrl']
+        if 'sourceVaultId' in kwargs:
+            source_vault_id = kwargs['sourceVaultId']
+
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
 
@@ -9911,7 +10687,21 @@ class VirtualMachineStorageDataDiskArgs:
              managed_disk_type: Optional[pulumi.Input[str]] = None,
              vhd_uri: Optional[pulumi.Input[str]] = None,
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+        if 'managedDiskType' in kwargs:
+            managed_disk_type = kwargs['managedDiskType']
+        if 'vhdUri' in kwargs:
+            vhd_uri = kwargs['vhdUri']
+        if 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
         _setter("create_option", create_option)
         _setter("lun", lun)
         _setter("name", name)
@@ -10078,7 +10868,9 @@ class VirtualMachineStorageImageReferenceArgs:
              publisher: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if offer is not None:
@@ -10208,7 +11000,25 @@ class VirtualMachineStorageOsDiskArgs:
              os_type: Optional[pulumi.Input[str]] = None,
              vhd_uri: Optional[pulumi.Input[str]] = None,
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'imageUri' in kwargs:
+            image_uri = kwargs['imageUri']
+        if 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+        if 'managedDiskType' in kwargs:
+            managed_disk_type = kwargs['managedDiskType']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'vhdUri' in kwargs:
+            vhd_uri = kwargs['vhdUri']
+        if 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
         _setter("create_option", create_option)
         _setter("name", name)
         if caching is not None:
@@ -10368,7 +11178,11 @@ class WindowsVirtualMachineAdditionalCapabilitiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ultraSsdEnabled' in kwargs:
+            ultra_ssd_enabled = kwargs['ultraSsdEnabled']
+
         if ultra_ssd_enabled is not None:
             _setter("ultra_ssd_enabled", ultra_ssd_enabled)
 
@@ -10404,7 +11218,9 @@ class WindowsVirtualMachineAdditionalUnattendContentArgs:
              _setter: Callable[[Any, Any], None],
              content: pulumi.Input[str],
              setting: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("content", content)
         _setter("setting", setting)
 
@@ -10450,7 +11266,11 @@ class WindowsVirtualMachineBootDiagnosticsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              storage_account_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUri' in kwargs:
+            storage_account_uri = kwargs['storageAccountUri']
+
         if storage_account_uri is not None:
             _setter("storage_account_uri", storage_account_uri)
 
@@ -10496,7 +11316,13 @@ class WindowsVirtualMachineGalleryApplicationArgs:
              configuration_blob_uri: Optional[pulumi.Input[str]] = None,
              order: Optional[pulumi.Input[int]] = None,
              tag: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+        if 'configurationBlobUri' in kwargs:
+            configuration_blob_uri = kwargs['configurationBlobUri']
+
         _setter("version_id", version_id)
         if configuration_blob_uri is not None:
             _setter("configuration_blob_uri", configuration_blob_uri)
@@ -10583,7 +11409,15 @@ class WindowsVirtualMachineIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -10704,7 +11538,23 @@ class WindowsVirtualMachineOsDiskArgs:
              secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
              security_encryption_type: Optional[pulumi.Input[str]] = None,
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'diffDiskSettings' in kwargs:
+            diff_disk_settings = kwargs['diffDiskSettings']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'secureVmDiskEncryptionSetId' in kwargs:
+            secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
+        if 'securityEncryptionType' in kwargs:
+            security_encryption_type = kwargs['securityEncryptionType']
+        if 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
         _setter("caching", caching)
         _setter("storage_account_type", storage_account_type)
         if diff_disk_settings is not None:
@@ -10864,7 +11714,9 @@ class WindowsVirtualMachineOsDiskDiffDiskSettingsArgs:
              _setter: Callable[[Any, Any], None],
              option: pulumi.Input[str],
              placement: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("option", option)
         if placement is not None:
             _setter("placement", placement)
@@ -10919,7 +11771,9 @@ class WindowsVirtualMachinePlanArgs:
              name: pulumi.Input[str],
              product: pulumi.Input[str],
              publisher: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("product", product)
         _setter("publisher", publisher)
@@ -10978,7 +11832,11 @@ class WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ultraSsdEnabled' in kwargs:
+            ultra_ssd_enabled = kwargs['ultraSsdEnabled']
+
         if ultra_ssd_enabled is not None:
             _setter("ultra_ssd_enabled", ultra_ssd_enabled)
 
@@ -11014,7 +11872,9 @@ class WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs:
              _setter: Callable[[Any, Any], None],
              content: pulumi.Input[str],
              setting: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("content", content)
         _setter("setting", setting)
 
@@ -11062,7 +11922,11 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              grace_period: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'gracePeriod' in kwargs:
+            grace_period = kwargs['gracePeriod']
+
         _setter("enabled", enabled)
         if grace_period is not None:
             _setter("grace_period", grace_period)
@@ -11111,7 +11975,13 @@ class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs:
              _setter: Callable[[Any, Any], None],
              disable_automatic_rollback: pulumi.Input[bool],
              enable_automatic_os_upgrade: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disableAutomaticRollback' in kwargs:
+            disable_automatic_rollback = kwargs['disableAutomaticRollback']
+        if 'enableAutomaticOsUpgrade' in kwargs:
+            enable_automatic_os_upgrade = kwargs['enableAutomaticOsUpgrade']
+
         _setter("disable_automatic_rollback", disable_automatic_rollback)
         _setter("enable_automatic_os_upgrade", enable_automatic_os_upgrade)
 
@@ -11157,7 +12027,11 @@ class WindowsVirtualMachineScaleSetBootDiagnosticsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              storage_account_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountUri' in kwargs:
+            storage_account_uri = kwargs['storageAccountUri']
+
         if storage_account_uri is not None:
             _setter("storage_account_uri", storage_account_uri)
 
@@ -11235,7 +12109,23 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
              ultra_ssd_disk_iops_read_write: Optional[pulumi.Input[int]] = None,
              ultra_ssd_disk_mbps_read_write: Optional[pulumi.Input[int]] = None,
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'ultraSsdDiskIopsReadWrite' in kwargs:
+            ultra_ssd_disk_iops_read_write = kwargs['ultraSsdDiskIopsReadWrite']
+        if 'ultraSsdDiskMbpsReadWrite' in kwargs:
+            ultra_ssd_disk_mbps_read_write = kwargs['ultraSsdDiskMbpsReadWrite']
+        if 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
         _setter("caching", caching)
         _setter("disk_size_gb", disk_size_gb)
         _setter("lun", lun)
@@ -11440,7 +12330,23 @@ class WindowsVirtualMachineScaleSetExtensionArgs:
              protected_settings_from_key_vault: Optional[pulumi.Input['WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
              provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              settings: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+        if 'autoUpgradeMinorVersion' in kwargs:
+            auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
+        if 'automaticUpgradeEnabled' in kwargs:
+            automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if 'protectedSettingsFromKeyVault' in kwargs:
+            protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
+        if 'provisionAfterExtensions' in kwargs:
+            provision_after_extensions = kwargs['provisionAfterExtensions']
+
         _setter("name", name)
         _setter("publisher", publisher)
         _setter("type", type)
@@ -11613,7 +12519,13 @@ class WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
              _setter: Callable[[Any, Any], None],
              secret_url: pulumi.Input[str],
              source_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretUrl' in kwargs:
+            secret_url = kwargs['secretUrl']
+        if 'sourceVaultId' in kwargs:
+            source_vault_id = kwargs['sourceVaultId']
+
         _setter("secret_url", secret_url)
         _setter("source_vault_id", source_vault_id)
 
@@ -11667,7 +12579,13 @@ class WindowsVirtualMachineScaleSetGalleryApplicationArgs:
              configuration_reference_blob_uri: Optional[pulumi.Input[str]] = None,
              order: Optional[pulumi.Input[int]] = None,
              tag: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'packageReferenceId' in kwargs:
+            package_reference_id = kwargs['packageReferenceId']
+        if 'configurationReferenceBlobUri' in kwargs:
+            configuration_reference_blob_uri = kwargs['configurationReferenceBlobUri']
+
         if package_reference_id is not None:
             warnings.warn("""`package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""", DeprecationWarning)
             pulumi.log.warn("""package_reference_id is deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""")
@@ -11760,7 +12678,15 @@ class WindowsVirtualMachineScaleSetIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -11861,7 +12787,19 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceArgs:
              enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
              network_security_group_id: Optional[pulumi.Input[str]] = None,
              primary: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'enableAcceleratedNetworking' in kwargs:
+            enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
+        if 'enableIpForwarding' in kwargs:
+            enable_ip_forwarding = kwargs['enableIpForwarding']
+        if 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+
         _setter("ip_configurations", ip_configurations)
         _setter("name", name)
         if dns_servers is not None:
@@ -12019,7 +12957,21 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
              public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationGatewayBackendAddressPoolIds' in kwargs:
+            application_gateway_backend_address_pool_ids = kwargs['applicationGatewayBackendAddressPoolIds']
+        if 'applicationSecurityGroupIds' in kwargs:
+            application_security_group_ids = kwargs['applicationSecurityGroupIds']
+        if 'loadBalancerBackendAddressPoolIds' in kwargs:
+            load_balancer_backend_address_pool_ids = kwargs['loadBalancerBackendAddressPoolIds']
+        if 'loadBalancerInboundNatRulesIds' in kwargs:
+            load_balancer_inbound_nat_rules_ids = kwargs['loadBalancerInboundNatRulesIds']
+        if 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("name", name)
         if application_gateway_backend_address_pool_ids is not None:
             _setter("application_gateway_backend_address_pool_ids", application_gateway_backend_address_pool_ids)
@@ -12194,7 +13146,17 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
              ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]] = None,
              public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainNameLabel' in kwargs:
+            domain_name_label = kwargs['domainNameLabel']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'ipTags' in kwargs:
+            ip_tags = kwargs['ipTags']
+        if 'publicIpPrefixId' in kwargs:
+            public_ip_prefix_id = kwargs['publicIpPrefixId']
+
         _setter("name", name)
         if domain_name_label is not None:
             _setter("domain_name_label", domain_name_label)
@@ -12301,7 +13263,9 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
              _setter: Callable[[Any, Any], None],
              tag: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("tag", tag)
         _setter("type", type)
 
@@ -12387,7 +13351,23 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
              secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
              security_encryption_type: Optional[pulumi.Input[str]] = None,
              write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'diffDiskSettings' in kwargs:
+            diff_disk_settings = kwargs['diffDiskSettings']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'secureVmDiskEncryptionSetId' in kwargs:
+            secure_vm_disk_encryption_set_id = kwargs['secureVmDiskEncryptionSetId']
+        if 'securityEncryptionType' in kwargs:
+            security_encryption_type = kwargs['securityEncryptionType']
+        if 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
         _setter("caching", caching)
         _setter("storage_account_type", storage_account_type)
         if diff_disk_settings is not None:
@@ -12533,7 +13513,9 @@ class WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs:
              _setter: Callable[[Any, Any], None],
              option: pulumi.Input[str],
              placement: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("option", option)
         if placement is not None:
             _setter("placement", placement)
@@ -12586,7 +13568,9 @@ class WindowsVirtualMachineScaleSetPlanArgs:
              name: pulumi.Input[str],
              product: pulumi.Input[str],
              publisher: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("product", product)
         _setter("publisher", publisher)
@@ -12663,7 +13647,21 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs:
              pause_time_between_batches: pulumi.Input[str],
              cross_zone_upgrades_enabled: Optional[pulumi.Input[bool]] = None,
              prioritize_unhealthy_instances_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxBatchInstancePercent' in kwargs:
+            max_batch_instance_percent = kwargs['maxBatchInstancePercent']
+        if 'maxUnhealthyInstancePercent' in kwargs:
+            max_unhealthy_instance_percent = kwargs['maxUnhealthyInstancePercent']
+        if 'maxUnhealthyUpgradedInstancePercent' in kwargs:
+            max_unhealthy_upgraded_instance_percent = kwargs['maxUnhealthyUpgradedInstancePercent']
+        if 'pauseTimeBetweenBatches' in kwargs:
+            pause_time_between_batches = kwargs['pauseTimeBetweenBatches']
+        if 'crossZoneUpgradesEnabled' in kwargs:
+            cross_zone_upgrades_enabled = kwargs['crossZoneUpgradesEnabled']
+        if 'prioritizeUnhealthyInstancesEnabled' in kwargs:
+            prioritize_unhealthy_instances_enabled = kwargs['prioritizeUnhealthyInstancesEnabled']
+
         _setter("max_batch_instance_percent", max_batch_instance_percent)
         _setter("max_unhealthy_instance_percent", max_unhealthy_instance_percent)
         _setter("max_unhealthy_upgraded_instance_percent", max_unhealthy_upgraded_instance_percent)
@@ -12765,7 +13763,11 @@ class WindowsVirtualMachineScaleSetScaleInArgs:
              _setter: Callable[[Any, Any], None],
              force_deletion_enabled: Optional[pulumi.Input[bool]] = None,
              rule: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'forceDeletionEnabled' in kwargs:
+            force_deletion_enabled = kwargs['forceDeletionEnabled']
+
         if force_deletion_enabled is not None:
             _setter("force_deletion_enabled", force_deletion_enabled)
         if rule is not None:
@@ -12815,7 +13817,11 @@ class WindowsVirtualMachineScaleSetSecretArgs:
              _setter: Callable[[Any, Any], None],
              certificates: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretCertificateArgs']]],
              key_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+
         _setter("certificates", certificates)
         _setter("key_vault_id", key_vault_id)
 
@@ -12865,7 +13871,9 @@ class WindowsVirtualMachineScaleSetSecretCertificateArgs:
              _setter: Callable[[Any, Any], None],
              store: pulumi.Input[str],
              url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("store", store)
         _setter("url", url)
 
@@ -12923,7 +13931,9 @@ class WindowsVirtualMachineScaleSetSourceImageReferenceArgs:
              publisher: pulumi.Input[str],
              sku: pulumi.Input[str],
              version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("offer", offer)
         _setter("publisher", publisher)
         _setter("sku", sku)
@@ -12997,7 +14007,9 @@ class WindowsVirtualMachineScaleSetSpotRestoreArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
         if timeout is not None:
@@ -13049,7 +14061,9 @@ class WindowsVirtualMachineScaleSetTerminateNotificationArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if timeout is not None:
             _setter("timeout", timeout)
@@ -13102,7 +14116,9 @@ class WindowsVirtualMachineScaleSetTerminationNotificationArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if timeout is not None:
             _setter("timeout", timeout)
@@ -13155,7 +14171,11 @@ class WindowsVirtualMachineScaleSetWinrmListenerArgs:
              _setter: Callable[[Any, Any], None],
              protocol: pulumi.Input[str],
              certificate_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+
         _setter("protocol", protocol)
         if certificate_url is not None:
             _setter("certificate_url", certificate_url)
@@ -13206,7 +14226,11 @@ class WindowsVirtualMachineSecretArgs:
              _setter: Callable[[Any, Any], None],
              certificates: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretCertificateArgs']]],
              key_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+
         _setter("certificates", certificates)
         _setter("key_vault_id", key_vault_id)
 
@@ -13256,7 +14280,9 @@ class WindowsVirtualMachineSecretCertificateArgs:
              _setter: Callable[[Any, Any], None],
              store: pulumi.Input[str],
              url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("store", store)
         _setter("url", url)
 
@@ -13314,7 +14340,9 @@ class WindowsVirtualMachineSourceImageReferenceArgs:
              publisher: pulumi.Input[str],
              sku: pulumi.Input[str],
              version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("offer", offer)
         _setter("publisher", publisher)
         _setter("sku", sku)
@@ -13390,7 +14418,9 @@ class WindowsVirtualMachineTerminationNotificationArgs:
              _setter: Callable[[Any, Any], None],
              enabled: pulumi.Input[bool],
              timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if timeout is not None:
             _setter("timeout", timeout)
@@ -13441,7 +14471,11 @@ class WindowsVirtualMachineWinrmListenerArgs:
              _setter: Callable[[Any, Any], None],
              protocol: pulumi.Input[str],
              certificate_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateUrl' in kwargs:
+            certificate_url = kwargs['certificateUrl']
+
         _setter("protocol", protocol)
         if certificate_url is not None:
             _setter("certificate_url", certificate_url)

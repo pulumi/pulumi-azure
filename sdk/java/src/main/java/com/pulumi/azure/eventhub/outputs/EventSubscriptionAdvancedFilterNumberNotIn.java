@@ -74,10 +74,10 @@ public final class EventSubscriptionAdvancedFilterNumberNotIn {
             return values(List.of(values));
         }
         public EventSubscriptionAdvancedFilterNumberNotIn build() {
-            final var o = new EventSubscriptionAdvancedFilterNumberNotIn();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new EventSubscriptionAdvancedFilterNumberNotIn();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

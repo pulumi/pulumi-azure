@@ -105,12 +105,12 @@ public final class TransformOutputCustomPresetFilterOverlayVideoPosition {
             return this;
         }
         public TransformOutputCustomPresetFilterOverlayVideoPosition build() {
-            final var o = new TransformOutputCustomPresetFilterOverlayVideoPosition();
-            o.height = height;
-            o.left = left;
-            o.top = top;
-            o.width = width;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFilterOverlayVideoPosition();
+            _resultValue.height = height;
+            _resultValue.left = left;
+            _resultValue.top = top;
+            _resultValue.width = width;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class GetClusterNodePoolUpgradeSetting {
             return this;
         }
         public GetClusterNodePoolUpgradeSetting build() {
-            final var o = new GetClusterNodePoolUpgradeSetting();
-            o.maxSurge = maxSurge;
-            return o;
+            final var _resultValue = new GetClusterNodePoolUpgradeSetting();
+            _resultValue.maxSurge = maxSurge;
+            return _resultValue;
         }
     }
 }

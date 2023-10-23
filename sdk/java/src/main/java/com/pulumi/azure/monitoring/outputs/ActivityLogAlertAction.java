@@ -67,10 +67,10 @@ public final class ActivityLogAlertAction {
             return this;
         }
         public ActivityLogAlertAction build() {
-            final var o = new ActivityLogAlertAction();
-            o.actionGroupId = actionGroupId;
-            o.webhookProperties = webhookProperties;
-            return o;
+            final var _resultValue = new ActivityLogAlertAction();
+            _resultValue.actionGroupId = actionGroupId;
+            _resultValue.webhookProperties = webhookProperties;
+            return _resultValue;
         }
     }
 }

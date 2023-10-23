@@ -68,10 +68,10 @@ public final class SoftwareUpdateConfigurationPostTask {
             return this;
         }
         public SoftwareUpdateConfigurationPostTask build() {
-            final var o = new SoftwareUpdateConfigurationPostTask();
-            o.parameters = parameters;
-            o.source = source;
-            return o;
+            final var _resultValue = new SoftwareUpdateConfigurationPostTask();
+            _resultValue.parameters = parameters;
+            _resultValue.source = source;
+            return _resultValue;
         }
     }
 }

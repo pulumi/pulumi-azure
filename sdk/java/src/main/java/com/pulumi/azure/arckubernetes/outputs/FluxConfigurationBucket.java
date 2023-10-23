@@ -183,16 +183,16 @@ public final class FluxConfigurationBucket {
             return this;
         }
         public FluxConfigurationBucket build() {
-            final var o = new FluxConfigurationBucket();
-            o.accessKey = accessKey;
-            o.bucketName = bucketName;
-            o.localAuthReference = localAuthReference;
-            o.secretKeyBase64 = secretKeyBase64;
-            o.syncIntervalInSeconds = syncIntervalInSeconds;
-            o.timeoutInSeconds = timeoutInSeconds;
-            o.tlsEnabled = tlsEnabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new FluxConfigurationBucket();
+            _resultValue.accessKey = accessKey;
+            _resultValue.bucketName = bucketName;
+            _resultValue.localAuthReference = localAuthReference;
+            _resultValue.secretKeyBase64 = secretKeyBase64;
+            _resultValue.syncIntervalInSeconds = syncIntervalInSeconds;
+            _resultValue.timeoutInSeconds = timeoutInSeconds;
+            _resultValue.tlsEnabled = tlsEnabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

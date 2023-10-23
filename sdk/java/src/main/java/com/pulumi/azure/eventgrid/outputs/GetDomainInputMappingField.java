@@ -141,14 +141,14 @@ public final class GetDomainInputMappingField {
             return this;
         }
         public GetDomainInputMappingField build() {
-            final var o = new GetDomainInputMappingField();
-            o.dataVersion = dataVersion;
-            o.eventTime = eventTime;
-            o.eventType = eventType;
-            o.id = id;
-            o.subject = subject;
-            o.topic = topic;
-            return o;
+            final var _resultValue = new GetDomainInputMappingField();
+            _resultValue.dataVersion = dataVersion;
+            _resultValue.eventTime = eventTime;
+            _resultValue.eventType = eventType;
+            _resultValue.id = id;
+            _resultValue.subject = subject;
+            _resultValue.topic = topic;
+            return _resultValue;
         }
     }
 }

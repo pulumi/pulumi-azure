@@ -84,11 +84,11 @@ public final class DataCollectionRuleDestinationsStorageBlobDirect {
             return this;
         }
         public DataCollectionRuleDestinationsStorageBlobDirect build() {
-            final var o = new DataCollectionRuleDestinationsStorageBlobDirect();
-            o.containerName = containerName;
-            o.name = name;
-            o.storageAccountId = storageAccountId;
-            return o;
+            final var _resultValue = new DataCollectionRuleDestinationsStorageBlobDirect();
+            _resultValue.containerName = containerName;
+            _resultValue.name = name;
+            _resultValue.storageAccountId = storageAccountId;
+            return _resultValue;
         }
     }
 }

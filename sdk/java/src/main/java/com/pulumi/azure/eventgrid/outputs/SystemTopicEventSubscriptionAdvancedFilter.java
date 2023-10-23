@@ -469,27 +469,27 @@ public final class SystemTopicEventSubscriptionAdvancedFilter {
             return stringNotIns(List.of(stringNotIns));
         }
         public SystemTopicEventSubscriptionAdvancedFilter build() {
-            final var o = new SystemTopicEventSubscriptionAdvancedFilter();
-            o.boolEquals = boolEquals;
-            o.isNotNulls = isNotNulls;
-            o.isNullOrUndefineds = isNullOrUndefineds;
-            o.numberGreaterThanOrEquals = numberGreaterThanOrEquals;
-            o.numberGreaterThans = numberGreaterThans;
-            o.numberInRanges = numberInRanges;
-            o.numberIns = numberIns;
-            o.numberLessThanOrEquals = numberLessThanOrEquals;
-            o.numberLessThans = numberLessThans;
-            o.numberNotInRanges = numberNotInRanges;
-            o.numberNotIns = numberNotIns;
-            o.stringBeginsWiths = stringBeginsWiths;
-            o.stringContains = stringContains;
-            o.stringEndsWiths = stringEndsWiths;
-            o.stringIns = stringIns;
-            o.stringNotBeginsWiths = stringNotBeginsWiths;
-            o.stringNotContains = stringNotContains;
-            o.stringNotEndsWiths = stringNotEndsWiths;
-            o.stringNotIns = stringNotIns;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionAdvancedFilter();
+            _resultValue.boolEquals = boolEquals;
+            _resultValue.isNotNulls = isNotNulls;
+            _resultValue.isNullOrUndefineds = isNullOrUndefineds;
+            _resultValue.numberGreaterThanOrEquals = numberGreaterThanOrEquals;
+            _resultValue.numberGreaterThans = numberGreaterThans;
+            _resultValue.numberInRanges = numberInRanges;
+            _resultValue.numberIns = numberIns;
+            _resultValue.numberLessThanOrEquals = numberLessThanOrEquals;
+            _resultValue.numberLessThans = numberLessThans;
+            _resultValue.numberNotInRanges = numberNotInRanges;
+            _resultValue.numberNotIns = numberNotIns;
+            _resultValue.stringBeginsWiths = stringBeginsWiths;
+            _resultValue.stringContains = stringContains;
+            _resultValue.stringEndsWiths = stringEndsWiths;
+            _resultValue.stringIns = stringIns;
+            _resultValue.stringNotBeginsWiths = stringNotBeginsWiths;
+            _resultValue.stringNotContains = stringNotContains;
+            _resultValue.stringNotEndsWiths = stringNotEndsWiths;
+            _resultValue.stringNotIns = stringNotIns;
+            return _resultValue;
         }
     }
 }

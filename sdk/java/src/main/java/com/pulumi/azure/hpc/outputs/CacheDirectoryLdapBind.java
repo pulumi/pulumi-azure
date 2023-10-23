@@ -65,10 +65,10 @@ public final class CacheDirectoryLdapBind {
             return this;
         }
         public CacheDirectoryLdapBind build() {
-            final var o = new CacheDirectoryLdapBind();
-            o.dn = dn;
-            o.password = password;
-            return o;
+            final var _resultValue = new CacheDirectoryLdapBind();
+            _resultValue.dn = dn;
+            _resultValue.password = password;
+            return _resultValue;
         }
     }
 }

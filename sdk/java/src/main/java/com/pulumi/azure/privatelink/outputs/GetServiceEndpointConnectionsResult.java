@@ -114,14 +114,14 @@ public final class GetServiceEndpointConnectionsResult {
             return this;
         }
         public GetServiceEndpointConnectionsResult build() {
-            final var o = new GetServiceEndpointConnectionsResult();
-            o.id = id;
-            o.location = location;
-            o.privateEndpointConnections = privateEndpointConnections;
-            o.resourceGroupName = resourceGroupName;
-            o.serviceId = serviceId;
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new GetServiceEndpointConnectionsResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.privateEndpointConnections = privateEndpointConnections;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.serviceId = serviceId;
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

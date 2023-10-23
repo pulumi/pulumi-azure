@@ -65,7 +65,23 @@ class PointToPointVpnGatewayArgs:
              name: Optional[pulumi.Input[str]] = None,
              routing_preference_internet_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionConfiguration' in kwargs:
+            connection_configuration = kwargs['connectionConfiguration']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scaleUnit' in kwargs:
+            scale_unit = kwargs['scaleUnit']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if 'vpnServerConfigurationId' in kwargs:
+            vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'routingPreferenceInternetEnabled' in kwargs:
+            routing_preference_internet_enabled = kwargs['routingPreferenceInternetEnabled']
+
         _setter("connection_configuration", connection_configuration)
         _setter("resource_group_name", resource_group_name)
         _setter("scale_unit", scale_unit)
@@ -255,7 +271,23 @@ class _PointToPointVpnGatewayState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
              vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionConfiguration' in kwargs:
+            connection_configuration = kwargs['connectionConfiguration']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'routingPreferenceInternetEnabled' in kwargs:
+            routing_preference_internet_enabled = kwargs['routingPreferenceInternetEnabled']
+        if 'scaleUnit' in kwargs:
+            scale_unit = kwargs['scaleUnit']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if 'vpnServerConfigurationId' in kwargs:
+            vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
+
         if connection_configuration is not None:
             _setter("connection_configuration", connection_configuration)
         if dns_servers is not None:

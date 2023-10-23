@@ -65,10 +65,10 @@ public final class ChannelLineLineChannel {
             return this;
         }
         public ChannelLineLineChannel build() {
-            final var o = new ChannelLineLineChannel();
-            o.accessToken = accessToken;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new ChannelLineLineChannel();
+            _resultValue.accessToken = accessToken;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

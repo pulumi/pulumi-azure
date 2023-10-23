@@ -67,10 +67,10 @@ public final class TriggerSchedulePipeline {
             return this;
         }
         public TriggerSchedulePipeline build() {
-            final var o = new TriggerSchedulePipeline();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new TriggerSchedulePipeline();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

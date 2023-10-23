@@ -65,10 +65,10 @@ public final class WindowsVirtualMachineScaleSetAdditionalUnattendContent {
             return this;
         }
         public WindowsVirtualMachineScaleSetAdditionalUnattendContent build() {
-            final var o = new WindowsVirtualMachineScaleSetAdditionalUnattendContent();
-            o.content = content;
-            o.setting = setting;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetAdditionalUnattendContent();
+            _resultValue.content = content;
+            _resultValue.setting = setting;
+            return _resultValue;
         }
     }
 }

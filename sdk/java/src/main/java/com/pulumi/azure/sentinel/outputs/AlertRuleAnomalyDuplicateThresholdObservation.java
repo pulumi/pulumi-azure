@@ -124,13 +124,13 @@ public final class AlertRuleAnomalyDuplicateThresholdObservation {
             return this;
         }
         public AlertRuleAnomalyDuplicateThresholdObservation build() {
-            final var o = new AlertRuleAnomalyDuplicateThresholdObservation();
-            o.description = description;
-            o.max = max;
-            o.min = min;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new AlertRuleAnomalyDuplicateThresholdObservation();
+            _resultValue.description = description;
+            _resultValue.max = max;
+            _resultValue.min = min;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

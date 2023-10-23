@@ -329,24 +329,24 @@ public final class GetCertificateResult {
             return this;
         }
         public GetCertificateResult build() {
-            final var o = new GetCertificateResult();
-            o.certificateData = certificateData;
-            o.certificateDataBase64 = certificateDataBase64;
-            o.certificatePolicies = certificatePolicies;
-            o.expires = expires;
-            o.id = id;
-            o.keyVaultId = keyVaultId;
-            o.name = name;
-            o.notBefore = notBefore;
-            o.resourceManagerId = resourceManagerId;
-            o.resourceManagerVersionlessId = resourceManagerVersionlessId;
-            o.secretId = secretId;
-            o.tags = tags;
-            o.thumbprint = thumbprint;
-            o.version = version;
-            o.versionlessId = versionlessId;
-            o.versionlessSecretId = versionlessSecretId;
-            return o;
+            final var _resultValue = new GetCertificateResult();
+            _resultValue.certificateData = certificateData;
+            _resultValue.certificateDataBase64 = certificateDataBase64;
+            _resultValue.certificatePolicies = certificatePolicies;
+            _resultValue.expires = expires;
+            _resultValue.id = id;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.name = name;
+            _resultValue.notBefore = notBefore;
+            _resultValue.resourceManagerId = resourceManagerId;
+            _resultValue.resourceManagerVersionlessId = resourceManagerVersionlessId;
+            _resultValue.secretId = secretId;
+            _resultValue.tags = tags;
+            _resultValue.thumbprint = thumbprint;
+            _resultValue.version = version;
+            _resultValue.versionlessId = versionlessId;
+            _resultValue.versionlessSecretId = versionlessSecretId;
+            return _resultValue;
         }
     }
 }

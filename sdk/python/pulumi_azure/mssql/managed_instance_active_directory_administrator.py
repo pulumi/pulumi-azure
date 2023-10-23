@@ -43,7 +43,19 @@ class ManagedInstanceActiveDirectoryAdministratorArgs:
              object_id: pulumi.Input[str],
              tenant_id: pulumi.Input[str],
              azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loginUsername' in kwargs:
+            login_username = kwargs['loginUsername']
+        if 'managedInstanceId' in kwargs:
+            managed_instance_id = kwargs['managedInstanceId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'azureadAuthenticationOnly' in kwargs:
+            azuread_authentication_only = kwargs['azureadAuthenticationOnly']
+
         _setter("login_username", login_username)
         _setter("managed_instance_id", managed_instance_id)
         _setter("object_id", object_id)
@@ -144,7 +156,19 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
              managed_instance_id: Optional[pulumi.Input[str]] = None,
              object_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureadAuthenticationOnly' in kwargs:
+            azuread_authentication_only = kwargs['azureadAuthenticationOnly']
+        if 'loginUsername' in kwargs:
+            login_username = kwargs['loginUsername']
+        if 'managedInstanceId' in kwargs:
+            managed_instance_id = kwargs['managedInstanceId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if azuread_authentication_only is not None:
             _setter("azuread_authentication_only", azuread_authentication_only)
         if login_username is not None:

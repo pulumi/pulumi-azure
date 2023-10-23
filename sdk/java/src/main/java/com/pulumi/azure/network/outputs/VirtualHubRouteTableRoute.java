@@ -132,13 +132,13 @@ public final class VirtualHubRouteTableRoute {
             return this;
         }
         public VirtualHubRouteTableRoute build() {
-            final var o = new VirtualHubRouteTableRoute();
-            o.destinations = destinations;
-            o.destinationsType = destinationsType;
-            o.name = name;
-            o.nextHop = nextHop;
-            o.nextHopType = nextHopType;
-            return o;
+            final var _resultValue = new VirtualHubRouteTableRoute();
+            _resultValue.destinations = destinations;
+            _resultValue.destinationsType = destinationsType;
+            _resultValue.name = name;
+            _resultValue.nextHop = nextHop;
+            _resultValue.nextHopType = nextHopType;
+            return _resultValue;
         }
     }
 }

@@ -51,10 +51,10 @@ public final class ProviderPolicy {
             return this;
         }
         public ProviderPolicy build() {
-            final var o = new ProviderPolicy();
-            o.data = data;
-            o.environmentType = environmentType;
-            return o;
+            final var _resultValue = new ProviderPolicy();
+            _resultValue.data = data;
+            _resultValue.environmentType = environmentType;
+            return _resultValue;
         }
     }
 }

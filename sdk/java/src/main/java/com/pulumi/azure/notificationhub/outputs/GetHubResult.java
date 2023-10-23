@@ -165,16 +165,16 @@ public final class GetHubResult {
             return this;
         }
         public GetHubResult build() {
-            final var o = new GetHubResult();
-            o.apnsCredentials = apnsCredentials;
-            o.gcmCredentials = gcmCredentials;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.namespaceName = namespaceName;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetHubResult();
+            _resultValue.apnsCredentials = apnsCredentials;
+            _resultValue.gcmCredentials = gcmCredentials;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.namespaceName = namespaceName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

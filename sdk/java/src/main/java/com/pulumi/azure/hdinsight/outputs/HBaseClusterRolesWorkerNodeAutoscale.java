@@ -40,9 +40,9 @@ public final class HBaseClusterRolesWorkerNodeAutoscale {
             return this;
         }
         public HBaseClusterRolesWorkerNodeAutoscale build() {
-            final var o = new HBaseClusterRolesWorkerNodeAutoscale();
-            o.recurrence = recurrence;
-            return o;
+            final var _resultValue = new HBaseClusterRolesWorkerNodeAutoscale();
+            _resultValue.recurrence = recurrence;
+            return _resultValue;
         }
     }
 }

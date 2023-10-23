@@ -180,16 +180,16 @@ public final class VpnGatewayConnectionVpnLinkIpsecPolicy {
             return this;
         }
         public VpnGatewayConnectionVpnLinkIpsecPolicy build() {
-            final var o = new VpnGatewayConnectionVpnLinkIpsecPolicy();
-            o.dhGroup = dhGroup;
-            o.encryptionAlgorithm = encryptionAlgorithm;
-            o.ikeEncryptionAlgorithm = ikeEncryptionAlgorithm;
-            o.ikeIntegrityAlgorithm = ikeIntegrityAlgorithm;
-            o.integrityAlgorithm = integrityAlgorithm;
-            o.pfsGroup = pfsGroup;
-            o.saDataSizeKb = saDataSizeKb;
-            o.saLifetimeSec = saLifetimeSec;
-            return o;
+            final var _resultValue = new VpnGatewayConnectionVpnLinkIpsecPolicy();
+            _resultValue.dhGroup = dhGroup;
+            _resultValue.encryptionAlgorithm = encryptionAlgorithm;
+            _resultValue.ikeEncryptionAlgorithm = ikeEncryptionAlgorithm;
+            _resultValue.ikeIntegrityAlgorithm = ikeIntegrityAlgorithm;
+            _resultValue.integrityAlgorithm = integrityAlgorithm;
+            _resultValue.pfsGroup = pfsGroup;
+            _resultValue.saDataSizeKb = saDataSizeKb;
+            _resultValue.saLifetimeSec = saLifetimeSec;
+            return _resultValue;
         }
     }
 }

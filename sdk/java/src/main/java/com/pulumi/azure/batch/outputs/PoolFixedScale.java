@@ -106,12 +106,12 @@ public final class PoolFixedScale {
             return this;
         }
         public PoolFixedScale build() {
-            final var o = new PoolFixedScale();
-            o.nodeDeallocationMethod = nodeDeallocationMethod;
-            o.resizeTimeout = resizeTimeout;
-            o.targetDedicatedNodes = targetDedicatedNodes;
-            o.targetLowPriorityNodes = targetLowPriorityNodes;
-            return o;
+            final var _resultValue = new PoolFixedScale();
+            _resultValue.nodeDeallocationMethod = nodeDeallocationMethod;
+            _resultValue.resizeTimeout = resizeTimeout;
+            _resultValue.targetDedicatedNodes = targetDedicatedNodes;
+            _resultValue.targetLowPriorityNodes = targetLowPriorityNodes;
+            return _resultValue;
         }
     }
 }

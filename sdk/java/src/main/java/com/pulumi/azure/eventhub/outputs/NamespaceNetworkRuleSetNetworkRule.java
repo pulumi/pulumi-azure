@@ -68,10 +68,10 @@ public final class NamespaceNetworkRuleSetNetworkRule {
             return this;
         }
         public NamespaceNetworkRuleSetNetworkRule build() {
-            final var o = new NamespaceNetworkRuleSetNetworkRule();
-            o.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new NamespaceNetworkRuleSetNetworkRule();
+            _resultValue.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

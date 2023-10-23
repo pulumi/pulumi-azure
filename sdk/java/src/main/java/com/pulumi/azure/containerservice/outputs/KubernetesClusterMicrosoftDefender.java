@@ -46,9 +46,9 @@ public final class KubernetesClusterMicrosoftDefender {
             return this;
         }
         public KubernetesClusterMicrosoftDefender build() {
-            final var o = new KubernetesClusterMicrosoftDefender();
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            return o;
+            final var _resultValue = new KubernetesClusterMicrosoftDefender();
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            return _resultValue;
         }
     }
 }

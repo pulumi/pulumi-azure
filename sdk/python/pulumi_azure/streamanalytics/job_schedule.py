@@ -37,7 +37,15 @@ class JobScheduleArgs:
              start_mode: pulumi.Input[str],
              stream_analytics_job_id: pulumi.Input[str],
              start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startMode' in kwargs:
+            start_mode = kwargs['startMode']
+        if 'streamAnalyticsJobId' in kwargs:
+            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("start_mode", start_mode)
         _setter("stream_analytics_job_id", stream_analytics_job_id)
         if start_time is not None:
@@ -112,7 +120,17 @@ class _JobScheduleState:
              start_mode: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastOutputTime' in kwargs:
+            last_output_time = kwargs['lastOutputTime']
+        if 'startMode' in kwargs:
+            start_mode = kwargs['startMode']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'streamAnalyticsJobId' in kwargs:
+            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
+
         if last_output_time is not None:
             _setter("last_output_time", last_output_time)
         if start_mode is not None:

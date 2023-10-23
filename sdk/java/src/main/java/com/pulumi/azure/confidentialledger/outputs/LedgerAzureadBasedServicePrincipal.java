@@ -84,11 +84,11 @@ public final class LedgerAzureadBasedServicePrincipal {
             return this;
         }
         public LedgerAzureadBasedServicePrincipal build() {
-            final var o = new LedgerAzureadBasedServicePrincipal();
-            o.ledgerRoleName = ledgerRoleName;
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new LedgerAzureadBasedServicePrincipal();
+            _resultValue.ledgerRoleName = ledgerRoleName;
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

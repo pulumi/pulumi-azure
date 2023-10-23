@@ -46,9 +46,9 @@ public final class InteractiveQueryClusterComponentVersion {
             return this;
         }
         public InteractiveQueryClusterComponentVersion build() {
-            final var o = new InteractiveQueryClusterComponentVersion();
-            o.interactiveHive = interactiveHive;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterComponentVersion();
+            _resultValue.interactiveHive = interactiveHive;
+            return _resultValue;
         }
     }
 }

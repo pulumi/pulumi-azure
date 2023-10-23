@@ -69,10 +69,10 @@ public final class ActionRuleActionGroupConditionMonitor {
             return values(List.of(values));
         }
         public ActionRuleActionGroupConditionMonitor build() {
-            final var o = new ActionRuleActionGroupConditionMonitor();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new ActionRuleActionGroupConditionMonitor();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

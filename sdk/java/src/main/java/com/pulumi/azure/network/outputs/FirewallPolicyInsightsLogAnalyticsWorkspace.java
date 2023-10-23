@@ -65,10 +65,10 @@ public final class FirewallPolicyInsightsLogAnalyticsWorkspace {
             return this;
         }
         public FirewallPolicyInsightsLogAnalyticsWorkspace build() {
-            final var o = new FirewallPolicyInsightsLogAnalyticsWorkspace();
-            o.firewallLocation = firewallLocation;
-            o.id = id;
-            return o;
+            final var _resultValue = new FirewallPolicyInsightsLogAnalyticsWorkspace();
+            _resultValue.firewallLocation = firewallLocation;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

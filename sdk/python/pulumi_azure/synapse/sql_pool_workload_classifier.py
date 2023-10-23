@@ -55,7 +55,17 @@ class SqlPoolWorkloadClassifierArgs:
              label: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'memberName' in kwargs:
+            member_name = kwargs['memberName']
+        if 'workloadGroupId' in kwargs:
+            workload_group_id = kwargs['workloadGroupId']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("member_name", member_name)
         _setter("workload_group_id", workload_group_id)
         if context is not None:
@@ -212,7 +222,17 @@ class _SqlPoolWorkloadClassifierState:
              name: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              workload_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'memberName' in kwargs:
+            member_name = kwargs['memberName']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'workloadGroupId' in kwargs:
+            workload_group_id = kwargs['workloadGroupId']
+
         if context is not None:
             _setter("context", context)
         if end_time is not None:

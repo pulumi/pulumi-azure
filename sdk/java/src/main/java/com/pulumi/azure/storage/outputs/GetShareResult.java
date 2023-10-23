@@ -144,15 +144,15 @@ public final class GetShareResult {
             return this;
         }
         public GetShareResult build() {
-            final var o = new GetShareResult();
-            o.acls = acls;
-            o.id = id;
-            o.metadata = metadata;
-            o.name = name;
-            o.quota = quota;
-            o.resourceManagerId = resourceManagerId;
-            o.storageAccountName = storageAccountName;
-            return o;
+            final var _resultValue = new GetShareResult();
+            _resultValue.acls = acls;
+            _resultValue.id = id;
+            _resultValue.metadata = metadata;
+            _resultValue.name = name;
+            _resultValue.quota = quota;
+            _resultValue.resourceManagerId = resourceManagerId;
+            _resultValue.storageAccountName = storageAccountName;
+            return _resultValue;
         }
     }
 }

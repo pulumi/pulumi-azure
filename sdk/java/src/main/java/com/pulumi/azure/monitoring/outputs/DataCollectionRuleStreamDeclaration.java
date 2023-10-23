@@ -70,10 +70,10 @@ public final class DataCollectionRuleStreamDeclaration {
             return this;
         }
         public DataCollectionRuleStreamDeclaration build() {
-            final var o = new DataCollectionRuleStreamDeclaration();
-            o.columns = columns;
-            o.streamName = streamName;
-            return o;
+            final var _resultValue = new DataCollectionRuleStreamDeclaration();
+            _resultValue.columns = columns;
+            _resultValue.streamName = streamName;
+            return _resultValue;
         }
     }
 }

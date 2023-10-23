@@ -69,7 +69,19 @@ class SpringCloudContainerDeploymentArgs:
              language_framework: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              quota: Optional[pulumi.Input['SpringCloudContainerDeploymentQuotaArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+        if 'addonJson' in kwargs:
+            addon_json = kwargs['addonJson']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'languageFramework' in kwargs:
+            language_framework = kwargs['languageFramework']
+
         _setter("image", image)
         _setter("server", server)
         _setter("spring_cloud_app_id", spring_cloud_app_id)
@@ -279,7 +291,19 @@ class _SpringCloudContainerDeploymentState:
              quota: Optional[pulumi.Input['SpringCloudContainerDeploymentQuotaArgs']] = None,
              server: Optional[pulumi.Input[str]] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addonJson' in kwargs:
+            addon_json = kwargs['addonJson']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'languageFramework' in kwargs:
+            language_framework = kwargs['languageFramework']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+
         if addon_json is not None:
             _setter("addon_json", addon_json)
         if arguments is not None:

@@ -118,12 +118,12 @@ public final class ApiOperationRequest {
             return representations(List.of(representations));
         }
         public ApiOperationRequest build() {
-            final var o = new ApiOperationRequest();
-            o.description = description;
-            o.headers = headers;
-            o.queryParameters = queryParameters;
-            o.representations = representations;
-            return o;
+            final var _resultValue = new ApiOperationRequest();
+            _resultValue.description = description;
+            _resultValue.headers = headers;
+            _resultValue.queryParameters = queryParameters;
+            _resultValue.representations = representations;
+            return _resultValue;
         }
     }
 }

@@ -112,12 +112,12 @@ public final class FirewallPolicyInsights {
             return this;
         }
         public FirewallPolicyInsights build() {
-            final var o = new FirewallPolicyInsights();
-            o.defaultLogAnalyticsWorkspaceId = defaultLogAnalyticsWorkspaceId;
-            o.enabled = enabled;
-            o.logAnalyticsWorkspaces = logAnalyticsWorkspaces;
-            o.retentionInDays = retentionInDays;
-            return o;
+            final var _resultValue = new FirewallPolicyInsights();
+            _resultValue.defaultLogAnalyticsWorkspaceId = defaultLogAnalyticsWorkspaceId;
+            _resultValue.enabled = enabled;
+            _resultValue.logAnalyticsWorkspaces = logAnalyticsWorkspaces;
+            _resultValue.retentionInDays = retentionInDays;
+            return _resultValue;
         }
     }
 }

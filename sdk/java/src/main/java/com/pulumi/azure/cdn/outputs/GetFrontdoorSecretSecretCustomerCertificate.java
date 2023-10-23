@@ -88,11 +88,11 @@ public final class GetFrontdoorSecretSecretCustomerCertificate {
             return subjectAlternativeNames(List.of(subjectAlternativeNames));
         }
         public GetFrontdoorSecretSecretCustomerCertificate build() {
-            final var o = new GetFrontdoorSecretSecretCustomerCertificate();
-            o.expirationDate = expirationDate;
-            o.keyVaultCertificateId = keyVaultCertificateId;
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            return o;
+            final var _resultValue = new GetFrontdoorSecretSecretCustomerCertificate();
+            _resultValue.expirationDate = expirationDate;
+            _resultValue.keyVaultCertificateId = keyVaultCertificateId;
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            return _resultValue;
         }
     }
 }

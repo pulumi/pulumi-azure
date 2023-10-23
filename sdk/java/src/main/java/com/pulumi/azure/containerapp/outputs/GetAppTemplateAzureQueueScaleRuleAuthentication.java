@@ -57,10 +57,10 @@ public final class GetAppTemplateAzureQueueScaleRuleAuthentication {
             return this;
         }
         public GetAppTemplateAzureQueueScaleRuleAuthentication build() {
-            final var o = new GetAppTemplateAzureQueueScaleRuleAuthentication();
-            o.secretName = secretName;
-            o.triggerParameter = triggerParameter;
-            return o;
+            final var _resultValue = new GetAppTemplateAzureQueueScaleRuleAuthentication();
+            _resultValue.secretName = secretName;
+            _resultValue.triggerParameter = triggerParameter;
+            return _resultValue;
         }
     }
 }

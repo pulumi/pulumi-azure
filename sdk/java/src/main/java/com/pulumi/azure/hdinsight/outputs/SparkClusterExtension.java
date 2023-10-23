@@ -65,10 +65,10 @@ public final class SparkClusterExtension {
             return this;
         }
         public SparkClusterExtension build() {
-            final var o = new SparkClusterExtension();
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.primaryKey = primaryKey;
-            return o;
+            final var _resultValue = new SparkClusterExtension();
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.primaryKey = primaryKey;
+            return _resultValue;
         }
     }
 }

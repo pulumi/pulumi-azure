@@ -106,12 +106,12 @@ public final class ScheduledQueryRulesAlertTriggerMetricTrigger {
             return this;
         }
         public ScheduledQueryRulesAlertTriggerMetricTrigger build() {
-            final var o = new ScheduledQueryRulesAlertTriggerMetricTrigger();
-            o.metricColumn = metricColumn;
-            o.metricTriggerType = metricTriggerType;
-            o.operator = operator;
-            o.threshold = threshold;
-            return o;
+            final var _resultValue = new ScheduledQueryRulesAlertTriggerMetricTrigger();
+            _resultValue.metricColumn = metricColumn;
+            _resultValue.metricTriggerType = metricTriggerType;
+            _resultValue.operator = operator;
+            _resultValue.threshold = threshold;
+            return _resultValue;
         }
     }
 }

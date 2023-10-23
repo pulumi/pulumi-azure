@@ -101,12 +101,12 @@ public final class KubernetesClusterHttpProxyConfig {
             return this;
         }
         public KubernetesClusterHttpProxyConfig build() {
-            final var o = new KubernetesClusterHttpProxyConfig();
-            o.httpProxy = httpProxy;
-            o.httpsProxy = httpsProxy;
-            o.noProxies = noProxies;
-            o.trustedCa = trustedCa;
-            return o;
+            final var _resultValue = new KubernetesClusterHttpProxyConfig();
+            _resultValue.httpProxy = httpProxy;
+            _resultValue.httpsProxy = httpsProxy;
+            _resultValue.noProxies = noProxies;
+            _resultValue.trustedCa = trustedCa;
+            return _resultValue;
         }
     }
 }

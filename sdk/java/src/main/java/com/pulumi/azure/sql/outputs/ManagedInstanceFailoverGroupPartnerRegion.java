@@ -67,10 +67,10 @@ public final class ManagedInstanceFailoverGroupPartnerRegion {
             return this;
         }
         public ManagedInstanceFailoverGroupPartnerRegion build() {
-            final var o = new ManagedInstanceFailoverGroupPartnerRegion();
-            o.location = location;
-            o.role = role;
-            return o;
+            final var _resultValue = new ManagedInstanceFailoverGroupPartnerRegion();
+            _resultValue.location = location;
+            _resultValue.role = role;
+            return _resultValue;
         }
     }
 }

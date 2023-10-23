@@ -65,10 +65,10 @@ public final class KubernetesClusterServicePrincipal {
             return this;
         }
         public KubernetesClusterServicePrincipal build() {
-            final var o = new KubernetesClusterServicePrincipal();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            return o;
+            final var _resultValue = new KubernetesClusterServicePrincipal();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            return _resultValue;
         }
     }
 }

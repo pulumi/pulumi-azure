@@ -113,7 +113,45 @@ class EventSubscriptionArgs:
              storage_queue_endpoint: Optional[pulumi.Input['EventSubscriptionStorageQueueEndpointArgs']] = None,
              subject_filter: Optional[pulumi.Input['EventSubscriptionSubjectFilterArgs']] = None,
              webhook_endpoint: Optional[pulumi.Input['EventSubscriptionWebhookEndpointArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'advancedFilter' in kwargs:
+            advanced_filter = kwargs['advancedFilter']
+        if 'advancedFilteringOnArraysEnabled' in kwargs:
+            advanced_filtering_on_arrays_enabled = kwargs['advancedFilteringOnArraysEnabled']
+        if 'azureFunctionEndpoint' in kwargs:
+            azure_function_endpoint = kwargs['azureFunctionEndpoint']
+        if 'deadLetterIdentity' in kwargs:
+            dead_letter_identity = kwargs['deadLetterIdentity']
+        if 'deliveryIdentity' in kwargs:
+            delivery_identity = kwargs['deliveryIdentity']
+        if 'deliveryProperties' in kwargs:
+            delivery_properties = kwargs['deliveryProperties']
+        if 'eventDeliverySchema' in kwargs:
+            event_delivery_schema = kwargs['eventDeliverySchema']
+        if 'eventhubEndpointId' in kwargs:
+            eventhub_endpoint_id = kwargs['eventhubEndpointId']
+        if 'expirationTimeUtc' in kwargs:
+            expiration_time_utc = kwargs['expirationTimeUtc']
+        if 'hybridConnectionEndpointId' in kwargs:
+            hybrid_connection_endpoint_id = kwargs['hybridConnectionEndpointId']
+        if 'includedEventTypes' in kwargs:
+            included_event_types = kwargs['includedEventTypes']
+        if 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+        if 'serviceBusQueueEndpointId' in kwargs:
+            service_bus_queue_endpoint_id = kwargs['serviceBusQueueEndpointId']
+        if 'serviceBusTopicEndpointId' in kwargs:
+            service_bus_topic_endpoint_id = kwargs['serviceBusTopicEndpointId']
+        if 'storageBlobDeadLetterDestination' in kwargs:
+            storage_blob_dead_letter_destination = kwargs['storageBlobDeadLetterDestination']
+        if 'storageQueueEndpoint' in kwargs:
+            storage_queue_endpoint = kwargs['storageQueueEndpoint']
+        if 'subjectFilter' in kwargs:
+            subject_filter = kwargs['subjectFilter']
+        if 'webhookEndpoint' in kwargs:
+            webhook_endpoint = kwargs['webhookEndpoint']
+
         _setter("scope", scope)
         if advanced_filter is not None:
             _setter("advanced_filter", advanced_filter)
@@ -513,7 +551,45 @@ class _EventSubscriptionState:
              storage_queue_endpoint: Optional[pulumi.Input['EventSubscriptionStorageQueueEndpointArgs']] = None,
              subject_filter: Optional[pulumi.Input['EventSubscriptionSubjectFilterArgs']] = None,
              webhook_endpoint: Optional[pulumi.Input['EventSubscriptionWebhookEndpointArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'advancedFilter' in kwargs:
+            advanced_filter = kwargs['advancedFilter']
+        if 'advancedFilteringOnArraysEnabled' in kwargs:
+            advanced_filtering_on_arrays_enabled = kwargs['advancedFilteringOnArraysEnabled']
+        if 'azureFunctionEndpoint' in kwargs:
+            azure_function_endpoint = kwargs['azureFunctionEndpoint']
+        if 'deadLetterIdentity' in kwargs:
+            dead_letter_identity = kwargs['deadLetterIdentity']
+        if 'deliveryIdentity' in kwargs:
+            delivery_identity = kwargs['deliveryIdentity']
+        if 'deliveryProperties' in kwargs:
+            delivery_properties = kwargs['deliveryProperties']
+        if 'eventDeliverySchema' in kwargs:
+            event_delivery_schema = kwargs['eventDeliverySchema']
+        if 'eventhubEndpointId' in kwargs:
+            eventhub_endpoint_id = kwargs['eventhubEndpointId']
+        if 'expirationTimeUtc' in kwargs:
+            expiration_time_utc = kwargs['expirationTimeUtc']
+        if 'hybridConnectionEndpointId' in kwargs:
+            hybrid_connection_endpoint_id = kwargs['hybridConnectionEndpointId']
+        if 'includedEventTypes' in kwargs:
+            included_event_types = kwargs['includedEventTypes']
+        if 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+        if 'serviceBusQueueEndpointId' in kwargs:
+            service_bus_queue_endpoint_id = kwargs['serviceBusQueueEndpointId']
+        if 'serviceBusTopicEndpointId' in kwargs:
+            service_bus_topic_endpoint_id = kwargs['serviceBusTopicEndpointId']
+        if 'storageBlobDeadLetterDestination' in kwargs:
+            storage_blob_dead_letter_destination = kwargs['storageBlobDeadLetterDestination']
+        if 'storageQueueEndpoint' in kwargs:
+            storage_queue_endpoint = kwargs['storageQueueEndpoint']
+        if 'subjectFilter' in kwargs:
+            subject_filter = kwargs['subjectFilter']
+        if 'webhookEndpoint' in kwargs:
+            webhook_endpoint = kwargs['webhookEndpoint']
+
         if advanced_filter is not None:
             _setter("advanced_filter", advanced_filter)
         if advanced_filtering_on_arrays_enabled is not None:

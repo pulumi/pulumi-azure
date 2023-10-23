@@ -66,10 +66,10 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSetting {
             return this;
         }
         public WindowsWebAppSlotSiteConfigAutoHealSetting build() {
-            final var o = new WindowsWebAppSlotSiteConfigAutoHealSetting();
-            o.action = action;
-            o.trigger = trigger;
-            return o;
+            final var _resultValue = new WindowsWebAppSlotSiteConfigAutoHealSetting();
+            _resultValue.action = action;
+            _resultValue.trigger = trigger;
+            return _resultValue;
         }
     }
 }

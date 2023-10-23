@@ -132,13 +132,13 @@ public final class FrontdoorRuleConditionsPostArgsCondition {
             return transforms(List.of(transforms));
         }
         public FrontdoorRuleConditionsPostArgsCondition build() {
-            final var o = new FrontdoorRuleConditionsPostArgsCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            o.postArgsName = postArgsName;
-            o.transforms = transforms;
-            return o;
+            final var _resultValue = new FrontdoorRuleConditionsPostArgsCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            _resultValue.postArgsName = postArgsName;
+            _resultValue.transforms = transforms;
+            return _resultValue;
         }
     }
 }

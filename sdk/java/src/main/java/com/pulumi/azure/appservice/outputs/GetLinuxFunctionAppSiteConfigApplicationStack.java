@@ -177,16 +177,16 @@ public final class GetLinuxFunctionAppSiteConfigApplicationStack {
             return this;
         }
         public GetLinuxFunctionAppSiteConfigApplicationStack build() {
-            final var o = new GetLinuxFunctionAppSiteConfigApplicationStack();
-            o.dockers = dockers;
-            o.dotnetVersion = dotnetVersion;
-            o.javaVersion = javaVersion;
-            o.nodeVersion = nodeVersion;
-            o.powershellCoreVersion = powershellCoreVersion;
-            o.pythonVersion = pythonVersion;
-            o.useCustomRuntime = useCustomRuntime;
-            o.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
-            return o;
+            final var _resultValue = new GetLinuxFunctionAppSiteConfigApplicationStack();
+            _resultValue.dockers = dockers;
+            _resultValue.dotnetVersion = dotnetVersion;
+            _resultValue.javaVersion = javaVersion;
+            _resultValue.nodeVersion = nodeVersion;
+            _resultValue.powershellCoreVersion = powershellCoreVersion;
+            _resultValue.pythonVersion = pythonVersion;
+            _resultValue.useCustomRuntime = useCustomRuntime;
+            _resultValue.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
+            return _resultValue;
         }
     }
 }

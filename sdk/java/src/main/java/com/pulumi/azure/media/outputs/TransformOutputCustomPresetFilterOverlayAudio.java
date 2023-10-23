@@ -144,14 +144,14 @@ public final class TransformOutputCustomPresetFilterOverlayAudio {
             return this;
         }
         public TransformOutputCustomPresetFilterOverlayAudio build() {
-            final var o = new TransformOutputCustomPresetFilterOverlayAudio();
-            o.audioGainLevel = audioGainLevel;
-            o.end = end;
-            o.fadeInDuration = fadeInDuration;
-            o.fadeOutDuration = fadeOutDuration;
-            o.inputLabel = inputLabel;
-            o.start = start;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFilterOverlayAudio();
+            _resultValue.audioGainLevel = audioGainLevel;
+            _resultValue.end = end;
+            _resultValue.fadeInDuration = fadeInDuration;
+            _resultValue.fadeOutDuration = fadeOutDuration;
+            _resultValue.inputLabel = inputLabel;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

@@ -57,7 +57,15 @@ class DefinitionArgs:
              lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              plan: Optional[pulumi.Input['DefinitionPlanArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managingTenantId' in kwargs:
+            managing_tenant_id = kwargs['managingTenantId']
+        if 'eligibleAuthorizations' in kwargs:
+            eligible_authorizations = kwargs['eligibleAuthorizations']
+        if 'lighthouseDefinitionId' in kwargs:
+            lighthouse_definition_id = kwargs['lighthouseDefinitionId']
+
         _setter("authorizations", authorizations)
         _setter("managing_tenant_id", managing_tenant_id)
         _setter("scope", scope)
@@ -213,7 +221,15 @@ class _DefinitionState:
              name: Optional[pulumi.Input[str]] = None,
              plan: Optional[pulumi.Input['DefinitionPlanArgs']] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eligibleAuthorizations' in kwargs:
+            eligible_authorizations = kwargs['eligibleAuthorizations']
+        if 'lighthouseDefinitionId' in kwargs:
+            lighthouse_definition_id = kwargs['lighthouseDefinitionId']
+        if 'managingTenantId' in kwargs:
+            managing_tenant_id = kwargs['managingTenantId']
+
         if authorizations is not None:
             _setter("authorizations", authorizations)
         if description is not None:

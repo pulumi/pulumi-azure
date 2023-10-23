@@ -65,10 +65,10 @@ public final class GetBudgetResourceGroupTimePeriod {
             return this;
         }
         public GetBudgetResourceGroupTimePeriod build() {
-            final var o = new GetBudgetResourceGroupTimePeriod();
-            o.endDate = endDate;
-            o.startDate = startDate;
-            return o;
+            final var _resultValue = new GetBudgetResourceGroupTimePeriod();
+            _resultValue.endDate = endDate;
+            _resultValue.startDate = startDate;
+            return _resultValue;
         }
     }
 }

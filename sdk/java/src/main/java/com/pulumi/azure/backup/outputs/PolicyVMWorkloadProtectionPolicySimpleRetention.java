@@ -46,9 +46,9 @@ public final class PolicyVMWorkloadProtectionPolicySimpleRetention {
             return this;
         }
         public PolicyVMWorkloadProtectionPolicySimpleRetention build() {
-            final var o = new PolicyVMWorkloadProtectionPolicySimpleRetention();
-            o.count = count;
-            return o;
+            final var _resultValue = new PolicyVMWorkloadProtectionPolicySimpleRetention();
+            _resultValue.count = count;
+            return _resultValue;
         }
     }
 }

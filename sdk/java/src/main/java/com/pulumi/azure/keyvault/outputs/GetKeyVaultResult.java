@@ -318,24 +318,24 @@ public final class GetKeyVaultResult {
             return this;
         }
         public GetKeyVaultResult build() {
-            final var o = new GetKeyVaultResult();
-            o.accessPolicies = accessPolicies;
-            o.enableRbacAuthorization = enableRbacAuthorization;
-            o.enabledForDeployment = enabledForDeployment;
-            o.enabledForDiskEncryption = enabledForDiskEncryption;
-            o.enabledForTemplateDeployment = enabledForTemplateDeployment;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.networkAcls = networkAcls;
-            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            o.purgeProtectionEnabled = purgeProtectionEnabled;
-            o.resourceGroupName = resourceGroupName;
-            o.skuName = skuName;
-            o.tags = tags;
-            o.tenantId = tenantId;
-            o.vaultUri = vaultUri;
-            return o;
+            final var _resultValue = new GetKeyVaultResult();
+            _resultValue.accessPolicies = accessPolicies;
+            _resultValue.enableRbacAuthorization = enableRbacAuthorization;
+            _resultValue.enabledForDeployment = enabledForDeployment;
+            _resultValue.enabledForDiskEncryption = enabledForDiskEncryption;
+            _resultValue.enabledForTemplateDeployment = enabledForTemplateDeployment;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.networkAcls = networkAcls;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            _resultValue.purgeProtectionEnabled = purgeProtectionEnabled;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.skuName = skuName;
+            _resultValue.tags = tags;
+            _resultValue.tenantId = tenantId;
+            _resultValue.vaultUri = vaultUri;
+            return _resultValue;
         }
     }
 }

@@ -281,21 +281,21 @@ public final class ClusterNodeType {
             return this;
         }
         public ClusterNodeType build() {
-            final var o = new ClusterNodeType();
-            o.applicationPorts = applicationPorts;
-            o.capacities = capacities;
-            o.clientEndpointPort = clientEndpointPort;
-            o.durabilityLevel = durabilityLevel;
-            o.ephemeralPorts = ephemeralPorts;
-            o.httpEndpointPort = httpEndpointPort;
-            o.instanceCount = instanceCount;
-            o.isPrimary = isPrimary;
-            o.isStateless = isStateless;
-            o.multipleAvailabilityZones = multipleAvailabilityZones;
-            o.name = name;
-            o.placementProperties = placementProperties;
-            o.reverseProxyEndpointPort = reverseProxyEndpointPort;
-            return o;
+            final var _resultValue = new ClusterNodeType();
+            _resultValue.applicationPorts = applicationPorts;
+            _resultValue.capacities = capacities;
+            _resultValue.clientEndpointPort = clientEndpointPort;
+            _resultValue.durabilityLevel = durabilityLevel;
+            _resultValue.ephemeralPorts = ephemeralPorts;
+            _resultValue.httpEndpointPort = httpEndpointPort;
+            _resultValue.instanceCount = instanceCount;
+            _resultValue.isPrimary = isPrimary;
+            _resultValue.isStateless = isStateless;
+            _resultValue.multipleAvailabilityZones = multipleAvailabilityZones;
+            _resultValue.name = name;
+            _resultValue.placementProperties = placementProperties;
+            _resultValue.reverseProxyEndpointPort = reverseProxyEndpointPort;
+            return _resultValue;
         }
     }
 }

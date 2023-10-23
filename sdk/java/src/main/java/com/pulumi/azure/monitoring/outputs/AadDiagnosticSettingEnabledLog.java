@@ -66,10 +66,10 @@ public final class AadDiagnosticSettingEnabledLog {
             return this;
         }
         public AadDiagnosticSettingEnabledLog build() {
-            final var o = new AadDiagnosticSettingEnabledLog();
-            o.category = category;
-            o.retentionPolicy = retentionPolicy;
-            return o;
+            final var _resultValue = new AadDiagnosticSettingEnabledLog();
+            _resultValue.category = category;
+            _resultValue.retentionPolicy = retentionPolicy;
+            return _resultValue;
         }
     }
 }

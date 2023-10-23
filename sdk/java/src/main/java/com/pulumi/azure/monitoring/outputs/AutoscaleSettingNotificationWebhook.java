@@ -67,10 +67,10 @@ public final class AutoscaleSettingNotificationWebhook {
             return this;
         }
         public AutoscaleSettingNotificationWebhook build() {
-            final var o = new AutoscaleSettingNotificationWebhook();
-            o.properties = properties;
-            o.serviceUri = serviceUri;
-            return o;
+            final var _resultValue = new AutoscaleSettingNotificationWebhook();
+            _resultValue.properties = properties;
+            _resultValue.serviceUri = serviceUri;
+            return _resultValue;
         }
     }
 }

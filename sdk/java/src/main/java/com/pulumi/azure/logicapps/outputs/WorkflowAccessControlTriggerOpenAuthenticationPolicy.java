@@ -70,10 +70,10 @@ public final class WorkflowAccessControlTriggerOpenAuthenticationPolicy {
             return this;
         }
         public WorkflowAccessControlTriggerOpenAuthenticationPolicy build() {
-            final var o = new WorkflowAccessControlTriggerOpenAuthenticationPolicy();
-            o.claims = claims;
-            o.name = name;
-            return o;
+            final var _resultValue = new WorkflowAccessControlTriggerOpenAuthenticationPolicy();
+            _resultValue.claims = claims;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

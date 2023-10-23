@@ -86,11 +86,11 @@ public final class DomainInputMappingDefaultValues {
             return this;
         }
         public DomainInputMappingDefaultValues build() {
-            final var o = new DomainInputMappingDefaultValues();
-            o.dataVersion = dataVersion;
-            o.eventType = eventType;
-            o.subject = subject;
-            return o;
+            final var _resultValue = new DomainInputMappingDefaultValues();
+            _resultValue.dataVersion = dataVersion;
+            _resultValue.eventType = eventType;
+            _resultValue.subject = subject;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class WindowsVirtualMachineAdditionalCapabilities {
             return this;
         }
         public WindowsVirtualMachineAdditionalCapabilities build() {
-            final var o = new WindowsVirtualMachineAdditionalCapabilities();
-            o.ultraSsdEnabled = ultraSsdEnabled;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineAdditionalCapabilities();
+            _resultValue.ultraSsdEnabled = ultraSsdEnabled;
+            return _resultValue;
         }
     }
 }

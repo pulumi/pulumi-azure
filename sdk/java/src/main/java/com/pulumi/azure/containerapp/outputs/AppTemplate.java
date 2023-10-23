@@ -226,17 +226,17 @@ public final class AppTemplate {
             return volumes(List.of(volumes));
         }
         public AppTemplate build() {
-            final var o = new AppTemplate();
-            o.azureQueueScaleRules = azureQueueScaleRules;
-            o.containers = containers;
-            o.customScaleRules = customScaleRules;
-            o.httpScaleRules = httpScaleRules;
-            o.maxReplicas = maxReplicas;
-            o.minReplicas = minReplicas;
-            o.revisionSuffix = revisionSuffix;
-            o.tcpScaleRules = tcpScaleRules;
-            o.volumes = volumes;
-            return o;
+            final var _resultValue = new AppTemplate();
+            _resultValue.azureQueueScaleRules = azureQueueScaleRules;
+            _resultValue.containers = containers;
+            _resultValue.customScaleRules = customScaleRules;
+            _resultValue.httpScaleRules = httpScaleRules;
+            _resultValue.maxReplicas = maxReplicas;
+            _resultValue.minReplicas = minReplicas;
+            _resultValue.revisionSuffix = revisionSuffix;
+            _resultValue.tcpScaleRules = tcpScaleRules;
+            _resultValue.volumes = volumes;
+            return _resultValue;
         }
     }
 }

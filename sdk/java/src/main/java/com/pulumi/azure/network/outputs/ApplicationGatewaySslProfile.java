@@ -149,14 +149,14 @@ public final class ApplicationGatewaySslProfile {
             return this;
         }
         public ApplicationGatewaySslProfile build() {
-            final var o = new ApplicationGatewaySslProfile();
-            o.id = id;
-            o.name = name;
-            o.sslPolicy = sslPolicy;
-            o.trustedClientCertificateNames = trustedClientCertificateNames;
-            o.verifyClientCertIssuerDn = verifyClientCertIssuerDn;
-            o.verifyClientCertificateRevocation = verifyClientCertificateRevocation;
-            return o;
+            final var _resultValue = new ApplicationGatewaySslProfile();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.sslPolicy = sslPolicy;
+            _resultValue.trustedClientCertificateNames = trustedClientCertificateNames;
+            _resultValue.verifyClientCertIssuerDn = verifyClientCertIssuerDn;
+            _resultValue.verifyClientCertificateRevocation = verifyClientCertificateRevocation;
+            return _resultValue;
         }
     }
 }

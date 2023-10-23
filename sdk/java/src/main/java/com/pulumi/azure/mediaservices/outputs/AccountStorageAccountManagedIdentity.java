@@ -68,10 +68,10 @@ public final class AccountStorageAccountManagedIdentity {
             return this;
         }
         public AccountStorageAccountManagedIdentity build() {
-            final var o = new AccountStorageAccountManagedIdentity();
-            o.useSystemAssignedIdentity = useSystemAssignedIdentity;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new AccountStorageAccountManagedIdentity();
+            _resultValue.useSystemAssignedIdentity = useSystemAssignedIdentity;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

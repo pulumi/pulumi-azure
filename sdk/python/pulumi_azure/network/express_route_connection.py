@@ -57,7 +57,21 @@ class ExpressRouteConnectionArgs:
              name: Optional[pulumi.Input[str]] = None,
              routing: Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']] = None,
              routing_weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expressRouteCircuitPeeringId' in kwargs:
+            express_route_circuit_peering_id = kwargs['expressRouteCircuitPeeringId']
+        if 'expressRouteGatewayId' in kwargs:
+            express_route_gateway_id = kwargs['expressRouteGatewayId']
+        if 'authorizationKey' in kwargs:
+            authorization_key = kwargs['authorizationKey']
+        if 'enableInternetSecurity' in kwargs:
+            enable_internet_security = kwargs['enableInternetSecurity']
+        if 'expressRouteGatewayBypassEnabled' in kwargs:
+            express_route_gateway_bypass_enabled = kwargs['expressRouteGatewayBypassEnabled']
+        if 'routingWeight' in kwargs:
+            routing_weight = kwargs['routingWeight']
+
         _setter("express_route_circuit_peering_id", express_route_circuit_peering_id)
         _setter("express_route_gateway_id", express_route_gateway_id)
         if authorization_key is not None:
@@ -214,7 +228,21 @@ class _ExpressRouteConnectionState:
              name: Optional[pulumi.Input[str]] = None,
              routing: Optional[pulumi.Input['ExpressRouteConnectionRoutingArgs']] = None,
              routing_weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationKey' in kwargs:
+            authorization_key = kwargs['authorizationKey']
+        if 'enableInternetSecurity' in kwargs:
+            enable_internet_security = kwargs['enableInternetSecurity']
+        if 'expressRouteCircuitPeeringId' in kwargs:
+            express_route_circuit_peering_id = kwargs['expressRouteCircuitPeeringId']
+        if 'expressRouteGatewayBypassEnabled' in kwargs:
+            express_route_gateway_bypass_enabled = kwargs['expressRouteGatewayBypassEnabled']
+        if 'expressRouteGatewayId' in kwargs:
+            express_route_gateway_id = kwargs['expressRouteGatewayId']
+        if 'routingWeight' in kwargs:
+            routing_weight = kwargs['routingWeight']
+
         if authorization_key is not None:
             _setter("authorization_key", authorization_key)
         if enable_internet_security is not None:

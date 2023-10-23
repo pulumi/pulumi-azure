@@ -356,26 +356,26 @@ public final class GetEventhubNamespaceResult {
             return this;
         }
         public GetEventhubNamespaceResult build() {
-            final var o = new GetEventhubNamespaceResult();
-            o.autoInflateEnabled = autoInflateEnabled;
-            o.capacity = capacity;
-            o.dedicatedClusterId = dedicatedClusterId;
-            o.defaultPrimaryConnectionString = defaultPrimaryConnectionString;
-            o.defaultPrimaryConnectionStringAlias = defaultPrimaryConnectionStringAlias;
-            o.defaultPrimaryKey = defaultPrimaryKey;
-            o.defaultSecondaryConnectionString = defaultSecondaryConnectionString;
-            o.defaultSecondaryConnectionStringAlias = defaultSecondaryConnectionStringAlias;
-            o.defaultSecondaryKey = defaultSecondaryKey;
-            o.id = id;
-            o.kafkaEnabled = kafkaEnabled;
-            o.location = location;
-            o.maximumThroughputUnits = maximumThroughputUnits;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.sku = sku;
-            o.tags = tags;
-            o.zoneRedundant = zoneRedundant;
-            return o;
+            final var _resultValue = new GetEventhubNamespaceResult();
+            _resultValue.autoInflateEnabled = autoInflateEnabled;
+            _resultValue.capacity = capacity;
+            _resultValue.dedicatedClusterId = dedicatedClusterId;
+            _resultValue.defaultPrimaryConnectionString = defaultPrimaryConnectionString;
+            _resultValue.defaultPrimaryConnectionStringAlias = defaultPrimaryConnectionStringAlias;
+            _resultValue.defaultPrimaryKey = defaultPrimaryKey;
+            _resultValue.defaultSecondaryConnectionString = defaultSecondaryConnectionString;
+            _resultValue.defaultSecondaryConnectionStringAlias = defaultSecondaryConnectionStringAlias;
+            _resultValue.defaultSecondaryKey = defaultSecondaryKey;
+            _resultValue.id = id;
+            _resultValue.kafkaEnabled = kafkaEnabled;
+            _resultValue.location = location;
+            _resultValue.maximumThroughputUnits = maximumThroughputUnits;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sku = sku;
+            _resultValue.tags = tags;
+            _resultValue.zoneRedundant = zoneRedundant;
+            return _resultValue;
         }
     }
 }

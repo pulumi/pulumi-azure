@@ -109,12 +109,12 @@ public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityG
             return sourcePortRanges(List.of(sourcePortRanges));
         }
         public PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule build() {
-            final var o = new PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule();
-            o.access = access;
-            o.priority = priority;
-            o.sourceAddressPrefix = sourceAddressPrefix;
-            o.sourcePortRanges = sourcePortRanges;
-            return o;
+            final var _resultValue = new PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule();
+            _resultValue.access = access;
+            _resultValue.priority = priority;
+            _resultValue.sourceAddressPrefix = sourceAddressPrefix;
+            _resultValue.sourcePortRanges = sourcePortRanges;
+            return _resultValue;
         }
     }
 }

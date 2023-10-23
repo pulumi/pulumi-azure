@@ -175,15 +175,15 @@ public final class KeyVaultAccessPolicy {
             return this;
         }
         public KeyVaultAccessPolicy build() {
-            final var o = new KeyVaultAccessPolicy();
-            o.applicationId = applicationId;
-            o.certificatePermissions = certificatePermissions;
-            o.keyPermissions = keyPermissions;
-            o.objectId = objectId;
-            o.secretPermissions = secretPermissions;
-            o.storagePermissions = storagePermissions;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new KeyVaultAccessPolicy();
+            _resultValue.applicationId = applicationId;
+            _resultValue.certificatePermissions = certificatePermissions;
+            _resultValue.keyPermissions = keyPermissions;
+            _resultValue.objectId = objectId;
+            _resultValue.secretPermissions = secretPermissions;
+            _resultValue.storagePermissions = storagePermissions;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

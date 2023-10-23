@@ -66,10 +66,10 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests {
             return this;
         }
         public WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests build() {
-            final var o = new WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests();
-            o.count = count;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequests();
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

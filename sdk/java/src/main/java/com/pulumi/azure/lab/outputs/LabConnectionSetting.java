@@ -75,10 +75,10 @@ public final class LabConnectionSetting {
             return this;
         }
         public LabConnectionSetting build() {
-            final var o = new LabConnectionSetting();
-            o.clientRdpAccess = clientRdpAccess;
-            o.clientSshAccess = clientSshAccess;
-            return o;
+            final var _resultValue = new LabConnectionSetting();
+            _resultValue.clientRdpAccess = clientRdpAccess;
+            _resultValue.clientSshAccess = clientSshAccess;
+            return _resultValue;
         }
     }
 }

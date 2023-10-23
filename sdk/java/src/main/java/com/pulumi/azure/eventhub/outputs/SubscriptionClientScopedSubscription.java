@@ -91,11 +91,11 @@ public final class SubscriptionClientScopedSubscription {
             return this;
         }
         public SubscriptionClientScopedSubscription build() {
-            final var o = new SubscriptionClientScopedSubscription();
-            o.clientId = clientId;
-            o.isClientScopedSubscriptionDurable = isClientScopedSubscriptionDurable;
-            o.isClientScopedSubscriptionShareable = isClientScopedSubscriptionShareable;
-            return o;
+            final var _resultValue = new SubscriptionClientScopedSubscription();
+            _resultValue.clientId = clientId;
+            _resultValue.isClientScopedSubscriptionDurable = isClientScopedSubscriptionDurable;
+            _resultValue.isClientScopedSubscriptionShareable = isClientScopedSubscriptionShareable;
+            return _resultValue;
         }
     }
 }

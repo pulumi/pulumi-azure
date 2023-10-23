@@ -167,15 +167,15 @@ public final class GetSharedImageVersionsImage {
             return targetRegions(List.of(targetRegions));
         }
         public GetSharedImageVersionsImage build() {
-            final var o = new GetSharedImageVersionsImage();
-            o.excludeFromLatest = excludeFromLatest;
-            o.id = id;
-            o.location = location;
-            o.managedImageId = managedImageId;
-            o.name = name;
-            o.tags = tags;
-            o.targetRegions = targetRegions;
-            return o;
+            final var _resultValue = new GetSharedImageVersionsImage();
+            _resultValue.excludeFromLatest = excludeFromLatest;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.managedImageId = managedImageId;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.targetRegions = targetRegions;
+            return _resultValue;
         }
     }
 }

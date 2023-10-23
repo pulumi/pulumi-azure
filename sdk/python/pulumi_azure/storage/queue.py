@@ -35,7 +35,11 @@ class QueueArgs:
              storage_account_name: pulumi.Input[str],
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         _setter("storage_account_name", storage_account_name)
         if metadata is not None:
             _setter("metadata", metadata)
@@ -107,7 +111,13 @@ class _QueueState:
              name: Optional[pulumi.Input[str]] = None,
              resource_manager_id: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceManagerId' in kwargs:
+            resource_manager_id = kwargs['resourceManagerId']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         if metadata is not None:
             _setter("metadata", metadata)
         if name is not None:

@@ -115,12 +115,12 @@ public final class FunctionAppSiteConfigIpRestrictionHeaders {
             return xForwardedHosts(List.of(xForwardedHosts));
         }
         public FunctionAppSiteConfigIpRestrictionHeaders build() {
-            final var o = new FunctionAppSiteConfigIpRestrictionHeaders();
-            o.xAzureFdids = xAzureFdids;
-            o.xFdHealthProbe = xFdHealthProbe;
-            o.xForwardedFors = xForwardedFors;
-            o.xForwardedHosts = xForwardedHosts;
-            return o;
+            final var _resultValue = new FunctionAppSiteConfigIpRestrictionHeaders();
+            _resultValue.xAzureFdids = xAzureFdids;
+            _resultValue.xFdHealthProbe = xFdHealthProbe;
+            _resultValue.xForwardedFors = xForwardedFors;
+            _resultValue.xForwardedHosts = xForwardedHosts;
+            return _resultValue;
         }
     }
 }

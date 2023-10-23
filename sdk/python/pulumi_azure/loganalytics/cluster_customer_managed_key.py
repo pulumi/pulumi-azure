@@ -31,7 +31,13 @@ class ClusterCustomerManagedKeyArgs:
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: pulumi.Input[str],
              log_analytics_cluster_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'logAnalyticsClusterId' in kwargs:
+            log_analytics_cluster_id = kwargs['logAnalyticsClusterId']
+
         _setter("key_vault_key_id", key_vault_key_id)
         _setter("log_analytics_cluster_id", log_analytics_cluster_id)
 
@@ -80,7 +86,13 @@ class _ClusterCustomerManagedKeyState:
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              log_analytics_cluster_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'logAnalyticsClusterId' in kwargs:
+            log_analytics_cluster_id = kwargs['logAnalyticsClusterId']
+
         if key_vault_key_id is not None:
             _setter("key_vault_key_id", key_vault_key_id)
         if log_analytics_cluster_id is not None:

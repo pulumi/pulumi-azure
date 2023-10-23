@@ -186,17 +186,17 @@ public final class GetDefinitionResult {
             return versions(List.of(versions));
         }
         public GetDefinitionResult build() {
-            final var o = new GetDefinitionResult();
-            o.description = description;
-            o.displayName = displayName;
-            o.id = id;
-            o.lastModified = lastModified;
-            o.name = name;
-            o.scopeId = scopeId;
-            o.targetScope = targetScope;
-            o.timeCreated = timeCreated;
-            o.versions = versions;
-            return o;
+            final var _resultValue = new GetDefinitionResult();
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.lastModified = lastModified;
+            _resultValue.name = name;
+            _resultValue.scopeId = scopeId;
+            _resultValue.targetScope = targetScope;
+            _resultValue.timeCreated = timeCreated;
+            _resultValue.versions = versions;
+            return _resultValue;
         }
     }
 }

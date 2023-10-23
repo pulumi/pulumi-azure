@@ -167,15 +167,15 @@ public final class SpringCloudServiceNetwork {
             return this;
         }
         public SpringCloudServiceNetwork build() {
-            final var o = new SpringCloudServiceNetwork();
-            o.appNetworkResourceGroup = appNetworkResourceGroup;
-            o.appSubnetId = appSubnetId;
-            o.cidrRanges = cidrRanges;
-            o.outboundType = outboundType;
-            o.readTimeoutSeconds = readTimeoutSeconds;
-            o.serviceRuntimeNetworkResourceGroup = serviceRuntimeNetworkResourceGroup;
-            o.serviceRuntimeSubnetId = serviceRuntimeSubnetId;
-            return o;
+            final var _resultValue = new SpringCloudServiceNetwork();
+            _resultValue.appNetworkResourceGroup = appNetworkResourceGroup;
+            _resultValue.appSubnetId = appSubnetId;
+            _resultValue.cidrRanges = cidrRanges;
+            _resultValue.outboundType = outboundType;
+            _resultValue.readTimeoutSeconds = readTimeoutSeconds;
+            _resultValue.serviceRuntimeNetworkResourceGroup = serviceRuntimeNetworkResourceGroup;
+            _resultValue.serviceRuntimeSubnetId = serviceRuntimeSubnetId;
+            return _resultValue;
         }
     }
 }

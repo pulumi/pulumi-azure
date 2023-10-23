@@ -84,11 +84,11 @@ public final class GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity {
             return this;
         }
         public GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity build() {
-            final var o = new GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity();
-            o.clientId = clientId;
-            o.objectId = objectId;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity();
+            _resultValue.clientId = clientId;
+            _resultValue.objectId = objectId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

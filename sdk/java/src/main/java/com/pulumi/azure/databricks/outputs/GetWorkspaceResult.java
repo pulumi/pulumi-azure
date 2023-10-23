@@ -212,18 +212,18 @@ public final class GetWorkspaceResult {
             return this;
         }
         public GetWorkspaceResult build() {
-            final var o = new GetWorkspaceResult();
-            o.id = id;
-            o.location = location;
-            o.managedDiskIdentities = managedDiskIdentities;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.sku = sku;
-            o.storageAccountIdentities = storageAccountIdentities;
-            o.tags = tags;
-            o.workspaceId = workspaceId;
-            o.workspaceUrl = workspaceUrl;
-            return o;
+            final var _resultValue = new GetWorkspaceResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.managedDiskIdentities = managedDiskIdentities;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sku = sku;
+            _resultValue.storageAccountIdentities = storageAccountIdentities;
+            _resultValue.tags = tags;
+            _resultValue.workspaceId = workspaceId;
+            _resultValue.workspaceUrl = workspaceUrl;
+            return _resultValue;
         }
     }
 }

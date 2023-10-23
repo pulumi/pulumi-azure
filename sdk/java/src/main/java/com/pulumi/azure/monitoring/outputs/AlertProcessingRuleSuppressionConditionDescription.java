@@ -69,10 +69,10 @@ public final class AlertProcessingRuleSuppressionConditionDescription {
             return values(List.of(values));
         }
         public AlertProcessingRuleSuppressionConditionDescription build() {
-            final var o = new AlertProcessingRuleSuppressionConditionDescription();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new AlertProcessingRuleSuppressionConditionDescription();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

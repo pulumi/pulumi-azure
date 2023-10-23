@@ -84,11 +84,11 @@ public final class GetIdentity {
             return this;
         }
         public GetIdentity build() {
-            final var o = new GetIdentity();
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetIdentity();
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

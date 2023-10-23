@@ -165,16 +165,16 @@ public final class GetAvailabilitySetResult {
             return this;
         }
         public GetAvailabilitySetResult build() {
-            final var o = new GetAvailabilitySetResult();
-            o.id = id;
-            o.location = location;
-            o.managed = managed;
-            o.name = name;
-            o.platformFaultDomainCount = platformFaultDomainCount;
-            o.platformUpdateDomainCount = platformUpdateDomainCount;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetAvailabilitySetResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.managed = managed;
+            _resultValue.name = name;
+            _resultValue.platformFaultDomainCount = platformFaultDomainCount;
+            _resultValue.platformUpdateDomainCount = platformUpdateDomainCount;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

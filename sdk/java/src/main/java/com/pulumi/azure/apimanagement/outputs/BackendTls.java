@@ -67,10 +67,10 @@ public final class BackendTls {
             return this;
         }
         public BackendTls build() {
-            final var o = new BackendTls();
-            o.validateCertificateChain = validateCertificateChain;
-            o.validateCertificateName = validateCertificateName;
-            return o;
+            final var _resultValue = new BackendTls();
+            _resultValue.validateCertificateChain = validateCertificateChain;
+            _resultValue.validateCertificateName = validateCertificateName;
+            return _resultValue;
         }
     }
 }

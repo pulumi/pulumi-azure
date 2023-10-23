@@ -168,16 +168,16 @@ public final class GetMedtechServiceResult {
             return this;
         }
         public GetMedtechServiceResult build() {
-            final var o = new GetMedtechServiceResult();
-            o.deviceMappingJson = deviceMappingJson;
-            o.eventhubConsumerGroupName = eventhubConsumerGroupName;
-            o.eventhubName = eventhubName;
-            o.eventhubNamespaceName = eventhubNamespaceName;
-            o.id = id;
-            o.identities = identities;
-            o.name = name;
-            o.workspaceId = workspaceId;
-            return o;
+            final var _resultValue = new GetMedtechServiceResult();
+            _resultValue.deviceMappingJson = deviceMappingJson;
+            _resultValue.eventhubConsumerGroupName = eventhubConsumerGroupName;
+            _resultValue.eventhubName = eventhubName;
+            _resultValue.eventhubNamespaceName = eventhubNamespaceName;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.name = name;
+            _resultValue.workspaceId = workspaceId;
+            return _resultValue;
         }
     }
 }

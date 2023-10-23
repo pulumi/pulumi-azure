@@ -62,11 +62,11 @@ public final class KubernetesFleetManagerHubProfile {
             return this;
         }
         public KubernetesFleetManagerHubProfile build() {
-            final var o = new KubernetesFleetManagerHubProfile();
-            o.dnsPrefix = dnsPrefix;
-            o.fqdn = fqdn;
-            o.kubernetesVersion = kubernetesVersion;
-            return o;
+            final var _resultValue = new KubernetesFleetManagerHubProfile();
+            _resultValue.dnsPrefix = dnsPrefix;
+            _resultValue.fqdn = fqdn;
+            _resultValue.kubernetesVersion = kubernetesVersion;
+            return _resultValue;
         }
     }
 }

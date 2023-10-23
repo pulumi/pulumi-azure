@@ -39,7 +39,15 @@ class MonitorSsoConfigurationArgs:
              enterprise_application_id: pulumi.Input[str],
              single_sign_on_enabled: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datadogMonitorId' in kwargs:
+            datadog_monitor_id = kwargs['datadogMonitorId']
+        if 'enterpriseApplicationId' in kwargs:
+            enterprise_application_id = kwargs['enterpriseApplicationId']
+        if 'singleSignOnEnabled' in kwargs:
+            single_sign_on_enabled = kwargs['singleSignOnEnabled']
+
         _setter("datadog_monitor_id", datadog_monitor_id)
         _setter("enterprise_application_id", enterprise_application_id)
         _setter("single_sign_on_enabled", single_sign_on_enabled)
@@ -127,7 +135,17 @@ class _MonitorSsoConfigurationState:
              login_url: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              single_sign_on_enabled: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datadogMonitorId' in kwargs:
+            datadog_monitor_id = kwargs['datadogMonitorId']
+        if 'enterpriseApplicationId' in kwargs:
+            enterprise_application_id = kwargs['enterpriseApplicationId']
+        if 'loginUrl' in kwargs:
+            login_url = kwargs['loginUrl']
+        if 'singleSignOnEnabled' in kwargs:
+            single_sign_on_enabled = kwargs['singleSignOnEnabled']
+
         if datadog_monitor_id is not None:
             _setter("datadog_monitor_id", datadog_monitor_id)
         if enterprise_application_id is not None:

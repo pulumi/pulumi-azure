@@ -132,13 +132,13 @@ public final class VirtualMachineAutoBackupManualSchedule {
             return this;
         }
         public VirtualMachineAutoBackupManualSchedule build() {
-            final var o = new VirtualMachineAutoBackupManualSchedule();
-            o.daysOfWeeks = daysOfWeeks;
-            o.fullBackupFrequency = fullBackupFrequency;
-            o.fullBackupStartHour = fullBackupStartHour;
-            o.fullBackupWindowInHours = fullBackupWindowInHours;
-            o.logBackupFrequencyInMinutes = logBackupFrequencyInMinutes;
-            return o;
+            final var _resultValue = new VirtualMachineAutoBackupManualSchedule();
+            _resultValue.daysOfWeeks = daysOfWeeks;
+            _resultValue.fullBackupFrequency = fullBackupFrequency;
+            _resultValue.fullBackupStartHour = fullBackupStartHour;
+            _resultValue.fullBackupWindowInHours = fullBackupWindowInHours;
+            _resultValue.logBackupFrequencyInMinutes = logBackupFrequencyInMinutes;
+            return _resultValue;
         }
     }
 }

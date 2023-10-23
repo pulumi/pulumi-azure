@@ -167,15 +167,15 @@ public final class ReplicatedVMManagedDisk {
             return this;
         }
         public ReplicatedVMManagedDisk build() {
-            final var o = new ReplicatedVMManagedDisk();
-            o.diskId = diskId;
-            o.stagingStorageAccountId = stagingStorageAccountId;
-            o.targetDiskEncryption = targetDiskEncryption;
-            o.targetDiskEncryptionSetId = targetDiskEncryptionSetId;
-            o.targetDiskType = targetDiskType;
-            o.targetReplicaDiskType = targetReplicaDiskType;
-            o.targetResourceGroupId = targetResourceGroupId;
-            return o;
+            final var _resultValue = new ReplicatedVMManagedDisk();
+            _resultValue.diskId = diskId;
+            _resultValue.stagingStorageAccountId = stagingStorageAccountId;
+            _resultValue.targetDiskEncryption = targetDiskEncryption;
+            _resultValue.targetDiskEncryptionSetId = targetDiskEncryptionSetId;
+            _resultValue.targetDiskType = targetDiskType;
+            _resultValue.targetReplicaDiskType = targetReplicaDiskType;
+            _resultValue.targetResourceGroupId = targetResourceGroupId;
+            return _resultValue;
         }
     }
 }

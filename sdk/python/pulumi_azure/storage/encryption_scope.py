@@ -43,7 +43,15 @@ class EncryptionScopeArgs:
              infrastructure_encryption_required: Optional[pulumi.Input[bool]] = None,
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'infrastructureEncryptionRequired' in kwargs:
+            infrastructure_encryption_required = kwargs['infrastructureEncryptionRequired']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+
         _setter("source", source)
         _setter("storage_account_id", storage_account_id)
         if infrastructure_encryption_required is not None:
@@ -146,7 +154,15 @@ class _EncryptionScopeState:
              name: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'infrastructureEncryptionRequired' in kwargs:
+            infrastructure_encryption_required = kwargs['infrastructureEncryptionRequired']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if infrastructure_encryption_required is not None:
             _setter("infrastructure_encryption_required", infrastructure_encryption_required)
         if key_vault_key_id is not None:

@@ -65,7 +65,21 @@ class SnapshotPolicyArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              weekly_schedule: Optional[pulumi.Input['SnapshotPolicyWeeklyScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'dailySchedule' in kwargs:
+            daily_schedule = kwargs['dailySchedule']
+        if 'hourlySchedule' in kwargs:
+            hourly_schedule = kwargs['hourlySchedule']
+        if 'monthlySchedule' in kwargs:
+            monthly_schedule = kwargs['monthlySchedule']
+        if 'weeklySchedule' in kwargs:
+            weekly_schedule = kwargs['weeklySchedule']
+
         _setter("account_name", account_name)
         _setter("enabled", enabled)
         _setter("resource_group_name", resource_group_name)
@@ -257,7 +271,21 @@ class _SnapshotPolicyState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              weekly_schedule: Optional[pulumi.Input['SnapshotPolicyWeeklyScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'dailySchedule' in kwargs:
+            daily_schedule = kwargs['dailySchedule']
+        if 'hourlySchedule' in kwargs:
+            hourly_schedule = kwargs['hourlySchedule']
+        if 'monthlySchedule' in kwargs:
+            monthly_schedule = kwargs['monthlySchedule']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'weeklySchedule' in kwargs:
+            weekly_schedule = kwargs['weeklySchedule']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if daily_schedule is not None:

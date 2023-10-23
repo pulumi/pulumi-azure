@@ -51,7 +51,17 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
              microsoft_emerging_threat_feed_lookback_date: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'bingSafetyPhishingUrlLookbackDate' in kwargs:
+            bing_safety_phishing_url_lookback_date = kwargs['bingSafetyPhishingUrlLookbackDate']
+        if 'microsoftEmergingThreatFeedLookbackDate' in kwargs:
+            microsoft_emerging_threat_feed_lookback_date = kwargs['microsoftEmergingThreatFeedLookbackDate']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if bing_safety_phishing_url_lookback_date is not None:
             warnings.warn("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
@@ -177,7 +187,17 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
              microsoft_emerging_threat_feed_lookback_date: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bingSafetyPhishingUrlLookbackDate' in kwargs:
+            bing_safety_phishing_url_lookback_date = kwargs['bingSafetyPhishingUrlLookbackDate']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'microsoftEmergingThreatFeedLookbackDate' in kwargs:
+            microsoft_emerging_threat_feed_lookback_date = kwargs['microsoftEmergingThreatFeedLookbackDate']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if bing_safety_phishing_url_lookback_date is not None:
             warnings.warn("""This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""bing_safety_phishing_url_lookback_date is deprecated: This field is deprecated and will be removed in version 4.0 of the AzureRM Provider.""")

@@ -202,14 +202,14 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authenticationCertificates);
     }
     /**
-     * A `autoscale_configuration` block as defined below.
+     * An `autoscale_configuration` block as defined below.
      * 
      */
     @Export(name="autoscaleConfiguration", refs={ApplicationGatewayAutoscaleConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationGatewayAutoscaleConfiguration> autoscaleConfiguration;
 
     /**
-     * @return A `autoscale_configuration` block as defined below.
+     * @return An `autoscale_configuration` block as defined below.
      * 
      */
     public Output<Optional<ApplicationGatewayAutoscaleConfiguration>> autoscaleConfiguration() {
@@ -568,16 +568,12 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
     /**
      * One or more `ssl_profile` blocks as defined below.
      * 
-     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
-     * 
      */
     @Export(name="sslProfiles", refs={List.class,ApplicationGatewaySslProfile.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationGatewaySslProfile>> sslProfiles;
 
     /**
      * @return One or more `ssl_profile` blocks as defined below.
-     * 
-     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
      * 
      */
     public Output<Optional<List<ApplicationGatewaySslProfile>>> sslProfiles() {
@@ -656,12 +652,16 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
      * 
+     * &gt; **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+     * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> zones;
 
     /**
      * @return Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
+     * 
+     * &gt; **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
      * 
      */
     public Output<Optional<List<String>>> zones() {

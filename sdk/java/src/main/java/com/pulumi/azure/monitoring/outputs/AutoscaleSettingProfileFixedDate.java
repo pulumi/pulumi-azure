@@ -86,11 +86,11 @@ public final class AutoscaleSettingProfileFixedDate {
             return this;
         }
         public AutoscaleSettingProfileFixedDate build() {
-            final var o = new AutoscaleSettingProfileFixedDate();
-            o.end = end;
-            o.start = start;
-            o.timezone = timezone;
-            return o;
+            final var _resultValue = new AutoscaleSettingProfileFixedDate();
+            _resultValue.end = end;
+            _resultValue.start = start;
+            _resultValue.timezone = timezone;
+            return _resultValue;
         }
     }
 }

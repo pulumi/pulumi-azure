@@ -65,10 +65,10 @@ public final class SnapshotEncryptionSettingsDiskEncryptionKey {
             return this;
         }
         public SnapshotEncryptionSettingsDiskEncryptionKey build() {
-            final var o = new SnapshotEncryptionSettingsDiskEncryptionKey();
-            o.secretUrl = secretUrl;
-            o.sourceVaultId = sourceVaultId;
-            return o;
+            final var _resultValue = new SnapshotEncryptionSettingsDiskEncryptionKey();
+            _resultValue.secretUrl = secretUrl;
+            _resultValue.sourceVaultId = sourceVaultId;
+            return _resultValue;
         }
     }
 }

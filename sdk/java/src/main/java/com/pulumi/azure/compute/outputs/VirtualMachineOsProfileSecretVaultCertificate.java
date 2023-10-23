@@ -71,10 +71,10 @@ public final class VirtualMachineOsProfileSecretVaultCertificate {
             return this;
         }
         public VirtualMachineOsProfileSecretVaultCertificate build() {
-            final var o = new VirtualMachineOsProfileSecretVaultCertificate();
-            o.certificateStore = certificateStore;
-            o.certificateUrl = certificateUrl;
-            return o;
+            final var _resultValue = new VirtualMachineOsProfileSecretVaultCertificate();
+            _resultValue.certificateStore = certificateStore;
+            _resultValue.certificateUrl = certificateUrl;
+            return _resultValue;
         }
     }
 }

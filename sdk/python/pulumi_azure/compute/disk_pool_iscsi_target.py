@@ -39,7 +39,15 @@ class DiskPoolIscsiTargetArgs:
              disks_pool_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              target_iqn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aclMode' in kwargs:
+            acl_mode = kwargs['aclMode']
+        if 'disksPoolId' in kwargs:
+            disks_pool_id = kwargs['disksPoolId']
+        if 'targetIqn' in kwargs:
+            target_iqn = kwargs['targetIqn']
+
         _setter("acl_mode", acl_mode)
         _setter("disks_pool_id", disks_pool_id)
         if name is not None:
@@ -132,7 +140,15 @@ class _DiskPoolIscsiTargetState:
              name: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
              target_iqn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aclMode' in kwargs:
+            acl_mode = kwargs['aclMode']
+        if 'disksPoolId' in kwargs:
+            disks_pool_id = kwargs['disksPoolId']
+        if 'targetIqn' in kwargs:
+            target_iqn = kwargs['targetIqn']
+
         if acl_mode is not None:
             _setter("acl_mode", acl_mode)
         if disks_pool_id is not None:

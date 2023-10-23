@@ -65,10 +65,10 @@ public final class AppServiceLogsHttpLogsFileSystem {
             return this;
         }
         public AppServiceLogsHttpLogsFileSystem build() {
-            final var o = new AppServiceLogsHttpLogsFileSystem();
-            o.retentionInDays = retentionInDays;
-            o.retentionInMb = retentionInMb;
-            return o;
+            final var _resultValue = new AppServiceLogsHttpLogsFileSystem();
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.retentionInMb = retentionInMb;
+            return _resultValue;
         }
     }
 }

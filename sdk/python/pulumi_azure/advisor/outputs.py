@@ -60,7 +60,21 @@ class GetRecommendationsRecommendationResult(dict):
              resource_type: str,
              suppression_names: Sequence[str],
              updated_time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recommendationName' in kwargs:
+            recommendation_name = kwargs['recommendationName']
+        if 'recommendationTypeId' in kwargs:
+            recommendation_type_id = kwargs['recommendationTypeId']
+        if 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'suppressionNames' in kwargs:
+            suppression_names = kwargs['suppressionNames']
+        if 'updatedTime' in kwargs:
+            updated_time = kwargs['updatedTime']
+
         _setter("category", category)
         _setter("description", description)
         _setter("impact", impact)

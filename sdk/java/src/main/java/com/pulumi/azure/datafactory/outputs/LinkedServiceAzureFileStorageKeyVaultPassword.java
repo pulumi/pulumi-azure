@@ -65,10 +65,10 @@ public final class LinkedServiceAzureFileStorageKeyVaultPassword {
             return this;
         }
         public LinkedServiceAzureFileStorageKeyVaultPassword build() {
-            final var o = new LinkedServiceAzureFileStorageKeyVaultPassword();
-            o.linkedServiceName = linkedServiceName;
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new LinkedServiceAzureFileStorageKeyVaultPassword();
+            _resultValue.linkedServiceName = linkedServiceName;
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

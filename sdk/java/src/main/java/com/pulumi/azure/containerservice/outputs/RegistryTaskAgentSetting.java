@@ -46,9 +46,9 @@ public final class RegistryTaskAgentSetting {
             return this;
         }
         public RegistryTaskAgentSetting build() {
-            final var o = new RegistryTaskAgentSetting();
-            o.cpu = cpu;
-            return o;
+            final var _resultValue = new RegistryTaskAgentSetting();
+            _resultValue.cpu = cpu;
+            return _resultValue;
         }
     }
 }

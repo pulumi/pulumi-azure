@@ -87,11 +87,11 @@ public final class ComputeInstanceSsh {
             return this;
         }
         public ComputeInstanceSsh build() {
-            final var o = new ComputeInstanceSsh();
-            o.port = port;
-            o.publicKey = publicKey;
-            o.username = username;
-            return o;
+            final var _resultValue = new ComputeInstanceSsh();
+            _resultValue.port = port;
+            _resultValue.publicKey = publicKey;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

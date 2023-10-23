@@ -72,10 +72,10 @@ public final class LinuxWebAppSlotSiteConfigCors {
             return this;
         }
         public LinuxWebAppSlotSiteConfigCors build() {
-            final var o = new LinuxWebAppSlotSiteConfigCors();
-            o.allowedOrigins = allowedOrigins;
-            o.supportCredentials = supportCredentials;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotSiteConfigCors();
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.supportCredentials = supportCredentials;
+            return _resultValue;
         }
     }
 }

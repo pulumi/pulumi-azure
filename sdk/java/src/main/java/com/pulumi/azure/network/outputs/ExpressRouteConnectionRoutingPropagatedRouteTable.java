@@ -73,10 +73,10 @@ public final class ExpressRouteConnectionRoutingPropagatedRouteTable {
             return routeTableIds(List.of(routeTableIds));
         }
         public ExpressRouteConnectionRoutingPropagatedRouteTable build() {
-            final var o = new ExpressRouteConnectionRoutingPropagatedRouteTable();
-            o.labels = labels;
-            o.routeTableIds = routeTableIds;
-            return o;
+            final var _resultValue = new ExpressRouteConnectionRoutingPropagatedRouteTable();
+            _resultValue.labels = labels;
+            _resultValue.routeTableIds = routeTableIds;
+            return _resultValue;
         }
     }
 }

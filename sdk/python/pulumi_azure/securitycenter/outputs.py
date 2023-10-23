@@ -42,7 +42,9 @@ class AssessmentStatus(dict):
              code: str,
              cause: Optional[str] = None,
              description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("code", code)
         if cause is not None:
             _setter("cause", cause)
@@ -122,7 +124,15 @@ class AutomationAction(dict):
              type: str,
              connection_string: Optional[str] = None,
              trigger_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'triggerUrl' in kwargs:
+            trigger_url = kwargs['triggerUrl']
+
         _setter("resource_id", resource_id)
         _setter("type", type)
         if connection_string is not None:
@@ -203,7 +213,13 @@ class AutomationSource(dict):
              _setter: Callable[[Any, Any], None],
              event_source: str,
              rule_sets: Optional[Sequence['outputs.AutomationSourceRuleSet']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventSource' in kwargs:
+            event_source = kwargs['eventSource']
+        if 'ruleSets' in kwargs:
+            rule_sets = kwargs['ruleSets']
+
         _setter("event_source", event_source)
         if rule_sets is not None:
             _setter("rule_sets", rule_sets)
@@ -244,7 +260,9 @@ class AutomationSourceRuleSet(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              rules: Sequence['outputs.AutomationSourceRuleSetRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("rules", rules)
 
     @property
@@ -308,7 +326,15 @@ class AutomationSourceRuleSetRule(dict):
              operator: str,
              property_path: str,
              property_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expectedValue' in kwargs:
+            expected_value = kwargs['expectedValue']
+        if 'propertyPath' in kwargs:
+            property_path = kwargs['propertyPath']
+        if 'propertyType' in kwargs:
+            property_type = kwargs['propertyType']
+
         _setter("expected_value", expected_value)
         _setter("operator", operator)
         _setter("property_path", property_path)
@@ -389,7 +415,11 @@ class SubscriptionPricingExtension(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              additional_extension_properties: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalExtensionProperties' in kwargs:
+            additional_extension_properties = kwargs['additionalExtensionProperties']
+
         _setter("name", name)
         if additional_extension_properties is not None:
             _setter("additional_extension_properties", additional_extension_properties)

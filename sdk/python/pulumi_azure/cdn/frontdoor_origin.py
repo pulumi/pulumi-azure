@@ -80,7 +80,25 @@ class FrontdoorOriginArgs:
              priority: Optional[pulumi.Input[int]] = None,
              private_link: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorOriginGroupId' in kwargs:
+            cdn_frontdoor_origin_group_id = kwargs['cdnFrontdoorOriginGroupId']
+        if 'certificateNameCheckEnabled' in kwargs:
+            certificate_name_check_enabled = kwargs['certificateNameCheckEnabled']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'healthProbesEnabled' in kwargs:
+            health_probes_enabled = kwargs['healthProbesEnabled']
+        if 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+        if 'originHostHeader' in kwargs:
+            origin_host_header = kwargs['originHostHeader']
+        if 'privateLink' in kwargs:
+            private_link = kwargs['privateLink']
+
         _setter("cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
         _setter("certificate_name_check_enabled", certificate_name_check_enabled)
         _setter("host_name", host_name)
@@ -326,7 +344,25 @@ class _FrontdoorOriginState:
              priority: Optional[pulumi.Input[int]] = None,
              private_link: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorOriginGroupId' in kwargs:
+            cdn_frontdoor_origin_group_id = kwargs['cdnFrontdoorOriginGroupId']
+        if 'certificateNameCheckEnabled' in kwargs:
+            certificate_name_check_enabled = kwargs['certificateNameCheckEnabled']
+        if 'healthProbesEnabled' in kwargs:
+            health_probes_enabled = kwargs['healthProbesEnabled']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+        if 'originHostHeader' in kwargs:
+            origin_host_header = kwargs['originHostHeader']
+        if 'privateLink' in kwargs:
+            private_link = kwargs['privateLink']
+
         if cdn_frontdoor_origin_group_id is not None:
             _setter("cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
         if certificate_name_check_enabled is not None:

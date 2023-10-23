@@ -225,18 +225,18 @@ public final class KubernetesClusterNodePoolKubeletConfig {
             return this;
         }
         public KubernetesClusterNodePoolKubeletConfig build() {
-            final var o = new KubernetesClusterNodePoolKubeletConfig();
-            o.allowedUnsafeSysctls = allowedUnsafeSysctls;
-            o.containerLogMaxLine = containerLogMaxLine;
-            o.containerLogMaxSizeMb = containerLogMaxSizeMb;
-            o.cpuCfsQuotaEnabled = cpuCfsQuotaEnabled;
-            o.cpuCfsQuotaPeriod = cpuCfsQuotaPeriod;
-            o.cpuManagerPolicy = cpuManagerPolicy;
-            o.imageGcHighThreshold = imageGcHighThreshold;
-            o.imageGcLowThreshold = imageGcLowThreshold;
-            o.podMaxPid = podMaxPid;
-            o.topologyManagerPolicy = topologyManagerPolicy;
-            return o;
+            final var _resultValue = new KubernetesClusterNodePoolKubeletConfig();
+            _resultValue.allowedUnsafeSysctls = allowedUnsafeSysctls;
+            _resultValue.containerLogMaxLine = containerLogMaxLine;
+            _resultValue.containerLogMaxSizeMb = containerLogMaxSizeMb;
+            _resultValue.cpuCfsQuotaEnabled = cpuCfsQuotaEnabled;
+            _resultValue.cpuCfsQuotaPeriod = cpuCfsQuotaPeriod;
+            _resultValue.cpuManagerPolicy = cpuManagerPolicy;
+            _resultValue.imageGcHighThreshold = imageGcHighThreshold;
+            _resultValue.imageGcLowThreshold = imageGcLowThreshold;
+            _resultValue.podMaxPid = podMaxPid;
+            _resultValue.topologyManagerPolicy = topologyManagerPolicy;
+            return _resultValue;
         }
     }
 }

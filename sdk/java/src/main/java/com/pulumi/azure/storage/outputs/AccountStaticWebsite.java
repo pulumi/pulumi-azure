@@ -67,10 +67,10 @@ public final class AccountStaticWebsite {
             return this;
         }
         public AccountStaticWebsite build() {
-            final var o = new AccountStaticWebsite();
-            o.error404Document = error404Document;
-            o.indexDocument = indexDocument;
-            return o;
+            final var _resultValue = new AccountStaticWebsite();
+            _resultValue.error404Document = error404Document;
+            _resultValue.indexDocument = indexDocument;
+            return _resultValue;
         }
     }
 }

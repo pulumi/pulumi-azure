@@ -164,15 +164,15 @@ public final class FrontdoorBackendPoolBackend {
             return this;
         }
         public FrontdoorBackendPoolBackend build() {
-            final var o = new FrontdoorBackendPoolBackend();
-            o.address = address;
-            o.enabled = enabled;
-            o.hostHeader = hostHeader;
-            o.httpPort = httpPort;
-            o.httpsPort = httpsPort;
-            o.priority = priority;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new FrontdoorBackendPoolBackend();
+            _resultValue.address = address;
+            _resultValue.enabled = enabled;
+            _resultValue.hostHeader = hostHeader;
+            _resultValue.httpPort = httpPort;
+            _resultValue.httpsPort = httpsPort;
+            _resultValue.priority = priority;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

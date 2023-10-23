@@ -93,11 +93,11 @@ public final class GetConfigurationInstallPatch {
             return windows(List.of(windows));
         }
         public GetConfigurationInstallPatch build() {
-            final var o = new GetConfigurationInstallPatch();
-            o.linuxes = linuxes;
-            o.reboot = reboot;
-            o.windows = windows;
-            return o;
+            final var _resultValue = new GetConfigurationInstallPatch();
+            _resultValue.linuxes = linuxes;
+            _resultValue.reboot = reboot;
+            _resultValue.windows = windows;
+            return _resultValue;
         }
     }
 }

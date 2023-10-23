@@ -41,7 +41,17 @@ class ServiceNetworkAclArgs:
              public_network: pulumi.Input['ServiceNetworkAclPublicNetworkArgs'],
              signalr_service_id: pulumi.Input[str],
              private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'publicNetwork' in kwargs:
+            public_network = kwargs['publicNetwork']
+        if 'signalrServiceId' in kwargs:
+            signalr_service_id = kwargs['signalrServiceId']
+        if 'privateEndpoints' in kwargs:
+            private_endpoints = kwargs['privateEndpoints']
+
         _setter("default_action", default_action)
         _setter("public_network", public_network)
         _setter("signalr_service_id", signalr_service_id)
@@ -125,7 +135,17 @@ class _ServiceNetworkAclState:
              private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]]] = None,
              public_network: Optional[pulumi.Input['ServiceNetworkAclPublicNetworkArgs']] = None,
              signalr_service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'privateEndpoints' in kwargs:
+            private_endpoints = kwargs['privateEndpoints']
+        if 'publicNetwork' in kwargs:
+            public_network = kwargs['publicNetwork']
+        if 'signalrServiceId' in kwargs:
+            signalr_service_id = kwargs['signalrServiceId']
+
         if default_action is not None:
             _setter("default_action", default_action)
         if private_endpoints is not None:

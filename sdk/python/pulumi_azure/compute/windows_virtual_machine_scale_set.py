@@ -282,7 +282,99 @@ class WindowsVirtualMachineScaleSetArgs:
              winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] = None,
              zone_balance: Optional[pulumi.Input[bool]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'additionalCapabilities' in kwargs:
+            additional_capabilities = kwargs['additionalCapabilities']
+        if 'additionalUnattendContents' in kwargs:
+            additional_unattend_contents = kwargs['additionalUnattendContents']
+        if 'automaticInstanceRepair' in kwargs:
+            automatic_instance_repair = kwargs['automaticInstanceRepair']
+        if 'automaticOsUpgradePolicy' in kwargs:
+            automatic_os_upgrade_policy = kwargs['automaticOsUpgradePolicy']
+        if 'bootDiagnostics' in kwargs:
+            boot_diagnostics = kwargs['bootDiagnostics']
+        if 'capacityReservationGroupId' in kwargs:
+            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+        if 'computerNamePrefix' in kwargs:
+            computer_name_prefix = kwargs['computerNamePrefix']
+        if 'customData' in kwargs:
+            custom_data = kwargs['customData']
+        if 'dataDisks' in kwargs:
+            data_disks = kwargs['dataDisks']
+        if 'doNotRunExtensionsOnOverprovisionedMachines' in kwargs:
+            do_not_run_extensions_on_overprovisioned_machines = kwargs['doNotRunExtensionsOnOverprovisionedMachines']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'enableAutomaticUpdates' in kwargs:
+            enable_automatic_updates = kwargs['enableAutomaticUpdates']
+        if 'encryptionAtHostEnabled' in kwargs:
+            encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
+        if 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if 'extensionOperationsEnabled' in kwargs:
+            extension_operations_enabled = kwargs['extensionOperationsEnabled']
+        if 'extensionsTimeBudget' in kwargs:
+            extensions_time_budget = kwargs['extensionsTimeBudget']
+        if 'galleryApplication' in kwargs:
+            gallery_application = kwargs['galleryApplication']
+        if 'galleryApplications' in kwargs:
+            gallery_applications = kwargs['galleryApplications']
+        if 'healthProbeId' in kwargs:
+            health_probe_id = kwargs['healthProbeId']
+        if 'hostGroupId' in kwargs:
+            host_group_id = kwargs['hostGroupId']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'maxBidPrice' in kwargs:
+            max_bid_price = kwargs['maxBidPrice']
+        if 'platformFaultDomainCount' in kwargs:
+            platform_fault_domain_count = kwargs['platformFaultDomainCount']
+        if 'provisionVmAgent' in kwargs:
+            provision_vm_agent = kwargs['provisionVmAgent']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if 'rollingUpgradePolicy' in kwargs:
+            rolling_upgrade_policy = kwargs['rollingUpgradePolicy']
+        if 'scaleIn' in kwargs:
+            scale_in = kwargs['scaleIn']
+        if 'scaleInPolicy' in kwargs:
+            scale_in_policy = kwargs['scaleInPolicy']
+        if 'secureBootEnabled' in kwargs:
+            secure_boot_enabled = kwargs['secureBootEnabled']
+        if 'singlePlacementGroup' in kwargs:
+            single_placement_group = kwargs['singlePlacementGroup']
+        if 'sourceImageId' in kwargs:
+            source_image_id = kwargs['sourceImageId']
+        if 'sourceImageReference' in kwargs:
+            source_image_reference = kwargs['sourceImageReference']
+        if 'spotRestore' in kwargs:
+            spot_restore = kwargs['spotRestore']
+        if 'terminateNotification' in kwargs:
+            terminate_notification = kwargs['terminateNotification']
+        if 'terminationNotification' in kwargs:
+            termination_notification = kwargs['terminationNotification']
+        if 'upgradeMode' in kwargs:
+            upgrade_mode = kwargs['upgradeMode']
+        if 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if 'vtpmEnabled' in kwargs:
+            vtpm_enabled = kwargs['vtpmEnabled']
+        if 'winrmListeners' in kwargs:
+            winrm_listeners = kwargs['winrmListeners']
+        if 'zoneBalance' in kwargs:
+            zone_balance = kwargs['zoneBalance']
+
         _setter("admin_password", admin_password)
         _setter("admin_username", admin_username)
         _setter("instances", instances)
@@ -1400,7 +1492,101 @@ class _WindowsVirtualMachineScaleSetState:
              winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetWinrmListenerArgs']]]] = None,
              zone_balance: Optional[pulumi.Input[bool]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalCapabilities' in kwargs:
+            additional_capabilities = kwargs['additionalCapabilities']
+        if 'additionalUnattendContents' in kwargs:
+            additional_unattend_contents = kwargs['additionalUnattendContents']
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'automaticInstanceRepair' in kwargs:
+            automatic_instance_repair = kwargs['automaticInstanceRepair']
+        if 'automaticOsUpgradePolicy' in kwargs:
+            automatic_os_upgrade_policy = kwargs['automaticOsUpgradePolicy']
+        if 'bootDiagnostics' in kwargs:
+            boot_diagnostics = kwargs['bootDiagnostics']
+        if 'capacityReservationGroupId' in kwargs:
+            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+        if 'computerNamePrefix' in kwargs:
+            computer_name_prefix = kwargs['computerNamePrefix']
+        if 'customData' in kwargs:
+            custom_data = kwargs['customData']
+        if 'dataDisks' in kwargs:
+            data_disks = kwargs['dataDisks']
+        if 'doNotRunExtensionsOnOverprovisionedMachines' in kwargs:
+            do_not_run_extensions_on_overprovisioned_machines = kwargs['doNotRunExtensionsOnOverprovisionedMachines']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'enableAutomaticUpdates' in kwargs:
+            enable_automatic_updates = kwargs['enableAutomaticUpdates']
+        if 'encryptionAtHostEnabled' in kwargs:
+            encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
+        if 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if 'extensionOperationsEnabled' in kwargs:
+            extension_operations_enabled = kwargs['extensionOperationsEnabled']
+        if 'extensionsTimeBudget' in kwargs:
+            extensions_time_budget = kwargs['extensionsTimeBudget']
+        if 'galleryApplication' in kwargs:
+            gallery_application = kwargs['galleryApplication']
+        if 'galleryApplications' in kwargs:
+            gallery_applications = kwargs['galleryApplications']
+        if 'healthProbeId' in kwargs:
+            health_probe_id = kwargs['healthProbeId']
+        if 'hostGroupId' in kwargs:
+            host_group_id = kwargs['hostGroupId']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'maxBidPrice' in kwargs:
+            max_bid_price = kwargs['maxBidPrice']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+        if 'platformFaultDomainCount' in kwargs:
+            platform_fault_domain_count = kwargs['platformFaultDomainCount']
+        if 'provisionVmAgent' in kwargs:
+            provision_vm_agent = kwargs['provisionVmAgent']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'rollingUpgradePolicy' in kwargs:
+            rolling_upgrade_policy = kwargs['rollingUpgradePolicy']
+        if 'scaleIn' in kwargs:
+            scale_in = kwargs['scaleIn']
+        if 'scaleInPolicy' in kwargs:
+            scale_in_policy = kwargs['scaleInPolicy']
+        if 'secureBootEnabled' in kwargs:
+            secure_boot_enabled = kwargs['secureBootEnabled']
+        if 'singlePlacementGroup' in kwargs:
+            single_placement_group = kwargs['singlePlacementGroup']
+        if 'sourceImageId' in kwargs:
+            source_image_id = kwargs['sourceImageId']
+        if 'sourceImageReference' in kwargs:
+            source_image_reference = kwargs['sourceImageReference']
+        if 'spotRestore' in kwargs:
+            spot_restore = kwargs['spotRestore']
+        if 'terminateNotification' in kwargs:
+            terminate_notification = kwargs['terminateNotification']
+        if 'terminationNotification' in kwargs:
+            termination_notification = kwargs['terminationNotification']
+        if 'uniqueId' in kwargs:
+            unique_id = kwargs['uniqueId']
+        if 'upgradeMode' in kwargs:
+            upgrade_mode = kwargs['upgradeMode']
+        if 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if 'vtpmEnabled' in kwargs:
+            vtpm_enabled = kwargs['vtpmEnabled']
+        if 'winrmListeners' in kwargs:
+            winrm_listeners = kwargs['winrmListeners']
+        if 'zoneBalance' in kwargs:
+            zone_balance = kwargs['zoneBalance']
+
         if additional_capabilities is not None:
             _setter("additional_capabilities", additional_capabilities)
         if additional_unattend_contents is not None:

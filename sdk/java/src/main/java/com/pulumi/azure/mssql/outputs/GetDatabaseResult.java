@@ -261,21 +261,21 @@ public final class GetDatabaseResult {
             return this;
         }
         public GetDatabaseResult build() {
-            final var o = new GetDatabaseResult();
-            o.collation = collation;
-            o.elasticPoolId = elasticPoolId;
-            o.id = id;
-            o.licenseType = licenseType;
-            o.maxSizeGb = maxSizeGb;
-            o.name = name;
-            o.readReplicaCount = readReplicaCount;
-            o.readScale = readScale;
-            o.serverId = serverId;
-            o.skuName = skuName;
-            o.storageAccountType = storageAccountType;
-            o.tags = tags;
-            o.zoneRedundant = zoneRedundant;
-            return o;
+            final var _resultValue = new GetDatabaseResult();
+            _resultValue.collation = collation;
+            _resultValue.elasticPoolId = elasticPoolId;
+            _resultValue.id = id;
+            _resultValue.licenseType = licenseType;
+            _resultValue.maxSizeGb = maxSizeGb;
+            _resultValue.name = name;
+            _resultValue.readReplicaCount = readReplicaCount;
+            _resultValue.readScale = readScale;
+            _resultValue.serverId = serverId;
+            _resultValue.skuName = skuName;
+            _resultValue.storageAccountType = storageAccountType;
+            _resultValue.tags = tags;
+            _resultValue.zoneRedundant = zoneRedundant;
+            return _resultValue;
         }
     }
 }

@@ -85,11 +85,11 @@ public final class GetLocalNetworkGatewayBgpSetting {
             return this;
         }
         public GetLocalNetworkGatewayBgpSetting build() {
-            final var o = new GetLocalNetworkGatewayBgpSetting();
-            o.asn = asn;
-            o.bgpPeeringAddress = bgpPeeringAddress;
-            o.peerWeight = peerWeight;
-            return o;
+            final var _resultValue = new GetLocalNetworkGatewayBgpSetting();
+            _resultValue.asn = asn;
+            _resultValue.bgpPeeringAddress = bgpPeeringAddress;
+            _resultValue.peerWeight = peerWeight;
+            return _resultValue;
         }
     }
 }

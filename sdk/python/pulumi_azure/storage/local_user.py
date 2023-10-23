@@ -53,7 +53,21 @@ class LocalUserArgs:
              ssh_authorized_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LocalUserSshAuthorizedKeyArgs']]]] = None,
              ssh_key_enabled: Optional[pulumi.Input[bool]] = None,
              ssh_password_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'homeDirectory' in kwargs:
+            home_directory = kwargs['homeDirectory']
+        if 'permissionScopes' in kwargs:
+            permission_scopes = kwargs['permissionScopes']
+        if 'sshAuthorizedKeys' in kwargs:
+            ssh_authorized_keys = kwargs['sshAuthorizedKeys']
+        if 'sshKeyEnabled' in kwargs:
+            ssh_key_enabled = kwargs['sshKeyEnabled']
+        if 'sshPasswordEnabled' in kwargs:
+            ssh_password_enabled = kwargs['sshPasswordEnabled']
+
         _setter("storage_account_id", storage_account_id)
         if home_directory is not None:
             _setter("home_directory", home_directory)
@@ -201,7 +215,21 @@ class _LocalUserState:
              ssh_key_enabled: Optional[pulumi.Input[bool]] = None,
              ssh_password_enabled: Optional[pulumi.Input[bool]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'homeDirectory' in kwargs:
+            home_directory = kwargs['homeDirectory']
+        if 'permissionScopes' in kwargs:
+            permission_scopes = kwargs['permissionScopes']
+        if 'sshAuthorizedKeys' in kwargs:
+            ssh_authorized_keys = kwargs['sshAuthorizedKeys']
+        if 'sshKeyEnabled' in kwargs:
+            ssh_key_enabled = kwargs['sshKeyEnabled']
+        if 'sshPasswordEnabled' in kwargs:
+            ssh_password_enabled = kwargs['sshPasswordEnabled']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if home_directory is not None:
             _setter("home_directory", home_directory)
         if name is not None:

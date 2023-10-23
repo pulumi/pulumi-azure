@@ -297,22 +297,22 @@ public final class GetFirewallResult {
             return zones(List.of(zones));
         }
         public GetFirewallResult build() {
-            final var o = new GetFirewallResult();
-            o.dnsServers = dnsServers;
-            o.firewallPolicyId = firewallPolicyId;
-            o.id = id;
-            o.ipConfigurations = ipConfigurations;
-            o.location = location;
-            o.managementIpConfigurations = managementIpConfigurations;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.skuName = skuName;
-            o.skuTier = skuTier;
-            o.tags = tags;
-            o.threatIntelMode = threatIntelMode;
-            o.virtualHubs = virtualHubs;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new GetFirewallResult();
+            _resultValue.dnsServers = dnsServers;
+            _resultValue.firewallPolicyId = firewallPolicyId;
+            _resultValue.id = id;
+            _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.location = location;
+            _resultValue.managementIpConfigurations = managementIpConfigurations;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.skuName = skuName;
+            _resultValue.skuTier = skuTier;
+            _resultValue.tags = tags;
+            _resultValue.threatIntelMode = threatIntelMode;
+            _resultValue.virtualHubs = virtualHubs;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

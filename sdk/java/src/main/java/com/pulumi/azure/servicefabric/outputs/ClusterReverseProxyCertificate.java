@@ -86,11 +86,11 @@ public final class ClusterReverseProxyCertificate {
             return this;
         }
         public ClusterReverseProxyCertificate build() {
-            final var o = new ClusterReverseProxyCertificate();
-            o.thumbprint = thumbprint;
-            o.thumbprintSecondary = thumbprintSecondary;
-            o.x509StoreName = x509StoreName;
-            return o;
+            final var _resultValue = new ClusterReverseProxyCertificate();
+            _resultValue.thumbprint = thumbprint;
+            _resultValue.thumbprintSecondary = thumbprintSecondary;
+            _resultValue.x509StoreName = x509StoreName;
+            return _resultValue;
         }
     }
 }

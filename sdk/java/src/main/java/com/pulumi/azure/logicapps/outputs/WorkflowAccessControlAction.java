@@ -50,9 +50,9 @@ public final class WorkflowAccessControlAction {
             return allowedCallerIpAddressRanges(List.of(allowedCallerIpAddressRanges));
         }
         public WorkflowAccessControlAction build() {
-            final var o = new WorkflowAccessControlAction();
-            o.allowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
-            return o;
+            final var _resultValue = new WorkflowAccessControlAction();
+            _resultValue.allowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
+            return _resultValue;
         }
     }
 }

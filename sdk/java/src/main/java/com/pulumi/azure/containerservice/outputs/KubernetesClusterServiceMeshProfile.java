@@ -95,11 +95,11 @@ public final class KubernetesClusterServiceMeshProfile {
             return this;
         }
         public KubernetesClusterServiceMeshProfile build() {
-            final var o = new KubernetesClusterServiceMeshProfile();
-            o.externalIngressGatewayEnabled = externalIngressGatewayEnabled;
-            o.internalIngressGatewayEnabled = internalIngressGatewayEnabled;
-            o.mode = mode;
-            return o;
+            final var _resultValue = new KubernetesClusterServiceMeshProfile();
+            _resultValue.externalIngressGatewayEnabled = externalIngressGatewayEnabled;
+            _resultValue.internalIngressGatewayEnabled = internalIngressGatewayEnabled;
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

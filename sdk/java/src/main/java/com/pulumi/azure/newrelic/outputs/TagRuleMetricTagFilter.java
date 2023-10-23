@@ -84,11 +84,11 @@ public final class TagRuleMetricTagFilter {
             return this;
         }
         public TagRuleMetricTagFilter build() {
-            final var o = new TagRuleMetricTagFilter();
-            o.action = action;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new TagRuleMetricTagFilter();
+            _resultValue.action = action;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

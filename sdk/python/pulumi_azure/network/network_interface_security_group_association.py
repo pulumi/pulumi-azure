@@ -31,7 +31,13 @@ class NetworkInterfaceSecurityGroupAssociationArgs:
              _setter: Callable[[Any, Any], None],
              network_interface_id: pulumi.Input[str],
              network_security_group_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+
         _setter("network_interface_id", network_interface_id)
         _setter("network_security_group_id", network_security_group_id)
 
@@ -80,7 +86,13 @@ class _NetworkInterfaceSecurityGroupAssociationState:
              _setter: Callable[[Any, Any], None],
              network_interface_id: Optional[pulumi.Input[str]] = None,
              network_security_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+
         if network_interface_id is not None:
             _setter("network_interface_id", network_interface_id)
         if network_security_group_id is not None:

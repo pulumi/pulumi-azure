@@ -84,11 +84,11 @@ public final class DeploymentModel {
             return this;
         }
         public DeploymentModel build() {
-            final var o = new DeploymentModel();
-            o.format = format;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new DeploymentModel();
+            _resultValue.format = format;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

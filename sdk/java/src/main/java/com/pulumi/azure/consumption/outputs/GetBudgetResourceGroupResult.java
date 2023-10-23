@@ -185,16 +185,16 @@ public final class GetBudgetResourceGroupResult {
             return timePeriods(List.of(timePeriods));
         }
         public GetBudgetResourceGroupResult build() {
-            final var o = new GetBudgetResourceGroupResult();
-            o.amount = amount;
-            o.filters = filters;
-            o.id = id;
-            o.name = name;
-            o.notifications = notifications;
-            o.resourceGroupId = resourceGroupId;
-            o.timeGrain = timeGrain;
-            o.timePeriods = timePeriods;
-            return o;
+            final var _resultValue = new GetBudgetResourceGroupResult();
+            _resultValue.amount = amount;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.notifications = notifications;
+            _resultValue.resourceGroupId = resourceGroupId;
+            _resultValue.timeGrain = timeGrain;
+            _resultValue.timePeriods = timePeriods;
+            return _resultValue;
         }
     }
 }

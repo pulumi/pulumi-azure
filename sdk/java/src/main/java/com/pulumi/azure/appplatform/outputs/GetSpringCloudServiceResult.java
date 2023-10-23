@@ -184,16 +184,16 @@ public final class GetSpringCloudServiceResult {
             return this;
         }
         public GetSpringCloudServiceResult build() {
-            final var o = new GetSpringCloudServiceResult();
-            o.configServerGitSettings = configServerGitSettings;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.outboundPublicIpAddresses = outboundPublicIpAddresses;
-            o.requiredNetworkTrafficRules = requiredNetworkTrafficRules;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSpringCloudServiceResult();
+            _resultValue.configServerGitSettings = configServerGitSettings;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.outboundPublicIpAddresses = outboundPublicIpAddresses;
+            _resultValue.requiredNetworkTrafficRules = requiredNetworkTrafficRules;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

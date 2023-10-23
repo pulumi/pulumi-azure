@@ -64,7 +64,11 @@ class FunctionJavaScriptUDFInput(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              configuration_parameter: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationParameter' in kwargs:
+            configuration_parameter = kwargs['configurationParameter']
+
         _setter("type", type)
         if configuration_parameter is not None:
             _setter("configuration_parameter", configuration_parameter)
@@ -101,7 +105,9 @@ class FunctionJavaScriptUDFOutput(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
 
     @property
@@ -149,7 +155,11 @@ class FunctionJavascriptUdaInput(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              configuration_parameter: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationParameter' in kwargs:
+            configuration_parameter = kwargs['configurationParameter']
+
         _setter("type", type)
         if configuration_parameter is not None:
             _setter("configuration_parameter", configuration_parameter)
@@ -186,7 +196,9 @@ class FunctionJavascriptUdaOutput(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
 
     @property
@@ -240,7 +252,13 @@ class JobIdentity(dict):
              type: str,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if principal_id is not None:
             _setter("principal_id", principal_id)
@@ -316,7 +334,15 @@ class JobJobStorageAccount(dict):
              account_key: str,
              account_name: str,
              authentication_mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+
         _setter("account_key", account_key)
         _setter("account_name", account_name)
         if authentication_mode is not None:
@@ -399,7 +425,11 @@ class OutputBlobSerialization(dict):
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
              format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
         _setter("type", type)
         if encoding is not None:
             _setter("encoding", encoding)
@@ -499,7 +529,11 @@ class OutputEventHubSerialization(dict):
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
              format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
         _setter("type", type)
         if encoding is not None:
             _setter("encoding", encoding)
@@ -597,7 +631,11 @@ class OutputServiceBusQueueSerialization(dict):
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
              format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
         _setter("type", type)
         if encoding is not None:
             _setter("encoding", encoding)
@@ -695,7 +733,11 @@ class OutputServicebusTopicSerialization(dict):
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
              format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
         _setter("type", type)
         if encoding is not None:
             _setter("encoding", encoding)
@@ -787,7 +829,11 @@ class ReferenceInputBlobSerialization(dict):
              type: str,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
         _setter("type", type)
         if encoding is not None:
             _setter("encoding", encoding)
@@ -867,7 +913,11 @@ class StreamInputBlobSerialization(dict):
              type: str,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
         _setter("type", type)
         if encoding is not None:
             _setter("encoding", encoding)
@@ -947,7 +997,11 @@ class StreamInputEventHubSerialization(dict):
              type: str,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
         _setter("type", type)
         if encoding is not None:
             _setter("encoding", encoding)
@@ -1027,7 +1081,11 @@ class StreamInputEventHubV2Serialization(dict):
              type: str,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
         _setter("type", type)
         if encoding is not None:
             _setter("encoding", encoding)
@@ -1107,7 +1165,11 @@ class StreamInputIotHubSerialization(dict):
              type: str,
              encoding: Optional[str] = None,
              field_delimiter: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
         _setter("type", type)
         if encoding is not None:
             _setter("encoding", encoding)
@@ -1166,7 +1228,13 @@ class GetJobIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
         _setter("type", type)

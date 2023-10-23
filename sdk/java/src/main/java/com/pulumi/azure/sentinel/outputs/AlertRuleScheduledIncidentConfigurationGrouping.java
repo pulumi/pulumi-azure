@@ -173,15 +173,15 @@ public final class AlertRuleScheduledIncidentConfigurationGrouping {
             return this;
         }
         public AlertRuleScheduledIncidentConfigurationGrouping build() {
-            final var o = new AlertRuleScheduledIncidentConfigurationGrouping();
-            o.enabled = enabled;
-            o.entityMatchingMethod = entityMatchingMethod;
-            o.groupByAlertDetails = groupByAlertDetails;
-            o.groupByCustomDetails = groupByCustomDetails;
-            o.groupByEntities = groupByEntities;
-            o.lookbackDuration = lookbackDuration;
-            o.reopenClosedIncidents = reopenClosedIncidents;
-            return o;
+            final var _resultValue = new AlertRuleScheduledIncidentConfigurationGrouping();
+            _resultValue.enabled = enabled;
+            _resultValue.entityMatchingMethod = entityMatchingMethod;
+            _resultValue.groupByAlertDetails = groupByAlertDetails;
+            _resultValue.groupByCustomDetails = groupByCustomDetails;
+            _resultValue.groupByEntities = groupByEntities;
+            _resultValue.lookbackDuration = lookbackDuration;
+            _resultValue.reopenClosedIncidents = reopenClosedIncidents;
+            return _resultValue;
         }
     }
 }

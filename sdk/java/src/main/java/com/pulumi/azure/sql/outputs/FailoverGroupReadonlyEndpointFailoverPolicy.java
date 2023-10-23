@@ -46,9 +46,9 @@ public final class FailoverGroupReadonlyEndpointFailoverPolicy {
             return this;
         }
         public FailoverGroupReadonlyEndpointFailoverPolicy build() {
-            final var o = new FailoverGroupReadonlyEndpointFailoverPolicy();
-            o.mode = mode;
-            return o;
+            final var _resultValue = new FailoverGroupReadonlyEndpointFailoverPolicy();
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

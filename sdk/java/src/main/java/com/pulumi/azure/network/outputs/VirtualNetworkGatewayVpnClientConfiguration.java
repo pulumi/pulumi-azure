@@ -251,18 +251,18 @@ public final class VirtualNetworkGatewayVpnClientConfiguration {
             return vpnClientProtocols(List.of(vpnClientProtocols));
         }
         public VirtualNetworkGatewayVpnClientConfiguration build() {
-            final var o = new VirtualNetworkGatewayVpnClientConfiguration();
-            o.aadAudience = aadAudience;
-            o.aadIssuer = aadIssuer;
-            o.aadTenant = aadTenant;
-            o.addressSpaces = addressSpaces;
-            o.radiusServerAddress = radiusServerAddress;
-            o.radiusServerSecret = radiusServerSecret;
-            o.revokedCertificates = revokedCertificates;
-            o.rootCertificates = rootCertificates;
-            o.vpnAuthTypes = vpnAuthTypes;
-            o.vpnClientProtocols = vpnClientProtocols;
-            return o;
+            final var _resultValue = new VirtualNetworkGatewayVpnClientConfiguration();
+            _resultValue.aadAudience = aadAudience;
+            _resultValue.aadIssuer = aadIssuer;
+            _resultValue.aadTenant = aadTenant;
+            _resultValue.addressSpaces = addressSpaces;
+            _resultValue.radiusServerAddress = radiusServerAddress;
+            _resultValue.radiusServerSecret = radiusServerSecret;
+            _resultValue.revokedCertificates = revokedCertificates;
+            _resultValue.rootCertificates = rootCertificates;
+            _resultValue.vpnAuthTypes = vpnAuthTypes;
+            _resultValue.vpnClientProtocols = vpnClientProtocols;
+            return _resultValue;
         }
     }
 }

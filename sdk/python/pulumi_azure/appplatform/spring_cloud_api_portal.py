@@ -53,7 +53,19 @@ class SpringCloudApiPortalArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              sso: Optional[pulumi.Input['SpringCloudApiPortalSsoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+        if 'gatewayIds' in kwargs:
+            gateway_ids = kwargs['gatewayIds']
+        if 'httpsOnlyEnabled' in kwargs:
+            https_only_enabled = kwargs['httpsOnlyEnabled']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+
         _setter("spring_cloud_service_id", spring_cloud_service_id)
         if gateway_ids is not None:
             _setter("gateway_ids", gateway_ids)
@@ -197,7 +209,19 @@ class _SpringCloudApiPortalState:
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              sso: Optional[pulumi.Input['SpringCloudApiPortalSsoArgs']] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'gatewayIds' in kwargs:
+            gateway_ids = kwargs['gatewayIds']
+        if 'httpsOnlyEnabled' in kwargs:
+            https_only_enabled = kwargs['httpsOnlyEnabled']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+
         if gateway_ids is not None:
             _setter("gateway_ids", gateway_ids)
         if https_only_enabled is not None:

@@ -71,10 +71,10 @@ public final class ResourcePolicyAssignmentOverride {
             return this;
         }
         public ResourcePolicyAssignmentOverride build() {
-            final var o = new ResourcePolicyAssignmentOverride();
-            o.selectors = selectors;
-            o.value = value;
-            return o;
+            final var _resultValue = new ResourcePolicyAssignmentOverride();
+            _resultValue.selectors = selectors;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

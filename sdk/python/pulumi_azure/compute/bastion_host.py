@@ -85,7 +85,25 @@ class BastionHostArgs:
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tunneling_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfiguration' in kwargs:
+            ip_configuration = kwargs['ipConfiguration']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'copyPasteEnabled' in kwargs:
+            copy_paste_enabled = kwargs['copyPasteEnabled']
+        if 'fileCopyEnabled' in kwargs:
+            file_copy_enabled = kwargs['fileCopyEnabled']
+        if 'ipConnectEnabled' in kwargs:
+            ip_connect_enabled = kwargs['ipConnectEnabled']
+        if 'scaleUnits' in kwargs:
+            scale_units = kwargs['scaleUnits']
+        if 'shareableLinkEnabled' in kwargs:
+            shareable_link_enabled = kwargs['shareableLinkEnabled']
+        if 'tunnelingEnabled' in kwargs:
+            tunneling_enabled = kwargs['tunnelingEnabled']
+
         _setter("ip_configuration", ip_configuration)
         _setter("resource_group_name", resource_group_name)
         if copy_paste_enabled is not None:
@@ -342,7 +360,27 @@ class _BastionHostState:
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tunneling_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'copyPasteEnabled' in kwargs:
+            copy_paste_enabled = kwargs['copyPasteEnabled']
+        if 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if 'fileCopyEnabled' in kwargs:
+            file_copy_enabled = kwargs['fileCopyEnabled']
+        if 'ipConfiguration' in kwargs:
+            ip_configuration = kwargs['ipConfiguration']
+        if 'ipConnectEnabled' in kwargs:
+            ip_connect_enabled = kwargs['ipConnectEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scaleUnits' in kwargs:
+            scale_units = kwargs['scaleUnits']
+        if 'shareableLinkEnabled' in kwargs:
+            shareable_link_enabled = kwargs['shareableLinkEnabled']
+        if 'tunnelingEnabled' in kwargs:
+            tunneling_enabled = kwargs['tunnelingEnabled']
+
         if copy_paste_enabled is not None:
             _setter("copy_paste_enabled", copy_paste_enabled)
         if dns_name is not None:

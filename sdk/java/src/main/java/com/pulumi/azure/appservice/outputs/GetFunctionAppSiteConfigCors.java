@@ -56,10 +56,10 @@ public final class GetFunctionAppSiteConfigCors {
             return this;
         }
         public GetFunctionAppSiteConfigCors build() {
-            final var o = new GetFunctionAppSiteConfigCors();
-            o.allowedOrigins = allowedOrigins;
-            o.supportCredentials = supportCredentials;
-            return o;
+            final var _resultValue = new GetFunctionAppSiteConfigCors();
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.supportCredentials = supportCredentials;
+            return _resultValue;
         }
     }
 }

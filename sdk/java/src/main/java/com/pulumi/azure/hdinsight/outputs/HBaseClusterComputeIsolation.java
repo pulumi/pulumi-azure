@@ -68,10 +68,10 @@ public final class HBaseClusterComputeIsolation {
             return this;
         }
         public HBaseClusterComputeIsolation build() {
-            final var o = new HBaseClusterComputeIsolation();
-            o.computeIsolationEnabled = computeIsolationEnabled;
-            o.hostSku = hostSku;
-            return o;
+            final var _resultValue = new HBaseClusterComputeIsolation();
+            _resultValue.computeIsolationEnabled = computeIsolationEnabled;
+            _resultValue.hostSku = hostSku;
+            return _resultValue;
         }
     }
 }

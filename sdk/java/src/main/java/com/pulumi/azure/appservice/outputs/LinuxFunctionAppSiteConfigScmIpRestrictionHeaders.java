@@ -115,12 +115,12 @@ public final class LinuxFunctionAppSiteConfigScmIpRestrictionHeaders {
             return xForwardedHosts(List.of(xForwardedHosts));
         }
         public LinuxFunctionAppSiteConfigScmIpRestrictionHeaders build() {
-            final var o = new LinuxFunctionAppSiteConfigScmIpRestrictionHeaders();
-            o.xAzureFdids = xAzureFdids;
-            o.xFdHealthProbe = xFdHealthProbe;
-            o.xForwardedFors = xForwardedFors;
-            o.xForwardedHosts = xForwardedHosts;
-            return o;
+            final var _resultValue = new LinuxFunctionAppSiteConfigScmIpRestrictionHeaders();
+            _resultValue.xAzureFdids = xAzureFdids;
+            _resultValue.xFdHealthProbe = xFdHealthProbe;
+            _resultValue.xForwardedFors = xForwardedFors;
+            _resultValue.xForwardedHosts = xForwardedHosts;
+            return _resultValue;
         }
     }
 }

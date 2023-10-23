@@ -42,7 +42,7 @@ public final class ActivityLogAlertCriteria {
      */
     private @Nullable String operationName;
     /**
-     * @return The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+     * @return The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
      * 
      */
     private @Nullable String recommendationCategory;
@@ -178,7 +178,7 @@ public final class ActivityLogAlertCriteria {
         return Optional.ofNullable(this.operationName);
     }
     /**
-     * @return The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+     * @return The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
      * 
      */
     public Optional<String> recommendationCategory() {
@@ -505,30 +505,30 @@ public final class ActivityLogAlertCriteria {
             return subStatuses(List.of(subStatuses));
         }
         public ActivityLogAlertCriteria build() {
-            final var o = new ActivityLogAlertCriteria();
-            o.caller = caller;
-            o.category = category;
-            o.level = level;
-            o.levels = levels;
-            o.operationName = operationName;
-            o.recommendationCategory = recommendationCategory;
-            o.recommendationImpact = recommendationImpact;
-            o.recommendationType = recommendationType;
-            o.resourceGroup = resourceGroup;
-            o.resourceGroups = resourceGroups;
-            o.resourceHealths = resourceHealths;
-            o.resourceId = resourceId;
-            o.resourceIds = resourceIds;
-            o.resourceProvider = resourceProvider;
-            o.resourceProviders = resourceProviders;
-            o.resourceType = resourceType;
-            o.resourceTypes = resourceTypes;
-            o.serviceHealths = serviceHealths;
-            o.status = status;
-            o.statuses = statuses;
-            o.subStatus = subStatus;
-            o.subStatuses = subStatuses;
-            return o;
+            final var _resultValue = new ActivityLogAlertCriteria();
+            _resultValue.caller = caller;
+            _resultValue.category = category;
+            _resultValue.level = level;
+            _resultValue.levels = levels;
+            _resultValue.operationName = operationName;
+            _resultValue.recommendationCategory = recommendationCategory;
+            _resultValue.recommendationImpact = recommendationImpact;
+            _resultValue.recommendationType = recommendationType;
+            _resultValue.resourceGroup = resourceGroup;
+            _resultValue.resourceGroups = resourceGroups;
+            _resultValue.resourceHealths = resourceHealths;
+            _resultValue.resourceId = resourceId;
+            _resultValue.resourceIds = resourceIds;
+            _resultValue.resourceProvider = resourceProvider;
+            _resultValue.resourceProviders = resourceProviders;
+            _resultValue.resourceType = resourceType;
+            _resultValue.resourceTypes = resourceTypes;
+            _resultValue.serviceHealths = serviceHealths;
+            _resultValue.status = status;
+            _resultValue.statuses = statuses;
+            _resultValue.subStatus = subStatus;
+            _resultValue.subStatuses = subStatuses;
+            return _resultValue;
         }
     }
 }

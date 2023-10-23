@@ -49,7 +49,17 @@ class VirtualNetworkRuleArgs:
              subnet_id: pulumi.Input[str],
              ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
+
         _setter("resource_group_name", resource_group_name)
         _setter("server_name", server_name)
         _setter("subnet_id", subnet_id)
@@ -163,7 +173,17 @@ class _VirtualNetworkRuleState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if ignore_missing_vnet_service_endpoint is not None:
             _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
         if name is not None:

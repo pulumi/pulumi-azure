@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetApplicationGatewayIdentity {
     /**
-     * @return A list of Managed Identity IDs assigned to this Application Gateway.
+     * @return The list of User Assigned Managed Identity IDs assigned to this Application Gateway.
      * 
      */
     private List<String> identityIds;
     /**
-     * @return The type of Managed Identity assigned to this Application Gateway.
+     * @return The type of Managed Service Identity that is configured on this Application Gateway.
      * 
      */
     private String type;
 
     private GetApplicationGatewayIdentity() {}
     /**
-     * @return A list of Managed Identity IDs assigned to this Application Gateway.
+     * @return The list of User Assigned Managed Identity IDs assigned to this Application Gateway.
      * 
      */
     public List<String> identityIds() {
         return this.identityIds;
     }
     /**
-     * @return The type of Managed Identity assigned to this Application Gateway.
+     * @return The type of Managed Service Identity that is configured on this Application Gateway.
      * 
      */
     public String type() {
@@ -69,10 +69,10 @@ public final class GetApplicationGatewayIdentity {
             return this;
         }
         public GetApplicationGatewayIdentity build() {
-            final var o = new GetApplicationGatewayIdentity();
-            o.identityIds = identityIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetApplicationGatewayIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

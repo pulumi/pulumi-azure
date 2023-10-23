@@ -68,10 +68,10 @@ public final class EligibleRoleAssignmentSchedule {
             return this;
         }
         public EligibleRoleAssignmentSchedule build() {
-            final var o = new EligibleRoleAssignmentSchedule();
-            o.expiration = expiration;
-            o.startDateTime = startDateTime;
-            return o;
+            final var _resultValue = new EligibleRoleAssignmentSchedule();
+            _resultValue.expiration = expiration;
+            _resultValue.startDateTime = startDateTime;
+            return _resultValue;
         }
     }
 }

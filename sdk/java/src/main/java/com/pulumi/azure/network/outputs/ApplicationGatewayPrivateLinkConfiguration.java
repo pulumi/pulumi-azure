@@ -139,11 +139,11 @@ public final class ApplicationGatewayPrivateLinkConfiguration {
             return this;
         }
         public ApplicationGatewayPrivateLinkConfiguration build() {
-            final var o = new ApplicationGatewayPrivateLinkConfiguration();
-            o.id = id;
-            o.ipConfigurations = ipConfigurations;
-            o.name = name;
-            return o;
+            final var _resultValue = new ApplicationGatewayPrivateLinkConfiguration();
+            _resultValue.id = id;
+            _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

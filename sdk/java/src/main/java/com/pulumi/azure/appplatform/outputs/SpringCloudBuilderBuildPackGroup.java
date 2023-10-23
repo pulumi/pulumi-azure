@@ -70,10 +70,10 @@ public final class SpringCloudBuilderBuildPackGroup {
             return this;
         }
         public SpringCloudBuilderBuildPackGroup build() {
-            final var o = new SpringCloudBuilderBuildPackGroup();
-            o.buildPackIds = buildPackIds;
-            o.name = name;
-            return o;
+            final var _resultValue = new SpringCloudBuilderBuildPackGroup();
+            _resultValue.buildPackIds = buildPackIds;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetWindowsWebAppSiteCredential {
             return this;
         }
         public GetWindowsWebAppSiteCredential build() {
-            final var o = new GetWindowsWebAppSiteCredential();
-            o.name = name;
-            o.password = password;
-            return o;
+            final var _resultValue = new GetWindowsWebAppSiteCredential();
+            _resultValue.name = name;
+            _resultValue.password = password;
+            return _resultValue;
         }
     }
 }

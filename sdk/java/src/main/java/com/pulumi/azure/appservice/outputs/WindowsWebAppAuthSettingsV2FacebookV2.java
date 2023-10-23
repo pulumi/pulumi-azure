@@ -113,12 +113,12 @@ public final class WindowsWebAppAuthSettingsV2FacebookV2 {
             return loginScopes(List.of(loginScopes));
         }
         public WindowsWebAppAuthSettingsV2FacebookV2 build() {
-            final var o = new WindowsWebAppAuthSettingsV2FacebookV2();
-            o.appId = appId;
-            o.appSecretSettingName = appSecretSettingName;
-            o.graphApiVersion = graphApiVersion;
-            o.loginScopes = loginScopes;
-            return o;
+            final var _resultValue = new WindowsWebAppAuthSettingsV2FacebookV2();
+            _resultValue.appId = appId;
+            _resultValue.appSecretSettingName = appSecretSettingName;
+            _resultValue.graphApiVersion = graphApiVersion;
+            _resultValue.loginScopes = loginScopes;
+            return _resultValue;
         }
     }
 }

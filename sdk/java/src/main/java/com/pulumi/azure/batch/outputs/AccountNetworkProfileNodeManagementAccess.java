@@ -72,10 +72,10 @@ public final class AccountNetworkProfileNodeManagementAccess {
             return ipRules(List.of(ipRules));
         }
         public AccountNetworkProfileNodeManagementAccess build() {
-            final var o = new AccountNetworkProfileNodeManagementAccess();
-            o.defaultAction = defaultAction;
-            o.ipRules = ipRules;
-            return o;
+            final var _resultValue = new AccountNetworkProfileNodeManagementAccess();
+            _resultValue.defaultAction = defaultAction;
+            _resultValue.ipRules = ipRules;
+            return _resultValue;
         }
     }
 }

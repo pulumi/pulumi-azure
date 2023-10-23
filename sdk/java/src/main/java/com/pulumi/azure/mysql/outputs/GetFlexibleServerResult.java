@@ -418,29 +418,29 @@ public final class GetFlexibleServerResult {
             return this;
         }
         public GetFlexibleServerResult build() {
-            final var o = new GetFlexibleServerResult();
-            o.administratorLogin = administratorLogin;
-            o.backupRetentionDays = backupRetentionDays;
-            o.delegatedSubnetId = delegatedSubnetId;
-            o.fqdn = fqdn;
-            o.geoRedundantBackupEnabled = geoRedundantBackupEnabled;
-            o.highAvailabilities = highAvailabilities;
-            o.id = id;
-            o.location = location;
-            o.maintenanceWindows = maintenanceWindows;
-            o.name = name;
-            o.privateDnsZoneId = privateDnsZoneId;
-            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            o.replicaCapacity = replicaCapacity;
-            o.replicationRole = replicationRole;
-            o.resourceGroupName = resourceGroupName;
-            o.restorePointInTime = restorePointInTime;
-            o.skuName = skuName;
-            o.storages = storages;
-            o.tags = tags;
-            o.version = version;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new GetFlexibleServerResult();
+            _resultValue.administratorLogin = administratorLogin;
+            _resultValue.backupRetentionDays = backupRetentionDays;
+            _resultValue.delegatedSubnetId = delegatedSubnetId;
+            _resultValue.fqdn = fqdn;
+            _resultValue.geoRedundantBackupEnabled = geoRedundantBackupEnabled;
+            _resultValue.highAvailabilities = highAvailabilities;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.maintenanceWindows = maintenanceWindows;
+            _resultValue.name = name;
+            _resultValue.privateDnsZoneId = privateDnsZoneId;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            _resultValue.replicaCapacity = replicaCapacity;
+            _resultValue.replicationRole = replicationRole;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.restorePointInTime = restorePointInTime;
+            _resultValue.skuName = skuName;
+            _resultValue.storages = storages;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

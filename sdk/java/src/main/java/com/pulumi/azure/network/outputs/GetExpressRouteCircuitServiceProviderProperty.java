@@ -85,11 +85,11 @@ public final class GetExpressRouteCircuitServiceProviderProperty {
             return this;
         }
         public GetExpressRouteCircuitServiceProviderProperty build() {
-            final var o = new GetExpressRouteCircuitServiceProviderProperty();
-            o.bandwidthInMbps = bandwidthInMbps;
-            o.peeringLocation = peeringLocation;
-            o.serviceProviderName = serviceProviderName;
-            return o;
+            final var _resultValue = new GetExpressRouteCircuitServiceProviderProperty();
+            _resultValue.bandwidthInMbps = bandwidthInMbps;
+            _resultValue.peeringLocation = peeringLocation;
+            _resultValue.serviceProviderName = serviceProviderName;
+            return _resultValue;
         }
     }
 }

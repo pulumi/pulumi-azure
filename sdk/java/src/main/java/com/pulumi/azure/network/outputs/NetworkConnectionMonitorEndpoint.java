@@ -189,16 +189,16 @@ public final class NetworkConnectionMonitorEndpoint {
             return this;
         }
         public NetworkConnectionMonitorEndpoint build() {
-            final var o = new NetworkConnectionMonitorEndpoint();
-            o.address = address;
-            o.coverageLevel = coverageLevel;
-            o.excludedIpAddresses = excludedIpAddresses;
-            o.filter = filter;
-            o.includedIpAddresses = includedIpAddresses;
-            o.name = name;
-            o.targetResourceId = targetResourceId;
-            o.targetResourceType = targetResourceType;
-            return o;
+            final var _resultValue = new NetworkConnectionMonitorEndpoint();
+            _resultValue.address = address;
+            _resultValue.coverageLevel = coverageLevel;
+            _resultValue.excludedIpAddresses = excludedIpAddresses;
+            _resultValue.filter = filter;
+            _resultValue.includedIpAddresses = includedIpAddresses;
+            _resultValue.name = name;
+            _resultValue.targetResourceId = targetResourceId;
+            _resultValue.targetResourceType = targetResourceType;
+            return _resultValue;
         }
     }
 }

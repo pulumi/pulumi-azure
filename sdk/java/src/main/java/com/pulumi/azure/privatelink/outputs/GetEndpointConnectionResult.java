@@ -126,14 +126,14 @@ public final class GetEndpointConnectionResult {
             return this;
         }
         public GetEndpointConnectionResult build() {
-            final var o = new GetEndpointConnectionResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.networkInterfaces = networkInterfaces;
-            o.privateServiceConnections = privateServiceConnections;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetEndpointConnectionResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.networkInterfaces = networkInterfaces;
+            _resultValue.privateServiceConnections = privateServiceConnections;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

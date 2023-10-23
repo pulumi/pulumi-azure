@@ -113,12 +113,12 @@ public final class GetVpnGatewayBgpSettingInstance1BgpPeeringAddress {
             return tunnelIps(List.of(tunnelIps));
         }
         public GetVpnGatewayBgpSettingInstance1BgpPeeringAddress build() {
-            final var o = new GetVpnGatewayBgpSettingInstance1BgpPeeringAddress();
-            o.customIps = customIps;
-            o.defaultIps = defaultIps;
-            o.ipConfigurationId = ipConfigurationId;
-            o.tunnelIps = tunnelIps;
-            return o;
+            final var _resultValue = new GetVpnGatewayBgpSettingInstance1BgpPeeringAddress();
+            _resultValue.customIps = customIps;
+            _resultValue.defaultIps = defaultIps;
+            _resultValue.ipConfigurationId = ipConfigurationId;
+            _resultValue.tunnelIps = tunnelIps;
+            return _resultValue;
         }
     }
 }

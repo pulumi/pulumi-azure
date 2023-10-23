@@ -20,16 +20,20 @@ public final class FrontdoorRuleConditionsUrlFilenameConditionArgs extends com.p
     /**
      * A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
      * 
+     * &gt; **NOTE:** The `match_values` field is only optional if the `operator` is set to `Any`.
+     * 
      */
-    @Import(name="matchValues", required=true)
-    private Output<List<String>> matchValues;
+    @Import(name="matchValues")
+    private @Nullable Output<List<String>> matchValues;
 
     /**
      * @return A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
      * 
+     * &gt; **NOTE:** The `match_values` field is only optional if the `operator` is set to `Any`.
+     * 
      */
-    public Output<List<String>> matchValues() {
-        return this.matchValues;
+    public Optional<Output<List<String>>> matchValues() {
+        return Optional.ofNullable(this.matchValues);
     }
 
     /**
@@ -107,16 +111,20 @@ public final class FrontdoorRuleConditionsUrlFilenameConditionArgs extends com.p
         /**
          * @param matchValues A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
          * 
+         * &gt; **NOTE:** The `match_values` field is only optional if the `operator` is set to `Any`.
+         * 
          * @return builder
          * 
          */
-        public Builder matchValues(Output<List<String>> matchValues) {
+        public Builder matchValues(@Nullable Output<List<String>> matchValues) {
             $.matchValues = matchValues;
             return this;
         }
 
         /**
          * @param matchValues A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
+         * 
+         * &gt; **NOTE:** The `match_values` field is only optional if the `operator` is set to `Any`.
          * 
          * @return builder
          * 
@@ -127,6 +135,8 @@ public final class FrontdoorRuleConditionsUrlFilenameConditionArgs extends com.p
 
         /**
          * @param matchValues A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
+         * 
+         * &gt; **NOTE:** The `match_values` field is only optional if the `operator` is set to `Any`.
          * 
          * @return builder
          * 
@@ -209,7 +219,6 @@ public final class FrontdoorRuleConditionsUrlFilenameConditionArgs extends com.p
         }
 
         public FrontdoorRuleConditionsUrlFilenameConditionArgs build() {
-            $.matchValues = Objects.requireNonNull($.matchValues, "expected parameter 'matchValues' to be non-null");
             $.operator = Objects.requireNonNull($.operator, "expected parameter 'operator' to be non-null");
             return $;
         }

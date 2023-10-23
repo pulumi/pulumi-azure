@@ -43,7 +43,17 @@ class ChannelEmailArgs:
              email_password: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'emailPassword' in kwargs:
+            email_password = kwargs['emailPassword']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("bot_name", bot_name)
         _setter("email_address", email_address)
         _setter("email_password", email_password)
@@ -144,7 +154,17 @@ class _ChannelEmailState:
              email_password: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'emailPassword' in kwargs:
+            email_password = kwargs['emailPassword']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if bot_name is not None:
             _setter("bot_name", bot_name)
         if email_address is not None:

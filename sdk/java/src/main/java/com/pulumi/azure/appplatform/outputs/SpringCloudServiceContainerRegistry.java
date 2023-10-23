@@ -103,12 +103,12 @@ public final class SpringCloudServiceContainerRegistry {
             return this;
         }
         public SpringCloudServiceContainerRegistry build() {
-            final var o = new SpringCloudServiceContainerRegistry();
-            o.name = name;
-            o.password = password;
-            o.server = server;
-            o.username = username;
-            return o;
+            final var _resultValue = new SpringCloudServiceContainerRegistry();
+            _resultValue.name = name;
+            _resultValue.password = password;
+            _resultValue.server = server;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

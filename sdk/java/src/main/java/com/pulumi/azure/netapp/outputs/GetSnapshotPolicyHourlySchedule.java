@@ -65,10 +65,10 @@ public final class GetSnapshotPolicyHourlySchedule {
             return this;
         }
         public GetSnapshotPolicyHourlySchedule build() {
-            final var o = new GetSnapshotPolicyHourlySchedule();
-            o.minute = minute;
-            o.snapshotsToKeep = snapshotsToKeep;
-            return o;
+            final var _resultValue = new GetSnapshotPolicyHourlySchedule();
+            _resultValue.minute = minute;
+            _resultValue.snapshotsToKeep = snapshotsToKeep;
+            return _resultValue;
         }
     }
 }

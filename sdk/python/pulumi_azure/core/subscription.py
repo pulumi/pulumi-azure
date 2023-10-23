@@ -51,7 +51,15 @@ class SubscriptionArgs:
              subscription_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workload: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subscriptionName' in kwargs:
+            subscription_name = kwargs['subscriptionName']
+        if 'billingScopeId' in kwargs:
+            billing_scope_id = kwargs['billingScopeId']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         _setter("subscription_name", subscription_name)
         if alias is not None:
             _setter("alias", alias)
@@ -185,7 +193,17 @@ class _SubscriptionState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              workload: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingScopeId' in kwargs:
+            billing_scope_id = kwargs['billingScopeId']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'subscriptionName' in kwargs:
+            subscription_name = kwargs['subscriptionName']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if alias is not None:
             _setter("alias", alias)
         if billing_scope_id is not None:

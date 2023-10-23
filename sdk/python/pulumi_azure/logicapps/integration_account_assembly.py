@@ -55,7 +55,19 @@ class IntegrationAccountAssemblyArgs:
              content_link_uri: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assemblyName' in kwargs:
+            assembly_name = kwargs['assemblyName']
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'assemblyVersion' in kwargs:
+            assembly_version = kwargs['assemblyVersion']
+        if 'contentLinkUri' in kwargs:
+            content_link_uri = kwargs['contentLinkUri']
+
         _setter("assembly_name", assembly_name)
         _setter("integration_account_name", integration_account_name)
         _setter("resource_group_name", resource_group_name)
@@ -211,7 +223,19 @@ class _IntegrationAccountAssemblyState:
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assemblyName' in kwargs:
+            assembly_name = kwargs['assemblyName']
+        if 'assemblyVersion' in kwargs:
+            assembly_version = kwargs['assemblyVersion']
+        if 'contentLinkUri' in kwargs:
+            content_link_uri = kwargs['contentLinkUri']
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if assembly_name is not None:
             _setter("assembly_name", assembly_name)
         if assembly_version is not None:

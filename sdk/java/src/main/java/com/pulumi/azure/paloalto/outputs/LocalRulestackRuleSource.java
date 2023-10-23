@@ -121,12 +121,12 @@ public final class LocalRulestackRuleSource {
             return localRulestackPrefixListIds(List.of(localRulestackPrefixListIds));
         }
         public LocalRulestackRuleSource build() {
-            final var o = new LocalRulestackRuleSource();
-            o.cidrs = cidrs;
-            o.countries = countries;
-            o.feeds = feeds;
-            o.localRulestackPrefixListIds = localRulestackPrefixListIds;
-            return o;
+            final var _resultValue = new LocalRulestackRuleSource();
+            _resultValue.cidrs = cidrs;
+            _resultValue.countries = countries;
+            _resultValue.feeds = feeds;
+            _resultValue.localRulestackPrefixListIds = localRulestackPrefixListIds;
+            return _resultValue;
         }
     }
 }

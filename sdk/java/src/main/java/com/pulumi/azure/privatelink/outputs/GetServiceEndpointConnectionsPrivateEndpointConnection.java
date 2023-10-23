@@ -160,15 +160,15 @@ public final class GetServiceEndpointConnectionsPrivateEndpointConnection {
             return this;
         }
         public GetServiceEndpointConnectionsPrivateEndpointConnection build() {
-            final var o = new GetServiceEndpointConnectionsPrivateEndpointConnection();
-            o.actionRequired = actionRequired;
-            o.connectionId = connectionId;
-            o.connectionName = connectionName;
-            o.description = description;
-            o.privateEndpointId = privateEndpointId;
-            o.privateEndpointName = privateEndpointName;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetServiceEndpointConnectionsPrivateEndpointConnection();
+            _resultValue.actionRequired = actionRequired;
+            _resultValue.connectionId = connectionId;
+            _resultValue.connectionName = connectionName;
+            _resultValue.description = description;
+            _resultValue.privateEndpointId = privateEndpointId;
+            _resultValue.privateEndpointName = privateEndpointName;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

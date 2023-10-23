@@ -94,11 +94,11 @@ public final class StreamInputBlobSerialization {
             return this;
         }
         public StreamInputBlobSerialization build() {
-            final var o = new StreamInputBlobSerialization();
-            o.encoding = encoding;
-            o.fieldDelimiter = fieldDelimiter;
-            o.type = type;
-            return o;
+            final var _resultValue = new StreamInputBlobSerialization();
+            _resultValue.encoding = encoding;
+            _resultValue.fieldDelimiter = fieldDelimiter;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

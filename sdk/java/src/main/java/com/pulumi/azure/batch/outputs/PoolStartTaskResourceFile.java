@@ -166,15 +166,15 @@ public final class PoolStartTaskResourceFile {
             return this;
         }
         public PoolStartTaskResourceFile build() {
-            final var o = new PoolStartTaskResourceFile();
-            o.autoStorageContainerName = autoStorageContainerName;
-            o.blobPrefix = blobPrefix;
-            o.fileMode = fileMode;
-            o.filePath = filePath;
-            o.httpUrl = httpUrl;
-            o.storageContainerUrl = storageContainerUrl;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new PoolStartTaskResourceFile();
+            _resultValue.autoStorageContainerName = autoStorageContainerName;
+            _resultValue.blobPrefix = blobPrefix;
+            _resultValue.fileMode = fileMode;
+            _resultValue.filePath = filePath;
+            _resultValue.httpUrl = httpUrl;
+            _resultValue.storageContainerUrl = storageContainerUrl;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

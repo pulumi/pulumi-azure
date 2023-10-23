@@ -67,10 +67,10 @@ public final class VirtualNetworkGatewayNatRuleExternalMapping {
             return this;
         }
         public VirtualNetworkGatewayNatRuleExternalMapping build() {
-            final var o = new VirtualNetworkGatewayNatRuleExternalMapping();
-            o.addressSpace = addressSpace;
-            o.portRange = portRange;
-            return o;
+            final var _resultValue = new VirtualNetworkGatewayNatRuleExternalMapping();
+            _resultValue.addressSpace = addressSpace;
+            _resultValue.portRange = portRange;
+            return _resultValue;
         }
     }
 }

@@ -113,12 +113,12 @@ public final class WindowsWebAppIdentity {
             return this;
         }
         public WindowsWebAppIdentity build() {
-            final var o = new WindowsWebAppIdentity();
-            o.identityIds = identityIds;
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            o.type = type;
-            return o;
+            final var _resultValue = new WindowsWebAppIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

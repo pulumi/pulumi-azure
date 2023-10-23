@@ -229,19 +229,19 @@ public final class GetVirtualWanResult {
             return vpnSiteIds(List.of(vpnSiteIds));
         }
         public GetVirtualWanResult build() {
-            final var o = new GetVirtualWanResult();
-            o.allowBranchToBranchTraffic = allowBranchToBranchTraffic;
-            o.disableVpnEncryption = disableVpnEncryption;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.office365LocalBreakoutCategory = office365LocalBreakoutCategory;
-            o.resourceGroupName = resourceGroupName;
-            o.sku = sku;
-            o.tags = tags;
-            o.virtualHubIds = virtualHubIds;
-            o.vpnSiteIds = vpnSiteIds;
-            return o;
+            final var _resultValue = new GetVirtualWanResult();
+            _resultValue.allowBranchToBranchTraffic = allowBranchToBranchTraffic;
+            _resultValue.disableVpnEncryption = disableVpnEncryption;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.office365LocalBreakoutCategory = office365LocalBreakoutCategory;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sku = sku;
+            _resultValue.tags = tags;
+            _resultValue.virtualHubIds = virtualHubIds;
+            _resultValue.vpnSiteIds = vpnSiteIds;
+            return _resultValue;
         }
     }
 }

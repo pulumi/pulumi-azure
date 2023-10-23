@@ -87,11 +87,11 @@ public final class IntegrationRuntimeSsisExpressCustomSetupComponent {
             return this;
         }
         public IntegrationRuntimeSsisExpressCustomSetupComponent build() {
-            final var o = new IntegrationRuntimeSsisExpressCustomSetupComponent();
-            o.keyVaultLicense = keyVaultLicense;
-            o.license = license;
-            o.name = name;
-            return o;
+            final var _resultValue = new IntegrationRuntimeSsisExpressCustomSetupComponent();
+            _resultValue.keyVaultLicense = keyVaultLicense;
+            _resultValue.license = license;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

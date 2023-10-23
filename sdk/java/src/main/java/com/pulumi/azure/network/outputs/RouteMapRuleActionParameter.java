@@ -95,11 +95,11 @@ public final class RouteMapRuleActionParameter {
             return routePrefixes(List.of(routePrefixes));
         }
         public RouteMapRuleActionParameter build() {
-            final var o = new RouteMapRuleActionParameter();
-            o.asPaths = asPaths;
-            o.communities = communities;
-            o.routePrefixes = routePrefixes;
-            return o;
+            final var _resultValue = new RouteMapRuleActionParameter();
+            _resultValue.asPaths = asPaths;
+            _resultValue.communities = communities;
+            _resultValue.routePrefixes = routePrefixes;
+            return _resultValue;
         }
     }
 }

@@ -70,10 +70,10 @@ public final class EventSubscriptionAdvancedFilterNumberLessThanOrEqual {
             return this;
         }
         public EventSubscriptionAdvancedFilterNumberLessThanOrEqual build() {
-            final var o = new EventSubscriptionAdvancedFilterNumberLessThanOrEqual();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventSubscriptionAdvancedFilterNumberLessThanOrEqual();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

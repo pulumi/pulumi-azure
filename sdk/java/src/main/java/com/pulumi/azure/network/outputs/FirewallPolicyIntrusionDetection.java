@@ -117,12 +117,12 @@ public final class FirewallPolicyIntrusionDetection {
             return trafficBypasses(List.of(trafficBypasses));
         }
         public FirewallPolicyIntrusionDetection build() {
-            final var o = new FirewallPolicyIntrusionDetection();
-            o.mode = mode;
-            o.privateRanges = privateRanges;
-            o.signatureOverrides = signatureOverrides;
-            o.trafficBypasses = trafficBypasses;
-            return o;
+            final var _resultValue = new FirewallPolicyIntrusionDetection();
+            _resultValue.mode = mode;
+            _resultValue.privateRanges = privateRanges;
+            _resultValue.signatureOverrides = signatureOverrides;
+            _resultValue.trafficBypasses = trafficBypasses;
+            return _resultValue;
         }
     }
 }

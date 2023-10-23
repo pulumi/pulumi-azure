@@ -402,28 +402,28 @@ public final class GetCertificateOrderResult {
             return this;
         }
         public GetCertificateOrderResult build() {
-            final var o = new GetCertificateOrderResult();
-            o.appServiceCertificateNotRenewableReasons = appServiceCertificateNotRenewableReasons;
-            o.autoRenew = autoRenew;
-            o.certificates = certificates;
-            o.csr = csr;
-            o.distinguishedName = distinguishedName;
-            o.domainVerificationToken = domainVerificationToken;
-            o.expirationTime = expirationTime;
-            o.id = id;
-            o.intermediateThumbprint = intermediateThumbprint;
-            o.isPrivateKeyExternal = isPrivateKeyExternal;
-            o.keySize = keySize;
-            o.location = location;
-            o.name = name;
-            o.productType = productType;
-            o.resourceGroupName = resourceGroupName;
-            o.rootThumbprint = rootThumbprint;
-            o.signedCertificateThumbprint = signedCertificateThumbprint;
-            o.status = status;
-            o.tags = tags;
-            o.validityInYears = validityInYears;
-            return o;
+            final var _resultValue = new GetCertificateOrderResult();
+            _resultValue.appServiceCertificateNotRenewableReasons = appServiceCertificateNotRenewableReasons;
+            _resultValue.autoRenew = autoRenew;
+            _resultValue.certificates = certificates;
+            _resultValue.csr = csr;
+            _resultValue.distinguishedName = distinguishedName;
+            _resultValue.domainVerificationToken = domainVerificationToken;
+            _resultValue.expirationTime = expirationTime;
+            _resultValue.id = id;
+            _resultValue.intermediateThumbprint = intermediateThumbprint;
+            _resultValue.isPrivateKeyExternal = isPrivateKeyExternal;
+            _resultValue.keySize = keySize;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.productType = productType;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.rootThumbprint = rootThumbprint;
+            _resultValue.signedCertificateThumbprint = signedCertificateThumbprint;
+            _resultValue.status = status;
+            _resultValue.tags = tags;
+            _resultValue.validityInYears = validityInYears;
+            return _resultValue;
         }
     }
 }

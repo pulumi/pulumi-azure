@@ -92,11 +92,11 @@ public final class IoTHubCloudToDevice {
             return this;
         }
         public IoTHubCloudToDevice build() {
-            final var o = new IoTHubCloudToDevice();
-            o.defaultTtl = defaultTtl;
-            o.feedbacks = feedbacks;
-            o.maxDeliveryCount = maxDeliveryCount;
-            return o;
+            final var _resultValue = new IoTHubCloudToDevice();
+            _resultValue.defaultTtl = defaultTtl;
+            _resultValue.feedbacks = feedbacks;
+            _resultValue.maxDeliveryCount = maxDeliveryCount;
+            return _resultValue;
         }
     }
 }

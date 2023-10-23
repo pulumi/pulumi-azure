@@ -65,10 +65,10 @@ public final class AppTemplateCustomScaleRuleAuthentication {
             return this;
         }
         public AppTemplateCustomScaleRuleAuthentication build() {
-            final var o = new AppTemplateCustomScaleRuleAuthentication();
-            o.secretName = secretName;
-            o.triggerParameter = triggerParameter;
-            return o;
+            final var _resultValue = new AppTemplateCustomScaleRuleAuthentication();
+            _resultValue.secretName = secretName;
+            _resultValue.triggerParameter = triggerParameter;
+            return _resultValue;
         }
     }
 }

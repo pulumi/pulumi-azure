@@ -128,13 +128,13 @@ public final class GetPoolNetworkConfigurationEndpointConfiguration {
             return this;
         }
         public GetPoolNetworkConfigurationEndpointConfiguration build() {
-            final var o = new GetPoolNetworkConfigurationEndpointConfiguration();
-            o.backendPort = backendPort;
-            o.frontendPortRange = frontendPortRange;
-            o.name = name;
-            o.networkSecurityGroupRules = networkSecurityGroupRules;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new GetPoolNetworkConfigurationEndpointConfiguration();
+            _resultValue.backendPort = backendPort;
+            _resultValue.frontendPortRange = frontendPortRange;
+            _resultValue.name = name;
+            _resultValue.networkSecurityGroupRules = networkSecurityGroupRules;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

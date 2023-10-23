@@ -106,12 +106,12 @@ public final class ExpressRouteConnectionRouting {
             return this;
         }
         public ExpressRouteConnectionRouting build() {
-            final var o = new ExpressRouteConnectionRouting();
-            o.associatedRouteTableId = associatedRouteTableId;
-            o.inboundRouteMapId = inboundRouteMapId;
-            o.outboundRouteMapId = outboundRouteMapId;
-            o.propagatedRouteTable = propagatedRouteTable;
-            return o;
+            final var _resultValue = new ExpressRouteConnectionRouting();
+            _resultValue.associatedRouteTableId = associatedRouteTableId;
+            _resultValue.inboundRouteMapId = inboundRouteMapId;
+            _resultValue.outboundRouteMapId = outboundRouteMapId;
+            _resultValue.propagatedRouteTable = propagatedRouteTable;
+            return _resultValue;
         }
     }
 }

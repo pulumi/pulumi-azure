@@ -125,13 +125,13 @@ public final class DeploymentScale {
             return this;
         }
         public DeploymentScale build() {
-            final var o = new DeploymentScale();
-            o.capacity = capacity;
-            o.family = family;
-            o.size = size;
-            o.tier = tier;
-            o.type = type;
-            return o;
+            final var _resultValue = new DeploymentScale();
+            _resultValue.capacity = capacity;
+            _resultValue.family = family;
+            _resultValue.size = size;
+            _resultValue.tier = tier;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

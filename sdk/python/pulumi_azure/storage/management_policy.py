@@ -33,7 +33,11 @@ class ManagementPolicyArgs:
              _setter: Callable[[Any, Any], None],
              storage_account_id: pulumi.Input[str],
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("storage_account_id", storage_account_id)
         if rules is not None:
             _setter("rules", rules)
@@ -83,7 +87,11 @@ class _ManagementPolicyState:
              _setter: Callable[[Any, Any], None],
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleArgs']]]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if rules is not None:
             _setter("rules", rules)
         if storage_account_id is not None:

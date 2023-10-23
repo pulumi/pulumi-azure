@@ -69,10 +69,10 @@ public final class ActionRuleSuppressionConditionAlertContext {
             return values(List.of(values));
         }
         public ActionRuleSuppressionConditionAlertContext build() {
-            final var o = new ActionRuleSuppressionConditionAlertContext();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new ActionRuleSuppressionConditionAlertContext();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

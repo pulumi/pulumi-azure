@@ -72,10 +72,10 @@ public final class GetLinuxFunctionAppStickySetting {
             return connectionStringNames(List.of(connectionStringNames));
         }
         public GetLinuxFunctionAppStickySetting build() {
-            final var o = new GetLinuxFunctionAppStickySetting();
-            o.appSettingNames = appSettingNames;
-            o.connectionStringNames = connectionStringNames;
-            return o;
+            final var _resultValue = new GetLinuxFunctionAppStickySetting();
+            _resultValue.appSettingNames = appSettingNames;
+            _resultValue.connectionStringNames = connectionStringNames;
+            return _resultValue;
         }
     }
 }

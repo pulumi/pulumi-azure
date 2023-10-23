@@ -113,12 +113,12 @@ public final class FirewallManagementIpConfiguration {
             return this;
         }
         public FirewallManagementIpConfiguration build() {
-            final var o = new FirewallManagementIpConfiguration();
-            o.name = name;
-            o.privateIpAddress = privateIpAddress;
-            o.publicIpAddressId = publicIpAddressId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new FirewallManagementIpConfiguration();
+            _resultValue.name = name;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

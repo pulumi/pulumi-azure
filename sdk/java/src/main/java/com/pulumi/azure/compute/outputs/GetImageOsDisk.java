@@ -142,14 +142,14 @@ public final class GetImageOsDisk {
             return this;
         }
         public GetImageOsDisk build() {
-            final var o = new GetImageOsDisk();
-            o.blobUri = blobUri;
-            o.caching = caching;
-            o.managedDiskId = managedDiskId;
-            o.osState = osState;
-            o.osType = osType;
-            o.sizeGb = sizeGb;
-            return o;
+            final var _resultValue = new GetImageOsDisk();
+            _resultValue.blobUri = blobUri;
+            _resultValue.caching = caching;
+            _resultValue.managedDiskId = managedDiskId;
+            _resultValue.osState = osState;
+            _resultValue.osType = osType;
+            _resultValue.sizeGb = sizeGb;
+            return _resultValue;
         }
     }
 }

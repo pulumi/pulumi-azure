@@ -105,12 +105,12 @@ public final class GatewayLocationData {
             return this;
         }
         public GatewayLocationData build() {
-            final var o = new GatewayLocationData();
-            o.city = city;
-            o.district = district;
-            o.name = name;
-            o.region = region;
-            return o;
+            final var _resultValue = new GatewayLocationData();
+            _resultValue.city = city;
+            _resultValue.district = district;
+            _resultValue.name = name;
+            _resultValue.region = region;
+            return _resultValue;
         }
     }
 }

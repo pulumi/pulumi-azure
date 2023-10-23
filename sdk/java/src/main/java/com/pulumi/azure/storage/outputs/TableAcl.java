@@ -71,10 +71,10 @@ public final class TableAcl {
             return this;
         }
         public TableAcl build() {
-            final var o = new TableAcl();
-            o.accessPolicies = accessPolicies;
-            o.id = id;
-            return o;
+            final var _resultValue = new TableAcl();
+            _resultValue.accessPolicies = accessPolicies;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

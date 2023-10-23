@@ -86,11 +86,11 @@ public final class EnvironmentDaprComponentMetadata {
             return this;
         }
         public EnvironmentDaprComponentMetadata build() {
-            final var o = new EnvironmentDaprComponentMetadata();
-            o.name = name;
-            o.secretName = secretName;
-            o.value = value;
-            return o;
+            final var _resultValue = new EnvironmentDaprComponentMetadata();
+            _resultValue.name = name;
+            _resultValue.secretName = secretName;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

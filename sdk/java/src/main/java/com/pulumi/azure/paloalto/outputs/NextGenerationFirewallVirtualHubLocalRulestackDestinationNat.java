@@ -75,12 +75,12 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackDestinationNat 
             return this;
         }
         public NextGenerationFirewallVirtualHubLocalRulestackDestinationNat build() {
-            final var o = new NextGenerationFirewallVirtualHubLocalRulestackDestinationNat();
-            o.backendConfig = backendConfig;
-            o.frontendConfig = frontendConfig;
-            o.name = name;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualHubLocalRulestackDestinationNat();
+            _resultValue.backendConfig = backendConfig;
+            _resultValue.frontendConfig = frontendConfig;
+            _resultValue.name = name;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

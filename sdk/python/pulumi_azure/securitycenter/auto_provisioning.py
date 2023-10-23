@@ -27,7 +27,11 @@ class AutoProvisioningArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              auto_provision: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoProvision' in kwargs:
+            auto_provision = kwargs['autoProvision']
+
         _setter("auto_provision", auto_provision)
 
     @property
@@ -59,7 +63,11 @@ class _AutoProvisioningState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              auto_provision: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoProvision' in kwargs:
+            auto_provision = kwargs['autoProvision']
+
         if auto_provision is not None:
             _setter("auto_provision", auto_provision)
 

@@ -93,7 +93,31 @@ class NetworkPacketCoreControlPlaneArgs:
              software_version: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user_equipment_mtu_in_bytes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localDiagnosticsAccess' in kwargs:
+            local_diagnostics_access = kwargs['localDiagnosticsAccess']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'siteIds' in kwargs:
+            site_ids = kwargs['siteIds']
+        if 'controlPlaneAccessIpv4Address' in kwargs:
+            control_plane_access_ipv4_address = kwargs['controlPlaneAccessIpv4Address']
+        if 'controlPlaneAccessIpv4Gateway' in kwargs:
+            control_plane_access_ipv4_gateway = kwargs['controlPlaneAccessIpv4Gateway']
+        if 'controlPlaneAccessIpv4Subnet' in kwargs:
+            control_plane_access_ipv4_subnet = kwargs['controlPlaneAccessIpv4Subnet']
+        if 'controlPlaneAccessName' in kwargs:
+            control_plane_access_name = kwargs['controlPlaneAccessName']
+        if 'coreNetworkTechnology' in kwargs:
+            core_network_technology = kwargs['coreNetworkTechnology']
+        if 'interoperabilitySettingsJson' in kwargs:
+            interoperability_settings_json = kwargs['interoperabilitySettingsJson']
+        if 'softwareVersion' in kwargs:
+            software_version = kwargs['softwareVersion']
+        if 'userEquipmentMtuInBytes' in kwargs:
+            user_equipment_mtu_in_bytes = kwargs['userEquipmentMtuInBytes']
+
         _setter("local_diagnostics_access", local_diagnostics_access)
         _setter("resource_group_name", resource_group_name)
         _setter("site_ids", site_ids)
@@ -410,7 +434,31 @@ class _NetworkPacketCoreControlPlaneState:
              software_version: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user_equipment_mtu_in_bytes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'controlPlaneAccessIpv4Address' in kwargs:
+            control_plane_access_ipv4_address = kwargs['controlPlaneAccessIpv4Address']
+        if 'controlPlaneAccessIpv4Gateway' in kwargs:
+            control_plane_access_ipv4_gateway = kwargs['controlPlaneAccessIpv4Gateway']
+        if 'controlPlaneAccessIpv4Subnet' in kwargs:
+            control_plane_access_ipv4_subnet = kwargs['controlPlaneAccessIpv4Subnet']
+        if 'controlPlaneAccessName' in kwargs:
+            control_plane_access_name = kwargs['controlPlaneAccessName']
+        if 'coreNetworkTechnology' in kwargs:
+            core_network_technology = kwargs['coreNetworkTechnology']
+        if 'interoperabilitySettingsJson' in kwargs:
+            interoperability_settings_json = kwargs['interoperabilitySettingsJson']
+        if 'localDiagnosticsAccess' in kwargs:
+            local_diagnostics_access = kwargs['localDiagnosticsAccess']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'siteIds' in kwargs:
+            site_ids = kwargs['siteIds']
+        if 'softwareVersion' in kwargs:
+            software_version = kwargs['softwareVersion']
+        if 'userEquipmentMtuInBytes' in kwargs:
+            user_equipment_mtu_in_bytes = kwargs['userEquipmentMtuInBytes']
+
         if control_plane_access_ipv4_address is not None:
             _setter("control_plane_access_ipv4_address", control_plane_access_ipv4_address)
         if control_plane_access_ipv4_gateway is not None:

@@ -178,15 +178,15 @@ public final class BudgetResourceGroupNotification {
             return this;
         }
         public BudgetResourceGroupNotification build() {
-            final var o = new BudgetResourceGroupNotification();
-            o.contactEmails = contactEmails;
-            o.contactGroups = contactGroups;
-            o.contactRoles = contactRoles;
-            o.enabled = enabled;
-            o.operator = operator;
-            o.threshold = threshold;
-            o.thresholdType = thresholdType;
-            return o;
+            final var _resultValue = new BudgetResourceGroupNotification();
+            _resultValue.contactEmails = contactEmails;
+            _resultValue.contactGroups = contactGroups;
+            _resultValue.contactRoles = contactRoles;
+            _resultValue.enabled = enabled;
+            _resultValue.operator = operator;
+            _resultValue.threshold = threshold;
+            _resultValue.thresholdType = thresholdType;
+            return _resultValue;
         }
     }
 }

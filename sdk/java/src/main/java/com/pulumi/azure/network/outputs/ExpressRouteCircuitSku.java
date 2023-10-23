@@ -69,10 +69,10 @@ public final class ExpressRouteCircuitSku {
             return this;
         }
         public ExpressRouteCircuitSku build() {
-            final var o = new ExpressRouteCircuitSku();
-            o.family = family;
-            o.tier = tier;
-            return o;
+            final var _resultValue = new ExpressRouteCircuitSku();
+            _resultValue.family = family;
+            _resultValue.tier = tier;
+            return _resultValue;
         }
     }
 }

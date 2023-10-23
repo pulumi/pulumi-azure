@@ -299,22 +299,22 @@ public final class GetDataCollectionRuleResult {
             return this;
         }
         public GetDataCollectionRuleResult build() {
-            final var o = new GetDataCollectionRuleResult();
-            o.dataCollectionEndpointId = dataCollectionEndpointId;
-            o.dataFlows = dataFlows;
-            o.dataSources = dataSources;
-            o.description = description;
-            o.destinations = destinations;
-            o.id = id;
-            o.identities = identities;
-            o.immutableId = immutableId;
-            o.kind = kind;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.streamDeclarations = streamDeclarations;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleResult();
+            _resultValue.dataCollectionEndpointId = dataCollectionEndpointId;
+            _resultValue.dataFlows = dataFlows;
+            _resultValue.dataSources = dataSources;
+            _resultValue.description = description;
+            _resultValue.destinations = destinations;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.immutableId = immutableId;
+            _resultValue.kind = kind;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.streamDeclarations = streamDeclarations;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

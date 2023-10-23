@@ -94,11 +94,11 @@ public final class StreamInputIotHubSerialization {
             return this;
         }
         public StreamInputIotHubSerialization build() {
-            final var o = new StreamInputIotHubSerialization();
-            o.encoding = encoding;
-            o.fieldDelimiter = fieldDelimiter;
-            o.type = type;
-            return o;
+            final var _resultValue = new StreamInputIotHubSerialization();
+            _resultValue.encoding = encoding;
+            _resultValue.fieldDelimiter = fieldDelimiter;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

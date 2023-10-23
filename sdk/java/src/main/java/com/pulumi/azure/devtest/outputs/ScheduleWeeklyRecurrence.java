@@ -70,10 +70,10 @@ public final class ScheduleWeeklyRecurrence {
             return weekDays(List.of(weekDays));
         }
         public ScheduleWeeklyRecurrence build() {
-            final var o = new ScheduleWeeklyRecurrence();
-            o.time = time;
-            o.weekDays = weekDays;
-            return o;
+            final var _resultValue = new ScheduleWeeklyRecurrence();
+            _resultValue.time = time;
+            _resultValue.weekDays = weekDays;
+            return _resultValue;
         }
     }
 }

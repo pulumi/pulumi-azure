@@ -49,10 +49,10 @@ public final class GetAppServiceSiteCredential {
             return this;
         }
         public GetAppServiceSiteCredential build() {
-            final var o = new GetAppServiceSiteCredential();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetAppServiceSiteCredential();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

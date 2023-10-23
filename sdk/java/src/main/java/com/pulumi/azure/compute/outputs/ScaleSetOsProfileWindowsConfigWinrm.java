@@ -67,10 +67,10 @@ public final class ScaleSetOsProfileWindowsConfigWinrm {
             return this;
         }
         public ScaleSetOsProfileWindowsConfigWinrm build() {
-            final var o = new ScaleSetOsProfileWindowsConfigWinrm();
-            o.certificateUrl = certificateUrl;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new ScaleSetOsProfileWindowsConfigWinrm();
+            _resultValue.certificateUrl = certificateUrl;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

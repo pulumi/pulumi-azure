@@ -65,10 +65,10 @@ public final class GetOsProfileLinuxPatch {
             return this;
         }
         public GetOsProfileLinuxPatch build() {
-            final var o = new GetOsProfileLinuxPatch();
-            o.assessmentMode = assessmentMode;
-            o.patchMode = patchMode;
-            return o;
+            final var _resultValue = new GetOsProfileLinuxPatch();
+            _resultValue.assessmentMode = assessmentMode;
+            _resultValue.patchMode = patchMode;
+            return _resultValue;
         }
     }
 }

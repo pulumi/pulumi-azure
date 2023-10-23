@@ -105,12 +105,12 @@ public final class AutomationAction {
             return this;
         }
         public AutomationAction build() {
-            final var o = new AutomationAction();
-            o.connectionString = connectionString;
-            o.resourceId = resourceId;
-            o.triggerUrl = triggerUrl;
-            o.type = type;
-            return o;
+            final var _resultValue = new AutomationAction();
+            _resultValue.connectionString = connectionString;
+            _resultValue.resourceId = resourceId;
+            _resultValue.triggerUrl = triggerUrl;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

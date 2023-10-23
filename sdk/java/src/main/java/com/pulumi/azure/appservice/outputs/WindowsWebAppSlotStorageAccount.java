@@ -143,14 +143,14 @@ public final class WindowsWebAppSlotStorageAccount {
             return this;
         }
         public WindowsWebAppSlotStorageAccount build() {
-            final var o = new WindowsWebAppSlotStorageAccount();
-            o.accessKey = accessKey;
-            o.accountName = accountName;
-            o.mountPath = mountPath;
-            o.name = name;
-            o.shareName = shareName;
-            o.type = type;
-            return o;
+            final var _resultValue = new WindowsWebAppSlotStorageAccount();
+            _resultValue.accessKey = accessKey;
+            _resultValue.accountName = accountName;
+            _resultValue.mountPath = mountPath;
+            _resultValue.name = name;
+            _resultValue.shareName = shareName;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -20,7 +20,7 @@ public final class SharedImageGallerySharing {
      */
     private @Nullable SharedImageGallerySharingCommunityGallery communityGallery;
     /**
-     * @return The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+     * @return The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
      * 
@@ -38,7 +38,7 @@ public final class SharedImageGallerySharing {
         return Optional.ofNullable(this.communityGallery);
     }
     /**
-     * @return The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+     * @return The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
      * 
@@ -76,10 +76,10 @@ public final class SharedImageGallerySharing {
             return this;
         }
         public SharedImageGallerySharing build() {
-            final var o = new SharedImageGallerySharing();
-            o.communityGallery = communityGallery;
-            o.permission = permission;
-            return o;
+            final var _resultValue = new SharedImageGallerySharing();
+            _resultValue.communityGallery = communityGallery;
+            _resultValue.permission = permission;
+            return _resultValue;
         }
     }
 }

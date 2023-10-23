@@ -74,10 +74,10 @@ public final class WorkflowAccessControlTrigger {
             return openAuthenticationPolicies(List.of(openAuthenticationPolicies));
         }
         public WorkflowAccessControlTrigger build() {
-            final var o = new WorkflowAccessControlTrigger();
-            o.allowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
-            o.openAuthenticationPolicies = openAuthenticationPolicies;
-            return o;
+            final var _resultValue = new WorkflowAccessControlTrigger();
+            _resultValue.allowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
+            _resultValue.openAuthenticationPolicies = openAuthenticationPolicies;
+            return _resultValue;
         }
     }
 }

@@ -124,13 +124,13 @@ public final class GetAccessPolicyResult {
             return secretPermissions(List.of(secretPermissions));
         }
         public GetAccessPolicyResult build() {
-            final var o = new GetAccessPolicyResult();
-            o.certificatePermissions = certificatePermissions;
-            o.id = id;
-            o.keyPermissions = keyPermissions;
-            o.name = name;
-            o.secretPermissions = secretPermissions;
-            return o;
+            final var _resultValue = new GetAccessPolicyResult();
+            _resultValue.certificatePermissions = certificatePermissions;
+            _resultValue.id = id;
+            _resultValue.keyPermissions = keyPermissions;
+            _resultValue.name = name;
+            _resultValue.secretPermissions = secretPermissions;
+            return _resultValue;
         }
     }
 }

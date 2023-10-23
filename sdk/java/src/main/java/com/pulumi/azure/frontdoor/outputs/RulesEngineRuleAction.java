@@ -74,10 +74,10 @@ public final class RulesEngineRuleAction {
             return responseHeaders(List.of(responseHeaders));
         }
         public RulesEngineRuleAction build() {
-            final var o = new RulesEngineRuleAction();
-            o.requestHeaders = requestHeaders;
-            o.responseHeaders = responseHeaders;
-            return o;
+            final var _resultValue = new RulesEngineRuleAction();
+            _resultValue.requestHeaders = requestHeaders;
+            _resultValue.responseHeaders = responseHeaders;
+            return _resultValue;
         }
     }
 }

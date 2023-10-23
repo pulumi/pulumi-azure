@@ -50,9 +50,9 @@ public final class VirtualMachineAdditionalCapabilities {
             return this;
         }
         public VirtualMachineAdditionalCapabilities build() {
-            final var o = new VirtualMachineAdditionalCapabilities();
-            o.ultraSsdEnabled = ultraSsdEnabled;
-            return o;
+            final var _resultValue = new VirtualMachineAdditionalCapabilities();
+            _resultValue.ultraSsdEnabled = ultraSsdEnabled;
+            return _resultValue;
         }
     }
 }

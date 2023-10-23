@@ -73,11 +73,11 @@ public final class GetAppTemplateHttpScaleRule {
             return this;
         }
         public GetAppTemplateHttpScaleRule build() {
-            final var o = new GetAppTemplateHttpScaleRule();
-            o.authentications = authentications;
-            o.concurrentRequests = concurrentRequests;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetAppTemplateHttpScaleRule();
+            _resultValue.authentications = authentications;
+            _resultValue.concurrentRequests = concurrentRequests;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

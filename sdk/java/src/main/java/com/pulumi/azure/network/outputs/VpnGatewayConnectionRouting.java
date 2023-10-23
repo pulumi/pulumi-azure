@@ -106,12 +106,12 @@ public final class VpnGatewayConnectionRouting {
             return this;
         }
         public VpnGatewayConnectionRouting build() {
-            final var o = new VpnGatewayConnectionRouting();
-            o.associatedRouteTable = associatedRouteTable;
-            o.inboundRouteMapId = inboundRouteMapId;
-            o.outboundRouteMapId = outboundRouteMapId;
-            o.propagatedRouteTable = propagatedRouteTable;
-            return o;
+            final var _resultValue = new VpnGatewayConnectionRouting();
+            _resultValue.associatedRouteTable = associatedRouteTable;
+            _resultValue.inboundRouteMapId = inboundRouteMapId;
+            _resultValue.outboundRouteMapId = outboundRouteMapId;
+            _resultValue.propagatedRouteTable = propagatedRouteTable;
+            return _resultValue;
         }
     }
 }

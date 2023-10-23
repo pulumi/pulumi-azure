@@ -59,7 +59,9 @@ class PolicyFileShareBackupArgs:
              frequency: pulumi.Input[str],
              hourly: Optional[pulumi.Input['PolicyFileShareBackupHourlyArgs']] = None,
              time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("frequency", frequency)
         if hourly is not None:
             _setter("hourly", hourly)
@@ -130,7 +132,13 @@ class PolicyFileShareBackupHourlyArgs:
              interval: pulumi.Input[int],
              start_time: pulumi.Input[str],
              window_duration: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'windowDuration' in kwargs:
+            window_duration = kwargs['windowDuration']
+
         _setter("interval", interval)
         _setter("start_time", start_time)
         _setter("window_duration", window_duration)
@@ -187,7 +195,9 @@ class PolicyFileShareRetentionDailyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              count: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
 
     @property
@@ -236,7 +246,11 @@ class PolicyFileShareRetentionMonthlyArgs:
              include_last_days: Optional[pulumi.Input[bool]] = None,
              weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeLastDays' in kwargs:
+            include_last_days = kwargs['includeLastDays']
+
         _setter("count", count)
         if days is not None:
             _setter("days", days)
@@ -329,7 +343,9 @@ class PolicyFileShareRetentionWeeklyArgs:
              _setter: Callable[[Any, Any], None],
              count: pulumi.Input[int],
              weekdays: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
         _setter("weekdays", weekdays)
 
@@ -395,7 +411,11 @@ class PolicyFileShareRetentionYearlyArgs:
              include_last_days: Optional[pulumi.Input[bool]] = None,
              weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeLastDays' in kwargs:
+            include_last_days = kwargs['includeLastDays']
+
         _setter("count", count)
         _setter("months", months)
         if days is not None:
@@ -515,7 +535,13 @@ class PolicyVMBackupArgs:
              hour_duration: Optional[pulumi.Input[int]] = None,
              hour_interval: Optional[pulumi.Input[int]] = None,
              weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hourDuration' in kwargs:
+            hour_duration = kwargs['hourDuration']
+        if 'hourInterval' in kwargs:
+            hour_interval = kwargs['hourInterval']
+
         _setter("frequency", frequency)
         _setter("time", time)
         if hour_duration is not None:
@@ -607,7 +633,9 @@ class PolicyVMInstantRestoreResourceGroupArgs:
              _setter: Callable[[Any, Any], None],
              prefix: pulumi.Input[str],
              suffix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("prefix", prefix)
         if suffix is not None:
             _setter("suffix", suffix)
@@ -654,7 +682,9 @@ class PolicyVMRetentionDailyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              count: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
 
     @property
@@ -705,7 +735,11 @@ class PolicyVMRetentionMonthlyArgs:
              include_last_days: Optional[pulumi.Input[bool]] = None,
              weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeLastDays' in kwargs:
+            include_last_days = kwargs['includeLastDays']
+
         _setter("count", count)
         if days is not None:
             _setter("days", days)
@@ -798,7 +832,9 @@ class PolicyVMRetentionWeeklyArgs:
              _setter: Callable[[Any, Any], None],
              count: pulumi.Input[int],
              weekdays: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
         _setter("weekdays", weekdays)
 
@@ -864,7 +900,11 @@ class PolicyVMRetentionYearlyArgs:
              include_last_days: Optional[pulumi.Input[bool]] = None,
              weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'includeLastDays' in kwargs:
+            include_last_days = kwargs['includeLastDays']
+
         _setter("count", count)
         _setter("months", months)
         if days is not None:
@@ -990,7 +1030,21 @@ class PolicyVMWorkloadProtectionPolicyArgs:
              retention_weekly: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs']] = None,
              retention_yearly: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs']] = None,
              simple_retention: Optional[pulumi.Input['PolicyVMWorkloadProtectionPolicySimpleRetentionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if 'retentionDaily' in kwargs:
+            retention_daily = kwargs['retentionDaily']
+        if 'retentionMonthly' in kwargs:
+            retention_monthly = kwargs['retentionMonthly']
+        if 'retentionWeekly' in kwargs:
+            retention_weekly = kwargs['retentionWeekly']
+        if 'retentionYearly' in kwargs:
+            retention_yearly = kwargs['retentionYearly']
+        if 'simpleRetention' in kwargs:
+            simple_retention = kwargs['simpleRetention']
+
         _setter("backup", backup)
         _setter("policy_type", policy_type)
         if retention_daily is not None:
@@ -1116,7 +1170,11 @@ class PolicyVMWorkloadProtectionPolicyBackupArgs:
              frequency_in_minutes: Optional[pulumi.Input[int]] = None,
              time: Optional[pulumi.Input[str]] = None,
              weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frequencyInMinutes' in kwargs:
+            frequency_in_minutes = kwargs['frequencyInMinutes']
+
         if frequency is not None:
             _setter("frequency", frequency)
         if frequency_in_minutes is not None:
@@ -1190,7 +1248,9 @@ class PolicyVMWorkloadProtectionPolicyRetentionDailyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              count: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
 
     @property
@@ -1237,7 +1297,11 @@ class PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs:
              monthdays: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'formatType' in kwargs:
+            format_type = kwargs['formatType']
+
         _setter("count", count)
         _setter("format_type", format_type)
         if monthdays is not None:
@@ -1327,7 +1391,9 @@ class PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs:
              _setter: Callable[[Any, Any], None],
              count: pulumi.Input[int],
              weekdays: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
         _setter("weekdays", weekdays)
 
@@ -1391,7 +1457,11 @@ class PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs:
              monthdays: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              weekdays: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'formatType' in kwargs:
+            format_type = kwargs['formatType']
+
         _setter("count", count)
         _setter("format_type", format_type)
         _setter("months", months)
@@ -1490,7 +1560,9 @@ class PolicyVMWorkloadProtectionPolicySimpleRetentionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              count: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
 
     @property
@@ -1525,7 +1597,13 @@ class PolicyVMWorkloadSettingsArgs:
              _setter: Callable[[Any, Any], None],
              time_zone: pulumi.Input[str],
              compression_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if 'compressionEnabled' in kwargs:
+            compression_enabled = kwargs['compressionEnabled']
+
         _setter("time_zone", time_zone)
         if compression_enabled is not None:
             _setter("compression_enabled", compression_enabled)

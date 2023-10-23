@@ -162,15 +162,15 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaPanorama {
             return this;
         }
         public NextGenerationFirewallVirtualNetworkPanoramaPanorama build() {
-            final var o = new NextGenerationFirewallVirtualNetworkPanoramaPanorama();
-            o.deviceGroupName = deviceGroupName;
-            o.hostName = hostName;
-            o.name = name;
-            o.panoramaServer1 = panoramaServer1;
-            o.panoramaServer2 = panoramaServer2;
-            o.templateName = templateName;
-            o.virtualMachineSshKey = virtualMachineSshKey;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualNetworkPanoramaPanorama();
+            _resultValue.deviceGroupName = deviceGroupName;
+            _resultValue.hostName = hostName;
+            _resultValue.name = name;
+            _resultValue.panoramaServer1 = panoramaServer1;
+            _resultValue.panoramaServer2 = panoramaServer2;
+            _resultValue.templateName = templateName;
+            _resultValue.virtualMachineSshKey = virtualMachineSshKey;
+            return _resultValue;
         }
     }
 }

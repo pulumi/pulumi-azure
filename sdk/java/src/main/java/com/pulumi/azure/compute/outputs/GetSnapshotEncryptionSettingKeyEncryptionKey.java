@@ -49,10 +49,10 @@ public final class GetSnapshotEncryptionSettingKeyEncryptionKey {
             return this;
         }
         public GetSnapshotEncryptionSettingKeyEncryptionKey build() {
-            final var o = new GetSnapshotEncryptionSettingKeyEncryptionKey();
-            o.keyUrl = keyUrl;
-            o.sourceVaultId = sourceVaultId;
-            return o;
+            final var _resultValue = new GetSnapshotEncryptionSettingKeyEncryptionKey();
+            _resultValue.keyUrl = keyUrl;
+            _resultValue.sourceVaultId = sourceVaultId;
+            return _resultValue;
         }
     }
 }

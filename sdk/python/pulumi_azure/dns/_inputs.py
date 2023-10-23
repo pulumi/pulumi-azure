@@ -40,7 +40,9 @@ class CaaRecordRecordArgs:
              flags: pulumi.Input[int],
              tag: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("flags", flags)
         _setter("tag", tag)
         _setter("value", value)
@@ -101,7 +103,9 @@ class MxRecordRecordArgs:
              _setter: Callable[[Any, Any], None],
              exchange: pulumi.Input[str],
              preference: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("exchange", exchange)
         _setter("preference", preference)
 
@@ -157,7 +161,9 @@ class SrvRecordRecordArgs:
              priority: pulumi.Input[int],
              target: pulumi.Input[str],
              weight: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("port", port)
         _setter("priority", priority)
         _setter("target", target)
@@ -227,7 +233,9 @@ class TxtRecordRecordArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
 
     @property
@@ -293,7 +301,21 @@ class ZoneSoaRecordArgs:
              serial_number: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expireTime' in kwargs:
+            expire_time = kwargs['expireTime']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'minimumTtl' in kwargs:
+            minimum_ttl = kwargs['minimumTtl']
+        if 'refreshTime' in kwargs:
+            refresh_time = kwargs['refreshTime']
+        if 'retryTime' in kwargs:
+            retry_time = kwargs['retryTime']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+
         _setter("email", email)
         if expire_time is not None:
             _setter("expire_time", expire_time)

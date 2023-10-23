@@ -70,10 +70,10 @@ public final class GetAccountAzureFilesAuthentication {
             return this;
         }
         public GetAccountAzureFilesAuthentication build() {
-            final var o = new GetAccountAzureFilesAuthentication();
-            o.activeDirectories = activeDirectories;
-            o.directoryType = directoryType;
-            return o;
+            final var _resultValue = new GetAccountAzureFilesAuthentication();
+            _resultValue.activeDirectories = activeDirectories;
+            _resultValue.directoryType = directoryType;
+            return _resultValue;
         }
     }
 }

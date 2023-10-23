@@ -49,10 +49,10 @@ public final class GetStandardSiteCredential {
             return this;
         }
         public GetStandardSiteCredential build() {
-            final var o = new GetStandardSiteCredential();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetStandardSiteCredential();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

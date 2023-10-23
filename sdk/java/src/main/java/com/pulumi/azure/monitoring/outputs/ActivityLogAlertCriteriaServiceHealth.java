@@ -95,11 +95,11 @@ public final class ActivityLogAlertCriteriaServiceHealth {
             return services(List.of(services));
         }
         public ActivityLogAlertCriteriaServiceHealth build() {
-            final var o = new ActivityLogAlertCriteriaServiceHealth();
-            o.events = events;
-            o.locations = locations;
-            o.services = services;
-            return o;
+            final var _resultValue = new ActivityLogAlertCriteriaServiceHealth();
+            _resultValue.events = events;
+            _resultValue.locations = locations;
+            _resultValue.services = services;
+            return _resultValue;
         }
     }
 }

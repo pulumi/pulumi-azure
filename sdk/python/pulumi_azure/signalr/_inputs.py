@@ -34,7 +34,11 @@ class ServiceCorArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+
         _setter("allowed_origins", allowed_origins)
 
     @property
@@ -77,7 +81,15 @@ class ServiceIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -158,7 +170,15 @@ class ServiceLiveTraceArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              http_request_logs_enabled: Optional[pulumi.Input[bool]] = None,
              messaging_logs_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectivityLogsEnabled' in kwargs:
+            connectivity_logs_enabled = kwargs['connectivityLogsEnabled']
+        if 'httpRequestLogsEnabled' in kwargs:
+            http_request_logs_enabled = kwargs['httpRequestLogsEnabled']
+        if 'messagingLogsEnabled' in kwargs:
+            messaging_logs_enabled = kwargs['messagingLogsEnabled']
+
         if connectivity_logs_enabled is not None:
             _setter("connectivity_logs_enabled", connectivity_logs_enabled)
         if enabled is not None:
@@ -246,7 +266,13 @@ class ServiceNetworkAclPrivateEndpointArgs:
              id: pulumi.Input[str],
              allowed_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              denied_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedRequestTypes' in kwargs:
+            allowed_request_types = kwargs['allowedRequestTypes']
+        if 'deniedRequestTypes' in kwargs:
+            denied_request_types = kwargs['deniedRequestTypes']
+
         _setter("id", id)
         if allowed_request_types is not None:
             _setter("allowed_request_types", allowed_request_types)
@@ -321,7 +347,13 @@ class ServiceNetworkAclPublicNetworkArgs:
              _setter: Callable[[Any, Any], None],
              allowed_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              denied_request_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedRequestTypes' in kwargs:
+            allowed_request_types = kwargs['allowedRequestTypes']
+        if 'deniedRequestTypes' in kwargs:
+            denied_request_types = kwargs['deniedRequestTypes']
+
         if allowed_request_types is not None:
             _setter("allowed_request_types", allowed_request_types)
         if denied_request_types is not None:
@@ -377,7 +409,9 @@ class ServiceSkuArgs:
              _setter: Callable[[Any, Any], None],
              capacity: pulumi.Input[int],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("capacity", capacity)
         _setter("name", name)
 
@@ -437,7 +471,19 @@ class ServiceUpstreamEndpointArgs:
              hub_patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
              url_template: pulumi.Input[str],
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'categoryPatterns' in kwargs:
+            category_patterns = kwargs['categoryPatterns']
+        if 'eventPatterns' in kwargs:
+            event_patterns = kwargs['eventPatterns']
+        if 'hubPatterns' in kwargs:
+            hub_patterns = kwargs['hubPatterns']
+        if 'urlTemplate' in kwargs:
+            url_template = kwargs['urlTemplate']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         _setter("category_patterns", category_patterns)
         _setter("event_patterns", event_patterns)
         _setter("hub_patterns", hub_patterns)

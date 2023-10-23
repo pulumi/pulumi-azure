@@ -121,7 +121,47 @@ class ClusterArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
              vmss_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementEndpoint' in kwargs:
+            management_endpoint = kwargs['managementEndpoint']
+        if 'nodeTypes' in kwargs:
+            node_types = kwargs['nodeTypes']
+        if 'reliabilityLevel' in kwargs:
+            reliability_level = kwargs['reliabilityLevel']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'upgradeMode' in kwargs:
+            upgrade_mode = kwargs['upgradeMode']
+        if 'vmImage' in kwargs:
+            vm_image = kwargs['vmImage']
+        if 'addOnFeatures' in kwargs:
+            add_on_features = kwargs['addOnFeatures']
+        if 'azureActiveDirectory' in kwargs:
+            azure_active_directory = kwargs['azureActiveDirectory']
+        if 'certificateCommonNames' in kwargs:
+            certificate_common_names = kwargs['certificateCommonNames']
+        if 'clientCertificateCommonNames' in kwargs:
+            client_certificate_common_names = kwargs['clientCertificateCommonNames']
+        if 'clientCertificateThumbprints' in kwargs:
+            client_certificate_thumbprints = kwargs['clientCertificateThumbprints']
+        if 'clusterCodeVersion' in kwargs:
+            cluster_code_version = kwargs['clusterCodeVersion']
+        if 'diagnosticsConfig' in kwargs:
+            diagnostics_config = kwargs['diagnosticsConfig']
+        if 'fabricSettings' in kwargs:
+            fabric_settings = kwargs['fabricSettings']
+        if 'reverseProxyCertificate' in kwargs:
+            reverse_proxy_certificate = kwargs['reverseProxyCertificate']
+        if 'reverseProxyCertificateCommonNames' in kwargs:
+            reverse_proxy_certificate_common_names = kwargs['reverseProxyCertificateCommonNames']
+        if 'serviceFabricZonalUpgradeMode' in kwargs:
+            service_fabric_zonal_upgrade_mode = kwargs['serviceFabricZonalUpgradeMode']
+        if 'upgradePolicy' in kwargs:
+            upgrade_policy = kwargs['upgradePolicy']
+        if 'vmssZonalUpgradeMode' in kwargs:
+            vmss_zonal_upgrade_mode = kwargs['vmssZonalUpgradeMode']
+
         _setter("management_endpoint", management_endpoint)
         _setter("node_types", node_types)
         _setter("reliability_level", reliability_level)
@@ -556,7 +596,49 @@ class _ClusterState:
              upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
              vm_image: Optional[pulumi.Input[str]] = None,
              vmss_zonal_upgrade_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addOnFeatures' in kwargs:
+            add_on_features = kwargs['addOnFeatures']
+        if 'azureActiveDirectory' in kwargs:
+            azure_active_directory = kwargs['azureActiveDirectory']
+        if 'certificateCommonNames' in kwargs:
+            certificate_common_names = kwargs['certificateCommonNames']
+        if 'clientCertificateCommonNames' in kwargs:
+            client_certificate_common_names = kwargs['clientCertificateCommonNames']
+        if 'clientCertificateThumbprints' in kwargs:
+            client_certificate_thumbprints = kwargs['clientCertificateThumbprints']
+        if 'clusterCodeVersion' in kwargs:
+            cluster_code_version = kwargs['clusterCodeVersion']
+        if 'clusterEndpoint' in kwargs:
+            cluster_endpoint = kwargs['clusterEndpoint']
+        if 'diagnosticsConfig' in kwargs:
+            diagnostics_config = kwargs['diagnosticsConfig']
+        if 'fabricSettings' in kwargs:
+            fabric_settings = kwargs['fabricSettings']
+        if 'managementEndpoint' in kwargs:
+            management_endpoint = kwargs['managementEndpoint']
+        if 'nodeTypes' in kwargs:
+            node_types = kwargs['nodeTypes']
+        if 'reliabilityLevel' in kwargs:
+            reliability_level = kwargs['reliabilityLevel']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'reverseProxyCertificate' in kwargs:
+            reverse_proxy_certificate = kwargs['reverseProxyCertificate']
+        if 'reverseProxyCertificateCommonNames' in kwargs:
+            reverse_proxy_certificate_common_names = kwargs['reverseProxyCertificateCommonNames']
+        if 'serviceFabricZonalUpgradeMode' in kwargs:
+            service_fabric_zonal_upgrade_mode = kwargs['serviceFabricZonalUpgradeMode']
+        if 'upgradeMode' in kwargs:
+            upgrade_mode = kwargs['upgradeMode']
+        if 'upgradePolicy' in kwargs:
+            upgrade_policy = kwargs['upgradePolicy']
+        if 'vmImage' in kwargs:
+            vm_image = kwargs['vmImage']
+        if 'vmssZonalUpgradeMode' in kwargs:
+            vmss_zonal_upgrade_mode = kwargs['vmssZonalUpgradeMode']
+
         if add_on_features is not None:
             _setter("add_on_features", add_on_features)
         if azure_active_directory is not None:

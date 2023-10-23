@@ -45,7 +45,19 @@ class LogzSubAccountTagRuleArgs:
              send_activity_logs: Optional[pulumi.Input[bool]] = None,
              send_subscription_logs: Optional[pulumi.Input[bool]] = None,
              tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logzSubAccountId' in kwargs:
+            logz_sub_account_id = kwargs['logzSubAccountId']
+        if 'sendAadLogs' in kwargs:
+            send_aad_logs = kwargs['sendAadLogs']
+        if 'sendActivityLogs' in kwargs:
+            send_activity_logs = kwargs['sendActivityLogs']
+        if 'sendSubscriptionLogs' in kwargs:
+            send_subscription_logs = kwargs['sendSubscriptionLogs']
+        if 'tagFilters' in kwargs:
+            tag_filters = kwargs['tagFilters']
+
         _setter("logz_sub_account_id", logz_sub_account_id)
         if send_aad_logs is not None:
             _setter("send_aad_logs", send_aad_logs)
@@ -149,7 +161,19 @@ class _LogzSubAccountTagRuleState:
              send_activity_logs: Optional[pulumi.Input[bool]] = None,
              send_subscription_logs: Optional[pulumi.Input[bool]] = None,
              tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logzSubAccountId' in kwargs:
+            logz_sub_account_id = kwargs['logzSubAccountId']
+        if 'sendAadLogs' in kwargs:
+            send_aad_logs = kwargs['sendAadLogs']
+        if 'sendActivityLogs' in kwargs:
+            send_activity_logs = kwargs['sendActivityLogs']
+        if 'sendSubscriptionLogs' in kwargs:
+            send_subscription_logs = kwargs['sendSubscriptionLogs']
+        if 'tagFilters' in kwargs:
+            tag_filters = kwargs['tagFilters']
+
         if logz_sub_account_id is not None:
             _setter("logz_sub_account_id", logz_sub_account_id)
         if send_aad_logs is not None:

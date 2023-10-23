@@ -123,13 +123,13 @@ public final class SpacecraftLink {
             return this;
         }
         public SpacecraftLink build() {
-            final var o = new SpacecraftLink();
-            o.bandwidthMhz = bandwidthMhz;
-            o.centerFrequencyMhz = centerFrequencyMhz;
-            o.direction = direction;
-            o.name = name;
-            o.polarization = polarization;
-            return o;
+            final var _resultValue = new SpacecraftLink();
+            _resultValue.bandwidthMhz = bandwidthMhz;
+            _resultValue.centerFrequencyMhz = centerFrequencyMhz;
+            _resultValue.direction = direction;
+            _resultValue.name = name;
+            _resultValue.polarization = polarization;
+            return _resultValue;
         }
     }
 }

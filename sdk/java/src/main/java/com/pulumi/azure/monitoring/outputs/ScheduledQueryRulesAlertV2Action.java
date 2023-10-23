@@ -71,10 +71,10 @@ public final class ScheduledQueryRulesAlertV2Action {
             return this;
         }
         public ScheduledQueryRulesAlertV2Action build() {
-            final var o = new ScheduledQueryRulesAlertV2Action();
-            o.actionGroups = actionGroups;
-            o.customProperties = customProperties;
-            return o;
+            final var _resultValue = new ScheduledQueryRulesAlertV2Action();
+            _resultValue.actionGroups = actionGroups;
+            _resultValue.customProperties = customProperties;
+            return _resultValue;
         }
     }
 }

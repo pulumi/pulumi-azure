@@ -43,7 +43,15 @@ class MongoRoleDefinitionArgs:
              role_name: pulumi.Input[str],
              inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              privileges: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cosmosMongoDatabaseId' in kwargs:
+            cosmos_mongo_database_id = kwargs['cosmosMongoDatabaseId']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'inheritedRoleNames' in kwargs:
+            inherited_role_names = kwargs['inheritedRoleNames']
+
         _setter("cosmos_mongo_database_id", cosmos_mongo_database_id)
         _setter("role_name", role_name)
         if inherited_role_names is not None:
@@ -132,7 +140,15 @@ class _MongoRoleDefinitionState:
              inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              privileges: Optional[pulumi.Input[Sequence[pulumi.Input['MongoRoleDefinitionPrivilegeArgs']]]] = None,
              role_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cosmosMongoDatabaseId' in kwargs:
+            cosmos_mongo_database_id = kwargs['cosmosMongoDatabaseId']
+        if 'inheritedRoleNames' in kwargs:
+            inherited_role_names = kwargs['inheritedRoleNames']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+
         if cosmos_mongo_database_id is not None:
             _setter("cosmos_mongo_database_id", cosmos_mongo_database_id)
         if inherited_role_names is not None:

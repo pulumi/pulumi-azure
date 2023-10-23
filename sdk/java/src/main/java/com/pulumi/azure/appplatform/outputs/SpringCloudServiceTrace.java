@@ -68,10 +68,10 @@ public final class SpringCloudServiceTrace {
             return this;
         }
         public SpringCloudServiceTrace build() {
-            final var o = new SpringCloudServiceTrace();
-            o.connectionString = connectionString;
-            o.sampleRate = sampleRate;
-            return o;
+            final var _resultValue = new SpringCloudServiceTrace();
+            _resultValue.connectionString = connectionString;
+            _resultValue.sampleRate = sampleRate;
+            return _resultValue;
         }
     }
 }

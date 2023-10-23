@@ -84,11 +84,11 @@ public final class FirewallPolicyManagedRuleExclusion {
             return this;
         }
         public FirewallPolicyManagedRuleExclusion build() {
-            final var o = new FirewallPolicyManagedRuleExclusion();
-            o.matchVariable = matchVariable;
-            o.operator = operator;
-            o.selector = selector;
-            return o;
+            final var _resultValue = new FirewallPolicyManagedRuleExclusion();
+            _resultValue.matchVariable = matchVariable;
+            _resultValue.operator = operator;
+            _resultValue.selector = selector;
+            return _resultValue;
         }
     }
 }

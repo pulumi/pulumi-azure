@@ -48,9 +48,9 @@ public final class OrchestratedVirtualMachineScaleSetAdditionalCapabilities {
             return this;
         }
         public OrchestratedVirtualMachineScaleSetAdditionalCapabilities build() {
-            final var o = new OrchestratedVirtualMachineScaleSetAdditionalCapabilities();
-            o.ultraSsdEnabled = ultraSsdEnabled;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetAdditionalCapabilities();
+            _resultValue.ultraSsdEnabled = ultraSsdEnabled;
+            return _resultValue;
         }
     }
 }

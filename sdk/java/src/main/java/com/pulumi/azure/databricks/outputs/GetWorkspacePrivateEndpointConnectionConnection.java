@@ -122,13 +122,13 @@ public final class GetWorkspacePrivateEndpointConnectionConnection {
             return this;
         }
         public GetWorkspacePrivateEndpointConnectionConnection build() {
-            final var o = new GetWorkspacePrivateEndpointConnectionConnection();
-            o.actionRequired = actionRequired;
-            o.description = description;
-            o.name = name;
-            o.status = status;
-            o.workspacePrivateEndpointId = workspacePrivateEndpointId;
-            return o;
+            final var _resultValue = new GetWorkspacePrivateEndpointConnectionConnection();
+            _resultValue.actionRequired = actionRequired;
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.status = status;
+            _resultValue.workspacePrivateEndpointId = workspacePrivateEndpointId;
+            return _resultValue;
         }
     }
 }

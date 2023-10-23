@@ -68,10 +68,10 @@ public final class ReplicatedVMManagedDiskTargetDiskEncryption {
             return this;
         }
         public ReplicatedVMManagedDiskTargetDiskEncryption build() {
-            final var o = new ReplicatedVMManagedDiskTargetDiskEncryption();
-            o.diskEncryptionKey = diskEncryptionKey;
-            o.keyEncryptionKey = keyEncryptionKey;
-            return o;
+            final var _resultValue = new ReplicatedVMManagedDiskTargetDiskEncryption();
+            _resultValue.diskEncryptionKey = diskEncryptionKey;
+            _resultValue.keyEncryptionKey = keyEncryptionKey;
+            return _resultValue;
         }
     }
 }

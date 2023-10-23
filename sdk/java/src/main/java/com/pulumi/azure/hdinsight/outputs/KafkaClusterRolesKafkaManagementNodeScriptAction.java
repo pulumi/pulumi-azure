@@ -86,11 +86,11 @@ public final class KafkaClusterRolesKafkaManagementNodeScriptAction {
             return this;
         }
         public KafkaClusterRolesKafkaManagementNodeScriptAction build() {
-            final var o = new KafkaClusterRolesKafkaManagementNodeScriptAction();
-            o.name = name;
-            o.parameters = parameters;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new KafkaClusterRolesKafkaManagementNodeScriptAction();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

@@ -180,17 +180,17 @@ public final class GetARecordResult {
             return this;
         }
         public GetARecordResult build() {
-            final var o = new GetARecordResult();
-            o.fqdn = fqdn;
-            o.id = id;
-            o.name = name;
-            o.records = records;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.targetResourceId = targetResourceId;
-            o.ttl = ttl;
-            o.zoneName = zoneName;
-            return o;
+            final var _resultValue = new GetARecordResult();
+            _resultValue.fqdn = fqdn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.records = records;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.targetResourceId = targetResourceId;
+            _resultValue.ttl = ttl;
+            _resultValue.zoneName = zoneName;
+            return _resultValue;
         }
     }
 }

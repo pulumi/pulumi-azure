@@ -69,7 +69,23 @@ class ApiOperationArgs:
              request: Optional[pulumi.Input['ApiOperationRequestArgs']] = None,
              responses: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]] = None,
              template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'apiName' in kwargs:
+            api_name = kwargs['apiName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'urlTemplate' in kwargs:
+            url_template = kwargs['urlTemplate']
+        if 'templateParameters' in kwargs:
+            template_parameters = kwargs['templateParameters']
+
         _setter("api_management_name", api_management_name)
         _setter("api_name", api_name)
         _setter("display_name", display_name)
@@ -275,7 +291,23 @@ class _ApiOperationState:
              responses: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]] = None,
              template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]] = None,
              url_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'apiName' in kwargs:
+            api_name = kwargs['apiName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'templateParameters' in kwargs:
+            template_parameters = kwargs['templateParameters']
+        if 'urlTemplate' in kwargs:
+            url_template = kwargs['urlTemplate']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if api_name is not None:

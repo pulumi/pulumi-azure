@@ -47,7 +47,17 @@ class RedisCacheArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              redis_cache_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'cacheLocation' in kwargs:
+            cache_location = kwargs['cacheLocation']
+        if 'redisCacheId' in kwargs:
+            redis_cache_id = kwargs['redisCacheId']
+
         _setter("api_management_id", api_management_id)
         _setter("connection_string", connection_string)
         if cache_location is not None:
@@ -168,7 +178,17 @@ class _RedisCacheState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              redis_cache_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'cacheLocation' in kwargs:
+            cache_location = kwargs['cacheLocation']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'redisCacheId' in kwargs:
+            redis_cache_id = kwargs['redisCacheId']
+
         if api_management_id is not None:
             _setter("api_management_id", api_management_id)
         if cache_location is not None:

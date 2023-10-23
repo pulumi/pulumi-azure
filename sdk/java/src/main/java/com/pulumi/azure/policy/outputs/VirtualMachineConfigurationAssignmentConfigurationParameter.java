@@ -65,10 +65,10 @@ public final class VirtualMachineConfigurationAssignmentConfigurationParameter {
             return this;
         }
         public VirtualMachineConfigurationAssignmentConfigurationParameter build() {
-            final var o = new VirtualMachineConfigurationAssignmentConfigurationParameter();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new VirtualMachineConfigurationAssignmentConfigurationParameter();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

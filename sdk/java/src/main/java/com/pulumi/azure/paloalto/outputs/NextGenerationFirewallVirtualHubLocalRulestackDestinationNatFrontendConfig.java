@@ -50,10 +50,10 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatF
             return this;
         }
         public NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig build() {
-            final var o = new NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig();
-            o.port = port;
-            o.publicIpAddressId = publicIpAddressId;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig();
+            _resultValue.port = port;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            return _resultValue;
         }
     }
 }

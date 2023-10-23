@@ -66,10 +66,10 @@ public final class SlotLogsHttpLogsAzureBlobStorage {
             return this;
         }
         public SlotLogsHttpLogsAzureBlobStorage build() {
-            final var o = new SlotLogsHttpLogsAzureBlobStorage();
-            o.retentionInDays = retentionInDays;
-            o.sasUrl = sasUrl;
-            return o;
+            final var _resultValue = new SlotLogsHttpLogsAzureBlobStorage();
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.sasUrl = sasUrl;
+            return _resultValue;
         }
     }
 }

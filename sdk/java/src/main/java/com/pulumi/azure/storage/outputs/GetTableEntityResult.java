@@ -110,14 +110,14 @@ public final class GetTableEntityResult {
             return this;
         }
         public GetTableEntityResult build() {
-            final var o = new GetTableEntityResult();
-            o.entity = entity;
-            o.id = id;
-            o.partitionKey = partitionKey;
-            o.rowKey = rowKey;
-            o.storageAccountName = storageAccountName;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new GetTableEntityResult();
+            _resultValue.entity = entity;
+            _resultValue.id = id;
+            _resultValue.partitionKey = partitionKey;
+            _resultValue.rowKey = rowKey;
+            _resultValue.storageAccountName = storageAccountName;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

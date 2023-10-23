@@ -230,17 +230,17 @@ public final class AccountBlobProperties {
             return this;
         }
         public AccountBlobProperties build() {
-            final var o = new AccountBlobProperties();
-            o.changeFeedEnabled = changeFeedEnabled;
-            o.changeFeedRetentionInDays = changeFeedRetentionInDays;
-            o.containerDeleteRetentionPolicy = containerDeleteRetentionPolicy;
-            o.corsRules = corsRules;
-            o.defaultServiceVersion = defaultServiceVersion;
-            o.deleteRetentionPolicy = deleteRetentionPolicy;
-            o.lastAccessTimeEnabled = lastAccessTimeEnabled;
-            o.restorePolicy = restorePolicy;
-            o.versioningEnabled = versioningEnabled;
-            return o;
+            final var _resultValue = new AccountBlobProperties();
+            _resultValue.changeFeedEnabled = changeFeedEnabled;
+            _resultValue.changeFeedRetentionInDays = changeFeedRetentionInDays;
+            _resultValue.containerDeleteRetentionPolicy = containerDeleteRetentionPolicy;
+            _resultValue.corsRules = corsRules;
+            _resultValue.defaultServiceVersion = defaultServiceVersion;
+            _resultValue.deleteRetentionPolicy = deleteRetentionPolicy;
+            _resultValue.lastAccessTimeEnabled = lastAccessTimeEnabled;
+            _resultValue.restorePolicy = restorePolicy;
+            _resultValue.versioningEnabled = versioningEnabled;
+            return _resultValue;
         }
     }
 }

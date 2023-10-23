@@ -41,7 +41,15 @@ class DataConnectorThreatIntelligenceArgs:
              lookback_date: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'lookbackDate' in kwargs:
+            lookback_date = kwargs['lookbackDate']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if lookback_date is not None:
             _setter("lookback_date", lookback_date)
@@ -131,7 +139,15 @@ class _DataConnectorThreatIntelligenceState:
              lookback_date: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'lookbackDate' in kwargs:
+            lookback_date = kwargs['lookbackDate']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if log_analytics_workspace_id is not None:
             _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if lookback_date is not None:

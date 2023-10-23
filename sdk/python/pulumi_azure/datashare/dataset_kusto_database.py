@@ -35,7 +35,13 @@ class DatasetKustoDatabaseArgs:
              kusto_database_id: pulumi.Input[str],
              share_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kustoDatabaseId' in kwargs:
+            kusto_database_id = kwargs['kustoDatabaseId']
+        if 'shareId' in kwargs:
+            share_id = kwargs['shareId']
+
         _setter("kusto_database_id", kusto_database_id)
         _setter("share_id", share_id)
         if name is not None:
@@ -110,7 +116,17 @@ class _DatasetKustoDatabaseState:
              kusto_database_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              share_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'kustoClusterLocation' in kwargs:
+            kusto_cluster_location = kwargs['kustoClusterLocation']
+        if 'kustoDatabaseId' in kwargs:
+            kusto_database_id = kwargs['kustoDatabaseId']
+        if 'shareId' in kwargs:
+            share_id = kwargs['shareId']
+
         if display_name is not None:
             _setter("display_name", display_name)
         if kusto_cluster_location is not None:

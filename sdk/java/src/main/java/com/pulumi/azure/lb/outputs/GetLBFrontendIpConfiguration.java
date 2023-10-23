@@ -183,16 +183,16 @@ public final class GetLBFrontendIpConfiguration {
             return zones(List.of(zones));
         }
         public GetLBFrontendIpConfiguration build() {
-            final var o = new GetLBFrontendIpConfiguration();
-            o.id = id;
-            o.name = name;
-            o.privateIpAddress = privateIpAddress;
-            o.privateIpAddressAllocation = privateIpAddressAllocation;
-            o.privateIpAddressVersion = privateIpAddressVersion;
-            o.publicIpAddressId = publicIpAddressId;
-            o.subnetId = subnetId;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new GetLBFrontendIpConfiguration();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.privateIpAddressAllocation = privateIpAddressAllocation;
+            _resultValue.privateIpAddressVersion = privateIpAddressVersion;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.subnetId = subnetId;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

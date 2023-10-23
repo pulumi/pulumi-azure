@@ -364,26 +364,26 @@ public final class GetPrivateCloudResult {
             return this;
         }
         public GetPrivateCloudResult build() {
-            final var o = new GetPrivateCloudResult();
-            o.circuits = circuits;
-            o.hcxCloudManagerEndpoint = hcxCloudManagerEndpoint;
-            o.id = id;
-            o.internetConnectionEnabled = internetConnectionEnabled;
-            o.location = location;
-            o.managementClusters = managementClusters;
-            o.managementSubnetCidr = managementSubnetCidr;
-            o.name = name;
-            o.networkSubnetCidr = networkSubnetCidr;
-            o.nsxtCertificateThumbprint = nsxtCertificateThumbprint;
-            o.nsxtManagerEndpoint = nsxtManagerEndpoint;
-            o.provisioningSubnetCidr = provisioningSubnetCidr;
-            o.resourceGroupName = resourceGroupName;
-            o.skuName = skuName;
-            o.tags = tags;
-            o.vcenterCertificateThumbprint = vcenterCertificateThumbprint;
-            o.vcsaEndpoint = vcsaEndpoint;
-            o.vmotionSubnetCidr = vmotionSubnetCidr;
-            return o;
+            final var _resultValue = new GetPrivateCloudResult();
+            _resultValue.circuits = circuits;
+            _resultValue.hcxCloudManagerEndpoint = hcxCloudManagerEndpoint;
+            _resultValue.id = id;
+            _resultValue.internetConnectionEnabled = internetConnectionEnabled;
+            _resultValue.location = location;
+            _resultValue.managementClusters = managementClusters;
+            _resultValue.managementSubnetCidr = managementSubnetCidr;
+            _resultValue.name = name;
+            _resultValue.networkSubnetCidr = networkSubnetCidr;
+            _resultValue.nsxtCertificateThumbprint = nsxtCertificateThumbprint;
+            _resultValue.nsxtManagerEndpoint = nsxtManagerEndpoint;
+            _resultValue.provisioningSubnetCidr = provisioningSubnetCidr;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.skuName = skuName;
+            _resultValue.tags = tags;
+            _resultValue.vcenterCertificateThumbprint = vcenterCertificateThumbprint;
+            _resultValue.vcsaEndpoint = vcsaEndpoint;
+            _resultValue.vmotionSubnetCidr = vmotionSubnetCidr;
+            return _resultValue;
         }
     }
 }

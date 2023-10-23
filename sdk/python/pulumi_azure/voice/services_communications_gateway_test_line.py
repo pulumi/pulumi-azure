@@ -47,7 +47,13 @@ class ServicesCommunicationsGatewayTestLineArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if 'voiceServicesCommunicationsGatewayId' in kwargs:
+            voice_services_communications_gateway_id = kwargs['voiceServicesCommunicationsGatewayId']
+
         _setter("phone_number", phone_number)
         _setter("purpose", purpose)
         _setter("voice_services_communications_gateway_id", voice_services_communications_gateway_id)
@@ -167,7 +173,13 @@ class _ServicesCommunicationsGatewayTestLineState:
              purpose: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              voice_services_communications_gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if 'voiceServicesCommunicationsGatewayId' in kwargs:
+            voice_services_communications_gateway_id = kwargs['voiceServicesCommunicationsGatewayId']
+
         if location is not None:
             _setter("location", location)
         if name is not None:

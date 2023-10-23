@@ -41,7 +41,15 @@ class ChannelLineArgs:
              line_channels: pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]],
              resource_group_name: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'lineChannels' in kwargs:
+            line_channels = kwargs['lineChannels']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("bot_name", bot_name)
         _setter("line_channels", line_channels)
         _setter("resource_group_name", resource_group_name)
@@ -125,7 +133,15 @@ class _ChannelLineState:
              line_channels: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLineLineChannelArgs']]]] = None,
              location: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'lineChannels' in kwargs:
+            line_channels = kwargs['lineChannels']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if bot_name is not None:
             _setter("bot_name", bot_name)
         if line_channels is not None:

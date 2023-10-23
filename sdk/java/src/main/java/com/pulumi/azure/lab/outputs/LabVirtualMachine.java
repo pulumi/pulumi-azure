@@ -186,16 +186,16 @@ public final class LabVirtualMachine {
             return this;
         }
         public LabVirtualMachine build() {
-            final var o = new LabVirtualMachine();
-            o.additionalCapabilityGpuDriversInstalled = additionalCapabilityGpuDriversInstalled;
-            o.adminUser = adminUser;
-            o.createOption = createOption;
-            o.imageReference = imageReference;
-            o.nonAdminUser = nonAdminUser;
-            o.sharedPasswordEnabled = sharedPasswordEnabled;
-            o.sku = sku;
-            o.usageQuota = usageQuota;
-            return o;
+            final var _resultValue = new LabVirtualMachine();
+            _resultValue.additionalCapabilityGpuDriversInstalled = additionalCapabilityGpuDriversInstalled;
+            _resultValue.adminUser = adminUser;
+            _resultValue.createOption = createOption;
+            _resultValue.imageReference = imageReference;
+            _resultValue.nonAdminUser = nonAdminUser;
+            _resultValue.sharedPasswordEnabled = sharedPasswordEnabled;
+            _resultValue.sku = sku;
+            _resultValue.usageQuota = usageQuota;
+            return _resultValue;
         }
     }
 }

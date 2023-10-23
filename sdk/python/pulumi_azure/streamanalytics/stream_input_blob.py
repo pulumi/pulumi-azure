@@ -65,7 +65,25 @@ class StreamInputBlobArgs:
              stream_analytics_job_name: pulumi.Input[str],
              time_format: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dateFormat' in kwargs:
+            date_format = kwargs['dateFormat']
+        if 'pathPattern' in kwargs:
+            path_pattern = kwargs['pathPattern']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'storageContainerName' in kwargs:
+            storage_container_name = kwargs['storageContainerName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if 'timeFormat' in kwargs:
+            time_format = kwargs['timeFormat']
+
         _setter("date_format", date_format)
         _setter("path_pattern", path_pattern)
         _setter("resource_group_name", resource_group_name)
@@ -251,7 +269,25 @@ class _StreamInputBlobState:
              storage_container_name: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              time_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dateFormat' in kwargs:
+            date_format = kwargs['dateFormat']
+        if 'pathPattern' in kwargs:
+            path_pattern = kwargs['pathPattern']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'storageContainerName' in kwargs:
+            storage_container_name = kwargs['storageContainerName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if 'timeFormat' in kwargs:
+            time_format = kwargs['timeFormat']
+
         if date_format is not None:
             _setter("date_format", date_format)
         if name is not None:

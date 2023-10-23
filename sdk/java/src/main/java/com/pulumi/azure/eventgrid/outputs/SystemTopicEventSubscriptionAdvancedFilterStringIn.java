@@ -73,10 +73,10 @@ public final class SystemTopicEventSubscriptionAdvancedFilterStringIn {
             return values(List.of(values));
         }
         public SystemTopicEventSubscriptionAdvancedFilterStringIn build() {
-            final var o = new SystemTopicEventSubscriptionAdvancedFilterStringIn();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionAdvancedFilterStringIn();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

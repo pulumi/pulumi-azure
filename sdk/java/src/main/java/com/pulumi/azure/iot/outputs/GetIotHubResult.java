@@ -124,14 +124,14 @@ public final class GetIotHubResult {
             return this;
         }
         public GetIotHubResult build() {
-            final var o = new GetIotHubResult();
-            o.hostname = hostname;
-            o.id = id;
-            o.identities = identities;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetIotHubResult();
+            _resultValue.hostname = hostname;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

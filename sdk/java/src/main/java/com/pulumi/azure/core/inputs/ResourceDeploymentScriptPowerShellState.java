@@ -277,14 +277,14 @@ public final class ResourceDeploymentScriptPowerShellState extends com.pulumi.re
     }
 
     /**
-     * Azure PowerShell module version to be used. The supported versions are `2.7`, `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`, `3.7`, `3.8`, `4.1`, `4.2`, `4.3`, `4.4`, `4.5`, `4.6`, `4.7`, `4.8`, `5.0`, `5.1`, `5.2`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8`, `5.9`, `6.0`, `6.1`, `6.2`, `6.3`, `6.4`, `6.5`, `6.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `7.5`, `8.0`, `8.1`, `8.2`, `8.3`, `9.0`. Changing this forces a new Resource Deployment Script to be created.
+     * Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return Azure PowerShell module version to be used. The supported versions are `2.7`, `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`, `3.7`, `3.8`, `4.1`, `4.2`, `4.3`, `4.4`, `4.5`, `4.6`, `4.7`, `4.8`, `5.0`, `5.1`, `5.2`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8`, `5.9`, `6.0`, `6.1`, `6.2`, `6.3`, `6.4`, `6.5`, `6.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `7.5`, `8.0`, `8.1`, `8.2`, `8.3`, `9.0`. Changing this forces a new Resource Deployment Script to be created.
+     * @return Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
      * 
      */
     public Optional<Output<String>> version() {
@@ -710,7 +710,7 @@ public final class ResourceDeploymentScriptPowerShellState extends com.pulumi.re
         }
 
         /**
-         * @param version Azure PowerShell module version to be used. The supported versions are `2.7`, `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`, `3.7`, `3.8`, `4.1`, `4.2`, `4.3`, `4.4`, `4.5`, `4.6`, `4.7`, `4.8`, `5.0`, `5.1`, `5.2`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8`, `5.9`, `6.0`, `6.1`, `6.2`, `6.3`, `6.4`, `6.5`, `6.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `7.5`, `8.0`, `8.1`, `8.2`, `8.3`, `9.0`. Changing this forces a new Resource Deployment Script to be created.
+         * @param version Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
          * 
          * @return builder
          * 
@@ -721,7 +721,7 @@ public final class ResourceDeploymentScriptPowerShellState extends com.pulumi.re
         }
 
         /**
-         * @param version Azure PowerShell module version to be used. The supported versions are `2.7`, `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`, `3.7`, `3.8`, `4.1`, `4.2`, `4.3`, `4.4`, `4.5`, `4.6`, `4.7`, `4.8`, `5.0`, `5.1`, `5.2`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8`, `5.9`, `6.0`, `6.1`, `6.2`, `6.3`, `6.4`, `6.5`, `6.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `7.5`, `8.0`, `8.1`, `8.2`, `8.3`, `9.0`. Changing this forces a new Resource Deployment Script to be created.
+         * @param version Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
          * 
          * @return builder
          * 

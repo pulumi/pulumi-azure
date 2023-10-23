@@ -65,10 +65,10 @@ public final class GetComputeMachineAgentConfigurationExtensionsBlockList {
             return this;
         }
         public GetComputeMachineAgentConfigurationExtensionsBlockList build() {
-            final var o = new GetComputeMachineAgentConfigurationExtensionsBlockList();
-            o.publisher = publisher;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetComputeMachineAgentConfigurationExtensionsBlockList();
+            _resultValue.publisher = publisher;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

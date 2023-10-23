@@ -68,10 +68,10 @@ public final class WindowsVirtualMachineScaleSetAutomaticInstanceRepair {
             return this;
         }
         public WindowsVirtualMachineScaleSetAutomaticInstanceRepair build() {
-            final var o = new WindowsVirtualMachineScaleSetAutomaticInstanceRepair();
-            o.enabled = enabled;
-            o.gracePeriod = gracePeriod;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetAutomaticInstanceRepair();
+            _resultValue.enabled = enabled;
+            _resultValue.gracePeriod = gracePeriod;
+            return _resultValue;
         }
     }
 }

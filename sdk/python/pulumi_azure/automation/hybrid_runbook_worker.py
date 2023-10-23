@@ -43,7 +43,19 @@ class HybridRunbookWorkerArgs:
              vm_resource_id: pulumi.Input[str],
              worker_group_name: pulumi.Input[str],
              worker_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vmResourceId' in kwargs:
+            vm_resource_id = kwargs['vmResourceId']
+        if 'workerGroupName' in kwargs:
+            worker_group_name = kwargs['workerGroupName']
+        if 'workerId' in kwargs:
+            worker_id = kwargs['workerId']
+
         _setter("automation_account_name", automation_account_name)
         _setter("resource_group_name", resource_group_name)
         _setter("vm_resource_id", vm_resource_id)
@@ -163,7 +175,27 @@ class _HybridRunbookWorkerState:
              worker_id: Optional[pulumi.Input[str]] = None,
              worker_name: Optional[pulumi.Input[str]] = None,
              worker_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'lastSeenDateTime' in kwargs:
+            last_seen_date_time = kwargs['lastSeenDateTime']
+        if 'registrationDateTime' in kwargs:
+            registration_date_time = kwargs['registrationDateTime']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vmResourceId' in kwargs:
+            vm_resource_id = kwargs['vmResourceId']
+        if 'workerGroupName' in kwargs:
+            worker_group_name = kwargs['workerGroupName']
+        if 'workerId' in kwargs:
+            worker_id = kwargs['workerId']
+        if 'workerName' in kwargs:
+            worker_name = kwargs['workerName']
+        if 'workerType' in kwargs:
+            worker_type = kwargs['workerType']
+
         if automation_account_name is not None:
             _setter("automation_account_name", automation_account_name)
         if ip is not None:

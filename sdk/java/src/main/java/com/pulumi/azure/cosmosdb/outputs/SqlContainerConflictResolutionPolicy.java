@@ -86,11 +86,11 @@ public final class SqlContainerConflictResolutionPolicy {
             return this;
         }
         public SqlContainerConflictResolutionPolicy build() {
-            final var o = new SqlContainerConflictResolutionPolicy();
-            o.conflictResolutionPath = conflictResolutionPath;
-            o.conflictResolutionProcedure = conflictResolutionProcedure;
-            o.mode = mode;
-            return o;
+            final var _resultValue = new SqlContainerConflictResolutionPolicy();
+            _resultValue.conflictResolutionPath = conflictResolutionPath;
+            _resultValue.conflictResolutionProcedure = conflictResolutionProcedure;
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

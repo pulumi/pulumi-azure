@@ -107,13 +107,13 @@ public final class GetResourceGroupResult {
             return this;
         }
         public GetResourceGroupResult build() {
-            final var o = new GetResourceGroupResult();
-            o.id = id;
-            o.location = location;
-            o.managedBy = managedBy;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetResourceGroupResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.managedBy = managedBy;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -125,14 +125,14 @@ public final class GetDatasetKustoDatabaseResult {
             return this;
         }
         public GetDatasetKustoDatabaseResult build() {
-            final var o = new GetDatasetKustoDatabaseResult();
-            o.displayName = displayName;
-            o.id = id;
-            o.kustoClusterLocation = kustoClusterLocation;
-            o.kustoDatabaseId = kustoDatabaseId;
-            o.name = name;
-            o.shareId = shareId;
-            return o;
+            final var _resultValue = new GetDatasetKustoDatabaseResult();
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.kustoClusterLocation = kustoClusterLocation;
+            _resultValue.kustoDatabaseId = kustoDatabaseId;
+            _resultValue.name = name;
+            _resultValue.shareId = shareId;
+            return _resultValue;
         }
     }
 }

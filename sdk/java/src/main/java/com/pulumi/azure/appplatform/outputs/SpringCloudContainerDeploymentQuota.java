@@ -75,10 +75,10 @@ public final class SpringCloudContainerDeploymentQuota {
             return this;
         }
         public SpringCloudContainerDeploymentQuota build() {
-            final var o = new SpringCloudContainerDeploymentQuota();
-            o.cpu = cpu;
-            o.memory = memory;
-            return o;
+            final var _resultValue = new SpringCloudContainerDeploymentQuota();
+            _resultValue.cpu = cpu;
+            _resultValue.memory = memory;
+            return _resultValue;
         }
     }
 }

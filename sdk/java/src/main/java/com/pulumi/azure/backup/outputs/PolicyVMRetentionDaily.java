@@ -50,9 +50,9 @@ public final class PolicyVMRetentionDaily {
             return this;
         }
         public PolicyVMRetentionDaily build() {
-            final var o = new PolicyVMRetentionDaily();
-            o.count = count;
-            return o;
+            final var _resultValue = new PolicyVMRetentionDaily();
+            _resultValue.count = count;
+            return _resultValue;
         }
     }
 }

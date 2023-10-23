@@ -65,10 +65,10 @@ public final class WindowsVirtualMachineAdditionalUnattendContent {
             return this;
         }
         public WindowsVirtualMachineAdditionalUnattendContent build() {
-            final var o = new WindowsVirtualMachineAdditionalUnattendContent();
-            o.content = content;
-            o.setting = setting;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineAdditionalUnattendContent();
+            _resultValue.content = content;
+            _resultValue.setting = setting;
+            return _resultValue;
         }
     }
 }

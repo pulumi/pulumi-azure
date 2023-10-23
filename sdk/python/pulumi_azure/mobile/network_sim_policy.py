@@ -61,7 +61,19 @@ class NetworkSimPolicyArgs:
              rat_frequency_selection_priority_index: Optional[pulumi.Input[int]] = None,
              registration_timer_in_seconds: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultSliceId' in kwargs:
+            default_slice_id = kwargs['defaultSliceId']
+        if 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+        if 'userEquipmentAggregateMaximumBitRate' in kwargs:
+            user_equipment_aggregate_maximum_bit_rate = kwargs['userEquipmentAggregateMaximumBitRate']
+        if 'ratFrequencySelectionPriorityIndex' in kwargs:
+            rat_frequency_selection_priority_index = kwargs['ratFrequencySelectionPriorityIndex']
+        if 'registrationTimerInSeconds' in kwargs:
+            registration_timer_in_seconds = kwargs['registrationTimerInSeconds']
+
         _setter("default_slice_id", default_slice_id)
         _setter("mobile_network_id", mobile_network_id)
         _setter("slices", slices)
@@ -234,7 +246,19 @@ class _NetworkSimPolicyState:
              slices: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultSliceId' in kwargs:
+            default_slice_id = kwargs['defaultSliceId']
+        if 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+        if 'ratFrequencySelectionPriorityIndex' in kwargs:
+            rat_frequency_selection_priority_index = kwargs['ratFrequencySelectionPriorityIndex']
+        if 'registrationTimerInSeconds' in kwargs:
+            registration_timer_in_seconds = kwargs['registrationTimerInSeconds']
+        if 'userEquipmentAggregateMaximumBitRate' in kwargs:
+            user_equipment_aggregate_maximum_bit_rate = kwargs['userEquipmentAggregateMaximumBitRate']
+
         if default_slice_id is not None:
             _setter("default_slice_id", default_slice_id)
         if location is not None:

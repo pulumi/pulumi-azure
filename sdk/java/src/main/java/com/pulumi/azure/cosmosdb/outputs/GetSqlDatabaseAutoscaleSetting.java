@@ -46,9 +46,9 @@ public final class GetSqlDatabaseAutoscaleSetting {
             return this;
         }
         public GetSqlDatabaseAutoscaleSetting build() {
-            final var o = new GetSqlDatabaseAutoscaleSetting();
-            o.maxThroughput = maxThroughput;
-            return o;
+            final var _resultValue = new GetSqlDatabaseAutoscaleSetting();
+            _resultValue.maxThroughput = maxThroughput;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class ServiceAccountEncryption {
             return this;
         }
         public ServiceAccountEncryption build() {
-            final var o = new ServiceAccountEncryption();
-            o.currentKeyIdentifier = currentKeyIdentifier;
-            o.keyVaultKeyIdentifier = keyVaultKeyIdentifier;
-            o.managedIdentity = managedIdentity;
-            o.type = type;
-            return o;
+            final var _resultValue = new ServiceAccountEncryption();
+            _resultValue.currentKeyIdentifier = currentKeyIdentifier;
+            _resultValue.keyVaultKeyIdentifier = keyVaultKeyIdentifier;
+            _resultValue.managedIdentity = managedIdentity;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

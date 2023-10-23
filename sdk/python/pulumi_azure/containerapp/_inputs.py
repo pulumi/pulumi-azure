@@ -63,7 +63,15 @@ class AppDaprArgs:
              app_id: pulumi.Input[str],
              app_port: Optional[pulumi.Input[int]] = None,
              app_protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appPort' in kwargs:
+            app_port = kwargs['appPort']
+        if 'appProtocol' in kwargs:
+            app_protocol = kwargs['appProtocol']
+
         _setter("app_id", app_id)
         if app_port is not None:
             _setter("app_port", app_port)
@@ -132,7 +140,15 @@ class AppIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -225,7 +241,19 @@ class AppIngressArgs:
              external_enabled: Optional[pulumi.Input[bool]] = None,
              fqdn: Optional[pulumi.Input[str]] = None,
              transport: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetPort' in kwargs:
+            target_port = kwargs['targetPort']
+        if 'trafficWeights' in kwargs:
+            traffic_weights = kwargs['trafficWeights']
+        if 'allowInsecureConnections' in kwargs:
+            allow_insecure_connections = kwargs['allowInsecureConnections']
+        if 'customDomain' in kwargs:
+            custom_domain = kwargs['customDomain']
+        if 'externalEnabled' in kwargs:
+            external_enabled = kwargs['externalEnabled']
+
         _setter("target_port", target_port)
         _setter("traffic_weights", traffic_weights)
         if allow_insecure_connections is not None:
@@ -349,7 +377,13 @@ class AppIngressCustomDomainArgs:
              certificate_id: pulumi.Input[str],
              name: pulumi.Input[str],
              certificate_binding_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+        if 'certificateBindingType' in kwargs:
+            certificate_binding_type = kwargs['certificateBindingType']
+
         _setter("certificate_id", certificate_id)
         _setter("name", name)
         if certificate_binding_type is not None:
@@ -421,7 +455,13 @@ class AppIngressTrafficWeightArgs:
              label: Optional[pulumi.Input[str]] = None,
              latest_revision: Optional[pulumi.Input[bool]] = None,
              revision_suffix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'latestRevision' in kwargs:
+            latest_revision = kwargs['latestRevision']
+        if 'revisionSuffix' in kwargs:
+            revision_suffix = kwargs['revisionSuffix']
+
         _setter("percentage", percentage)
         if label is not None:
             _setter("label", label)
@@ -510,7 +550,11 @@ class AppRegistryArgs:
              identity: Optional[pulumi.Input[str]] = None,
              password_secret_name: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordSecretName' in kwargs:
+            password_secret_name = kwargs['passwordSecretName']
+
         _setter("server", server)
         if identity is not None:
             _setter("identity", identity)
@@ -591,7 +635,9 @@ class AppSecretArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -669,7 +715,23 @@ class AppTemplateArgs:
              revision_suffix: Optional[pulumi.Input[str]] = None,
              tcp_scale_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArgs']]]] = None,
              volumes: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateVolumeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureQueueScaleRules' in kwargs:
+            azure_queue_scale_rules = kwargs['azureQueueScaleRules']
+        if 'customScaleRules' in kwargs:
+            custom_scale_rules = kwargs['customScaleRules']
+        if 'httpScaleRules' in kwargs:
+            http_scale_rules = kwargs['httpScaleRules']
+        if 'maxReplicas' in kwargs:
+            max_replicas = kwargs['maxReplicas']
+        if 'minReplicas' in kwargs:
+            min_replicas = kwargs['minReplicas']
+        if 'revisionSuffix' in kwargs:
+            revision_suffix = kwargs['revisionSuffix']
+        if 'tcpScaleRules' in kwargs:
+            tcp_scale_rules = kwargs['tcpScaleRules']
+
         _setter("containers", containers)
         if azure_queue_scale_rules is not None:
             _setter("azure_queue_scale_rules", azure_queue_scale_rules)
@@ -824,7 +886,13 @@ class AppTemplateAzureQueueScaleRuleArgs:
              name: pulumi.Input[str],
              queue_length: pulumi.Input[int],
              queue_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueLength' in kwargs:
+            queue_length = kwargs['queueLength']
+        if 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+
         _setter("authentications", authentications)
         _setter("name", name)
         _setter("queue_length", queue_length)
@@ -898,7 +966,13 @@ class AppTemplateAzureQueueScaleRuleAuthenticationArgs:
              _setter: Callable[[Any, Any], None],
              secret_name: pulumi.Input[str],
              trigger_parameter: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
         _setter("secret_name", secret_name)
         _setter("trigger_parameter", trigger_parameter)
 
@@ -992,7 +1066,19 @@ class AppTemplateContainerArgs:
              readiness_probes: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArgs']]]] = None,
              startup_probes: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArgs']]]] = None,
              volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if 'livenessProbes' in kwargs:
+            liveness_probes = kwargs['livenessProbes']
+        if 'readinessProbes' in kwargs:
+            readiness_probes = kwargs['readinessProbes']
+        if 'startupProbes' in kwargs:
+            startup_probes = kwargs['startupProbes']
+        if 'volumeMounts' in kwargs:
+            volume_mounts = kwargs['volumeMounts']
+
         _setter("cpu", cpu)
         _setter("image", image)
         _setter("memory", memory)
@@ -1190,7 +1276,11 @@ class AppTemplateContainerEnvArgs:
              name: pulumi.Input[str],
              secret_name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("name", name)
         if secret_name is not None:
             _setter("secret_name", secret_name)
@@ -1287,7 +1377,17 @@ class AppTemplateContainerLivenessProbeArgs:
              path: Optional[pulumi.Input[str]] = None,
              termination_grace_period_seconds: Optional[pulumi.Input[int]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if 'initialDelay' in kwargs:
+            initial_delay = kwargs['initialDelay']
+        if 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if 'terminationGracePeriodSeconds' in kwargs:
+            termination_grace_period_seconds = kwargs['terminationGracePeriodSeconds']
+
         _setter("port", port)
         _setter("transport", transport)
         if failure_count_threshold is not None:
@@ -1447,7 +1547,9 @@ class AppTemplateContainerLivenessProbeHeaderArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1523,7 +1625,15 @@ class AppTemplateContainerReadinessProbeArgs:
              path: Optional[pulumi.Input[str]] = None,
              success_count_threshold: Optional[pulumi.Input[int]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if 'successCountThreshold' in kwargs:
+            success_count_threshold = kwargs['successCountThreshold']
+
         _setter("port", port)
         _setter("transport", transport)
         if failure_count_threshold is not None:
@@ -1669,7 +1779,9 @@ class AppTemplateContainerReadinessProbeHeaderArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1745,7 +1857,15 @@ class AppTemplateContainerStartupProbeArgs:
              path: Optional[pulumi.Input[str]] = None,
              termination_grace_period_seconds: Optional[pulumi.Input[int]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if 'terminationGracePeriodSeconds' in kwargs:
+            termination_grace_period_seconds = kwargs['terminationGracePeriodSeconds']
+
         _setter("port", port)
         _setter("transport", transport)
         if failure_count_threshold is not None:
@@ -1891,7 +2011,9 @@ class AppTemplateContainerStartupProbeHeaderArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1939,7 +2061,9 @@ class AppTemplateContainerVolumeMountArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
 
@@ -1995,7 +2119,11 @@ class AppTemplateCustomScaleRuleArgs:
              metadata: pulumi.Input[Mapping[str, pulumi.Input[str]]],
              name: pulumi.Input[str],
              authentications: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRuleType' in kwargs:
+            custom_rule_type = kwargs['customRuleType']
+
         _setter("custom_rule_type", custom_rule_type)
         _setter("metadata", metadata)
         _setter("name", name)
@@ -2070,7 +2198,13 @@ class AppTemplateCustomScaleRuleAuthenticationArgs:
              _setter: Callable[[Any, Any], None],
              secret_name: pulumi.Input[str],
              trigger_parameter: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
         _setter("secret_name", secret_name)
         _setter("trigger_parameter", trigger_parameter)
 
@@ -2122,7 +2256,11 @@ class AppTemplateHttpScaleRuleArgs:
              concurrent_requests: pulumi.Input[str],
              name: pulumi.Input[str],
              authentications: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateHttpScaleRuleAuthenticationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'concurrentRequests' in kwargs:
+            concurrent_requests = kwargs['concurrentRequests']
+
         _setter("concurrent_requests", concurrent_requests)
         _setter("name", name)
         if authentications is not None:
@@ -2184,7 +2322,13 @@ class AppTemplateHttpScaleRuleAuthenticationArgs:
              _setter: Callable[[Any, Any], None],
              secret_name: pulumi.Input[str],
              trigger_parameter: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
         _setter("secret_name", secret_name)
         if trigger_parameter is not None:
             _setter("trigger_parameter", trigger_parameter)
@@ -2237,7 +2381,11 @@ class AppTemplateTcpScaleRuleArgs:
              concurrent_requests: pulumi.Input[str],
              name: pulumi.Input[str],
              authentications: Optional[pulumi.Input[Sequence[pulumi.Input['AppTemplateTcpScaleRuleAuthenticationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'concurrentRequests' in kwargs:
+            concurrent_requests = kwargs['concurrentRequests']
+
         _setter("concurrent_requests", concurrent_requests)
         _setter("name", name)
         if authentications is not None:
@@ -2299,7 +2447,13 @@ class AppTemplateTcpScaleRuleAuthenticationArgs:
              _setter: Callable[[Any, Any], None],
              secret_name: pulumi.Input[str],
              trigger_parameter: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
         _setter("secret_name", secret_name)
         if trigger_parameter is not None:
             _setter("trigger_parameter", trigger_parameter)
@@ -2352,7 +2506,13 @@ class AppTemplateVolumeArgs:
              name: pulumi.Input[str],
              storage_name: Optional[pulumi.Input[str]] = None,
              storage_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageName' in kwargs:
+            storage_name = kwargs['storageName']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+
         _setter("name", name)
         if storage_name is not None:
             _setter("storage_name", storage_name)
@@ -2419,7 +2579,11 @@ class EnvironmentDaprComponentMetadataArgs:
              name: pulumi.Input[str],
              secret_name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("name", name)
         if secret_name is not None:
             _setter("secret_name", secret_name)
@@ -2482,7 +2646,9 @@ class EnvironmentDaprComponentSecretArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 

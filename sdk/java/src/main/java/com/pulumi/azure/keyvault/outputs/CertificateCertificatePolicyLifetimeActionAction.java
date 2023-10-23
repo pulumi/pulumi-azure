@@ -46,9 +46,9 @@ public final class CertificateCertificatePolicyLifetimeActionAction {
             return this;
         }
         public CertificateCertificatePolicyLifetimeActionAction build() {
-            final var o = new CertificateCertificatePolicyLifetimeActionAction();
-            o.actionType = actionType;
-            return o;
+            final var _resultValue = new CertificateCertificatePolicyLifetimeActionAction();
+            _resultValue.actionType = actionType;
+            return _resultValue;
         }
     }
 }

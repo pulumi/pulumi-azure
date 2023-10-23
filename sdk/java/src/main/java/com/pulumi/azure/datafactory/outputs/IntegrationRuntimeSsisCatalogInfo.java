@@ -143,14 +143,14 @@ public final class IntegrationRuntimeSsisCatalogInfo {
             return this;
         }
         public IntegrationRuntimeSsisCatalogInfo build() {
-            final var o = new IntegrationRuntimeSsisCatalogInfo();
-            o.administratorLogin = administratorLogin;
-            o.administratorPassword = administratorPassword;
-            o.dualStandbyPairName = dualStandbyPairName;
-            o.elasticPoolName = elasticPoolName;
-            o.pricingTier = pricingTier;
-            o.serverEndpoint = serverEndpoint;
-            return o;
+            final var _resultValue = new IntegrationRuntimeSsisCatalogInfo();
+            _resultValue.administratorLogin = administratorLogin;
+            _resultValue.administratorPassword = administratorPassword;
+            _resultValue.dualStandbyPairName = dualStandbyPairName;
+            _resultValue.elasticPoolName = elasticPoolName;
+            _resultValue.pricingTier = pricingTier;
+            _resultValue.serverEndpoint = serverEndpoint;
+            return _resultValue;
         }
     }
 }

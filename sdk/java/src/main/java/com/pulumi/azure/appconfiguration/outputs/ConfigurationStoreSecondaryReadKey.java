@@ -86,11 +86,11 @@ public final class ConfigurationStoreSecondaryReadKey {
             return this;
         }
         public ConfigurationStoreSecondaryReadKey build() {
-            final var o = new ConfigurationStoreSecondaryReadKey();
-            o.connectionString = connectionString;
-            o.id = id;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new ConfigurationStoreSecondaryReadKey();
+            _resultValue.connectionString = connectionString;
+            _resultValue.id = id;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

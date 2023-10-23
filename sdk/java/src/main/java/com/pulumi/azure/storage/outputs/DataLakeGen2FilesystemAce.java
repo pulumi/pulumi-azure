@@ -109,12 +109,12 @@ public final class DataLakeGen2FilesystemAce {
             return this;
         }
         public DataLakeGen2FilesystemAce build() {
-            final var o = new DataLakeGen2FilesystemAce();
-            o.id = id;
-            o.permissions = permissions;
-            o.scope = scope;
-            o.type = type;
-            return o;
+            final var _resultValue = new DataLakeGen2FilesystemAce();
+            _resultValue.id = id;
+            _resultValue.permissions = permissions;
+            _resultValue.scope = scope;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

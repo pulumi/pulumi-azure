@@ -110,12 +110,12 @@ public final class NetworkManagerConnectivityConfigurationAppliesToGroup {
             return this;
         }
         public NetworkManagerConnectivityConfigurationAppliesToGroup build() {
-            final var o = new NetworkManagerConnectivityConfigurationAppliesToGroup();
-            o.globalMeshEnabled = globalMeshEnabled;
-            o.groupConnectivity = groupConnectivity;
-            o.networkGroupId = networkGroupId;
-            o.useHubGateway = useHubGateway;
-            return o;
+            final var _resultValue = new NetworkManagerConnectivityConfigurationAppliesToGroup();
+            _resultValue.globalMeshEnabled = globalMeshEnabled;
+            _resultValue.groupConnectivity = groupConnectivity;
+            _resultValue.networkGroupId = networkGroupId;
+            _resultValue.useHubGateway = useHubGateway;
+            return _resultValue;
         }
     }
 }

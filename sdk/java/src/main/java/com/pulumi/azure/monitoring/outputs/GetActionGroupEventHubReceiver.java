@@ -171,15 +171,15 @@ public final class GetActionGroupEventHubReceiver {
             return this;
         }
         public GetActionGroupEventHubReceiver build() {
-            final var o = new GetActionGroupEventHubReceiver();
-            o.eventHubId = eventHubId;
-            o.eventHubName = eventHubName;
-            o.eventHubNamespace = eventHubNamespace;
-            o.name = name;
-            o.subscriptionId = subscriptionId;
-            o.tenantId = tenantId;
-            o.useCommonAlertSchema = useCommonAlertSchema;
-            return o;
+            final var _resultValue = new GetActionGroupEventHubReceiver();
+            _resultValue.eventHubId = eventHubId;
+            _resultValue.eventHubName = eventHubName;
+            _resultValue.eventHubNamespace = eventHubNamespace;
+            _resultValue.name = name;
+            _resultValue.subscriptionId = subscriptionId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.useCommonAlertSchema = useCommonAlertSchema;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class SlotSiteCredential {
             return this;
         }
         public SlotSiteCredential build() {
-            final var o = new SlotSiteCredential();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new SlotSiteCredential();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

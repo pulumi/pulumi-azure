@@ -171,15 +171,15 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
             return this;
         }
         public SpringCloudServiceConfigServerGitSettingRepository build() {
-            final var o = new SpringCloudServiceConfigServerGitSettingRepository();
-            o.httpBasicAuth = httpBasicAuth;
-            o.label = label;
-            o.name = name;
-            o.patterns = patterns;
-            o.searchPaths = searchPaths;
-            o.sshAuth = sshAuth;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new SpringCloudServiceConfigServerGitSettingRepository();
+            _resultValue.httpBasicAuth = httpBasicAuth;
+            _resultValue.label = label;
+            _resultValue.name = name;
+            _resultValue.patterns = patterns;
+            _resultValue.searchPaths = searchPaths;
+            _resultValue.sshAuth = sshAuth;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

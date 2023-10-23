@@ -106,12 +106,12 @@ public final class LinkedServiceAzureDatabricksInstancePool {
             return this;
         }
         public LinkedServiceAzureDatabricksInstancePool build() {
-            final var o = new LinkedServiceAzureDatabricksInstancePool();
-            o.clusterVersion = clusterVersion;
-            o.instancePoolId = instancePoolId;
-            o.maxNumberOfWorkers = maxNumberOfWorkers;
-            o.minNumberOfWorkers = minNumberOfWorkers;
-            return o;
+            final var _resultValue = new LinkedServiceAzureDatabricksInstancePool();
+            _resultValue.clusterVersion = clusterVersion;
+            _resultValue.instancePoolId = instancePoolId;
+            _resultValue.maxNumberOfWorkers = maxNumberOfWorkers;
+            _resultValue.minNumberOfWorkers = minNumberOfWorkers;
+            return _resultValue;
         }
     }
 }

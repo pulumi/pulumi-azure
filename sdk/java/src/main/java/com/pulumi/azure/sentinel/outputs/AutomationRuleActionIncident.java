@@ -179,15 +179,15 @@ public final class AutomationRuleActionIncident {
             return this;
         }
         public AutomationRuleActionIncident build() {
-            final var o = new AutomationRuleActionIncident();
-            o.classification = classification;
-            o.classificationComment = classificationComment;
-            o.labels = labels;
-            o.order = order;
-            o.ownerId = ownerId;
-            o.severity = severity;
-            o.status = status;
-            return o;
+            final var _resultValue = new AutomationRuleActionIncident();
+            _resultValue.classification = classification;
+            _resultValue.classificationComment = classificationComment;
+            _resultValue.labels = labels;
+            _resultValue.order = order;
+            _resultValue.ownerId = ownerId;
+            _resultValue.severity = severity;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

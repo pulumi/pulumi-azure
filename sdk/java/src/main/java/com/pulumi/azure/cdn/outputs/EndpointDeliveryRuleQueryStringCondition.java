@@ -113,12 +113,12 @@ public final class EndpointDeliveryRuleQueryStringCondition {
             return transforms(List.of(transforms));
         }
         public EndpointDeliveryRuleQueryStringCondition build() {
-            final var o = new EndpointDeliveryRuleQueryStringCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            o.transforms = transforms;
-            return o;
+            final var _resultValue = new EndpointDeliveryRuleQueryStringCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            _resultValue.transforms = transforms;
+            return _resultValue;
         }
     }
 }

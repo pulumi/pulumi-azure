@@ -135,13 +135,13 @@ public final class FrontdoorRuleActions {
             return this;
         }
         public FrontdoorRuleActions build() {
-            final var o = new FrontdoorRuleActions();
-            o.requestHeaderActions = requestHeaderActions;
-            o.responseHeaderActions = responseHeaderActions;
-            o.routeConfigurationOverrideAction = routeConfigurationOverrideAction;
-            o.urlRedirectAction = urlRedirectAction;
-            o.urlRewriteAction = urlRewriteAction;
-            return o;
+            final var _resultValue = new FrontdoorRuleActions();
+            _resultValue.requestHeaderActions = requestHeaderActions;
+            _resultValue.responseHeaderActions = responseHeaderActions;
+            _resultValue.routeConfigurationOverrideAction = routeConfigurationOverrideAction;
+            _resultValue.urlRedirectAction = urlRedirectAction;
+            _resultValue.urlRewriteAction = urlRewriteAction;
+            return _resultValue;
         }
     }
 }

@@ -227,19 +227,19 @@ public final class GetManagedHardwareSecurityModuleResult {
             return this;
         }
         public GetManagedHardwareSecurityModuleResult build() {
-            final var o = new GetManagedHardwareSecurityModuleResult();
-            o.adminObjectIds = adminObjectIds;
-            o.hsmUri = hsmUri;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.purgeProtectionEnabled = purgeProtectionEnabled;
-            o.resourceGroupName = resourceGroupName;
-            o.skuName = skuName;
-            o.softDeleteRetentionDays = softDeleteRetentionDays;
-            o.tags = tags;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new GetManagedHardwareSecurityModuleResult();
+            _resultValue.adminObjectIds = adminObjectIds;
+            _resultValue.hsmUri = hsmUri;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.purgeProtectionEnabled = purgeProtectionEnabled;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.skuName = skuName;
+            _resultValue.softDeleteRetentionDays = softDeleteRetentionDays;
+            _resultValue.tags = tags;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

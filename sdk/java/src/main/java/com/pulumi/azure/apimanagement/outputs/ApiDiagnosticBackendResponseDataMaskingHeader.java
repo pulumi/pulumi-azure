@@ -65,10 +65,10 @@ public final class ApiDiagnosticBackendResponseDataMaskingHeader {
             return this;
         }
         public ApiDiagnosticBackendResponseDataMaskingHeader build() {
-            final var o = new ApiDiagnosticBackendResponseDataMaskingHeader();
-            o.mode = mode;
-            o.value = value;
-            return o;
+            final var _resultValue = new ApiDiagnosticBackendResponseDataMaskingHeader();
+            _resultValue.mode = mode;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

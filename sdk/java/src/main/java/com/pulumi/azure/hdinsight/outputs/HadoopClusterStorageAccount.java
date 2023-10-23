@@ -114,12 +114,12 @@ public final class HadoopClusterStorageAccount {
             return this;
         }
         public HadoopClusterStorageAccount build() {
-            final var o = new HadoopClusterStorageAccount();
-            o.isDefault = isDefault;
-            o.storageAccountKey = storageAccountKey;
-            o.storageContainerId = storageContainerId;
-            o.storageResourceId = storageResourceId;
-            return o;
+            final var _resultValue = new HadoopClusterStorageAccount();
+            _resultValue.isDefault = isDefault;
+            _resultValue.storageAccountKey = storageAccountKey;
+            _resultValue.storageContainerId = storageContainerId;
+            _resultValue.storageResourceId = storageResourceId;
+            return _resultValue;
         }
     }
 }

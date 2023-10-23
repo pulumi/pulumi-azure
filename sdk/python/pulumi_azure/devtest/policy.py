@@ -59,7 +59,19 @@ class PolicyArgs:
              fact_data: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'evaluatorType' in kwargs:
+            evaluator_type = kwargs['evaluatorType']
+        if 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if 'policySetName' in kwargs:
+            policy_set_name = kwargs['policySetName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'factData' in kwargs:
+            fact_data = kwargs['factData']
+
         _setter("evaluator_type", evaluator_type)
         _setter("lab_name", lab_name)
         _setter("policy_set_name", policy_set_name)
@@ -231,7 +243,19 @@ class _PolicyState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              threshold: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'evaluatorType' in kwargs:
+            evaluator_type = kwargs['evaluatorType']
+        if 'factData' in kwargs:
+            fact_data = kwargs['factData']
+        if 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if 'policySetName' in kwargs:
+            policy_set_name = kwargs['policySetName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if description is not None:
             _setter("description", description)
         if evaluator_type is not None:

@@ -92,11 +92,11 @@ public final class AlertRuleFusionSource {
             return subTypes(List.of(subTypes));
         }
         public AlertRuleFusionSource build() {
-            final var o = new AlertRuleFusionSource();
-            o.enabled = enabled;
-            o.name = name;
-            o.subTypes = subTypes;
-            return o;
+            final var _resultValue = new AlertRuleFusionSource();
+            _resultValue.enabled = enabled;
+            _resultValue.name = name;
+            _resultValue.subTypes = subTypes;
+            return _resultValue;
         }
     }
 }

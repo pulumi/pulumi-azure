@@ -65,10 +65,10 @@ public final class AlertProcessingRuleActionGroupScheduleRecurrenceDaily {
             return this;
         }
         public AlertProcessingRuleActionGroupScheduleRecurrenceDaily build() {
-            final var o = new AlertProcessingRuleActionGroupScheduleRecurrenceDaily();
-            o.endTime = endTime;
-            o.startTime = startTime;
-            return o;
+            final var _resultValue = new AlertProcessingRuleActionGroupScheduleRecurrenceDaily();
+            _resultValue.endTime = endTime;
+            _resultValue.startTime = startTime;
+            return _resultValue;
         }
     }
 }

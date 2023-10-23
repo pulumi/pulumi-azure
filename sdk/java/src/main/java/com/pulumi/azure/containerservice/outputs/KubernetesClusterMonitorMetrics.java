@@ -67,10 +67,10 @@ public final class KubernetesClusterMonitorMetrics {
             return this;
         }
         public KubernetesClusterMonitorMetrics build() {
-            final var o = new KubernetesClusterMonitorMetrics();
-            o.annotationsAllowed = annotationsAllowed;
-            o.labelsAllowed = labelsAllowed;
-            return o;
+            final var _resultValue = new KubernetesClusterMonitorMetrics();
+            _resultValue.annotationsAllowed = annotationsAllowed;
+            _resultValue.labelsAllowed = labelsAllowed;
+            return _resultValue;
         }
     }
 }

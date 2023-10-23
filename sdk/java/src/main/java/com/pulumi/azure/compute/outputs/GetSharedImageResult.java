@@ -318,24 +318,24 @@ public final class GetSharedImageResult {
             return this;
         }
         public GetSharedImageResult build() {
-            final var o = new GetSharedImageResult();
-            o.architecture = architecture;
-            o.description = description;
-            o.eula = eula;
-            o.galleryName = galleryName;
-            o.hyperVGeneration = hyperVGeneration;
-            o.id = id;
-            o.identifiers = identifiers;
-            o.location = location;
-            o.name = name;
-            o.osType = osType;
-            o.privacyStatementUri = privacyStatementUri;
-            o.purchasePlans = purchasePlans;
-            o.releaseNoteUri = releaseNoteUri;
-            o.resourceGroupName = resourceGroupName;
-            o.specialized = specialized;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSharedImageResult();
+            _resultValue.architecture = architecture;
+            _resultValue.description = description;
+            _resultValue.eula = eula;
+            _resultValue.galleryName = galleryName;
+            _resultValue.hyperVGeneration = hyperVGeneration;
+            _resultValue.id = id;
+            _resultValue.identifiers = identifiers;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.osType = osType;
+            _resultValue.privacyStatementUri = privacyStatementUri;
+            _resultValue.purchasePlans = purchasePlans;
+            _resultValue.releaseNoteUri = releaseNoteUri;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.specialized = specialized;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

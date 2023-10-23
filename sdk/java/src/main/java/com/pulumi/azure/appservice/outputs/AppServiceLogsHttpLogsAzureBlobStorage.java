@@ -66,10 +66,10 @@ public final class AppServiceLogsHttpLogsAzureBlobStorage {
             return this;
         }
         public AppServiceLogsHttpLogsAzureBlobStorage build() {
-            final var o = new AppServiceLogsHttpLogsAzureBlobStorage();
-            o.retentionInDays = retentionInDays;
-            o.sasUrl = sasUrl;
-            return o;
+            final var _resultValue = new AppServiceLogsHttpLogsAzureBlobStorage();
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.sasUrl = sasUrl;
+            return _resultValue;
         }
     }
 }

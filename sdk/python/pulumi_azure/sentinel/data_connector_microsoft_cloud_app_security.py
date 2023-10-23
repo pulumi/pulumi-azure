@@ -47,7 +47,17 @@ class DataConnectorMicrosoftCloudAppSecurityArgs:
              discovery_logs_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'alertsEnabled' in kwargs:
+            alerts_enabled = kwargs['alertsEnabled']
+        if 'discoveryLogsEnabled' in kwargs:
+            discovery_logs_enabled = kwargs['discoveryLogsEnabled']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if alerts_enabled is not None:
             _setter("alerts_enabled", alerts_enabled)
@@ -159,7 +169,17 @@ class _DataConnectorMicrosoftCloudAppSecurityState:
              log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertsEnabled' in kwargs:
+            alerts_enabled = kwargs['alertsEnabled']
+        if 'discoveryLogsEnabled' in kwargs:
+            discovery_logs_enabled = kwargs['discoveryLogsEnabled']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if alerts_enabled is not None:
             _setter("alerts_enabled", alerts_enabled)
         if discovery_logs_enabled is not None:

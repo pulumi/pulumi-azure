@@ -138,13 +138,13 @@ public final class EventHubNamespaceNetworkRulesets {
             return virtualNetworkRules(List.of(virtualNetworkRules));
         }
         public EventHubNamespaceNetworkRulesets build() {
-            final var o = new EventHubNamespaceNetworkRulesets();
-            o.defaultAction = defaultAction;
-            o.ipRules = ipRules;
-            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            o.trustedServiceAccessEnabled = trustedServiceAccessEnabled;
-            o.virtualNetworkRules = virtualNetworkRules;
-            return o;
+            final var _resultValue = new EventHubNamespaceNetworkRulesets();
+            _resultValue.defaultAction = defaultAction;
+            _resultValue.ipRules = ipRules;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            _resultValue.trustedServiceAccessEnabled = trustedServiceAccessEnabled;
+            _resultValue.virtualNetworkRules = virtualNetworkRules;
+            return _resultValue;
         }
     }
 }

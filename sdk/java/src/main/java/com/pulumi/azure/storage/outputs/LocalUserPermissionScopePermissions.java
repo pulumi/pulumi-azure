@@ -124,13 +124,13 @@ public final class LocalUserPermissionScopePermissions {
             return this;
         }
         public LocalUserPermissionScopePermissions build() {
-            final var o = new LocalUserPermissionScopePermissions();
-            o.create = create;
-            o.delete = delete;
-            o.list = list;
-            o.read = read;
-            o.write = write;
-            return o;
+            final var _resultValue = new LocalUserPermissionScopePermissions();
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.list = list;
+            _resultValue.read = read;
+            _resultValue.write = write;
+            return _resultValue;
         }
     }
 }

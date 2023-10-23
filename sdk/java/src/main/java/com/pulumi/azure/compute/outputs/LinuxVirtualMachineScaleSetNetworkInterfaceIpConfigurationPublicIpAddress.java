@@ -153,14 +153,14 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
             return this;
         }
         public LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {
-            final var o = new LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
-            o.domainNameLabel = domainNameLabel;
-            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
-            o.ipTags = ipTags;
-            o.name = name;
-            o.publicIpPrefixId = publicIpPrefixId;
-            o.version = version;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
+            _resultValue.domainNameLabel = domainNameLabel;
+            _resultValue.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            _resultValue.ipTags = ipTags;
+            _resultValue.name = name;
+            _resultValue.publicIpPrefixId = publicIpPrefixId;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

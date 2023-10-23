@@ -107,12 +107,12 @@ public final class GlobalVMShutdownScheduleNotificationSettings {
             return this;
         }
         public GlobalVMShutdownScheduleNotificationSettings build() {
-            final var o = new GlobalVMShutdownScheduleNotificationSettings();
-            o.email = email;
-            o.enabled = enabled;
-            o.timeInMinutes = timeInMinutes;
-            o.webhookUrl = webhookUrl;
-            return o;
+            final var _resultValue = new GlobalVMShutdownScheduleNotificationSettings();
+            _resultValue.email = email;
+            _resultValue.enabled = enabled;
+            _resultValue.timeInMinutes = timeInMinutes;
+            _resultValue.webhookUrl = webhookUrl;
+            return _resultValue;
         }
     }
 }

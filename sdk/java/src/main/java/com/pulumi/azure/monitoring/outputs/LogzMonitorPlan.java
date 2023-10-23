@@ -105,12 +105,12 @@ public final class LogzMonitorPlan {
             return this;
         }
         public LogzMonitorPlan build() {
-            final var o = new LogzMonitorPlan();
-            o.billingCycle = billingCycle;
-            o.effectiveDate = effectiveDate;
-            o.planId = planId;
-            o.usageType = usageType;
-            return o;
+            final var _resultValue = new LogzMonitorPlan();
+            _resultValue.billingCycle = billingCycle;
+            _resultValue.effectiveDate = effectiveDate;
+            _resultValue.planId = planId;
+            _resultValue.usageType = usageType;
+            return _resultValue;
         }
     }
 }

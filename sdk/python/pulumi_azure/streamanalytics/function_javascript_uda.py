@@ -45,7 +45,11 @@ class FunctionJavascriptUdaArgs:
              script: pulumi.Input[str],
              stream_analytics_job_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'streamAnalyticsJobId' in kwargs:
+            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
+
         _setter("inputs", inputs)
         _setter("output", output)
         _setter("script", script)
@@ -146,7 +150,11 @@ class _FunctionJavascriptUdaState:
              output: Optional[pulumi.Input['FunctionJavascriptUdaOutputArgs']] = None,
              script: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'streamAnalyticsJobId' in kwargs:
+            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
+
         if inputs is not None:
             _setter("inputs", inputs)
         if name is not None:

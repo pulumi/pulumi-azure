@@ -209,17 +209,17 @@ public final class ApiOperationRequestQueryParameter {
             return values(List.of(values));
         }
         public ApiOperationRequestQueryParameter build() {
-            final var o = new ApiOperationRequestQueryParameter();
-            o.defaultValue = defaultValue;
-            o.description = description;
-            o.examples = examples;
-            o.name = name;
-            o.required = required;
-            o.schemaId = schemaId;
-            o.type = type;
-            o.typeName = typeName;
-            o.values = values;
-            return o;
+            final var _resultValue = new ApiOperationRequestQueryParameter();
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.description = description;
+            _resultValue.examples = examples;
+            _resultValue.name = name;
+            _resultValue.required = required;
+            _resultValue.schemaId = schemaId;
+            _resultValue.type = type;
+            _resultValue.typeName = typeName;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

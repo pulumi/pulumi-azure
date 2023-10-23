@@ -92,11 +92,11 @@ public final class ApiDiagnosticFrontendRequest {
             return headersToLogs(List.of(headersToLogs));
         }
         public ApiDiagnosticFrontendRequest build() {
-            final var o = new ApiDiagnosticFrontendRequest();
-            o.bodyBytes = bodyBytes;
-            o.dataMasking = dataMasking;
-            o.headersToLogs = headersToLogs;
-            return o;
+            final var _resultValue = new ApiDiagnosticFrontendRequest();
+            _resultValue.bodyBytes = bodyBytes;
+            _resultValue.dataMasking = dataMasking;
+            _resultValue.headersToLogs = headersToLogs;
+            return _resultValue;
         }
     }
 }

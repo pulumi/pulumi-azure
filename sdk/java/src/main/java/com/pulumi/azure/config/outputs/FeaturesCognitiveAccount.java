@@ -40,9 +40,9 @@ public final class FeaturesCognitiveAccount {
             return this;
         }
         public FeaturesCognitiveAccount build() {
-            final var o = new FeaturesCognitiveAccount();
-            o.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
-            return o;
+            final var _resultValue = new FeaturesCognitiveAccount();
+            _resultValue.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
+            return _resultValue;
         }
     }
 }

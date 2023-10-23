@@ -46,9 +46,9 @@ public final class GrafanaAzureMonitorWorkspaceIntegration {
             return this;
         }
         public GrafanaAzureMonitorWorkspaceIntegration build() {
-            final var o = new GrafanaAzureMonitorWorkspaceIntegration();
-            o.resourceId = resourceId;
-            return o;
+            final var _resultValue = new GrafanaAzureMonitorWorkspaceIntegration();
+            _resultValue.resourceId = resourceId;
+            return _resultValue;
         }
     }
 }

@@ -50,9 +50,9 @@ public final class TransformOutputCustomPresetFormatMp4OutputFile {
             return labels(List.of(labels));
         }
         public TransformOutputCustomPresetFormatMp4OutputFile build() {
-            final var o = new TransformOutputCustomPresetFormatMp4OutputFile();
-            o.labels = labels;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFormatMp4OutputFile();
+            _resultValue.labels = labels;
+            return _resultValue;
         }
     }
 }

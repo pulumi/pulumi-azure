@@ -46,9 +46,9 @@ public final class GetKubernetesClusterAgentPoolProfileUpgradeSetting {
             return this;
         }
         public GetKubernetesClusterAgentPoolProfileUpgradeSetting build() {
-            final var o = new GetKubernetesClusterAgentPoolProfileUpgradeSetting();
-            o.maxSurge = maxSurge;
-            return o;
+            final var _resultValue = new GetKubernetesClusterAgentPoolProfileUpgradeSetting();
+            _resultValue.maxSurge = maxSurge;
+            return _resultValue;
         }
     }
 }

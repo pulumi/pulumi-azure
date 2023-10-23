@@ -258,18 +258,18 @@ public final class GetDataCollectionRuleDataSource {
             return windowsFirewallLogs(List.of(windowsFirewallLogs));
         }
         public GetDataCollectionRuleDataSource build() {
-            final var o = new GetDataCollectionRuleDataSource();
-            o.dataImports = dataImports;
-            o.extensions = extensions;
-            o.iisLogs = iisLogs;
-            o.logFiles = logFiles;
-            o.performanceCounters = performanceCounters;
-            o.platformTelemetries = platformTelemetries;
-            o.prometheusForwarders = prometheusForwarders;
-            o.syslogs = syslogs;
-            o.windowsEventLogs = windowsEventLogs;
-            o.windowsFirewallLogs = windowsFirewallLogs;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleDataSource();
+            _resultValue.dataImports = dataImports;
+            _resultValue.extensions = extensions;
+            _resultValue.iisLogs = iisLogs;
+            _resultValue.logFiles = logFiles;
+            _resultValue.performanceCounters = performanceCounters;
+            _resultValue.platformTelemetries = platformTelemetries;
+            _resultValue.prometheusForwarders = prometheusForwarders;
+            _resultValue.syslogs = syslogs;
+            _resultValue.windowsEventLogs = windowsEventLogs;
+            _resultValue.windowsFirewallLogs = windowsFirewallLogs;
+            return _resultValue;
         }
     }
 }

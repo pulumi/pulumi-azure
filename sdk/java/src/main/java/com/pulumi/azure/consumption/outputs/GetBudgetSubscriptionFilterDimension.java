@@ -88,11 +88,11 @@ public final class GetBudgetSubscriptionFilterDimension {
             return values(List.of(values));
         }
         public GetBudgetSubscriptionFilterDimension build() {
-            final var o = new GetBudgetSubscriptionFilterDimension();
-            o.name = name;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetBudgetSubscriptionFilterDimension();
+            _resultValue.name = name;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

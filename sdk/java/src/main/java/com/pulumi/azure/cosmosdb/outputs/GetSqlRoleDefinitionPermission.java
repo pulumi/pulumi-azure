@@ -50,9 +50,9 @@ public final class GetSqlRoleDefinitionPermission {
             return dataActions(List.of(dataActions));
         }
         public GetSqlRoleDefinitionPermission build() {
-            final var o = new GetSqlRoleDefinitionPermission();
-            o.dataActions = dataActions;
-            return o;
+            final var _resultValue = new GetSqlRoleDefinitionPermission();
+            _resultValue.dataActions = dataActions;
+            return _resultValue;
         }
     }
 }

@@ -80,12 +80,12 @@ public final class GetManagedApiResult {
             return this;
         }
         public GetManagedApiResult build() {
-            final var o = new GetManagedApiResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetManagedApiResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

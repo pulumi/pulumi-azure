@@ -50,9 +50,9 @@ public final class CacheDefaultAccessPolicy {
             return accessRules(List.of(accessRules));
         }
         public CacheDefaultAccessPolicy build() {
-            final var o = new CacheDefaultAccessPolicy();
-            o.accessRules = accessRules;
-            return o;
+            final var _resultValue = new CacheDefaultAccessPolicy();
+            _resultValue.accessRules = accessRules;
+            return _resultValue;
         }
     }
 }

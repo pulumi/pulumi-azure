@@ -124,13 +124,13 @@ public final class ScaleSetPacketCaptureFilter {
             return this;
         }
         public ScaleSetPacketCaptureFilter build() {
-            final var o = new ScaleSetPacketCaptureFilter();
-            o.localIpAddress = localIpAddress;
-            o.localPort = localPort;
-            o.protocol = protocol;
-            o.remoteIpAddress = remoteIpAddress;
-            o.remotePort = remotePort;
-            return o;
+            final var _resultValue = new ScaleSetPacketCaptureFilter();
+            _resultValue.localIpAddress = localIpAddress;
+            _resultValue.localPort = localPort;
+            _resultValue.protocol = protocol;
+            _resultValue.remoteIpAddress = remoteIpAddress;
+            _resultValue.remotePort = remotePort;
+            return _resultValue;
         }
     }
 }

@@ -92,11 +92,11 @@ public final class AccountShareProperties {
             return this;
         }
         public AccountShareProperties build() {
-            final var o = new AccountShareProperties();
-            o.corsRules = corsRules;
-            o.retentionPolicy = retentionPolicy;
-            o.smb = smb;
-            return o;
+            final var _resultValue = new AccountShareProperties();
+            _resultValue.corsRules = corsRules;
+            _resultValue.retentionPolicy = retentionPolicy;
+            _resultValue.smb = smb;
+            return _resultValue;
         }
     }
 }

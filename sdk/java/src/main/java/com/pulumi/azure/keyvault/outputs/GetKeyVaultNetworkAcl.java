@@ -78,12 +78,12 @@ public final class GetKeyVaultNetworkAcl {
             return virtualNetworkSubnetIds(List.of(virtualNetworkSubnetIds));
         }
         public GetKeyVaultNetworkAcl build() {
-            final var o = new GetKeyVaultNetworkAcl();
-            o.bypass = bypass;
-            o.defaultAction = defaultAction;
-            o.ipRules = ipRules;
-            o.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
-            return o;
+            final var _resultValue = new GetKeyVaultNetworkAcl();
+            _resultValue.bypass = bypass;
+            _resultValue.defaultAction = defaultAction;
+            _resultValue.ipRules = ipRules;
+            _resultValue.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
+            return _resultValue;
         }
     }
 }

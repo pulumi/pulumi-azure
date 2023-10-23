@@ -84,11 +84,11 @@ public final class GetVirtualNetworkAllowedSubnet {
             return this;
         }
         public GetVirtualNetworkAllowedSubnet build() {
-            final var o = new GetVirtualNetworkAllowedSubnet();
-            o.allowPublicIp = allowPublicIp;
-            o.labSubnetName = labSubnetName;
-            o.resourceId = resourceId;
-            return o;
+            final var _resultValue = new GetVirtualNetworkAllowedSubnet();
+            _resultValue.allowPublicIp = allowPublicIp;
+            _resultValue.labSubnetName = labSubnetName;
+            _resultValue.resourceId = resourceId;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class AccountCustomerManagedKey {
             return this;
         }
         public AccountCustomerManagedKey build() {
-            final var o = new AccountCustomerManagedKey();
-            o.keyVaultKeyId = keyVaultKeyId;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new AccountCustomerManagedKey();
+            _resultValue.keyVaultKeyId = keyVaultKeyId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

@@ -149,15 +149,15 @@ public final class GetCertificateIssuerResult {
             return this;
         }
         public GetCertificateIssuerResult build() {
-            final var o = new GetCertificateIssuerResult();
-            o.accountId = accountId;
-            o.admins = admins;
-            o.id = id;
-            o.keyVaultId = keyVaultId;
-            o.name = name;
-            o.orgId = orgId;
-            o.providerName = providerName;
-            return o;
+            final var _resultValue = new GetCertificateIssuerResult();
+            _resultValue.accountId = accountId;
+            _resultValue.admins = admins;
+            _resultValue.id = id;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.name = name;
+            _resultValue.orgId = orgId;
+            _resultValue.providerName = providerName;
+            return _resultValue;
         }
     }
 }

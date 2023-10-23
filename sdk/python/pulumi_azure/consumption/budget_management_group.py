@@ -57,7 +57,15 @@ class BudgetManagementGroupArgs:
              filter: Optional[pulumi.Input['BudgetManagementGroupFilterArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              time_grain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'timePeriod' in kwargs:
+            time_period = kwargs['timePeriod']
+        if 'timeGrain' in kwargs:
+            time_grain = kwargs['timeGrain']
+
         _setter("amount", amount)
         _setter("management_group_id", management_group_id)
         _setter("notifications", notifications)
@@ -212,7 +220,15 @@ class _BudgetManagementGroupState:
              notifications: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupNotificationArgs']]]] = None,
              time_grain: Optional[pulumi.Input[str]] = None,
              time_period: Optional[pulumi.Input['BudgetManagementGroupTimePeriodArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'timeGrain' in kwargs:
+            time_grain = kwargs['timeGrain']
+        if 'timePeriod' in kwargs:
+            time_period = kwargs['timePeriod']
+
         if amount is not None:
             _setter("amount", amount)
         if etag is not None:

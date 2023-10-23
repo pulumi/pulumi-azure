@@ -125,13 +125,13 @@ public final class ScaleSetStorageProfileDataDisk {
             return this;
         }
         public ScaleSetStorageProfileDataDisk build() {
-            final var o = new ScaleSetStorageProfileDataDisk();
-            o.caching = caching;
-            o.createOption = createOption;
-            o.diskSizeGb = diskSizeGb;
-            o.lun = lun;
-            o.managedDiskType = managedDiskType;
-            return o;
+            final var _resultValue = new ScaleSetStorageProfileDataDisk();
+            _resultValue.caching = caching;
+            _resultValue.createOption = createOption;
+            _resultValue.diskSizeGb = diskSizeGb;
+            _resultValue.lun = lun;
+            _resultValue.managedDiskType = managedDiskType;
+            return _resultValue;
         }
     }
 }

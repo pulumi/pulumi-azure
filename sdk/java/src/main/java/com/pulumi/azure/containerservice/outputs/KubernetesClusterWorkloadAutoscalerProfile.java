@@ -114,12 +114,12 @@ public final class KubernetesClusterWorkloadAutoscalerProfile {
             return this;
         }
         public KubernetesClusterWorkloadAutoscalerProfile build() {
-            final var o = new KubernetesClusterWorkloadAutoscalerProfile();
-            o.kedaEnabled = kedaEnabled;
-            o.verticalPodAutoscalerControlledValues = verticalPodAutoscalerControlledValues;
-            o.verticalPodAutoscalerEnabled = verticalPodAutoscalerEnabled;
-            o.verticalPodAutoscalerUpdateMode = verticalPodAutoscalerUpdateMode;
-            return o;
+            final var _resultValue = new KubernetesClusterWorkloadAutoscalerProfile();
+            _resultValue.kedaEnabled = kedaEnabled;
+            _resultValue.verticalPodAutoscalerControlledValues = verticalPodAutoscalerControlledValues;
+            _resultValue.verticalPodAutoscalerEnabled = verticalPodAutoscalerEnabled;
+            _resultValue.verticalPodAutoscalerUpdateMode = verticalPodAutoscalerUpdateMode;
+            return _resultValue;
         }
     }
 }

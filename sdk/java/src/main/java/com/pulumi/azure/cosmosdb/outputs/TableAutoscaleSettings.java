@@ -48,9 +48,9 @@ public final class TableAutoscaleSettings {
             return this;
         }
         public TableAutoscaleSettings build() {
-            final var o = new TableAutoscaleSettings();
-            o.maxThroughput = maxThroughput;
-            return o;
+            final var _resultValue = new TableAutoscaleSettings();
+            _resultValue.maxThroughput = maxThroughput;
+            return _resultValue;
         }
     }
 }

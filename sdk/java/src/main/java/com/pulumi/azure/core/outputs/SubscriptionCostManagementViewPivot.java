@@ -65,10 +65,10 @@ public final class SubscriptionCostManagementViewPivot {
             return this;
         }
         public SubscriptionCostManagementViewPivot build() {
-            final var o = new SubscriptionCostManagementViewPivot();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new SubscriptionCostManagementViewPivot();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

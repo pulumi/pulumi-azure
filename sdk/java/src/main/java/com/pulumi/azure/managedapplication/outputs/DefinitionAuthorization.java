@@ -65,10 +65,10 @@ public final class DefinitionAuthorization {
             return this;
         }
         public DefinitionAuthorization build() {
-            final var o = new DefinitionAuthorization();
-            o.roleDefinitionId = roleDefinitionId;
-            o.servicePrincipalId = servicePrincipalId;
-            return o;
+            final var _resultValue = new DefinitionAuthorization();
+            _resultValue.roleDefinitionId = roleDefinitionId;
+            _resultValue.servicePrincipalId = servicePrincipalId;
+            return _resultValue;
         }
     }
 }

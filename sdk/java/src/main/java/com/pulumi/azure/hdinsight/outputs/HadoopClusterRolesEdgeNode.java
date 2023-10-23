@@ -137,13 +137,13 @@ public final class HadoopClusterRolesEdgeNode {
             return this;
         }
         public HadoopClusterRolesEdgeNode build() {
-            final var o = new HadoopClusterRolesEdgeNode();
-            o.httpsEndpoints = httpsEndpoints;
-            o.installScriptActions = installScriptActions;
-            o.targetInstanceCount = targetInstanceCount;
-            o.uninstallScriptActions = uninstallScriptActions;
-            o.vmSize = vmSize;
-            return o;
+            final var _resultValue = new HadoopClusterRolesEdgeNode();
+            _resultValue.httpsEndpoints = httpsEndpoints;
+            _resultValue.installScriptActions = installScriptActions;
+            _resultValue.targetInstanceCount = targetInstanceCount;
+            _resultValue.uninstallScriptActions = uninstallScriptActions;
+            _resultValue.vmSize = vmSize;
+            return _resultValue;
         }
     }
 }

@@ -43,7 +43,13 @@ class ResourceGuardArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vault_critical_operation_exclusion_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vaultCriticalOperationExclusionLists' in kwargs:
+            vault_critical_operation_exclusion_lists = kwargs['vaultCriticalOperationExclusionLists']
+
         _setter("resource_group_name", resource_group_name)
         if location is not None:
             _setter("location", location)
@@ -147,7 +153,13 @@ class _ResourceGuardState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vault_critical_operation_exclusion_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vaultCriticalOperationExclusionLists' in kwargs:
+            vault_critical_operation_exclusion_lists = kwargs['vaultCriticalOperationExclusionLists']
+
         if location is not None:
             _setter("location", location)
         if name is not None:

@@ -70,10 +70,10 @@ public final class KubernetesClusterMaintenanceWindowAllowed {
             return hours(List.of(hours));
         }
         public KubernetesClusterMaintenanceWindowAllowed build() {
-            final var o = new KubernetesClusterMaintenanceWindowAllowed();
-            o.day = day;
-            o.hours = hours;
-            return o;
+            final var _resultValue = new KubernetesClusterMaintenanceWindowAllowed();
+            _resultValue.day = day;
+            _resultValue.hours = hours;
+            return _resultValue;
         }
     }
 }

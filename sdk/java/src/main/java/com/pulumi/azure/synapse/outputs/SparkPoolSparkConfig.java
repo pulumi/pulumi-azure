@@ -65,10 +65,10 @@ public final class SparkPoolSparkConfig {
             return this;
         }
         public SparkPoolSparkConfig build() {
-            final var o = new SparkPoolSparkConfig();
-            o.content = content;
-            o.filename = filename;
-            return o;
+            final var _resultValue = new SparkPoolSparkConfig();
+            _resultValue.content = content;
+            _resultValue.filename = filename;
+            return _resultValue;
         }
     }
 }

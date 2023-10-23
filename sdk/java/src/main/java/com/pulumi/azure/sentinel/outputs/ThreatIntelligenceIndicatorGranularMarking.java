@@ -90,11 +90,11 @@ public final class ThreatIntelligenceIndicatorGranularMarking {
             return selectors(List.of(selectors));
         }
         public ThreatIntelligenceIndicatorGranularMarking build() {
-            final var o = new ThreatIntelligenceIndicatorGranularMarking();
-            o.language = language;
-            o.markingRef = markingRef;
-            o.selectors = selectors;
-            return o;
+            final var _resultValue = new ThreatIntelligenceIndicatorGranularMarking();
+            _resultValue.language = language;
+            _resultValue.markingRef = markingRef;
+            _resultValue.selectors = selectors;
+            return _resultValue;
         }
     }
 }

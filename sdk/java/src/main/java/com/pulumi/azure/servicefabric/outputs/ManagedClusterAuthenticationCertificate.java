@@ -86,11 +86,11 @@ public final class ManagedClusterAuthenticationCertificate {
             return this;
         }
         public ManagedClusterAuthenticationCertificate build() {
-            final var o = new ManagedClusterAuthenticationCertificate();
-            o.commonName = commonName;
-            o.thumbprint = thumbprint;
-            o.type = type;
-            return o;
+            final var _resultValue = new ManagedClusterAuthenticationCertificate();
+            _resultValue.commonName = commonName;
+            _resultValue.thumbprint = thumbprint;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

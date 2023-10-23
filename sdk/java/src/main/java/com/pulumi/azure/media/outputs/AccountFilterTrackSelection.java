@@ -50,9 +50,9 @@ public final class AccountFilterTrackSelection {
             return conditions(List.of(conditions));
         }
         public AccountFilterTrackSelection build() {
-            final var o = new AccountFilterTrackSelection();
-            o.conditions = conditions;
-            return o;
+            final var _resultValue = new AccountFilterTrackSelection();
+            _resultValue.conditions = conditions;
+            return _resultValue;
         }
     }
 }

@@ -152,14 +152,14 @@ public final class TransformOutputCustomPresetFilter {
             return this;
         }
         public TransformOutputCustomPresetFilter build() {
-            final var o = new TransformOutputCustomPresetFilter();
-            o.cropRectangle = cropRectangle;
-            o.deinterlace = deinterlace;
-            o.fadeIn = fadeIn;
-            o.fadeOut = fadeOut;
-            o.overlays = overlays;
-            o.rotation = rotation;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFilter();
+            _resultValue.cropRectangle = cropRectangle;
+            _resultValue.deinterlace = deinterlace;
+            _resultValue.fadeIn = fadeIn;
+            _resultValue.fadeOut = fadeOut;
+            _resultValue.overlays = overlays;
+            _resultValue.rotation = rotation;
+            return _resultValue;
         }
     }
 }

@@ -114,12 +114,12 @@ public final class RouteMapRuleMatchCriterion {
             return routePrefixes(List.of(routePrefixes));
         }
         public RouteMapRuleMatchCriterion build() {
-            final var o = new RouteMapRuleMatchCriterion();
-            o.asPaths = asPaths;
-            o.communities = communities;
-            o.matchCondition = matchCondition;
-            o.routePrefixes = routePrefixes;
-            return o;
+            final var _resultValue = new RouteMapRuleMatchCriterion();
+            _resultValue.asPaths = asPaths;
+            _resultValue.communities = communities;
+            _resultValue.matchCondition = matchCondition;
+            _resultValue.routePrefixes = routePrefixes;
+            return _resultValue;
         }
     }
 }

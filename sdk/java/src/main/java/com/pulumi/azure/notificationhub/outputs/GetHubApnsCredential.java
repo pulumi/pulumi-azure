@@ -122,13 +122,13 @@ public final class GetHubApnsCredential {
             return this;
         }
         public GetHubApnsCredential build() {
-            final var o = new GetHubApnsCredential();
-            o.applicationMode = applicationMode;
-            o.bundleId = bundleId;
-            o.keyId = keyId;
-            o.teamId = teamId;
-            o.token = token;
-            return o;
+            final var _resultValue = new GetHubApnsCredential();
+            _resultValue.applicationMode = applicationMode;
+            _resultValue.bundleId = bundleId;
+            _resultValue.keyId = keyId;
+            _resultValue.teamId = teamId;
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

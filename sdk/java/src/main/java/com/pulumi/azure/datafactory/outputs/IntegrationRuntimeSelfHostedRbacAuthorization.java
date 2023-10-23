@@ -54,9 +54,9 @@ public final class IntegrationRuntimeSelfHostedRbacAuthorization {
             return this;
         }
         public IntegrationRuntimeSelfHostedRbacAuthorization build() {
-            final var o = new IntegrationRuntimeSelfHostedRbacAuthorization();
-            o.resourceId = resourceId;
-            return o;
+            final var _resultValue = new IntegrationRuntimeSelfHostedRbacAuthorization();
+            _resultValue.resourceId = resourceId;
+            return _resultValue;
         }
     }
 }

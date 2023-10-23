@@ -454,30 +454,30 @@ public final class GetServiceResult {
             return tenantAccesses(List.of(tenantAccesses));
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.additionalLocations = additionalLocations;
-            o.developerPortalUrl = developerPortalUrl;
-            o.gatewayRegionalUrl = gatewayRegionalUrl;
-            o.gatewayUrl = gatewayUrl;
-            o.hostnameConfigurations = hostnameConfigurations;
-            o.id = id;
-            o.identities = identities;
-            o.location = location;
-            o.managementApiUrl = managementApiUrl;
-            o.name = name;
-            o.notificationSenderEmail = notificationSenderEmail;
-            o.portalUrl = portalUrl;
-            o.privateIpAddresses = privateIpAddresses;
-            o.publicIpAddressId = publicIpAddressId;
-            o.publicIpAddresses = publicIpAddresses;
-            o.publisherEmail = publisherEmail;
-            o.publisherName = publisherName;
-            o.resourceGroupName = resourceGroupName;
-            o.scmUrl = scmUrl;
-            o.skuName = skuName;
-            o.tags = tags;
-            o.tenantAccesses = tenantAccesses;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.additionalLocations = additionalLocations;
+            _resultValue.developerPortalUrl = developerPortalUrl;
+            _resultValue.gatewayRegionalUrl = gatewayRegionalUrl;
+            _resultValue.gatewayUrl = gatewayUrl;
+            _resultValue.hostnameConfigurations = hostnameConfigurations;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.location = location;
+            _resultValue.managementApiUrl = managementApiUrl;
+            _resultValue.name = name;
+            _resultValue.notificationSenderEmail = notificationSenderEmail;
+            _resultValue.portalUrl = portalUrl;
+            _resultValue.privateIpAddresses = privateIpAddresses;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.publicIpAddresses = publicIpAddresses;
+            _resultValue.publisherEmail = publisherEmail;
+            _resultValue.publisherName = publisherName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.scmUrl = scmUrl;
+            _resultValue.skuName = skuName;
+            _resultValue.tags = tags;
+            _resultValue.tenantAccesses = tenantAccesses;
+            return _resultValue;
         }
     }
 }

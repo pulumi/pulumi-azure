@@ -43,7 +43,15 @@ class BackupInstanceBlogStorageArgs:
              vault_id: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupPolicyId' in kwargs:
+            backup_policy_id = kwargs['backupPolicyId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         _setter("backup_policy_id", backup_policy_id)
         _setter("storage_account_id", storage_account_id)
         _setter("vault_id", vault_id)
@@ -145,7 +153,15 @@ class _BackupInstanceBlogStorageState:
              name: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupPolicyId' in kwargs:
+            backup_policy_id = kwargs['backupPolicyId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         if backup_policy_id is not None:
             _setter("backup_policy_id", backup_policy_id)
         if location is not None:

@@ -90,11 +90,11 @@ public final class BudgetSubscriptionFilterTag {
             return values(List.of(values));
         }
         public BudgetSubscriptionFilterTag build() {
-            final var o = new BudgetSubscriptionFilterTag();
-            o.name = name;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new BudgetSubscriptionFilterTag();
+            _resultValue.name = name;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

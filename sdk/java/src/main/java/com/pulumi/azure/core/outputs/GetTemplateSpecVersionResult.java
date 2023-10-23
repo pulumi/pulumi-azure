@@ -118,14 +118,14 @@ public final class GetTemplateSpecVersionResult {
             return this;
         }
         public GetTemplateSpecVersionResult build() {
-            final var o = new GetTemplateSpecVersionResult();
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.templateBody = templateBody;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetTemplateSpecVersionResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.templateBody = templateBody;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

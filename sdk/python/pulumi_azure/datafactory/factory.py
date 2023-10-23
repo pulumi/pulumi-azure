@@ -77,7 +77,27 @@ class FactoryArgs:
              purview_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vsts_configuration: Optional[pulumi.Input['FactoryVstsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'customerManagedKeyId' in kwargs:
+            customer_managed_key_id = kwargs['customerManagedKeyId']
+        if 'customerManagedKeyIdentityId' in kwargs:
+            customer_managed_key_identity_id = kwargs['customerManagedKeyIdentityId']
+        if 'githubConfiguration' in kwargs:
+            github_configuration = kwargs['githubConfiguration']
+        if 'globalParameters' in kwargs:
+            global_parameters = kwargs['globalParameters']
+        if 'managedVirtualNetworkEnabled' in kwargs:
+            managed_virtual_network_enabled = kwargs['managedVirtualNetworkEnabled']
+        if 'publicNetworkEnabled' in kwargs:
+            public_network_enabled = kwargs['publicNetworkEnabled']
+        if 'purviewId' in kwargs:
+            purview_id = kwargs['purviewId']
+        if 'vstsConfiguration' in kwargs:
+            vsts_configuration = kwargs['vstsConfiguration']
+
         _setter("resource_group_name", resource_group_name)
         if customer_managed_key_id is not None:
             _setter("customer_managed_key_id", customer_managed_key_id)
@@ -325,7 +345,27 @@ class _FactoryState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vsts_configuration: Optional[pulumi.Input['FactoryVstsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedKeyId' in kwargs:
+            customer_managed_key_id = kwargs['customerManagedKeyId']
+        if 'customerManagedKeyIdentityId' in kwargs:
+            customer_managed_key_identity_id = kwargs['customerManagedKeyIdentityId']
+        if 'githubConfiguration' in kwargs:
+            github_configuration = kwargs['githubConfiguration']
+        if 'globalParameters' in kwargs:
+            global_parameters = kwargs['globalParameters']
+        if 'managedVirtualNetworkEnabled' in kwargs:
+            managed_virtual_network_enabled = kwargs['managedVirtualNetworkEnabled']
+        if 'publicNetworkEnabled' in kwargs:
+            public_network_enabled = kwargs['publicNetworkEnabled']
+        if 'purviewId' in kwargs:
+            purview_id = kwargs['purviewId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vstsConfiguration' in kwargs:
+            vsts_configuration = kwargs['vstsConfiguration']
+
         if customer_managed_key_id is not None:
             _setter("customer_managed_key_id", customer_managed_key_id)
         if customer_managed_key_identity_id is not None:

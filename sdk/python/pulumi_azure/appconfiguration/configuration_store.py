@@ -81,7 +81,19 @@ class ConfigurationStoreArgs:
              sku: Optional[pulumi.Input[str]] = None,
              soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if 'purgeProtectionEnabled' in kwargs:
+            purge_protection_enabled = kwargs['purgeProtectionEnabled']
+        if 'softDeleteRetentionDays' in kwargs:
+            soft_delete_retention_days = kwargs['softDeleteRetentionDays']
+
         _setter("resource_group_name", resource_group_name)
         if encryption is not None:
             _setter("encryption", encryption)
@@ -347,7 +359,27 @@ class _ConfigurationStoreState:
              sku: Optional[pulumi.Input[str]] = None,
              soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'primaryReadKeys' in kwargs:
+            primary_read_keys = kwargs['primaryReadKeys']
+        if 'primaryWriteKeys' in kwargs:
+            primary_write_keys = kwargs['primaryWriteKeys']
+        if 'publicNetworkAccess' in kwargs:
+            public_network_access = kwargs['publicNetworkAccess']
+        if 'purgeProtectionEnabled' in kwargs:
+            purge_protection_enabled = kwargs['purgeProtectionEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryReadKeys' in kwargs:
+            secondary_read_keys = kwargs['secondaryReadKeys']
+        if 'secondaryWriteKeys' in kwargs:
+            secondary_write_keys = kwargs['secondaryWriteKeys']
+        if 'softDeleteRetentionDays' in kwargs:
+            soft_delete_retention_days = kwargs['softDeleteRetentionDays']
+
         if encryption is not None:
             _setter("encryption", encryption)
         if endpoint is not None:

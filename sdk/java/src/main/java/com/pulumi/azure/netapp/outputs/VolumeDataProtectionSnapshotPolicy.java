@@ -38,9 +38,9 @@ public final class VolumeDataProtectionSnapshotPolicy {
             return this;
         }
         public VolumeDataProtectionSnapshotPolicy build() {
-            final var o = new VolumeDataProtectionSnapshotPolicy();
-            o.snapshotPolicyId = snapshotPolicyId;
-            return o;
+            final var _resultValue = new VolumeDataProtectionSnapshotPolicy();
+            _resultValue.snapshotPolicyId = snapshotPolicyId;
+            return _resultValue;
         }
     }
 }

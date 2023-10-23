@@ -58,14 +58,14 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A `autoscale_configuration` block as defined below.
+     * An `autoscale_configuration` block as defined below.
      * 
      */
     @Import(name="autoscaleConfiguration")
     private @Nullable Output<ApplicationGatewayAutoscaleConfigurationArgs> autoscaleConfiguration;
 
     /**
-     * @return A `autoscale_configuration` block as defined below.
+     * @return An `autoscale_configuration` block as defined below.
      * 
      */
     public Optional<Output<ApplicationGatewayAutoscaleConfigurationArgs>> autoscaleConfiguration() {
@@ -435,16 +435,12 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
     /**
      * One or more `ssl_profile` blocks as defined below.
      * 
-     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
-     * 
      */
     @Import(name="sslProfiles")
     private @Nullable Output<List<ApplicationGatewaySslProfileArgs>> sslProfiles;
 
     /**
      * @return One or more `ssl_profile` blocks as defined below.
-     * 
-     * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
      * 
      */
     public Optional<Output<List<ApplicationGatewaySslProfileArgs>>> sslProfiles() {
@@ -529,12 +525,16 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
     /**
      * Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
      * 
+     * &gt; **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+     * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
      * @return Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
+     * 
+     * &gt; **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -629,7 +629,7 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param autoscaleConfiguration A `autoscale_configuration` block as defined below.
+         * @param autoscaleConfiguration An `autoscale_configuration` block as defined below.
          * 
          * @return builder
          * 
@@ -640,7 +640,7 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param autoscaleConfiguration A `autoscale_configuration` block as defined below.
+         * @param autoscaleConfiguration An `autoscale_configuration` block as defined below.
          * 
          * @return builder
          * 
@@ -1286,8 +1286,6 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
         /**
          * @param sslProfiles One or more `ssl_profile` blocks as defined below.
          * 
-         * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
-         * 
          * @return builder
          * 
          */
@@ -1299,8 +1297,6 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
         /**
          * @param sslProfiles One or more `ssl_profile` blocks as defined below.
          * 
-         * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
-         * 
          * @return builder
          * 
          */
@@ -1310,8 +1306,6 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param sslProfiles One or more `ssl_profile` blocks as defined below.
-         * 
-         * &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
          * 
          * @return builder
          * 
@@ -1458,6 +1452,8 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
         /**
          * @param zones Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
          * 
+         * &gt; **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+         * 
          * @return builder
          * 
          */
@@ -1469,6 +1465,8 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
         /**
          * @param zones Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
          * 
+         * &gt; **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+         * 
          * @return builder
          * 
          */
@@ -1478,6 +1476,8 @@ public final class ApplicationGatewayArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param zones Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
+         * 
+         * &gt; **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
          * 
          * @return builder
          * 

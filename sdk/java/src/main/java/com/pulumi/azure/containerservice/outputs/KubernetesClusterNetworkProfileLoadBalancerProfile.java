@@ -185,15 +185,15 @@ public final class KubernetesClusterNetworkProfileLoadBalancerProfile {
             return this;
         }
         public KubernetesClusterNetworkProfileLoadBalancerProfile build() {
-            final var o = new KubernetesClusterNetworkProfileLoadBalancerProfile();
-            o.effectiveOutboundIps = effectiveOutboundIps;
-            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
-            o.managedOutboundIpCount = managedOutboundIpCount;
-            o.managedOutboundIpv6Count = managedOutboundIpv6Count;
-            o.outboundIpAddressIds = outboundIpAddressIds;
-            o.outboundIpPrefixIds = outboundIpPrefixIds;
-            o.outboundPortsAllocated = outboundPortsAllocated;
-            return o;
+            final var _resultValue = new KubernetesClusterNetworkProfileLoadBalancerProfile();
+            _resultValue.effectiveOutboundIps = effectiveOutboundIps;
+            _resultValue.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            _resultValue.managedOutboundIpCount = managedOutboundIpCount;
+            _resultValue.managedOutboundIpv6Count = managedOutboundIpv6Count;
+            _resultValue.outboundIpAddressIds = outboundIpAddressIds;
+            _resultValue.outboundIpPrefixIds = outboundIpPrefixIds;
+            _resultValue.outboundPortsAllocated = outboundPortsAllocated;
+            return _resultValue;
         }
     }
 }

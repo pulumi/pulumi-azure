@@ -67,10 +67,10 @@ public final class MongoRoleDefinitionPrivilegeResource {
             return this;
         }
         public MongoRoleDefinitionPrivilegeResource build() {
-            final var o = new MongoRoleDefinitionPrivilegeResource();
-            o.collectionName = collectionName;
-            o.dbName = dbName;
-            return o;
+            final var _resultValue = new MongoRoleDefinitionPrivilegeResource();
+            _resultValue.collectionName = collectionName;
+            _resultValue.dbName = dbName;
+            return _resultValue;
         }
     }
 }

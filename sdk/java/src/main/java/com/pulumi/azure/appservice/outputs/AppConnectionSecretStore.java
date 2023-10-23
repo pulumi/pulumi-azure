@@ -46,9 +46,9 @@ public final class AppConnectionSecretStore {
             return this;
         }
         public AppConnectionSecretStore build() {
-            final var o = new AppConnectionSecretStore();
-            o.keyVaultId = keyVaultId;
-            return o;
+            final var _resultValue = new AppConnectionSecretStore();
+            _resultValue.keyVaultId = keyVaultId;
+            return _resultValue;
         }
     }
 }

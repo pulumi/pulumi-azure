@@ -87,12 +87,12 @@ public final class GetNetworkManagerNetworkGroupResult {
             return this;
         }
         public GetNetworkManagerNetworkGroupResult build() {
-            final var o = new GetNetworkManagerNetworkGroupResult();
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.networkManagerId = networkManagerId;
-            return o;
+            final var _resultValue = new GetNetworkManagerNetworkGroupResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.networkManagerId = networkManagerId;
+            return _resultValue;
         }
     }
 }

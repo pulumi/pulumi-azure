@@ -143,13 +143,13 @@ public final class ServiceHostnameConfiguration {
             return scms(List.of(scms));
         }
         public ServiceHostnameConfiguration build() {
-            final var o = new ServiceHostnameConfiguration();
-            o.developerPortals = developerPortals;
-            o.managements = managements;
-            o.portals = portals;
-            o.proxies = proxies;
-            o.scms = scms;
-            return o;
+            final var _resultValue = new ServiceHostnameConfiguration();
+            _resultValue.developerPortals = developerPortals;
+            _resultValue.managements = managements;
+            _resultValue.portals = portals;
+            _resultValue.proxies = proxies;
+            _resultValue.scms = scms;
+            return _resultValue;
         }
     }
 }

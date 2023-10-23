@@ -65,10 +65,10 @@ public final class HadoopClusterExtension {
             return this;
         }
         public HadoopClusterExtension build() {
-            final var o = new HadoopClusterExtension();
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.primaryKey = primaryKey;
-            return o;
+            final var _resultValue = new HadoopClusterExtension();
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.primaryKey = primaryKey;
+            return _resultValue;
         }
     }
 }

@@ -200,16 +200,16 @@ public final class GetGatewayConnectionIpsecPolicy {
             return this;
         }
         public GetGatewayConnectionIpsecPolicy build() {
-            final var o = new GetGatewayConnectionIpsecPolicy();
-            o.dhGroup = dhGroup;
-            o.ikeEncryption = ikeEncryption;
-            o.ikeIntegrity = ikeIntegrity;
-            o.ipsecEncryption = ipsecEncryption;
-            o.ipsecIntegrity = ipsecIntegrity;
-            o.pfsGroup = pfsGroup;
-            o.saDatasize = saDatasize;
-            o.saLifetime = saLifetime;
-            return o;
+            final var _resultValue = new GetGatewayConnectionIpsecPolicy();
+            _resultValue.dhGroup = dhGroup;
+            _resultValue.ikeEncryption = ikeEncryption;
+            _resultValue.ikeIntegrity = ikeIntegrity;
+            _resultValue.ipsecEncryption = ipsecEncryption;
+            _resultValue.ipsecIntegrity = ipsecIntegrity;
+            _resultValue.pfsGroup = pfsGroup;
+            _resultValue.saDatasize = saDatasize;
+            _resultValue.saLifetime = saLifetime;
+            return _resultValue;
         }
     }
 }

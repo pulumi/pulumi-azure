@@ -124,13 +124,13 @@ public final class PoolMountAzureFileShare {
             return this;
         }
         public PoolMountAzureFileShare build() {
-            final var o = new PoolMountAzureFileShare();
-            o.accountKey = accountKey;
-            o.accountName = accountName;
-            o.azureFileUrl = azureFileUrl;
-            o.mountOptions = mountOptions;
-            o.relativeMountPath = relativeMountPath;
-            return o;
+            final var _resultValue = new PoolMountAzureFileShare();
+            _resultValue.accountKey = accountKey;
+            _resultValue.accountName = accountName;
+            _resultValue.azureFileUrl = azureFileUrl;
+            _resultValue.mountOptions = mountOptions;
+            _resultValue.relativeMountPath = relativeMountPath;
+            return _resultValue;
         }
     }
 }

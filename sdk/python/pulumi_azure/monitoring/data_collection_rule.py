@@ -75,7 +75,19 @@ class DataCollectionRuleArgs:
              name: Optional[pulumi.Input[str]] = None,
              stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFlows' in kwargs:
+            data_flows = kwargs['dataFlows']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'dataCollectionEndpointId' in kwargs:
+            data_collection_endpoint_id = kwargs['dataCollectionEndpointId']
+        if 'dataSources' in kwargs:
+            data_sources = kwargs['dataSources']
+        if 'streamDeclarations' in kwargs:
+            stream_declarations = kwargs['streamDeclarations']
+
         _setter("data_flows", data_flows)
         _setter("destinations", destinations)
         _setter("resource_group_name", resource_group_name)
@@ -311,7 +323,21 @@ class _DataCollectionRuleState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataCollectionEndpointId' in kwargs:
+            data_collection_endpoint_id = kwargs['dataCollectionEndpointId']
+        if 'dataFlows' in kwargs:
+            data_flows = kwargs['dataFlows']
+        if 'dataSources' in kwargs:
+            data_sources = kwargs['dataSources']
+        if 'immutableId' in kwargs:
+            immutable_id = kwargs['immutableId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamDeclarations' in kwargs:
+            stream_declarations = kwargs['streamDeclarations']
+
         if data_collection_endpoint_id is not None:
             _setter("data_collection_endpoint_id", data_collection_endpoint_id)
         if data_flows is not None:

@@ -149,14 +149,14 @@ public final class VirtualHubConnectionRouting {
             return staticVnetRoutes(List.of(staticVnetRoutes));
         }
         public VirtualHubConnectionRouting build() {
-            final var o = new VirtualHubConnectionRouting();
-            o.associatedRouteTableId = associatedRouteTableId;
-            o.inboundRouteMapId = inboundRouteMapId;
-            o.outboundRouteMapId = outboundRouteMapId;
-            o.propagatedRouteTable = propagatedRouteTable;
-            o.staticVnetLocalRouteOverrideCriteria = staticVnetLocalRouteOverrideCriteria;
-            o.staticVnetRoutes = staticVnetRoutes;
-            return o;
+            final var _resultValue = new VirtualHubConnectionRouting();
+            _resultValue.associatedRouteTableId = associatedRouteTableId;
+            _resultValue.inboundRouteMapId = inboundRouteMapId;
+            _resultValue.outboundRouteMapId = outboundRouteMapId;
+            _resultValue.propagatedRouteTable = propagatedRouteTable;
+            _resultValue.staticVnetLocalRouteOverrideCriteria = staticVnetLocalRouteOverrideCriteria;
+            _resultValue.staticVnetRoutes = staticVnetRoutes;
+            return _resultValue;
         }
     }
 }

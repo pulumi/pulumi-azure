@@ -103,12 +103,12 @@ public final class WindowsVirtualMachineGalleryImageReference {
             return this;
         }
         public WindowsVirtualMachineGalleryImageReference build() {
-            final var o = new WindowsVirtualMachineGalleryImageReference();
-            o.offer = offer;
-            o.publisher = publisher;
-            o.sku = sku;
-            o.version = version;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineGalleryImageReference();
+            _resultValue.offer = offer;
+            _resultValue.publisher = publisher;
+            _resultValue.sku = sku;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

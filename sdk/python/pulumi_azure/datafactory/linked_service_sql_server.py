@@ -69,7 +69,23 @@ class LinkedServiceSqlServerArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'keyVaultConnectionString' in kwargs:
+            key_vault_connection_string = kwargs['keyVaultConnectionString']
+        if 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         _setter("data_factory_id", data_factory_id)
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
@@ -281,7 +297,23 @@ class _LinkedServiceSqlServerState:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'keyVaultConnectionString' in kwargs:
+            key_vault_connection_string = kwargs['keyVaultConnectionString']
+        if 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

@@ -90,11 +90,11 @@ public final class ComputeClusterSsh {
             return this;
         }
         public ComputeClusterSsh build() {
-            final var o = new ComputeClusterSsh();
-            o.adminPassword = adminPassword;
-            o.adminUsername = adminUsername;
-            o.keyValue = keyValue;
-            return o;
+            final var _resultValue = new ComputeClusterSsh();
+            _resultValue.adminPassword = adminPassword;
+            _resultValue.adminUsername = adminUsername;
+            _resultValue.keyValue = keyValue;
+            return _resultValue;
         }
     }
 }

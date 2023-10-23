@@ -65,10 +65,10 @@ public final class GetServiceStatusExtensionService {
             return this;
         }
         public GetServiceStatusExtensionService build() {
-            final var o = new GetServiceStatusExtensionService();
-            o.startupType = startupType;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetServiceStatusExtensionService();
+            _resultValue.startupType = startupType;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

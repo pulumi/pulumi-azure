@@ -73,10 +73,10 @@ public final class FirewallPolicyThreatIntelligenceAllowlist {
             return ipAddresses(List.of(ipAddresses));
         }
         public FirewallPolicyThreatIntelligenceAllowlist build() {
-            final var o = new FirewallPolicyThreatIntelligenceAllowlist();
-            o.fqdns = fqdns;
-            o.ipAddresses = ipAddresses;
-            return o;
+            final var _resultValue = new FirewallPolicyThreatIntelligenceAllowlist();
+            _resultValue.fqdns = fqdns;
+            _resultValue.ipAddresses = ipAddresses;
+            return _resultValue;
         }
     }
 }

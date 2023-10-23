@@ -43,7 +43,15 @@ class WebAppHybridConnectionArgs:
              relay_id: pulumi.Input[str],
              web_app_id: pulumi.Input[str],
              send_key_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relayId' in kwargs:
+            relay_id = kwargs['relayId']
+        if 'webAppId' in kwargs:
+            web_app_id = kwargs['webAppId']
+        if 'sendKeyName' in kwargs:
+            send_key_name = kwargs['sendKeyName']
+
         _setter("hostname", hostname)
         _setter("port", port)
         _setter("relay_id", relay_id)
@@ -164,7 +172,25 @@ class _WebAppHybridConnectionState:
              service_bus_namespace: Optional[pulumi.Input[str]] = None,
              service_bus_suffix: Optional[pulumi.Input[str]] = None,
              web_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'relayId' in kwargs:
+            relay_id = kwargs['relayId']
+        if 'relayName' in kwargs:
+            relay_name = kwargs['relayName']
+        if 'sendKeyName' in kwargs:
+            send_key_name = kwargs['sendKeyName']
+        if 'sendKeyValue' in kwargs:
+            send_key_value = kwargs['sendKeyValue']
+        if 'serviceBusNamespace' in kwargs:
+            service_bus_namespace = kwargs['serviceBusNamespace']
+        if 'serviceBusSuffix' in kwargs:
+            service_bus_suffix = kwargs['serviceBusSuffix']
+        if 'webAppId' in kwargs:
+            web_app_id = kwargs['webAppId']
+
         if hostname is not None:
             _setter("hostname", hostname)
         if namespace_name is not None:

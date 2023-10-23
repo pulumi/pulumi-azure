@@ -84,11 +84,11 @@ public final class VpnServerConfigurationPolicyGroupPolicy {
             return this;
         }
         public VpnServerConfigurationPolicyGroupPolicy build() {
-            final var o = new VpnServerConfigurationPolicyGroupPolicy();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new VpnServerConfigurationPolicyGroupPolicy();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -45,7 +45,11 @@ class ProviderPolicy(dict):
              _setter: Callable[[Any, Any], None],
              data: Optional[str] = None,
              environment_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'environmentType' in kwargs:
+            environment_type = kwargs['environmentType']
+
         if data is not None:
             _setter("data", data)
         if environment_type is not None:

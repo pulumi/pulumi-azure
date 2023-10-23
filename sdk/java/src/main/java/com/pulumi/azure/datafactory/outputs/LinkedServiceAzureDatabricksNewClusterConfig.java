@@ -225,18 +225,18 @@ public final class LinkedServiceAzureDatabricksNewClusterConfig {
             return this;
         }
         public LinkedServiceAzureDatabricksNewClusterConfig build() {
-            final var o = new LinkedServiceAzureDatabricksNewClusterConfig();
-            o.clusterVersion = clusterVersion;
-            o.customTags = customTags;
-            o.driverNodeType = driverNodeType;
-            o.initScripts = initScripts;
-            o.logDestination = logDestination;
-            o.maxNumberOfWorkers = maxNumberOfWorkers;
-            o.minNumberOfWorkers = minNumberOfWorkers;
-            o.nodeType = nodeType;
-            o.sparkConfig = sparkConfig;
-            o.sparkEnvironmentVariables = sparkEnvironmentVariables;
-            return o;
+            final var _resultValue = new LinkedServiceAzureDatabricksNewClusterConfig();
+            _resultValue.clusterVersion = clusterVersion;
+            _resultValue.customTags = customTags;
+            _resultValue.driverNodeType = driverNodeType;
+            _resultValue.initScripts = initScripts;
+            _resultValue.logDestination = logDestination;
+            _resultValue.maxNumberOfWorkers = maxNumberOfWorkers;
+            _resultValue.minNumberOfWorkers = minNumberOfWorkers;
+            _resultValue.nodeType = nodeType;
+            _resultValue.sparkConfig = sparkConfig;
+            _resultValue.sparkEnvironmentVariables = sparkEnvironmentVariables;
+            return _resultValue;
         }
     }
 }

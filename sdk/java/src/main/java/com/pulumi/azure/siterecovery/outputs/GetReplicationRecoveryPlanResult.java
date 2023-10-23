@@ -166,16 +166,16 @@ public final class GetReplicationRecoveryPlanResult {
             return this;
         }
         public GetReplicationRecoveryPlanResult build() {
-            final var o = new GetReplicationRecoveryPlanResult();
-            o.azureToAzureSettings = azureToAzureSettings;
-            o.failoverDeploymentModel = failoverDeploymentModel;
-            o.id = id;
-            o.name = name;
-            o.recoveryGroups = recoveryGroups;
-            o.recoveryVaultId = recoveryVaultId;
-            o.sourceRecoveryFabricId = sourceRecoveryFabricId;
-            o.targetRecoveryFabricId = targetRecoveryFabricId;
-            return o;
+            final var _resultValue = new GetReplicationRecoveryPlanResult();
+            _resultValue.azureToAzureSettings = azureToAzureSettings;
+            _resultValue.failoverDeploymentModel = failoverDeploymentModel;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.recoveryGroups = recoveryGroups;
+            _resultValue.recoveryVaultId = recoveryVaultId;
+            _resultValue.sourceRecoveryFabricId = sourceRecoveryFabricId;
+            _resultValue.targetRecoveryFabricId = targetRecoveryFabricId;
+            return _resultValue;
         }
     }
 }

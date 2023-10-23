@@ -66,10 +66,10 @@ public final class GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformati
             return this;
         }
         public GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation build() {
-            final var o = new GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation();
-            o.sliceDifferentiator = sliceDifferentiator;
-            o.sliceServiceType = sliceServiceType;
-            return o;
+            final var _resultValue = new GetNetworkSliceSingleNetworkSliceSelectionAssistanceInformation();
+            _resultValue.sliceDifferentiator = sliceDifferentiator;
+            _resultValue.sliceServiceType = sliceServiceType;
+            return _resultValue;
         }
     }
 }

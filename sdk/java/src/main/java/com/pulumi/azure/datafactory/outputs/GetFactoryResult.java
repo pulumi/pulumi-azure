@@ -177,16 +177,16 @@ public final class GetFactoryResult {
             return vstsConfigurations(List.of(vstsConfigurations));
         }
         public GetFactoryResult build() {
-            final var o = new GetFactoryResult();
-            o.githubConfigurations = githubConfigurations;
-            o.id = id;
-            o.identities = identities;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.vstsConfigurations = vstsConfigurations;
-            return o;
+            final var _resultValue = new GetFactoryResult();
+            _resultValue.githubConfigurations = githubConfigurations;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.vstsConfigurations = vstsConfigurations;
+            return _resultValue;
         }
     }
 }

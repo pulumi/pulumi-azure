@@ -50,9 +50,9 @@ public final class GetOsProfileWindow {
             return patches(List.of(patches));
         }
         public GetOsProfileWindow build() {
-            final var o = new GetOsProfileWindow();
-            o.patches = patches;
-            return o;
+            final var _resultValue = new GetOsProfileWindow();
+            _resultValue.patches = patches;
+            return _resultValue;
         }
     }
 }

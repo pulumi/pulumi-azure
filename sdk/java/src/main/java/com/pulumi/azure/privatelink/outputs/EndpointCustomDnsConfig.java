@@ -71,10 +71,10 @@ public final class EndpointCustomDnsConfig {
             return ipAddresses(List.of(ipAddresses));
         }
         public EndpointCustomDnsConfig build() {
-            final var o = new EndpointCustomDnsConfig();
-            o.fqdn = fqdn;
-            o.ipAddresses = ipAddresses;
-            return o;
+            final var _resultValue = new EndpointCustomDnsConfig();
+            _resultValue.fqdn = fqdn;
+            _resultValue.ipAddresses = ipAddresses;
+            return _resultValue;
         }
     }
 }

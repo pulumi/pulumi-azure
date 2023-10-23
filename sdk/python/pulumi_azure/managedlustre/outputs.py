@@ -54,7 +54,13 @@ class FileSystemEncryptionKey(dict):
              _setter: Callable[[Any, Any], None],
              key_url: str,
              source_vault_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUrl' in kwargs:
+            key_url = kwargs['keyUrl']
+        if 'sourceVaultId' in kwargs:
+            source_vault_id = kwargs['sourceVaultId']
+
         _setter("key_url", key_url)
         _setter("source_vault_id", source_vault_id)
 
@@ -121,7 +127,15 @@ class FileSystemHsmSetting(dict):
              container_id: str,
              logging_container_id: str,
              import_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerId' in kwargs:
+            container_id = kwargs['containerId']
+        if 'loggingContainerId' in kwargs:
+            logging_container_id = kwargs['loggingContainerId']
+        if 'importPrefix' in kwargs:
+            import_prefix = kwargs['importPrefix']
+
         _setter("container_id", container_id)
         _setter("logging_container_id", logging_container_id)
         if import_prefix is not None:
@@ -190,7 +204,11 @@ class FileSystemIdentity(dict):
              _setter: Callable[[Any, Any], None],
              identity_ids: Sequence[str],
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+
         _setter("identity_ids", identity_ids)
         _setter("type", type)
 
@@ -248,7 +266,13 @@ class FileSystemMaintenanceWindow(dict):
              _setter: Callable[[Any, Any], None],
              day_of_week: str,
              time_of_day_in_utc: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'timeOfDayInUtc' in kwargs:
+            time_of_day_in_utc = kwargs['timeOfDayInUtc']
+
         _setter("day_of_week", day_of_week)
         _setter("time_of_day_in_utc", time_of_day_in_utc)
 

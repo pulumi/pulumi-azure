@@ -156,16 +156,16 @@ public final class GetDatabaseResult {
             return this;
         }
         public GetDatabaseResult build() {
-            final var o = new GetDatabaseResult();
-            o.clusterName = clusterName;
-            o.hotCachePeriod = hotCachePeriod;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.size = size;
-            o.softDeletePeriod = softDeletePeriod;
-            return o;
+            final var _resultValue = new GetDatabaseResult();
+            _resultValue.clusterName = clusterName;
+            _resultValue.hotCachePeriod = hotCachePeriod;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.size = size;
+            _resultValue.softDeletePeriod = softDeletePeriod;
+            return _resultValue;
         }
     }
 }

@@ -33,7 +33,11 @@ class BlobInventoryPolicyArgs:
              _setter: Callable[[Any, Any], None],
              rules: pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]],
              storage_account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("rules", rules)
         _setter("storage_account_id", storage_account_id)
 
@@ -82,7 +86,11 @@ class _BlobInventoryPolicyState:
              _setter: Callable[[Any, Any], None],
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['BlobInventoryPolicyRuleArgs']]]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if rules is not None:
             _setter("rules", rules)
         if storage_account_id is not None:

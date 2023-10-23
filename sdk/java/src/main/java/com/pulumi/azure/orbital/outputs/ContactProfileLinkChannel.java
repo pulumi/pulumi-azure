@@ -149,14 +149,14 @@ public final class ContactProfileLinkChannel {
             return this;
         }
         public ContactProfileLinkChannel build() {
-            final var o = new ContactProfileLinkChannel();
-            o.bandwidthMhz = bandwidthMhz;
-            o.centerFrequencyMhz = centerFrequencyMhz;
-            o.demodulationConfiguration = demodulationConfiguration;
-            o.endPoints = endPoints;
-            o.modulationConfiguration = modulationConfiguration;
-            o.name = name;
-            return o;
+            final var _resultValue = new ContactProfileLinkChannel();
+            _resultValue.bandwidthMhz = bandwidthMhz;
+            _resultValue.centerFrequencyMhz = centerFrequencyMhz;
+            _resultValue.demodulationConfiguration = demodulationConfiguration;
+            _resultValue.endPoints = endPoints;
+            _resultValue.modulationConfiguration = modulationConfiguration;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

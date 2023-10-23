@@ -103,12 +103,12 @@ public final class LinuxVirtualMachineGalleryImageReference {
             return this;
         }
         public LinuxVirtualMachineGalleryImageReference build() {
-            final var o = new LinuxVirtualMachineGalleryImageReference();
-            o.offer = offer;
-            o.publisher = publisher;
-            o.sku = sku;
-            o.version = version;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineGalleryImageReference();
+            _resultValue.offer = offer;
+            _resultValue.publisher = publisher;
+            _resultValue.sku = sku;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

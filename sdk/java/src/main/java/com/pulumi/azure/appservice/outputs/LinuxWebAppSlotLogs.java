@@ -107,12 +107,12 @@ public final class LinuxWebAppSlotLogs {
             return this;
         }
         public LinuxWebAppSlotLogs build() {
-            final var o = new LinuxWebAppSlotLogs();
-            o.applicationLogs = applicationLogs;
-            o.detailedErrorMessages = detailedErrorMessages;
-            o.failedRequestTracing = failedRequestTracing;
-            o.httpLogs = httpLogs;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotLogs();
+            _resultValue.applicationLogs = applicationLogs;
+            _resultValue.detailedErrorMessages = detailedErrorMessages;
+            _resultValue.failedRequestTracing = failedRequestTracing;
+            _resultValue.httpLogs = httpLogs;
+            return _resultValue;
         }
     }
 }

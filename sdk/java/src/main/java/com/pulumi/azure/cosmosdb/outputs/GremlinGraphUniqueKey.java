@@ -50,9 +50,9 @@ public final class GremlinGraphUniqueKey {
             return paths(List.of(paths));
         }
         public GremlinGraphUniqueKey build() {
-            final var o = new GremlinGraphUniqueKey();
-            o.paths = paths;
-            return o;
+            final var _resultValue = new GremlinGraphUniqueKey();
+            _resultValue.paths = paths;
+            return _resultValue;
         }
     }
 }

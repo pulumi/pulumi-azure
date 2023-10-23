@@ -47,7 +47,17 @@ class BackupInstanceDiskArgs:
              vault_id: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupPolicyId' in kwargs:
+            backup_policy_id = kwargs['backupPolicyId']
+        if 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if 'snapshotResourceGroupName' in kwargs:
+            snapshot_resource_group_name = kwargs['snapshotResourceGroupName']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         _setter("backup_policy_id", backup_policy_id)
         _setter("disk_id", disk_id)
         _setter("snapshot_resource_group_name", snapshot_resource_group_name)
@@ -166,7 +176,17 @@ class _BackupInstanceDiskState:
              name: Optional[pulumi.Input[str]] = None,
              snapshot_resource_group_name: Optional[pulumi.Input[str]] = None,
              vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupPolicyId' in kwargs:
+            backup_policy_id = kwargs['backupPolicyId']
+        if 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if 'snapshotResourceGroupName' in kwargs:
+            snapshot_resource_group_name = kwargs['snapshotResourceGroupName']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         if backup_policy_id is not None:
             _setter("backup_policy_id", backup_policy_id)
         if disk_id is not None:

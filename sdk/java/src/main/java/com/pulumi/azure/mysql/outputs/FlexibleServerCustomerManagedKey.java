@@ -109,12 +109,12 @@ public final class FlexibleServerCustomerManagedKey {
             return this;
         }
         public FlexibleServerCustomerManagedKey build() {
-            final var o = new FlexibleServerCustomerManagedKey();
-            o.geoBackupKeyVaultKeyId = geoBackupKeyVaultKeyId;
-            o.geoBackupUserAssignedIdentityId = geoBackupUserAssignedIdentityId;
-            o.keyVaultKeyId = keyVaultKeyId;
-            o.primaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
-            return o;
+            final var _resultValue = new FlexibleServerCustomerManagedKey();
+            _resultValue.geoBackupKeyVaultKeyId = geoBackupKeyVaultKeyId;
+            _resultValue.geoBackupUserAssignedIdentityId = geoBackupUserAssignedIdentityId;
+            _resultValue.keyVaultKeyId = keyVaultKeyId;
+            _resultValue.primaryUserAssignedIdentityId = primaryUserAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

@@ -85,11 +85,11 @@ public final class GetServiceAuthenticationConfiguration {
             return this;
         }
         public GetServiceAuthenticationConfiguration build() {
-            final var o = new GetServiceAuthenticationConfiguration();
-            o.audience = audience;
-            o.authority = authority;
-            o.smartProxyEnabled = smartProxyEnabled;
-            return o;
+            final var _resultValue = new GetServiceAuthenticationConfiguration();
+            _resultValue.audience = audience;
+            _resultValue.authority = authority;
+            _resultValue.smartProxyEnabled = smartProxyEnabled;
+            return _resultValue;
         }
     }
 }

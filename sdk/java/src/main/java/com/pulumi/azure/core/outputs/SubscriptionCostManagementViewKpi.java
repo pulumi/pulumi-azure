@@ -46,9 +46,9 @@ public final class SubscriptionCostManagementViewKpi {
             return this;
         }
         public SubscriptionCostManagementViewKpi build() {
-            final var o = new SubscriptionCostManagementViewKpi();
-            o.type = type;
-            return o;
+            final var _resultValue = new SubscriptionCostManagementViewKpi();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

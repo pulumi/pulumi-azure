@@ -58,6 +58,8 @@ type StaticSite struct {
 
 	// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
 	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
+	// A key-value pair of App Settings.
+	AppSettings pulumi.StringMapOutput `pulumi:"appSettings"`
 	// The default host name of the Static Web App.
 	DefaultHostName pulumi.StringOutput `pulumi:"defaultHostName"`
 	// An `identity` block as defined below.
@@ -115,6 +117,8 @@ func GetStaticSite(ctx *pulumi.Context,
 type staticSiteState struct {
 	// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
 	ApiKey *string `pulumi:"apiKey"`
+	// A key-value pair of App Settings.
+	AppSettings map[string]string `pulumi:"appSettings"`
 	// The default host name of the Static Web App.
 	DefaultHostName *string `pulumi:"defaultHostName"`
 	// An `identity` block as defined below.
@@ -136,6 +140,8 @@ type staticSiteState struct {
 type StaticSiteState struct {
 	// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
 	ApiKey pulumi.StringPtrInput
+	// A key-value pair of App Settings.
+	AppSettings pulumi.StringMapInput
 	// The default host name of the Static Web App.
 	DefaultHostName pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -159,6 +165,8 @@ func (StaticSiteState) ElementType() reflect.Type {
 }
 
 type staticSiteArgs struct {
+	// A key-value pair of App Settings.
+	AppSettings map[string]string `pulumi:"appSettings"`
 	// An `identity` block as defined below.
 	Identity *StaticSiteIdentity `pulumi:"identity"`
 	// The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
@@ -177,6 +185,8 @@ type staticSiteArgs struct {
 
 // The set of arguments for constructing a StaticSite resource.
 type StaticSiteArgs struct {
+	// A key-value pair of App Settings.
+	AppSettings pulumi.StringMapInput
 	// An `identity` block as defined below.
 	Identity StaticSiteIdentityPtrInput
 	// The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
@@ -307,6 +317,11 @@ func (o StaticSiteOutput) ToOutput(ctx context.Context) pulumix.Output[*StaticSi
 // The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
 func (o StaticSiteOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticSite) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
+}
+
+// A key-value pair of App Settings.
+func (o StaticSiteOutput) AppSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *StaticSite) pulumi.StringMapOutput { return v.AppSettings }).(pulumi.StringMapOutput)
 }
 
 // The default host name of the Static Web App.

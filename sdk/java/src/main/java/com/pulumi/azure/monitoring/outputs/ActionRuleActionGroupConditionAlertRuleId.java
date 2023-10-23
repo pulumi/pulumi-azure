@@ -69,10 +69,10 @@ public final class ActionRuleActionGroupConditionAlertRuleId {
             return values(List.of(values));
         }
         public ActionRuleActionGroupConditionAlertRuleId build() {
-            final var o = new ActionRuleActionGroupConditionAlertRuleId();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new ActionRuleActionGroupConditionAlertRuleId();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

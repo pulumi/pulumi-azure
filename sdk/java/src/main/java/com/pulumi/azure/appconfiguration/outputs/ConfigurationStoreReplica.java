@@ -105,12 +105,12 @@ public final class ConfigurationStoreReplica {
             return this;
         }
         public ConfigurationStoreReplica build() {
-            final var o = new ConfigurationStoreReplica();
-            o.endpoint = endpoint;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            return o;
+            final var _resultValue = new ConfigurationStoreReplica();
+            _resultValue.endpoint = endpoint;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

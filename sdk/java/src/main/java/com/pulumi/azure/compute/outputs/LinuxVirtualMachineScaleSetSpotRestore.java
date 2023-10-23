@@ -68,10 +68,10 @@ public final class LinuxVirtualMachineScaleSetSpotRestore {
             return this;
         }
         public LinuxVirtualMachineScaleSetSpotRestore build() {
-            final var o = new LinuxVirtualMachineScaleSetSpotRestore();
-            o.enabled = enabled;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetSpotRestore();
+            _resultValue.enabled = enabled;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

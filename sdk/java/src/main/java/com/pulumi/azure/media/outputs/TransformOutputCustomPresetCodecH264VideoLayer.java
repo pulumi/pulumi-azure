@@ -317,23 +317,23 @@ public final class TransformOutputCustomPresetCodecH264VideoLayer {
             return this;
         }
         public TransformOutputCustomPresetCodecH264VideoLayer build() {
-            final var o = new TransformOutputCustomPresetCodecH264VideoLayer();
-            o.adaptiveBFrameEnabled = adaptiveBFrameEnabled;
-            o.bFrames = bFrames;
-            o.bitrate = bitrate;
-            o.bufferWindow = bufferWindow;
-            o.crf = crf;
-            o.entropyMode = entropyMode;
-            o.frameRate = frameRate;
-            o.height = height;
-            o.label = label;
-            o.level = level;
-            o.maxBitrate = maxBitrate;
-            o.profile = profile;
-            o.referenceFrames = referenceFrames;
-            o.slices = slices;
-            o.width = width;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetCodecH264VideoLayer();
+            _resultValue.adaptiveBFrameEnabled = adaptiveBFrameEnabled;
+            _resultValue.bFrames = bFrames;
+            _resultValue.bitrate = bitrate;
+            _resultValue.bufferWindow = bufferWindow;
+            _resultValue.crf = crf;
+            _resultValue.entropyMode = entropyMode;
+            _resultValue.frameRate = frameRate;
+            _resultValue.height = height;
+            _resultValue.label = label;
+            _resultValue.level = level;
+            _resultValue.maxBitrate = maxBitrate;
+            _resultValue.profile = profile;
+            _resultValue.referenceFrames = referenceFrames;
+            _resultValue.slices = slices;
+            _resultValue.width = width;
+            return _resultValue;
         }
     }
 }

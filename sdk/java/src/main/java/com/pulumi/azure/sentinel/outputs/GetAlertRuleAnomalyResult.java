@@ -374,26 +374,26 @@ public final class GetAlertRuleAnomalyResult {
             return thresholdObservations(List.of(thresholdObservations));
         }
         public GetAlertRuleAnomalyResult build() {
-            final var o = new GetAlertRuleAnomalyResult();
-            o.anomalySettingsVersion = anomalySettingsVersion;
-            o.anomalyVersion = anomalyVersion;
-            o.description = description;
-            o.displayName = displayName;
-            o.enabled = enabled;
-            o.frequency = frequency;
-            o.id = id;
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.mode = mode;
-            o.multiSelectObservations = multiSelectObservations;
-            o.name = name;
-            o.prioritizedExcludeObservations = prioritizedExcludeObservations;
-            o.requiredDataConnectors = requiredDataConnectors;
-            o.settingsDefinitionId = settingsDefinitionId;
-            o.singleSelectObservations = singleSelectObservations;
-            o.tactics = tactics;
-            o.techniques = techniques;
-            o.thresholdObservations = thresholdObservations;
-            return o;
+            final var _resultValue = new GetAlertRuleAnomalyResult();
+            _resultValue.anomalySettingsVersion = anomalySettingsVersion;
+            _resultValue.anomalyVersion = anomalyVersion;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.enabled = enabled;
+            _resultValue.frequency = frequency;
+            _resultValue.id = id;
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.mode = mode;
+            _resultValue.multiSelectObservations = multiSelectObservations;
+            _resultValue.name = name;
+            _resultValue.prioritizedExcludeObservations = prioritizedExcludeObservations;
+            _resultValue.requiredDataConnectors = requiredDataConnectors;
+            _resultValue.settingsDefinitionId = settingsDefinitionId;
+            _resultValue.singleSelectObservations = singleSelectObservations;
+            _resultValue.tactics = tactics;
+            _resultValue.techniques = techniques;
+            _resultValue.thresholdObservations = thresholdObservations;
+            return _resultValue;
         }
     }
 }

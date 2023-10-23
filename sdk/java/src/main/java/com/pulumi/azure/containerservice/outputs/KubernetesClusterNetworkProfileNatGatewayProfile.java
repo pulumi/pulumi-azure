@@ -91,11 +91,11 @@ public final class KubernetesClusterNetworkProfileNatGatewayProfile {
             return this;
         }
         public KubernetesClusterNetworkProfileNatGatewayProfile build() {
-            final var o = new KubernetesClusterNetworkProfileNatGatewayProfile();
-            o.effectiveOutboundIps = effectiveOutboundIps;
-            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
-            o.managedOutboundIpCount = managedOutboundIpCount;
-            return o;
+            final var _resultValue = new KubernetesClusterNetworkProfileNatGatewayProfile();
+            _resultValue.effectiveOutboundIps = effectiveOutboundIps;
+            _resultValue.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            _resultValue.managedOutboundIpCount = managedOutboundIpCount;
+            return _resultValue;
         }
     }
 }

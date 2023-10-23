@@ -168,15 +168,15 @@ public final class PolicyVMWorkloadProtectionPolicy {
             return this;
         }
         public PolicyVMWorkloadProtectionPolicy build() {
-            final var o = new PolicyVMWorkloadProtectionPolicy();
-            o.backup = backup;
-            o.policyType = policyType;
-            o.retentionDaily = retentionDaily;
-            o.retentionMonthly = retentionMonthly;
-            o.retentionWeekly = retentionWeekly;
-            o.retentionYearly = retentionYearly;
-            o.simpleRetention = simpleRetention;
-            return o;
+            final var _resultValue = new PolicyVMWorkloadProtectionPolicy();
+            _resultValue.backup = backup;
+            _resultValue.policyType = policyType;
+            _resultValue.retentionDaily = retentionDaily;
+            _resultValue.retentionMonthly = retentionMonthly;
+            _resultValue.retentionWeekly = retentionWeekly;
+            _resultValue.retentionYearly = retentionYearly;
+            _resultValue.simpleRetention = simpleRetention;
+            return _resultValue;
         }
     }
 }

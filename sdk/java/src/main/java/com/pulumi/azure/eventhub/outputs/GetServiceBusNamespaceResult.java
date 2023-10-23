@@ -265,21 +265,21 @@ public final class GetServiceBusNamespaceResult {
             return this;
         }
         public GetServiceBusNamespaceResult build() {
-            final var o = new GetServiceBusNamespaceResult();
-            o.capacity = capacity;
-            o.defaultPrimaryConnectionString = defaultPrimaryConnectionString;
-            o.defaultPrimaryKey = defaultPrimaryKey;
-            o.defaultSecondaryConnectionString = defaultSecondaryConnectionString;
-            o.defaultSecondaryKey = defaultSecondaryKey;
-            o.endpoint = endpoint;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.sku = sku;
-            o.tags = tags;
-            o.zoneRedundant = zoneRedundant;
-            return o;
+            final var _resultValue = new GetServiceBusNamespaceResult();
+            _resultValue.capacity = capacity;
+            _resultValue.defaultPrimaryConnectionString = defaultPrimaryConnectionString;
+            _resultValue.defaultPrimaryKey = defaultPrimaryKey;
+            _resultValue.defaultSecondaryConnectionString = defaultSecondaryConnectionString;
+            _resultValue.defaultSecondaryKey = defaultSecondaryKey;
+            _resultValue.endpoint = endpoint;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sku = sku;
+            _resultValue.tags = tags;
+            _resultValue.zoneRedundant = zoneRedundant;
+            return _resultValue;
         }
     }
 }

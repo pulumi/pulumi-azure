@@ -109,7 +109,29 @@ class ScheduledQueryRulesAlertV2Args:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              workspace_alerts_storage_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'windowDuration' in kwargs:
+            window_duration = kwargs['windowDuration']
+        if 'autoMitigationEnabled' in kwargs:
+            auto_mitigation_enabled = kwargs['autoMitigationEnabled']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'evaluationFrequency' in kwargs:
+            evaluation_frequency = kwargs['evaluationFrequency']
+        if 'muteActionsAfterAlertDuration' in kwargs:
+            mute_actions_after_alert_duration = kwargs['muteActionsAfterAlertDuration']
+        if 'queryTimeRangeOverride' in kwargs:
+            query_time_range_override = kwargs['queryTimeRangeOverride']
+        if 'skipQueryValidation' in kwargs:
+            skip_query_validation = kwargs['skipQueryValidation']
+        if 'targetResourceTypes' in kwargs:
+            target_resource_types = kwargs['targetResourceTypes']
+        if 'workspaceAlertsStorageEnabled' in kwargs:
+            workspace_alerts_storage_enabled = kwargs['workspaceAlertsStorageEnabled']
+
         _setter("criterias", criterias)
         _setter("resource_group_name", resource_group_name)
         _setter("scopes", scopes)
@@ -489,7 +511,35 @@ class _ScheduledQueryRulesAlertV2State:
              target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              window_duration: Optional[pulumi.Input[str]] = None,
              workspace_alerts_storage_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoMitigationEnabled' in kwargs:
+            auto_mitigation_enabled = kwargs['autoMitigationEnabled']
+        if 'createdWithApiVersion' in kwargs:
+            created_with_api_version = kwargs['createdWithApiVersion']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'evaluationFrequency' in kwargs:
+            evaluation_frequency = kwargs['evaluationFrequency']
+        if 'isALegacyLogAnalyticsRule' in kwargs:
+            is_a_legacy_log_analytics_rule = kwargs['isALegacyLogAnalyticsRule']
+        if 'isWorkspaceAlertsStorageConfigured' in kwargs:
+            is_workspace_alerts_storage_configured = kwargs['isWorkspaceAlertsStorageConfigured']
+        if 'muteActionsAfterAlertDuration' in kwargs:
+            mute_actions_after_alert_duration = kwargs['muteActionsAfterAlertDuration']
+        if 'queryTimeRangeOverride' in kwargs:
+            query_time_range_override = kwargs['queryTimeRangeOverride']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skipQueryValidation' in kwargs:
+            skip_query_validation = kwargs['skipQueryValidation']
+        if 'targetResourceTypes' in kwargs:
+            target_resource_types = kwargs['targetResourceTypes']
+        if 'windowDuration' in kwargs:
+            window_duration = kwargs['windowDuration']
+        if 'workspaceAlertsStorageEnabled' in kwargs:
+            workspace_alerts_storage_enabled = kwargs['workspaceAlertsStorageEnabled']
+
         if action is not None:
             _setter("action", action)
         if auto_mitigation_enabled is not None:

@@ -95,11 +95,11 @@ public final class GetPolicyRuleFilter {
             return prefixMatches(List.of(prefixMatches));
         }
         public GetPolicyRuleFilter build() {
-            final var o = new GetPolicyRuleFilter();
-            o.blobTypes = blobTypes;
-            o.matchBlobIndexTags = matchBlobIndexTags;
-            o.prefixMatches = prefixMatches;
-            return o;
+            final var _resultValue = new GetPolicyRuleFilter();
+            _resultValue.blobTypes = blobTypes;
+            _resultValue.matchBlobIndexTags = matchBlobIndexTags;
+            _resultValue.prefixMatches = prefixMatches;
+            return _resultValue;
         }
     }
 }

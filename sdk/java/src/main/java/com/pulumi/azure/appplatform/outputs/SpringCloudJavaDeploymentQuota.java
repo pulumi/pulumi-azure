@@ -75,10 +75,10 @@ public final class SpringCloudJavaDeploymentQuota {
             return this;
         }
         public SpringCloudJavaDeploymentQuota build() {
-            final var o = new SpringCloudJavaDeploymentQuota();
-            o.cpu = cpu;
-            o.memory = memory;
-            return o;
+            final var _resultValue = new SpringCloudJavaDeploymentQuota();
+            _resultValue.cpu = cpu;
+            _resultValue.memory = memory;
+            return _resultValue;
         }
     }
 }

@@ -95,11 +95,11 @@ public final class ConfigurationInstallPatchesWindow {
             return kbNumbersToIncludes(List.of(kbNumbersToIncludes));
         }
         public ConfigurationInstallPatchesWindow build() {
-            final var o = new ConfigurationInstallPatchesWindow();
-            o.classificationsToIncludes = classificationsToIncludes;
-            o.kbNumbersToExcludes = kbNumbersToExcludes;
-            o.kbNumbersToIncludes = kbNumbersToIncludes;
-            return o;
+            final var _resultValue = new ConfigurationInstallPatchesWindow();
+            _resultValue.classificationsToIncludes = classificationsToIncludes;
+            _resultValue.kbNumbersToExcludes = kbNumbersToExcludes;
+            _resultValue.kbNumbersToIncludes = kbNumbersToIncludes;
+            return _resultValue;
         }
     }
 }

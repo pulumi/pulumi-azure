@@ -126,13 +126,13 @@ public final class OrderShipmentAddress {
             return this;
         }
         public OrderShipmentAddress build() {
-            final var o = new OrderShipmentAddress();
-            o.addresses = addresses;
-            o.city = city;
-            o.country = country;
-            o.postalCode = postalCode;
-            o.state = state;
-            return o;
+            final var _resultValue = new OrderShipmentAddress();
+            _resultValue.addresses = addresses;
+            _resultValue.city = city;
+            _resultValue.country = country;
+            _resultValue.postalCode = postalCode;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

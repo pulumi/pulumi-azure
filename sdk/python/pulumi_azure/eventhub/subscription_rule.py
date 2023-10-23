@@ -49,7 +49,17 @@ class SubscriptionRuleArgs:
              correlation_filter: Optional[pulumi.Input['SubscriptionRuleCorrelationFilterArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              sql_filter: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'correlationFilter' in kwargs:
+            correlation_filter = kwargs['correlationFilter']
+        if 'sqlFilter' in kwargs:
+            sql_filter = kwargs['sqlFilter']
+
         _setter("filter_type", filter_type)
         _setter("subscription_id", subscription_id)
         if action is not None:
@@ -173,7 +183,19 @@ class _SubscriptionRuleState:
              sql_filter: Optional[pulumi.Input[str]] = None,
              sql_filter_compatibility_level: Optional[pulumi.Input[int]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'correlationFilter' in kwargs:
+            correlation_filter = kwargs['correlationFilter']
+        if 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if 'sqlFilter' in kwargs:
+            sql_filter = kwargs['sqlFilter']
+        if 'sqlFilterCompatibilityLevel' in kwargs:
+            sql_filter_compatibility_level = kwargs['sqlFilterCompatibilityLevel']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         if action is not None:
             _setter("action", action)
         if correlation_filter is not None:

@@ -70,10 +70,10 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFro
             return this;
         }
         public NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig build() {
-            final var o = new NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig();
-            o.port = port;
-            o.publicIpAddressId = publicIpAddressId;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfig();
+            _resultValue.port = port;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            return _resultValue;
         }
     }
 }

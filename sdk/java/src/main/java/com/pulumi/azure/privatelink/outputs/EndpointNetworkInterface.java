@@ -67,10 +67,10 @@ public final class EndpointNetworkInterface {
             return this;
         }
         public EndpointNetworkInterface build() {
-            final var o = new EndpointNetworkInterface();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new EndpointNetworkInterface();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

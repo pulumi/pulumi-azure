@@ -71,10 +71,10 @@ public final class KubernetesClusterWebAppRouting {
             return webAppRoutingIdentities(List.of(webAppRoutingIdentities));
         }
         public KubernetesClusterWebAppRouting build() {
-            final var o = new KubernetesClusterWebAppRouting();
-            o.dnsZoneId = dnsZoneId;
-            o.webAppRoutingIdentities = webAppRoutingIdentities;
-            return o;
+            final var _resultValue = new KubernetesClusterWebAppRouting();
+            _resultValue.dnsZoneId = dnsZoneId;
+            _resultValue.webAppRoutingIdentities = webAppRoutingIdentities;
+            return _resultValue;
         }
     }
 }

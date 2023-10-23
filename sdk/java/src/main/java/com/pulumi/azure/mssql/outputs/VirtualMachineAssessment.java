@@ -87,11 +87,11 @@ public final class VirtualMachineAssessment {
             return this;
         }
         public VirtualMachineAssessment build() {
-            final var o = new VirtualMachineAssessment();
-            o.enabled = enabled;
-            o.runImmediately = runImmediately;
-            o.schedule = schedule;
-            return o;
+            final var _resultValue = new VirtualMachineAssessment();
+            _resultValue.enabled = enabled;
+            _resultValue.runImmediately = runImmediately;
+            _resultValue.schedule = schedule;
+            return _resultValue;
         }
     }
 }

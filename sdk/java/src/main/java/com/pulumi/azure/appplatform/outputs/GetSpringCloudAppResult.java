@@ -222,19 +222,19 @@ public final class GetSpringCloudAppResult {
             return this;
         }
         public GetSpringCloudAppResult build() {
-            final var o = new GetSpringCloudAppResult();
-            o.fqdn = fqdn;
-            o.httpsOnly = httpsOnly;
-            o.id = id;
-            o.identities = identities;
-            o.isPublic = isPublic;
-            o.name = name;
-            o.persistentDisks = persistentDisks;
-            o.resourceGroupName = resourceGroupName;
-            o.serviceName = serviceName;
-            o.tlsEnabled = tlsEnabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetSpringCloudAppResult();
+            _resultValue.fqdn = fqdn;
+            _resultValue.httpsOnly = httpsOnly;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.isPublic = isPublic;
+            _resultValue.name = name;
+            _resultValue.persistentDisks = persistentDisks;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.serviceName = serviceName;
+            _resultValue.tlsEnabled = tlsEnabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

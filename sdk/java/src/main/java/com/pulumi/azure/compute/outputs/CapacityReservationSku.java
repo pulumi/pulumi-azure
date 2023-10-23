@@ -66,10 +66,10 @@ public final class CapacityReservationSku {
             return this;
         }
         public CapacityReservationSku build() {
-            final var o = new CapacityReservationSku();
-            o.capacity = capacity;
-            o.name = name;
-            return o;
+            final var _resultValue = new CapacityReservationSku();
+            _resultValue.capacity = capacity;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

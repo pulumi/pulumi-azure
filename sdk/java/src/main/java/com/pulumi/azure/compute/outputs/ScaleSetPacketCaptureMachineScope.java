@@ -73,10 +73,10 @@ public final class ScaleSetPacketCaptureMachineScope {
             return includeInstanceIds(List.of(includeInstanceIds));
         }
         public ScaleSetPacketCaptureMachineScope build() {
-            final var o = new ScaleSetPacketCaptureMachineScope();
-            o.excludeInstanceIds = excludeInstanceIds;
-            o.includeInstanceIds = includeInstanceIds;
-            return o;
+            final var _resultValue = new ScaleSetPacketCaptureMachineScope();
+            _resultValue.excludeInstanceIds = excludeInstanceIds;
+            _resultValue.includeInstanceIds = includeInstanceIds;
+            return _resultValue;
         }
     }
 }

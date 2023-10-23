@@ -91,11 +91,11 @@ public final class EndpointDeliveryRuleRequestSchemeCondition {
             return this;
         }
         public EndpointDeliveryRuleRequestSchemeCondition build() {
-            final var o = new EndpointDeliveryRuleRequestSchemeCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new EndpointDeliveryRuleRequestSchemeCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

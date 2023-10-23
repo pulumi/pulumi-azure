@@ -84,11 +84,11 @@ public final class LinuxWebAppSlotConnectionString {
             return this;
         }
         public LinuxWebAppSlotConnectionString build() {
-            final var o = new LinuxWebAppSlotConnectionString();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotConnectionString();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

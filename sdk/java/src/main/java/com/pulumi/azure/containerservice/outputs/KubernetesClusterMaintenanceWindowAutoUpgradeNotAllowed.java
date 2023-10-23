@@ -65,10 +65,10 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed {
             return this;
         }
         public KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed build() {
-            final var o = new KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed();
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed();
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

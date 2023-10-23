@@ -49,7 +49,17 @@ class IotHubDeviceUpdateInstanceArgs:
              diagnostic_storage_account: Optional[pulumi.Input['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceUpdateAccountId' in kwargs:
+            device_update_account_id = kwargs['deviceUpdateAccountId']
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if 'diagnosticEnabled' in kwargs:
+            diagnostic_enabled = kwargs['diagnosticEnabled']
+        if 'diagnosticStorageAccount' in kwargs:
+            diagnostic_storage_account = kwargs['diagnosticStorageAccount']
+
         _setter("device_update_account_id", device_update_account_id)
         _setter("iothub_id", iothub_id)
         if diagnostic_enabled is not None:
@@ -170,7 +180,17 @@ class _IotHubDeviceUpdateInstanceState:
              iothub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceUpdateAccountId' in kwargs:
+            device_update_account_id = kwargs['deviceUpdateAccountId']
+        if 'diagnosticEnabled' in kwargs:
+            diagnostic_enabled = kwargs['diagnosticEnabled']
+        if 'diagnosticStorageAccount' in kwargs:
+            diagnostic_storage_account = kwargs['diagnosticStorageAccount']
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+
         if device_update_account_id is not None:
             _setter("device_update_account_id", device_update_account_id)
         if diagnostic_enabled is not None:

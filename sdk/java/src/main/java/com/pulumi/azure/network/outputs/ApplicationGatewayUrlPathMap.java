@@ -239,19 +239,19 @@ public final class ApplicationGatewayUrlPathMap {
             return pathRules(List.of(pathRules));
         }
         public ApplicationGatewayUrlPathMap build() {
-            final var o = new ApplicationGatewayUrlPathMap();
-            o.defaultBackendAddressPoolId = defaultBackendAddressPoolId;
-            o.defaultBackendAddressPoolName = defaultBackendAddressPoolName;
-            o.defaultBackendHttpSettingsId = defaultBackendHttpSettingsId;
-            o.defaultBackendHttpSettingsName = defaultBackendHttpSettingsName;
-            o.defaultRedirectConfigurationId = defaultRedirectConfigurationId;
-            o.defaultRedirectConfigurationName = defaultRedirectConfigurationName;
-            o.defaultRewriteRuleSetId = defaultRewriteRuleSetId;
-            o.defaultRewriteRuleSetName = defaultRewriteRuleSetName;
-            o.id = id;
-            o.name = name;
-            o.pathRules = pathRules;
-            return o;
+            final var _resultValue = new ApplicationGatewayUrlPathMap();
+            _resultValue.defaultBackendAddressPoolId = defaultBackendAddressPoolId;
+            _resultValue.defaultBackendAddressPoolName = defaultBackendAddressPoolName;
+            _resultValue.defaultBackendHttpSettingsId = defaultBackendHttpSettingsId;
+            _resultValue.defaultBackendHttpSettingsName = defaultBackendHttpSettingsName;
+            _resultValue.defaultRedirectConfigurationId = defaultRedirectConfigurationId;
+            _resultValue.defaultRedirectConfigurationName = defaultRedirectConfigurationName;
+            _resultValue.defaultRewriteRuleSetId = defaultRewriteRuleSetId;
+            _resultValue.defaultRewriteRuleSetName = defaultRewriteRuleSetName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.pathRules = pathRules;
+            return _resultValue;
         }
     }
 }

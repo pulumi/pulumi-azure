@@ -260,20 +260,20 @@ public final class ApplicationGatewayProbe {
             return this;
         }
         public ApplicationGatewayProbe build() {
-            final var o = new ApplicationGatewayProbe();
-            o.host = host;
-            o.id = id;
-            o.interval = interval;
-            o.match = match;
-            o.minimumServers = minimumServers;
-            o.name = name;
-            o.path = path;
-            o.pickHostNameFromBackendHttpSettings = pickHostNameFromBackendHttpSettings;
-            o.port = port;
-            o.protocol = protocol;
-            o.timeout = timeout;
-            o.unhealthyThreshold = unhealthyThreshold;
-            return o;
+            final var _resultValue = new ApplicationGatewayProbe();
+            _resultValue.host = host;
+            _resultValue.id = id;
+            _resultValue.interval = interval;
+            _resultValue.match = match;
+            _resultValue.minimumServers = minimumServers;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.pickHostNameFromBackendHttpSettings = pickHostNameFromBackendHttpSettings;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.timeout = timeout;
+            _resultValue.unhealthyThreshold = unhealthyThreshold;
+            return _resultValue;
         }
     }
 }

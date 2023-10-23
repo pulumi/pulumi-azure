@@ -141,7 +141,45 @@ class ScaleSetArgs:
              storage_profile_image_reference: Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkProfiles' in kwargs:
+            network_profiles = kwargs['networkProfiles']
+        if 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageProfileOsDisk' in kwargs:
+            storage_profile_os_disk = kwargs['storageProfileOsDisk']
+        if 'upgradePolicyMode' in kwargs:
+            upgrade_policy_mode = kwargs['upgradePolicyMode']
+        if 'automaticOsUpgrade' in kwargs:
+            automatic_os_upgrade = kwargs['automaticOsUpgrade']
+        if 'bootDiagnostics' in kwargs:
+            boot_diagnostics = kwargs['bootDiagnostics']
+        if 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if 'healthProbeId' in kwargs:
+            health_probe_id = kwargs['healthProbeId']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'osProfileLinuxConfig' in kwargs:
+            os_profile_linux_config = kwargs['osProfileLinuxConfig']
+        if 'osProfileSecrets' in kwargs:
+            os_profile_secrets = kwargs['osProfileSecrets']
+        if 'osProfileWindowsConfig' in kwargs:
+            os_profile_windows_config = kwargs['osProfileWindowsConfig']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if 'rollingUpgradePolicy' in kwargs:
+            rolling_upgrade_policy = kwargs['rollingUpgradePolicy']
+        if 'singlePlacementGroup' in kwargs:
+            single_placement_group = kwargs['singlePlacementGroup']
+        if 'storageProfileDataDisks' in kwargs:
+            storage_profile_data_disks = kwargs['storageProfileDataDisks']
+        if 'storageProfileImageReference' in kwargs:
+            storage_profile_image_reference = kwargs['storageProfileImageReference']
+
         _setter("network_profiles", network_profiles)
         _setter("os_profile", os_profile)
         _setter("resource_group_name", resource_group_name)
@@ -662,7 +700,45 @@ class _ScaleSetState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              upgrade_policy_mode: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automaticOsUpgrade' in kwargs:
+            automatic_os_upgrade = kwargs['automaticOsUpgrade']
+        if 'bootDiagnostics' in kwargs:
+            boot_diagnostics = kwargs['bootDiagnostics']
+        if 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if 'healthProbeId' in kwargs:
+            health_probe_id = kwargs['healthProbeId']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'networkProfiles' in kwargs:
+            network_profiles = kwargs['networkProfiles']
+        if 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if 'osProfileLinuxConfig' in kwargs:
+            os_profile_linux_config = kwargs['osProfileLinuxConfig']
+        if 'osProfileSecrets' in kwargs:
+            os_profile_secrets = kwargs['osProfileSecrets']
+        if 'osProfileWindowsConfig' in kwargs:
+            os_profile_windows_config = kwargs['osProfileWindowsConfig']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'rollingUpgradePolicy' in kwargs:
+            rolling_upgrade_policy = kwargs['rollingUpgradePolicy']
+        if 'singlePlacementGroup' in kwargs:
+            single_placement_group = kwargs['singlePlacementGroup']
+        if 'storageProfileDataDisks' in kwargs:
+            storage_profile_data_disks = kwargs['storageProfileDataDisks']
+        if 'storageProfileImageReference' in kwargs:
+            storage_profile_image_reference = kwargs['storageProfileImageReference']
+        if 'storageProfileOsDisk' in kwargs:
+            storage_profile_os_disk = kwargs['storageProfileOsDisk']
+        if 'upgradePolicyMode' in kwargs:
+            upgrade_policy_mode = kwargs['upgradePolicyMode']
+
         if automatic_os_upgrade is not None:
             _setter("automatic_os_upgrade", automatic_os_upgrade)
         if boot_diagnostics is not None:

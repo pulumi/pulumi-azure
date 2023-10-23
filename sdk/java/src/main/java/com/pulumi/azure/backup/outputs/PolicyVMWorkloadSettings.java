@@ -68,10 +68,10 @@ public final class PolicyVMWorkloadSettings {
             return this;
         }
         public PolicyVMWorkloadSettings build() {
-            final var o = new PolicyVMWorkloadSettings();
-            o.compressionEnabled = compressionEnabled;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new PolicyVMWorkloadSettings();
+            _resultValue.compressionEnabled = compressionEnabled;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

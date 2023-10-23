@@ -77,14 +77,14 @@ public final class ApplicationGatewayUrlPathMapPathRuleArgs extends com.pulumi.r
     }
 
     /**
-     * The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+     * The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
      * 
      */
     @Import(name="firewallPolicyId")
     private @Nullable Output<String> firewallPolicyId;
 
     /**
-     * @return The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+     * @return The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
      * 
      */
     public Optional<Output<String>> firewallPolicyId() {
@@ -316,7 +316,7 @@ public final class ApplicationGatewayUrlPathMapPathRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param firewallPolicyId The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+         * @param firewallPolicyId The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class ApplicationGatewayUrlPathMapPathRuleArgs extends com.pulumi.r
         }
 
         /**
-         * @param firewallPolicyId The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+         * @param firewallPolicyId The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
          * 
          * @return builder
          * 

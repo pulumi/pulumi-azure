@@ -67,10 +67,10 @@ public final class AccountPrivateEndpointConnection {
             return this;
         }
         public AccountPrivateEndpointConnection build() {
-            final var o = new AccountPrivateEndpointConnection();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new AccountPrivateEndpointConnection();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

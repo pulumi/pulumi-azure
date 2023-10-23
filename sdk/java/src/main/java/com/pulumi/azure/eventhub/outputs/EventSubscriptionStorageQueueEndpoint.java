@@ -87,11 +87,11 @@ public final class EventSubscriptionStorageQueueEndpoint {
             return this;
         }
         public EventSubscriptionStorageQueueEndpoint build() {
-            final var o = new EventSubscriptionStorageQueueEndpoint();
-            o.queueMessageTimeToLiveInSeconds = queueMessageTimeToLiveInSeconds;
-            o.queueName = queueName;
-            o.storageAccountId = storageAccountId;
-            return o;
+            final var _resultValue = new EventSubscriptionStorageQueueEndpoint();
+            _resultValue.queueMessageTimeToLiveInSeconds = queueMessageTimeToLiveInSeconds;
+            _resultValue.queueName = queueName;
+            _resultValue.storageAccountId = storageAccountId;
+            return _resultValue;
         }
     }
 }

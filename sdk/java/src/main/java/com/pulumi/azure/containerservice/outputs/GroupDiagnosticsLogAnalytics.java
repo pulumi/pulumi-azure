@@ -106,12 +106,12 @@ public final class GroupDiagnosticsLogAnalytics {
             return this;
         }
         public GroupDiagnosticsLogAnalytics build() {
-            final var o = new GroupDiagnosticsLogAnalytics();
-            o.logType = logType;
-            o.metadata = metadata;
-            o.workspaceId = workspaceId;
-            o.workspaceKey = workspaceKey;
-            return o;
+            final var _resultValue = new GroupDiagnosticsLogAnalytics();
+            _resultValue.logType = logType;
+            _resultValue.metadata = metadata;
+            _resultValue.workspaceId = workspaceId;
+            _resultValue.workspaceKey = workspaceKey;
+            return _resultValue;
         }
     }
 }

@@ -84,11 +84,11 @@ public final class WindowsVirtualMachineScaleSetPlan {
             return this;
         }
         public WindowsVirtualMachineScaleSetPlan build() {
-            final var o = new WindowsVirtualMachineScaleSetPlan();
-            o.name = name;
-            o.product = product;
-            o.publisher = publisher;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetPlan();
+            _resultValue.name = name;
+            _resultValue.product = product;
+            _resultValue.publisher = publisher;
+            return _resultValue;
         }
     }
 }

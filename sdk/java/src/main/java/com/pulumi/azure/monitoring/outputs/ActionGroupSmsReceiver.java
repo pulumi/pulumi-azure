@@ -84,11 +84,11 @@ public final class ActionGroupSmsReceiver {
             return this;
         }
         public ActionGroupSmsReceiver build() {
-            final var o = new ActionGroupSmsReceiver();
-            o.countryCode = countryCode;
-            o.name = name;
-            o.phoneNumber = phoneNumber;
-            return o;
+            final var _resultValue = new ActionGroupSmsReceiver();
+            _resultValue.countryCode = countryCode;
+            _resultValue.name = name;
+            _resultValue.phoneNumber = phoneNumber;
+            return _resultValue;
         }
     }
 }

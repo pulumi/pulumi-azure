@@ -276,14 +276,14 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="validationRules", refs={StandardWebTestValidationRules.class}, tree="[0]")
-    private Output<StandardWebTestValidationRules> validationRules;
+    private Output</* @Nullable */ StandardWebTestValidationRules> validationRules;
 
     /**
      * @return A `validation_rules` block as defined below.
      * 
      */
-    public Output<StandardWebTestValidationRules> validationRules() {
-        return this.validationRules;
+    public Output<Optional<StandardWebTestValidationRules>> validationRules() {
+        return Codegen.optional(this.validationRules);
     }
 
     /**

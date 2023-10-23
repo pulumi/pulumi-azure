@@ -71,7 +71,29 @@ class SubscriptionArgs:
              state: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allowTracing' in kwargs:
+            allow_tracing = kwargs['allowTracing']
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("api_management_name", api_management_name)
         _setter("display_name", display_name)
         _setter("resource_group_name", resource_group_name)
@@ -289,7 +311,29 @@ class _SubscriptionState:
              state: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowTracing' in kwargs:
+            allow_tracing = kwargs['allowTracing']
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if allow_tracing is not None:
             _setter("allow_tracing", allow_tracing)
         if api_id is not None:

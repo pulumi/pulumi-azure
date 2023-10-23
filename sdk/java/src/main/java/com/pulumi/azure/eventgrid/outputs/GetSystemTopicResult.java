@@ -180,17 +180,17 @@ public final class GetSystemTopicResult {
             return this;
         }
         public GetSystemTopicResult build() {
-            final var o = new GetSystemTopicResult();
-            o.id = id;
-            o.identities = identities;
-            o.location = location;
-            o.metricArmResourceId = metricArmResourceId;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.sourceArmResourceId = sourceArmResourceId;
-            o.tags = tags;
-            o.topicType = topicType;
-            return o;
+            final var _resultValue = new GetSystemTopicResult();
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.location = location;
+            _resultValue.metricArmResourceId = metricArmResourceId;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sourceArmResourceId = sourceArmResourceId;
+            _resultValue.tags = tags;
+            _resultValue.topicType = topicType;
+            return _resultValue;
         }
     }
 }

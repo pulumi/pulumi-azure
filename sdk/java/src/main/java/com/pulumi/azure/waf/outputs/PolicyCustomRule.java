@@ -207,17 +207,17 @@ public final class PolicyCustomRule {
             return this;
         }
         public PolicyCustomRule build() {
-            final var o = new PolicyCustomRule();
-            o.action = action;
-            o.enabled = enabled;
-            o.groupRateLimitBy = groupRateLimitBy;
-            o.matchConditions = matchConditions;
-            o.name = name;
-            o.priority = priority;
-            o.rateLimitDuration = rateLimitDuration;
-            o.rateLimitThreshold = rateLimitThreshold;
-            o.ruleType = ruleType;
-            return o;
+            final var _resultValue = new PolicyCustomRule();
+            _resultValue.action = action;
+            _resultValue.enabled = enabled;
+            _resultValue.groupRateLimitBy = groupRateLimitBy;
+            _resultValue.matchConditions = matchConditions;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            _resultValue.rateLimitDuration = rateLimitDuration;
+            _resultValue.rateLimitThreshold = rateLimitThreshold;
+            _resultValue.ruleType = ruleType;
+            return _resultValue;
         }
     }
 }

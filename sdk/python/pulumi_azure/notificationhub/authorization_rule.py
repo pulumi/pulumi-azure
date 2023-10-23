@@ -53,7 +53,15 @@ class AuthorizationRuleArgs:
              manage: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'notificationHubName' in kwargs:
+            notification_hub_name = kwargs['notificationHubName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("namespace_name", namespace_name)
         _setter("notification_hub_name", notification_hub_name)
         _setter("resource_group_name", resource_group_name)
@@ -203,7 +211,19 @@ class _AuthorizationRuleState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              secondary_access_key: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'notificationHubName' in kwargs:
+            notification_hub_name = kwargs['notificationHubName']
+        if 'primaryAccessKey' in kwargs:
+            primary_access_key = kwargs['primaryAccessKey']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryAccessKey' in kwargs:
+            secondary_access_key = kwargs['secondaryAccessKey']
+
         if listen is not None:
             _setter("listen", listen)
         if manage is not None:

@@ -65,10 +65,10 @@ public final class ChannelFacebookPage {
             return this;
         }
         public ChannelFacebookPage build() {
-            final var o = new ChannelFacebookPage();
-            o.accessToken = accessToken;
-            o.id = id;
-            return o;
+            final var _resultValue = new ChannelFacebookPage();
+            _resultValue.accessToken = accessToken;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

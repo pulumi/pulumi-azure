@@ -168,15 +168,15 @@ public final class KafkaClusterSecurityProfile {
             return this;
         }
         public KafkaClusterSecurityProfile build() {
-            final var o = new KafkaClusterSecurityProfile();
-            o.aaddsResourceId = aaddsResourceId;
-            o.clusterUsersGroupDns = clusterUsersGroupDns;
-            o.domainName = domainName;
-            o.domainUserPassword = domainUserPassword;
-            o.domainUsername = domainUsername;
-            o.ldapsUrls = ldapsUrls;
-            o.msiResourceId = msiResourceId;
-            return o;
+            final var _resultValue = new KafkaClusterSecurityProfile();
+            _resultValue.aaddsResourceId = aaddsResourceId;
+            _resultValue.clusterUsersGroupDns = clusterUsersGroupDns;
+            _resultValue.domainName = domainName;
+            _resultValue.domainUserPassword = domainUserPassword;
+            _resultValue.domainUsername = domainUsername;
+            _resultValue.ldapsUrls = ldapsUrls;
+            _resultValue.msiResourceId = msiResourceId;
+            return _resultValue;
         }
     }
 }

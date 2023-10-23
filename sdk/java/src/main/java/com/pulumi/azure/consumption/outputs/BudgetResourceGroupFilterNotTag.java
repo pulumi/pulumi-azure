@@ -90,11 +90,11 @@ public final class BudgetResourceGroupFilterNotTag {
             return values(List.of(values));
         }
         public BudgetResourceGroupFilterNotTag build() {
-            final var o = new BudgetResourceGroupFilterNotTag();
-            o.name = name;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new BudgetResourceGroupFilterNotTag();
+            _resultValue.name = name;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

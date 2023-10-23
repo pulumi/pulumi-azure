@@ -201,18 +201,18 @@ public final class GetFunctionAppHostKeysResult {
             return this;
         }
         public GetFunctionAppHostKeysResult build() {
-            final var o = new GetFunctionAppHostKeysResult();
-            o.blobsExtensionKey = blobsExtensionKey;
-            o.defaultFunctionKey = defaultFunctionKey;
-            o.durabletaskExtensionKey = durabletaskExtensionKey;
-            o.eventGridExtensionConfigKey = eventGridExtensionConfigKey;
-            o.id = id;
-            o.name = name;
-            o.primaryKey = primaryKey;
-            o.resourceGroupName = resourceGroupName;
-            o.signalrExtensionKey = signalrExtensionKey;
-            o.webpubsubExtensionKey = webpubsubExtensionKey;
-            return o;
+            final var _resultValue = new GetFunctionAppHostKeysResult();
+            _resultValue.blobsExtensionKey = blobsExtensionKey;
+            _resultValue.defaultFunctionKey = defaultFunctionKey;
+            _resultValue.durabletaskExtensionKey = durabletaskExtensionKey;
+            _resultValue.eventGridExtensionConfigKey = eventGridExtensionConfigKey;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.primaryKey = primaryKey;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.signalrExtensionKey = signalrExtensionKey;
+            _resultValue.webpubsubExtensionKey = webpubsubExtensionKey;
+            return _resultValue;
         }
     }
 }

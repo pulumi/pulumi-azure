@@ -377,26 +377,26 @@ public final class ScalingPlanSchedule {
             return this;
         }
         public ScalingPlanSchedule build() {
-            final var o = new ScalingPlanSchedule();
-            o.daysOfWeeks = daysOfWeeks;
-            o.name = name;
-            o.offPeakLoadBalancingAlgorithm = offPeakLoadBalancingAlgorithm;
-            o.offPeakStartTime = offPeakStartTime;
-            o.peakLoadBalancingAlgorithm = peakLoadBalancingAlgorithm;
-            o.peakStartTime = peakStartTime;
-            o.rampDownCapacityThresholdPercent = rampDownCapacityThresholdPercent;
-            o.rampDownForceLogoffUsers = rampDownForceLogoffUsers;
-            o.rampDownLoadBalancingAlgorithm = rampDownLoadBalancingAlgorithm;
-            o.rampDownMinimumHostsPercent = rampDownMinimumHostsPercent;
-            o.rampDownNotificationMessage = rampDownNotificationMessage;
-            o.rampDownStartTime = rampDownStartTime;
-            o.rampDownStopHostsWhen = rampDownStopHostsWhen;
-            o.rampDownWaitTimeMinutes = rampDownWaitTimeMinutes;
-            o.rampUpCapacityThresholdPercent = rampUpCapacityThresholdPercent;
-            o.rampUpLoadBalancingAlgorithm = rampUpLoadBalancingAlgorithm;
-            o.rampUpMinimumHostsPercent = rampUpMinimumHostsPercent;
-            o.rampUpStartTime = rampUpStartTime;
-            return o;
+            final var _resultValue = new ScalingPlanSchedule();
+            _resultValue.daysOfWeeks = daysOfWeeks;
+            _resultValue.name = name;
+            _resultValue.offPeakLoadBalancingAlgorithm = offPeakLoadBalancingAlgorithm;
+            _resultValue.offPeakStartTime = offPeakStartTime;
+            _resultValue.peakLoadBalancingAlgorithm = peakLoadBalancingAlgorithm;
+            _resultValue.peakStartTime = peakStartTime;
+            _resultValue.rampDownCapacityThresholdPercent = rampDownCapacityThresholdPercent;
+            _resultValue.rampDownForceLogoffUsers = rampDownForceLogoffUsers;
+            _resultValue.rampDownLoadBalancingAlgorithm = rampDownLoadBalancingAlgorithm;
+            _resultValue.rampDownMinimumHostsPercent = rampDownMinimumHostsPercent;
+            _resultValue.rampDownNotificationMessage = rampDownNotificationMessage;
+            _resultValue.rampDownStartTime = rampDownStartTime;
+            _resultValue.rampDownStopHostsWhen = rampDownStopHostsWhen;
+            _resultValue.rampDownWaitTimeMinutes = rampDownWaitTimeMinutes;
+            _resultValue.rampUpCapacityThresholdPercent = rampUpCapacityThresholdPercent;
+            _resultValue.rampUpLoadBalancingAlgorithm = rampUpLoadBalancingAlgorithm;
+            _resultValue.rampUpMinimumHostsPercent = rampUpMinimumHostsPercent;
+            _resultValue.rampUpStartTime = rampUpStartTime;
+            return _resultValue;
         }
     }
 }

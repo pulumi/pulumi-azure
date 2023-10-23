@@ -267,21 +267,21 @@ public final class GetElasticPoolResult {
             return this;
         }
         public GetElasticPoolResult build() {
-            final var o = new GetElasticPoolResult();
-            o.id = id;
-            o.licenseType = licenseType;
-            o.location = location;
-            o.maxSizeBytes = maxSizeBytes;
-            o.maxSizeGb = maxSizeGb;
-            o.name = name;
-            o.perDbMaxCapacity = perDbMaxCapacity;
-            o.perDbMinCapacity = perDbMinCapacity;
-            o.resourceGroupName = resourceGroupName;
-            o.serverName = serverName;
-            o.skus = skus;
-            o.tags = tags;
-            o.zoneRedundant = zoneRedundant;
-            return o;
+            final var _resultValue = new GetElasticPoolResult();
+            _resultValue.id = id;
+            _resultValue.licenseType = licenseType;
+            _resultValue.location = location;
+            _resultValue.maxSizeBytes = maxSizeBytes;
+            _resultValue.maxSizeGb = maxSizeGb;
+            _resultValue.name = name;
+            _resultValue.perDbMaxCapacity = perDbMaxCapacity;
+            _resultValue.perDbMinCapacity = perDbMinCapacity;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.serverName = serverName;
+            _resultValue.skus = skus;
+            _resultValue.tags = tags;
+            _resultValue.zoneRedundant = zoneRedundant;
+            return _resultValue;
         }
     }
 }

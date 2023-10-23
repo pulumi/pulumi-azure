@@ -86,11 +86,11 @@ public final class ApplicationIdentity {
             return this;
         }
         public ApplicationIdentity build() {
-            final var o = new ApplicationIdentity();
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            o.type = type;
-            return o;
+            final var _resultValue = new ApplicationIdentity();
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

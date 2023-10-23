@@ -43,7 +43,15 @@ class CacheIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -122,7 +130,15 @@ class CachePatchScheduleArgs:
              day_of_week: pulumi.Input[str],
              maintenance_window: Optional[pulumi.Input[str]] = None,
              start_hour_utc: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'startHourUtc' in kwargs:
+            start_hour_utc = kwargs['startHourUtc']
+
         _setter("day_of_week", day_of_week)
         if maintenance_window is not None:
             _setter("maintenance_window", maintenance_window)
@@ -253,7 +269,35 @@ class CacheRedisConfigurationArgs:
              rdb_backup_frequency: Optional[pulumi.Input[int]] = None,
              rdb_backup_max_snapshot_count: Optional[pulumi.Input[int]] = None,
              rdb_storage_connection_string: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aofBackupEnabled' in kwargs:
+            aof_backup_enabled = kwargs['aofBackupEnabled']
+        if 'aofStorageConnectionString0' in kwargs:
+            aof_storage_connection_string0 = kwargs['aofStorageConnectionString0']
+        if 'aofStorageConnectionString1' in kwargs:
+            aof_storage_connection_string1 = kwargs['aofStorageConnectionString1']
+        if 'enableAuthentication' in kwargs:
+            enable_authentication = kwargs['enableAuthentication']
+        if 'maxfragmentationmemoryReserved' in kwargs:
+            maxfragmentationmemory_reserved = kwargs['maxfragmentationmemoryReserved']
+        if 'maxmemoryDelta' in kwargs:
+            maxmemory_delta = kwargs['maxmemoryDelta']
+        if 'maxmemoryPolicy' in kwargs:
+            maxmemory_policy = kwargs['maxmemoryPolicy']
+        if 'maxmemoryReserved' in kwargs:
+            maxmemory_reserved = kwargs['maxmemoryReserved']
+        if 'notifyKeyspaceEvents' in kwargs:
+            notify_keyspace_events = kwargs['notifyKeyspaceEvents']
+        if 'rdbBackupEnabled' in kwargs:
+            rdb_backup_enabled = kwargs['rdbBackupEnabled']
+        if 'rdbBackupFrequency' in kwargs:
+            rdb_backup_frequency = kwargs['rdbBackupFrequency']
+        if 'rdbBackupMaxSnapshotCount' in kwargs:
+            rdb_backup_max_snapshot_count = kwargs['rdbBackupMaxSnapshotCount']
+        if 'rdbStorageConnectionString' in kwargs:
+            rdb_storage_connection_string = kwargs['rdbStorageConnectionString']
+
         if aof_backup_enabled is not None:
             _setter("aof_backup_enabled", aof_backup_enabled)
         if aof_storage_connection_string0 is not None:
@@ -492,7 +536,9 @@ class EnterpriseDatabaseModuleArgs:
              name: pulumi.Input[str],
              args: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if args is not None:
             _setter("args", args)

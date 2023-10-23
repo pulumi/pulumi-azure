@@ -216,19 +216,19 @@ public final class GetConfigurationKeyResult {
             return this;
         }
         public GetConfigurationKeyResult build() {
-            final var o = new GetConfigurationKeyResult();
-            o.configurationStoreId = configurationStoreId;
-            o.contentType = contentType;
-            o.etag = etag;
-            o.id = id;
-            o.key = key;
-            o.label = label;
-            o.locked = locked;
-            o.tags = tags;
-            o.type = type;
-            o.value = value;
-            o.vaultKeyReference = vaultKeyReference;
-            return o;
+            final var _resultValue = new GetConfigurationKeyResult();
+            _resultValue.configurationStoreId = configurationStoreId;
+            _resultValue.contentType = contentType;
+            _resultValue.etag = etag;
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.label = label;
+            _resultValue.locked = locked;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            _resultValue.vaultKeyReference = vaultKeyReference;
+            return _resultValue;
         }
     }
 }

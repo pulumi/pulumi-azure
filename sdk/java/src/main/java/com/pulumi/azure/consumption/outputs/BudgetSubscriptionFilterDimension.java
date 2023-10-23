@@ -90,11 +90,11 @@ public final class BudgetSubscriptionFilterDimension {
             return values(List.of(values));
         }
         public BudgetSubscriptionFilterDimension build() {
-            final var o = new BudgetSubscriptionFilterDimension();
-            o.name = name;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new BudgetSubscriptionFilterDimension();
+            _resultValue.name = name;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

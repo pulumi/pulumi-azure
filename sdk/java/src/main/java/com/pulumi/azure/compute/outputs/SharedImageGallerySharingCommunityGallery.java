@@ -124,13 +124,13 @@ public final class SharedImageGallerySharingCommunityGallery {
             return this;
         }
         public SharedImageGallerySharingCommunityGallery build() {
-            final var o = new SharedImageGallerySharingCommunityGallery();
-            o.eula = eula;
-            o.name = name;
-            o.prefix = prefix;
-            o.publisherEmail = publisherEmail;
-            o.publisherUri = publisherUri;
-            return o;
+            final var _resultValue = new SharedImageGallerySharingCommunityGallery();
+            _resultValue.eula = eula;
+            _resultValue.name = name;
+            _resultValue.prefix = prefix;
+            _resultValue.publisherEmail = publisherEmail;
+            _resultValue.publisherUri = publisherUri;
+            return _resultValue;
         }
     }
 }

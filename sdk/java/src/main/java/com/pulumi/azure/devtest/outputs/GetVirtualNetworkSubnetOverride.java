@@ -114,13 +114,13 @@ public final class GetVirtualNetworkSubnetOverride {
             return this;
         }
         public GetVirtualNetworkSubnetOverride build() {
-            final var o = new GetVirtualNetworkSubnetOverride();
-            o.labSubnetName = labSubnetName;
-            o.resourceId = resourceId;
-            o.useInVmCreationPermission = useInVmCreationPermission;
-            o.usePublicIpAddressPermission = usePublicIpAddressPermission;
-            o.virtualNetworkPoolName = virtualNetworkPoolName;
-            return o;
+            final var _resultValue = new GetVirtualNetworkSubnetOverride();
+            _resultValue.labSubnetName = labSubnetName;
+            _resultValue.resourceId = resourceId;
+            _resultValue.useInVmCreationPermission = useInVmCreationPermission;
+            _resultValue.usePublicIpAddressPermission = usePublicIpAddressPermission;
+            _resultValue.virtualNetworkPoolName = virtualNetworkPoolName;
+            return _resultValue;
         }
     }
 }

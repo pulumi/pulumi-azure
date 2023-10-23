@@ -65,7 +65,13 @@ class DataFlowArgs:
              script: Optional[pulumi.Input[str]] = None,
              script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              transformations: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowTransformationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'scriptLines' in kwargs:
+            script_lines = kwargs['scriptLines']
+
         _setter("data_factory_id", data_factory_id)
         _setter("sinks", sinks)
         _setter("sources", sources)
@@ -257,7 +263,13 @@ class _DataFlowState:
              sinks: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]]] = None,
              transformations: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowTransformationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'scriptLines' in kwargs:
+            script_lines = kwargs['scriptLines']
+
         if annotations is not None:
             _setter("annotations", annotations)
         if data_factory_id is not None:

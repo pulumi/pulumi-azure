@@ -31,7 +31,13 @@ class WebAppActiveSlotArgs:
              _setter: Callable[[Any, Any], None],
              slot_id: pulumi.Input[str],
              overwrite_network_config: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'slotId' in kwargs:
+            slot_id = kwargs['slotId']
+        if 'overwriteNetworkConfig' in kwargs:
+            overwrite_network_config = kwargs['overwriteNetworkConfig']
+
         _setter("slot_id", slot_id)
         if overwrite_network_config is not None:
             _setter("overwrite_network_config", overwrite_network_config)
@@ -85,7 +91,15 @@ class _WebAppActiveSlotState:
              last_successful_swap: Optional[pulumi.Input[str]] = None,
              overwrite_network_config: Optional[pulumi.Input[bool]] = None,
              slot_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lastSuccessfulSwap' in kwargs:
+            last_successful_swap = kwargs['lastSuccessfulSwap']
+        if 'overwriteNetworkConfig' in kwargs:
+            overwrite_network_config = kwargs['overwriteNetworkConfig']
+        if 'slotId' in kwargs:
+            slot_id = kwargs['slotId']
+
         if last_successful_swap is not None:
             _setter("last_successful_swap", last_successful_swap)
         if overwrite_network_config is not None:

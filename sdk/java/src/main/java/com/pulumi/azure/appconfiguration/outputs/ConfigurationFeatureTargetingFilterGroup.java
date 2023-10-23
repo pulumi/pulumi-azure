@@ -66,10 +66,10 @@ public final class ConfigurationFeatureTargetingFilterGroup {
             return this;
         }
         public ConfigurationFeatureTargetingFilterGroup build() {
-            final var o = new ConfigurationFeatureTargetingFilterGroup();
-            o.name = name;
-            o.rolloutPercentage = rolloutPercentage;
-            return o;
+            final var _resultValue = new ConfigurationFeatureTargetingFilterGroup();
+            _resultValue.name = name;
+            _resultValue.rolloutPercentage = rolloutPercentage;
+            return _resultValue;
         }
     }
 }

@@ -112,12 +112,12 @@ public final class InteractiveQueryClusterStorageAccountGen2 {
             return this;
         }
         public InteractiveQueryClusterStorageAccountGen2 build() {
-            final var o = new InteractiveQueryClusterStorageAccountGen2();
-            o.filesystemId = filesystemId;
-            o.isDefault = isDefault;
-            o.managedIdentityResourceId = managedIdentityResourceId;
-            o.storageResourceId = storageResourceId;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterStorageAccountGen2();
+            _resultValue.filesystemId = filesystemId;
+            _resultValue.isDefault = isDefault;
+            _resultValue.managedIdentityResourceId = managedIdentityResourceId;
+            _resultValue.storageResourceId = storageResourceId;
+            return _resultValue;
         }
     }
 }

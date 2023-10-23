@@ -132,13 +132,13 @@ public final class AutoscaleSettingProfile {
             return rules(List.of(rules));
         }
         public AutoscaleSettingProfile build() {
-            final var o = new AutoscaleSettingProfile();
-            o.capacity = capacity;
-            o.fixedDate = fixedDate;
-            o.name = name;
-            o.recurrence = recurrence;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new AutoscaleSettingProfile();
+            _resultValue.capacity = capacity;
+            _resultValue.fixedDate = fixedDate;
+            _resultValue.name = name;
+            _resultValue.recurrence = recurrence;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

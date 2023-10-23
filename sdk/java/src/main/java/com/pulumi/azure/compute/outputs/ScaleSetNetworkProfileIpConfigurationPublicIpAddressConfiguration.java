@@ -85,11 +85,11 @@ public final class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigura
             return this;
         }
         public ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration build() {
-            final var o = new ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration();
-            o.domainNameLabel = domainNameLabel;
-            o.idleTimeout = idleTimeout;
-            o.name = name;
-            return o;
+            final var _resultValue = new ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration();
+            _resultValue.domainNameLabel = domainNameLabel;
+            _resultValue.idleTimeout = idleTimeout;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

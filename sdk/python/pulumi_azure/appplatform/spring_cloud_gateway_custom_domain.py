@@ -35,7 +35,11 @@ class SpringCloudGatewayCustomDomainArgs:
              spring_cloud_gateway_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudGatewayId' in kwargs:
+            spring_cloud_gateway_id = kwargs['springCloudGatewayId']
+
         _setter("spring_cloud_gateway_id", spring_cloud_gateway_id)
         if name is not None:
             _setter("name", name)
@@ -103,7 +107,11 @@ class _SpringCloudGatewayCustomDomainState:
              name: Optional[pulumi.Input[str]] = None,
              spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudGatewayId' in kwargs:
+            spring_cloud_gateway_id = kwargs['springCloudGatewayId']
+
         if name is not None:
             _setter("name", name)
         if spring_cloud_gateway_id is not None:

@@ -66,10 +66,10 @@ public final class IotHubDpsSku {
             return this;
         }
         public IotHubDpsSku build() {
-            final var o = new IotHubDpsSku();
-            o.capacity = capacity;
-            o.name = name;
-            return o;
+            final var _resultValue = new IotHubDpsSku();
+            _resultValue.capacity = capacity;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

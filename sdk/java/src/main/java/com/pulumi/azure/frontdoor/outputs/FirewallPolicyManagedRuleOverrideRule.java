@@ -111,12 +111,12 @@ public final class FirewallPolicyManagedRuleOverrideRule {
             return this;
         }
         public FirewallPolicyManagedRuleOverrideRule build() {
-            final var o = new FirewallPolicyManagedRuleOverrideRule();
-            o.action = action;
-            o.enabled = enabled;
-            o.exclusions = exclusions;
-            o.ruleId = ruleId;
-            return o;
+            final var _resultValue = new FirewallPolicyManagedRuleOverrideRule();
+            _resultValue.action = action;
+            _resultValue.enabled = enabled;
+            _resultValue.exclusions = exclusions;
+            _resultValue.ruleId = ruleId;
+            return _resultValue;
         }
     }
 }

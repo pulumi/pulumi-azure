@@ -39,7 +39,11 @@ class NetworkSiteArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+
         _setter("mobile_network_id", mobile_network_id)
         if location is not None:
             _setter("location", location)
@@ -129,7 +133,13 @@ class _NetworkSiteState:
              name: Optional[pulumi.Input[str]] = None,
              network_function_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+        if 'networkFunctionIds' in kwargs:
+            network_function_ids = kwargs['networkFunctionIds']
+
         if location is not None:
             _setter("location", location)
         if mobile_network_id is not None:

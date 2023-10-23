@@ -86,11 +86,11 @@ public final class MonitorUser {
             return this;
         }
         public MonitorUser build() {
-            final var o = new MonitorUser();
-            o.email = email;
-            o.name = name;
-            o.phoneNumber = phoneNumber;
-            return o;
+            final var _resultValue = new MonitorUser();
+            _resultValue.email = email;
+            _resultValue.name = name;
+            _resultValue.phoneNumber = phoneNumber;
+            return _resultValue;
         }
     }
 }

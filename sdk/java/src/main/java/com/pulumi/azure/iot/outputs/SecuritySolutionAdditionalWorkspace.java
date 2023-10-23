@@ -69,10 +69,10 @@ public final class SecuritySolutionAdditionalWorkspace {
             return this;
         }
         public SecuritySolutionAdditionalWorkspace build() {
-            final var o = new SecuritySolutionAdditionalWorkspace();
-            o.dataTypes = dataTypes;
-            o.workspaceId = workspaceId;
-            return o;
+            final var _resultValue = new SecuritySolutionAdditionalWorkspace();
+            _resultValue.dataTypes = dataTypes;
+            _resultValue.workspaceId = workspaceId;
+            return _resultValue;
         }
     }
 }

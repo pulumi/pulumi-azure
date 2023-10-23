@@ -98,13 +98,13 @@ public final class GetPoolStorageImageReference {
             return this;
         }
         public GetPoolStorageImageReference build() {
-            final var o = new GetPoolStorageImageReference();
-            o.id = id;
-            o.offer = offer;
-            o.publisher = publisher;
-            o.sku = sku;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetPoolStorageImageReference();
+            _resultValue.id = id;
+            _resultValue.offer = offer;
+            _resultValue.publisher = publisher;
+            _resultValue.sku = sku;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

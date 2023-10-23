@@ -145,15 +145,15 @@ public final class GetVirtualNetworkResult {
             return this;
         }
         public GetVirtualNetworkResult build() {
-            final var o = new GetVirtualNetworkResult();
-            o.allowedSubnets = allowedSubnets;
-            o.id = id;
-            o.labName = labName;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.subnetOverrides = subnetOverrides;
-            o.uniqueIdentifier = uniqueIdentifier;
-            return o;
+            final var _resultValue = new GetVirtualNetworkResult();
+            _resultValue.allowedSubnets = allowedSubnets;
+            _resultValue.id = id;
+            _resultValue.labName = labName;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.subnetOverrides = subnetOverrides;
+            _resultValue.uniqueIdentifier = uniqueIdentifier;
+            return _resultValue;
         }
     }
 }

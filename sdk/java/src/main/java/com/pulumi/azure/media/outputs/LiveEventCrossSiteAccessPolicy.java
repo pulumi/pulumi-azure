@@ -67,10 +67,10 @@ public final class LiveEventCrossSiteAccessPolicy {
             return this;
         }
         public LiveEventCrossSiteAccessPolicy build() {
-            final var o = new LiveEventCrossSiteAccessPolicy();
-            o.clientAccessPolicy = clientAccessPolicy;
-            o.crossDomainPolicy = crossDomainPolicy;
-            return o;
+            final var _resultValue = new LiveEventCrossSiteAccessPolicy();
+            _resultValue.clientAccessPolicy = clientAccessPolicy;
+            _resultValue.crossDomainPolicy = crossDomainPolicy;
+            return _resultValue;
         }
     }
 }

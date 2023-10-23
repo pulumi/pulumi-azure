@@ -24,7 +24,7 @@ public final class ApplicationGatewayRewriteRuleSet {
      */
     private String name;
     /**
-     * @return One or more `rewrite_rule` blocks as defined above.
+     * @return One or more `rewrite_rule` blocks as defined below.
      * 
      */
     private @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRule> rewriteRules;
@@ -45,7 +45,7 @@ public final class ApplicationGatewayRewriteRuleSet {
         return this.name;
     }
     /**
-     * @return One or more `rewrite_rule` blocks as defined above.
+     * @return One or more `rewrite_rule` blocks as defined below.
      * 
      */
     public List<ApplicationGatewayRewriteRuleSetRewriteRule> rewriteRules() {
@@ -91,11 +91,11 @@ public final class ApplicationGatewayRewriteRuleSet {
             return rewriteRules(List.of(rewriteRules));
         }
         public ApplicationGatewayRewriteRuleSet build() {
-            final var o = new ApplicationGatewayRewriteRuleSet();
-            o.id = id;
-            o.name = name;
-            o.rewriteRules = rewriteRules;
-            return o;
+            final var _resultValue = new ApplicationGatewayRewriteRuleSet();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.rewriteRules = rewriteRules;
+            return _resultValue;
         }
     }
 }

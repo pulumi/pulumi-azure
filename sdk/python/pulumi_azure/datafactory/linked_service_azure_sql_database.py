@@ -81,7 +81,29 @@ class LinkedServiceAzureSqlDatabaseArgs:
              service_principal_key: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'keyVaultConnectionString' in kwargs:
+            key_vault_connection_string = kwargs['keyVaultConnectionString']
+        if 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+        if 'servicePrincipalId' in kwargs:
+            service_principal_id = kwargs['servicePrincipalId']
+        if 'servicePrincipalKey' in kwargs:
+            service_principal_key = kwargs['servicePrincipalKey']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'useManagedIdentity' in kwargs:
+            use_managed_identity = kwargs['useManagedIdentity']
+
         _setter("data_factory_id", data_factory_id)
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
@@ -347,7 +369,29 @@ class _LinkedServiceAzureSqlDatabaseState:
              service_principal_key: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'keyVaultConnectionString' in kwargs:
+            key_vault_connection_string = kwargs['keyVaultConnectionString']
+        if 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+        if 'servicePrincipalId' in kwargs:
+            service_principal_id = kwargs['servicePrincipalId']
+        if 'servicePrincipalKey' in kwargs:
+            service_principal_key = kwargs['servicePrincipalKey']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'useManagedIdentity' in kwargs:
+            use_managed_identity = kwargs['useManagedIdentity']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

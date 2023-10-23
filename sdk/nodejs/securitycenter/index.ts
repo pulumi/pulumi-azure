@@ -50,6 +50,11 @@ export type Setting = import("./setting").Setting;
 export const Setting: typeof import("./setting").Setting = null as any;
 utilities.lazyLoad(exports, ["Setting"], () => require("./setting"));
 
+export { StorageDefenderArgs, StorageDefenderState } from "./storageDefender";
+export type StorageDefender = import("./storageDefender").StorageDefender;
+export const StorageDefender: typeof import("./storageDefender").StorageDefender = null as any;
+utilities.lazyLoad(exports, ["StorageDefender"], () => require("./storageDefender"));
+
 export { SubscriptionPricingArgs, SubscriptionPricingState } from "./subscriptionPricing";
 export type SubscriptionPricing = import("./subscriptionPricing").SubscriptionPricing;
 export const SubscriptionPricing: typeof import("./subscriptionPricing").SubscriptionPricing = null as any;
@@ -83,6 +88,8 @@ const _module = {
                 return new ServerVulnerabilityAssessmentVirtualMachine(name, <any>undefined, { urn })
             case "azure:securitycenter/setting:Setting":
                 return new Setting(name, <any>undefined, { urn })
+            case "azure:securitycenter/storageDefender:StorageDefender":
+                return new StorageDefender(name, <any>undefined, { urn })
             case "azure:securitycenter/subscriptionPricing:SubscriptionPricing":
                 return new SubscriptionPricing(name, <any>undefined, { urn })
             case "azure:securitycenter/workspace:Workspace":
@@ -101,5 +108,6 @@ pulumi.runtime.registerResourceModule("azure", "securitycenter/contact", _module
 pulumi.runtime.registerResourceModule("azure", "securitycenter/serverVulnerabilityAssessment", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/serverVulnerabilityAssessmentVirtualMachine", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/setting", _module)
+pulumi.runtime.registerResourceModule("azure", "securitycenter/storageDefender", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/subscriptionPricing", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/workspace", _module)

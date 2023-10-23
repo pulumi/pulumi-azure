@@ -43,7 +43,17 @@ class ActiveDirectoryAdministratorArgs:
              resource_group_name: pulumi.Input[str],
              server_name: pulumi.Input[str],
              tenant_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("login", login)
         _setter("object_id", object_id)
         _setter("resource_group_name", resource_group_name)
@@ -143,7 +153,17 @@ class _ActiveDirectoryAdministratorState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if login is not None:
             _setter("login", login)
         if object_id is not None:

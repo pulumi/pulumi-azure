@@ -204,16 +204,16 @@ public final class ScaleSetNetworkProfileIpConfiguration {
             return this;
         }
         public ScaleSetNetworkProfileIpConfiguration build() {
-            final var o = new ScaleSetNetworkProfileIpConfiguration();
-            o.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
-            o.applicationSecurityGroupIds = applicationSecurityGroupIds;
-            o.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
-            o.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
-            o.name = name;
-            o.primary = primary;
-            o.publicIpAddressConfiguration = publicIpAddressConfiguration;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new ScaleSetNetworkProfileIpConfiguration();
+            _resultValue.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
+            _resultValue.applicationSecurityGroupIds = applicationSecurityGroupIds;
+            _resultValue.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
+            _resultValue.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
+            _resultValue.name = name;
+            _resultValue.primary = primary;
+            _resultValue.publicIpAddressConfiguration = publicIpAddressConfiguration;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

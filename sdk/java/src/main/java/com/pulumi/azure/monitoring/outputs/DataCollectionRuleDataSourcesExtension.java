@@ -131,13 +131,13 @@ public final class DataCollectionRuleDataSourcesExtension {
             return streams(List.of(streams));
         }
         public DataCollectionRuleDataSourcesExtension build() {
-            final var o = new DataCollectionRuleDataSourcesExtension();
-            o.extensionJson = extensionJson;
-            o.extensionName = extensionName;
-            o.inputDataSources = inputDataSources;
-            o.name = name;
-            o.streams = streams;
-            return o;
+            final var _resultValue = new DataCollectionRuleDataSourcesExtension();
+            _resultValue.extensionJson = extensionJson;
+            _resultValue.extensionName = extensionName;
+            _resultValue.inputDataSources = inputDataSources;
+            _resultValue.name = name;
+            _resultValue.streams = streams;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class LinuxFunctionAppSiteCredential {
             return this;
         }
         public LinuxFunctionAppSiteCredential build() {
-            final var o = new LinuxFunctionAppSiteCredential();
-            o.name = name;
-            o.password = password;
-            return o;
+            final var _resultValue = new LinuxFunctionAppSiteCredential();
+            _resultValue.name = name;
+            _resultValue.password = password;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class NetworkConnectionMonitorTestConfigurationIcmpConfiguration {
             return this;
         }
         public NetworkConnectionMonitorTestConfigurationIcmpConfiguration build() {
-            final var o = new NetworkConnectionMonitorTestConfigurationIcmpConfiguration();
-            o.traceRouteEnabled = traceRouteEnabled;
-            return o;
+            final var _resultValue = new NetworkConnectionMonitorTestConfigurationIcmpConfiguration();
+            _resultValue.traceRouteEnabled = traceRouteEnabled;
+            return _resultValue;
         }
     }
 }

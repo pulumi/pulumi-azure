@@ -186,16 +186,16 @@ public final class NetworkConnectionMonitorTestConfiguration {
             return this;
         }
         public NetworkConnectionMonitorTestConfiguration build() {
-            final var o = new NetworkConnectionMonitorTestConfiguration();
-            o.httpConfiguration = httpConfiguration;
-            o.icmpConfiguration = icmpConfiguration;
-            o.name = name;
-            o.preferredIpVersion = preferredIpVersion;
-            o.protocol = protocol;
-            o.successThreshold = successThreshold;
-            o.tcpConfiguration = tcpConfiguration;
-            o.testFrequencyInSeconds = testFrequencyInSeconds;
-            return o;
+            final var _resultValue = new NetworkConnectionMonitorTestConfiguration();
+            _resultValue.httpConfiguration = httpConfiguration;
+            _resultValue.icmpConfiguration = icmpConfiguration;
+            _resultValue.name = name;
+            _resultValue.preferredIpVersion = preferredIpVersion;
+            _resultValue.protocol = protocol;
+            _resultValue.successThreshold = successThreshold;
+            _resultValue.tcpConfiguration = tcpConfiguration;
+            _resultValue.testFrequencyInSeconds = testFrequencyInSeconds;
+            return _resultValue;
         }
     }
 }

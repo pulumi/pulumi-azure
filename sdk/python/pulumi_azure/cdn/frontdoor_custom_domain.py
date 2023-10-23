@@ -49,7 +49,15 @@ class FrontdoorCustomDomainArgs:
              tls: pulumi.Input['FrontdoorCustomDomainTlsArgs'],
              dns_zone_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorProfileId' in kwargs:
+            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'dnsZoneId' in kwargs:
+            dns_zone_id = kwargs['dnsZoneId']
+
         _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         _setter("host_name", host_name)
         _setter("tls", tls)
@@ -167,7 +175,19 @@ class _FrontdoorCustomDomainState:
              name: Optional[pulumi.Input[str]] = None,
              tls: Optional[pulumi.Input['FrontdoorCustomDomainTlsArgs']] = None,
              validation_token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorProfileId' in kwargs:
+            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
+        if 'dnsZoneId' in kwargs:
+            dns_zone_id = kwargs['dnsZoneId']
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'validationToken' in kwargs:
+            validation_token = kwargs['validationToken']
+
         if cdn_frontdoor_profile_id is not None:
             _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if dns_zone_id is not None:

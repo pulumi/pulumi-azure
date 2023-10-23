@@ -125,13 +125,13 @@ public final class ManagedClusterLbRule {
             return this;
         }
         public ManagedClusterLbRule build() {
-            final var o = new ManagedClusterLbRule();
-            o.backendPort = backendPort;
-            o.frontendPort = frontendPort;
-            o.probeProtocol = probeProtocol;
-            o.probeRequestPath = probeRequestPath;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new ManagedClusterLbRule();
+            _resultValue.backendPort = backendPort;
+            _resultValue.frontendPort = frontendPort;
+            _resultValue.probeProtocol = probeProtocol;
+            _resultValue.probeRequestPath = probeRequestPath;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

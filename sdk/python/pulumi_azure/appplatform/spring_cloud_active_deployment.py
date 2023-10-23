@@ -31,7 +31,13 @@ class SpringCloudActiveDeploymentArgs:
              _setter: Callable[[Any, Any], None],
              deployment_name: pulumi.Input[str],
              spring_cloud_app_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentName' in kwargs:
+            deployment_name = kwargs['deploymentName']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+
         _setter("deployment_name", deployment_name)
         _setter("spring_cloud_app_id", spring_cloud_app_id)
 
@@ -80,7 +86,13 @@ class _SpringCloudActiveDeploymentState:
              _setter: Callable[[Any, Any], None],
              deployment_name: Optional[pulumi.Input[str]] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentName' in kwargs:
+            deployment_name = kwargs['deploymentName']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+
         if deployment_name is not None:
             _setter("deployment_name", deployment_name)
         if spring_cloud_app_id is not None:

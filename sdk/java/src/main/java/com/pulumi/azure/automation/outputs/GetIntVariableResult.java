@@ -138,15 +138,15 @@ public final class GetIntVariableResult {
             return this;
         }
         public GetIntVariableResult build() {
-            final var o = new GetIntVariableResult();
-            o.automationAccountName = automationAccountName;
-            o.description = description;
-            o.encrypted = encrypted;
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetIntVariableResult();
+            _resultValue.automationAccountName = automationAccountName;
+            _resultValue.description = description;
+            _resultValue.encrypted = encrypted;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

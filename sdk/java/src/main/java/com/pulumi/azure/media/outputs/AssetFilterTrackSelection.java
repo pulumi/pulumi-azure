@@ -50,9 +50,9 @@ public final class AssetFilterTrackSelection {
             return conditions(List.of(conditions));
         }
         public AssetFilterTrackSelection build() {
-            final var o = new AssetFilterTrackSelection();
-            o.conditions = conditions;
-            return o;
+            final var _resultValue = new AssetFilterTrackSelection();
+            _resultValue.conditions = conditions;
+            return _resultValue;
         }
     }
 }

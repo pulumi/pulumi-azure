@@ -46,9 +46,9 @@ public final class ResourceGroupCostManagementViewKpi {
             return this;
         }
         public ResourceGroupCostManagementViewKpi build() {
-            final var o = new ResourceGroupCostManagementViewKpi();
-            o.type = type;
-            return o;
+            final var _resultValue = new ResourceGroupCostManagementViewKpi();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

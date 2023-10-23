@@ -86,11 +86,11 @@ public final class ResourceDeploymentScriptPowerShellEnvironmentVariable {
             return this;
         }
         public ResourceDeploymentScriptPowerShellEnvironmentVariable build() {
-            final var o = new ResourceDeploymentScriptPowerShellEnvironmentVariable();
-            o.name = name;
-            o.secureValue = secureValue;
-            o.value = value;
-            return o;
+            final var _resultValue = new ResourceDeploymentScriptPowerShellEnvironmentVariable();
+            _resultValue.name = name;
+            _resultValue.secureValue = secureValue;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

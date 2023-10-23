@@ -115,12 +115,12 @@ public final class WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders {
             return xForwardedHosts(List.of(xForwardedHosts));
         }
         public WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders build() {
-            final var o = new WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders();
-            o.xAzureFdids = xAzureFdids;
-            o.xFdHealthProbe = xFdHealthProbe;
-            o.xForwardedFors = xForwardedFors;
-            o.xForwardedHosts = xForwardedHosts;
-            return o;
+            final var _resultValue = new WindowsFunctionAppSlotSiteConfigIpRestrictionHeaders();
+            _resultValue.xAzureFdids = xAzureFdids;
+            _resultValue.xFdHealthProbe = xFdHealthProbe;
+            _resultValue.xForwardedFors = xForwardedFors;
+            _resultValue.xForwardedHosts = xForwardedHosts;
+            return _resultValue;
         }
     }
 }

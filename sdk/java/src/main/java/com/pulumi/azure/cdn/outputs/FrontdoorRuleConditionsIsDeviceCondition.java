@@ -87,11 +87,11 @@ public final class FrontdoorRuleConditionsIsDeviceCondition {
             return this;
         }
         public FrontdoorRuleConditionsIsDeviceCondition build() {
-            final var o = new FrontdoorRuleConditionsIsDeviceCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new FrontdoorRuleConditionsIsDeviceCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

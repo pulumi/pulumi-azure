@@ -113,12 +113,12 @@ public final class LinuxFunctionAppAuthSettingsActiveDirectory {
             return this;
         }
         public LinuxFunctionAppAuthSettingsActiveDirectory build() {
-            final var o = new LinuxFunctionAppAuthSettingsActiveDirectory();
-            o.allowedAudiences = allowedAudiences;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.clientSecretSettingName = clientSecretSettingName;
-            return o;
+            final var _resultValue = new LinuxFunctionAppAuthSettingsActiveDirectory();
+            _resultValue.allowedAudiences = allowedAudiences;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            return _resultValue;
         }
     }
 }

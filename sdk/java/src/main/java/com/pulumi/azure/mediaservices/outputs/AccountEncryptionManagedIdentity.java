@@ -68,10 +68,10 @@ public final class AccountEncryptionManagedIdentity {
             return this;
         }
         public AccountEncryptionManagedIdentity build() {
-            final var o = new AccountEncryptionManagedIdentity();
-            o.useSystemAssignedIdentity = useSystemAssignedIdentity;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new AccountEncryptionManagedIdentity();
+            _resultValue.useSystemAssignedIdentity = useSystemAssignedIdentity;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

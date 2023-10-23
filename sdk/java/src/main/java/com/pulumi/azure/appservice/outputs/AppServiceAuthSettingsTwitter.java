@@ -65,10 +65,10 @@ public final class AppServiceAuthSettingsTwitter {
             return this;
         }
         public AppServiceAuthSettingsTwitter build() {
-            final var o = new AppServiceAuthSettingsTwitter();
-            o.consumerKey = consumerKey;
-            o.consumerSecret = consumerSecret;
-            return o;
+            final var _resultValue = new AppServiceAuthSettingsTwitter();
+            _resultValue.consumerKey = consumerKey;
+            _resultValue.consumerSecret = consumerSecret;
+            return _resultValue;
         }
     }
 }

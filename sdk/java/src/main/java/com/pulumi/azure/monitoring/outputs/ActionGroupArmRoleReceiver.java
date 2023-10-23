@@ -87,11 +87,11 @@ public final class ActionGroupArmRoleReceiver {
             return this;
         }
         public ActionGroupArmRoleReceiver build() {
-            final var o = new ActionGroupArmRoleReceiver();
-            o.name = name;
-            o.roleId = roleId;
-            o.useCommonAlertSchema = useCommonAlertSchema;
-            return o;
+            final var _resultValue = new ActionGroupArmRoleReceiver();
+            _resultValue.name = name;
+            _resultValue.roleId = roleId;
+            _resultValue.useCommonAlertSchema = useCommonAlertSchema;
+            return _resultValue;
         }
     }
 }

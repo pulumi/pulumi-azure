@@ -70,10 +70,10 @@ public final class GetScheduledQueryRulesLogCriteria {
             return this;
         }
         public GetScheduledQueryRulesLogCriteria build() {
-            final var o = new GetScheduledQueryRulesLogCriteria();
-            o.dimensions = dimensions;
-            o.metricName = metricName;
-            return o;
+            final var _resultValue = new GetScheduledQueryRulesLogCriteria();
+            _resultValue.dimensions = dimensions;
+            _resultValue.metricName = metricName;
+            return _resultValue;
         }
     }
 }

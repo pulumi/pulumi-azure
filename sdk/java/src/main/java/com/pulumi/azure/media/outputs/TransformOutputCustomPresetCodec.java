@@ -192,16 +192,16 @@ public final class TransformOutputCustomPresetCodec {
             return this;
         }
         public TransformOutputCustomPresetCodec build() {
-            final var o = new TransformOutputCustomPresetCodec();
-            o.aacAudio = aacAudio;
-            o.copyAudio = copyAudio;
-            o.copyVideo = copyVideo;
-            o.ddAudio = ddAudio;
-            o.h264Video = h264Video;
-            o.h265Video = h265Video;
-            o.jpgImage = jpgImage;
-            o.pngImage = pngImage;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetCodec();
+            _resultValue.aacAudio = aacAudio;
+            _resultValue.copyAudio = copyAudio;
+            _resultValue.copyVideo = copyVideo;
+            _resultValue.ddAudio = ddAudio;
+            _resultValue.h264Video = h264Video;
+            _resultValue.h265Video = h265Video;
+            _resultValue.jpgImage = jpgImage;
+            _resultValue.pngImage = pngImage;
+            return _resultValue;
         }
     }
 }

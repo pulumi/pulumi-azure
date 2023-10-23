@@ -145,15 +145,15 @@ public final class GetApplicationResult {
             return this;
         }
         public GetApplicationResult build() {
-            final var o = new GetApplicationResult();
-            o.accountName = accountName;
-            o.allowUpdates = allowUpdates;
-            o.defaultVersion = defaultVersion;
-            o.displayName = displayName;
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetApplicationResult();
+            _resultValue.accountName = accountName;
+            _resultValue.allowUpdates = allowUpdates;
+            _resultValue.defaultVersion = defaultVersion;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

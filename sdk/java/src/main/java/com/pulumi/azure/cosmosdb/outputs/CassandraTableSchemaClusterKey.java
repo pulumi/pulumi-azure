@@ -65,10 +65,10 @@ public final class CassandraTableSchemaClusterKey {
             return this;
         }
         public CassandraTableSchemaClusterKey build() {
-            final var o = new CassandraTableSchemaClusterKey();
-            o.name = name;
-            o.orderBy = orderBy;
-            return o;
+            final var _resultValue = new CassandraTableSchemaClusterKey();
+            _resultValue.name = name;
+            _resultValue.orderBy = orderBy;
+            return _resultValue;
         }
     }
 }

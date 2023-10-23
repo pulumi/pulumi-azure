@@ -178,15 +178,15 @@ public final class HBaseClusterRolesZookeeperNode {
             return this;
         }
         public HBaseClusterRolesZookeeperNode build() {
-            final var o = new HBaseClusterRolesZookeeperNode();
-            o.password = password;
-            o.scriptActions = scriptActions;
-            o.sshKeys = sshKeys;
-            o.subnetId = subnetId;
-            o.username = username;
-            o.virtualNetworkId = virtualNetworkId;
-            o.vmSize = vmSize;
-            return o;
+            final var _resultValue = new HBaseClusterRolesZookeeperNode();
+            _resultValue.password = password;
+            _resultValue.scriptActions = scriptActions;
+            _resultValue.sshKeys = sshKeys;
+            _resultValue.subnetId = subnetId;
+            _resultValue.username = username;
+            _resultValue.virtualNetworkId = virtualNetworkId;
+            _resultValue.vmSize = vmSize;
+            return _resultValue;
         }
     }
 }

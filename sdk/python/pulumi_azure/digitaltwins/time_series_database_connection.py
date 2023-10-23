@@ -63,7 +63,27 @@ class TimeSeriesDatabaseConnectionArgs:
              eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
              kusto_table_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'digitalTwinsId' in kwargs:
+            digital_twins_id = kwargs['digitalTwinsId']
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'eventhubNamespaceEndpointUri' in kwargs:
+            eventhub_namespace_endpoint_uri = kwargs['eventhubNamespaceEndpointUri']
+        if 'eventhubNamespaceId' in kwargs:
+            eventhub_namespace_id = kwargs['eventhubNamespaceId']
+        if 'kustoClusterId' in kwargs:
+            kusto_cluster_id = kwargs['kustoClusterId']
+        if 'kustoClusterUri' in kwargs:
+            kusto_cluster_uri = kwargs['kustoClusterUri']
+        if 'kustoDatabaseName' in kwargs:
+            kusto_database_name = kwargs['kustoDatabaseName']
+        if 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if 'kustoTableName' in kwargs:
+            kusto_table_name = kwargs['kustoTableName']
+
         _setter("digital_twins_id", digital_twins_id)
         _setter("eventhub_name", eventhub_name)
         _setter("eventhub_namespace_endpoint_uri", eventhub_namespace_endpoint_uri)
@@ -251,7 +271,27 @@ class _TimeSeriesDatabaseConnectionState:
              kusto_database_name: Optional[pulumi.Input[str]] = None,
              kusto_table_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'digitalTwinsId' in kwargs:
+            digital_twins_id = kwargs['digitalTwinsId']
+        if 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'eventhubNamespaceEndpointUri' in kwargs:
+            eventhub_namespace_endpoint_uri = kwargs['eventhubNamespaceEndpointUri']
+        if 'eventhubNamespaceId' in kwargs:
+            eventhub_namespace_id = kwargs['eventhubNamespaceId']
+        if 'kustoClusterId' in kwargs:
+            kusto_cluster_id = kwargs['kustoClusterId']
+        if 'kustoClusterUri' in kwargs:
+            kusto_cluster_uri = kwargs['kustoClusterUri']
+        if 'kustoDatabaseName' in kwargs:
+            kusto_database_name = kwargs['kustoDatabaseName']
+        if 'kustoTableName' in kwargs:
+            kusto_table_name = kwargs['kustoTableName']
+
         if digital_twins_id is not None:
             _setter("digital_twins_id", digital_twins_id)
         if eventhub_consumer_group_name is not None:

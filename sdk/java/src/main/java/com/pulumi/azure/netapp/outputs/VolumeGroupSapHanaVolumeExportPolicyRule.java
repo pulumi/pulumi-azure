@@ -164,15 +164,15 @@ public final class VolumeGroupSapHanaVolumeExportPolicyRule {
             return this;
         }
         public VolumeGroupSapHanaVolumeExportPolicyRule build() {
-            final var o = new VolumeGroupSapHanaVolumeExportPolicyRule();
-            o.allowedClients = allowedClients;
-            o.nfsv3Enabled = nfsv3Enabled;
-            o.nfsv41Enabled = nfsv41Enabled;
-            o.rootAccessEnabled = rootAccessEnabled;
-            o.ruleIndex = ruleIndex;
-            o.unixReadOnly = unixReadOnly;
-            o.unixReadWrite = unixReadWrite;
-            return o;
+            final var _resultValue = new VolumeGroupSapHanaVolumeExportPolicyRule();
+            _resultValue.allowedClients = allowedClients;
+            _resultValue.nfsv3Enabled = nfsv3Enabled;
+            _resultValue.nfsv41Enabled = nfsv41Enabled;
+            _resultValue.rootAccessEnabled = rootAccessEnabled;
+            _resultValue.ruleIndex = ruleIndex;
+            _resultValue.unixReadOnly = unixReadOnly;
+            _resultValue.unixReadWrite = unixReadWrite;
+            return _resultValue;
         }
     }
 }

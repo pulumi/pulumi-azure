@@ -67,10 +67,10 @@ public final class WorkspaceCustomerManagedKey {
             return this;
         }
         public WorkspaceCustomerManagedKey build() {
-            final var o = new WorkspaceCustomerManagedKey();
-            o.keyName = keyName;
-            o.keyVersionlessId = keyVersionlessId;
-            return o;
+            final var _resultValue = new WorkspaceCustomerManagedKey();
+            _resultValue.keyName = keyName;
+            _resultValue.keyVersionlessId = keyVersionlessId;
+            return _resultValue;
         }
     }
 }

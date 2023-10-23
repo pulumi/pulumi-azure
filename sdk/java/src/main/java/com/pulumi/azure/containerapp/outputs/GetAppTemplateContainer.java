@@ -283,20 +283,20 @@ public final class GetAppTemplateContainer {
             return volumeMounts(List.of(volumeMounts));
         }
         public GetAppTemplateContainer build() {
-            final var o = new GetAppTemplateContainer();
-            o.args = args;
-            o.commands = commands;
-            o.cpu = cpu;
-            o.envs = envs;
-            o.ephemeralStorage = ephemeralStorage;
-            o.image = image;
-            o.livenessProbes = livenessProbes;
-            o.memory = memory;
-            o.name = name;
-            o.readinessProbes = readinessProbes;
-            o.startupProbes = startupProbes;
-            o.volumeMounts = volumeMounts;
-            return o;
+            final var _resultValue = new GetAppTemplateContainer();
+            _resultValue.args = args;
+            _resultValue.commands = commands;
+            _resultValue.cpu = cpu;
+            _resultValue.envs = envs;
+            _resultValue.ephemeralStorage = ephemeralStorage;
+            _resultValue.image = image;
+            _resultValue.livenessProbes = livenessProbes;
+            _resultValue.memory = memory;
+            _resultValue.name = name;
+            _resultValue.readinessProbes = readinessProbes;
+            _resultValue.startupProbes = startupProbes;
+            _resultValue.volumeMounts = volumeMounts;
+            return _resultValue;
         }
     }
 }

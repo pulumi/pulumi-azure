@@ -65,10 +65,10 @@ public final class AlertRuleNrtAlertDetailsOverrideDynamicProperty {
             return this;
         }
         public AlertRuleNrtAlertDetailsOverrideDynamicProperty build() {
-            final var o = new AlertRuleNrtAlertDetailsOverrideDynamicProperty();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new AlertRuleNrtAlertDetailsOverrideDynamicProperty();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

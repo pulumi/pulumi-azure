@@ -170,14 +170,14 @@ public final class BlobInventoryPolicyRuleFilter {
             return prefixMatches(List.of(prefixMatches));
         }
         public BlobInventoryPolicyRuleFilter build() {
-            final var o = new BlobInventoryPolicyRuleFilter();
-            o.blobTypes = blobTypes;
-            o.excludePrefixes = excludePrefixes;
-            o.includeBlobVersions = includeBlobVersions;
-            o.includeDeleted = includeDeleted;
-            o.includeSnapshots = includeSnapshots;
-            o.prefixMatches = prefixMatches;
-            return o;
+            final var _resultValue = new BlobInventoryPolicyRuleFilter();
+            _resultValue.blobTypes = blobTypes;
+            _resultValue.excludePrefixes = excludePrefixes;
+            _resultValue.includeBlobVersions = includeBlobVersions;
+            _resultValue.includeDeleted = includeDeleted;
+            _resultValue.includeSnapshots = includeSnapshots;
+            _resultValue.prefixMatches = prefixMatches;
+            return _resultValue;
         }
     }
 }

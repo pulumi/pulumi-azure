@@ -35,14 +35,14 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+     * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
      * 
      */
     @Import(name="citusVersion")
     private @Nullable Output<String> citusVersion;
 
     /**
-     * @return The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+     * @return The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
      * 
      */
     public Optional<Output<String>> citusVersion() {
@@ -339,14 +339,14 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+     * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
      * 
      */
     @Import(name="sqlVersion")
     private @Nullable Output<String> sqlVersion;
 
     /**
-     * @return The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+     * @return The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
      * 
      */
     public Optional<Output<String>> sqlVersion() {
@@ -436,7 +436,7 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param citusVersion The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+         * @param citusVersion The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param citusVersion The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+         * @param citusVersion The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
          * 
          * @return builder
          * 
@@ -860,7 +860,7 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sqlVersion The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+         * @param sqlVersion The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
          * 
          * @return builder
          * 
@@ -871,7 +871,7 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param sqlVersion The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+         * @param sqlVersion The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
          * 
          * @return builder
          * 

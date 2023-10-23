@@ -78,7 +78,31 @@ class GremlinGraphArgs:
              partition_key_version: Optional[pulumi.Input[int]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
              unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphUniqueKeyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'partitionKeyPath' in kwargs:
+            partition_key_path = kwargs['partitionKeyPath']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'analyticalStorageTtl' in kwargs:
+            analytical_storage_ttl = kwargs['analyticalStorageTtl']
+        if 'autoscaleSettings' in kwargs:
+            autoscale_settings = kwargs['autoscaleSettings']
+        if 'conflictResolutionPolicy' in kwargs:
+            conflict_resolution_policy = kwargs['conflictResolutionPolicy']
+        if 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if 'indexPolicy' in kwargs:
+            index_policy = kwargs['indexPolicy']
+        if 'partitionKeyVersion' in kwargs:
+            partition_key_version = kwargs['partitionKeyVersion']
+        if 'uniqueKeys' in kwargs:
+            unique_keys = kwargs['uniqueKeys']
+
         _setter("account_name", account_name)
         _setter("database_name", database_name)
         _setter("partition_key_path", partition_key_path)
@@ -323,7 +347,31 @@ class _GremlinGraphState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
              unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['GremlinGraphUniqueKeyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'analyticalStorageTtl' in kwargs:
+            analytical_storage_ttl = kwargs['analyticalStorageTtl']
+        if 'autoscaleSettings' in kwargs:
+            autoscale_settings = kwargs['autoscaleSettings']
+        if 'conflictResolutionPolicy' in kwargs:
+            conflict_resolution_policy = kwargs['conflictResolutionPolicy']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if 'indexPolicy' in kwargs:
+            index_policy = kwargs['indexPolicy']
+        if 'partitionKeyPath' in kwargs:
+            partition_key_path = kwargs['partitionKeyPath']
+        if 'partitionKeyVersion' in kwargs:
+            partition_key_version = kwargs['partitionKeyVersion']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'uniqueKeys' in kwargs:
+            unique_keys = kwargs['uniqueKeys']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if analytical_storage_ttl is not None:

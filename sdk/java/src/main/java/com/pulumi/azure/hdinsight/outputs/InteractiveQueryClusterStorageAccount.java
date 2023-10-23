@@ -114,12 +114,12 @@ public final class InteractiveQueryClusterStorageAccount {
             return this;
         }
         public InteractiveQueryClusterStorageAccount build() {
-            final var o = new InteractiveQueryClusterStorageAccount();
-            o.isDefault = isDefault;
-            o.storageAccountKey = storageAccountKey;
-            o.storageContainerId = storageContainerId;
-            o.storageResourceId = storageResourceId;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterStorageAccount();
+            _resultValue.isDefault = isDefault;
+            _resultValue.storageAccountKey = storageAccountKey;
+            _resultValue.storageContainerId = storageContainerId;
+            _resultValue.storageResourceId = storageResourceId;
+            return _resultValue;
         }
     }
 }

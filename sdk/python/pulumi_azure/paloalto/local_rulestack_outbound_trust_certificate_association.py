@@ -27,7 +27,11 @@ class LocalRulestackOutboundTrustCertificateAssociationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              certificate_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+
         _setter("certificate_id", certificate_id)
 
     @property
@@ -59,7 +63,11 @@ class _LocalRulestackOutboundTrustCertificateAssociationState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              certificate_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+
         if certificate_id is not None:
             _setter("certificate_id", certificate_id)
 

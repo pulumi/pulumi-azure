@@ -87,11 +87,11 @@ public final class EligibleRoleAssignmentScheduleExpiration {
             return this;
         }
         public EligibleRoleAssignmentScheduleExpiration build() {
-            final var o = new EligibleRoleAssignmentScheduleExpiration();
-            o.durationDays = durationDays;
-            o.durationHours = durationHours;
-            o.endDateTime = endDateTime;
-            return o;
+            final var _resultValue = new EligibleRoleAssignmentScheduleExpiration();
+            _resultValue.durationDays = durationDays;
+            _resultValue.durationHours = durationHours;
+            _resultValue.endDateTime = endDateTime;
+            return _resultValue;
         }
     }
 }

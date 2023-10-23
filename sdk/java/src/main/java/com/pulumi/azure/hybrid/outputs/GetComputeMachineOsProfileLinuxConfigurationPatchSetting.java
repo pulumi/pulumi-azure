@@ -65,10 +65,10 @@ public final class GetComputeMachineOsProfileLinuxConfigurationPatchSetting {
             return this;
         }
         public GetComputeMachineOsProfileLinuxConfigurationPatchSetting build() {
-            final var o = new GetComputeMachineOsProfileLinuxConfigurationPatchSetting();
-            o.assessmentMode = assessmentMode;
-            o.patchMode = patchMode;
-            return o;
+            final var _resultValue = new GetComputeMachineOsProfileLinuxConfigurationPatchSetting();
+            _resultValue.assessmentMode = assessmentMode;
+            _resultValue.patchMode = patchMode;
+            return _resultValue;
         }
     }
 }

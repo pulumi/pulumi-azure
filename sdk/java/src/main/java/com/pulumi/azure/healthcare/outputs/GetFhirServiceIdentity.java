@@ -99,12 +99,12 @@ public final class GetFhirServiceIdentity {
             return this;
         }
         public GetFhirServiceIdentity build() {
-            final var o = new GetFhirServiceIdentity();
-            o.identityIds = identityIds;
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetFhirServiceIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

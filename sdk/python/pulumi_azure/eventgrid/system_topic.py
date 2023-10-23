@@ -57,7 +57,15 @@ class SystemTopicArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceArmResourceId' in kwargs:
+            source_arm_resource_id = kwargs['sourceArmResourceId']
+        if 'topicType' in kwargs:
+            topic_type = kwargs['topicType']
+
         _setter("resource_group_name", resource_group_name)
         _setter("source_arm_resource_id", source_arm_resource_id)
         _setter("topic_type", topic_type)
@@ -207,7 +215,17 @@ class _SystemTopicState:
              source_arm_resource_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              topic_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricArmResourceId' in kwargs:
+            metric_arm_resource_id = kwargs['metricArmResourceId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceArmResourceId' in kwargs:
+            source_arm_resource_id = kwargs['sourceArmResourceId']
+        if 'topicType' in kwargs:
+            topic_type = kwargs['topicType']
+
         if identity is not None:
             _setter("identity", identity)
         if location is not None:

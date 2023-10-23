@@ -126,14 +126,14 @@ public final class GetIntegrationAccountResult {
             return this;
         }
         public GetIntegrationAccountResult build() {
-            final var o = new GetIntegrationAccountResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.skuName = skuName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetIntegrationAccountResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.skuName = skuName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

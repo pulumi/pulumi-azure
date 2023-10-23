@@ -162,15 +162,15 @@ public final class DatabaseImport {
             return this;
         }
         public DatabaseImport build() {
-            final var o = new DatabaseImport();
-            o.administratorLogin = administratorLogin;
-            o.administratorLoginPassword = administratorLoginPassword;
-            o.authenticationType = authenticationType;
-            o.operationMode = operationMode;
-            o.storageKey = storageKey;
-            o.storageKeyType = storageKeyType;
-            o.storageUri = storageUri;
-            return o;
+            final var _resultValue = new DatabaseImport();
+            _resultValue.administratorLogin = administratorLogin;
+            _resultValue.administratorLoginPassword = administratorLoginPassword;
+            _resultValue.authenticationType = authenticationType;
+            _resultValue.operationMode = operationMode;
+            _resultValue.storageKey = storageKey;
+            _resultValue.storageKeyType = storageKeyType;
+            _resultValue.storageUri = storageUri;
+            return _resultValue;
         }
     }
 }

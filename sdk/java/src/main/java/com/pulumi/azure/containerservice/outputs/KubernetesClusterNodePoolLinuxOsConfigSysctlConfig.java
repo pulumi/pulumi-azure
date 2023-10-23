@@ -581,37 +581,37 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
             return this;
         }
         public KubernetesClusterNodePoolLinuxOsConfigSysctlConfig build() {
-            final var o = new KubernetesClusterNodePoolLinuxOsConfigSysctlConfig();
-            o.fsAioMaxNr = fsAioMaxNr;
-            o.fsFileMax = fsFileMax;
-            o.fsInotifyMaxUserWatches = fsInotifyMaxUserWatches;
-            o.fsNrOpen = fsNrOpen;
-            o.kernelThreadsMax = kernelThreadsMax;
-            o.netCoreNetdevMaxBacklog = netCoreNetdevMaxBacklog;
-            o.netCoreOptmemMax = netCoreOptmemMax;
-            o.netCoreRmemDefault = netCoreRmemDefault;
-            o.netCoreRmemMax = netCoreRmemMax;
-            o.netCoreSomaxconn = netCoreSomaxconn;
-            o.netCoreWmemDefault = netCoreWmemDefault;
-            o.netCoreWmemMax = netCoreWmemMax;
-            o.netIpv4IpLocalPortRangeMax = netIpv4IpLocalPortRangeMax;
-            o.netIpv4IpLocalPortRangeMin = netIpv4IpLocalPortRangeMin;
-            o.netIpv4NeighDefaultGcThresh1 = netIpv4NeighDefaultGcThresh1;
-            o.netIpv4NeighDefaultGcThresh2 = netIpv4NeighDefaultGcThresh2;
-            o.netIpv4NeighDefaultGcThresh3 = netIpv4NeighDefaultGcThresh3;
-            o.netIpv4TcpFinTimeout = netIpv4TcpFinTimeout;
-            o.netIpv4TcpKeepaliveIntvl = netIpv4TcpKeepaliveIntvl;
-            o.netIpv4TcpKeepaliveProbes = netIpv4TcpKeepaliveProbes;
-            o.netIpv4TcpKeepaliveTime = netIpv4TcpKeepaliveTime;
-            o.netIpv4TcpMaxSynBacklog = netIpv4TcpMaxSynBacklog;
-            o.netIpv4TcpMaxTwBuckets = netIpv4TcpMaxTwBuckets;
-            o.netIpv4TcpTwReuse = netIpv4TcpTwReuse;
-            o.netNetfilterNfConntrackBuckets = netNetfilterNfConntrackBuckets;
-            o.netNetfilterNfConntrackMax = netNetfilterNfConntrackMax;
-            o.vmMaxMapCount = vmMaxMapCount;
-            o.vmSwappiness = vmSwappiness;
-            o.vmVfsCachePressure = vmVfsCachePressure;
-            return o;
+            final var _resultValue = new KubernetesClusterNodePoolLinuxOsConfigSysctlConfig();
+            _resultValue.fsAioMaxNr = fsAioMaxNr;
+            _resultValue.fsFileMax = fsFileMax;
+            _resultValue.fsInotifyMaxUserWatches = fsInotifyMaxUserWatches;
+            _resultValue.fsNrOpen = fsNrOpen;
+            _resultValue.kernelThreadsMax = kernelThreadsMax;
+            _resultValue.netCoreNetdevMaxBacklog = netCoreNetdevMaxBacklog;
+            _resultValue.netCoreOptmemMax = netCoreOptmemMax;
+            _resultValue.netCoreRmemDefault = netCoreRmemDefault;
+            _resultValue.netCoreRmemMax = netCoreRmemMax;
+            _resultValue.netCoreSomaxconn = netCoreSomaxconn;
+            _resultValue.netCoreWmemDefault = netCoreWmemDefault;
+            _resultValue.netCoreWmemMax = netCoreWmemMax;
+            _resultValue.netIpv4IpLocalPortRangeMax = netIpv4IpLocalPortRangeMax;
+            _resultValue.netIpv4IpLocalPortRangeMin = netIpv4IpLocalPortRangeMin;
+            _resultValue.netIpv4NeighDefaultGcThresh1 = netIpv4NeighDefaultGcThresh1;
+            _resultValue.netIpv4NeighDefaultGcThresh2 = netIpv4NeighDefaultGcThresh2;
+            _resultValue.netIpv4NeighDefaultGcThresh3 = netIpv4NeighDefaultGcThresh3;
+            _resultValue.netIpv4TcpFinTimeout = netIpv4TcpFinTimeout;
+            _resultValue.netIpv4TcpKeepaliveIntvl = netIpv4TcpKeepaliveIntvl;
+            _resultValue.netIpv4TcpKeepaliveProbes = netIpv4TcpKeepaliveProbes;
+            _resultValue.netIpv4TcpKeepaliveTime = netIpv4TcpKeepaliveTime;
+            _resultValue.netIpv4TcpMaxSynBacklog = netIpv4TcpMaxSynBacklog;
+            _resultValue.netIpv4TcpMaxTwBuckets = netIpv4TcpMaxTwBuckets;
+            _resultValue.netIpv4TcpTwReuse = netIpv4TcpTwReuse;
+            _resultValue.netNetfilterNfConntrackBuckets = netNetfilterNfConntrackBuckets;
+            _resultValue.netNetfilterNfConntrackMax = netNetfilterNfConntrackMax;
+            _resultValue.vmMaxMapCount = vmMaxMapCount;
+            _resultValue.vmSwappiness = vmSwappiness;
+            _resultValue.vmVfsCachePressure = vmVfsCachePressure;
+            return _resultValue;
         }
     }
 }

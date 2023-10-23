@@ -84,11 +84,11 @@ public final class GetLinuxWebAppConnectionString {
             return this;
         }
         public GetLinuxWebAppConnectionString build() {
-            final var o = new GetLinuxWebAppConnectionString();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetLinuxWebAppConnectionString();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -143,14 +143,14 @@ public final class GetWindowsWebAppBackupSchedule {
             return this;
         }
         public GetWindowsWebAppBackupSchedule build() {
-            final var o = new GetWindowsWebAppBackupSchedule();
-            o.frequencyInterval = frequencyInterval;
-            o.frequencyUnit = frequencyUnit;
-            o.keepAtLeastOneBackup = keepAtLeastOneBackup;
-            o.lastExecutionTime = lastExecutionTime;
-            o.retentionPeriodDays = retentionPeriodDays;
-            o.startTime = startTime;
-            return o;
+            final var _resultValue = new GetWindowsWebAppBackupSchedule();
+            _resultValue.frequencyInterval = frequencyInterval;
+            _resultValue.frequencyUnit = frequencyUnit;
+            _resultValue.keepAtLeastOneBackup = keepAtLeastOneBackup;
+            _resultValue.lastExecutionTime = lastExecutionTime;
+            _resultValue.retentionPeriodDays = retentionPeriodDays;
+            _resultValue.startTime = startTime;
+            return _resultValue;
         }
     }
 }

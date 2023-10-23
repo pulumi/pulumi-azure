@@ -125,13 +125,13 @@ public final class ImageDataDisk {
             return this;
         }
         public ImageDataDisk build() {
-            final var o = new ImageDataDisk();
-            o.blobUri = blobUri;
-            o.caching = caching;
-            o.lun = lun;
-            o.managedDiskId = managedDiskId;
-            o.sizeGb = sizeGb;
-            return o;
+            final var _resultValue = new ImageDataDisk();
+            _resultValue.blobUri = blobUri;
+            _resultValue.caching = caching;
+            _resultValue.lun = lun;
+            _resultValue.managedDiskId = managedDiskId;
+            _resultValue.sizeGb = sizeGb;
+            return _resultValue;
         }
     }
 }

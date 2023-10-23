@@ -65,10 +65,10 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfigurationReq
             return this;
         }
         public NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader build() {
-            final var o = new NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

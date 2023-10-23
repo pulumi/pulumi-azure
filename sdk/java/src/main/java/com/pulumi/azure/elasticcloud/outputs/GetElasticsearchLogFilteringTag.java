@@ -84,11 +84,11 @@ public final class GetElasticsearchLogFilteringTag {
             return this;
         }
         public GetElasticsearchLogFilteringTag build() {
-            final var o = new GetElasticsearchLogFilteringTag();
-            o.action = action;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetElasticsearchLogFilteringTag();
+            _resultValue.action = action;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

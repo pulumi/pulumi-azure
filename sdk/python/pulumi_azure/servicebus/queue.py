@@ -99,7 +99,41 @@ class QueueArgs:
              requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
              requires_session: Optional[pulumi.Input[bool]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if 'autoDeleteOnIdle' in kwargs:
+            auto_delete_on_idle = kwargs['autoDeleteOnIdle']
+        if 'deadLetteringOnMessageExpiration' in kwargs:
+            dead_lettering_on_message_expiration = kwargs['deadLetteringOnMessageExpiration']
+        if 'defaultMessageTtl' in kwargs:
+            default_message_ttl = kwargs['defaultMessageTtl']
+        if 'duplicateDetectionHistoryTimeWindow' in kwargs:
+            duplicate_detection_history_time_window = kwargs['duplicateDetectionHistoryTimeWindow']
+        if 'enableBatchedOperations' in kwargs:
+            enable_batched_operations = kwargs['enableBatchedOperations']
+        if 'enableExpress' in kwargs:
+            enable_express = kwargs['enableExpress']
+        if 'enablePartitioning' in kwargs:
+            enable_partitioning = kwargs['enablePartitioning']
+        if 'forwardDeadLetteredMessagesTo' in kwargs:
+            forward_dead_lettered_messages_to = kwargs['forwardDeadLetteredMessagesTo']
+        if 'forwardTo' in kwargs:
+            forward_to = kwargs['forwardTo']
+        if 'lockDuration' in kwargs:
+            lock_duration = kwargs['lockDuration']
+        if 'maxDeliveryCount' in kwargs:
+            max_delivery_count = kwargs['maxDeliveryCount']
+        if 'maxMessageSizeInKilobytes' in kwargs:
+            max_message_size_in_kilobytes = kwargs['maxMessageSizeInKilobytes']
+        if 'maxSizeInMegabytes' in kwargs:
+            max_size_in_megabytes = kwargs['maxSizeInMegabytes']
+        if 'requiresDuplicateDetection' in kwargs:
+            requires_duplicate_detection = kwargs['requiresDuplicateDetection']
+        if 'requiresSession' in kwargs:
+            requires_session = kwargs['requiresSession']
+
         _setter("namespace_id", namespace_id)
         if auto_delete_on_idle is not None:
             _setter("auto_delete_on_idle", auto_delete_on_idle)
@@ -451,7 +485,45 @@ class _QueueState:
              requires_session: Optional[pulumi.Input[bool]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoDeleteOnIdle' in kwargs:
+            auto_delete_on_idle = kwargs['autoDeleteOnIdle']
+        if 'deadLetteringOnMessageExpiration' in kwargs:
+            dead_lettering_on_message_expiration = kwargs['deadLetteringOnMessageExpiration']
+        if 'defaultMessageTtl' in kwargs:
+            default_message_ttl = kwargs['defaultMessageTtl']
+        if 'duplicateDetectionHistoryTimeWindow' in kwargs:
+            duplicate_detection_history_time_window = kwargs['duplicateDetectionHistoryTimeWindow']
+        if 'enableBatchedOperations' in kwargs:
+            enable_batched_operations = kwargs['enableBatchedOperations']
+        if 'enableExpress' in kwargs:
+            enable_express = kwargs['enableExpress']
+        if 'enablePartitioning' in kwargs:
+            enable_partitioning = kwargs['enablePartitioning']
+        if 'forwardDeadLetteredMessagesTo' in kwargs:
+            forward_dead_lettered_messages_to = kwargs['forwardDeadLetteredMessagesTo']
+        if 'forwardTo' in kwargs:
+            forward_to = kwargs['forwardTo']
+        if 'lockDuration' in kwargs:
+            lock_duration = kwargs['lockDuration']
+        if 'maxDeliveryCount' in kwargs:
+            max_delivery_count = kwargs['maxDeliveryCount']
+        if 'maxMessageSizeInKilobytes' in kwargs:
+            max_message_size_in_kilobytes = kwargs['maxMessageSizeInKilobytes']
+        if 'maxSizeInMegabytes' in kwargs:
+            max_size_in_megabytes = kwargs['maxSizeInMegabytes']
+        if 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'requiresDuplicateDetection' in kwargs:
+            requires_duplicate_detection = kwargs['requiresDuplicateDetection']
+        if 'requiresSession' in kwargs:
+            requires_session = kwargs['requiresSession']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if auto_delete_on_idle is not None:
             _setter("auto_delete_on_idle", auto_delete_on_idle)
         if dead_lettering_on_message_expiration is not None:

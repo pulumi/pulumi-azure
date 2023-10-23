@@ -187,16 +187,16 @@ public final class FluxConfigurationKustomization {
             return this;
         }
         public FluxConfigurationKustomization build() {
-            final var o = new FluxConfigurationKustomization();
-            o.dependsOns = dependsOns;
-            o.garbageCollectionEnabled = garbageCollectionEnabled;
-            o.name = name;
-            o.path = path;
-            o.recreatingEnabled = recreatingEnabled;
-            o.retryIntervalInSeconds = retryIntervalInSeconds;
-            o.syncIntervalInSeconds = syncIntervalInSeconds;
-            o.timeoutInSeconds = timeoutInSeconds;
-            return o;
+            final var _resultValue = new FluxConfigurationKustomization();
+            _resultValue.dependsOns = dependsOns;
+            _resultValue.garbageCollectionEnabled = garbageCollectionEnabled;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.recreatingEnabled = recreatingEnabled;
+            _resultValue.retryIntervalInSeconds = retryIntervalInSeconds;
+            _resultValue.syncIntervalInSeconds = syncIntervalInSeconds;
+            _resultValue.timeoutInSeconds = timeoutInSeconds;
+            return _resultValue;
         }
     }
 }

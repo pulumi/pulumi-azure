@@ -110,12 +110,12 @@ public final class ElasticsearchLogs {
             return this;
         }
         public ElasticsearchLogs build() {
-            final var o = new ElasticsearchLogs();
-            o.filteringTags = filteringTags;
-            o.sendActivityLogs = sendActivityLogs;
-            o.sendAzureadLogs = sendAzureadLogs;
-            o.sendSubscriptionLogs = sendSubscriptionLogs;
-            return o;
+            final var _resultValue = new ElasticsearchLogs();
+            _resultValue.filteringTags = filteringTags;
+            _resultValue.sendActivityLogs = sendActivityLogs;
+            _resultValue.sendAzureadLogs = sendAzureadLogs;
+            _resultValue.sendSubscriptionLogs = sendSubscriptionLogs;
+            return _resultValue;
         }
     }
 }

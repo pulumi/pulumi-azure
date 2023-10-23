@@ -119,12 +119,12 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddress {
             return tunnelIpAddresses(List.of(tunnelIpAddresses));
         }
         public VirtualNetworkGatewayBgpSettingsPeeringAddress build() {
-            final var o = new VirtualNetworkGatewayBgpSettingsPeeringAddress();
-            o.apipaAddresses = apipaAddresses;
-            o.defaultAddresses = defaultAddresses;
-            o.ipConfigurationName = ipConfigurationName;
-            o.tunnelIpAddresses = tunnelIpAddresses;
-            return o;
+            final var _resultValue = new VirtualNetworkGatewayBgpSettingsPeeringAddress();
+            _resultValue.apipaAddresses = apipaAddresses;
+            _resultValue.defaultAddresses = defaultAddresses;
+            _resultValue.ipConfigurationName = ipConfigurationName;
+            _resultValue.tunnelIpAddresses = tunnelIpAddresses;
+            return _resultValue;
         }
     }
 }

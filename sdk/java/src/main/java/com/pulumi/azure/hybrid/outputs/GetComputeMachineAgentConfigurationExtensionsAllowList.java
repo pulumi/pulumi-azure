@@ -65,10 +65,10 @@ public final class GetComputeMachineAgentConfigurationExtensionsAllowList {
             return this;
         }
         public GetComputeMachineAgentConfigurationExtensionsAllowList build() {
-            final var o = new GetComputeMachineAgentConfigurationExtensionsAllowList();
-            o.publisher = publisher;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetComputeMachineAgentConfigurationExtensionsAllowList();
+            _resultValue.publisher = publisher;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

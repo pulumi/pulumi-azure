@@ -86,11 +86,11 @@ public final class ManagementPolicyRuleFiltersMatchBlobIndexTag {
             return this;
         }
         public ManagementPolicyRuleFiltersMatchBlobIndexTag build() {
-            final var o = new ManagementPolicyRuleFiltersMatchBlobIndexTag();
-            o.name = name;
-            o.operation = operation;
-            o.value = value;
-            return o;
+            final var _resultValue = new ManagementPolicyRuleFiltersMatchBlobIndexTag();
+            _resultValue.name = name;
+            _resultValue.operation = operation;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -61,19 +61,74 @@ type LookupApplicationGatewayArgs struct {
 
 // A collection of values returned by getApplicationGateway.
 type LookupApplicationGatewayResult struct {
-	// A `backendAddressPool` block as defined below.
+	// One or more `authenticationCertificate` blocks as defined below.
+	AuthenticationCertificates []GetApplicationGatewayAuthenticationCertificate `pulumi:"authenticationCertificates"`
+	// An `autoscaleConfiguration` block as defined below.
+	AutoscaleConfigurations []GetApplicationGatewayAutoscaleConfiguration `pulumi:"autoscaleConfigurations"`
+	// One or more `backendAddressPool` blocks as defined below.
 	BackendAddressPools []GetApplicationGatewayBackendAddressPool `pulumi:"backendAddressPools"`
+	// One or more `backendHttpSettings` blocks as defined below.
+	BackendHttpSettings []GetApplicationGatewayBackendHttpSetting `pulumi:"backendHttpSettings"`
+	// One or more `customErrorConfiguration` blocks as defined below.
+	CustomErrorConfigurations []GetApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
+	// Is FIPS enabled on the Application Gateway?
+	FipsEnabled bool `pulumi:"fipsEnabled"`
+	// The ID of the Web Application Firewall Policy which is used as an HTTP Listener for this Path Rule.
+	FirewallPolicyId string `pulumi:"firewallPolicyId"`
+	// Is the Firewall Policy associated with the Application Gateway?
+	ForceFirewallPolicyAssociation bool `pulumi:"forceFirewallPolicyAssociation"`
+	// One or more `frontendIpConfiguration` blocks as defined below.
+	FrontendIpConfigurations []GetApplicationGatewayFrontendIpConfiguration `pulumi:"frontendIpConfigurations"`
+	// One or more `frontendPort` blocks as defined below.
+	FrontendPorts []GetApplicationGatewayFrontendPort `pulumi:"frontendPorts"`
+	// One or more `gatewayIpConfiguration` blocks as defined below.
+	GatewayIpConfigurations []GetApplicationGatewayGatewayIpConfiguration `pulumi:"gatewayIpConfigurations"`
+	// A `global` block as defined below.
+	Globals []GetApplicationGatewayGlobal `pulumi:"globals"`
+	// Is HTTP2 enabled on the application gateway resource?
+	Http2Enabled bool `pulumi:"http2Enabled"`
+	// One or more `httpListener` blocks as defined below.
+	HttpListeners []GetApplicationGatewayHttpListener `pulumi:"httpListeners"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identities []GetApplicationGatewayIdentity `pulumi:"identities"`
-	// The Azure Region where the Application Gateway exists.
+	// The Azure region where the Application Gateway exists.
 	Location string `pulumi:"location"`
-	// The name of the Backend Address Pool.
-	Name              string `pulumi:"name"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A mapping of tags assigned to the Application Gateway.
+	// Unique name of the Rewrite Rule
+	Name                       string                                           `pulumi:"name"`
+	PrivateEndpointConnections []GetApplicationGatewayPrivateEndpointConnection `pulumi:"privateEndpointConnections"`
+	// One or more `privateLinkConfiguration` blocks as defined below.
+	PrivateLinkConfigurations []GetApplicationGatewayPrivateLinkConfiguration `pulumi:"privateLinkConfigurations"`
+	// One or more `probe` blocks as defined below.
+	Probes []GetApplicationGatewayProbe `pulumi:"probes"`
+	// One or more `redirectConfiguration` blocks as defined below.
+	RedirectConfigurations []GetApplicationGatewayRedirectConfiguration `pulumi:"redirectConfigurations"`
+	// One or more `requestRoutingRule` blocks as defined below.
+	RequestRoutingRules []GetApplicationGatewayRequestRoutingRule `pulumi:"requestRoutingRules"`
+	ResourceGroupName   string                                    `pulumi:"resourceGroupName"`
+	// One or more `rewriteRuleSet` blocks as defined below.
+	RewriteRuleSets []GetApplicationGatewayRewriteRuleSet `pulumi:"rewriteRuleSets"`
+	// A `sku` block as defined below.
+	Skus []GetApplicationGatewaySkus `pulumi:"skus"`
+	// One or more `sslCertificate` blocks as defined below.
+	SslCertificates []GetApplicationGatewaySslCertificate `pulumi:"sslCertificates"`
+	// a `sslPolicy` block as defined below.
+	SslPolicies []GetApplicationGatewaySslPolicy `pulumi:"sslPolicies"`
+	// One or more `sslProfile` blocks as defined below.
+	SslProfiles []GetApplicationGatewaySslProfile `pulumi:"sslProfiles"`
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// One or more `trustedClientCertificate` blocks as defined below.
+	TrustedClientCertificates []GetApplicationGatewayTrustedClientCertificate `pulumi:"trustedClientCertificates"`
+	// One or more `trustedRootCertificate` blocks as defined below.
+	TrustedRootCertificates []GetApplicationGatewayTrustedRootCertificate `pulumi:"trustedRootCertificates"`
+	// One or more `urlPathMap` blocks as defined below.
+	UrlPathMaps []GetApplicationGatewayUrlPathMap `pulumi:"urlPathMaps"`
+	// A `wafConfiguration` block as defined below.
+	WafConfigurations []GetApplicationGatewayWafConfiguration `pulumi:"wafConfigurations"`
+	// The list of Availability Zones in which this Application Gateway can use.
+	Zones []string `pulumi:"zones"`
 }
 
 func LookupApplicationGatewayOutput(ctx *pulumi.Context, args LookupApplicationGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationGatewayResultOutput {
@@ -122,11 +177,88 @@ func (o LookupApplicationGatewayResultOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
-// A `backendAddressPool` block as defined below.
+// One or more `authenticationCertificate` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) AuthenticationCertificates() GetApplicationGatewayAuthenticationCertificateArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayAuthenticationCertificate {
+		return v.AuthenticationCertificates
+	}).(GetApplicationGatewayAuthenticationCertificateArrayOutput)
+}
+
+// An `autoscaleConfiguration` block as defined below.
+func (o LookupApplicationGatewayResultOutput) AutoscaleConfigurations() GetApplicationGatewayAutoscaleConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayAutoscaleConfiguration {
+		return v.AutoscaleConfigurations
+	}).(GetApplicationGatewayAutoscaleConfigurationArrayOutput)
+}
+
+// One or more `backendAddressPool` blocks as defined below.
 func (o LookupApplicationGatewayResultOutput) BackendAddressPools() GetApplicationGatewayBackendAddressPoolArrayOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayBackendAddressPool {
 		return v.BackendAddressPools
 	}).(GetApplicationGatewayBackendAddressPoolArrayOutput)
+}
+
+// One or more `backendHttpSettings` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) BackendHttpSettings() GetApplicationGatewayBackendHttpSettingArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayBackendHttpSetting {
+		return v.BackendHttpSettings
+	}).(GetApplicationGatewayBackendHttpSettingArrayOutput)
+}
+
+// One or more `customErrorConfiguration` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) CustomErrorConfigurations() GetApplicationGatewayCustomErrorConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayCustomErrorConfiguration {
+		return v.CustomErrorConfigurations
+	}).(GetApplicationGatewayCustomErrorConfigurationArrayOutput)
+}
+
+// Is FIPS enabled on the Application Gateway?
+func (o LookupApplicationGatewayResultOutput) FipsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) bool { return v.FipsEnabled }).(pulumi.BoolOutput)
+}
+
+// The ID of the Web Application Firewall Policy which is used as an HTTP Listener for this Path Rule.
+func (o LookupApplicationGatewayResultOutput) FirewallPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) string { return v.FirewallPolicyId }).(pulumi.StringOutput)
+}
+
+// Is the Firewall Policy associated with the Application Gateway?
+func (o LookupApplicationGatewayResultOutput) ForceFirewallPolicyAssociation() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) bool { return v.ForceFirewallPolicyAssociation }).(pulumi.BoolOutput)
+}
+
+// One or more `frontendIpConfiguration` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) FrontendIpConfigurations() GetApplicationGatewayFrontendIpConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayFrontendIpConfiguration {
+		return v.FrontendIpConfigurations
+	}).(GetApplicationGatewayFrontendIpConfigurationArrayOutput)
+}
+
+// One or more `frontendPort` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) FrontendPorts() GetApplicationGatewayFrontendPortArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayFrontendPort { return v.FrontendPorts }).(GetApplicationGatewayFrontendPortArrayOutput)
+}
+
+// One or more `gatewayIpConfiguration` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) GatewayIpConfigurations() GetApplicationGatewayGatewayIpConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayGatewayIpConfiguration {
+		return v.GatewayIpConfigurations
+	}).(GetApplicationGatewayGatewayIpConfigurationArrayOutput)
+}
+
+// A `global` block as defined below.
+func (o LookupApplicationGatewayResultOutput) Globals() GetApplicationGatewayGlobalArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayGlobal { return v.Globals }).(GetApplicationGatewayGlobalArrayOutput)
+}
+
+// Is HTTP2 enabled on the application gateway resource?
+func (o LookupApplicationGatewayResultOutput) Http2Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) bool { return v.Http2Enabled }).(pulumi.BoolOutput)
+}
+
+// One or more `httpListener` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) HttpListeners() GetApplicationGatewayHttpListenerArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayHttpListener { return v.HttpListeners }).(GetApplicationGatewayHttpListenerArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -134,28 +266,116 @@ func (o LookupApplicationGatewayResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A `identity` block as defined below.
+// An `identity` block as defined below.
 func (o LookupApplicationGatewayResultOutput) Identities() GetApplicationGatewayIdentityArrayOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayIdentity { return v.Identities }).(GetApplicationGatewayIdentityArrayOutput)
 }
 
-// The Azure Region where the Application Gateway exists.
+// The Azure region where the Application Gateway exists.
 func (o LookupApplicationGatewayResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the Backend Address Pool.
+// Unique name of the Rewrite Rule
 func (o LookupApplicationGatewayResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupApplicationGatewayResultOutput) PrivateEndpointConnections() GetApplicationGatewayPrivateEndpointConnectionArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayPrivateEndpointConnection {
+		return v.PrivateEndpointConnections
+	}).(GetApplicationGatewayPrivateEndpointConnectionArrayOutput)
+}
+
+// One or more `privateLinkConfiguration` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) PrivateLinkConfigurations() GetApplicationGatewayPrivateLinkConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayPrivateLinkConfiguration {
+		return v.PrivateLinkConfigurations
+	}).(GetApplicationGatewayPrivateLinkConfigurationArrayOutput)
+}
+
+// One or more `probe` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) Probes() GetApplicationGatewayProbeArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayProbe { return v.Probes }).(GetApplicationGatewayProbeArrayOutput)
+}
+
+// One or more `redirectConfiguration` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) RedirectConfigurations() GetApplicationGatewayRedirectConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayRedirectConfiguration {
+		return v.RedirectConfigurations
+	}).(GetApplicationGatewayRedirectConfigurationArrayOutput)
+}
+
+// One or more `requestRoutingRule` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) RequestRoutingRules() GetApplicationGatewayRequestRoutingRuleArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayRequestRoutingRule {
+		return v.RequestRoutingRules
+	}).(GetApplicationGatewayRequestRoutingRuleArrayOutput)
 }
 
 func (o LookupApplicationGatewayResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A mapping of tags assigned to the Application Gateway.
+// One or more `rewriteRuleSet` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) RewriteRuleSets() GetApplicationGatewayRewriteRuleSetArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayRewriteRuleSet { return v.RewriteRuleSets }).(GetApplicationGatewayRewriteRuleSetArrayOutput)
+}
+
+// A `sku` block as defined below.
+func (o LookupApplicationGatewayResultOutput) Skus() GetApplicationGatewaySkusArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewaySkus { return v.Skus }).(GetApplicationGatewaySkusArrayOutput)
+}
+
+// One or more `sslCertificate` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) SslCertificates() GetApplicationGatewaySslCertificateArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewaySslCertificate { return v.SslCertificates }).(GetApplicationGatewaySslCertificateArrayOutput)
+}
+
+// a `sslPolicy` block as defined below.
+func (o LookupApplicationGatewayResultOutput) SslPolicies() GetApplicationGatewaySslPolicyArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewaySslPolicy { return v.SslPolicies }).(GetApplicationGatewaySslPolicyArrayOutput)
+}
+
+// One or more `sslProfile` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) SslProfiles() GetApplicationGatewaySslProfileArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewaySslProfile { return v.SslProfiles }).(GetApplicationGatewaySslProfileArrayOutput)
+}
+
+// A mapping of tags to assign to the resource.
 func (o LookupApplicationGatewayResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupApplicationGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// One or more `trustedClientCertificate` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) TrustedClientCertificates() GetApplicationGatewayTrustedClientCertificateArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayTrustedClientCertificate {
+		return v.TrustedClientCertificates
+	}).(GetApplicationGatewayTrustedClientCertificateArrayOutput)
+}
+
+// One or more `trustedRootCertificate` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) TrustedRootCertificates() GetApplicationGatewayTrustedRootCertificateArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayTrustedRootCertificate {
+		return v.TrustedRootCertificates
+	}).(GetApplicationGatewayTrustedRootCertificateArrayOutput)
+}
+
+// One or more `urlPathMap` blocks as defined below.
+func (o LookupApplicationGatewayResultOutput) UrlPathMaps() GetApplicationGatewayUrlPathMapArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayUrlPathMap { return v.UrlPathMaps }).(GetApplicationGatewayUrlPathMapArrayOutput)
+}
+
+// A `wafConfiguration` block as defined below.
+func (o LookupApplicationGatewayResultOutput) WafConfigurations() GetApplicationGatewayWafConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayWafConfiguration {
+		return v.WafConfigurations
+	}).(GetApplicationGatewayWafConfigurationArrayOutput)
+}
+
+// The list of Availability Zones in which this Application Gateway can use.
+func (o LookupApplicationGatewayResultOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupApplicationGatewayResult) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }
 
 func init() {

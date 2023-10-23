@@ -86,11 +86,11 @@ public final class SparkClusterRolesHeadNodeScriptAction {
             return this;
         }
         public SparkClusterRolesHeadNodeScriptAction build() {
-            final var o = new SparkClusterRolesHeadNodeScriptAction();
-            o.name = name;
-            o.parameters = parameters;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new SparkClusterRolesHeadNodeScriptAction();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class AutoscaleSettingProfileRule {
             return this;
         }
         public AutoscaleSettingProfileRule build() {
-            final var o = new AutoscaleSettingProfileRule();
-            o.metricTrigger = metricTrigger;
-            o.scaleAction = scaleAction;
-            return o;
+            final var _resultValue = new AutoscaleSettingProfileRule();
+            _resultValue.metricTrigger = metricTrigger;
+            _resultValue.scaleAction = scaleAction;
+            return _resultValue;
         }
     }
 }

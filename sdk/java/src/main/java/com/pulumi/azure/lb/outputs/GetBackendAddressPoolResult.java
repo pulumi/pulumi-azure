@@ -189,16 +189,16 @@ public final class GetBackendAddressPoolResult {
             return outboundRules(List.of(outboundRules));
         }
         public GetBackendAddressPoolResult build() {
-            final var o = new GetBackendAddressPoolResult();
-            o.backendAddresses = backendAddresses;
-            o.backendIpConfigurations = backendIpConfigurations;
-            o.id = id;
-            o.inboundNatRules = inboundNatRules;
-            o.loadBalancingRules = loadBalancingRules;
-            o.loadbalancerId = loadbalancerId;
-            o.name = name;
-            o.outboundRules = outboundRules;
-            return o;
+            final var _resultValue = new GetBackendAddressPoolResult();
+            _resultValue.backendAddresses = backendAddresses;
+            _resultValue.backendIpConfigurations = backendIpConfigurations;
+            _resultValue.id = id;
+            _resultValue.inboundNatRules = inboundNatRules;
+            _resultValue.loadBalancingRules = loadBalancingRules;
+            _resultValue.loadbalancerId = loadbalancerId;
+            _resultValue.name = name;
+            _resultValue.outboundRules = outboundRules;
+            return _resultValue;
         }
     }
 }

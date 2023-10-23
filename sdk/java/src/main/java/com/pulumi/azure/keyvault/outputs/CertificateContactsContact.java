@@ -86,11 +86,11 @@ public final class CertificateContactsContact {
             return this;
         }
         public CertificateContactsContact build() {
-            final var o = new CertificateContactsContact();
-            o.email = email;
-            o.name = name;
-            o.phone = phone;
-            return o;
+            final var _resultValue = new CertificateContactsContact();
+            _resultValue.email = email;
+            _resultValue.name = name;
+            _resultValue.phone = phone;
+            return _resultValue;
         }
     }
 }

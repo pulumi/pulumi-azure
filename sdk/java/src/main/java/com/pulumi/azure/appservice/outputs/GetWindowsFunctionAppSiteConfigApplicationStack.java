@@ -134,14 +134,14 @@ public final class GetWindowsFunctionAppSiteConfigApplicationStack {
             return this;
         }
         public GetWindowsFunctionAppSiteConfigApplicationStack build() {
-            final var o = new GetWindowsFunctionAppSiteConfigApplicationStack();
-            o.dotnetVersion = dotnetVersion;
-            o.javaVersion = javaVersion;
-            o.nodeVersion = nodeVersion;
-            o.powershellCoreVersion = powershellCoreVersion;
-            o.useCustomRuntime = useCustomRuntime;
-            o.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
-            return o;
+            final var _resultValue = new GetWindowsFunctionAppSiteConfigApplicationStack();
+            _resultValue.dotnetVersion = dotnetVersion;
+            _resultValue.javaVersion = javaVersion;
+            _resultValue.nodeVersion = nodeVersion;
+            _resultValue.powershellCoreVersion = powershellCoreVersion;
+            _resultValue.useCustomRuntime = useCustomRuntime;
+            _resultValue.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
+            return _resultValue;
         }
     }
 }

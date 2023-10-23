@@ -100,12 +100,12 @@ public final class GetRestorableDatabaseAccountsResult {
             return this;
         }
         public GetRestorableDatabaseAccountsResult build() {
-            final var o = new GetRestorableDatabaseAccountsResult();
-            o.accounts = accounts;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetRestorableDatabaseAccountsResult();
+            _resultValue.accounts = accounts;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

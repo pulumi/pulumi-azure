@@ -107,13 +107,13 @@ public final class GetResolverVirtualNetworkLinkResult {
             return this;
         }
         public GetResolverVirtualNetworkLinkResult build() {
-            final var o = new GetResolverVirtualNetworkLinkResult();
-            o.dnsForwardingRulesetId = dnsForwardingRulesetId;
-            o.id = id;
-            o.metadata = metadata;
-            o.name = name;
-            o.virtualNetworkId = virtualNetworkId;
-            return o;
+            final var _resultValue = new GetResolverVirtualNetworkLinkResult();
+            _resultValue.dnsForwardingRulesetId = dnsForwardingRulesetId;
+            _resultValue.id = id;
+            _resultValue.metadata = metadata;
+            _resultValue.name = name;
+            _resultValue.virtualNetworkId = virtualNetworkId;
+            return _resultValue;
         }
     }
 }

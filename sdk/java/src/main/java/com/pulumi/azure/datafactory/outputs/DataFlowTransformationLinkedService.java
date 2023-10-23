@@ -67,10 +67,10 @@ public final class DataFlowTransformationLinkedService {
             return this;
         }
         public DataFlowTransformationLinkedService build() {
-            final var o = new DataFlowTransformationLinkedService();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new DataFlowTransformationLinkedService();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

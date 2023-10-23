@@ -67,10 +67,10 @@ public final class ClusterUpgradePolicyHealthPolicy {
             return this;
         }
         public ClusterUpgradePolicyHealthPolicy build() {
-            final var o = new ClusterUpgradePolicyHealthPolicy();
-            o.maxUnhealthyApplicationsPercent = maxUnhealthyApplicationsPercent;
-            o.maxUnhealthyNodesPercent = maxUnhealthyNodesPercent;
-            return o;
+            final var _resultValue = new ClusterUpgradePolicyHealthPolicy();
+            _resultValue.maxUnhealthyApplicationsPercent = maxUnhealthyApplicationsPercent;
+            _resultValue.maxUnhealthyNodesPercent = maxUnhealthyNodesPercent;
+            return _resultValue;
         }
     }
 }

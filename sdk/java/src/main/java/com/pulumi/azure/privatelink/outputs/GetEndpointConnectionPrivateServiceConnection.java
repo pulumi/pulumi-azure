@@ -113,12 +113,12 @@ public final class GetEndpointConnectionPrivateServiceConnection {
             return this;
         }
         public GetEndpointConnectionPrivateServiceConnection build() {
-            final var o = new GetEndpointConnectionPrivateServiceConnection();
-            o.name = name;
-            o.privateIpAddress = privateIpAddress;
-            o.requestResponse = requestResponse;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetEndpointConnectionPrivateServiceConnection();
+            _resultValue.name = name;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.requestResponse = requestResponse;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

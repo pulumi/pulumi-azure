@@ -63,7 +63,23 @@ class LocalRulestackArgs:
              name: Optional[pulumi.Input[str]] = None,
              url_filtering_profile: Optional[pulumi.Input[str]] = None,
              vulnerability_profile: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'antiSpywareProfile' in kwargs:
+            anti_spyware_profile = kwargs['antiSpywareProfile']
+        if 'antiVirusProfile' in kwargs:
+            anti_virus_profile = kwargs['antiVirusProfile']
+        if 'dnsSubscription' in kwargs:
+            dns_subscription = kwargs['dnsSubscription']
+        if 'fileBlockingProfile' in kwargs:
+            file_blocking_profile = kwargs['fileBlockingProfile']
+        if 'urlFilteringProfile' in kwargs:
+            url_filtering_profile = kwargs['urlFilteringProfile']
+        if 'vulnerabilityProfile' in kwargs:
+            vulnerability_profile = kwargs['vulnerabilityProfile']
+
         _setter("resource_group_name", resource_group_name)
         if anti_spyware_profile is not None:
             _setter("anti_spyware_profile", anti_spyware_profile)
@@ -257,7 +273,23 @@ class _LocalRulestackState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              url_filtering_profile: Optional[pulumi.Input[str]] = None,
              vulnerability_profile: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'antiSpywareProfile' in kwargs:
+            anti_spyware_profile = kwargs['antiSpywareProfile']
+        if 'antiVirusProfile' in kwargs:
+            anti_virus_profile = kwargs['antiVirusProfile']
+        if 'dnsSubscription' in kwargs:
+            dns_subscription = kwargs['dnsSubscription']
+        if 'fileBlockingProfile' in kwargs:
+            file_blocking_profile = kwargs['fileBlockingProfile']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'urlFilteringProfile' in kwargs:
+            url_filtering_profile = kwargs['urlFilteringProfile']
+        if 'vulnerabilityProfile' in kwargs:
+            vulnerability_profile = kwargs['vulnerabilityProfile']
+
         if anti_spyware_profile is not None:
             _setter("anti_spyware_profile", anti_spyware_profile)
         if anti_virus_profile is not None:

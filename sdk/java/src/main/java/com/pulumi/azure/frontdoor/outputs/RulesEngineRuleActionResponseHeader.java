@@ -86,11 +86,11 @@ public final class RulesEngineRuleActionResponseHeader {
             return this;
         }
         public RulesEngineRuleActionResponseHeader build() {
-            final var o = new RulesEngineRuleActionResponseHeader();
-            o.headerActionType = headerActionType;
-            o.headerName = headerName;
-            o.value = value;
-            return o;
+            final var _resultValue = new RulesEngineRuleActionResponseHeader();
+            _resultValue.headerActionType = headerActionType;
+            _resultValue.headerName = headerName;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

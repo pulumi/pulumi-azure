@@ -86,11 +86,11 @@ public final class EndpointDeliveryRuleModifyResponseHeaderAction {
             return this;
         }
         public EndpointDeliveryRuleModifyResponseHeaderAction build() {
-            final var o = new EndpointDeliveryRuleModifyResponseHeaderAction();
-            o.action = action;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new EndpointDeliveryRuleModifyResponseHeaderAction();
+            _resultValue.action = action;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

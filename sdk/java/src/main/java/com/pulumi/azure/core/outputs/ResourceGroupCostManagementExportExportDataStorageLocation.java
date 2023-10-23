@@ -69,10 +69,10 @@ public final class ResourceGroupCostManagementExportExportDataStorageLocation {
             return this;
         }
         public ResourceGroupCostManagementExportExportDataStorageLocation build() {
-            final var o = new ResourceGroupCostManagementExportExportDataStorageLocation();
-            o.containerId = containerId;
-            o.rootFolderPath = rootFolderPath;
-            return o;
+            final var _resultValue = new ResourceGroupCostManagementExportExportDataStorageLocation();
+            _resultValue.containerId = containerId;
+            _resultValue.rootFolderPath = rootFolderPath;
+            return _resultValue;
         }
     }
 }

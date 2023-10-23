@@ -118,12 +118,12 @@ public final class PoolMount {
             return nfsMounts(List.of(nfsMounts));
         }
         public PoolMount build() {
-            final var o = new PoolMount();
-            o.azureBlobFileSystem = azureBlobFileSystem;
-            o.azureFileShares = azureFileShares;
-            o.cifsMounts = cifsMounts;
-            o.nfsMounts = nfsMounts;
-            return o;
+            final var _resultValue = new PoolMount();
+            _resultValue.azureBlobFileSystem = azureBlobFileSystem;
+            _resultValue.azureFileShares = azureFileShares;
+            _resultValue.cifsMounts = cifsMounts;
+            _resultValue.nfsMounts = nfsMounts;
+            return _resultValue;
         }
     }
 }

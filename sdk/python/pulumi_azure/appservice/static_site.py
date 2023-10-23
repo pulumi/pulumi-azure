@@ -17,6 +17,7 @@ __all__ = ['StaticSiteArgs', 'StaticSite']
 class StaticSiteArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input['StaticSiteIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class StaticSiteArgs:
         """
         The set of arguments for constructing a StaticSite resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input['StaticSiteIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
@@ -36,6 +38,7 @@ class StaticSiteArgs:
         StaticSiteArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             resource_group_name=resource_group_name,
+            app_settings=app_settings,
             identity=identity,
             location=location,
             name=name,
@@ -47,14 +50,27 @@ class StaticSiteArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_group_name: pulumi.Input[str],
+             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              identity: Optional[pulumi.Input['StaticSiteIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sku_size: Optional[pulumi.Input[str]] = None,
              sku_tier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'skuSize' in kwargs:
+            sku_size = kwargs['skuSize']
+        if 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+
         _setter("resource_group_name", resource_group_name)
+        if app_settings is not None:
+            _setter("app_settings", app_settings)
         if identity is not None:
             _setter("identity", identity)
         if location is not None:
@@ -79,6 +95,18 @@ class StaticSiteArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="appSettings")
+    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A key-value pair of App Settings.
+        """
+        return pulumi.get(self, "app_settings")
+
+    @app_settings.setter
+    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "app_settings", value)
 
     @property
     @pulumi.getter
@@ -157,6 +185,7 @@ class StaticSiteArgs:
 class _StaticSiteState:
     def __init__(__self__, *,
                  api_key: Optional[pulumi.Input[str]] = None,
+                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  default_host_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['StaticSiteIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -168,6 +197,7 @@ class _StaticSiteState:
         """
         Input properties used for looking up and filtering StaticSite resources.
         :param pulumi.Input[str] api_key: The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[str] default_host_name: The default host name of the Static Web App.
         :param pulumi.Input['StaticSiteIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
@@ -180,6 +210,7 @@ class _StaticSiteState:
         _StaticSiteState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
             api_key=api_key,
+            app_settings=app_settings,
             default_host_name=default_host_name,
             identity=identity,
             location=location,
@@ -193,6 +224,7 @@ class _StaticSiteState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              api_key: Optional[pulumi.Input[str]] = None,
+             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              default_host_name: Optional[pulumi.Input[str]] = None,
              identity: Optional[pulumi.Input['StaticSiteIdentityArgs']] = None,
              location: Optional[pulumi.Input[str]] = None,
@@ -201,9 +233,25 @@ class _StaticSiteState:
              sku_size: Optional[pulumi.Input[str]] = None,
              sku_tier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'defaultHostName' in kwargs:
+            default_host_name = kwargs['defaultHostName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuSize' in kwargs:
+            sku_size = kwargs['skuSize']
+        if 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+
         if api_key is not None:
             _setter("api_key", api_key)
+        if app_settings is not None:
+            _setter("app_settings", app_settings)
         if default_host_name is not None:
             _setter("default_host_name", default_host_name)
         if identity is not None:
@@ -232,6 +280,18 @@ class _StaticSiteState:
     @api_key.setter
     def api_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "api_key", value)
+
+    @property
+    @pulumi.getter(name="appSettings")
+    def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A key-value pair of App Settings.
+        """
+        return pulumi.get(self, "app_settings")
+
+    @app_settings.setter
+    def app_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "app_settings", value)
 
     @property
     @pulumi.getter(name="defaultHostName")
@@ -335,6 +395,7 @@ class StaticSite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['StaticSiteIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -369,6 +430,7 @@ class StaticSite(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[pulumi.InputType['StaticSiteIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
@@ -426,6 +488,7 @@ class StaticSite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['StaticSiteIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -442,6 +505,7 @@ class StaticSite(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StaticSiteArgs.__new__(StaticSiteArgs)
 
+            __props__.__dict__["app_settings"] = app_settings
             if identity is not None and not isinstance(identity, StaticSiteIdentityArgs):
                 identity = identity or {}
                 def _setter(key, value):
@@ -471,6 +535,7 @@ class StaticSite(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             api_key: Optional[pulumi.Input[str]] = None,
+            app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             default_host_name: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['StaticSiteIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -487,6 +552,7 @@ class StaticSite(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_key: The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[str] default_host_name: The default host name of the Static Web App.
         :param pulumi.Input[pulumi.InputType['StaticSiteIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
@@ -501,6 +567,7 @@ class StaticSite(pulumi.CustomResource):
         __props__ = _StaticSiteState.__new__(_StaticSiteState)
 
         __props__.__dict__["api_key"] = api_key
+        __props__.__dict__["app_settings"] = app_settings
         __props__.__dict__["default_host_name"] = default_host_name
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
@@ -518,6 +585,14 @@ class StaticSite(pulumi.CustomResource):
         The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
         """
         return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="appSettings")
+    def app_settings(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A key-value pair of App Settings.
+        """
+        return pulumi.get(self, "app_settings")
 
     @property
     @pulumi.getter(name="defaultHostName")

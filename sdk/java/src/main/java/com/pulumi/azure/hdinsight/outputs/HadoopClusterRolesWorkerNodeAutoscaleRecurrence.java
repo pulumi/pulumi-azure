@@ -70,10 +70,10 @@ public final class HadoopClusterRolesWorkerNodeAutoscaleRecurrence {
             return this;
         }
         public HadoopClusterRolesWorkerNodeAutoscaleRecurrence build() {
-            final var o = new HadoopClusterRolesWorkerNodeAutoscaleRecurrence();
-            o.schedules = schedules;
-            o.timezone = timezone;
-            return o;
+            final var _resultValue = new HadoopClusterRolesWorkerNodeAutoscaleRecurrence();
+            _resultValue.schedules = schedules;
+            _resultValue.timezone = timezone;
+            return _resultValue;
         }
     }
 }

@@ -107,12 +107,12 @@ public final class GetWindowsFunctionAppAuthSettingActiveDirectory {
             return this;
         }
         public GetWindowsFunctionAppAuthSettingActiveDirectory build() {
-            final var o = new GetWindowsFunctionAppAuthSettingActiveDirectory();
-            o.allowedAudiences = allowedAudiences;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.clientSecretSettingName = clientSecretSettingName;
-            return o;
+            final var _resultValue = new GetWindowsFunctionAppAuthSettingActiveDirectory();
+            _resultValue.allowedAudiences = allowedAudiences;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            return _resultValue;
         }
     }
 }

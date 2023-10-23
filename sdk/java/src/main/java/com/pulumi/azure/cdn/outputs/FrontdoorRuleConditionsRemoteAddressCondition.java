@@ -95,11 +95,11 @@ public final class FrontdoorRuleConditionsRemoteAddressCondition {
             return this;
         }
         public FrontdoorRuleConditionsRemoteAddressCondition build() {
-            final var o = new FrontdoorRuleConditionsRemoteAddressCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new FrontdoorRuleConditionsRemoteAddressCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class BudgetSubscriptionTimePeriod {
             return this;
         }
         public BudgetSubscriptionTimePeriod build() {
-            final var o = new BudgetSubscriptionTimePeriod();
-            o.endDate = endDate;
-            o.startDate = startDate;
-            return o;
+            final var _resultValue = new BudgetSubscriptionTimePeriod();
+            _resultValue.endDate = endDate;
+            _resultValue.startDate = startDate;
+            return _resultValue;
         }
     }
 }

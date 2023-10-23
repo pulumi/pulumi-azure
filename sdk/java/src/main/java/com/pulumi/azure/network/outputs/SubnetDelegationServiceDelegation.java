@@ -74,10 +74,10 @@ public final class SubnetDelegationServiceDelegation {
             return this;
         }
         public SubnetDelegationServiceDelegation build() {
-            final var o = new SubnetDelegationServiceDelegation();
-            o.actions = actions;
-            o.name = name;
-            return o;
+            final var _resultValue = new SubnetDelegationServiceDelegation();
+            _resultValue.actions = actions;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

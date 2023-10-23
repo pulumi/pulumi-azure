@@ -439,31 +439,31 @@ public final class GetCacheResult {
             return zones(List.of(zones));
         }
         public GetCacheResult build() {
-            final var o = new GetCacheResult();
-            o.capacity = capacity;
-            o.enableNonSslPort = enableNonSslPort;
-            o.family = family;
-            o.hostname = hostname;
-            o.id = id;
-            o.location = location;
-            o.minimumTlsVersion = minimumTlsVersion;
-            o.name = name;
-            o.patchSchedules = patchSchedules;
-            o.port = port;
-            o.primaryAccessKey = primaryAccessKey;
-            o.primaryConnectionString = primaryConnectionString;
-            o.privateStaticIpAddress = privateStaticIpAddress;
-            o.redisConfigurations = redisConfigurations;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryAccessKey = secondaryAccessKey;
-            o.secondaryConnectionString = secondaryConnectionString;
-            o.shardCount = shardCount;
-            o.skuName = skuName;
-            o.sslPort = sslPort;
-            o.subnetId = subnetId;
-            o.tags = tags;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new GetCacheResult();
+            _resultValue.capacity = capacity;
+            _resultValue.enableNonSslPort = enableNonSslPort;
+            _resultValue.family = family;
+            _resultValue.hostname = hostname;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.minimumTlsVersion = minimumTlsVersion;
+            _resultValue.name = name;
+            _resultValue.patchSchedules = patchSchedules;
+            _resultValue.port = port;
+            _resultValue.primaryAccessKey = primaryAccessKey;
+            _resultValue.primaryConnectionString = primaryConnectionString;
+            _resultValue.privateStaticIpAddress = privateStaticIpAddress;
+            _resultValue.redisConfigurations = redisConfigurations;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryAccessKey = secondaryAccessKey;
+            _resultValue.secondaryConnectionString = secondaryConnectionString;
+            _resultValue.shardCount = shardCount;
+            _resultValue.skuName = skuName;
+            _resultValue.sslPort = sslPort;
+            _resultValue.subnetId = subnetId;
+            _resultValue.tags = tags;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

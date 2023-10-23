@@ -145,7 +145,53 @@ class PoolArgs:
              task_scheduling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['PoolTaskSchedulingPolicyArgs']]]] = None,
              user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]]] = None,
              windows: Optional[pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'nodeAgentSkuId' in kwargs:
+            node_agent_sku_id = kwargs['nodeAgentSkuId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageImageReference' in kwargs:
+            storage_image_reference = kwargs['storageImageReference']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'autoScale' in kwargs:
+            auto_scale = kwargs['autoScale']
+        if 'containerConfiguration' in kwargs:
+            container_configuration = kwargs['containerConfiguration']
+        if 'dataDisks' in kwargs:
+            data_disks = kwargs['dataDisks']
+        if 'diskEncryptions' in kwargs:
+            disk_encryptions = kwargs['diskEncryptions']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'fixedScale' in kwargs:
+            fixed_scale = kwargs['fixedScale']
+        if 'interNodeCommunication' in kwargs:
+            inter_node_communication = kwargs['interNodeCommunication']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'maxTasksPerNode' in kwargs:
+            max_tasks_per_node = kwargs['maxTasksPerNode']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'nodePlacements' in kwargs:
+            node_placements = kwargs['nodePlacements']
+        if 'osDiskPlacement' in kwargs:
+            os_disk_placement = kwargs['osDiskPlacement']
+        if 'startTask' in kwargs:
+            start_task = kwargs['startTask']
+        if 'stopPendingResizeOperation' in kwargs:
+            stop_pending_resize_operation = kwargs['stopPendingResizeOperation']
+        if 'targetNodeCommunicationMode' in kwargs:
+            target_node_communication_mode = kwargs['targetNodeCommunicationMode']
+        if 'taskSchedulingPolicies' in kwargs:
+            task_scheduling_policies = kwargs['taskSchedulingPolicies']
+        if 'userAccounts' in kwargs:
+            user_accounts = kwargs['userAccounts']
+
         _setter("account_name", account_name)
         _setter("node_agent_sku_id", node_agent_sku_id)
         _setter("resource_group_name", resource_group_name)
@@ -685,7 +731,53 @@ class _PoolState:
              user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]]] = None,
              vm_size: Optional[pulumi.Input[str]] = None,
              windows: Optional[pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'autoScale' in kwargs:
+            auto_scale = kwargs['autoScale']
+        if 'containerConfiguration' in kwargs:
+            container_configuration = kwargs['containerConfiguration']
+        if 'dataDisks' in kwargs:
+            data_disks = kwargs['dataDisks']
+        if 'diskEncryptions' in kwargs:
+            disk_encryptions = kwargs['diskEncryptions']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'fixedScale' in kwargs:
+            fixed_scale = kwargs['fixedScale']
+        if 'interNodeCommunication' in kwargs:
+            inter_node_communication = kwargs['interNodeCommunication']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'maxTasksPerNode' in kwargs:
+            max_tasks_per_node = kwargs['maxTasksPerNode']
+        if 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if 'nodeAgentSkuId' in kwargs:
+            node_agent_sku_id = kwargs['nodeAgentSkuId']
+        if 'nodePlacements' in kwargs:
+            node_placements = kwargs['nodePlacements']
+        if 'osDiskPlacement' in kwargs:
+            os_disk_placement = kwargs['osDiskPlacement']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'startTask' in kwargs:
+            start_task = kwargs['startTask']
+        if 'stopPendingResizeOperation' in kwargs:
+            stop_pending_resize_operation = kwargs['stopPendingResizeOperation']
+        if 'storageImageReference' in kwargs:
+            storage_image_reference = kwargs['storageImageReference']
+        if 'targetNodeCommunicationMode' in kwargs:
+            target_node_communication_mode = kwargs['targetNodeCommunicationMode']
+        if 'taskSchedulingPolicies' in kwargs:
+            task_scheduling_policies = kwargs['taskSchedulingPolicies']
+        if 'userAccounts' in kwargs:
+            user_accounts = kwargs['userAccounts']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if auto_scale is not None:

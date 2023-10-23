@@ -49,7 +49,13 @@ class ShareArgs:
              name: Optional[pulumi.Input[str]] = None,
              snapshot_schedule: Optional[pulumi.Input['ShareSnapshotScheduleArgs']] = None,
              terms: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'snapshotSchedule' in kwargs:
+            snapshot_schedule = kwargs['snapshotSchedule']
+
         _setter("account_id", account_id)
         _setter("kind", kind)
         if description is not None:
@@ -170,7 +176,13 @@ class _ShareState:
              name: Optional[pulumi.Input[str]] = None,
              snapshot_schedule: Optional[pulumi.Input['ShareSnapshotScheduleArgs']] = None,
              terms: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'snapshotSchedule' in kwargs:
+            snapshot_schedule = kwargs['snapshotSchedule']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if description is not None:

@@ -67,10 +67,10 @@ public final class SpringCloudBuildPackBindingLaunch {
             return this;
         }
         public SpringCloudBuildPackBindingLaunch build() {
-            final var o = new SpringCloudBuildPackBindingLaunch();
-            o.properties = properties;
-            o.secrets = secrets;
-            return o;
+            final var _resultValue = new SpringCloudBuildPackBindingLaunch();
+            _resultValue.properties = properties;
+            _resultValue.secrets = secrets;
+            return _resultValue;
         }
     }
 }

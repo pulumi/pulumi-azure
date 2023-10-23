@@ -72,10 +72,10 @@ public final class ConfigurationBackupRetentionPolicyWeeklySchedule {
             return retentionTimes(List.of(retentionTimes));
         }
         public ConfigurationBackupRetentionPolicyWeeklySchedule build() {
-            final var o = new ConfigurationBackupRetentionPolicyWeeklySchedule();
-            o.retentionDuration = retentionDuration;
-            o.retentionTimes = retentionTimes;
-            return o;
+            final var _resultValue = new ConfigurationBackupRetentionPolicyWeeklySchedule();
+            _resultValue.retentionDuration = retentionDuration;
+            _resultValue.retentionTimes = retentionTimes;
+            return _resultValue;
         }
     }
 }

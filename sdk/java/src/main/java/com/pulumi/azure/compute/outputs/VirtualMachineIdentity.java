@@ -102,11 +102,11 @@ public final class VirtualMachineIdentity {
             return this;
         }
         public VirtualMachineIdentity build() {
-            final var o = new VirtualMachineIdentity();
-            o.identityIds = identityIds;
-            o.principalId = principalId;
-            o.type = type;
-            return o;
+            final var _resultValue = new VirtualMachineIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.principalId = principalId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

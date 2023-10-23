@@ -115,12 +115,12 @@ public final class AppServiceSiteConfigScmIpRestrictionHeaders {
             return xForwardedHosts(List.of(xForwardedHosts));
         }
         public AppServiceSiteConfigScmIpRestrictionHeaders build() {
-            final var o = new AppServiceSiteConfigScmIpRestrictionHeaders();
-            o.xAzureFdids = xAzureFdids;
-            o.xFdHealthProbe = xFdHealthProbe;
-            o.xForwardedFors = xForwardedFors;
-            o.xForwardedHosts = xForwardedHosts;
-            return o;
+            final var _resultValue = new AppServiceSiteConfigScmIpRestrictionHeaders();
+            _resultValue.xAzureFdids = xAzureFdids;
+            _resultValue.xFdHealthProbe = xFdHealthProbe;
+            _resultValue.xForwardedFors = xForwardedFors;
+            _resultValue.xForwardedHosts = xForwardedHosts;
+            return _resultValue;
         }
     }
 }

@@ -37,7 +37,11 @@ class TableArgs:
              storage_account_name: pulumi.Input[str],
              acls: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         _setter("storage_account_name", storage_account_name)
         if acls is not None:
             _setter("acls", acls)
@@ -105,7 +109,11 @@ class _TableState:
              acls: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         if acls is not None:
             _setter("acls", acls)
         if name is not None:

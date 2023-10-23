@@ -86,11 +86,11 @@ public final class WorkspaceStorageAccountIdentity {
             return this;
         }
         public WorkspaceStorageAccountIdentity build() {
-            final var o = new WorkspaceStorageAccountIdentity();
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            o.type = type;
-            return o;
+            final var _resultValue = new WorkspaceStorageAccountIdentity();
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

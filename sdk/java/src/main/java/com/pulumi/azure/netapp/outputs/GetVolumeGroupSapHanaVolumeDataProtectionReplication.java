@@ -103,12 +103,12 @@ public final class GetVolumeGroupSapHanaVolumeDataProtectionReplication {
             return this;
         }
         public GetVolumeGroupSapHanaVolumeDataProtectionReplication build() {
-            final var o = new GetVolumeGroupSapHanaVolumeDataProtectionReplication();
-            o.endpointType = endpointType;
-            o.remoteVolumeLocation = remoteVolumeLocation;
-            o.remoteVolumeResourceId = remoteVolumeResourceId;
-            o.replicationFrequency = replicationFrequency;
-            return o;
+            final var _resultValue = new GetVolumeGroupSapHanaVolumeDataProtectionReplication();
+            _resultValue.endpointType = endpointType;
+            _resultValue.remoteVolumeLocation = remoteVolumeLocation;
+            _resultValue.remoteVolumeResourceId = remoteVolumeResourceId;
+            _resultValue.replicationFrequency = replicationFrequency;
+            return _resultValue;
         }
     }
 }

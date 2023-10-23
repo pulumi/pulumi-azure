@@ -65,10 +65,10 @@ public final class GetActionGroupAzureAppPushReceiver {
             return this;
         }
         public GetActionGroupAzureAppPushReceiver build() {
-            final var o = new GetActionGroupAzureAppPushReceiver();
-            o.emailAddress = emailAddress;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetActionGroupAzureAppPushReceiver();
+            _resultValue.emailAddress = emailAddress;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

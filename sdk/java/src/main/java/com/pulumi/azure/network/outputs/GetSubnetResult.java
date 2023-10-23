@@ -234,21 +234,21 @@ public final class GetSubnetResult {
             return this;
         }
         public GetSubnetResult build() {
-            final var o = new GetSubnetResult();
-            o.addressPrefix = addressPrefix;
-            o.addressPrefixes = addressPrefixes;
-            o.enforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
-            o.enforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
-            o.id = id;
-            o.name = name;
-            o.networkSecurityGroupId = networkSecurityGroupId;
-            o.privateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
-            o.privateLinkServiceNetworkPoliciesEnabled = privateLinkServiceNetworkPoliciesEnabled;
-            o.resourceGroupName = resourceGroupName;
-            o.routeTableId = routeTableId;
-            o.serviceEndpoints = serviceEndpoints;
-            o.virtualNetworkName = virtualNetworkName;
-            return o;
+            final var _resultValue = new GetSubnetResult();
+            _resultValue.addressPrefix = addressPrefix;
+            _resultValue.addressPrefixes = addressPrefixes;
+            _resultValue.enforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
+            _resultValue.enforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.networkSecurityGroupId = networkSecurityGroupId;
+            _resultValue.privateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
+            _resultValue.privateLinkServiceNetworkPoliciesEnabled = privateLinkServiceNetworkPoliciesEnabled;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.routeTableId = routeTableId;
+            _resultValue.serviceEndpoints = serviceEndpoints;
+            _resultValue.virtualNetworkName = virtualNetworkName;
+            return _resultValue;
         }
     }
 }

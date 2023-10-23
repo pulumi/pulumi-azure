@@ -109,7 +109,33 @@ class RegistryArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None,
              zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'adminEnabled' in kwargs:
+            admin_enabled = kwargs['adminEnabled']
+        if 'anonymousPullEnabled' in kwargs:
+            anonymous_pull_enabled = kwargs['anonymousPullEnabled']
+        if 'dataEndpointEnabled' in kwargs:
+            data_endpoint_enabled = kwargs['dataEndpointEnabled']
+        if 'exportPolicyEnabled' in kwargs:
+            export_policy_enabled = kwargs['exportPolicyEnabled']
+        if 'networkRuleBypassOption' in kwargs:
+            network_rule_bypass_option = kwargs['networkRuleBypassOption']
+        if 'networkRuleSet' in kwargs:
+            network_rule_set = kwargs['networkRuleSet']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'quarantinePolicyEnabled' in kwargs:
+            quarantine_policy_enabled = kwargs['quarantinePolicyEnabled']
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if 'trustPolicy' in kwargs:
+            trust_policy = kwargs['trustPolicy']
+        if 'zoneRedundancyEnabled' in kwargs:
+            zone_redundancy_enabled = kwargs['zoneRedundancyEnabled']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
         if admin_enabled is not None:
@@ -492,7 +518,39 @@ class _RegistryState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None,
              zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminEnabled' in kwargs:
+            admin_enabled = kwargs['adminEnabled']
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'anonymousPullEnabled' in kwargs:
+            anonymous_pull_enabled = kwargs['anonymousPullEnabled']
+        if 'dataEndpointEnabled' in kwargs:
+            data_endpoint_enabled = kwargs['dataEndpointEnabled']
+        if 'exportPolicyEnabled' in kwargs:
+            export_policy_enabled = kwargs['exportPolicyEnabled']
+        if 'loginServer' in kwargs:
+            login_server = kwargs['loginServer']
+        if 'networkRuleBypassOption' in kwargs:
+            network_rule_bypass_option = kwargs['networkRuleBypassOption']
+        if 'networkRuleSet' in kwargs:
+            network_rule_set = kwargs['networkRuleSet']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'quarantinePolicyEnabled' in kwargs:
+            quarantine_policy_enabled = kwargs['quarantinePolicyEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if 'trustPolicy' in kwargs:
+            trust_policy = kwargs['trustPolicy']
+        if 'zoneRedundancyEnabled' in kwargs:
+            zone_redundancy_enabled = kwargs['zoneRedundancyEnabled']
+
         if admin_enabled is not None:
             _setter("admin_enabled", admin_enabled)
         if admin_password is not None:

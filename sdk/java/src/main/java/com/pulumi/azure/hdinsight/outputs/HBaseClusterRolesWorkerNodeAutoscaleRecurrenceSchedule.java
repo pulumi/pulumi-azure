@@ -73,11 +73,11 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
             return this;
         }
         public HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule build() {
-            final var o = new HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule();
-            o.days = days;
-            o.targetInstanceCount = targetInstanceCount;
-            o.time = time;
-            return o;
+            final var _resultValue = new HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule();
+            _resultValue.days = days;
+            _resultValue.targetInstanceCount = targetInstanceCount;
+            _resultValue.time = time;
+            return _resultValue;
         }
     }
 }

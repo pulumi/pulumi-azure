@@ -67,10 +67,10 @@ public final class LinkedServiceIntegrationRuntime {
             return this;
         }
         public LinkedServiceIntegrationRuntime build() {
-            final var o = new LinkedServiceIntegrationRuntime();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new LinkedServiceIntegrationRuntime();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

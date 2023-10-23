@@ -65,10 +65,10 @@ public final class GetEndpointConnectionNetworkInterface {
             return this;
         }
         public GetEndpointConnectionNetworkInterface build() {
-            final var o = new GetEndpointConnectionNetworkInterface();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetEndpointConnectionNetworkInterface();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

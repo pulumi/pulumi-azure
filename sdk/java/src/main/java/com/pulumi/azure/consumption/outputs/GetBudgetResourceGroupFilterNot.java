@@ -73,10 +73,10 @@ public final class GetBudgetResourceGroupFilterNot {
             return tags(List.of(tags));
         }
         public GetBudgetResourceGroupFilterNot build() {
-            final var o = new GetBudgetResourceGroupFilterNot();
-            o.dimensions = dimensions;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetBudgetResourceGroupFilterNot();
+            _resultValue.dimensions = dimensions;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

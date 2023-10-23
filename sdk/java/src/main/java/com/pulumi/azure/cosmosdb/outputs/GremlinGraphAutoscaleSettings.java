@@ -48,9 +48,9 @@ public final class GremlinGraphAutoscaleSettings {
             return this;
         }
         public GremlinGraphAutoscaleSettings build() {
-            final var o = new GremlinGraphAutoscaleSettings();
-            o.maxThroughput = maxThroughput;
-            return o;
+            final var _resultValue = new GremlinGraphAutoscaleSettings();
+            _resultValue.maxThroughput = maxThroughput;
+            return _resultValue;
         }
     }
 }

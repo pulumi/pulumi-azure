@@ -68,10 +68,10 @@ public final class GroupContainerGpuLimit {
             return this;
         }
         public GroupContainerGpuLimit build() {
-            final var o = new GroupContainerGpuLimit();
-            o.count = count;
-            o.sku = sku;
-            return o;
+            final var _resultValue = new GroupContainerGpuLimit();
+            _resultValue.count = count;
+            _resultValue.sku = sku;
+            return _resultValue;
         }
     }
 }

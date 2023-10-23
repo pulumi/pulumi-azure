@@ -46,9 +46,9 @@ public final class SparkClusterComponentVersion {
             return this;
         }
         public SparkClusterComponentVersion build() {
-            final var o = new SparkClusterComponentVersion();
-            o.spark = spark;
-            return o;
+            final var _resultValue = new SparkClusterComponentVersion();
+            _resultValue.spark = spark;
+            return _resultValue;
         }
     }
 }

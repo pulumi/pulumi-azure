@@ -47,7 +47,13 @@ class PolicySetDefinitionPolicyDefinitionGroupArgs:
              category: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalMetadataResourceId' in kwargs:
+            additional_metadata_resource_id = kwargs['additionalMetadataResourceId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("name", name)
         if additional_metadata_resource_id is not None:
             _setter("additional_metadata_resource_id", additional_metadata_resource_id)
@@ -146,7 +152,17 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
              parameter_values: Optional[pulumi.Input[str]] = None,
              policy_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              reference_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDefinitionId' in kwargs:
+            policy_definition_id = kwargs['policyDefinitionId']
+        if 'parameterValues' in kwargs:
+            parameter_values = kwargs['parameterValues']
+        if 'policyGroupNames' in kwargs:
+            policy_group_names = kwargs['policyGroupNames']
+        if 'referenceId' in kwargs:
+            reference_id = kwargs['referenceId']
+
         _setter("policy_definition_id", policy_definition_id)
         if parameter_values is not None:
             _setter("parameter_values", parameter_values)
@@ -237,7 +253,15 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
              content_uri: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignmentType' in kwargs:
+            assignment_type = kwargs['assignmentType']
+        if 'contentHash' in kwargs:
+            content_hash = kwargs['contentHash']
+        if 'contentUri' in kwargs:
+            content_uri = kwargs['contentUri']
+
         if assignment_type is not None:
             _setter("assignment_type", assignment_type)
         if content_hash is not None:
@@ -331,7 +355,9 @@ class VirtualMachineConfigurationAssignmentConfigurationParameterArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 

@@ -72,10 +72,10 @@ public final class AccountNetworkProfile {
             return this;
         }
         public AccountNetworkProfile build() {
-            final var o = new AccountNetworkProfile();
-            o.accountAccess = accountAccess;
-            o.nodeManagementAccess = nodeManagementAccess;
-            return o;
+            final var _resultValue = new AccountNetworkProfile();
+            _resultValue.accountAccess = accountAccess;
+            _resultValue.nodeManagementAccess = nodeManagementAccess;
+            return _resultValue;
         }
     }
 }

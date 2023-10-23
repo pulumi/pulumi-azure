@@ -127,13 +127,13 @@ public final class ConfigurationBackup {
             return this;
         }
         public ConfigurationBackup build() {
-            final var o = new ConfigurationBackup();
-            o.instantRpRetentionRangeInDays = instantRpRetentionRangeInDays;
-            o.policyName = policyName;
-            o.retentionPolicy = retentionPolicy;
-            o.schedulePolicy = schedulePolicy;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new ConfigurationBackup();
+            _resultValue.instantRpRetentionRangeInDays = instantRpRetentionRangeInDays;
+            _resultValue.policyName = policyName;
+            _resultValue.retentionPolicy = retentionPolicy;
+            _resultValue.schedulePolicy = schedulePolicy;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class LogzTagRuleTagFilter {
             return this;
         }
         public LogzTagRuleTagFilter build() {
-            final var o = new LogzTagRuleTagFilter();
-            o.action = action;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new LogzTagRuleTagFilter();
+            _resultValue.action = action;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

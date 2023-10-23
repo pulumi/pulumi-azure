@@ -104,12 +104,12 @@ public final class GetServiceHostnameConfigurationProxy {
             return this;
         }
         public GetServiceHostnameConfigurationProxy build() {
-            final var o = new GetServiceHostnameConfigurationProxy();
-            o.defaultSslBinding = defaultSslBinding;
-            o.hostName = hostName;
-            o.keyVaultId = keyVaultId;
-            o.negotiateClientCertificate = negotiateClientCertificate;
-            return o;
+            final var _resultValue = new GetServiceHostnameConfigurationProxy();
+            _resultValue.defaultSslBinding = defaultSslBinding;
+            _resultValue.hostName = hostName;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.negotiateClientCertificate = negotiateClientCertificate;
+            return _resultValue;
         }
     }
 }

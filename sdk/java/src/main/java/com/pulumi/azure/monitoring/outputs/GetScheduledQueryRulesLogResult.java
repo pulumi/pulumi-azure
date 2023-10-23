@@ -211,18 +211,18 @@ public final class GetScheduledQueryRulesLogResult {
             return this;
         }
         public GetScheduledQueryRulesLogResult build() {
-            final var o = new GetScheduledQueryRulesLogResult();
-            o.authorizedResourceIds = authorizedResourceIds;
-            o.criterias = criterias;
-            o.dataSourceId = dataSourceId;
-            o.description = description;
-            o.enabled = enabled;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetScheduledQueryRulesLogResult();
+            _resultValue.authorizedResourceIds = authorizedResourceIds;
+            _resultValue.criterias = criterias;
+            _resultValue.dataSourceId = dataSourceId;
+            _resultValue.description = description;
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

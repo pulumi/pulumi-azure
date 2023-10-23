@@ -175,15 +175,15 @@ public final class ActionGroupEventHubReceiver {
             return this;
         }
         public ActionGroupEventHubReceiver build() {
-            final var o = new ActionGroupEventHubReceiver();
-            o.eventHubId = eventHubId;
-            o.eventHubName = eventHubName;
-            o.eventHubNamespace = eventHubNamespace;
-            o.name = name;
-            o.subscriptionId = subscriptionId;
-            o.tenantId = tenantId;
-            o.useCommonAlertSchema = useCommonAlertSchema;
-            return o;
+            final var _resultValue = new ActionGroupEventHubReceiver();
+            _resultValue.eventHubId = eventHubId;
+            _resultValue.eventHubName = eventHubName;
+            _resultValue.eventHubNamespace = eventHubNamespace;
+            _resultValue.name = name;
+            _resultValue.subscriptionId = subscriptionId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.useCommonAlertSchema = useCommonAlertSchema;
+            return _resultValue;
         }
     }
 }

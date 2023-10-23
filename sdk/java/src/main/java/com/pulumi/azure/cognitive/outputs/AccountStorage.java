@@ -67,10 +67,10 @@ public final class AccountStorage {
             return this;
         }
         public AccountStorage build() {
-            final var o = new AccountStorage();
-            o.identityClientId = identityClientId;
-            o.storageAccountId = storageAccountId;
-            return o;
+            final var _resultValue = new AccountStorage();
+            _resultValue.identityClientId = identityClientId;
+            _resultValue.storageAccountId = storageAccountId;
+            return _resultValue;
         }
     }
 }

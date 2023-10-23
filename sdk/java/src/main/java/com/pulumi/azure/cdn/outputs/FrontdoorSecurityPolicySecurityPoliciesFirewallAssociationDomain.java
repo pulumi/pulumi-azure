@@ -68,10 +68,10 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
             return this;
         }
         public FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain build() {
-            final var o = new FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain();
-            o.active = active;
-            o.cdnFrontdoorDomainId = cdnFrontdoorDomainId;
-            return o;
+            final var _resultValue = new FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain();
+            _resultValue.active = active;
+            _resultValue.cdnFrontdoorDomainId = cdnFrontdoorDomainId;
+            return _resultValue;
         }
     }
 }

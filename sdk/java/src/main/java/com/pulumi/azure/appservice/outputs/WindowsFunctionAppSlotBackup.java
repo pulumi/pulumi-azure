@@ -107,12 +107,12 @@ public final class WindowsFunctionAppSlotBackup {
             return this;
         }
         public WindowsFunctionAppSlotBackup build() {
-            final var o = new WindowsFunctionAppSlotBackup();
-            o.enabled = enabled;
-            o.name = name;
-            o.schedule = schedule;
-            o.storageAccountUrl = storageAccountUrl;
-            return o;
+            final var _resultValue = new WindowsFunctionAppSlotBackup();
+            _resultValue.enabled = enabled;
+            _resultValue.name = name;
+            _resultValue.schedule = schedule;
+            _resultValue.storageAccountUrl = storageAccountUrl;
+            return _resultValue;
         }
     }
 }

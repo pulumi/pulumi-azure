@@ -46,9 +46,9 @@ public final class GetNamespaceSku {
             return this;
         }
         public GetNamespaceSku build() {
-            final var o = new GetNamespaceSku();
-            o.name = name;
-            return o;
+            final var _resultValue = new GetNamespaceSku();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

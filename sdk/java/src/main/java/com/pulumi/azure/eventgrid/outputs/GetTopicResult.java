@@ -148,16 +148,16 @@ public final class GetTopicResult {
             return this;
         }
         public GetTopicResult build() {
-            final var o = new GetTopicResult();
-            o.endpoint = endpoint;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.primaryAccessKey = primaryAccessKey;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryAccessKey = secondaryAccessKey;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetTopicResult();
+            _resultValue.endpoint = endpoint;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.primaryAccessKey = primaryAccessKey;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryAccessKey = secondaryAccessKey;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -135,13 +135,13 @@ public final class NetworkConnectionMonitorTestGroup {
             return testConfigurationNames(List.of(testConfigurationNames));
         }
         public NetworkConnectionMonitorTestGroup build() {
-            final var o = new NetworkConnectionMonitorTestGroup();
-            o.destinationEndpoints = destinationEndpoints;
-            o.enabled = enabled;
-            o.name = name;
-            o.sourceEndpoints = sourceEndpoints;
-            o.testConfigurationNames = testConfigurationNames;
-            return o;
+            final var _resultValue = new NetworkConnectionMonitorTestGroup();
+            _resultValue.destinationEndpoints = destinationEndpoints;
+            _resultValue.enabled = enabled;
+            _resultValue.name = name;
+            _resultValue.sourceEndpoints = sourceEndpoints;
+            _resultValue.testConfigurationNames = testConfigurationNames;
+            return _resultValue;
         }
     }
 }

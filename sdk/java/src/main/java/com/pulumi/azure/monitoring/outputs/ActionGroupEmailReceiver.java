@@ -87,11 +87,11 @@ public final class ActionGroupEmailReceiver {
             return this;
         }
         public ActionGroupEmailReceiver build() {
-            final var o = new ActionGroupEmailReceiver();
-            o.emailAddress = emailAddress;
-            o.name = name;
-            o.useCommonAlertSchema = useCommonAlertSchema;
-            return o;
+            final var _resultValue = new ActionGroupEmailReceiver();
+            _resultValue.emailAddress = emailAddress;
+            _resultValue.name = name;
+            _resultValue.useCommonAlertSchema = useCommonAlertSchema;
+            return _resultValue;
         }
     }
 }

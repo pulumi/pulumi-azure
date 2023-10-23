@@ -99,13 +99,13 @@ public final class GetServiceSecureLdap {
             return this;
         }
         public GetServiceSecureLdap build() {
-            final var o = new GetServiceSecureLdap();
-            o.certificateExpiry = certificateExpiry;
-            o.certificateThumbprint = certificateThumbprint;
-            o.enabled = enabled;
-            o.externalAccessEnabled = externalAccessEnabled;
-            o.publicCertificate = publicCertificate;
-            return o;
+            final var _resultValue = new GetServiceSecureLdap();
+            _resultValue.certificateExpiry = certificateExpiry;
+            _resultValue.certificateThumbprint = certificateThumbprint;
+            _resultValue.enabled = enabled;
+            _resultValue.externalAccessEnabled = externalAccessEnabled;
+            _resultValue.publicCertificate = publicCertificate;
+            return _resultValue;
         }
     }
 }

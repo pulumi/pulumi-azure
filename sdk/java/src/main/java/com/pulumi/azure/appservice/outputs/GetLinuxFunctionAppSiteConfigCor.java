@@ -70,10 +70,10 @@ public final class GetLinuxFunctionAppSiteConfigCor {
             return this;
         }
         public GetLinuxFunctionAppSiteConfigCor build() {
-            final var o = new GetLinuxFunctionAppSiteConfigCor();
-            o.allowedOrigins = allowedOrigins;
-            o.supportCredentials = supportCredentials;
-            return o;
+            final var _resultValue = new GetLinuxFunctionAppSiteConfigCor();
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.supportCredentials = supportCredentials;
+            return _resultValue;
         }
     }
 }

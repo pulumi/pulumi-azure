@@ -73,10 +73,10 @@ public final class EventSubscriptionAdvancedFilterStringEndsWith {
             return values(List.of(values));
         }
         public EventSubscriptionAdvancedFilterStringEndsWith build() {
-            final var o = new EventSubscriptionAdvancedFilterStringEndsWith();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new EventSubscriptionAdvancedFilterStringEndsWith();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

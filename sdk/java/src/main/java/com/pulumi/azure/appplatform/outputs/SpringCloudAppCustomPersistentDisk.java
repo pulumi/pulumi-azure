@@ -129,13 +129,13 @@ public final class SpringCloudAppCustomPersistentDisk {
             return this;
         }
         public SpringCloudAppCustomPersistentDisk build() {
-            final var o = new SpringCloudAppCustomPersistentDisk();
-            o.mountOptions = mountOptions;
-            o.mountPath = mountPath;
-            o.readOnlyEnabled = readOnlyEnabled;
-            o.shareName = shareName;
-            o.storageName = storageName;
-            return o;
+            final var _resultValue = new SpringCloudAppCustomPersistentDisk();
+            _resultValue.mountOptions = mountOptions;
+            _resultValue.mountPath = mountPath;
+            _resultValue.readOnlyEnabled = readOnlyEnabled;
+            _resultValue.shareName = shareName;
+            _resultValue.storageName = storageName;
+            return _resultValue;
         }
     }
 }

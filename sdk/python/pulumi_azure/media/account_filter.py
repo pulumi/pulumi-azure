@@ -49,7 +49,19 @@ class AccountFilterArgs:
              name: Optional[pulumi.Input[str]] = None,
              presentation_time_range: Optional[pulumi.Input['AccountFilterPresentationTimeRangeArgs']] = None,
              track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'firstQualityBitrate' in kwargs:
+            first_quality_bitrate = kwargs['firstQualityBitrate']
+        if 'presentationTimeRange' in kwargs:
+            presentation_time_range = kwargs['presentationTimeRange']
+        if 'trackSelections' in kwargs:
+            track_selections = kwargs['trackSelections']
+
         _setter("media_services_account_name", media_services_account_name)
         _setter("resource_group_name", resource_group_name)
         if first_quality_bitrate is not None:
@@ -170,7 +182,19 @@ class _AccountFilterState:
              presentation_time_range: Optional[pulumi.Input['AccountFilterPresentationTimeRangeArgs']] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firstQualityBitrate' in kwargs:
+            first_quality_bitrate = kwargs['firstQualityBitrate']
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'presentationTimeRange' in kwargs:
+            presentation_time_range = kwargs['presentationTimeRange']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'trackSelections' in kwargs:
+            track_selections = kwargs['trackSelections']
+
         if first_quality_bitrate is not None:
             _setter("first_quality_bitrate", first_quality_bitrate)
         if media_services_account_name is not None:

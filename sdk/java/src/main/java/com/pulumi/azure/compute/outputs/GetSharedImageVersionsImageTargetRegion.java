@@ -85,11 +85,11 @@ public final class GetSharedImageVersionsImageTargetRegion {
             return this;
         }
         public GetSharedImageVersionsImageTargetRegion build() {
-            final var o = new GetSharedImageVersionsImageTargetRegion();
-            o.name = name;
-            o.regionalReplicaCount = regionalReplicaCount;
-            o.storageAccountType = storageAccountType;
-            return o;
+            final var _resultValue = new GetSharedImageVersionsImageTargetRegion();
+            _resultValue.name = name;
+            _resultValue.regionalReplicaCount = regionalReplicaCount;
+            _resultValue.storageAccountType = storageAccountType;
+            return _resultValue;
         }
     }
 }

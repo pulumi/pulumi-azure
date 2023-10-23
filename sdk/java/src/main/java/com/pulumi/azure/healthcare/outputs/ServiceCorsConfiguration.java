@@ -136,13 +136,13 @@ public final class ServiceCorsConfiguration {
             return this;
         }
         public ServiceCorsConfiguration build() {
-            final var o = new ServiceCorsConfiguration();
-            o.allowCredentials = allowCredentials;
-            o.allowedHeaders = allowedHeaders;
-            o.allowedMethods = allowedMethods;
-            o.allowedOrigins = allowedOrigins;
-            o.maxAgeInSeconds = maxAgeInSeconds;
-            return o;
+            final var _resultValue = new ServiceCorsConfiguration();
+            _resultValue.allowCredentials = allowCredentials;
+            _resultValue.allowedHeaders = allowedHeaders;
+            _resultValue.allowedMethods = allowedMethods;
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.maxAgeInSeconds = maxAgeInSeconds;
+            return _resultValue;
         }
     }
 }

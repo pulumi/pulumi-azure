@@ -49,7 +49,13 @@ class FunctionJavaScriptUDFArgs:
              script: pulumi.Input[str],
              stream_analytics_job_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+
         _setter("inputs", inputs)
         _setter("output", output)
         _setter("resource_group_name", resource_group_name)
@@ -167,7 +173,13 @@ class _FunctionJavaScriptUDFState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              script: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+
         if inputs is not None:
             _setter("inputs", inputs)
         if name is not None:

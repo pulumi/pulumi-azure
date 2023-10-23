@@ -72,10 +72,10 @@ public final class KafkaClusterNetwork {
             return this;
         }
         public KafkaClusterNetwork build() {
-            final var o = new KafkaClusterNetwork();
-            o.connectionDirection = connectionDirection;
-            o.privateLinkEnabled = privateLinkEnabled;
-            return o;
+            final var _resultValue = new KafkaClusterNetwork();
+            _resultValue.connectionDirection = connectionDirection;
+            _resultValue.privateLinkEnabled = privateLinkEnabled;
+            return _resultValue;
         }
     }
 }

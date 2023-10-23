@@ -279,21 +279,21 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
             return this;
         }
         public ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight build() {
-            final var o = new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight();
-            o.agcAndColorStripeRestriction = agcAndColorStripeRestriction;
-            o.allowPassingVideoContentToUnknownOutput = allowPassingVideoContentToUnknownOutput;
-            o.analogVideoOpl = analogVideoOpl;
-            o.compressedDigitalAudioOpl = compressedDigitalAudioOpl;
-            o.compressedDigitalVideoOpl = compressedDigitalVideoOpl;
-            o.digitalVideoOnlyContentRestriction = digitalVideoOnlyContentRestriction;
-            o.explicitAnalogTelevisionOutputRestriction = explicitAnalogTelevisionOutputRestriction;
-            o.firstPlayExpiration = firstPlayExpiration;
-            o.imageConstraintForAnalogComponentVideoRestriction = imageConstraintForAnalogComponentVideoRestriction;
-            o.imageConstraintForAnalogComputerMonitorRestriction = imageConstraintForAnalogComputerMonitorRestriction;
-            o.scmsRestriction = scmsRestriction;
-            o.uncompressedDigitalAudioOpl = uncompressedDigitalAudioOpl;
-            o.uncompressedDigitalVideoOpl = uncompressedDigitalVideoOpl;
-            return o;
+            final var _resultValue = new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight();
+            _resultValue.agcAndColorStripeRestriction = agcAndColorStripeRestriction;
+            _resultValue.allowPassingVideoContentToUnknownOutput = allowPassingVideoContentToUnknownOutput;
+            _resultValue.analogVideoOpl = analogVideoOpl;
+            _resultValue.compressedDigitalAudioOpl = compressedDigitalAudioOpl;
+            _resultValue.compressedDigitalVideoOpl = compressedDigitalVideoOpl;
+            _resultValue.digitalVideoOnlyContentRestriction = digitalVideoOnlyContentRestriction;
+            _resultValue.explicitAnalogTelevisionOutputRestriction = explicitAnalogTelevisionOutputRestriction;
+            _resultValue.firstPlayExpiration = firstPlayExpiration;
+            _resultValue.imageConstraintForAnalogComponentVideoRestriction = imageConstraintForAnalogComponentVideoRestriction;
+            _resultValue.imageConstraintForAnalogComputerMonitorRestriction = imageConstraintForAnalogComputerMonitorRestriction;
+            _resultValue.scmsRestriction = scmsRestriction;
+            _resultValue.uncompressedDigitalAudioOpl = uncompressedDigitalAudioOpl;
+            _resultValue.uncompressedDigitalVideoOpl = uncompressedDigitalVideoOpl;
+            return _resultValue;
         }
     }
 }

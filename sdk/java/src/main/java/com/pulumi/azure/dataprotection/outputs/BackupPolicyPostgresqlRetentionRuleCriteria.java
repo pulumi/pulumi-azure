@@ -137,13 +137,13 @@ public final class BackupPolicyPostgresqlRetentionRuleCriteria {
             return weeksOfMonths(List.of(weeksOfMonths));
         }
         public BackupPolicyPostgresqlRetentionRuleCriteria build() {
-            final var o = new BackupPolicyPostgresqlRetentionRuleCriteria();
-            o.absoluteCriteria = absoluteCriteria;
-            o.daysOfWeeks = daysOfWeeks;
-            o.monthsOfYears = monthsOfYears;
-            o.scheduledBackupTimes = scheduledBackupTimes;
-            o.weeksOfMonths = weeksOfMonths;
-            return o;
+            final var _resultValue = new BackupPolicyPostgresqlRetentionRuleCriteria();
+            _resultValue.absoluteCriteria = absoluteCriteria;
+            _resultValue.daysOfWeeks = daysOfWeeks;
+            _resultValue.monthsOfYears = monthsOfYears;
+            _resultValue.scheduledBackupTimes = scheduledBackupTimes;
+            _resultValue.weeksOfMonths = weeksOfMonths;
+            return _resultValue;
         }
     }
 }

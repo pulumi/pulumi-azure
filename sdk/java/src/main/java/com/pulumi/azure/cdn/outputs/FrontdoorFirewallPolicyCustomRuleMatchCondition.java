@@ -151,14 +151,14 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchCondition {
             return transforms(List.of(transforms));
         }
         public FrontdoorFirewallPolicyCustomRuleMatchCondition build() {
-            final var o = new FrontdoorFirewallPolicyCustomRuleMatchCondition();
-            o.matchValues = matchValues;
-            o.matchVariable = matchVariable;
-            o.negationCondition = negationCondition;
-            o.operator = operator;
-            o.selector = selector;
-            o.transforms = transforms;
-            return o;
+            final var _resultValue = new FrontdoorFirewallPolicyCustomRuleMatchCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.matchVariable = matchVariable;
+            _resultValue.negationCondition = negationCondition;
+            _resultValue.operator = operator;
+            _resultValue.selector = selector;
+            _resultValue.transforms = transforms;
+            return _resultValue;
         }
     }
 }

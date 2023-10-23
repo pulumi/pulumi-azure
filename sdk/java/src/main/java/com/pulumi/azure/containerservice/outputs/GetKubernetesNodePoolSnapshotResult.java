@@ -99,13 +99,13 @@ public final class GetKubernetesNodePoolSnapshotResult {
             return this;
         }
         public GetKubernetesNodePoolSnapshotResult build() {
-            final var o = new GetKubernetesNodePoolSnapshotResult();
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.sourceNodePoolId = sourceNodePoolId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetKubernetesNodePoolSnapshotResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sourceNodePoolId = sourceNodePoolId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -75,7 +75,21 @@ class DatasetBinaryArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              sftp_server_location: Optional[pulumi.Input['DatasetBinarySftpServerLocationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'azureBlobStorageLocation' in kwargs:
+            azure_blob_storage_location = kwargs['azureBlobStorageLocation']
+        if 'httpServerLocation' in kwargs:
+            http_server_location = kwargs['httpServerLocation']
+        if 'sftpServerLocation' in kwargs:
+            sftp_server_location = kwargs['sftpServerLocation']
+
         _setter("data_factory_id", data_factory_id)
         _setter("linked_service_name", linked_service_name)
         if additional_properties is not None:
@@ -308,7 +322,21 @@ class _DatasetBinaryState:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              sftp_server_location: Optional[pulumi.Input['DatasetBinarySftpServerLocationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'azureBlobStorageLocation' in kwargs:
+            azure_blob_storage_location = kwargs['azureBlobStorageLocation']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'httpServerLocation' in kwargs:
+            http_server_location = kwargs['httpServerLocation']
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'sftpServerLocation' in kwargs:
+            sftp_server_location = kwargs['sftpServerLocation']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

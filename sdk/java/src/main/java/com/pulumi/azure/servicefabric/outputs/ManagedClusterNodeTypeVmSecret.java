@@ -70,10 +70,10 @@ public final class ManagedClusterNodeTypeVmSecret {
             return this;
         }
         public ManagedClusterNodeTypeVmSecret build() {
-            final var o = new ManagedClusterNodeTypeVmSecret();
-            o.certificates = certificates;
-            o.vaultId = vaultId;
-            return o;
+            final var _resultValue = new ManagedClusterNodeTypeVmSecret();
+            _resultValue.certificates = certificates;
+            _resultValue.vaultId = vaultId;
+            return _resultValue;
         }
     }
 }

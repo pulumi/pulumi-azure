@@ -65,7 +65,19 @@ class UserArgs:
              note: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("api_management_name", api_management_name)
         _setter("email", email)
         _setter("first_name", first_name)
@@ -258,7 +270,19 @@ class _UserState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if confirmation is not None:

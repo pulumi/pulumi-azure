@@ -187,16 +187,16 @@ public final class GetEnterpriseDatabaseResult {
             return this;
         }
         public GetEnterpriseDatabaseResult build() {
-            final var o = new GetEnterpriseDatabaseResult();
-            o.clusterId = clusterId;
-            o.id = id;
-            o.linkedDatabaseGroupNickname = linkedDatabaseGroupNickname;
-            o.linkedDatabaseIds = linkedDatabaseIds;
-            o.name = name;
-            o.primaryAccessKey = primaryAccessKey;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryAccessKey = secondaryAccessKey;
-            return o;
+            final var _resultValue = new GetEnterpriseDatabaseResult();
+            _resultValue.clusterId = clusterId;
+            _resultValue.id = id;
+            _resultValue.linkedDatabaseGroupNickname = linkedDatabaseGroupNickname;
+            _resultValue.linkedDatabaseIds = linkedDatabaseIds;
+            _resultValue.name = name;
+            _resultValue.primaryAccessKey = primaryAccessKey;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryAccessKey = secondaryAccessKey;
+            return _resultValue;
         }
     }
 }

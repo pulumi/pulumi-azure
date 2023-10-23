@@ -82,12 +82,12 @@ public final class RunBookJobSchedule {
             return this;
         }
         public RunBookJobSchedule build() {
-            final var o = new RunBookJobSchedule();
-            o.jobScheduleId = jobScheduleId;
-            o.parameters = parameters;
-            o.runOn = runOn;
-            o.scheduleName = scheduleName;
-            return o;
+            final var _resultValue = new RunBookJobSchedule();
+            _resultValue.jobScheduleId = jobScheduleId;
+            _resultValue.parameters = parameters;
+            _resultValue.runOn = runOn;
+            _resultValue.scheduleName = scheduleName;
+            return _resultValue;
         }
     }
 }

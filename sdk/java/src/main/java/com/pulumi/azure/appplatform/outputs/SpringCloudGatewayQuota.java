@@ -75,10 +75,10 @@ public final class SpringCloudGatewayQuota {
             return this;
         }
         public SpringCloudGatewayQuota build() {
-            final var o = new SpringCloudGatewayQuota();
-            o.cpu = cpu;
-            o.memory = memory;
-            return o;
+            final var _resultValue = new SpringCloudGatewayQuota();
+            _resultValue.cpu = cpu;
+            _resultValue.memory = memory;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim {
             return this;
         }
         public ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim build() {
-            final var o = new ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim();
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim();
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

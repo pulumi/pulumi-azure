@@ -84,11 +84,11 @@ public final class GetAppIngressCustomDomain {
             return this;
         }
         public GetAppIngressCustomDomain build() {
-            final var o = new GetAppIngressCustomDomain();
-            o.certificateBindingType = certificateBindingType;
-            o.certificateId = certificateId;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetAppIngressCustomDomain();
+            _resultValue.certificateBindingType = certificateBindingType;
+            _resultValue.certificateId = certificateId;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

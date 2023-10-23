@@ -104,12 +104,12 @@ public final class SrvRecordRecord {
             return this;
         }
         public SrvRecordRecord build() {
-            final var o = new SrvRecordRecord();
-            o.port = port;
-            o.priority = priority;
-            o.target = target;
-            o.weight = weight;
-            return o;
+            final var _resultValue = new SrvRecordRecord();
+            _resultValue.port = port;
+            _resultValue.priority = priority;
+            _resultValue.target = target;
+            _resultValue.weight = weight;
+            return _resultValue;
         }
     }
 }

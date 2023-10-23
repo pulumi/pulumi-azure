@@ -39,7 +39,17 @@ class IdentityProviderTwitterArgs:
              api_management_name: pulumi.Input[str],
              api_secret_key: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'apiSecretKey' in kwargs:
+            api_secret_key = kwargs['apiSecretKey']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("api_key", api_key)
         _setter("api_management_name", api_management_name)
         _setter("api_secret_key", api_secret_key)
@@ -122,7 +132,17 @@ class _IdentityProviderTwitterState:
              api_management_name: Optional[pulumi.Input[str]] = None,
              api_secret_key: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'apiSecretKey' in kwargs:
+            api_secret_key = kwargs['apiSecretKey']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if api_management_name is not None:

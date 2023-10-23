@@ -197,17 +197,17 @@ public final class GetLBOutboundRuleResult {
             return this;
         }
         public GetLBOutboundRuleResult build() {
-            final var o = new GetLBOutboundRuleResult();
-            o.allocatedOutboundPorts = allocatedOutboundPorts;
-            o.backendAddressPoolId = backendAddressPoolId;
-            o.frontendIpConfigurations = frontendIpConfigurations;
-            o.id = id;
-            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
-            o.loadbalancerId = loadbalancerId;
-            o.name = name;
-            o.protocol = protocol;
-            o.tcpResetEnabled = tcpResetEnabled;
-            return o;
+            final var _resultValue = new GetLBOutboundRuleResult();
+            _resultValue.allocatedOutboundPorts = allocatedOutboundPorts;
+            _resultValue.backendAddressPoolId = backendAddressPoolId;
+            _resultValue.frontendIpConfigurations = frontendIpConfigurations;
+            _resultValue.id = id;
+            _resultValue.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            _resultValue.loadbalancerId = loadbalancerId;
+            _resultValue.name = name;
+            _resultValue.protocol = protocol;
+            _resultValue.tcpResetEnabled = tcpResetEnabled;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class SystemTopicEventSubscriptionDeadLetterIdentity {
             return this;
         }
         public SystemTopicEventSubscriptionDeadLetterIdentity build() {
-            final var o = new SystemTopicEventSubscriptionDeadLetterIdentity();
-            o.type = type;
-            o.userAssignedIdentity = userAssignedIdentity;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionDeadLetterIdentity();
+            _resultValue.type = type;
+            _resultValue.userAssignedIdentity = userAssignedIdentity;
+            return _resultValue;
         }
     }
 }

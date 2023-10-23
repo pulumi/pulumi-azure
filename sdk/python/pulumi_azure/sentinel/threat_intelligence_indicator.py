@@ -105,7 +105,33 @@ class ThreatIntelligenceIndicatorArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              threat_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              validate_until_utc: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'patternType' in kwargs:
+            pattern_type = kwargs['patternType']
+        if 'validateFromUtc' in kwargs:
+            validate_from_utc = kwargs['validateFromUtc']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'externalReferences' in kwargs:
+            external_references = kwargs['externalReferences']
+        if 'granularMarkings' in kwargs:
+            granular_markings = kwargs['granularMarkings']
+        if 'killChainPhases' in kwargs:
+            kill_chain_phases = kwargs['killChainPhases']
+        if 'objectMarkingRefs' in kwargs:
+            object_marking_refs = kwargs['objectMarkingRefs']
+        if 'patternVersion' in kwargs:
+            pattern_version = kwargs['patternVersion']
+        if 'threatTypes' in kwargs:
+            threat_types = kwargs['threatTypes']
+        if 'validateUntilUtc' in kwargs:
+            validate_until_utc = kwargs['validateUntilUtc']
+
         _setter("display_name", display_name)
         _setter("pattern", pattern)
         _setter("pattern_type", pattern_type)
@@ -505,7 +531,45 @@ class _ThreatIntelligenceIndicatorState:
              validate_from_utc: Optional[pulumi.Input[str]] = None,
              validate_until_utc: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if 'createdOn' in kwargs:
+            created_on = kwargs['createdOn']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if 'externalLastUpdatedTimeUtc' in kwargs:
+            external_last_updated_time_utc = kwargs['externalLastUpdatedTimeUtc']
+        if 'externalReferences' in kwargs:
+            external_references = kwargs['externalReferences']
+        if 'granularMarkings' in kwargs:
+            granular_markings = kwargs['granularMarkings']
+        if 'indicatorTypes' in kwargs:
+            indicator_types = kwargs['indicatorTypes']
+        if 'killChainPhases' in kwargs:
+            kill_chain_phases = kwargs['killChainPhases']
+        if 'lastUpdatedTimeUtc' in kwargs:
+            last_updated_time_utc = kwargs['lastUpdatedTimeUtc']
+        if 'objectMarkingRefs' in kwargs:
+            object_marking_refs = kwargs['objectMarkingRefs']
+        if 'parsedPatterns' in kwargs:
+            parsed_patterns = kwargs['parsedPatterns']
+        if 'patternType' in kwargs:
+            pattern_type = kwargs['patternType']
+        if 'patternVersion' in kwargs:
+            pattern_version = kwargs['patternVersion']
+        if 'threatTypes' in kwargs:
+            threat_types = kwargs['threatTypes']
+        if 'validateFromUtc' in kwargs:
+            validate_from_utc = kwargs['validateFromUtc']
+        if 'validateUntilUtc' in kwargs:
+            validate_until_utc = kwargs['validateUntilUtc']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if confidence is not None:
             _setter("confidence", confidence)
         if created_by is not None:

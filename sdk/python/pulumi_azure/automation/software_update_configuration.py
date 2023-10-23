@@ -74,7 +74,21 @@ class SoftwareUpdateConfigurationArgs:
              target: Optional[pulumi.Input['SoftwareUpdateConfigurationTargetArgs']] = None,
              virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              windows: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountId' in kwargs:
+            automation_account_id = kwargs['automationAccountId']
+        if 'nonAzureComputerNames' in kwargs:
+            non_azure_computer_names = kwargs['nonAzureComputerNames']
+        if 'operatingSystem' in kwargs:
+            operating_system = kwargs['operatingSystem']
+        if 'postTasks' in kwargs:
+            post_tasks = kwargs['postTasks']
+        if 'preTasks' in kwargs:
+            pre_tasks = kwargs['preTasks']
+        if 'virtualMachineIds' in kwargs:
+            virtual_machine_ids = kwargs['virtualMachineIds']
+
         _setter("automation_account_id", automation_account_id)
         _setter("schedules", schedules)
         if duration is not None:
@@ -320,7 +334,27 @@ class _SoftwareUpdateConfigurationState:
              target: Optional[pulumi.Input['SoftwareUpdateConfigurationTargetArgs']] = None,
              virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              windows: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountId' in kwargs:
+            automation_account_id = kwargs['automationAccountId']
+        if 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if 'errorMeesage' in kwargs:
+            error_meesage = kwargs['errorMeesage']
+        if 'errorMessage' in kwargs:
+            error_message = kwargs['errorMessage']
+        if 'nonAzureComputerNames' in kwargs:
+            non_azure_computer_names = kwargs['nonAzureComputerNames']
+        if 'operatingSystem' in kwargs:
+            operating_system = kwargs['operatingSystem']
+        if 'postTasks' in kwargs:
+            post_tasks = kwargs['postTasks']
+        if 'preTasks' in kwargs:
+            pre_tasks = kwargs['preTasks']
+        if 'virtualMachineIds' in kwargs:
+            virtual_machine_ids = kwargs['virtualMachineIds']
+
         if automation_account_id is not None:
             _setter("automation_account_id", automation_account_id)
         if duration is not None:

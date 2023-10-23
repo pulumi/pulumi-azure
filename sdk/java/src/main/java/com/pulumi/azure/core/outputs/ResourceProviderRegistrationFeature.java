@@ -58,10 +58,10 @@ public final class ResourceProviderRegistrationFeature {
             return this;
         }
         public ResourceProviderRegistrationFeature build() {
-            final var o = new ResourceProviderRegistrationFeature();
-            o.name = name;
-            o.registered = registered;
-            return o;
+            final var _resultValue = new ResourceProviderRegistrationFeature();
+            _resultValue.name = name;
+            _resultValue.registered = registered;
+            return _resultValue;
         }
     }
 }

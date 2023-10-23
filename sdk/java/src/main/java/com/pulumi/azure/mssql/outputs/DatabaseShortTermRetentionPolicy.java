@@ -67,10 +67,10 @@ public final class DatabaseShortTermRetentionPolicy {
             return this;
         }
         public DatabaseShortTermRetentionPolicy build() {
-            final var o = new DatabaseShortTermRetentionPolicy();
-            o.backupIntervalInHours = backupIntervalInHours;
-            o.retentionDays = retentionDays;
-            return o;
+            final var _resultValue = new DatabaseShortTermRetentionPolicy();
+            _resultValue.backupIntervalInHours = backupIntervalInHours;
+            _resultValue.retentionDays = retentionDays;
+            return _resultValue;
         }
     }
 }

@@ -252,19 +252,19 @@ public final class AlertProcessingRuleActionGroupCondition {
             return this;
         }
         public AlertProcessingRuleActionGroupCondition build() {
-            final var o = new AlertProcessingRuleActionGroupCondition();
-            o.alertContext = alertContext;
-            o.alertRuleId = alertRuleId;
-            o.alertRuleName = alertRuleName;
-            o.description = description;
-            o.monitorCondition = monitorCondition;
-            o.monitorService = monitorService;
-            o.severity = severity;
-            o.signalType = signalType;
-            o.targetResource = targetResource;
-            o.targetResourceGroup = targetResourceGroup;
-            o.targetResourceType = targetResourceType;
-            return o;
+            final var _resultValue = new AlertProcessingRuleActionGroupCondition();
+            _resultValue.alertContext = alertContext;
+            _resultValue.alertRuleId = alertRuleId;
+            _resultValue.alertRuleName = alertRuleName;
+            _resultValue.description = description;
+            _resultValue.monitorCondition = monitorCondition;
+            _resultValue.monitorService = monitorService;
+            _resultValue.severity = severity;
+            _resultValue.signalType = signalType;
+            _resultValue.targetResource = targetResource;
+            _resultValue.targetResourceGroup = targetResourceGroup;
+            _resultValue.targetResourceType = targetResourceType;
+            return _resultValue;
         }
     }
 }

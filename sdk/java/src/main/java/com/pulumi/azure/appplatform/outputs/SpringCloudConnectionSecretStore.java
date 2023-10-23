@@ -46,9 +46,9 @@ public final class SpringCloudConnectionSecretStore {
             return this;
         }
         public SpringCloudConnectionSecretStore build() {
-            final var o = new SpringCloudConnectionSecretStore();
-            o.keyVaultId = keyVaultId;
-            return o;
+            final var _resultValue = new SpringCloudConnectionSecretStore();
+            _resultValue.keyVaultId = keyVaultId;
+            return _resultValue;
         }
     }
 }

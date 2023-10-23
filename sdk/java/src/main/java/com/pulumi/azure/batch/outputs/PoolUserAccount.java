@@ -132,13 +132,13 @@ public final class PoolUserAccount {
             return windowsUserConfigurations(List.of(windowsUserConfigurations));
         }
         public PoolUserAccount build() {
-            final var o = new PoolUserAccount();
-            o.elevationLevel = elevationLevel;
-            o.linuxUserConfigurations = linuxUserConfigurations;
-            o.name = name;
-            o.password = password;
-            o.windowsUserConfigurations = windowsUserConfigurations;
-            return o;
+            final var _resultValue = new PoolUserAccount();
+            _resultValue.elevationLevel = elevationLevel;
+            _resultValue.linuxUserConfigurations = linuxUserConfigurations;
+            _resultValue.name = name;
+            _resultValue.password = password;
+            _resultValue.windowsUserConfigurations = windowsUserConfigurations;
+            return _resultValue;
         }
     }
 }

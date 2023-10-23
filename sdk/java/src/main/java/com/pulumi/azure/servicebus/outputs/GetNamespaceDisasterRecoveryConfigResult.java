@@ -182,19 +182,19 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
             return this;
         }
         public GetNamespaceDisasterRecoveryConfigResult build() {
-            final var o = new GetNamespaceDisasterRecoveryConfigResult();
-            o.aliasAuthorizationRuleId = aliasAuthorizationRuleId;
-            o.defaultPrimaryKey = defaultPrimaryKey;
-            o.defaultSecondaryKey = defaultSecondaryKey;
-            o.id = id;
-            o.name = name;
-            o.namespaceId = namespaceId;
-            o.namespaceName = namespaceName;
-            o.partnerNamespaceId = partnerNamespaceId;
-            o.primaryConnectionStringAlias = primaryConnectionStringAlias;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
-            return o;
+            final var _resultValue = new GetNamespaceDisasterRecoveryConfigResult();
+            _resultValue.aliasAuthorizationRuleId = aliasAuthorizationRuleId;
+            _resultValue.defaultPrimaryKey = defaultPrimaryKey;
+            _resultValue.defaultSecondaryKey = defaultSecondaryKey;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.namespaceId = namespaceId;
+            _resultValue.namespaceName = namespaceName;
+            _resultValue.partnerNamespaceId = partnerNamespaceId;
+            _resultValue.primaryConnectionStringAlias = primaryConnectionStringAlias;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
+            return _resultValue;
         }
     }
 }

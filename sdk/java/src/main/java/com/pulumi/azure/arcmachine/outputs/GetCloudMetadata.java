@@ -46,9 +46,9 @@ public final class GetCloudMetadata {
             return this;
         }
         public GetCloudMetadata build() {
-            final var o = new GetCloudMetadata();
-            o.provider = provider;
-            return o;
+            final var _resultValue = new GetCloudMetadata();
+            _resultValue.provider = provider;
+            return _resultValue;
         }
     }
 }

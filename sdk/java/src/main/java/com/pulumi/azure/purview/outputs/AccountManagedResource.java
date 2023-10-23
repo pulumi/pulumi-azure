@@ -86,11 +86,11 @@ public final class AccountManagedResource {
             return this;
         }
         public AccountManagedResource build() {
-            final var o = new AccountManagedResource();
-            o.eventHubNamespaceId = eventHubNamespaceId;
-            o.resourceGroupId = resourceGroupId;
-            o.storageAccountId = storageAccountId;
-            return o;
+            final var _resultValue = new AccountManagedResource();
+            _resultValue.eventHubNamespaceId = eventHubNamespaceId;
+            _resultValue.resourceGroupId = resourceGroupId;
+            _resultValue.storageAccountId = storageAccountId;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class ThreatIntelligenceIndicatorParsedPattern {
             return patternTypeValues(List.of(patternTypeValues));
         }
         public ThreatIntelligenceIndicatorParsedPattern build() {
-            final var o = new ThreatIntelligenceIndicatorParsedPattern();
-            o.patternTypeKey = patternTypeKey;
-            o.patternTypeValues = patternTypeValues;
-            return o;
+            final var _resultValue = new ThreatIntelligenceIndicatorParsedPattern();
+            _resultValue.patternTypeKey = patternTypeKey;
+            _resultValue.patternTypeValues = patternTypeValues;
+            return _resultValue;
         }
     }
 }

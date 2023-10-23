@@ -67,10 +67,10 @@ public final class DomainInboundIpRule {
             return this;
         }
         public DomainInboundIpRule build() {
-            final var o = new DomainInboundIpRule();
-            o.action = action;
-            o.ipMask = ipMask;
-            return o;
+            final var _resultValue = new DomainInboundIpRule();
+            _resultValue.action = action;
+            _resultValue.ipMask = ipMask;
+            return _resultValue;
         }
     }
 }

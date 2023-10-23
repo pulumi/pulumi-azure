@@ -41,7 +41,11 @@ class SpringCloudConfigurationServiceArgs:
              generation: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+
         _setter("spring_cloud_service_id", spring_cloud_service_id)
         if generation is not None:
             _setter("generation", generation)
@@ -127,7 +131,11 @@ class _SpringCloudConfigurationServiceState:
              name: Optional[pulumi.Input[str]] = None,
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudConfigurationServiceRepositoryArgs']]]] = None,
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+
         if generation is not None:
             _setter("generation", generation)
         if name is not None:

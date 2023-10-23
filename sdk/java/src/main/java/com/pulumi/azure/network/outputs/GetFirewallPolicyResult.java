@@ -194,20 +194,20 @@ public final class GetFirewallPolicyResult {
             return this;
         }
         public GetFirewallPolicyResult build() {
-            final var o = new GetFirewallPolicyResult();
-            o.basePolicyId = basePolicyId;
-            o.childPolicies = childPolicies;
-            o.dns = dns;
-            o.firewalls = firewalls;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.ruleCollectionGroups = ruleCollectionGroups;
-            o.tags = tags;
-            o.threatIntelligenceAllowlists = threatIntelligenceAllowlists;
-            o.threatIntelligenceMode = threatIntelligenceMode;
-            return o;
+            final var _resultValue = new GetFirewallPolicyResult();
+            _resultValue.basePolicyId = basePolicyId;
+            _resultValue.childPolicies = childPolicies;
+            _resultValue.dns = dns;
+            _resultValue.firewalls = firewalls;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.ruleCollectionGroups = ruleCollectionGroups;
+            _resultValue.tags = tags;
+            _resultValue.threatIntelligenceAllowlists = threatIntelligenceAllowlists;
+            _resultValue.threatIntelligenceMode = threatIntelligenceMode;
+            return _resultValue;
         }
     }
 }

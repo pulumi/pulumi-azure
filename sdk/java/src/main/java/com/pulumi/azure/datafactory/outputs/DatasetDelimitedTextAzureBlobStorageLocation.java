@@ -144,14 +144,14 @@ public final class DatasetDelimitedTextAzureBlobStorageLocation {
             return this;
         }
         public DatasetDelimitedTextAzureBlobStorageLocation build() {
-            final var o = new DatasetDelimitedTextAzureBlobStorageLocation();
-            o.container = container;
-            o.dynamicContainerEnabled = dynamicContainerEnabled;
-            o.dynamicFilenameEnabled = dynamicFilenameEnabled;
-            o.dynamicPathEnabled = dynamicPathEnabled;
-            o.filename = filename;
-            o.path = path;
-            return o;
+            final var _resultValue = new DatasetDelimitedTextAzureBlobStorageLocation();
+            _resultValue.container = container;
+            _resultValue.dynamicContainerEnabled = dynamicContainerEnabled;
+            _resultValue.dynamicFilenameEnabled = dynamicFilenameEnabled;
+            _resultValue.dynamicPathEnabled = dynamicPathEnabled;
+            _resultValue.filename = filename;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class SparkClusterComputeIsolation {
             return this;
         }
         public SparkClusterComputeIsolation build() {
-            final var o = new SparkClusterComputeIsolation();
-            o.computeIsolationEnabled = computeIsolationEnabled;
-            o.hostSku = hostSku;
-            return o;
+            final var _resultValue = new SparkClusterComputeIsolation();
+            _resultValue.computeIsolationEnabled = computeIsolationEnabled;
+            _resultValue.hostSku = hostSku;
+            return _resultValue;
         }
     }
 }

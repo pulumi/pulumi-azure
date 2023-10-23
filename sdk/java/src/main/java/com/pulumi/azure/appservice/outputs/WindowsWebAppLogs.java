@@ -107,12 +107,12 @@ public final class WindowsWebAppLogs {
             return this;
         }
         public WindowsWebAppLogs build() {
-            final var o = new WindowsWebAppLogs();
-            o.applicationLogs = applicationLogs;
-            o.detailedErrorMessages = detailedErrorMessages;
-            o.failedRequestTracing = failedRequestTracing;
-            o.httpLogs = httpLogs;
-            return o;
+            final var _resultValue = new WindowsWebAppLogs();
+            _resultValue.applicationLogs = applicationLogs;
+            _resultValue.detailedErrorMessages = detailedErrorMessages;
+            _resultValue.failedRequestTracing = failedRequestTracing;
+            _resultValue.httpLogs = httpLogs;
+            return _resultValue;
         }
     }
 }

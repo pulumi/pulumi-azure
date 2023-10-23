@@ -70,10 +70,10 @@ public final class IoTHubSku {
             return this;
         }
         public IoTHubSku build() {
-            final var o = new IoTHubSku();
-            o.capacity = capacity;
-            o.name = name;
-            return o;
+            final var _resultValue = new IoTHubSku();
+            _resultValue.capacity = capacity;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -173,15 +173,15 @@ public final class AlertRuleNrtIncidentGrouping {
             return this;
         }
         public AlertRuleNrtIncidentGrouping build() {
-            final var o = new AlertRuleNrtIncidentGrouping();
-            o.byAlertDetails = byAlertDetails;
-            o.byCustomDetails = byCustomDetails;
-            o.byEntities = byEntities;
-            o.enabled = enabled;
-            o.entityMatchingMethod = entityMatchingMethod;
-            o.lookbackDuration = lookbackDuration;
-            o.reopenClosedIncidents = reopenClosedIncidents;
-            return o;
+            final var _resultValue = new AlertRuleNrtIncidentGrouping();
+            _resultValue.byAlertDetails = byAlertDetails;
+            _resultValue.byCustomDetails = byCustomDetails;
+            _resultValue.byEntities = byEntities;
+            _resultValue.enabled = enabled;
+            _resultValue.entityMatchingMethod = entityMatchingMethod;
+            _resultValue.lookbackDuration = lookbackDuration;
+            _resultValue.reopenClosedIncidents = reopenClosedIncidents;
+            return _resultValue;
         }
     }
 }

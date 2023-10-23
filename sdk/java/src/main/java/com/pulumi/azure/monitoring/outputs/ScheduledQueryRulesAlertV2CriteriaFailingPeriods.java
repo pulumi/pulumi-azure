@@ -73,10 +73,10 @@ public final class ScheduledQueryRulesAlertV2CriteriaFailingPeriods {
             return this;
         }
         public ScheduledQueryRulesAlertV2CriteriaFailingPeriods build() {
-            final var o = new ScheduledQueryRulesAlertV2CriteriaFailingPeriods();
-            o.minimumFailingPeriodsToTriggerAlert = minimumFailingPeriodsToTriggerAlert;
-            o.numberOfEvaluationPeriods = numberOfEvaluationPeriods;
-            return o;
+            final var _resultValue = new ScheduledQueryRulesAlertV2CriteriaFailingPeriods();
+            _resultValue.minimumFailingPeriodsToTriggerAlert = minimumFailingPeriodsToTriggerAlert;
+            _resultValue.numberOfEvaluationPeriods = numberOfEvaluationPeriods;
+            return _resultValue;
         }
     }
 }

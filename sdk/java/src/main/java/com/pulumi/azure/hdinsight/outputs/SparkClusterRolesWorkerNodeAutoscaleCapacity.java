@@ -65,10 +65,10 @@ public final class SparkClusterRolesWorkerNodeAutoscaleCapacity {
             return this;
         }
         public SparkClusterRolesWorkerNodeAutoscaleCapacity build() {
-            final var o = new SparkClusterRolesWorkerNodeAutoscaleCapacity();
-            o.maxInstanceCount = maxInstanceCount;
-            o.minInstanceCount = minInstanceCount;
-            return o;
+            final var _resultValue = new SparkClusterRolesWorkerNodeAutoscaleCapacity();
+            _resultValue.maxInstanceCount = maxInstanceCount;
+            _resultValue.minInstanceCount = minInstanceCount;
+            return _resultValue;
         }
     }
 }

@@ -35,7 +35,13 @@ class EdgeModuleArgs:
              resource_group_name: pulumi.Input[str],
              video_analyzer_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'videoAnalyzerName' in kwargs:
+            video_analyzer_name = kwargs['videoAnalyzerName']
+
         _setter("resource_group_name", resource_group_name)
         _setter("video_analyzer_name", video_analyzer_name)
         if name is not None:
@@ -102,7 +108,13 @@ class _EdgeModuleState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              video_analyzer_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'videoAnalyzerName' in kwargs:
+            video_analyzer_name = kwargs['videoAnalyzerName']
+
         if name is not None:
             _setter("name", name)
         if resource_group_name is not None:

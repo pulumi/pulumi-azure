@@ -65,10 +65,10 @@ public final class GetOsProfileWindowPatch {
             return this;
         }
         public GetOsProfileWindowPatch build() {
-            final var o = new GetOsProfileWindowPatch();
-            o.assessmentMode = assessmentMode;
-            o.patchMode = patchMode;
-            return o;
+            final var _resultValue = new GetOsProfileWindowPatch();
+            _resultValue.assessmentMode = assessmentMode;
+            _resultValue.patchMode = patchMode;
+            return _resultValue;
         }
     }
 }

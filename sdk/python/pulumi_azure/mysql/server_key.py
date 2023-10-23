@@ -31,7 +31,13 @@ class ServerKeyArgs:
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: pulumi.Input[str],
              server_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         _setter("key_vault_key_id", key_vault_key_id)
         _setter("server_id", server_id)
 
@@ -80,7 +86,13 @@ class _ServerKeyState:
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         if key_vault_key_id is not None:
             _setter("key_vault_key_id", key_vault_key_id)
         if server_id is not None:

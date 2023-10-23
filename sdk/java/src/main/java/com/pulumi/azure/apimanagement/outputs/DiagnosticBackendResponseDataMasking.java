@@ -74,10 +74,10 @@ public final class DiagnosticBackendResponseDataMasking {
             return queryParams(List.of(queryParams));
         }
         public DiagnosticBackendResponseDataMasking build() {
-            final var o = new DiagnosticBackendResponseDataMasking();
-            o.headers = headers;
-            o.queryParams = queryParams;
-            return o;
+            final var _resultValue = new DiagnosticBackendResponseDataMasking();
+            _resultValue.headers = headers;
+            _resultValue.queryParams = queryParams;
+            return _resultValue;
         }
     }
 }

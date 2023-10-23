@@ -31,7 +31,11 @@ class IPGroupCIDRArgs:
              _setter: Callable[[Any, Any], None],
              cidr: pulumi.Input[str],
              ip_group_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipGroupId' in kwargs:
+            ip_group_id = kwargs['ipGroupId']
+
         _setter("cidr", cidr)
         _setter("ip_group_id", ip_group_id)
 
@@ -78,7 +82,11 @@ class _IPGroupCIDRState:
              _setter: Callable[[Any, Any], None],
              cidr: Optional[pulumi.Input[str]] = None,
              ip_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipGroupId' in kwargs:
+            ip_group_id = kwargs['ipGroupId']
+
         if cidr is not None:
             _setter("cidr", cidr)
         if ip_group_id is not None:

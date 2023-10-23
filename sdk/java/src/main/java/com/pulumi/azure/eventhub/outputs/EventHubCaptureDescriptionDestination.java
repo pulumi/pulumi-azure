@@ -107,12 +107,12 @@ public final class EventHubCaptureDescriptionDestination {
             return this;
         }
         public EventHubCaptureDescriptionDestination build() {
-            final var o = new EventHubCaptureDescriptionDestination();
-            o.archiveNameFormat = archiveNameFormat;
-            o.blobContainerName = blobContainerName;
-            o.name = name;
-            o.storageAccountId = storageAccountId;
-            return o;
+            final var _resultValue = new EventHubCaptureDescriptionDestination();
+            _resultValue.archiveNameFormat = archiveNameFormat;
+            _resultValue.blobContainerName = blobContainerName;
+            _resultValue.name = name;
+            _resultValue.storageAccountId = storageAccountId;
+            return _resultValue;
         }
     }
 }

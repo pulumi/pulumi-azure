@@ -153,13 +153,13 @@ public final class AccountNetworkRules {
             return virtualNetworkSubnetIds(List.of(virtualNetworkSubnetIds));
         }
         public AccountNetworkRules build() {
-            final var o = new AccountNetworkRules();
-            o.bypasses = bypasses;
-            o.defaultAction = defaultAction;
-            o.ipRules = ipRules;
-            o.privateLinkAccesses = privateLinkAccesses;
-            o.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
-            return o;
+            final var _resultValue = new AccountNetworkRules();
+            _resultValue.bypasses = bypasses;
+            _resultValue.defaultAction = defaultAction;
+            _resultValue.ipRules = ipRules;
+            _resultValue.privateLinkAccesses = privateLinkAccesses;
+            _resultValue.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
+            return _resultValue;
         }
     }
 }

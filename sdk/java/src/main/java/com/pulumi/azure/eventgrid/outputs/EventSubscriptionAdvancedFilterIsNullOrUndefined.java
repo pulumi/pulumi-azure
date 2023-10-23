@@ -46,9 +46,9 @@ public final class EventSubscriptionAdvancedFilterIsNullOrUndefined {
             return this;
         }
         public EventSubscriptionAdvancedFilterIsNullOrUndefined build() {
-            final var o = new EventSubscriptionAdvancedFilterIsNullOrUndefined();
-            o.key = key;
-            return o;
+            final var _resultValue = new EventSubscriptionAdvancedFilterIsNullOrUndefined();
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class ModuleManagementNetworkProfile {
             return this;
         }
         public ModuleManagementNetworkProfile build() {
-            final var o = new ModuleManagementNetworkProfile();
-            o.networkInterfacePrivateIpAddresses = networkInterfacePrivateIpAddresses;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new ModuleManagementNetworkProfile();
+            _resultValue.networkInterfacePrivateIpAddresses = networkInterfacePrivateIpAddresses;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

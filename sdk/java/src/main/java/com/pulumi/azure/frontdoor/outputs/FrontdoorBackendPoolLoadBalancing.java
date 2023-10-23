@@ -125,13 +125,13 @@ public final class FrontdoorBackendPoolLoadBalancing {
             return this;
         }
         public FrontdoorBackendPoolLoadBalancing build() {
-            final var o = new FrontdoorBackendPoolLoadBalancing();
-            o.additionalLatencyMilliseconds = additionalLatencyMilliseconds;
-            o.id = id;
-            o.name = name;
-            o.sampleSize = sampleSize;
-            o.successfulSamplesRequired = successfulSamplesRequired;
-            return o;
+            final var _resultValue = new FrontdoorBackendPoolLoadBalancing();
+            _resultValue.additionalLatencyMilliseconds = additionalLatencyMilliseconds;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.sampleSize = sampleSize;
+            _resultValue.successfulSamplesRequired = successfulSamplesRequired;
+            return _resultValue;
         }
     }
 }

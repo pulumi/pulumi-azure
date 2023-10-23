@@ -106,12 +106,12 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest {
             return this;
         }
         public LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest build() {
-            final var o = new LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest();
-            o.count = count;
-            o.interval = interval;
-            o.path = path;
-            o.timeTaken = timeTaken;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest();
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            _resultValue.path = path;
+            _resultValue.timeTaken = timeTaken;
+            return _resultValue;
         }
     }
 }

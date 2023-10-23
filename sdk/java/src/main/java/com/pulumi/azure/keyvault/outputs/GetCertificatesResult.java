@@ -125,13 +125,13 @@ public final class GetCertificatesResult {
             return names(List.of(names));
         }
         public GetCertificatesResult build() {
-            final var o = new GetCertificatesResult();
-            o.certificates = certificates;
-            o.id = id;
-            o.includePending = includePending;
-            o.keyVaultId = keyVaultId;
-            o.names = names;
-            return o;
+            final var _resultValue = new GetCertificatesResult();
+            _resultValue.certificates = certificates;
+            _resultValue.id = id;
+            _resultValue.includePending = includePending;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.names = names;
+            return _resultValue;
         }
     }
 }

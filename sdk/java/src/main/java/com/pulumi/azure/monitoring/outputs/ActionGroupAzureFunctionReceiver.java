@@ -125,13 +125,13 @@ public final class ActionGroupAzureFunctionReceiver {
             return this;
         }
         public ActionGroupAzureFunctionReceiver build() {
-            final var o = new ActionGroupAzureFunctionReceiver();
-            o.functionAppResourceId = functionAppResourceId;
-            o.functionName = functionName;
-            o.httpTriggerUrl = httpTriggerUrl;
-            o.name = name;
-            o.useCommonAlertSchema = useCommonAlertSchema;
-            return o;
+            final var _resultValue = new ActionGroupAzureFunctionReceiver();
+            _resultValue.functionAppResourceId = functionAppResourceId;
+            _resultValue.functionName = functionName;
+            _resultValue.httpTriggerUrl = httpTriggerUrl;
+            _resultValue.name = name;
+            _resultValue.useCommonAlertSchema = useCommonAlertSchema;
+            return _resultValue;
         }
     }
 }

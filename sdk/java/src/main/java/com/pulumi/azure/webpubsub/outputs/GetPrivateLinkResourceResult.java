@@ -81,11 +81,11 @@ public final class GetPrivateLinkResourceResult {
             return this;
         }
         public GetPrivateLinkResourceResult build() {
-            final var o = new GetPrivateLinkResourceResult();
-            o.id = id;
-            o.sharedPrivateLinkResourceTypes = sharedPrivateLinkResourceTypes;
-            o.webPubsubId = webPubsubId;
-            return o;
+            final var _resultValue = new GetPrivateLinkResourceResult();
+            _resultValue.id = id;
+            _resultValue.sharedPrivateLinkResourceTypes = sharedPrivateLinkResourceTypes;
+            _resultValue.webPubsubId = webPubsubId;
+            return _resultValue;
         }
     }
 }

@@ -43,7 +43,17 @@ class PublicCertificateArgs:
              certificate_location: pulumi.Input[str],
              certificate_name: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceName' in kwargs:
+            app_service_name = kwargs['appServiceName']
+        if 'certificateLocation' in kwargs:
+            certificate_location = kwargs['certificateLocation']
+        if 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("app_service_name", app_service_name)
         _setter("blob", blob)
         _setter("certificate_location", certificate_location)
@@ -147,7 +157,17 @@ class _PublicCertificateState:
              certificate_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceName' in kwargs:
+            app_service_name = kwargs['appServiceName']
+        if 'certificateLocation' in kwargs:
+            certificate_location = kwargs['certificateLocation']
+        if 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if app_service_name is not None:
             _setter("app_service_name", app_service_name)
         if blob is not None:

@@ -72,10 +72,10 @@ public final class SpringCloudGatewayClientAuthorization {
             return this;
         }
         public SpringCloudGatewayClientAuthorization build() {
-            final var o = new SpringCloudGatewayClientAuthorization();
-            o.certificateIds = certificateIds;
-            o.verificationEnabled = verificationEnabled;
-            return o;
+            final var _resultValue = new SpringCloudGatewayClientAuthorization();
+            _resultValue.certificateIds = certificateIds;
+            _resultValue.verificationEnabled = verificationEnabled;
+            return _resultValue;
         }
     }
 }

@@ -99,13 +99,13 @@ public final class FrontdoorExplicitResourceOrder {
             return routingRuleIds(List.of(routingRuleIds));
         }
         public FrontdoorExplicitResourceOrder build() {
-            final var o = new FrontdoorExplicitResourceOrder();
-            o.backendPoolHealthProbeIds = backendPoolHealthProbeIds;
-            o.backendPoolIds = backendPoolIds;
-            o.backendPoolLoadBalancingIds = backendPoolLoadBalancingIds;
-            o.frontendEndpointIds = frontendEndpointIds;
-            o.routingRuleIds = routingRuleIds;
-            return o;
+            final var _resultValue = new FrontdoorExplicitResourceOrder();
+            _resultValue.backendPoolHealthProbeIds = backendPoolHealthProbeIds;
+            _resultValue.backendPoolIds = backendPoolIds;
+            _resultValue.backendPoolLoadBalancingIds = backendPoolLoadBalancingIds;
+            _resultValue.frontendEndpointIds = frontendEndpointIds;
+            _resultValue.routingRuleIds = routingRuleIds;
+            return _resultValue;
         }
     }
 }

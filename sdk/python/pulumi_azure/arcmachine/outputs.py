@@ -66,7 +66,23 @@ class GetAgentResult(dict):
              incoming_connections_ports: Sequence[str],
              proxy_bypasses: Sequence[str],
              proxy_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'extensionsAllowLists' in kwargs:
+            extensions_allow_lists = kwargs['extensionsAllowLists']
+        if 'extensionsBlockLists' in kwargs:
+            extensions_block_lists = kwargs['extensionsBlockLists']
+        if 'extensionsEnabled' in kwargs:
+            extensions_enabled = kwargs['extensionsEnabled']
+        if 'guestConfigurationEnabled' in kwargs:
+            guest_configuration_enabled = kwargs['guestConfigurationEnabled']
+        if 'incomingConnectionsPorts' in kwargs:
+            incoming_connections_ports = kwargs['incomingConnectionsPorts']
+        if 'proxyBypasses' in kwargs:
+            proxy_bypasses = kwargs['proxyBypasses']
+        if 'proxyUrl' in kwargs:
+            proxy_url = kwargs['proxyUrl']
+
         _setter("extensions_allow_lists", extensions_allow_lists)
         _setter("extensions_block_lists", extensions_block_lists)
         _setter("extensions_enabled", extensions_enabled)
@@ -151,7 +167,9 @@ class GetAgentExtensionsAllowListResult(dict):
              _setter: Callable[[Any, Any], None],
              publisher: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("publisher", publisher)
         _setter("type", type)
 
@@ -191,7 +209,9 @@ class GetAgentExtensionsBlockListResult(dict):
              _setter: Callable[[Any, Any], None],
              publisher: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("publisher", publisher)
         _setter("type", type)
 
@@ -227,7 +247,9 @@ class GetCloudMetadataResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              provider: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("provider", provider)
 
     @property
@@ -262,7 +284,13 @@ class GetIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
         _setter("type", type)
@@ -319,7 +347,11 @@ class GetLocationDataResult(dict):
              country_or_region: str,
              district: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryOrRegion' in kwargs:
+            country_or_region = kwargs['countryOrRegion']
+
         _setter("city", city)
         _setter("country_or_region", country_or_region)
         _setter("district", district)
@@ -381,7 +413,11 @@ class GetOsProfileResult(dict):
              computer_name: str,
              linuxes: Sequence['outputs.GetOsProfileLinuxResult'],
              windows: Sequence['outputs.GetOsProfileWindowResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computerName' in kwargs:
+            computer_name = kwargs['computerName']
+
         _setter("computer_name", computer_name)
         _setter("linuxes", linuxes)
         _setter("windows", windows)
@@ -426,7 +462,9 @@ class GetOsProfileLinuxResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              patches: Sequence['outputs.GetOsProfileLinuxPatchResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("patches", patches)
 
     @property
@@ -457,7 +495,13 @@ class GetOsProfileLinuxPatchResult(dict):
              _setter: Callable[[Any, Any], None],
              assessment_mode: str,
              patch_mode: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assessmentMode' in kwargs:
+            assessment_mode = kwargs['assessmentMode']
+        if 'patchMode' in kwargs:
+            patch_mode = kwargs['patchMode']
+
         _setter("assessment_mode", assessment_mode)
         _setter("patch_mode", patch_mode)
 
@@ -493,7 +537,9 @@ class GetOsProfileWindowResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              patches: Sequence['outputs.GetOsProfileWindowPatchResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("patches", patches)
 
     @property
@@ -524,7 +570,13 @@ class GetOsProfileWindowPatchResult(dict):
              _setter: Callable[[Any, Any], None],
              assessment_mode: str,
              patch_mode: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assessmentMode' in kwargs:
+            assessment_mode = kwargs['assessmentMode']
+        if 'patchMode' in kwargs:
+            patch_mode = kwargs['patchMode']
+
         _setter("assessment_mode", assessment_mode)
         _setter("patch_mode", patch_mode)
 
@@ -564,7 +616,13 @@ class GetServiceStatusResult(dict):
              _setter: Callable[[Any, Any], None],
              extension_services: Sequence['outputs.GetServiceStatusExtensionServiceResult'],
              guest_configuration_services: Sequence['outputs.GetServiceStatusGuestConfigurationServiceResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'extensionServices' in kwargs:
+            extension_services = kwargs['extensionServices']
+        if 'guestConfigurationServices' in kwargs:
+            guest_configuration_services = kwargs['guestConfigurationServices']
+
         _setter("extension_services", extension_services)
         _setter("guest_configuration_services", guest_configuration_services)
 
@@ -604,7 +662,11 @@ class GetServiceStatusExtensionServiceResult(dict):
              _setter: Callable[[Any, Any], None],
              startup_type: str,
              status: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startupType' in kwargs:
+            startup_type = kwargs['startupType']
+
         _setter("startup_type", startup_type)
         _setter("status", status)
 
@@ -644,7 +706,11 @@ class GetServiceStatusGuestConfigurationServiceResult(dict):
              _setter: Callable[[Any, Any], None],
              startup_type: str,
              status: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startupType' in kwargs:
+            startup_type = kwargs['startupType']
+
         _setter("startup_type", startup_type)
         _setter("status", status)
 

@@ -37,7 +37,11 @@ class TokenPasswordArgs:
              container_registry_token_id: pulumi.Input[str],
              password1: pulumi.Input['TokenPasswordPassword1Args'],
              password2: Optional[pulumi.Input['TokenPasswordPassword2Args']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerRegistryTokenId' in kwargs:
+            container_registry_token_id = kwargs['containerRegistryTokenId']
+
         _setter("container_registry_token_id", container_registry_token_id)
         _setter("password1", password1)
         if password2 is not None:
@@ -104,7 +108,11 @@ class _TokenPasswordState:
              container_registry_token_id: Optional[pulumi.Input[str]] = None,
              password1: Optional[pulumi.Input['TokenPasswordPassword1Args']] = None,
              password2: Optional[pulumi.Input['TokenPasswordPassword2Args']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerRegistryTokenId' in kwargs:
+            container_registry_token_id = kwargs['containerRegistryTokenId']
+
         if container_registry_token_id is not None:
             _setter("container_registry_token_id", container_registry_token_id)
         if password1 is not None:

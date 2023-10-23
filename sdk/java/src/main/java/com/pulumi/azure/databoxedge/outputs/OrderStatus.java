@@ -106,12 +106,12 @@ public final class OrderStatus {
             return this;
         }
         public OrderStatus build() {
-            final var o = new OrderStatus();
-            o.additionalDetails = additionalDetails;
-            o.comments = comments;
-            o.info = info;
-            o.lastUpdate = lastUpdate;
-            return o;
+            final var _resultValue = new OrderStatus();
+            _resultValue.additionalDetails = additionalDetails;
+            _resultValue.comments = comments;
+            _resultValue.info = info;
+            _resultValue.lastUpdate = lastUpdate;
+            return _resultValue;
         }
     }
 }

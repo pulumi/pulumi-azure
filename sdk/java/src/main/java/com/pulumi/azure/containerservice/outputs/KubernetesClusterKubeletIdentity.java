@@ -90,11 +90,11 @@ public final class KubernetesClusterKubeletIdentity {
             return this;
         }
         public KubernetesClusterKubeletIdentity build() {
-            final var o = new KubernetesClusterKubeletIdentity();
-            o.clientId = clientId;
-            o.objectId = objectId;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new KubernetesClusterKubeletIdentity();
+            _resultValue.clientId = clientId;
+            _resultValue.objectId = objectId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

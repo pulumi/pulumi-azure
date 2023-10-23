@@ -45,7 +45,9 @@ class ConfigurationInstallPatches(dict):
              linuxes: Optional[Sequence['outputs.ConfigurationInstallPatchesLinux']] = None,
              reboot: Optional[str] = None,
              windows: Optional[Sequence['outputs.ConfigurationInstallPatchesWindow']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if linuxes is not None:
             _setter("linuxes", linuxes)
         if reboot is not None:
@@ -122,7 +124,15 @@ class ConfigurationInstallPatchesLinux(dict):
              classifications_to_includes: Optional[Sequence[str]] = None,
              package_names_mask_to_excludes: Optional[Sequence[str]] = None,
              package_names_mask_to_includes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classificationsToIncludes' in kwargs:
+            classifications_to_includes = kwargs['classificationsToIncludes']
+        if 'packageNamesMaskToExcludes' in kwargs:
+            package_names_mask_to_excludes = kwargs['packageNamesMaskToExcludes']
+        if 'packageNamesMaskToIncludes' in kwargs:
+            package_names_mask_to_includes = kwargs['packageNamesMaskToIncludes']
+
         if classifications_to_includes is not None:
             _setter("classifications_to_includes", classifications_to_includes)
         if package_names_mask_to_excludes is not None:
@@ -199,7 +209,15 @@ class ConfigurationInstallPatchesWindow(dict):
              classifications_to_includes: Optional[Sequence[str]] = None,
              kb_numbers_to_excludes: Optional[Sequence[str]] = None,
              kb_numbers_to_includes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classificationsToIncludes' in kwargs:
+            classifications_to_includes = kwargs['classificationsToIncludes']
+        if 'kbNumbersToExcludes' in kwargs:
+            kb_numbers_to_excludes = kwargs['kbNumbersToExcludes']
+        if 'kbNumbersToIncludes' in kwargs:
+            kb_numbers_to_includes = kwargs['kbNumbersToIncludes']
+
         if classifications_to_includes is not None:
             _setter("classifications_to_includes", classifications_to_includes)
         if kb_numbers_to_excludes is not None:
@@ -286,7 +304,17 @@ class ConfigurationWindow(dict):
              duration: Optional[str] = None,
              expiration_date_time: Optional[str] = None,
              recur_every: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startDateTime' in kwargs:
+            start_date_time = kwargs['startDateTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if 'expirationDateTime' in kwargs:
+            expiration_date_time = kwargs['expirationDateTime']
+        if 'recurEvery' in kwargs:
+            recur_every = kwargs['recurEvery']
+
         _setter("start_date_time", start_date_time)
         _setter("time_zone", time_zone)
         if duration is not None:
@@ -360,7 +388,9 @@ class GetConfigurationInstallPatchResult(dict):
              linuxes: Sequence['outputs.GetConfigurationInstallPatchLinuxResult'],
              reboot: str,
              windows: Sequence['outputs.GetConfigurationInstallPatchWindowResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("linuxes", linuxes)
         _setter("reboot", reboot)
         _setter("windows", windows)
@@ -413,7 +443,15 @@ class GetConfigurationInstallPatchLinuxResult(dict):
              classifications_to_includes: Sequence[str],
              package_names_mask_to_excludes: Sequence[str],
              package_names_mask_to_includes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classificationsToIncludes' in kwargs:
+            classifications_to_includes = kwargs['classificationsToIncludes']
+        if 'packageNamesMaskToExcludes' in kwargs:
+            package_names_mask_to_excludes = kwargs['packageNamesMaskToExcludes']
+        if 'packageNamesMaskToIncludes' in kwargs:
+            package_names_mask_to_includes = kwargs['packageNamesMaskToIncludes']
+
         _setter("classifications_to_includes", classifications_to_includes)
         _setter("package_names_mask_to_excludes", package_names_mask_to_excludes)
         _setter("package_names_mask_to_includes", package_names_mask_to_includes)
@@ -466,7 +504,15 @@ class GetConfigurationInstallPatchWindowResult(dict):
              classifications_to_includes: Sequence[str],
              kb_numbers_to_excludes: Sequence[str],
              kb_numbers_to_includes: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classificationsToIncludes' in kwargs:
+            classifications_to_includes = kwargs['classificationsToIncludes']
+        if 'kbNumbersToExcludes' in kwargs:
+            kb_numbers_to_excludes = kwargs['kbNumbersToExcludes']
+        if 'kbNumbersToIncludes' in kwargs:
+            kb_numbers_to_includes = kwargs['kbNumbersToIncludes']
+
         _setter("classifications_to_includes", classifications_to_includes)
         _setter("kb_numbers_to_excludes", kb_numbers_to_excludes)
         _setter("kb_numbers_to_includes", kb_numbers_to_includes)
@@ -527,7 +573,17 @@ class GetConfigurationWindowResult(dict):
              recur_every: str,
              start_date_time: str,
              time_zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expirationDateTime' in kwargs:
+            expiration_date_time = kwargs['expirationDateTime']
+        if 'recurEvery' in kwargs:
+            recur_every = kwargs['recurEvery']
+        if 'startDateTime' in kwargs:
+            start_date_time = kwargs['startDateTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("duration", duration)
         _setter("expiration_date_time", expiration_date_time)
         _setter("recur_every", recur_every)
@@ -618,7 +674,15 @@ class GetPublicConfigurationsConfigResult(dict):
              name: str,
              recur_every: str,
              time_zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maintenanceScope' in kwargs:
+            maintenance_scope = kwargs['maintenanceScope']
+        if 'recurEvery' in kwargs:
+            recur_every = kwargs['recurEvery']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("description", description)
         _setter("duration", duration)
         _setter("id", id)

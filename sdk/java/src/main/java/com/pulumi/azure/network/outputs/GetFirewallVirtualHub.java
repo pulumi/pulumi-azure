@@ -108,12 +108,12 @@ public final class GetFirewallVirtualHub {
             return this;
         }
         public GetFirewallVirtualHub build() {
-            final var o = new GetFirewallVirtualHub();
-            o.privateIpAddress = privateIpAddress;
-            o.publicIpAddresses = publicIpAddresses;
-            o.publicIpCount = publicIpCount;
-            o.virtualHubId = virtualHubId;
-            return o;
+            final var _resultValue = new GetFirewallVirtualHub();
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.publicIpAddresses = publicIpAddresses;
+            _resultValue.publicIpCount = publicIpCount;
+            _resultValue.virtualHubId = virtualHubId;
+            return _resultValue;
         }
     }
 }

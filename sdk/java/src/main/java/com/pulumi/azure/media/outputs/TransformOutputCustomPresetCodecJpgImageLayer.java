@@ -106,12 +106,12 @@ public final class TransformOutputCustomPresetCodecJpgImageLayer {
             return this;
         }
         public TransformOutputCustomPresetCodecJpgImageLayer build() {
-            final var o = new TransformOutputCustomPresetCodecJpgImageLayer();
-            o.height = height;
-            o.label = label;
-            o.quality = quality;
-            o.width = width;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetCodecJpgImageLayer();
+            _resultValue.height = height;
+            _resultValue.label = label;
+            _resultValue.quality = quality;
+            _resultValue.width = width;
+            return _resultValue;
         }
     }
 }

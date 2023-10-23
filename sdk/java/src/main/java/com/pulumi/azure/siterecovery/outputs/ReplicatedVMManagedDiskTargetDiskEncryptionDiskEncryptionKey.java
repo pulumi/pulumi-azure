@@ -65,10 +65,10 @@ public final class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey 
             return this;
         }
         public ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey build() {
-            final var o = new ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey();
-            o.secretUrl = secretUrl;
-            o.vaultId = vaultId;
-            return o;
+            final var _resultValue = new ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey();
+            _resultValue.secretUrl = secretUrl;
+            _resultValue.vaultId = vaultId;
+            return _resultValue;
         }
     }
 }

@@ -39,7 +39,11 @@ class AnalyticsSolutionPlanArgs:
              publisher: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              promotion_code: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'promotionCode' in kwargs:
+            promotion_code = kwargs['promotionCode']
+
         _setter("product", product)
         _setter("publisher", publisher)
         if name is not None:

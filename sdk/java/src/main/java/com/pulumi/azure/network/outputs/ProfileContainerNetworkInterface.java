@@ -70,10 +70,10 @@ public final class ProfileContainerNetworkInterface {
             return this;
         }
         public ProfileContainerNetworkInterface build() {
-            final var o = new ProfileContainerNetworkInterface();
-            o.ipConfigurations = ipConfigurations;
-            o.name = name;
-            return o;
+            final var _resultValue = new ProfileContainerNetworkInterface();
+            _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

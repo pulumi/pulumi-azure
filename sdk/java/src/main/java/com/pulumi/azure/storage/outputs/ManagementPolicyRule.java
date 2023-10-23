@@ -106,12 +106,12 @@ public final class ManagementPolicyRule {
             return this;
         }
         public ManagementPolicyRule build() {
-            final var o = new ManagementPolicyRule();
-            o.actions = actions;
-            o.enabled = enabled;
-            o.filters = filters;
-            o.name = name;
-            return o;
+            final var _resultValue = new ManagementPolicyRule();
+            _resultValue.actions = actions;
+            _resultValue.enabled = enabled;
+            _resultValue.filters = filters;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

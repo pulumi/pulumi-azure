@@ -67,10 +67,10 @@ public final class NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRa
             return this;
         }
         public NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange build() {
-            final var o = new NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange();
-            o.maximum = maximum;
-            o.minimum = minimum;
-            return o;
+            final var _resultValue = new NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRange();
+            _resultValue.maximum = maximum;
+            _resultValue.minimum = minimum;
+            return _resultValue;
         }
     }
 }

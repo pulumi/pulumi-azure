@@ -88,11 +88,11 @@ public final class ManagementPolicyRuleActions {
             return this;
         }
         public ManagementPolicyRuleActions build() {
-            final var o = new ManagementPolicyRuleActions();
-            o.baseBlob = baseBlob;
-            o.snapshot = snapshot;
-            o.version = version;
-            return o;
+            final var _resultValue = new ManagementPolicyRuleActions();
+            _resultValue.baseBlob = baseBlob;
+            _resultValue.snapshot = snapshot;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

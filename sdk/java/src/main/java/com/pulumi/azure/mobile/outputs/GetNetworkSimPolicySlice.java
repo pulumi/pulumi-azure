@@ -89,11 +89,11 @@ public final class GetNetworkSimPolicySlice {
             return this;
         }
         public GetNetworkSimPolicySlice build() {
-            final var o = new GetNetworkSimPolicySlice();
-            o.dataNetworks = dataNetworks;
-            o.defaultDataNetworkId = defaultDataNetworkId;
-            o.sliceId = sliceId;
-            return o;
+            final var _resultValue = new GetNetworkSimPolicySlice();
+            _resultValue.dataNetworks = dataNetworks;
+            _resultValue.defaultDataNetworkId = defaultDataNetworkId;
+            _resultValue.sliceId = sliceId;
+            return _resultValue;
         }
     }
 }

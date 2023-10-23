@@ -490,30 +490,30 @@ public final class GetLinuxFunctionAppAuthSettingsV2 {
             return this;
         }
         public GetLinuxFunctionAppAuthSettingsV2 build() {
-            final var o = new GetLinuxFunctionAppAuthSettingsV2();
-            o.activeDirectoryV2s = activeDirectoryV2s;
-            o.appleV2s = appleV2s;
-            o.authEnabled = authEnabled;
-            o.azureStaticWebAppV2s = azureStaticWebAppV2s;
-            o.configFilePath = configFilePath;
-            o.customOidcV2s = customOidcV2s;
-            o.defaultProvider = defaultProvider;
-            o.excludedPaths = excludedPaths;
-            o.facebookV2s = facebookV2s;
-            o.forwardProxyConvention = forwardProxyConvention;
-            o.forwardProxyCustomHostHeaderName = forwardProxyCustomHostHeaderName;
-            o.forwardProxyCustomSchemeHeaderName = forwardProxyCustomSchemeHeaderName;
-            o.githubV2s = githubV2s;
-            o.googleV2s = googleV2s;
-            o.httpRouteApiPrefix = httpRouteApiPrefix;
-            o.logins = logins;
-            o.microsoftV2s = microsoftV2s;
-            o.requireAuthentication = requireAuthentication;
-            o.requireHttps = requireHttps;
-            o.runtimeVersion = runtimeVersion;
-            o.twitterV2s = twitterV2s;
-            o.unauthenticatedAction = unauthenticatedAction;
-            return o;
+            final var _resultValue = new GetLinuxFunctionAppAuthSettingsV2();
+            _resultValue.activeDirectoryV2s = activeDirectoryV2s;
+            _resultValue.appleV2s = appleV2s;
+            _resultValue.authEnabled = authEnabled;
+            _resultValue.azureStaticWebAppV2s = azureStaticWebAppV2s;
+            _resultValue.configFilePath = configFilePath;
+            _resultValue.customOidcV2s = customOidcV2s;
+            _resultValue.defaultProvider = defaultProvider;
+            _resultValue.excludedPaths = excludedPaths;
+            _resultValue.facebookV2s = facebookV2s;
+            _resultValue.forwardProxyConvention = forwardProxyConvention;
+            _resultValue.forwardProxyCustomHostHeaderName = forwardProxyCustomHostHeaderName;
+            _resultValue.forwardProxyCustomSchemeHeaderName = forwardProxyCustomSchemeHeaderName;
+            _resultValue.githubV2s = githubV2s;
+            _resultValue.googleV2s = googleV2s;
+            _resultValue.httpRouteApiPrefix = httpRouteApiPrefix;
+            _resultValue.logins = logins;
+            _resultValue.microsoftV2s = microsoftV2s;
+            _resultValue.requireAuthentication = requireAuthentication;
+            _resultValue.requireHttps = requireHttps;
+            _resultValue.runtimeVersion = runtimeVersion;
+            _resultValue.twitterV2s = twitterV2s;
+            _resultValue.unauthenticatedAction = unauthenticatedAction;
+            return _resultValue;
         }
     }
 }

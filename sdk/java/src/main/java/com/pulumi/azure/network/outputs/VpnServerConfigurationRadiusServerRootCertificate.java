@@ -65,10 +65,10 @@ public final class VpnServerConfigurationRadiusServerRootCertificate {
             return this;
         }
         public VpnServerConfigurationRadiusServerRootCertificate build() {
-            final var o = new VpnServerConfigurationRadiusServerRootCertificate();
-            o.name = name;
-            o.publicCertData = publicCertData;
-            return o;
+            final var _resultValue = new VpnServerConfigurationRadiusServerRootCertificate();
+            _resultValue.name = name;
+            _resultValue.publicCertData = publicCertData;
+            return _resultValue;
         }
     }
 }

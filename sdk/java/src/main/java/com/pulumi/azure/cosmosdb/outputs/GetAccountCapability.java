@@ -46,9 +46,9 @@ public final class GetAccountCapability {
             return this;
         }
         public GetAccountCapability build() {
-            final var o = new GetAccountCapability();
-            o.name = name;
-            return o;
+            final var _resultValue = new GetAccountCapability();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

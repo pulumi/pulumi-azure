@@ -69,10 +69,10 @@ public final class ActionRuleActionGroupConditionSeverity {
             return values(List.of(values));
         }
         public ActionRuleActionGroupConditionSeverity build() {
-            final var o = new ActionRuleActionGroupConditionSeverity();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new ActionRuleActionGroupConditionSeverity();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

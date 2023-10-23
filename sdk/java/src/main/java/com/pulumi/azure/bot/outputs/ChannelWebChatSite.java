@@ -106,12 +106,12 @@ public final class ChannelWebChatSite {
             return this;
         }
         public ChannelWebChatSite build() {
-            final var o = new ChannelWebChatSite();
-            o.endpointParametersEnabled = endpointParametersEnabled;
-            o.name = name;
-            o.storageEnabled = storageEnabled;
-            o.userUploadEnabled = userUploadEnabled;
-            return o;
+            final var _resultValue = new ChannelWebChatSite();
+            _resultValue.endpointParametersEnabled = endpointParametersEnabled;
+            _resultValue.name = name;
+            _resultValue.storageEnabled = storageEnabled;
+            _resultValue.userUploadEnabled = userUploadEnabled;
+            return _resultValue;
         }
     }
 }

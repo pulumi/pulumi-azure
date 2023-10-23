@@ -71,7 +71,17 @@ class HubApnsCredential(dict):
              key_id: str,
              team_id: str,
              token: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationMode' in kwargs:
+            application_mode = kwargs['applicationMode']
+        if 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         _setter("application_mode", application_mode)
         _setter("bundle_id", bundle_id)
         _setter("key_id", key_id)
@@ -151,7 +161,11 @@ class HubGcmCredential(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              api_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         _setter("api_key", api_key)
 
     @property
@@ -194,7 +208,17 @@ class GetHubApnsCredentialResult(dict):
              key_id: str,
              team_id: str,
              token: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationMode' in kwargs:
+            application_mode = kwargs['applicationMode']
+        if 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         _setter("application_mode", application_mode)
         _setter("bundle_id", bundle_id)
         _setter("key_id", key_id)
@@ -257,7 +281,11 @@ class GetHubGcmCredentialResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              api_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         _setter("api_key", api_key)
 
     @property
@@ -284,7 +312,9 @@ class GetNamespaceSkuResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property

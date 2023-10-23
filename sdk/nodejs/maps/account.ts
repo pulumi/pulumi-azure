@@ -82,6 +82,8 @@ export class Account extends pulumi.CustomResource {
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
      * The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -164,6 +166,8 @@ export interface AccountState {
     secondaryAccessKey?: pulumi.Input<string>;
     /**
      * The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -194,6 +198,8 @@ export interface AccountArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
      */
     skuName: pulumi.Input<string>;
     /**

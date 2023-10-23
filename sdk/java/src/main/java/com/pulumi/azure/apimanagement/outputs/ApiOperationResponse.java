@@ -115,12 +115,12 @@ public final class ApiOperationResponse {
             return this;
         }
         public ApiOperationResponse build() {
-            final var o = new ApiOperationResponse();
-            o.description = description;
-            o.headers = headers;
-            o.representations = representations;
-            o.statusCode = statusCode;
-            return o;
+            final var _resultValue = new ApiOperationResponse();
+            _resultValue.description = description;
+            _resultValue.headers = headers;
+            _resultValue.representations = representations;
+            _resultValue.statusCode = statusCode;
+            return _resultValue;
         }
     }
 }

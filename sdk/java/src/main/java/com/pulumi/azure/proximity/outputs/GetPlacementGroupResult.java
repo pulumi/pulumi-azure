@@ -91,13 +91,13 @@ public final class GetPlacementGroupResult {
             return this;
         }
         public GetPlacementGroupResult build() {
-            final var o = new GetPlacementGroupResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetPlacementGroupResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

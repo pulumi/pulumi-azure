@@ -85,11 +85,11 @@ public final class LocalUserPermissionScope {
             return this;
         }
         public LocalUserPermissionScope build() {
-            final var o = new LocalUserPermissionScope();
-            o.permissions = permissions;
-            o.resourceName = resourceName;
-            o.service = service;
-            return o;
+            final var _resultValue = new LocalUserPermissionScope();
+            _resultValue.permissions = permissions;
+            _resultValue.resourceName = resourceName;
+            _resultValue.service = service;
+            return _resultValue;
         }
     }
 }

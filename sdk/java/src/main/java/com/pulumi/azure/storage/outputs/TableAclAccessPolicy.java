@@ -84,11 +84,11 @@ public final class TableAclAccessPolicy {
             return this;
         }
         public TableAclAccessPolicy build() {
-            final var o = new TableAclAccessPolicy();
-            o.expiry = expiry;
-            o.permissions = permissions;
-            o.start = start;
-            return o;
+            final var _resultValue = new TableAclAccessPolicy();
+            _resultValue.expiry = expiry;
+            _resultValue.permissions = permissions;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

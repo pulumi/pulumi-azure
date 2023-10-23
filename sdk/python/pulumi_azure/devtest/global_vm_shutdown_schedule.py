@@ -53,7 +53,15 @@ class GlobalVMShutdownScheduleArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              location: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dailyRecurrenceTime' in kwargs:
+            daily_recurrence_time = kwargs['dailyRecurrenceTime']
+        if 'notificationSettings' in kwargs:
+            notification_settings = kwargs['notificationSettings']
+        if 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+
         _setter("daily_recurrence_time", daily_recurrence_time)
         _setter("notification_settings", notification_settings)
         _setter("timezone", timezone)
@@ -190,7 +198,15 @@ class _GlobalVMShutdownScheduleState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
              virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dailyRecurrenceTime' in kwargs:
+            daily_recurrence_time = kwargs['dailyRecurrenceTime']
+        if 'notificationSettings' in kwargs:
+            notification_settings = kwargs['notificationSettings']
+        if 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+
         if daily_recurrence_time is not None:
             _setter("daily_recurrence_time", daily_recurrence_time)
         if enabled is not None:

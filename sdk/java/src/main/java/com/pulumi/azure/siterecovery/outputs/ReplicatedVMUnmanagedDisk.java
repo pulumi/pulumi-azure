@@ -84,11 +84,11 @@ public final class ReplicatedVMUnmanagedDisk {
             return this;
         }
         public ReplicatedVMUnmanagedDisk build() {
-            final var o = new ReplicatedVMUnmanagedDisk();
-            o.diskUri = diskUri;
-            o.stagingStorageAccountId = stagingStorageAccountId;
-            o.targetStorageAccountId = targetStorageAccountId;
-            return o;
+            final var _resultValue = new ReplicatedVMUnmanagedDisk();
+            _resultValue.diskUri = diskUri;
+            _resultValue.stagingStorageAccountId = stagingStorageAccountId;
+            _resultValue.targetStorageAccountId = targetStorageAccountId;
+            return _resultValue;
         }
     }
 }

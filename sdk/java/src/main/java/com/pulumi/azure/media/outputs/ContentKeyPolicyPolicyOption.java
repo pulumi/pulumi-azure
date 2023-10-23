@@ -193,16 +193,16 @@ public final class ContentKeyPolicyPolicyOption {
             return this;
         }
         public ContentKeyPolicyPolicyOption build() {
-            final var o = new ContentKeyPolicyPolicyOption();
-            o.clearKeyConfigurationEnabled = clearKeyConfigurationEnabled;
-            o.fairplayConfiguration = fairplayConfiguration;
-            o.name = name;
-            o.openRestrictionEnabled = openRestrictionEnabled;
-            o.playreadyConfigurationLicenses = playreadyConfigurationLicenses;
-            o.playreadyResponseCustomData = playreadyResponseCustomData;
-            o.tokenRestriction = tokenRestriction;
-            o.widevineConfigurationTemplate = widevineConfigurationTemplate;
-            return o;
+            final var _resultValue = new ContentKeyPolicyPolicyOption();
+            _resultValue.clearKeyConfigurationEnabled = clearKeyConfigurationEnabled;
+            _resultValue.fairplayConfiguration = fairplayConfiguration;
+            _resultValue.name = name;
+            _resultValue.openRestrictionEnabled = openRestrictionEnabled;
+            _resultValue.playreadyConfigurationLicenses = playreadyConfigurationLicenses;
+            _resultValue.playreadyResponseCustomData = playreadyResponseCustomData;
+            _resultValue.tokenRestriction = tokenRestriction;
+            _resultValue.widevineConfigurationTemplate = widevineConfigurationTemplate;
+            return _resultValue;
         }
     }
 }

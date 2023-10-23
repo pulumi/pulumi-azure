@@ -379,26 +379,26 @@ public final class ManagedClusterNodeType {
             return this;
         }
         public ManagedClusterNodeType build() {
-            final var o = new ManagedClusterNodeType();
-            o.applicationPortRange = applicationPortRange;
-            o.capacities = capacities;
-            o.dataDiskSizeGb = dataDiskSizeGb;
-            o.dataDiskType = dataDiskType;
-            o.ephemeralPortRange = ephemeralPortRange;
-            o.id = id;
-            o.multiplePlacementGroupsEnabled = multiplePlacementGroupsEnabled;
-            o.name = name;
-            o.placementProperties = placementProperties;
-            o.primary = primary;
-            o.stateless = stateless;
-            o.vmImageOffer = vmImageOffer;
-            o.vmImagePublisher = vmImagePublisher;
-            o.vmImageSku = vmImageSku;
-            o.vmImageVersion = vmImageVersion;
-            o.vmInstanceCount = vmInstanceCount;
-            o.vmSecrets = vmSecrets;
-            o.vmSize = vmSize;
-            return o;
+            final var _resultValue = new ManagedClusterNodeType();
+            _resultValue.applicationPortRange = applicationPortRange;
+            _resultValue.capacities = capacities;
+            _resultValue.dataDiskSizeGb = dataDiskSizeGb;
+            _resultValue.dataDiskType = dataDiskType;
+            _resultValue.ephemeralPortRange = ephemeralPortRange;
+            _resultValue.id = id;
+            _resultValue.multiplePlacementGroupsEnabled = multiplePlacementGroupsEnabled;
+            _resultValue.name = name;
+            _resultValue.placementProperties = placementProperties;
+            _resultValue.primary = primary;
+            _resultValue.stateless = stateless;
+            _resultValue.vmImageOffer = vmImageOffer;
+            _resultValue.vmImagePublisher = vmImagePublisher;
+            _resultValue.vmImageSku = vmImageSku;
+            _resultValue.vmImageVersion = vmImageVersion;
+            _resultValue.vmInstanceCount = vmInstanceCount;
+            _resultValue.vmSecrets = vmSecrets;
+            _resultValue.vmSize = vmSize;
+            return _resultValue;
         }
     }
 }

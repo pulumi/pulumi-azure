@@ -157,7 +157,59 @@ class LinuxFunctionAppArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              zip_deploy_file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'servicePlanId' in kwargs:
+            service_plan_id = kwargs['servicePlanId']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if 'authSettingsV2' in kwargs:
+            auth_settings_v2 = kwargs['authSettingsV2']
+        if 'builtinLoggingEnabled' in kwargs:
+            builtin_logging_enabled = kwargs['builtinLoggingEnabled']
+        if 'clientCertificateEnabled' in kwargs:
+            client_certificate_enabled = kwargs['clientCertificateEnabled']
+        if 'clientCertificateExclusionPaths' in kwargs:
+            client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
+        if 'clientCertificateMode' in kwargs:
+            client_certificate_mode = kwargs['clientCertificateMode']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'contentShareForceDisabled' in kwargs:
+            content_share_force_disabled = kwargs['contentShareForceDisabled']
+        if 'dailyMemoryTimeQuota' in kwargs:
+            daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
+        if 'functionsExtensionVersion' in kwargs:
+            functions_extension_version = kwargs['functionsExtensionVersion']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'keyVaultReferenceIdentityId' in kwargs:
+            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'stickySettings' in kwargs:
+            sticky_settings = kwargs['stickySettings']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if 'storageKeyVaultSecretId' in kwargs:
+            storage_key_vault_secret_id = kwargs['storageKeyVaultSecretId']
+        if 'storageUsesManagedIdentity' in kwargs:
+            storage_uses_managed_identity = kwargs['storageUsesManagedIdentity']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+        if 'zipDeployFile' in kwargs:
+            zip_deploy_file = kwargs['zipDeployFile']
+
         _setter("resource_group_name", resource_group_name)
         _setter("service_plan_id", service_plan_id)
         _setter("site_config", site_config)
@@ -777,7 +829,75 @@ class _LinuxFunctionAppState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
              zip_deploy_file: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if 'authSettingsV2' in kwargs:
+            auth_settings_v2 = kwargs['authSettingsV2']
+        if 'builtinLoggingEnabled' in kwargs:
+            builtin_logging_enabled = kwargs['builtinLoggingEnabled']
+        if 'clientCertificateEnabled' in kwargs:
+            client_certificate_enabled = kwargs['clientCertificateEnabled']
+        if 'clientCertificateExclusionPaths' in kwargs:
+            client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
+        if 'clientCertificateMode' in kwargs:
+            client_certificate_mode = kwargs['clientCertificateMode']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'contentShareForceDisabled' in kwargs:
+            content_share_force_disabled = kwargs['contentShareForceDisabled']
+        if 'customDomainVerificationId' in kwargs:
+            custom_domain_verification_id = kwargs['customDomainVerificationId']
+        if 'dailyMemoryTimeQuota' in kwargs:
+            daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
+        if 'defaultHostname' in kwargs:
+            default_hostname = kwargs['defaultHostname']
+        if 'functionsExtensionVersion' in kwargs:
+            functions_extension_version = kwargs['functionsExtensionVersion']
+        if 'hostingEnvironmentId' in kwargs:
+            hosting_environment_id = kwargs['hostingEnvironmentId']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'keyVaultReferenceIdentityId' in kwargs:
+            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
+        if 'outboundIpAddressLists' in kwargs:
+            outbound_ip_address_lists = kwargs['outboundIpAddressLists']
+        if 'outboundIpAddresses' in kwargs:
+            outbound_ip_addresses = kwargs['outboundIpAddresses']
+        if 'possibleOutboundIpAddressLists' in kwargs:
+            possible_outbound_ip_address_lists = kwargs['possibleOutboundIpAddressLists']
+        if 'possibleOutboundIpAddresses' in kwargs:
+            possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'servicePlanId' in kwargs:
+            service_plan_id = kwargs['servicePlanId']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if 'siteCredentials' in kwargs:
+            site_credentials = kwargs['siteCredentials']
+        if 'stickySettings' in kwargs:
+            sticky_settings = kwargs['stickySettings']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if 'storageKeyVaultSecretId' in kwargs:
+            storage_key_vault_secret_id = kwargs['storageKeyVaultSecretId']
+        if 'storageUsesManagedIdentity' in kwargs:
+            storage_uses_managed_identity = kwargs['storageUsesManagedIdentity']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+        if 'zipDeployFile' in kwargs:
+            zip_deploy_file = kwargs['zipDeployFile']
+
         if app_settings is not None:
             _setter("app_settings", app_settings)
         if auth_settings is not None:

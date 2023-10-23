@@ -35,7 +35,15 @@ class ActiveSlotArgs:
              app_service_name: pulumi.Input[str],
              app_service_slot_name: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceName' in kwargs:
+            app_service_name = kwargs['appServiceName']
+        if 'appServiceSlotName' in kwargs:
+            app_service_slot_name = kwargs['appServiceSlotName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("app_service_name", app_service_name)
         _setter("app_service_slot_name", app_service_slot_name)
         _setter("resource_group_name", resource_group_name)
@@ -101,7 +109,15 @@ class _ActiveSlotState:
              app_service_name: Optional[pulumi.Input[str]] = None,
              app_service_slot_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceName' in kwargs:
+            app_service_name = kwargs['appServiceName']
+        if 'appServiceSlotName' in kwargs:
+            app_service_slot_name = kwargs['appServiceSlotName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if app_service_name is not None:
             _setter("app_service_name", app_service_name)
         if app_service_slot_name is not None:

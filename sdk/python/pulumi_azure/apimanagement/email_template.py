@@ -45,7 +45,15 @@ class EmailTemplateArgs:
              resource_group_name: pulumi.Input[str],
              subject: pulumi.Input[str],
              template_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+
         _setter("api_management_name", api_management_name)
         _setter("body", body)
         _setter("resource_group_name", resource_group_name)
@@ -157,7 +165,15 @@ class _EmailTemplateState:
              subject: Optional[pulumi.Input[str]] = None,
              template_name: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if body is not None:

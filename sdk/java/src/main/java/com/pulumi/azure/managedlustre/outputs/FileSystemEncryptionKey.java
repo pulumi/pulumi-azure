@@ -65,10 +65,10 @@ public final class FileSystemEncryptionKey {
             return this;
         }
         public FileSystemEncryptionKey build() {
-            final var o = new FileSystemEncryptionKey();
-            o.keyUrl = keyUrl;
-            o.sourceVaultId = sourceVaultId;
-            return o;
+            final var _resultValue = new FileSystemEncryptionKey();
+            _resultValue.keyUrl = keyUrl;
+            _resultValue.sourceVaultId = sourceVaultId;
+            return _resultValue;
         }
     }
 }

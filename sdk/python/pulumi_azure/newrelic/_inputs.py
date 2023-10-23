@@ -43,7 +43,17 @@ class MonitorPlanArgs:
              billing_cycle: Optional[pulumi.Input[str]] = None,
              plan_id: Optional[pulumi.Input[str]] = None,
              usage_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'effectiveDate' in kwargs:
+            effective_date = kwargs['effectiveDate']
+        if 'billingCycle' in kwargs:
+            billing_cycle = kwargs['billingCycle']
+        if 'planId' in kwargs:
+            plan_id = kwargs['planId']
+        if 'usageType' in kwargs:
+            usage_type = kwargs['usageType']
+
         _setter("effective_date", effective_date)
         if billing_cycle is not None:
             _setter("billing_cycle", billing_cycle)
@@ -128,7 +138,15 @@ class MonitorUserArgs:
              first_name: pulumi.Input[str],
              last_name: pulumi.Input[str],
              phone_number: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("email", email)
         _setter("first_name", first_name)
         _setter("last_name", last_name)
@@ -206,7 +224,9 @@ class TagRuleLogTagFilterArgs:
              action: pulumi.Input[str],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         _setter("value", value)
@@ -271,7 +291,9 @@ class TagRuleMetricTagFilterArgs:
              action: pulumi.Input[str],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         _setter("value", value)

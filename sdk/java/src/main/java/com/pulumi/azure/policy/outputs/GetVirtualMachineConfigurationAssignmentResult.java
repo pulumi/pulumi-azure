@@ -193,18 +193,18 @@ public final class GetVirtualMachineConfigurationAssignmentResult {
             return this;
         }
         public GetVirtualMachineConfigurationAssignmentResult build() {
-            final var o = new GetVirtualMachineConfigurationAssignmentResult();
-            o.assignmentHash = assignmentHash;
-            o.complianceStatus = complianceStatus;
-            o.contentHash = contentHash;
-            o.contentUri = contentUri;
-            o.id = id;
-            o.lastComplianceStatusChecked = lastComplianceStatusChecked;
-            o.latestReportId = latestReportId;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.virtualMachineName = virtualMachineName;
-            return o;
+            final var _resultValue = new GetVirtualMachineConfigurationAssignmentResult();
+            _resultValue.assignmentHash = assignmentHash;
+            _resultValue.complianceStatus = complianceStatus;
+            _resultValue.contentHash = contentHash;
+            _resultValue.contentUri = contentUri;
+            _resultValue.id = id;
+            _resultValue.lastComplianceStatusChecked = lastComplianceStatusChecked;
+            _resultValue.latestReportId = latestReportId;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.virtualMachineName = virtualMachineName;
+            return _resultValue;
         }
     }
 }

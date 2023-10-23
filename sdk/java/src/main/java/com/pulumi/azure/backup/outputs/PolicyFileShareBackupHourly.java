@@ -85,11 +85,11 @@ public final class PolicyFileShareBackupHourly {
             return this;
         }
         public PolicyFileShareBackupHourly build() {
-            final var o = new PolicyFileShareBackupHourly();
-            o.interval = interval;
-            o.startTime = startTime;
-            o.windowDuration = windowDuration;
-            return o;
+            final var _resultValue = new PolicyFileShareBackupHourly();
+            _resultValue.interval = interval;
+            _resultValue.startTime = startTime;
+            _resultValue.windowDuration = windowDuration;
+            return _resultValue;
         }
     }
 }

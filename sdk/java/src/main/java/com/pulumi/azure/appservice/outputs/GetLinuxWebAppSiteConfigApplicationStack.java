@@ -288,23 +288,23 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
             return this;
         }
         public GetLinuxWebAppSiteConfigApplicationStack build() {
-            final var o = new GetLinuxWebAppSiteConfigApplicationStack();
-            o.dockerImage = dockerImage;
-            o.dockerImageName = dockerImageName;
-            o.dockerImageTag = dockerImageTag;
-            o.dockerRegistryPassword = dockerRegistryPassword;
-            o.dockerRegistryUrl = dockerRegistryUrl;
-            o.dockerRegistryUsername = dockerRegistryUsername;
-            o.dotnetVersion = dotnetVersion;
-            o.goVersion = goVersion;
-            o.javaServer = javaServer;
-            o.javaServerVersion = javaServerVersion;
-            o.javaVersion = javaVersion;
-            o.nodeVersion = nodeVersion;
-            o.phpVersion = phpVersion;
-            o.pythonVersion = pythonVersion;
-            o.rubyVersion = rubyVersion;
-            return o;
+            final var _resultValue = new GetLinuxWebAppSiteConfigApplicationStack();
+            _resultValue.dockerImage = dockerImage;
+            _resultValue.dockerImageName = dockerImageName;
+            _resultValue.dockerImageTag = dockerImageTag;
+            _resultValue.dockerRegistryPassword = dockerRegistryPassword;
+            _resultValue.dockerRegistryUrl = dockerRegistryUrl;
+            _resultValue.dockerRegistryUsername = dockerRegistryUsername;
+            _resultValue.dotnetVersion = dotnetVersion;
+            _resultValue.goVersion = goVersion;
+            _resultValue.javaServer = javaServer;
+            _resultValue.javaServerVersion = javaServerVersion;
+            _resultValue.javaVersion = javaVersion;
+            _resultValue.nodeVersion = nodeVersion;
+            _resultValue.phpVersion = phpVersion;
+            _resultValue.pythonVersion = pythonVersion;
+            _resultValue.rubyVersion = rubyVersion;
+            return _resultValue;
         }
     }
 }

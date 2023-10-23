@@ -68,10 +68,10 @@ public final class AppServiceLogsHttpLogs {
             return this;
         }
         public AppServiceLogsHttpLogs build() {
-            final var o = new AppServiceLogsHttpLogs();
-            o.azureBlobStorage = azureBlobStorage;
-            o.fileSystem = fileSystem;
-            return o;
+            final var _resultValue = new AppServiceLogsHttpLogs();
+            _resultValue.azureBlobStorage = azureBlobStorage;
+            _resultValue.fileSystem = fileSystem;
+            return _resultValue;
         }
     }
 }

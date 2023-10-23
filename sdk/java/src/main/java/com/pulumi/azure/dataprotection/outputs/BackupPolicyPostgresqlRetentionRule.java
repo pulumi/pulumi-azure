@@ -105,12 +105,12 @@ public final class BackupPolicyPostgresqlRetentionRule {
             return this;
         }
         public BackupPolicyPostgresqlRetentionRule build() {
-            final var o = new BackupPolicyPostgresqlRetentionRule();
-            o.criteria = criteria;
-            o.duration = duration;
-            o.name = name;
-            o.priority = priority;
-            return o;
+            final var _resultValue = new BackupPolicyPostgresqlRetentionRule();
+            _resultValue.criteria = criteria;
+            _resultValue.duration = duration;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            return _resultValue;
         }
     }
 }

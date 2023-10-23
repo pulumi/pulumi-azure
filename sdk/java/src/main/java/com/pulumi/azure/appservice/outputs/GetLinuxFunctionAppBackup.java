@@ -109,12 +109,12 @@ public final class GetLinuxFunctionAppBackup {
             return this;
         }
         public GetLinuxFunctionAppBackup build() {
-            final var o = new GetLinuxFunctionAppBackup();
-            o.enabled = enabled;
-            o.name = name;
-            o.schedules = schedules;
-            o.storageAccountUrl = storageAccountUrl;
-            return o;
+            final var _resultValue = new GetLinuxFunctionAppBackup();
+            _resultValue.enabled = enabled;
+            _resultValue.name = name;
+            _resultValue.schedules = schedules;
+            _resultValue.storageAccountUrl = storageAccountUrl;
+            return _resultValue;
         }
     }
 }

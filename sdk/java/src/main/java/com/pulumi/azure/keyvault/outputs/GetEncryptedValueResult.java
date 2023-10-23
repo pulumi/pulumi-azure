@@ -111,14 +111,14 @@ public final class GetEncryptedValueResult {
             return this;
         }
         public GetEncryptedValueResult build() {
-            final var o = new GetEncryptedValueResult();
-            o.algorithm = algorithm;
-            o.decodedPlainTextValue = decodedPlainTextValue;
-            o.encryptedData = encryptedData;
-            o.id = id;
-            o.keyVaultKeyId = keyVaultKeyId;
-            o.plainTextValue = plainTextValue;
-            return o;
+            final var _resultValue = new GetEncryptedValueResult();
+            _resultValue.algorithm = algorithm;
+            _resultValue.decodedPlainTextValue = decodedPlainTextValue;
+            _resultValue.encryptedData = encryptedData;
+            _resultValue.id = id;
+            _resultValue.keyVaultKeyId = keyVaultKeyId;
+            _resultValue.plainTextValue = plainTextValue;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class ResourceDeploymentScriptAzureCliIdentity {
             return this;
         }
         public ResourceDeploymentScriptAzureCliIdentity build() {
-            final var o = new ResourceDeploymentScriptAzureCliIdentity();
-            o.identityIds = identityIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new ResourceDeploymentScriptAzureCliIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

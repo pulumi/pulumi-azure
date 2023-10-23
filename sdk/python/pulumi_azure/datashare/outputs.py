@@ -62,7 +62,13 @@ class AccountIdentity(dict):
              type: str,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if principal_id is not None:
             _setter("principal_id", principal_id)
@@ -138,7 +144,13 @@ class DatasetBlobStorageStorageAccount(dict):
              name: str,
              resource_group_name: str,
              subscription_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         _setter("name", name)
         _setter("resource_group_name", resource_group_name)
         _setter("subscription_id", subscription_id)
@@ -208,7 +220,11 @@ class ShareSnapshotSchedule(dict):
              name: str,
              recurrence: str,
              start_time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("name", name)
         _setter("recurrence", recurrence)
         _setter("start_time", start_time)
@@ -261,7 +277,13 @@ class GetAccountIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
         _setter("type", type)
@@ -314,7 +336,13 @@ class GetDatasetBlobStorageStorageAccountResult(dict):
              name: str,
              resource_group_name: str,
              subscription_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         _setter("name", name)
         _setter("resource_group_name", resource_group_name)
         _setter("subscription_id", subscription_id)
@@ -367,7 +395,11 @@ class GetShareSnapshotScheduleResult(dict):
              name: str,
              recurrence: str,
              start_time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("name", name)
         _setter("recurrence", recurrence)
         _setter("start_time", start_time)

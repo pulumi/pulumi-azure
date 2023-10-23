@@ -86,11 +86,11 @@ public final class BackendProxy {
             return this;
         }
         public BackendProxy build() {
-            final var o = new BackendProxy();
-            o.password = password;
-            o.url = url;
-            o.username = username;
-            return o;
+            final var _resultValue = new BackendProxy();
+            _resultValue.password = password;
+            _resultValue.url = url;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

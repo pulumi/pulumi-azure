@@ -262,20 +262,20 @@ public final class ChannelDirectLineSite {
             return this;
         }
         public ChannelDirectLineSite build() {
-            final var o = new ChannelDirectLineSite();
-            o.enabled = enabled;
-            o.endpointParametersEnabled = endpointParametersEnabled;
-            o.enhancedAuthenticationEnabled = enhancedAuthenticationEnabled;
-            o.id = id;
-            o.key = key;
-            o.key2 = key2;
-            o.name = name;
-            o.storageEnabled = storageEnabled;
-            o.trustedOrigins = trustedOrigins;
-            o.userUploadEnabled = userUploadEnabled;
-            o.v1Allowed = v1Allowed;
-            o.v3Allowed = v3Allowed;
-            return o;
+            final var _resultValue = new ChannelDirectLineSite();
+            _resultValue.enabled = enabled;
+            _resultValue.endpointParametersEnabled = endpointParametersEnabled;
+            _resultValue.enhancedAuthenticationEnabled = enhancedAuthenticationEnabled;
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.key2 = key2;
+            _resultValue.name = name;
+            _resultValue.storageEnabled = storageEnabled;
+            _resultValue.trustedOrigins = trustedOrigins;
+            _resultValue.userUploadEnabled = userUploadEnabled;
+            _resultValue.v1Allowed = v1Allowed;
+            _resultValue.v3Allowed = v3Allowed;
+            return _resultValue;
         }
     }
 }

@@ -159,14 +159,14 @@ public final class BackendServiceFabricCluster {
             return serverX509Names(List.of(serverX509Names));
         }
         public BackendServiceFabricCluster build() {
-            final var o = new BackendServiceFabricCluster();
-            o.clientCertificateId = clientCertificateId;
-            o.clientCertificateThumbprint = clientCertificateThumbprint;
-            o.managementEndpoints = managementEndpoints;
-            o.maxPartitionResolutionRetries = maxPartitionResolutionRetries;
-            o.serverCertificateThumbprints = serverCertificateThumbprints;
-            o.serverX509Names = serverX509Names;
-            return o;
+            final var _resultValue = new BackendServiceFabricCluster();
+            _resultValue.clientCertificateId = clientCertificateId;
+            _resultValue.clientCertificateThumbprint = clientCertificateThumbprint;
+            _resultValue.managementEndpoints = managementEndpoints;
+            _resultValue.maxPartitionResolutionRetries = maxPartitionResolutionRetries;
+            _resultValue.serverCertificateThumbprints = serverCertificateThumbprints;
+            _resultValue.serverX509Names = serverX509Names;
+            return _resultValue;
         }
     }
 }

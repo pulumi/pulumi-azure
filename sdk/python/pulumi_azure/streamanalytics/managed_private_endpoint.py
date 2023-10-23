@@ -43,7 +43,17 @@ class ManagedPrivateEndpointArgs:
              subresource_name: pulumi.Input[str],
              target_resource_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamAnalyticsClusterName' in kwargs:
+            stream_analytics_cluster_name = kwargs['streamAnalyticsClusterName']
+        if 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         _setter("resource_group_name", resource_group_name)
         _setter("stream_analytics_cluster_name", stream_analytics_cluster_name)
         _setter("subresource_name", subresource_name)
@@ -144,7 +154,17 @@ class _ManagedPrivateEndpointState:
              stream_analytics_cluster_name: Optional[pulumi.Input[str]] = None,
              subresource_name: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamAnalyticsClusterName' in kwargs:
+            stream_analytics_cluster_name = kwargs['streamAnalyticsClusterName']
+        if 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if name is not None:
             _setter("name", name)
         if resource_group_name is not None:

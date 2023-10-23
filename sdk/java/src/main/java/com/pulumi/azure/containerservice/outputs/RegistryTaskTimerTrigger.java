@@ -87,11 +87,11 @@ public final class RegistryTaskTimerTrigger {
             return this;
         }
         public RegistryTaskTimerTrigger build() {
-            final var o = new RegistryTaskTimerTrigger();
-            o.enabled = enabled;
-            o.name = name;
-            o.schedule = schedule;
-            return o;
+            final var _resultValue = new RegistryTaskTimerTrigger();
+            _resultValue.enabled = enabled;
+            _resultValue.name = name;
+            _resultValue.schedule = schedule;
+            return _resultValue;
         }
     }
 }

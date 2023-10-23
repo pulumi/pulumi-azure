@@ -46,9 +46,9 @@ public final class GetBackendAddressPoolBackendIpConfiguration {
             return this;
         }
         public GetBackendAddressPoolBackendIpConfiguration build() {
-            final var o = new GetBackendAddressPoolBackendIpConfiguration();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetBackendAddressPoolBackendIpConfiguration();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

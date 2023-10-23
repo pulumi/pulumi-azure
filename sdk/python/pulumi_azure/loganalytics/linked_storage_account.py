@@ -41,7 +41,17 @@ class LinkedStorageAccountArgs:
              resource_group_name: pulumi.Input[str],
              storage_account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              workspace_resource_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSourceType' in kwargs:
+            data_source_type = kwargs['dataSourceType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountIds' in kwargs:
+            storage_account_ids = kwargs['storageAccountIds']
+        if 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+
         _setter("data_source_type", data_source_type)
         _setter("resource_group_name", resource_group_name)
         _setter("storage_account_ids", storage_account_ids)
@@ -128,7 +138,17 @@ class _LinkedStorageAccountState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              storage_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              workspace_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataSourceType' in kwargs:
+            data_source_type = kwargs['dataSourceType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountIds' in kwargs:
+            storage_account_ids = kwargs['storageAccountIds']
+        if 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+
         if data_source_type is not None:
             _setter("data_source_type", data_source_type)
         if resource_group_name is not None:

@@ -88,11 +88,11 @@ public final class GetLinuxWebAppAuthSettingsV2GithubV2 {
             return loginScopes(List.of(loginScopes));
         }
         public GetLinuxWebAppAuthSettingsV2GithubV2 build() {
-            final var o = new GetLinuxWebAppAuthSettingsV2GithubV2();
-            o.clientId = clientId;
-            o.clientSecretSettingName = clientSecretSettingName;
-            o.loginScopes = loginScopes;
-            return o;
+            final var _resultValue = new GetLinuxWebAppAuthSettingsV2GithubV2();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            _resultValue.loginScopes = loginScopes;
+            return _resultValue;
         }
     }
 }

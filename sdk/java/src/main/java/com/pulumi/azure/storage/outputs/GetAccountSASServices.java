@@ -103,12 +103,12 @@ public final class GetAccountSASServices {
             return this;
         }
         public GetAccountSASServices build() {
-            final var o = new GetAccountSASServices();
-            o.blob = blob;
-            o.file = file;
-            o.queue = queue;
-            o.table = table;
-            return o;
+            final var _resultValue = new GetAccountSASServices();
+            _resultValue.blob = blob;
+            _resultValue.file = file;
+            _resultValue.queue = queue;
+            _resultValue.table = table;
+            return _resultValue;
         }
     }
 }

@@ -182,15 +182,15 @@ public final class InteractiveQueryClusterRolesHeadNode {
             return this;
         }
         public InteractiveQueryClusterRolesHeadNode build() {
-            final var o = new InteractiveQueryClusterRolesHeadNode();
-            o.password = password;
-            o.scriptActions = scriptActions;
-            o.sshKeys = sshKeys;
-            o.subnetId = subnetId;
-            o.username = username;
-            o.virtualNetworkId = virtualNetworkId;
-            o.vmSize = vmSize;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterRolesHeadNode();
+            _resultValue.password = password;
+            _resultValue.scriptActions = scriptActions;
+            _resultValue.sshKeys = sshKeys;
+            _resultValue.subnetId = subnetId;
+            _resultValue.username = username;
+            _resultValue.virtualNetworkId = virtualNetworkId;
+            _resultValue.vmSize = vmSize;
+            return _resultValue;
         }
     }
 }

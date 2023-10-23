@@ -117,12 +117,12 @@ public final class OutputEventHubSerialization {
             return this;
         }
         public OutputEventHubSerialization build() {
-            final var o = new OutputEventHubSerialization();
-            o.encoding = encoding;
-            o.fieldDelimiter = fieldDelimiter;
-            o.format = format;
-            o.type = type;
-            return o;
+            final var _resultValue = new OutputEventHubSerialization();
+            _resultValue.encoding = encoding;
+            _resultValue.fieldDelimiter = fieldDelimiter;
+            _resultValue.format = format;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

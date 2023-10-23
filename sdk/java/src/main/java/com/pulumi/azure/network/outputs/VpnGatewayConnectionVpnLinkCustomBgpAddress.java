@@ -65,10 +65,10 @@ public final class VpnGatewayConnectionVpnLinkCustomBgpAddress {
             return this;
         }
         public VpnGatewayConnectionVpnLinkCustomBgpAddress build() {
-            final var o = new VpnGatewayConnectionVpnLinkCustomBgpAddress();
-            o.ipAddress = ipAddress;
-            o.ipConfigurationId = ipConfigurationId;
-            return o;
+            final var _resultValue = new VpnGatewayConnectionVpnLinkCustomBgpAddress();
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.ipConfigurationId = ipConfigurationId;
+            return _resultValue;
         }
     }
 }

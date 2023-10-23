@@ -168,15 +168,15 @@ public final class ActionRuleSuppressionCondition {
             return this;
         }
         public ActionRuleSuppressionCondition build() {
-            final var o = new ActionRuleSuppressionCondition();
-            o.alertContext = alertContext;
-            o.alertRuleId = alertRuleId;
-            o.description = description;
-            o.monitor = monitor;
-            o.monitorService = monitorService;
-            o.severity = severity;
-            o.targetResourceType = targetResourceType;
-            return o;
+            final var _resultValue = new ActionRuleSuppressionCondition();
+            _resultValue.alertContext = alertContext;
+            _resultValue.alertRuleId = alertRuleId;
+            _resultValue.description = description;
+            _resultValue.monitor = monitor;
+            _resultValue.monitorService = monitorService;
+            _resultValue.severity = severity;
+            _resultValue.targetResourceType = targetResourceType;
+            return _resultValue;
         }
     }
 }

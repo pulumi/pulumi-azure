@@ -214,19 +214,19 @@ public final class GetProductResult {
             return this;
         }
         public GetProductResult build() {
-            final var o = new GetProductResult();
-            o.apiManagementName = apiManagementName;
-            o.approvalRequired = approvalRequired;
-            o.description = description;
-            o.displayName = displayName;
-            o.id = id;
-            o.productId = productId;
-            o.published = published;
-            o.resourceGroupName = resourceGroupName;
-            o.subscriptionRequired = subscriptionRequired;
-            o.subscriptionsLimit = subscriptionsLimit;
-            o.terms = terms;
-            return o;
+            final var _resultValue = new GetProductResult();
+            _resultValue.apiManagementName = apiManagementName;
+            _resultValue.approvalRequired = approvalRequired;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.productId = productId;
+            _resultValue.published = published;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.subscriptionRequired = subscriptionRequired;
+            _resultValue.subscriptionsLimit = subscriptionsLimit;
+            _resultValue.terms = terms;
+            return _resultValue;
         }
     }
 }

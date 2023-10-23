@@ -67,10 +67,10 @@ public final class GalleryApplicationVersionSource {
             return this;
         }
         public GalleryApplicationVersionSource build() {
-            final var o = new GalleryApplicationVersionSource();
-            o.defaultConfigurationLink = defaultConfigurationLink;
-            o.mediaLink = mediaLink;
-            return o;
+            final var _resultValue = new GalleryApplicationVersionSource();
+            _resultValue.defaultConfigurationLink = defaultConfigurationLink;
+            _resultValue.mediaLink = mediaLink;
+            return _resultValue;
         }
     }
 }

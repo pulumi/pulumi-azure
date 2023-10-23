@@ -165,16 +165,16 @@ public final class GetStorageContainerResult {
             return this;
         }
         public GetStorageContainerResult build() {
-            final var o = new GetStorageContainerResult();
-            o.containerAccessType = containerAccessType;
-            o.hasImmutabilityPolicy = hasImmutabilityPolicy;
-            o.hasLegalHold = hasLegalHold;
-            o.id = id;
-            o.metadata = metadata;
-            o.name = name;
-            o.resourceManagerId = resourceManagerId;
-            o.storageAccountName = storageAccountName;
-            return o;
+            final var _resultValue = new GetStorageContainerResult();
+            _resultValue.containerAccessType = containerAccessType;
+            _resultValue.hasImmutabilityPolicy = hasImmutabilityPolicy;
+            _resultValue.hasLegalHold = hasLegalHold;
+            _resultValue.id = id;
+            _resultValue.metadata = metadata;
+            _resultValue.name = name;
+            _resultValue.resourceManagerId = resourceManagerId;
+            _resultValue.storageAccountName = storageAccountName;
+            return _resultValue;
         }
     }
 }

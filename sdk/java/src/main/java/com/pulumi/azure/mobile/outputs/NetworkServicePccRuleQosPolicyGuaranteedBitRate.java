@@ -65,10 +65,10 @@ public final class NetworkServicePccRuleQosPolicyGuaranteedBitRate {
             return this;
         }
         public NetworkServicePccRuleQosPolicyGuaranteedBitRate build() {
-            final var o = new NetworkServicePccRuleQosPolicyGuaranteedBitRate();
-            o.downlink = downlink;
-            o.uplink = uplink;
-            return o;
+            final var _resultValue = new NetworkServicePccRuleQosPolicyGuaranteedBitRate();
+            _resultValue.downlink = downlink;
+            _resultValue.uplink = uplink;
+            return _resultValue;
         }
     }
 }

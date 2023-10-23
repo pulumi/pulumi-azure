@@ -47,7 +47,15 @@ class FallbackRouteArgs:
              resource_group_name: pulumi.Input[str],
              condition: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointNames' in kwargs:
+            endpoint_names = kwargs['endpointNames']
+        if 'iothubName' in kwargs:
+            iothub_name = kwargs['iothubName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("enabled", enabled)
         _setter("endpoint_names", endpoint_names)
         _setter("iothub_name", iothub_name)
@@ -166,7 +174,15 @@ class _FallbackRouteState:
              iothub_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointNames' in kwargs:
+            endpoint_names = kwargs['endpointNames']
+        if 'iothubName' in kwargs:
+            iothub_name = kwargs['iothubName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if condition is not None:
             _setter("condition", condition)
         if enabled is not None:

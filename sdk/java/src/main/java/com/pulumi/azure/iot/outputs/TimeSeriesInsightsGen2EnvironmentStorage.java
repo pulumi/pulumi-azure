@@ -65,10 +65,10 @@ public final class TimeSeriesInsightsGen2EnvironmentStorage {
             return this;
         }
         public TimeSeriesInsightsGen2EnvironmentStorage build() {
-            final var o = new TimeSeriesInsightsGen2EnvironmentStorage();
-            o.key = key;
-            o.name = name;
-            return o;
+            final var _resultValue = new TimeSeriesInsightsGen2EnvironmentStorage();
+            _resultValue.key = key;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

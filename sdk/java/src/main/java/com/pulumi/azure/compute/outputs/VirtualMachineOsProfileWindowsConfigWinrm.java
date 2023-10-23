@@ -71,10 +71,10 @@ public final class VirtualMachineOsProfileWindowsConfigWinrm {
             return this;
         }
         public VirtualMachineOsProfileWindowsConfigWinrm build() {
-            final var o = new VirtualMachineOsProfileWindowsConfigWinrm();
-            o.certificateUrl = certificateUrl;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new VirtualMachineOsProfileWindowsConfigWinrm();
+            _resultValue.certificateUrl = certificateUrl;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

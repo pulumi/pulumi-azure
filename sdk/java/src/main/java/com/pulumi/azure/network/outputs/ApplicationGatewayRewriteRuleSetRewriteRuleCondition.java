@@ -106,12 +106,12 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleCondition {
             return this;
         }
         public ApplicationGatewayRewriteRuleSetRewriteRuleCondition build() {
-            final var o = new ApplicationGatewayRewriteRuleSetRewriteRuleCondition();
-            o.ignoreCase = ignoreCase;
-            o.negate = negate;
-            o.pattern = pattern;
-            o.variable = variable;
-            return o;
+            final var _resultValue = new ApplicationGatewayRewriteRuleSetRewriteRuleCondition();
+            _resultValue.ignoreCase = ignoreCase;
+            _resultValue.negate = negate;
+            _resultValue.pattern = pattern;
+            _resultValue.variable = variable;
+            return _resultValue;
         }
     }
 }

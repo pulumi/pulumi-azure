@@ -90,11 +90,11 @@ public final class KubernetesClusterKeyVaultSecretsProviderSecretIdentity {
             return this;
         }
         public KubernetesClusterKeyVaultSecretsProviderSecretIdentity build() {
-            final var o = new KubernetesClusterKeyVaultSecretsProviderSecretIdentity();
-            o.clientId = clientId;
-            o.objectId = objectId;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new KubernetesClusterKeyVaultSecretsProviderSecretIdentity();
+            _resultValue.clientId = clientId;
+            _resultValue.objectId = objectId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

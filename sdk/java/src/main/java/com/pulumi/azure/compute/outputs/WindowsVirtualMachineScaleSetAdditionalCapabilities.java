@@ -48,9 +48,9 @@ public final class WindowsVirtualMachineScaleSetAdditionalCapabilities {
             return this;
         }
         public WindowsVirtualMachineScaleSetAdditionalCapabilities build() {
-            final var o = new WindowsVirtualMachineScaleSetAdditionalCapabilities();
-            o.ultraSsdEnabled = ultraSsdEnabled;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetAdditionalCapabilities();
+            _resultValue.ultraSsdEnabled = ultraSsdEnabled;
+            return _resultValue;
         }
     }
 }

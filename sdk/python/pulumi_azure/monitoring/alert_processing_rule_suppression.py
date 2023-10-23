@@ -57,7 +57,11 @@ class AlertProcessingRuleSuppressionArgs:
              name: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input['AlertProcessingRuleSuppressionScheduleArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("resource_group_name", resource_group_name)
         _setter("scopes", scopes)
         if condition is not None:
@@ -214,7 +218,11 @@ class _AlertProcessingRuleSuppressionState:
              schedule: Optional[pulumi.Input['AlertProcessingRuleSuppressionScheduleArgs']] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if condition is not None:
             _setter("condition", condition)
         if description is not None:

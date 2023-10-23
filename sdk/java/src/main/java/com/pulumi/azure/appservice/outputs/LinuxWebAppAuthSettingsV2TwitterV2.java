@@ -69,10 +69,10 @@ public final class LinuxWebAppAuthSettingsV2TwitterV2 {
             return this;
         }
         public LinuxWebAppAuthSettingsV2TwitterV2 build() {
-            final var o = new LinuxWebAppAuthSettingsV2TwitterV2();
-            o.consumerKey = consumerKey;
-            o.consumerSecretSettingName = consumerSecretSettingName;
-            return o;
+            final var _resultValue = new LinuxWebAppAuthSettingsV2TwitterV2();
+            _resultValue.consumerKey = consumerKey;
+            _resultValue.consumerSecretSettingName = consumerSecretSettingName;
+            return _resultValue;
         }
     }
 }

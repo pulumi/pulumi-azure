@@ -48,9 +48,9 @@ public final class OrchestratedVirtualMachineScaleSetBootDiagnostics {
             return this;
         }
         public OrchestratedVirtualMachineScaleSetBootDiagnostics build() {
-            final var o = new OrchestratedVirtualMachineScaleSetBootDiagnostics();
-            o.storageAccountUri = storageAccountUri;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetBootDiagnostics();
+            _resultValue.storageAccountUri = storageAccountUri;
+            return _resultValue;
         }
     }
 }

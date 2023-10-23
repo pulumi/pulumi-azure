@@ -91,11 +91,11 @@ public final class GetDataCollectionRuleDataSourceWindowsEventLog {
             return xPathQueries(List.of(xPathQueries));
         }
         public GetDataCollectionRuleDataSourceWindowsEventLog build() {
-            final var o = new GetDataCollectionRuleDataSourceWindowsEventLog();
-            o.name = name;
-            o.streams = streams;
-            o.xPathQueries = xPathQueries;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleDataSourceWindowsEventLog();
+            _resultValue.name = name;
+            _resultValue.streams = streams;
+            _resultValue.xPathQueries = xPathQueries;
+            return _resultValue;
         }
     }
 }

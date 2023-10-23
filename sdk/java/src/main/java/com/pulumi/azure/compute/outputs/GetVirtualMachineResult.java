@@ -204,18 +204,18 @@ public final class GetVirtualMachineResult {
             return this;
         }
         public GetVirtualMachineResult build() {
-            final var o = new GetVirtualMachineResult();
-            o.id = id;
-            o.identities = identities;
-            o.location = location;
-            o.name = name;
-            o.powerState = powerState;
-            o.privateIpAddress = privateIpAddress;
-            o.privateIpAddresses = privateIpAddresses;
-            o.publicIpAddress = publicIpAddress;
-            o.publicIpAddresses = publicIpAddresses;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetVirtualMachineResult();
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.powerState = powerState;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.privateIpAddresses = privateIpAddresses;
+            _resultValue.publicIpAddress = publicIpAddress;
+            _resultValue.publicIpAddresses = publicIpAddresses;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

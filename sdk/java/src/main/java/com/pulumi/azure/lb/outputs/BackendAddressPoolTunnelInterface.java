@@ -104,12 +104,12 @@ public final class BackendAddressPoolTunnelInterface {
             return this;
         }
         public BackendAddressPoolTunnelInterface build() {
-            final var o = new BackendAddressPoolTunnelInterface();
-            o.identifier = identifier;
-            o.port = port;
-            o.protocol = protocol;
-            o.type = type;
-            return o;
+            final var _resultValue = new BackendAddressPoolTunnelInterface();
+            _resultValue.identifier = identifier;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

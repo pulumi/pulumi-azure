@@ -43,7 +43,15 @@ class ManagedPrivateEndpointArgs:
              synapse_workspace_id: pulumi.Input[str],
              target_resource_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         _setter("subresource_name", subresource_name)
         _setter("synapse_workspace_id", synapse_workspace_id)
         _setter("target_resource_id", target_resource_id)
@@ -135,7 +143,15 @@ class _ManagedPrivateEndpointState:
              subresource_name: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if name is not None:
             _setter("name", name)
         if subresource_name is not None:

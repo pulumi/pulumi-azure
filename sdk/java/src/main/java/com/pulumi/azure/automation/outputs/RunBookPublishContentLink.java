@@ -87,11 +87,11 @@ public final class RunBookPublishContentLink {
             return this;
         }
         public RunBookPublishContentLink build() {
-            final var o = new RunBookPublishContentLink();
-            o.hash = hash;
-            o.uri = uri;
-            o.version = version;
-            return o;
+            final var _resultValue = new RunBookPublishContentLink();
+            _resultValue.hash = hash;
+            _resultValue.uri = uri;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

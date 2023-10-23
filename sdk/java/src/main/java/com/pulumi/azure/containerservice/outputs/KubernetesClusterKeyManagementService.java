@@ -67,10 +67,10 @@ public final class KubernetesClusterKeyManagementService {
             return this;
         }
         public KubernetesClusterKeyManagementService build() {
-            final var o = new KubernetesClusterKeyManagementService();
-            o.keyVaultKeyId = keyVaultKeyId;
-            o.keyVaultNetworkAccess = keyVaultNetworkAccess;
-            return o;
+            final var _resultValue = new KubernetesClusterKeyManagementService();
+            _resultValue.keyVaultKeyId = keyVaultKeyId;
+            _resultValue.keyVaultNetworkAccess = keyVaultNetworkAccess;
+            return _resultValue;
         }
     }
 }

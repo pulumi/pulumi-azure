@@ -51,7 +51,21 @@ class ClusterManagedPrivateEndpointArgs:
              name: Optional[pulumi.Input[str]] = None,
              private_link_resource_region: Optional[pulumi.Input[str]] = None,
              request_message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'privateLinkResourceId' in kwargs:
+            private_link_resource_id = kwargs['privateLinkResourceId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'privateLinkResourceRegion' in kwargs:
+            private_link_resource_region = kwargs['privateLinkResourceRegion']
+        if 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+
         _setter("cluster_name", cluster_name)
         _setter("group_id", group_id)
         _setter("private_link_resource_id", private_link_resource_id)
@@ -188,7 +202,21 @@ class _ClusterManagedPrivateEndpointState:
              private_link_resource_region: Optional[pulumi.Input[str]] = None,
              request_message: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'privateLinkResourceId' in kwargs:
+            private_link_resource_id = kwargs['privateLinkResourceId']
+        if 'privateLinkResourceRegion' in kwargs:
+            private_link_resource_region = kwargs['privateLinkResourceRegion']
+        if 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if cluster_name is not None:
             _setter("cluster_name", cluster_name)
         if group_id is not None:

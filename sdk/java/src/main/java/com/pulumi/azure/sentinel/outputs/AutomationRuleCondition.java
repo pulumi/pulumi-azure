@@ -88,11 +88,11 @@ public final class AutomationRuleCondition {
             return values(List.of(values));
         }
         public AutomationRuleCondition build() {
-            final var o = new AutomationRuleCondition();
-            o.operator = operator;
-            o.property = property;
-            o.values = values;
-            return o;
+            final var _resultValue = new AutomationRuleCondition();
+            _resultValue.operator = operator;
+            _resultValue.property = property;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

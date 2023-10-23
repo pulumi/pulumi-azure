@@ -68,10 +68,10 @@ public final class ScaleSetBootDiagnostics {
             return this;
         }
         public ScaleSetBootDiagnostics build() {
-            final var o = new ScaleSetBootDiagnostics();
-            o.enabled = enabled;
-            o.storageUri = storageUri;
-            return o;
+            final var _resultValue = new ScaleSetBootDiagnostics();
+            _resultValue.enabled = enabled;
+            _resultValue.storageUri = storageUri;
+            return _resultValue;
         }
     }
 }

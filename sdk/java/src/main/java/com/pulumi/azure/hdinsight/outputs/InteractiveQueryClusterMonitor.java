@@ -65,10 +65,10 @@ public final class InteractiveQueryClusterMonitor {
             return this;
         }
         public InteractiveQueryClusterMonitor build() {
-            final var o = new InteractiveQueryClusterMonitor();
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.primaryKey = primaryKey;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterMonitor();
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.primaryKey = primaryKey;
+            return _resultValue;
         }
     }
 }

@@ -163,15 +163,15 @@ public final class GetLogProfileResult {
             return this;
         }
         public GetLogProfileResult build() {
-            final var o = new GetLogProfileResult();
-            o.categories = categories;
-            o.id = id;
-            o.locations = locations;
-            o.name = name;
-            o.retentionPolicies = retentionPolicies;
-            o.servicebusRuleId = servicebusRuleId;
-            o.storageAccountId = storageAccountId;
-            return o;
+            final var _resultValue = new GetLogProfileResult();
+            _resultValue.categories = categories;
+            _resultValue.id = id;
+            _resultValue.locations = locations;
+            _resultValue.name = name;
+            _resultValue.retentionPolicies = retentionPolicies;
+            _resultValue.servicebusRuleId = servicebusRuleId;
+            _resultValue.storageAccountId = storageAccountId;
+            return _resultValue;
         }
     }
 }

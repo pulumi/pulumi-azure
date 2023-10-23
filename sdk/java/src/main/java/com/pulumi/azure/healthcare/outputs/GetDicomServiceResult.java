@@ -180,17 +180,17 @@ public final class GetDicomServiceResult {
             return this;
         }
         public GetDicomServiceResult build() {
-            final var o = new GetDicomServiceResult();
-            o.authentications = authentications;
-            o.id = id;
-            o.identities = identities;
-            o.location = location;
-            o.name = name;
-            o.privateEndpoints = privateEndpoints;
-            o.serviceUrl = serviceUrl;
-            o.tags = tags;
-            o.workspaceId = workspaceId;
-            return o;
+            final var _resultValue = new GetDicomServiceResult();
+            _resultValue.authentications = authentications;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.privateEndpoints = privateEndpoints;
+            _resultValue.serviceUrl = serviceUrl;
+            _resultValue.tags = tags;
+            _resultValue.workspaceId = workspaceId;
+            return _resultValue;
         }
     }
 }

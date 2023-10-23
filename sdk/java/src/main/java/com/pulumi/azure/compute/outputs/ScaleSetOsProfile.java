@@ -105,12 +105,12 @@ public final class ScaleSetOsProfile {
             return this;
         }
         public ScaleSetOsProfile build() {
-            final var o = new ScaleSetOsProfile();
-            o.adminPassword = adminPassword;
-            o.adminUsername = adminUsername;
-            o.computerNamePrefix = computerNamePrefix;
-            o.customData = customData;
-            return o;
+            final var _resultValue = new ScaleSetOsProfile();
+            _resultValue.adminPassword = adminPassword;
+            _resultValue.adminUsername = adminUsername;
+            _resultValue.computerNamePrefix = computerNamePrefix;
+            _resultValue.customData = customData;
+            return _resultValue;
         }
     }
 }

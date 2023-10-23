@@ -46,9 +46,9 @@ public final class ScheduleDailyRecurrence {
             return this;
         }
         public ScheduleDailyRecurrence build() {
-            final var o = new ScheduleDailyRecurrence();
-            o.time = time;
-            return o;
+            final var _resultValue = new ScheduleDailyRecurrence();
+            _resultValue.time = time;
+            return _resultValue;
         }
     }
 }

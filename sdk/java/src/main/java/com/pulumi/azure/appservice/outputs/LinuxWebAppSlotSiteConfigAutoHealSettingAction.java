@@ -67,10 +67,10 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingAction {
             return this;
         }
         public LinuxWebAppSlotSiteConfigAutoHealSettingAction build() {
-            final var o = new LinuxWebAppSlotSiteConfigAutoHealSettingAction();
-            o.actionType = actionType;
-            o.minimumProcessExecutionTime = minimumProcessExecutionTime;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotSiteConfigAutoHealSettingAction();
+            _resultValue.actionType = actionType;
+            _resultValue.minimumProcessExecutionTime = minimumProcessExecutionTime;
+            return _resultValue;
         }
     }
 }

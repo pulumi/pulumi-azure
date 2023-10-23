@@ -77,7 +77,25 @@ class ConfigurationArgs:
              name: Optional[pulumi.Input[str]] = None,
              status_change_alert_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'automationAccountEnabled' in kwargs:
+            automation_account_enabled = kwargs['automationAccountEnabled']
+        if 'azureSecurityBaseline' in kwargs:
+            azure_security_baseline = kwargs['azureSecurityBaseline']
+        if 'bootDiagnosticsEnabled' in kwargs:
+            boot_diagnostics_enabled = kwargs['bootDiagnosticsEnabled']
+        if 'defenderForCloudEnabled' in kwargs:
+            defender_for_cloud_enabled = kwargs['defenderForCloudEnabled']
+        if 'guestConfigurationEnabled' in kwargs:
+            guest_configuration_enabled = kwargs['guestConfigurationEnabled']
+        if 'logAnalyticsEnabled' in kwargs:
+            log_analytics_enabled = kwargs['logAnalyticsEnabled']
+        if 'statusChangeAlertEnabled' in kwargs:
+            status_change_alert_enabled = kwargs['statusChangeAlertEnabled']
+
         _setter("resource_group_name", resource_group_name)
         if antimalware is not None:
             _setter("antimalware", antimalware)
@@ -325,7 +343,25 @@ class _ConfigurationState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              status_change_alert_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountEnabled' in kwargs:
+            automation_account_enabled = kwargs['automationAccountEnabled']
+        if 'azureSecurityBaseline' in kwargs:
+            azure_security_baseline = kwargs['azureSecurityBaseline']
+        if 'bootDiagnosticsEnabled' in kwargs:
+            boot_diagnostics_enabled = kwargs['bootDiagnosticsEnabled']
+        if 'defenderForCloudEnabled' in kwargs:
+            defender_for_cloud_enabled = kwargs['defenderForCloudEnabled']
+        if 'guestConfigurationEnabled' in kwargs:
+            guest_configuration_enabled = kwargs['guestConfigurationEnabled']
+        if 'logAnalyticsEnabled' in kwargs:
+            log_analytics_enabled = kwargs['logAnalyticsEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'statusChangeAlertEnabled' in kwargs:
+            status_change_alert_enabled = kwargs['statusChangeAlertEnabled']
+
         if antimalware is not None:
             _setter("antimalware", antimalware)
         if automation_account_enabled is not None:

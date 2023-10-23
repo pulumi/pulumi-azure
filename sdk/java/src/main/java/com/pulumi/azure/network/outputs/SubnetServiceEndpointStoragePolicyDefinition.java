@@ -113,12 +113,12 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
             return serviceResources(List.of(serviceResources));
         }
         public SubnetServiceEndpointStoragePolicyDefinition build() {
-            final var o = new SubnetServiceEndpointStoragePolicyDefinition();
-            o.description = description;
-            o.name = name;
-            o.service = service;
-            o.serviceResources = serviceResources;
-            return o;
+            final var _resultValue = new SubnetServiceEndpointStoragePolicyDefinition();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.service = service;
+            _resultValue.serviceResources = serviceResources;
+            return _resultValue;
         }
     }
 }

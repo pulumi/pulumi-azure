@@ -88,11 +88,11 @@ public final class AutoscaleSettingProfileCapacity {
             return this;
         }
         public AutoscaleSettingProfileCapacity build() {
-            final var o = new AutoscaleSettingProfileCapacity();
-            o.default_ = default_;
-            o.maximum = maximum;
-            o.minimum = minimum;
-            return o;
+            final var _resultValue = new AutoscaleSettingProfileCapacity();
+            _resultValue.default_ = default_;
+            _resultValue.maximum = maximum;
+            _resultValue.minimum = minimum;
+            return _resultValue;
         }
     }
 }

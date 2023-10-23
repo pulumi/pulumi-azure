@@ -84,11 +84,11 @@ public final class GetSharedImageIdentifier {
             return this;
         }
         public GetSharedImageIdentifier build() {
-            final var o = new GetSharedImageIdentifier();
-            o.offer = offer;
-            o.publisher = publisher;
-            o.sku = sku;
-            return o;
+            final var _resultValue = new GetSharedImageIdentifier();
+            _resultValue.offer = offer;
+            _resultValue.publisher = publisher;
+            _resultValue.sku = sku;
+            return _resultValue;
         }
     }
 }

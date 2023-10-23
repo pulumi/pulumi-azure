@@ -141,13 +141,13 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
             return weekDays(List.of(weekDays));
         }
         public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule build() {
-            final var o = new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule();
-            o.hours = hours;
-            o.minutes = minutes;
-            o.monthDays = monthDays;
-            o.monthlies = monthlies;
-            o.weekDays = weekDays;
-            return o;
+            final var _resultValue = new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule();
+            _resultValue.hours = hours;
+            _resultValue.minutes = minutes;
+            _resultValue.monthDays = monthDays;
+            _resultValue.monthlies = monthlies;
+            _resultValue.weekDays = weekDays;
+            return _resultValue;
         }
     }
 }

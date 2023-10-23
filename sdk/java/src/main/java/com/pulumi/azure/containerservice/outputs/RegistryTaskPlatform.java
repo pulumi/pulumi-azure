@@ -86,11 +86,11 @@ public final class RegistryTaskPlatform {
             return this;
         }
         public RegistryTaskPlatform build() {
-            final var o = new RegistryTaskPlatform();
-            o.architecture = architecture;
-            o.os = os;
-            o.variant = variant;
-            return o;
+            final var _resultValue = new RegistryTaskPlatform();
+            _resultValue.architecture = architecture;
+            _resultValue.os = os;
+            _resultValue.variant = variant;
+            return _resultValue;
         }
     }
 }

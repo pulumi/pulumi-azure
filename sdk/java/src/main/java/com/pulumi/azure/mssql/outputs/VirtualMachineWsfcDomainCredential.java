@@ -84,11 +84,11 @@ public final class VirtualMachineWsfcDomainCredential {
             return this;
         }
         public VirtualMachineWsfcDomainCredential build() {
-            final var o = new VirtualMachineWsfcDomainCredential();
-            o.clusterBootstrapAccountPassword = clusterBootstrapAccountPassword;
-            o.clusterOperatorAccountPassword = clusterOperatorAccountPassword;
-            o.sqlServiceAccountPassword = sqlServiceAccountPassword;
-            return o;
+            final var _resultValue = new VirtualMachineWsfcDomainCredential();
+            _resultValue.clusterBootstrapAccountPassword = clusterBootstrapAccountPassword;
+            _resultValue.clusterOperatorAccountPassword = clusterOperatorAccountPassword;
+            _resultValue.sqlServiceAccountPassword = sqlServiceAccountPassword;
+            return _resultValue;
         }
     }
 }

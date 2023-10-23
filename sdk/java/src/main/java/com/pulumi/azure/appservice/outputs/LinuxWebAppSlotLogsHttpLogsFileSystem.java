@@ -65,10 +65,10 @@ public final class LinuxWebAppSlotLogsHttpLogsFileSystem {
             return this;
         }
         public LinuxWebAppSlotLogsHttpLogsFileSystem build() {
-            final var o = new LinuxWebAppSlotLogsHttpLogsFileSystem();
-            o.retentionInDays = retentionInDays;
-            o.retentionInMb = retentionInMb;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotLogsHttpLogsFileSystem();
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.retentionInMb = retentionInMb;
+            return _resultValue;
         }
     }
 }

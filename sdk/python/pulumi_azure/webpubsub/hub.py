@@ -50,7 +50,17 @@ class HubArgs:
              event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]] = None,
              event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+        if 'anonymousConnectionsEnabled' in kwargs:
+            anonymous_connections_enabled = kwargs['anonymousConnectionsEnabled']
+        if 'eventHandlers' in kwargs:
+            event_handlers = kwargs['eventHandlers']
+        if 'eventListeners' in kwargs:
+            event_listeners = kwargs['eventListeners']
+
         _setter("web_pubsub_id", web_pubsub_id)
         if anonymous_connections_enabled is not None:
             _setter("anonymous_connections_enabled", anonymous_connections_enabled)
@@ -164,7 +174,17 @@ class _HubState:
              event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              web_pubsub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anonymousConnectionsEnabled' in kwargs:
+            anonymous_connections_enabled = kwargs['anonymousConnectionsEnabled']
+        if 'eventHandlers' in kwargs:
+            event_handlers = kwargs['eventHandlers']
+        if 'eventListeners' in kwargs:
+            event_listeners = kwargs['eventListeners']
+        if 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+
         if anonymous_connections_enabled is not None:
             _setter("anonymous_connections_enabled", anonymous_connections_enabled)
         if event_handlers is not None:

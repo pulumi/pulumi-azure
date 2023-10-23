@@ -90,11 +90,11 @@ public final class GetKubernetesClusterOmsAgent {
             return omsAgentIdentities(List.of(omsAgentIdentities));
         }
         public GetKubernetesClusterOmsAgent build() {
-            final var o = new GetKubernetesClusterOmsAgent();
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.msiAuthForMonitoringEnabled = msiAuthForMonitoringEnabled;
-            o.omsAgentIdentities = omsAgentIdentities;
-            return o;
+            final var _resultValue = new GetKubernetesClusterOmsAgent();
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.msiAuthForMonitoringEnabled = msiAuthForMonitoringEnabled;
+            _resultValue.omsAgentIdentities = omsAgentIdentities;
+            return _resultValue;
         }
     }
 }

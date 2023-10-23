@@ -69,10 +69,10 @@ public final class KubernetesClusterWindowsProfileGmsa {
             return this;
         }
         public KubernetesClusterWindowsProfileGmsa build() {
-            final var o = new KubernetesClusterWindowsProfileGmsa();
-            o.dnsServer = dnsServer;
-            o.rootDomain = rootDomain;
-            return o;
+            final var _resultValue = new KubernetesClusterWindowsProfileGmsa();
+            _resultValue.dnsServer = dnsServer;
+            _resultValue.rootDomain = rootDomain;
+            return _resultValue;
         }
     }
 }

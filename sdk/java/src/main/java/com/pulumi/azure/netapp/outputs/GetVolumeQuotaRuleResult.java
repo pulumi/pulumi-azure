@@ -145,15 +145,15 @@ public final class GetVolumeQuotaRuleResult {
             return this;
         }
         public GetVolumeQuotaRuleResult build() {
-            final var o = new GetVolumeQuotaRuleResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.quotaSizeInKib = quotaSizeInKib;
-            o.quotaTarget = quotaTarget;
-            o.quotaType = quotaType;
-            o.volumeId = volumeId;
-            return o;
+            final var _resultValue = new GetVolumeQuotaRuleResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.quotaSizeInKib = quotaSizeInKib;
+            _resultValue.quotaTarget = quotaTarget;
+            _resultValue.quotaType = quotaType;
+            _resultValue.volumeId = volumeId;
+            return _resultValue;
         }
     }
 }

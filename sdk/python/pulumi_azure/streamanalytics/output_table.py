@@ -63,7 +63,25 @@ class OutputTableArgs:
              table: pulumi.Input[str],
              columns_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'rowKey' in kwargs:
+            row_key = kwargs['rowKey']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if 'columnsToRemoves' in kwargs:
+            columns_to_removes = kwargs['columnsToRemoves']
+
         _setter("batch_size", batch_size)
         _setter("partition_key", partition_key)
         _setter("resource_group_name", resource_group_name)
@@ -250,7 +268,25 @@ class _OutputTableState:
              storage_account_name: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              table: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'columnsToRemoves' in kwargs:
+            columns_to_removes = kwargs['columnsToRemoves']
+        if 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'rowKey' in kwargs:
+            row_key = kwargs['rowKey']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+
         if batch_size is not None:
             _setter("batch_size", batch_size)
         if columns_to_removes is not None:

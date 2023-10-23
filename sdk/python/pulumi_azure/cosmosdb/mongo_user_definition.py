@@ -41,7 +41,13 @@ class MongoUserDefinitionArgs:
              password: pulumi.Input[str],
              username: pulumi.Input[str],
              inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cosmosMongoDatabaseId' in kwargs:
+            cosmos_mongo_database_id = kwargs['cosmosMongoDatabaseId']
+        if 'inheritedRoleNames' in kwargs:
+            inherited_role_names = kwargs['inheritedRoleNames']
+
         _setter("cosmos_mongo_database_id", cosmos_mongo_database_id)
         _setter("password", password)
         _setter("username", username)
@@ -129,7 +135,13 @@ class _MongoUserDefinitionState:
              inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              password: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cosmosMongoDatabaseId' in kwargs:
+            cosmos_mongo_database_id = kwargs['cosmosMongoDatabaseId']
+        if 'inheritedRoleNames' in kwargs:
+            inherited_role_names = kwargs['inheritedRoleNames']
+
         if cosmos_mongo_database_id is not None:
             _setter("cosmos_mongo_database_id", cosmos_mongo_database_id)
         if inherited_role_names is not None:

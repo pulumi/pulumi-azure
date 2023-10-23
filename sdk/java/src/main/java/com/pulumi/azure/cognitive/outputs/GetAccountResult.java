@@ -222,19 +222,19 @@ public final class GetAccountResult {
             return this;
         }
         public GetAccountResult build() {
-            final var o = new GetAccountResult();
-            o.endpoint = endpoint;
-            o.id = id;
-            o.kind = kind;
-            o.location = location;
-            o.name = name;
-            o.primaryAccessKey = primaryAccessKey;
-            o.qnaRuntimeEndpoint = qnaRuntimeEndpoint;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryAccessKey = secondaryAccessKey;
-            o.skuName = skuName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetAccountResult();
+            _resultValue.endpoint = endpoint;
+            _resultValue.id = id;
+            _resultValue.kind = kind;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.primaryAccessKey = primaryAccessKey;
+            _resultValue.qnaRuntimeEndpoint = qnaRuntimeEndpoint;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryAccessKey = secondaryAccessKey;
+            _resultValue.skuName = skuName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

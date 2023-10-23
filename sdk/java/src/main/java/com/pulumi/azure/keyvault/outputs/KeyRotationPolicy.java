@@ -87,11 +87,11 @@ public final class KeyRotationPolicy {
             return this;
         }
         public KeyRotationPolicy build() {
-            final var o = new KeyRotationPolicy();
-            o.automatic = automatic;
-            o.expireAfter = expireAfter;
-            o.notifyBeforeExpiry = notifyBeforeExpiry;
-            return o;
+            final var _resultValue = new KeyRotationPolicy();
+            _resultValue.automatic = automatic;
+            _resultValue.expireAfter = expireAfter;
+            _resultValue.notifyBeforeExpiry = notifyBeforeExpiry;
+            return _resultValue;
         }
     }
 }

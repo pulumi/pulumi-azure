@@ -219,7 +219,83 @@ class KubernetesClusterNodePoolArgs:
              windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
              workload_runtime: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kubernetesClusterId' in kwargs:
+            kubernetes_cluster_id = kwargs['kubernetesClusterId']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'capacityReservationGroupId' in kwargs:
+            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+        if 'customCaTrustEnabled' in kwargs:
+            custom_ca_trust_enabled = kwargs['customCaTrustEnabled']
+        if 'enableAutoScaling' in kwargs:
+            enable_auto_scaling = kwargs['enableAutoScaling']
+        if 'enableHostEncryption' in kwargs:
+            enable_host_encryption = kwargs['enableHostEncryption']
+        if 'enableNodePublicIp' in kwargs:
+            enable_node_public_ip = kwargs['enableNodePublicIp']
+        if 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if 'fipsEnabled' in kwargs:
+            fips_enabled = kwargs['fipsEnabled']
+        if 'hostGroupId' in kwargs:
+            host_group_id = kwargs['hostGroupId']
+        if 'kubeletConfig' in kwargs:
+            kubelet_config = kwargs['kubeletConfig']
+        if 'kubeletDiskType' in kwargs:
+            kubelet_disk_type = kwargs['kubeletDiskType']
+        if 'linuxOsConfig' in kwargs:
+            linux_os_config = kwargs['linuxOsConfig']
+        if 'maxCount' in kwargs:
+            max_count = kwargs['maxCount']
+        if 'maxPods' in kwargs:
+            max_pods = kwargs['maxPods']
+        if 'messageOfTheDay' in kwargs:
+            message_of_the_day = kwargs['messageOfTheDay']
+        if 'minCount' in kwargs:
+            min_count = kwargs['minCount']
+        if 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if 'nodeLabels' in kwargs:
+            node_labels = kwargs['nodeLabels']
+        if 'nodeNetworkProfile' in kwargs:
+            node_network_profile = kwargs['nodeNetworkProfile']
+        if 'nodePublicIpPrefixId' in kwargs:
+            node_public_ip_prefix_id = kwargs['nodePublicIpPrefixId']
+        if 'nodeTaints' in kwargs:
+            node_taints = kwargs['nodeTaints']
+        if 'orchestratorVersion' in kwargs:
+            orchestrator_version = kwargs['orchestratorVersion']
+        if 'osDiskSizeGb' in kwargs:
+            os_disk_size_gb = kwargs['osDiskSizeGb']
+        if 'osDiskType' in kwargs:
+            os_disk_type = kwargs['osDiskType']
+        if 'osSku' in kwargs:
+            os_sku = kwargs['osSku']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'podSubnetId' in kwargs:
+            pod_subnet_id = kwargs['podSubnetId']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if 'scaleDownMode' in kwargs:
+            scale_down_mode = kwargs['scaleDownMode']
+        if 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if 'spotMaxPrice' in kwargs:
+            spot_max_price = kwargs['spotMaxPrice']
+        if 'ultraSsdEnabled' in kwargs:
+            ultra_ssd_enabled = kwargs['ultraSsdEnabled']
+        if 'upgradeSettings' in kwargs:
+            upgrade_settings = kwargs['upgradeSettings']
+        if 'vnetSubnetId' in kwargs:
+            vnet_subnet_id = kwargs['vnetSubnetId']
+        if 'windowsProfile' in kwargs:
+            windows_profile = kwargs['windowsProfile']
+        if 'workloadRuntime' in kwargs:
+            workload_runtime = kwargs['workloadRuntime']
+
         _setter("kubernetes_cluster_id", kubernetes_cluster_id)
         _setter("vm_size", vm_size)
         if capacity_reservation_group_id is not None:
@@ -1040,7 +1116,83 @@ class _KubernetesClusterNodePoolState:
              windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
              workload_runtime: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityReservationGroupId' in kwargs:
+            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+        if 'customCaTrustEnabled' in kwargs:
+            custom_ca_trust_enabled = kwargs['customCaTrustEnabled']
+        if 'enableAutoScaling' in kwargs:
+            enable_auto_scaling = kwargs['enableAutoScaling']
+        if 'enableHostEncryption' in kwargs:
+            enable_host_encryption = kwargs['enableHostEncryption']
+        if 'enableNodePublicIp' in kwargs:
+            enable_node_public_ip = kwargs['enableNodePublicIp']
+        if 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if 'fipsEnabled' in kwargs:
+            fips_enabled = kwargs['fipsEnabled']
+        if 'hostGroupId' in kwargs:
+            host_group_id = kwargs['hostGroupId']
+        if 'kubeletConfig' in kwargs:
+            kubelet_config = kwargs['kubeletConfig']
+        if 'kubeletDiskType' in kwargs:
+            kubelet_disk_type = kwargs['kubeletDiskType']
+        if 'kubernetesClusterId' in kwargs:
+            kubernetes_cluster_id = kwargs['kubernetesClusterId']
+        if 'linuxOsConfig' in kwargs:
+            linux_os_config = kwargs['linuxOsConfig']
+        if 'maxCount' in kwargs:
+            max_count = kwargs['maxCount']
+        if 'maxPods' in kwargs:
+            max_pods = kwargs['maxPods']
+        if 'messageOfTheDay' in kwargs:
+            message_of_the_day = kwargs['messageOfTheDay']
+        if 'minCount' in kwargs:
+            min_count = kwargs['minCount']
+        if 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if 'nodeLabels' in kwargs:
+            node_labels = kwargs['nodeLabels']
+        if 'nodeNetworkProfile' in kwargs:
+            node_network_profile = kwargs['nodeNetworkProfile']
+        if 'nodePublicIpPrefixId' in kwargs:
+            node_public_ip_prefix_id = kwargs['nodePublicIpPrefixId']
+        if 'nodeTaints' in kwargs:
+            node_taints = kwargs['nodeTaints']
+        if 'orchestratorVersion' in kwargs:
+            orchestrator_version = kwargs['orchestratorVersion']
+        if 'osDiskSizeGb' in kwargs:
+            os_disk_size_gb = kwargs['osDiskSizeGb']
+        if 'osDiskType' in kwargs:
+            os_disk_type = kwargs['osDiskType']
+        if 'osSku' in kwargs:
+            os_sku = kwargs['osSku']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'podSubnetId' in kwargs:
+            pod_subnet_id = kwargs['podSubnetId']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if 'scaleDownMode' in kwargs:
+            scale_down_mode = kwargs['scaleDownMode']
+        if 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if 'spotMaxPrice' in kwargs:
+            spot_max_price = kwargs['spotMaxPrice']
+        if 'ultraSsdEnabled' in kwargs:
+            ultra_ssd_enabled = kwargs['ultraSsdEnabled']
+        if 'upgradeSettings' in kwargs:
+            upgrade_settings = kwargs['upgradeSettings']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'vnetSubnetId' in kwargs:
+            vnet_subnet_id = kwargs['vnetSubnetId']
+        if 'windowsProfile' in kwargs:
+            windows_profile = kwargs['windowsProfile']
+        if 'workloadRuntime' in kwargs:
+            workload_runtime = kwargs['workloadRuntime']
+
         if capacity_reservation_group_id is not None:
             _setter("capacity_reservation_group_id", capacity_reservation_group_id)
         if custom_ca_trust_enabled is not None:

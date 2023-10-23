@@ -109,12 +109,12 @@ public final class LiveEventEncoding {
             return this;
         }
         public LiveEventEncoding build() {
-            final var o = new LiveEventEncoding();
-            o.keyFrameInterval = keyFrameInterval;
-            o.presetName = presetName;
-            o.stretchMode = stretchMode;
-            o.type = type;
-            return o;
+            final var _resultValue = new LiveEventEncoding();
+            _resultValue.keyFrameInterval = keyFrameInterval;
+            _resultValue.presetName = presetName;
+            _resultValue.stretchMode = stretchMode;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

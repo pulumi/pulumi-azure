@@ -90,11 +90,11 @@ public final class AppServiceAuthSettingsActiveDirectory {
             return this;
         }
         public AppServiceAuthSettingsActiveDirectory build() {
-            final var o = new AppServiceAuthSettingsActiveDirectory();
-            o.allowedAudiences = allowedAudiences;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            return o;
+            final var _resultValue = new AppServiceAuthSettingsActiveDirectory();
+            _resultValue.allowedAudiences = allowedAudiences;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            return _resultValue;
         }
     }
 }

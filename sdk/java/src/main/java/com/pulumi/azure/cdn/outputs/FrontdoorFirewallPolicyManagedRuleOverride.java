@@ -94,11 +94,11 @@ public final class FrontdoorFirewallPolicyManagedRuleOverride {
             return rules(List.of(rules));
         }
         public FrontdoorFirewallPolicyManagedRuleOverride build() {
-            final var o = new FrontdoorFirewallPolicyManagedRuleOverride();
-            o.exclusions = exclusions;
-            o.ruleGroupName = ruleGroupName;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new FrontdoorFirewallPolicyManagedRuleOverride();
+            _resultValue.exclusions = exclusions;
+            _resultValue.ruleGroupName = ruleGroupName;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

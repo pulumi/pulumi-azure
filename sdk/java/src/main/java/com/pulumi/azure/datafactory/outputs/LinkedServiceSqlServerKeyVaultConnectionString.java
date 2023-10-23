@@ -65,10 +65,10 @@ public final class LinkedServiceSqlServerKeyVaultConnectionString {
             return this;
         }
         public LinkedServiceSqlServerKeyVaultConnectionString build() {
-            final var o = new LinkedServiceSqlServerKeyVaultConnectionString();
-            o.linkedServiceName = linkedServiceName;
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new LinkedServiceSqlServerKeyVaultConnectionString();
+            _resultValue.linkedServiceName = linkedServiceName;
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

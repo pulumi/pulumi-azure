@@ -281,22 +281,22 @@ public final class GetAppServicePlanResult {
             return this;
         }
         public GetAppServicePlanResult build() {
-            final var o = new GetAppServicePlanResult();
-            o.appServiceEnvironmentId = appServiceEnvironmentId;
-            o.id = id;
-            o.isXenon = isXenon;
-            o.kind = kind;
-            o.location = location;
-            o.maximumElasticWorkerCount = maximumElasticWorkerCount;
-            o.maximumNumberOfWorkers = maximumNumberOfWorkers;
-            o.name = name;
-            o.perSiteScaling = perSiteScaling;
-            o.reserved = reserved;
-            o.resourceGroupName = resourceGroupName;
-            o.sku = sku;
-            o.tags = tags;
-            o.zoneRedundant = zoneRedundant;
-            return o;
+            final var _resultValue = new GetAppServicePlanResult();
+            _resultValue.appServiceEnvironmentId = appServiceEnvironmentId;
+            _resultValue.id = id;
+            _resultValue.isXenon = isXenon;
+            _resultValue.kind = kind;
+            _resultValue.location = location;
+            _resultValue.maximumElasticWorkerCount = maximumElasticWorkerCount;
+            _resultValue.maximumNumberOfWorkers = maximumNumberOfWorkers;
+            _resultValue.name = name;
+            _resultValue.perSiteScaling = perSiteScaling;
+            _resultValue.reserved = reserved;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sku = sku;
+            _resultValue.tags = tags;
+            _resultValue.zoneRedundant = zoneRedundant;
+            return _resultValue;
         }
     }
 }

@@ -19320,7 +19320,7 @@ type SharedImageGallerySharing struct {
 	//
 	// > **NOTE:** `communityGallery` must be set when `permission` is set to `Community`.
 	CommunityGallery *SharedImageGallerySharingCommunityGallery `pulumi:"communityGallery"`
-	// The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+	// The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
 	Permission string `pulumi:"permission"`
@@ -19342,7 +19342,7 @@ type SharedImageGallerySharingArgs struct {
 	//
 	// > **NOTE:** `communityGallery` must be set when `permission` is set to `Community`.
 	CommunityGallery SharedImageGallerySharingCommunityGalleryPtrInput `pulumi:"communityGallery"`
-	// The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+	// The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
 	Permission pulumi.StringInput `pulumi:"permission"`
@@ -19452,7 +19452,7 @@ func (o SharedImageGallerySharingOutput) CommunityGallery() SharedImageGallerySh
 	}).(SharedImageGallerySharingCommunityGalleryPtrOutput)
 }
 
-// The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+// The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
 //
 // > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
 func (o SharedImageGallerySharingOutput) Permission() pulumi.StringOutput {
@@ -19501,7 +19501,7 @@ func (o SharedImageGallerySharingPtrOutput) CommunityGallery() SharedImageGaller
 	}).(SharedImageGallerySharingCommunityGalleryPtrOutput)
 }
 
-// The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+// The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
 //
 // > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
 func (o SharedImageGallerySharingPtrOutput) Permission() pulumi.StringPtrOutput {

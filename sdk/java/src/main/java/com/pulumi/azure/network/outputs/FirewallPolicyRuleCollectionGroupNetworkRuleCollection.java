@@ -109,12 +109,12 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollection {
             return rules(List.of(rules));
         }
         public FirewallPolicyRuleCollectionGroupNetworkRuleCollection build() {
-            final var o = new FirewallPolicyRuleCollectionGroupNetworkRuleCollection();
-            o.action = action;
-            o.name = name;
-            o.priority = priority;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new FirewallPolicyRuleCollectionGroupNetworkRuleCollection();
+            _resultValue.action = action;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

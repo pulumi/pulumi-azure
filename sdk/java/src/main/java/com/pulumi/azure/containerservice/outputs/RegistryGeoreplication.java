@@ -111,12 +111,12 @@ public final class RegistryGeoreplication {
             return this;
         }
         public RegistryGeoreplication build() {
-            final var o = new RegistryGeoreplication();
-            o.location = location;
-            o.regionalEndpointEnabled = regionalEndpointEnabled;
-            o.tags = tags;
-            o.zoneRedundancyEnabled = zoneRedundancyEnabled;
-            return o;
+            final var _resultValue = new RegistryGeoreplication();
+            _resultValue.location = location;
+            _resultValue.regionalEndpointEnabled = regionalEndpointEnabled;
+            _resultValue.tags = tags;
+            _resultValue.zoneRedundancyEnabled = zoneRedundancyEnabled;
+            return _resultValue;
         }
     }
 }

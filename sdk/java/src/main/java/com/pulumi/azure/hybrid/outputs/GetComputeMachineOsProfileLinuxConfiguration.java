@@ -50,9 +50,9 @@ public final class GetComputeMachineOsProfileLinuxConfiguration {
             return patchSettings(List.of(patchSettings));
         }
         public GetComputeMachineOsProfileLinuxConfiguration build() {
-            final var o = new GetComputeMachineOsProfileLinuxConfiguration();
-            o.patchSettings = patchSettings;
-            return o;
+            final var _resultValue = new GetComputeMachineOsProfileLinuxConfiguration();
+            _resultValue.patchSettings = patchSettings;
+            return _resultValue;
         }
     }
 }

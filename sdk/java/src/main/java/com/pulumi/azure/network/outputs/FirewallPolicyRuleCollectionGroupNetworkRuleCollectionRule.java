@@ -222,17 +222,17 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
             return sourceIpGroups(List.of(sourceIpGroups));
         }
         public FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule build() {
-            final var o = new FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule();
-            o.description = description;
-            o.destinationAddresses = destinationAddresses;
-            o.destinationFqdns = destinationFqdns;
-            o.destinationIpGroups = destinationIpGroups;
-            o.destinationPorts = destinationPorts;
-            o.name = name;
-            o.protocols = protocols;
-            o.sourceAddresses = sourceAddresses;
-            o.sourceIpGroups = sourceIpGroups;
-            return o;
+            final var _resultValue = new FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule();
+            _resultValue.description = description;
+            _resultValue.destinationAddresses = destinationAddresses;
+            _resultValue.destinationFqdns = destinationFqdns;
+            _resultValue.destinationIpGroups = destinationIpGroups;
+            _resultValue.destinationPorts = destinationPorts;
+            _resultValue.name = name;
+            _resultValue.protocols = protocols;
+            _resultValue.sourceAddresses = sourceAddresses;
+            _resultValue.sourceIpGroups = sourceIpGroups;
+            return _resultValue;
         }
     }
 }

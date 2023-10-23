@@ -84,11 +84,11 @@ public final class WindowsWebAppSlotConnectionString {
             return this;
         }
         public WindowsWebAppSlotConnectionString build() {
-            final var o = new WindowsWebAppSlotConnectionString();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new WindowsWebAppSlotConnectionString();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

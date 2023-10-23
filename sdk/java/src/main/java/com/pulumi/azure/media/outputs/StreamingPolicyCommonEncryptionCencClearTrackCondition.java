@@ -84,11 +84,11 @@ public final class StreamingPolicyCommonEncryptionCencClearTrackCondition {
             return this;
         }
         public StreamingPolicyCommonEncryptionCencClearTrackCondition build() {
-            final var o = new StreamingPolicyCommonEncryptionCencClearTrackCondition();
-            o.operation = operation;
-            o.property = property;
-            o.value = value;
-            return o;
+            final var _resultValue = new StreamingPolicyCommonEncryptionCencClearTrackCondition();
+            _resultValue.operation = operation;
+            _resultValue.property = property;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

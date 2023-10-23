@@ -106,12 +106,12 @@ public final class KubernetesClusterWindowsProfile {
             return this;
         }
         public KubernetesClusterWindowsProfile build() {
-            final var o = new KubernetesClusterWindowsProfile();
-            o.adminPassword = adminPassword;
-            o.adminUsername = adminUsername;
-            o.gmsa = gmsa;
-            o.license = license;
-            return o;
+            final var _resultValue = new KubernetesClusterWindowsProfile();
+            _resultValue.adminPassword = adminPassword;
+            _resultValue.adminUsername = adminUsername;
+            _resultValue.gmsa = gmsa;
+            _resultValue.license = license;
+            return _resultValue;
         }
     }
 }

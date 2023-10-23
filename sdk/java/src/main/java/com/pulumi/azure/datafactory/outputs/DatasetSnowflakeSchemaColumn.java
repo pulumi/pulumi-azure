@@ -106,12 +106,12 @@ public final class DatasetSnowflakeSchemaColumn {
             return this;
         }
         public DatasetSnowflakeSchemaColumn build() {
-            final var o = new DatasetSnowflakeSchemaColumn();
-            o.name = name;
-            o.precision = precision;
-            o.scale = scale;
-            o.type = type;
-            return o;
+            final var _resultValue = new DatasetSnowflakeSchemaColumn();
+            _resultValue.name = name;
+            _resultValue.precision = precision;
+            _resultValue.scale = scale;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

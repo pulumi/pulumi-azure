@@ -67,10 +67,10 @@ public final class EndpointGlobalDeliveryRuleCacheExpirationAction {
             return this;
         }
         public EndpointGlobalDeliveryRuleCacheExpirationAction build() {
-            final var o = new EndpointGlobalDeliveryRuleCacheExpirationAction();
-            o.behavior = behavior;
-            o.duration = duration;
-            return o;
+            final var _resultValue = new EndpointGlobalDeliveryRuleCacheExpirationAction();
+            _resultValue.behavior = behavior;
+            _resultValue.duration = duration;
+            return _resultValue;
         }
     }
 }

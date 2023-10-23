@@ -231,17 +231,17 @@ public final class WindowsVirtualMachineOsDisk {
             return this;
         }
         public WindowsVirtualMachineOsDisk build() {
-            final var o = new WindowsVirtualMachineOsDisk();
-            o.caching = caching;
-            o.diffDiskSettings = diffDiskSettings;
-            o.diskEncryptionSetId = diskEncryptionSetId;
-            o.diskSizeGb = diskSizeGb;
-            o.name = name;
-            o.secureVmDiskEncryptionSetId = secureVmDiskEncryptionSetId;
-            o.securityEncryptionType = securityEncryptionType;
-            o.storageAccountType = storageAccountType;
-            o.writeAcceleratorEnabled = writeAcceleratorEnabled;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineOsDisk();
+            _resultValue.caching = caching;
+            _resultValue.diffDiskSettings = diffDiskSettings;
+            _resultValue.diskEncryptionSetId = diskEncryptionSetId;
+            _resultValue.diskSizeGb = diskSizeGb;
+            _resultValue.name = name;
+            _resultValue.secureVmDiskEncryptionSetId = secureVmDiskEncryptionSetId;
+            _resultValue.securityEncryptionType = securityEncryptionType;
+            _resultValue.storageAccountType = storageAccountType;
+            _resultValue.writeAcceleratorEnabled = writeAcceleratorEnabled;
+            return _resultValue;
         }
     }
 }

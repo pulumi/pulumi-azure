@@ -313,24 +313,24 @@ public final class GetVolumeResult {
             return this;
         }
         public GetVolumeResult build() {
-            final var o = new GetVolumeResult();
-            o.accountName = accountName;
-            o.dataProtectionReplications = dataProtectionReplications;
-            o.id = id;
-            o.location = location;
-            o.mountIpAddresses = mountIpAddresses;
-            o.name = name;
-            o.networkFeatures = networkFeatures;
-            o.poolName = poolName;
-            o.protocols = protocols;
-            o.resourceGroupName = resourceGroupName;
-            o.securityStyle = securityStyle;
-            o.serviceLevel = serviceLevel;
-            o.storageQuotaInGb = storageQuotaInGb;
-            o.subnetId = subnetId;
-            o.volumePath = volumePath;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new GetVolumeResult();
+            _resultValue.accountName = accountName;
+            _resultValue.dataProtectionReplications = dataProtectionReplications;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.mountIpAddresses = mountIpAddresses;
+            _resultValue.name = name;
+            _resultValue.networkFeatures = networkFeatures;
+            _resultValue.poolName = poolName;
+            _resultValue.protocols = protocols;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.securityStyle = securityStyle;
+            _resultValue.serviceLevel = serviceLevel;
+            _resultValue.storageQuotaInGb = storageQuotaInGb;
+            _resultValue.subnetId = subnetId;
+            _resultValue.volumePath = volumePath;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

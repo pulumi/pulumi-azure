@@ -57,7 +57,17 @@ class CertificateArgs:
              password: Optional[pulumi.Input[str]] = None,
              pfx_blob: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if 'keyVaultSecretId' in kwargs:
+            key_vault_secret_id = kwargs['keyVaultSecretId']
+        if 'pfxBlob' in kwargs:
+            pfx_blob = kwargs['pfxBlob']
+
         _setter("resource_group_name", resource_group_name)
         if app_service_plan_id is not None:
             _setter("app_service_plan_id", app_service_plan_id)
@@ -251,7 +261,29 @@ class _CertificateState:
              subject_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'hostNames' in kwargs:
+            host_names = kwargs['hostNames']
+        if 'hostingEnvironmentProfileId' in kwargs:
+            hosting_environment_profile_id = kwargs['hostingEnvironmentProfileId']
+        if 'issueDate' in kwargs:
+            issue_date = kwargs['issueDate']
+        if 'keyVaultSecretId' in kwargs:
+            key_vault_secret_id = kwargs['keyVaultSecretId']
+        if 'pfxBlob' in kwargs:
+            pfx_blob = kwargs['pfxBlob']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subjectName' in kwargs:
+            subject_name = kwargs['subjectName']
+
         if app_service_plan_id is not None:
             _setter("app_service_plan_id", app_service_plan_id)
         if expiration_date is not None:

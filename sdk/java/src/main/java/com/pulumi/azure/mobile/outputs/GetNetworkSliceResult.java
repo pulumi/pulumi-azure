@@ -150,15 +150,15 @@ public final class GetNetworkSliceResult {
             return this;
         }
         public GetNetworkSliceResult build() {
-            final var o = new GetNetworkSliceResult();
-            o.description = description;
-            o.id = id;
-            o.location = location;
-            o.mobileNetworkId = mobileNetworkId;
-            o.name = name;
-            o.singleNetworkSliceSelectionAssistanceInformations = singleNetworkSliceSelectionAssistanceInformations;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetNetworkSliceResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.mobileNetworkId = mobileNetworkId;
+            _resultValue.name = name;
+            _resultValue.singleNetworkSliceSelectionAssistanceInformations = singleNetworkSliceSelectionAssistanceInformations;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

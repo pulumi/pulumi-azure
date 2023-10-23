@@ -114,12 +114,12 @@ public final class SparkClusterStorageAccount {
             return this;
         }
         public SparkClusterStorageAccount build() {
-            final var o = new SparkClusterStorageAccount();
-            o.isDefault = isDefault;
-            o.storageAccountKey = storageAccountKey;
-            o.storageContainerId = storageContainerId;
-            o.storageResourceId = storageResourceId;
-            return o;
+            final var _resultValue = new SparkClusterStorageAccount();
+            _resultValue.isDefault = isDefault;
+            _resultValue.storageAccountKey = storageAccountKey;
+            _resultValue.storageContainerId = storageContainerId;
+            _resultValue.storageResourceId = storageResourceId;
+            return _resultValue;
         }
     }
 }

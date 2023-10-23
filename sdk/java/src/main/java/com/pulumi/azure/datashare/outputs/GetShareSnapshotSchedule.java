@@ -84,11 +84,11 @@ public final class GetShareSnapshotSchedule {
             return this;
         }
         public GetShareSnapshotSchedule build() {
-            final var o = new GetShareSnapshotSchedule();
-            o.name = name;
-            o.recurrence = recurrence;
-            o.startTime = startTime;
-            return o;
+            final var _resultValue = new GetShareSnapshotSchedule();
+            _resultValue.name = name;
+            _resultValue.recurrence = recurrence;
+            _resultValue.startTime = startTime;
+            return _resultValue;
         }
     }
 }

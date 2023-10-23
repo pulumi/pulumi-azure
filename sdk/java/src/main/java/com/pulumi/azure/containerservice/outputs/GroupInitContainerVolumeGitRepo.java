@@ -86,11 +86,11 @@ public final class GroupInitContainerVolumeGitRepo {
             return this;
         }
         public GroupInitContainerVolumeGitRepo build() {
-            final var o = new GroupInitContainerVolumeGitRepo();
-            o.directory = directory;
-            o.revision = revision;
-            o.url = url;
-            return o;
+            final var _resultValue = new GroupInitContainerVolumeGitRepo();
+            _resultValue.directory = directory;
+            _resultValue.revision = revision;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

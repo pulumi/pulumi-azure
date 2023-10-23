@@ -66,10 +66,10 @@ public final class CertifiateCertificatePolicyLifetimeAction {
             return this;
         }
         public CertifiateCertificatePolicyLifetimeAction build() {
-            final var o = new CertifiateCertificatePolicyLifetimeAction();
-            o.action = action;
-            o.trigger = trigger;
-            return o;
+            final var _resultValue = new CertifiateCertificatePolicyLifetimeAction();
+            _resultValue.action = action;
+            _resultValue.trigger = trigger;
+            return _resultValue;
         }
     }
 }

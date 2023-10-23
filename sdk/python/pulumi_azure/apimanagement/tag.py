@@ -35,7 +35,13 @@ class TagArgs:
              api_management_id: pulumi.Input[str],
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("api_management_id", api_management_id)
         if display_name is not None:
             _setter("display_name", display_name)
@@ -103,7 +109,13 @@ class _TagState:
              api_management_id: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if api_management_id is not None:
             _setter("api_management_id", api_management_id)
         if display_name is not None:

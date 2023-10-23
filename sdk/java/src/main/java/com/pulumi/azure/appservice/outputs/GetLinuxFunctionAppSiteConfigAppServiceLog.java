@@ -65,10 +65,10 @@ public final class GetLinuxFunctionAppSiteConfigAppServiceLog {
             return this;
         }
         public GetLinuxFunctionAppSiteConfigAppServiceLog build() {
-            final var o = new GetLinuxFunctionAppSiteConfigAppServiceLog();
-            o.diskQuotaMb = diskQuotaMb;
-            o.retentionPeriodDays = retentionPeriodDays;
-            return o;
+            final var _resultValue = new GetLinuxFunctionAppSiteConfigAppServiceLog();
+            _resultValue.diskQuotaMb = diskQuotaMb;
+            _resultValue.retentionPeriodDays = retentionPeriodDays;
+            return _resultValue;
         }
     }
 }

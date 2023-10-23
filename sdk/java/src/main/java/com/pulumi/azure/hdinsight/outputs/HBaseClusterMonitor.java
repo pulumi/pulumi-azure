@@ -65,10 +65,10 @@ public final class HBaseClusterMonitor {
             return this;
         }
         public HBaseClusterMonitor build() {
-            final var o = new HBaseClusterMonitor();
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.primaryKey = primaryKey;
-            return o;
+            final var _resultValue = new HBaseClusterMonitor();
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.primaryKey = primaryKey;
+            return _resultValue;
         }
     }
 }

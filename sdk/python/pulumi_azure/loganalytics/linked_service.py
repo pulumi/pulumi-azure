@@ -41,7 +41,17 @@ class LinkedServiceArgs:
              workspace_id: pulumi.Input[str],
              read_access_id: Optional[pulumi.Input[str]] = None,
              write_access_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'readAccessId' in kwargs:
+            read_access_id = kwargs['readAccessId']
+        if 'writeAccessId' in kwargs:
+            write_access_id = kwargs['writeAccessId']
+
         _setter("resource_group_name", resource_group_name)
         _setter("workspace_id", workspace_id)
         if read_access_id is not None:
@@ -134,7 +144,17 @@ class _LinkedServiceState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
              write_access_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'readAccessId' in kwargs:
+            read_access_id = kwargs['readAccessId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'writeAccessId' in kwargs:
+            write_access_id = kwargs['writeAccessId']
+
         if name is not None:
             _setter("name", name)
         if read_access_id is not None:

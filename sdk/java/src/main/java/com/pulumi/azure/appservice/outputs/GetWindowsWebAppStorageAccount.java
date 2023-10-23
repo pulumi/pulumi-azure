@@ -141,14 +141,14 @@ public final class GetWindowsWebAppStorageAccount {
             return this;
         }
         public GetWindowsWebAppStorageAccount build() {
-            final var o = new GetWindowsWebAppStorageAccount();
-            o.accessKey = accessKey;
-            o.accountName = accountName;
-            o.mountPath = mountPath;
-            o.name = name;
-            o.shareName = shareName;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetWindowsWebAppStorageAccount();
+            _resultValue.accessKey = accessKey;
+            _resultValue.accountName = accountName;
+            _resultValue.mountPath = mountPath;
+            _resultValue.name = name;
+            _resultValue.shareName = shareName;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

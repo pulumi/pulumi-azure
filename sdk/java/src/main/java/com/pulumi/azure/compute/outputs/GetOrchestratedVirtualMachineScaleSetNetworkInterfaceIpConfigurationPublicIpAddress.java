@@ -147,14 +147,14 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfig
             return this;
         }
         public GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {
-            final var o = new GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
-            o.domainNameLabel = domainNameLabel;
-            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
-            o.ipTags = ipTags;
-            o.name = name;
-            o.publicIpPrefixId = publicIpPrefixId;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
+            _resultValue.domainNameLabel = domainNameLabel;
+            _resultValue.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            _resultValue.ipTags = ipTags;
+            _resultValue.name = name;
+            _resultValue.publicIpPrefixId = publicIpPrefixId;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

@@ -140,13 +140,13 @@ public final class ServicesCommunicationsGatewayServiceLocation {
             return operatorAddresses(List.of(operatorAddresses));
         }
         public ServicesCommunicationsGatewayServiceLocation build() {
-            final var o = new ServicesCommunicationsGatewayServiceLocation();
-            o.allowedMediaSourceAddressPrefixes = allowedMediaSourceAddressPrefixes;
-            o.allowedSignalingSourceAddressPrefixes = allowedSignalingSourceAddressPrefixes;
-            o.esrpAddresses = esrpAddresses;
-            o.location = location;
-            o.operatorAddresses = operatorAddresses;
-            return o;
+            final var _resultValue = new ServicesCommunicationsGatewayServiceLocation();
+            _resultValue.allowedMediaSourceAddressPrefixes = allowedMediaSourceAddressPrefixes;
+            _resultValue.allowedSignalingSourceAddressPrefixes = allowedSignalingSourceAddressPrefixes;
+            _resultValue.esrpAddresses = esrpAddresses;
+            _resultValue.location = location;
+            _resultValue.operatorAddresses = operatorAddresses;
+            return _resultValue;
         }
     }
 }

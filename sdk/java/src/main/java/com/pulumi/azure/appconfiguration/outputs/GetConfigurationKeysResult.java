@@ -121,13 +121,13 @@ public final class GetConfigurationKeysResult {
             return this;
         }
         public GetConfigurationKeysResult build() {
-            final var o = new GetConfigurationKeysResult();
-            o.configurationStoreId = configurationStoreId;
-            o.id = id;
-            o.items = items;
-            o.key = key;
-            o.label = label;
-            return o;
+            final var _resultValue = new GetConfigurationKeysResult();
+            _resultValue.configurationStoreId = configurationStoreId;
+            _resultValue.id = id;
+            _resultValue.items = items;
+            _resultValue.key = key;
+            _resultValue.label = label;
+            return _resultValue;
         }
     }
 }

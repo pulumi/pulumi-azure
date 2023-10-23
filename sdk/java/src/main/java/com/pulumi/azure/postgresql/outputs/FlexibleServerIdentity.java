@@ -69,10 +69,10 @@ public final class FlexibleServerIdentity {
             return this;
         }
         public FlexibleServerIdentity build() {
-            final var o = new FlexibleServerIdentity();
-            o.identityIds = identityIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new FlexibleServerIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -45,7 +45,11 @@ class HostPoolScheduledAgentUpdatesArgs:
              schedules: Optional[pulumi.Input[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
              use_session_host_timezone: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'useSessionHostTimezone' in kwargs:
+            use_session_host_timezone = kwargs['useSessionHostTimezone']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if schedules is not None:
@@ -125,7 +129,13 @@ class HostPoolScheduledAgentUpdatesScheduleArgs:
              _setter: Callable[[Any, Any], None],
              day_of_week: pulumi.Input[str],
              hour_of_day: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'hourOfDay' in kwargs:
+            hour_of_day = kwargs['hourOfDay']
+
         _setter("day_of_week", day_of_week)
         _setter("hour_of_day", hour_of_day)
 
@@ -173,7 +183,13 @@ class ScalingPlanHostPoolArgs:
              _setter: Callable[[Any, Any], None],
              hostpool_id: pulumi.Input[str],
              scaling_plan_enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostpoolId' in kwargs:
+            hostpool_id = kwargs['hostpoolId']
+        if 'scalingPlanEnabled' in kwargs:
+            scaling_plan_enabled = kwargs['scalingPlanEnabled']
+
         _setter("hostpool_id", hostpool_id)
         _setter("scaling_plan_enabled", scaling_plan_enabled)
 
@@ -285,7 +301,43 @@ class ScalingPlanScheduleArgs:
              ramp_up_start_time: pulumi.Input[str],
              ramp_up_capacity_threshold_percent: Optional[pulumi.Input[int]] = None,
              ramp_up_minimum_hosts_percent: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+        if 'offPeakLoadBalancingAlgorithm' in kwargs:
+            off_peak_load_balancing_algorithm = kwargs['offPeakLoadBalancingAlgorithm']
+        if 'offPeakStartTime' in kwargs:
+            off_peak_start_time = kwargs['offPeakStartTime']
+        if 'peakLoadBalancingAlgorithm' in kwargs:
+            peak_load_balancing_algorithm = kwargs['peakLoadBalancingAlgorithm']
+        if 'peakStartTime' in kwargs:
+            peak_start_time = kwargs['peakStartTime']
+        if 'rampDownCapacityThresholdPercent' in kwargs:
+            ramp_down_capacity_threshold_percent = kwargs['rampDownCapacityThresholdPercent']
+        if 'rampDownForceLogoffUsers' in kwargs:
+            ramp_down_force_logoff_users = kwargs['rampDownForceLogoffUsers']
+        if 'rampDownLoadBalancingAlgorithm' in kwargs:
+            ramp_down_load_balancing_algorithm = kwargs['rampDownLoadBalancingAlgorithm']
+        if 'rampDownMinimumHostsPercent' in kwargs:
+            ramp_down_minimum_hosts_percent = kwargs['rampDownMinimumHostsPercent']
+        if 'rampDownNotificationMessage' in kwargs:
+            ramp_down_notification_message = kwargs['rampDownNotificationMessage']
+        if 'rampDownStartTime' in kwargs:
+            ramp_down_start_time = kwargs['rampDownStartTime']
+        if 'rampDownStopHostsWhen' in kwargs:
+            ramp_down_stop_hosts_when = kwargs['rampDownStopHostsWhen']
+        if 'rampDownWaitTimeMinutes' in kwargs:
+            ramp_down_wait_time_minutes = kwargs['rampDownWaitTimeMinutes']
+        if 'rampUpLoadBalancingAlgorithm' in kwargs:
+            ramp_up_load_balancing_algorithm = kwargs['rampUpLoadBalancingAlgorithm']
+        if 'rampUpStartTime' in kwargs:
+            ramp_up_start_time = kwargs['rampUpStartTime']
+        if 'rampUpCapacityThresholdPercent' in kwargs:
+            ramp_up_capacity_threshold_percent = kwargs['rampUpCapacityThresholdPercent']
+        if 'rampUpMinimumHostsPercent' in kwargs:
+            ramp_up_minimum_hosts_percent = kwargs['rampUpMinimumHostsPercent']
+
         _setter("days_of_weeks", days_of_weeks)
         _setter("name", name)
         _setter("off_peak_load_balancing_algorithm", off_peak_load_balancing_algorithm)

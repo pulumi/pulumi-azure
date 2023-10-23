@@ -84,11 +84,11 @@ public final class SpringCloudServiceMarketplace {
             return this;
         }
         public SpringCloudServiceMarketplace build() {
-            final var o = new SpringCloudServiceMarketplace();
-            o.plan = plan;
-            o.product = product;
-            o.publisher = publisher;
-            return o;
+            final var _resultValue = new SpringCloudServiceMarketplace();
+            _resultValue.plan = plan;
+            _resultValue.product = product;
+            _resultValue.publisher = publisher;
+            return _resultValue;
         }
     }
 }

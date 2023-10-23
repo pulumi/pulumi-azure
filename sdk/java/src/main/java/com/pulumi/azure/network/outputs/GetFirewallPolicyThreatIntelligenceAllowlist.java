@@ -56,10 +56,10 @@ public final class GetFirewallPolicyThreatIntelligenceAllowlist {
             return ipAddresses(List.of(ipAddresses));
         }
         public GetFirewallPolicyThreatIntelligenceAllowlist build() {
-            final var o = new GetFirewallPolicyThreatIntelligenceAllowlist();
-            o.fqdns = fqdns;
-            o.ipAddresses = ipAddresses;
-            return o;
+            final var _resultValue = new GetFirewallPolicyThreatIntelligenceAllowlist();
+            _resultValue.fqdns = fqdns;
+            _resultValue.ipAddresses = ipAddresses;
+            return _resultValue;
         }
     }
 }

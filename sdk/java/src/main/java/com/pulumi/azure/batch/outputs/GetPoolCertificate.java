@@ -107,12 +107,12 @@ public final class GetPoolCertificate {
             return visibilities(List.of(visibilities));
         }
         public GetPoolCertificate build() {
-            final var o = new GetPoolCertificate();
-            o.id = id;
-            o.storeLocation = storeLocation;
-            o.storeName = storeName;
-            o.visibilities = visibilities;
-            return o;
+            final var _resultValue = new GetPoolCertificate();
+            _resultValue.id = id;
+            _resultValue.storeLocation = storeLocation;
+            _resultValue.storeName = storeName;
+            _resultValue.visibilities = visibilities;
+            return _resultValue;
         }
     }
 }

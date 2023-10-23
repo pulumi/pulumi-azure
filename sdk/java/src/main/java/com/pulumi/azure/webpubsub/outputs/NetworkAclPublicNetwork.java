@@ -77,10 +77,10 @@ public final class NetworkAclPublicNetwork {
             return deniedRequestTypes(List.of(deniedRequestTypes));
         }
         public NetworkAclPublicNetwork build() {
-            final var o = new NetworkAclPublicNetwork();
-            o.allowedRequestTypes = allowedRequestTypes;
-            o.deniedRequestTypes = deniedRequestTypes;
-            return o;
+            final var _resultValue = new NetworkAclPublicNetwork();
+            _resultValue.allowedRequestTypes = allowedRequestTypes;
+            _resultValue.deniedRequestTypes = deniedRequestTypes;
+            return _resultValue;
         }
     }
 }

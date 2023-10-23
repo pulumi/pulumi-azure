@@ -124,13 +124,13 @@ public final class SpringCloudGatewayApiMetadata {
             return this;
         }
         public SpringCloudGatewayApiMetadata build() {
-            final var o = new SpringCloudGatewayApiMetadata();
-            o.description = description;
-            o.documentationUrl = documentationUrl;
-            o.serverUrl = serverUrl;
-            o.title = title;
-            o.version = version;
-            return o;
+            final var _resultValue = new SpringCloudGatewayApiMetadata();
+            _resultValue.description = description;
+            _resultValue.documentationUrl = documentationUrl;
+            _resultValue.serverUrl = serverUrl;
+            _resultValue.title = title;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

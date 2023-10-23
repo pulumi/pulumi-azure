@@ -58,7 +58,13 @@ class AccountCustomerManagedKey(dict):
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: str,
              identity_client_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'identityClientId' in kwargs:
+            identity_client_id = kwargs['identityClientId']
+
         _setter("key_vault_key_id", key_vault_key_id)
         if identity_client_id is not None:
             _setter("identity_client_id", identity_client_id)
@@ -130,7 +136,15 @@ class AccountIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -218,7 +232,15 @@ class AccountNetworkAcls(dict):
              default_action: str,
              ip_rules: Optional[Sequence[str]] = None,
              virtual_network_rules: Optional[Sequence['outputs.AccountNetworkAclsVirtualNetworkRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+
         _setter("default_action", default_action)
         if ip_rules is not None:
             _setter("ip_rules", ip_rules)
@@ -288,7 +310,13 @@ class AccountNetworkAclsVirtualNetworkRule(dict):
              _setter: Callable[[Any, Any], None],
              subnet_id: str,
              ignore_missing_vnet_service_endpoint: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
+
         _setter("subnet_id", subnet_id)
         if ignore_missing_vnet_service_endpoint is not None:
             _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
@@ -348,7 +376,13 @@ class AccountStorage(dict):
              _setter: Callable[[Any, Any], None],
              storage_account_id: str,
              identity_client_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'identityClientId' in kwargs:
+            identity_client_id = kwargs['identityClientId']
+
         _setter("storage_account_id", storage_account_id)
         if identity_client_id is not None:
             _setter("identity_client_id", identity_client_id)
@@ -393,7 +427,9 @@ class DeploymentModel(dict):
              format: str,
              name: str,
              version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("format", format)
         _setter("name", name)
         _setter("version", version)
@@ -454,7 +490,9 @@ class DeploymentScale(dict):
              family: Optional[str] = None,
              size: Optional[str] = None,
              tier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if capacity is not None:
             _setter("capacity", capacity)

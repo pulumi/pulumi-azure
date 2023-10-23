@@ -37,7 +37,15 @@ class CustomHttpsConfigurationArgs:
              custom_https_provisioning_enabled: pulumi.Input[bool],
              frontend_endpoint_id: pulumi.Input[str],
              custom_https_configuration: Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHttpsProvisioningEnabled' in kwargs:
+            custom_https_provisioning_enabled = kwargs['customHttpsProvisioningEnabled']
+        if 'frontendEndpointId' in kwargs:
+            frontend_endpoint_id = kwargs['frontendEndpointId']
+        if 'customHttpsConfiguration' in kwargs:
+            custom_https_configuration = kwargs['customHttpsConfiguration']
+
         _setter("custom_https_provisioning_enabled", custom_https_provisioning_enabled)
         _setter("frontend_endpoint_id", frontend_endpoint_id)
         if custom_https_configuration is not None:
@@ -104,7 +112,15 @@ class _CustomHttpsConfigurationState:
              custom_https_configuration: Optional[pulumi.Input['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] = None,
              custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
              frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHttpsConfiguration' in kwargs:
+            custom_https_configuration = kwargs['customHttpsConfiguration']
+        if 'customHttpsProvisioningEnabled' in kwargs:
+            custom_https_provisioning_enabled = kwargs['customHttpsProvisioningEnabled']
+        if 'frontendEndpointId' in kwargs:
+            frontend_endpoint_id = kwargs['frontendEndpointId']
+
         if custom_https_configuration is not None:
             _setter("custom_https_configuration", custom_https_configuration)
         if custom_https_provisioning_enabled is not None:

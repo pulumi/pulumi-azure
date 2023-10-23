@@ -256,19 +256,19 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
             return this;
         }
         public OrchestratedVirtualMachineScaleSetExtension build() {
-            final var o = new OrchestratedVirtualMachineScaleSetExtension();
-            o.autoUpgradeMinorVersionEnabled = autoUpgradeMinorVersionEnabled;
-            o.extensionsToProvisionAfterVmCreations = extensionsToProvisionAfterVmCreations;
-            o.failureSuppressionEnabled = failureSuppressionEnabled;
-            o.forceExtensionExecutionOnChange = forceExtensionExecutionOnChange;
-            o.name = name;
-            o.protectedSettings = protectedSettings;
-            o.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
-            o.publisher = publisher;
-            o.settings = settings;
-            o.type = type;
-            o.typeHandlerVersion = typeHandlerVersion;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetExtension();
+            _resultValue.autoUpgradeMinorVersionEnabled = autoUpgradeMinorVersionEnabled;
+            _resultValue.extensionsToProvisionAfterVmCreations = extensionsToProvisionAfterVmCreations;
+            _resultValue.failureSuppressionEnabled = failureSuppressionEnabled;
+            _resultValue.forceExtensionExecutionOnChange = forceExtensionExecutionOnChange;
+            _resultValue.name = name;
+            _resultValue.protectedSettings = protectedSettings;
+            _resultValue.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
+            _resultValue.publisher = publisher;
+            _resultValue.settings = settings;
+            _resultValue.type = type;
+            _resultValue.typeHandlerVersion = typeHandlerVersion;
+            return _resultValue;
         }
     }
 }

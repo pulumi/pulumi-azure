@@ -206,18 +206,18 @@ public final class GetImageResult {
             return this;
         }
         public GetImageResult build() {
-            final var o = new GetImageResult();
-            o.dataDisks = dataDisks;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.nameRegex = nameRegex;
-            o.osDisks = osDisks;
-            o.resourceGroupName = resourceGroupName;
-            o.sortDescending = sortDescending;
-            o.tags = tags;
-            o.zoneResilient = zoneResilient;
-            return o;
+            final var _resultValue = new GetImageResult();
+            _resultValue.dataDisks = dataDisks;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.nameRegex = nameRegex;
+            _resultValue.osDisks = osDisks;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sortDescending = sortDescending;
+            _resultValue.tags = tags;
+            _resultValue.zoneResilient = zoneResilient;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class JobOutputAsset {
             return this;
         }
         public JobOutputAsset build() {
-            final var o = new JobOutputAsset();
-            o.label = label;
-            o.name = name;
-            return o;
+            final var _resultValue = new JobOutputAsset();
+            _resultValue.label = label;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

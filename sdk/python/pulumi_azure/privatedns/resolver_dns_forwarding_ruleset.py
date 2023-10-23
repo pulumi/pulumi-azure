@@ -43,7 +43,13 @@ class ResolverDnsForwardingRulesetArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateDnsResolverOutboundEndpointIds' in kwargs:
+            private_dns_resolver_outbound_endpoint_ids = kwargs['privateDnsResolverOutboundEndpointIds']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("private_dns_resolver_outbound_endpoint_ids", private_dns_resolver_outbound_endpoint_ids)
         _setter("resource_group_name", resource_group_name)
         if location is not None:
@@ -146,7 +152,13 @@ class _ResolverDnsForwardingRulesetState:
              private_dns_resolver_outbound_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateDnsResolverOutboundEndpointIds' in kwargs:
+            private_dns_resolver_outbound_endpoint_ids = kwargs['privateDnsResolverOutboundEndpointIds']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if location is not None:
             _setter("location", location)
         if name is not None:

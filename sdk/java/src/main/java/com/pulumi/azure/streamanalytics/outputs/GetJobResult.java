@@ -340,25 +340,25 @@ public final class GetJobResult {
             return this;
         }
         public GetJobResult build() {
-            final var o = new GetJobResult();
-            o.compatibilityLevel = compatibilityLevel;
-            o.dataLocale = dataLocale;
-            o.eventsLateArrivalMaxDelayInSeconds = eventsLateArrivalMaxDelayInSeconds;
-            o.eventsOutOfOrderMaxDelayInSeconds = eventsOutOfOrderMaxDelayInSeconds;
-            o.eventsOutOfOrderPolicy = eventsOutOfOrderPolicy;
-            o.id = id;
-            o.identities = identities;
-            o.jobId = jobId;
-            o.lastOutputTime = lastOutputTime;
-            o.location = location;
-            o.name = name;
-            o.outputErrorPolicy = outputErrorPolicy;
-            o.resourceGroupName = resourceGroupName;
-            o.startMode = startMode;
-            o.startTime = startTime;
-            o.streamingUnits = streamingUnits;
-            o.transformationQuery = transformationQuery;
-            return o;
+            final var _resultValue = new GetJobResult();
+            _resultValue.compatibilityLevel = compatibilityLevel;
+            _resultValue.dataLocale = dataLocale;
+            _resultValue.eventsLateArrivalMaxDelayInSeconds = eventsLateArrivalMaxDelayInSeconds;
+            _resultValue.eventsOutOfOrderMaxDelayInSeconds = eventsOutOfOrderMaxDelayInSeconds;
+            _resultValue.eventsOutOfOrderPolicy = eventsOutOfOrderPolicy;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.jobId = jobId;
+            _resultValue.lastOutputTime = lastOutputTime;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.outputErrorPolicy = outputErrorPolicy;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.startMode = startMode;
+            _resultValue.startTime = startTime;
+            _resultValue.streamingUnits = streamingUnits;
+            _resultValue.transformationQuery = transformationQuery;
+            return _resultValue;
         }
     }
 }

@@ -21,7 +21,7 @@ class GetServiceTagsResult:
     """
     A collection of values returned by getServiceTags.
     """
-    def __init__(__self__, address_prefixes=None, id=None, ipv4_cidrs=None, ipv6_cidrs=None, location=None, location_filter=None, service=None):
+    def __init__(__self__, address_prefixes=None, id=None, ipv4_cidrs=None, ipv6_cidrs=None, location=None, location_filter=None, name=None, service=None):
         if address_prefixes and not isinstance(address_prefixes, list):
             raise TypeError("Expected argument 'address_prefixes' to be a list")
         pulumi.set(__self__, "address_prefixes", address_prefixes)
@@ -40,6 +40,9 @@ class GetServiceTagsResult:
         if location_filter and not isinstance(location_filter, str):
             raise TypeError("Expected argument 'location_filter' to be a str")
         pulumi.set(__self__, "location_filter", location_filter)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
         if service and not isinstance(service, str):
             raise TypeError("Expected argument 'service' to be a str")
         pulumi.set(__self__, "service", service)
@@ -88,6 +91,14 @@ class GetServiceTagsResult:
 
     @property
     @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Service Tags block.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
     def service(self) -> str:
         return pulumi.get(self, "service")
 
@@ -104,6 +115,7 @@ class AwaitableGetServiceTagsResult(GetServiceTagsResult):
             ipv6_cidrs=self.ipv6_cidrs,
             location=self.location,
             location_filter=self.location_filter,
+            name=self.name,
             service=self.service)
 
 
@@ -146,6 +158,7 @@ def get_service_tags(location: Optional[str] = None,
         ipv6_cidrs=pulumi.get(__ret__, 'ipv6_cidrs'),
         location=pulumi.get(__ret__, 'location'),
         location_filter=pulumi.get(__ret__, 'location_filter'),
+        name=pulumi.get(__ret__, 'name'),
         service=pulumi.get(__ret__, 'service'))
 
 

@@ -39,7 +39,13 @@ class UserArgs:
              lab_id: pulumi.Input[str],
              additional_usage_quota: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labId' in kwargs:
+            lab_id = kwargs['labId']
+        if 'additionalUsageQuota' in kwargs:
+            additional_usage_quota = kwargs['additionalUsageQuota']
+
         _setter("email", email)
         _setter("lab_id", lab_id)
         if additional_usage_quota is not None:
@@ -124,7 +130,13 @@ class _UserState:
              email: Optional[pulumi.Input[str]] = None,
              lab_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalUsageQuota' in kwargs:
+            additional_usage_quota = kwargs['additionalUsageQuota']
+        if 'labId' in kwargs:
+            lab_id = kwargs['labId']
+
         if additional_usage_quota is not None:
             _setter("additional_usage_quota", additional_usage_quota)
         if email is not None:

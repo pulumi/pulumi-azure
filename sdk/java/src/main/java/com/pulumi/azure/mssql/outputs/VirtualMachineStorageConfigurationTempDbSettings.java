@@ -167,15 +167,15 @@ public final class VirtualMachineStorageConfigurationTempDbSettings {
             return luns(List.of(luns));
         }
         public VirtualMachineStorageConfigurationTempDbSettings build() {
-            final var o = new VirtualMachineStorageConfigurationTempDbSettings();
-            o.dataFileCount = dataFileCount;
-            o.dataFileGrowthInMb = dataFileGrowthInMb;
-            o.dataFileSizeMb = dataFileSizeMb;
-            o.defaultFilePath = defaultFilePath;
-            o.logFileGrowthMb = logFileGrowthMb;
-            o.logFileSizeMb = logFileSizeMb;
-            o.luns = luns;
-            return o;
+            final var _resultValue = new VirtualMachineStorageConfigurationTempDbSettings();
+            _resultValue.dataFileCount = dataFileCount;
+            _resultValue.dataFileGrowthInMb = dataFileGrowthInMb;
+            _resultValue.dataFileSizeMb = dataFileSizeMb;
+            _resultValue.defaultFilePath = defaultFilePath;
+            _resultValue.logFileGrowthMb = logFileGrowthMb;
+            _resultValue.logFileSizeMb = logFileSizeMb;
+            _resultValue.luns = luns;
+            return _resultValue;
         }
     }
 }

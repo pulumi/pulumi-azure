@@ -65,7 +65,15 @@ class ConfigurationKeyArgs:
              type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
              vault_key_reference: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationStoreId' in kwargs:
+            configuration_store_id = kwargs['configurationStoreId']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'vaultKeyReference' in kwargs:
+            vault_key_reference = kwargs['vaultKeyReference']
+
         _setter("configuration_store_id", configuration_store_id)
         _setter("key", key)
         if content_type is not None:
@@ -262,7 +270,15 @@ class _ConfigurationKeyState:
              type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
              vault_key_reference: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationStoreId' in kwargs:
+            configuration_store_id = kwargs['configurationStoreId']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'vaultKeyReference' in kwargs:
+            vault_key_reference = kwargs['vaultKeyReference']
+
         if configuration_store_id is not None:
             _setter("configuration_store_id", configuration_store_id)
         if content_type is not None:

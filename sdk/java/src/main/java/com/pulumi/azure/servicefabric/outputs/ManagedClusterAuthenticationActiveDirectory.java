@@ -84,11 +84,11 @@ public final class ManagedClusterAuthenticationActiveDirectory {
             return this;
         }
         public ManagedClusterAuthenticationActiveDirectory build() {
-            final var o = new ManagedClusterAuthenticationActiveDirectory();
-            o.clientApplicationId = clientApplicationId;
-            o.clusterApplicationId = clusterApplicationId;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new ManagedClusterAuthenticationActiveDirectory();
+            _resultValue.clientApplicationId = clientApplicationId;
+            _resultValue.clusterApplicationId = clusterApplicationId;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

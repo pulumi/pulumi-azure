@@ -130,13 +130,13 @@ public final class ExpressRouteCircuitPeeringIpv6 {
             return this;
         }
         public ExpressRouteCircuitPeeringIpv6 build() {
-            final var o = new ExpressRouteCircuitPeeringIpv6();
-            o.enabled = enabled;
-            o.microsoftPeering = microsoftPeering;
-            o.primaryPeerAddressPrefix = primaryPeerAddressPrefix;
-            o.routeFilterId = routeFilterId;
-            o.secondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
-            return o;
+            final var _resultValue = new ExpressRouteCircuitPeeringIpv6();
+            _resultValue.enabled = enabled;
+            _resultValue.microsoftPeering = microsoftPeering;
+            _resultValue.primaryPeerAddressPrefix = primaryPeerAddressPrefix;
+            _resultValue.routeFilterId = routeFilterId;
+            _resultValue.secondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
+            return _resultValue;
         }
     }
 }

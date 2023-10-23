@@ -126,13 +126,13 @@ public final class IotHubDpsLinkedHub {
             return this;
         }
         public IotHubDpsLinkedHub build() {
-            final var o = new IotHubDpsLinkedHub();
-            o.allocationWeight = allocationWeight;
-            o.applyAllocationPolicy = applyAllocationPolicy;
-            o.connectionString = connectionString;
-            o.hostname = hostname;
-            o.location = location;
-            return o;
+            final var _resultValue = new IotHubDpsLinkedHub();
+            _resultValue.allocationWeight = allocationWeight;
+            _resultValue.applyAllocationPolicy = applyAllocationPolicy;
+            _resultValue.connectionString = connectionString;
+            _resultValue.hostname = hostname;
+            _resultValue.location = location;
+            return _resultValue;
         }
     }
 }

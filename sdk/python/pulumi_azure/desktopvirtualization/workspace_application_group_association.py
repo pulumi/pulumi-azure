@@ -31,7 +31,13 @@ class WorkspaceApplicationGroupAssociationArgs:
              _setter: Callable[[Any, Any], None],
              application_group_id: pulumi.Input[str],
              workspace_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationGroupId' in kwargs:
+            application_group_id = kwargs['applicationGroupId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         _setter("application_group_id", application_group_id)
         _setter("workspace_id", workspace_id)
 
@@ -80,7 +86,13 @@ class _WorkspaceApplicationGroupAssociationState:
              _setter: Callable[[Any, Any], None],
              application_group_id: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationGroupId' in kwargs:
+            application_group_id = kwargs['applicationGroupId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if application_group_id is not None:
             _setter("application_group_id", application_group_id)
         if workspace_id is not None:

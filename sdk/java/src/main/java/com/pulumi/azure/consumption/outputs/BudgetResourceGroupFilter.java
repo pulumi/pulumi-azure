@@ -103,11 +103,11 @@ public final class BudgetResourceGroupFilter {
             return tags(List.of(tags));
         }
         public BudgetResourceGroupFilter build() {
-            final var o = new BudgetResourceGroupFilter();
-            o.dimensions = dimensions;
-            o.not = not;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new BudgetResourceGroupFilter();
+            _resultValue.dimensions = dimensions;
+            _resultValue.not = not;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

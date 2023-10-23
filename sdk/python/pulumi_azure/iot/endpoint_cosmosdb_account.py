@@ -77,7 +77,31 @@ class EndpointCosmosdbAccountArgs:
              partition_key_template: Optional[pulumi.Input[str]] = None,
              primary_key: Optional[pulumi.Input[str]] = None,
              secondary_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'endpointUri' in kwargs:
+            endpoint_uri = kwargs['endpointUri']
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'partitionKeyName' in kwargs:
+            partition_key_name = kwargs['partitionKeyName']
+        if 'partitionKeyTemplate' in kwargs:
+            partition_key_template = kwargs['partitionKeyTemplate']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+
         _setter("container_name", container_name)
         _setter("database_name", database_name)
         _setter("endpoint_uri", endpoint_uri)
@@ -315,7 +339,31 @@ class _EndpointCosmosdbAccountState:
              primary_key: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              secondary_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'endpointUri' in kwargs:
+            endpoint_uri = kwargs['endpointUri']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if 'partitionKeyName' in kwargs:
+            partition_key_name = kwargs['partitionKeyName']
+        if 'partitionKeyTemplate' in kwargs:
+            partition_key_template = kwargs['partitionKeyTemplate']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+
         if authentication_type is not None:
             _setter("authentication_type", authentication_type)
         if container_name is not None:

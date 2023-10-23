@@ -53,7 +53,13 @@ class BackupVaultArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datastoreType' in kwargs:
+            datastore_type = kwargs['datastoreType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("datastore_type", datastore_type)
         _setter("redundancy", redundancy)
         _setter("resource_group_name", resource_group_name)
@@ -191,7 +197,13 @@ class _BackupVaultState:
              redundancy: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datastoreType' in kwargs:
+            datastore_type = kwargs['datastoreType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if datastore_type is not None:
             _setter("datastore_type", datastore_type)
         if identity is not None:

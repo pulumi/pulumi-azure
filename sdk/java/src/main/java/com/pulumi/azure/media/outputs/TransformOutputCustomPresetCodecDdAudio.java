@@ -106,12 +106,12 @@ public final class TransformOutputCustomPresetCodecDdAudio {
             return this;
         }
         public TransformOutputCustomPresetCodecDdAudio build() {
-            final var o = new TransformOutputCustomPresetCodecDdAudio();
-            o.bitrate = bitrate;
-            o.channels = channels;
-            o.label = label;
-            o.samplingRate = samplingRate;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetCodecDdAudio();
+            _resultValue.bitrate = bitrate;
+            _resultValue.channels = channels;
+            _resultValue.label = label;
+            _resultValue.samplingRate = samplingRate;
+            return _resultValue;
         }
     }
 }

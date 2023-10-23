@@ -47,7 +47,13 @@ class AlertRuleAnomalyBuiltInArgs:
              mode: pulumi.Input[str],
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("enabled", enabled)
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("mode", mode)
@@ -201,7 +207,29 @@ class _AlertRuleAnomalyBuiltInState:
              tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyBuiltInThresholdObservationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'anomalySettingsVersion' in kwargs:
+            anomaly_settings_version = kwargs['anomalySettingsVersion']
+        if 'anomalyVersion' in kwargs:
+            anomaly_version = kwargs['anomalyVersion']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'multiSelectObservations' in kwargs:
+            multi_select_observations = kwargs['multiSelectObservations']
+        if 'prioritizedExcludeObservations' in kwargs:
+            prioritized_exclude_observations = kwargs['prioritizedExcludeObservations']
+        if 'requiredDataConnectors' in kwargs:
+            required_data_connectors = kwargs['requiredDataConnectors']
+        if 'settingsDefinitionId' in kwargs:
+            settings_definition_id = kwargs['settingsDefinitionId']
+        if 'singleSelectObservations' in kwargs:
+            single_select_observations = kwargs['singleSelectObservations']
+        if 'thresholdObservations' in kwargs:
+            threshold_observations = kwargs['thresholdObservations']
+
         if anomaly_settings_version is not None:
             _setter("anomaly_settings_version", anomaly_settings_version)
         if anomaly_version is not None:

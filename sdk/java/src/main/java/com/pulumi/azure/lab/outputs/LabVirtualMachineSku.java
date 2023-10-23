@@ -70,10 +70,10 @@ public final class LabVirtualMachineSku {
             return this;
         }
         public LabVirtualMachineSku build() {
-            final var o = new LabVirtualMachineSku();
-            o.capacity = capacity;
-            o.name = name;
-            return o;
+            final var _resultValue = new LabVirtualMachineSku();
+            _resultValue.capacity = capacity;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -90,11 +90,11 @@ public final class WorkspaceEncryption {
             return this;
         }
         public WorkspaceEncryption build() {
-            final var o = new WorkspaceEncryption();
-            o.keyId = keyId;
-            o.keyVaultId = keyVaultId;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new WorkspaceEncryption();
+            _resultValue.keyId = keyId;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

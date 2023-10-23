@@ -121,12 +121,12 @@ public final class FrontdoorRouteCache {
             return queryStrings(List.of(queryStrings));
         }
         public FrontdoorRouteCache build() {
-            final var o = new FrontdoorRouteCache();
-            o.compressionEnabled = compressionEnabled;
-            o.contentTypesToCompresses = contentTypesToCompresses;
-            o.queryStringCachingBehavior = queryStringCachingBehavior;
-            o.queryStrings = queryStrings;
-            return o;
+            final var _resultValue = new FrontdoorRouteCache();
+            _resultValue.compressionEnabled = compressionEnabled;
+            _resultValue.contentTypesToCompresses = contentTypesToCompresses;
+            _resultValue.queryStringCachingBehavior = queryStringCachingBehavior;
+            _resultValue.queryStrings = queryStrings;
+            return _resultValue;
         }
     }
 }

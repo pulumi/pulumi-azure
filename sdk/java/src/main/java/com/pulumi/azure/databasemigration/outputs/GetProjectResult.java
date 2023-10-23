@@ -156,16 +156,16 @@ public final class GetProjectResult {
             return this;
         }
         public GetProjectResult build() {
-            final var o = new GetProjectResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.serviceName = serviceName;
-            o.sourcePlatform = sourcePlatform;
-            o.tags = tags;
-            o.targetPlatform = targetPlatform;
-            return o;
+            final var _resultValue = new GetProjectResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.serviceName = serviceName;
+            _resultValue.sourcePlatform = sourcePlatform;
+            _resultValue.tags = tags;
+            _resultValue.targetPlatform = targetPlatform;
+            return _resultValue;
         }
     }
 }

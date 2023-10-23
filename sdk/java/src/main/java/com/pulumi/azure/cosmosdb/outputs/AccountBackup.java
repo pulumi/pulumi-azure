@@ -106,12 +106,12 @@ public final class AccountBackup {
             return this;
         }
         public AccountBackup build() {
-            final var o = new AccountBackup();
-            o.intervalInMinutes = intervalInMinutes;
-            o.retentionInHours = retentionInHours;
-            o.storageRedundancy = storageRedundancy;
-            o.type = type;
-            return o;
+            final var _resultValue = new AccountBackup();
+            _resultValue.intervalInMinutes = intervalInMinutes;
+            _resultValue.retentionInHours = retentionInHours;
+            _resultValue.storageRedundancy = storageRedundancy;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

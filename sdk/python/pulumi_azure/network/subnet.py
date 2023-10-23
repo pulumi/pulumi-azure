@@ -75,7 +75,27 @@ class SubnetArgs:
              private_link_service_network_policies_enabled: Optional[pulumi.Input[bool]] = None,
              service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixes' in kwargs:
+            address_prefixes = kwargs['addressPrefixes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualNetworkName' in kwargs:
+            virtual_network_name = kwargs['virtualNetworkName']
+        if 'enforcePrivateLinkEndpointNetworkPolicies' in kwargs:
+            enforce_private_link_endpoint_network_policies = kwargs['enforcePrivateLinkEndpointNetworkPolicies']
+        if 'enforcePrivateLinkServiceNetworkPolicies' in kwargs:
+            enforce_private_link_service_network_policies = kwargs['enforcePrivateLinkServiceNetworkPolicies']
+        if 'privateEndpointNetworkPoliciesEnabled' in kwargs:
+            private_endpoint_network_policies_enabled = kwargs['privateEndpointNetworkPoliciesEnabled']
+        if 'privateLinkServiceNetworkPoliciesEnabled' in kwargs:
+            private_link_service_network_policies_enabled = kwargs['privateLinkServiceNetworkPoliciesEnabled']
+        if 'serviceEndpointPolicyIds' in kwargs:
+            service_endpoint_policy_ids = kwargs['serviceEndpointPolicyIds']
+        if 'serviceEndpoints' in kwargs:
+            service_endpoints = kwargs['serviceEndpoints']
+
         _setter("address_prefixes", address_prefixes)
         _setter("resource_group_name", resource_group_name)
         _setter("virtual_network_name", virtual_network_name)
@@ -305,7 +325,27 @@ class _SubnetState:
              service_endpoint_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              virtual_network_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefixes' in kwargs:
+            address_prefixes = kwargs['addressPrefixes']
+        if 'enforcePrivateLinkEndpointNetworkPolicies' in kwargs:
+            enforce_private_link_endpoint_network_policies = kwargs['enforcePrivateLinkEndpointNetworkPolicies']
+        if 'enforcePrivateLinkServiceNetworkPolicies' in kwargs:
+            enforce_private_link_service_network_policies = kwargs['enforcePrivateLinkServiceNetworkPolicies']
+        if 'privateEndpointNetworkPoliciesEnabled' in kwargs:
+            private_endpoint_network_policies_enabled = kwargs['privateEndpointNetworkPoliciesEnabled']
+        if 'privateLinkServiceNetworkPoliciesEnabled' in kwargs:
+            private_link_service_network_policies_enabled = kwargs['privateLinkServiceNetworkPoliciesEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceEndpointPolicyIds' in kwargs:
+            service_endpoint_policy_ids = kwargs['serviceEndpointPolicyIds']
+        if 'serviceEndpoints' in kwargs:
+            service_endpoints = kwargs['serviceEndpoints']
+        if 'virtualNetworkName' in kwargs:
+            virtual_network_name = kwargs['virtualNetworkName']
+
         if address_prefixes is not None:
             _setter("address_prefixes", address_prefixes)
         if delegations is not None:

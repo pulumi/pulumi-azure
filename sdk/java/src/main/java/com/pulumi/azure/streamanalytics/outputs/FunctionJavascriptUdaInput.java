@@ -68,10 +68,10 @@ public final class FunctionJavascriptUdaInput {
             return this;
         }
         public FunctionJavascriptUdaInput build() {
-            final var o = new FunctionJavascriptUdaInput();
-            o.configurationParameter = configurationParameter;
-            o.type = type;
-            return o;
+            final var _resultValue = new FunctionJavascriptUdaInput();
+            _resultValue.configurationParameter = configurationParameter;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

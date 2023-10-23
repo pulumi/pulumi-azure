@@ -143,14 +143,14 @@ public final class FrontdoorRuleActionsUrlRedirectAction {
             return this;
         }
         public FrontdoorRuleActionsUrlRedirectAction build() {
-            final var o = new FrontdoorRuleActionsUrlRedirectAction();
-            o.destinationFragment = destinationFragment;
-            o.destinationHostname = destinationHostname;
-            o.destinationPath = destinationPath;
-            o.queryString = queryString;
-            o.redirectProtocol = redirectProtocol;
-            o.redirectType = redirectType;
-            return o;
+            final var _resultValue = new FrontdoorRuleActionsUrlRedirectAction();
+            _resultValue.destinationFragment = destinationFragment;
+            _resultValue.destinationHostname = destinationHostname;
+            _resultValue.destinationPath = destinationPath;
+            _resultValue.queryString = queryString;
+            _resultValue.redirectProtocol = redirectProtocol;
+            _resultValue.redirectType = redirectType;
+            return _resultValue;
         }
     }
 }

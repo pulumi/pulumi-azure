@@ -86,11 +86,11 @@ public final class ApplicationGatewayTrustedClientCertificate {
             return this;
         }
         public ApplicationGatewayTrustedClientCertificate build() {
-            final var o = new ApplicationGatewayTrustedClientCertificate();
-            o.data = data;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new ApplicationGatewayTrustedClientCertificate();
+            _resultValue.data = data;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

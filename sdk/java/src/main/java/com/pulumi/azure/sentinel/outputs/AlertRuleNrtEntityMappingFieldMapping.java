@@ -65,10 +65,10 @@ public final class AlertRuleNrtEntityMappingFieldMapping {
             return this;
         }
         public AlertRuleNrtEntityMappingFieldMapping build() {
-            final var o = new AlertRuleNrtEntityMappingFieldMapping();
-            o.columnName = columnName;
-            o.identifier = identifier;
-            return o;
+            final var _resultValue = new AlertRuleNrtEntityMappingFieldMapping();
+            _resultValue.columnName = columnName;
+            _resultValue.identifier = identifier;
+            return _resultValue;
         }
     }
 }

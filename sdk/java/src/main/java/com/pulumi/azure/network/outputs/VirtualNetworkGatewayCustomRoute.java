@@ -51,9 +51,9 @@ public final class VirtualNetworkGatewayCustomRoute {
             return addressPrefixes(List.of(addressPrefixes));
         }
         public VirtualNetworkGatewayCustomRoute build() {
-            final var o = new VirtualNetworkGatewayCustomRoute();
-            o.addressPrefixes = addressPrefixes;
-            return o;
+            final var _resultValue = new VirtualNetworkGatewayCustomRoute();
+            _resultValue.addressPrefixes = addressPrefixes;
+            return _resultValue;
         }
     }
 }

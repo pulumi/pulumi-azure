@@ -49,10 +49,10 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
             return this;
         }
         public InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity build() {
-            final var o = new InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity();
-            o.maxInstanceCount = maxInstanceCount;
-            o.minInstanceCount = minInstanceCount;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity();
+            _resultValue.maxInstanceCount = maxInstanceCount;
+            _resultValue.minInstanceCount = minInstanceCount;
+            return _resultValue;
         }
     }
 }

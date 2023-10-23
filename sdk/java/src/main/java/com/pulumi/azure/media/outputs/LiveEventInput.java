@@ -125,13 +125,13 @@ public final class LiveEventInput {
             return this;
         }
         public LiveEventInput build() {
-            final var o = new LiveEventInput();
-            o.accessToken = accessToken;
-            o.endpoints = endpoints;
-            o.ipAccessControlAllows = ipAccessControlAllows;
-            o.keyFrameIntervalDuration = keyFrameIntervalDuration;
-            o.streamingProtocol = streamingProtocol;
-            return o;
+            final var _resultValue = new LiveEventInput();
+            _resultValue.accessToken = accessToken;
+            _resultValue.endpoints = endpoints;
+            _resultValue.ipAccessControlAllows = ipAccessControlAllows;
+            _resultValue.keyFrameIntervalDuration = keyFrameIntervalDuration;
+            _resultValue.streamingProtocol = streamingProtocol;
+            return _resultValue;
         }
     }
 }

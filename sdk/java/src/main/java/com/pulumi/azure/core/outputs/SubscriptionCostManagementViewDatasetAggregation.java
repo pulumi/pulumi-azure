@@ -65,10 +65,10 @@ public final class SubscriptionCostManagementViewDatasetAggregation {
             return this;
         }
         public SubscriptionCostManagementViewDatasetAggregation build() {
-            final var o = new SubscriptionCostManagementViewDatasetAggregation();
-            o.columnName = columnName;
-            o.name = name;
-            return o;
+            final var _resultValue = new SubscriptionCostManagementViewDatasetAggregation();
+            _resultValue.columnName = columnName;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

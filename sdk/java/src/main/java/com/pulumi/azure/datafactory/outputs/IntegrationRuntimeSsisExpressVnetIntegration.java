@@ -46,9 +46,9 @@ public final class IntegrationRuntimeSsisExpressVnetIntegration {
             return this;
         }
         public IntegrationRuntimeSsisExpressVnetIntegration build() {
-            final var o = new IntegrationRuntimeSsisExpressVnetIntegration();
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new IntegrationRuntimeSsisExpressVnetIntegration();
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

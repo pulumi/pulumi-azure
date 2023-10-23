@@ -86,11 +86,11 @@ public final class PoolMountNfsMount {
             return this;
         }
         public PoolMountNfsMount build() {
-            final var o = new PoolMountNfsMount();
-            o.mountOptions = mountOptions;
-            o.relativeMountPath = relativeMountPath;
-            o.source = source;
-            return o;
+            final var _resultValue = new PoolMountNfsMount();
+            _resultValue.mountOptions = mountOptions;
+            _resultValue.relativeMountPath = relativeMountPath;
+            _resultValue.source = source;
+            return _resultValue;
         }
     }
 }

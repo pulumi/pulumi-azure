@@ -143,14 +143,14 @@ public final class WindowsFunctionAppSlotStorageAccount {
             return this;
         }
         public WindowsFunctionAppSlotStorageAccount build() {
-            final var o = new WindowsFunctionAppSlotStorageAccount();
-            o.accessKey = accessKey;
-            o.accountName = accountName;
-            o.mountPath = mountPath;
-            o.name = name;
-            o.shareName = shareName;
-            o.type = type;
-            return o;
+            final var _resultValue = new WindowsFunctionAppSlotStorageAccount();
+            _resultValue.accessKey = accessKey;
+            _resultValue.accountName = accountName;
+            _resultValue.mountPath = mountPath;
+            _resultValue.name = name;
+            _resultValue.shareName = shareName;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

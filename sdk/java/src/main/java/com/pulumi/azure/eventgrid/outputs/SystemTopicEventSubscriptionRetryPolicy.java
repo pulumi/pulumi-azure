@@ -65,10 +65,10 @@ public final class SystemTopicEventSubscriptionRetryPolicy {
             return this;
         }
         public SystemTopicEventSubscriptionRetryPolicy build() {
-            final var o = new SystemTopicEventSubscriptionRetryPolicy();
-            o.eventTimeToLive = eventTimeToLive;
-            o.maxDeliveryAttempts = maxDeliveryAttempts;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionRetryPolicy();
+            _resultValue.eventTimeToLive = eventTimeToLive;
+            _resultValue.maxDeliveryAttempts = maxDeliveryAttempts;
+            return _resultValue;
         }
     }
 }

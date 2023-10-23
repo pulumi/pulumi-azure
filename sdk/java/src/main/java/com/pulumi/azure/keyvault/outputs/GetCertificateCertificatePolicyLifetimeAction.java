@@ -73,10 +73,10 @@ public final class GetCertificateCertificatePolicyLifetimeAction {
             return triggers(List.of(triggers));
         }
         public GetCertificateCertificatePolicyLifetimeAction build() {
-            final var o = new GetCertificateCertificatePolicyLifetimeAction();
-            o.actions = actions;
-            o.triggers = triggers;
-            return o;
+            final var _resultValue = new GetCertificateCertificatePolicyLifetimeAction();
+            _resultValue.actions = actions;
+            _resultValue.triggers = triggers;
+            return _resultValue;
         }
     }
 }

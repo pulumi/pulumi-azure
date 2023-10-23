@@ -90,7 +90,15 @@ class AccountActiveDirectory(dict):
              smb_server_name: str,
              username: str,
              organizational_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'smbServerName' in kwargs:
+            smb_server_name = kwargs['smbServerName']
+        if 'organizationalUnit' in kwargs:
+            organizational_unit = kwargs['organizationalUnit']
+
         _setter("dns_servers", dns_servers)
         _setter("domain", domain)
         _setter("password", password)
@@ -188,7 +196,11 @@ class SnapshotPolicyDailySchedule(dict):
              hour: int,
              minute: int,
              snapshots_to_keep: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snapshotsToKeep' in kwargs:
+            snapshots_to_keep = kwargs['snapshotsToKeep']
+
         _setter("hour", hour)
         _setter("minute", minute)
         _setter("snapshots_to_keep", snapshots_to_keep)
@@ -254,7 +266,11 @@ class SnapshotPolicyHourlySchedule(dict):
              _setter: Callable[[Any, Any], None],
              minute: int,
              snapshots_to_keep: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snapshotsToKeep' in kwargs:
+            snapshots_to_keep = kwargs['snapshotsToKeep']
+
         _setter("minute", minute)
         _setter("snapshots_to_keep", snapshots_to_keep)
 
@@ -321,7 +337,13 @@ class SnapshotPolicyMonthlySchedule(dict):
              hour: int,
              minute: int,
              snapshots_to_keep: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysOfMonths' in kwargs:
+            days_of_months = kwargs['daysOfMonths']
+        if 'snapshotsToKeep' in kwargs:
+            snapshots_to_keep = kwargs['snapshotsToKeep']
+
         _setter("days_of_months", days_of_months)
         _setter("hour", hour)
         _setter("minute", minute)
@@ -406,7 +428,13 @@ class SnapshotPolicyWeeklySchedule(dict):
              hour: int,
              minute: int,
              snapshots_to_keep: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+        if 'snapshotsToKeep' in kwargs:
+            snapshots_to_keep = kwargs['snapshotsToKeep']
+
         _setter("days_of_weeks", days_of_weeks)
         _setter("hour", hour)
         _setter("minute", minute)
@@ -494,7 +522,17 @@ class VolumeDataProtectionReplication(dict):
              remote_volume_resource_id: str,
              replication_frequency: str,
              endpoint_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'remoteVolumeLocation' in kwargs:
+            remote_volume_location = kwargs['remoteVolumeLocation']
+        if 'remoteVolumeResourceId' in kwargs:
+            remote_volume_resource_id = kwargs['remoteVolumeResourceId']
+        if 'replicationFrequency' in kwargs:
+            replication_frequency = kwargs['replicationFrequency']
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+
         _setter("remote_volume_location", remote_volume_location)
         _setter("remote_volume_resource_id", remote_volume_resource_id)
         _setter("replication_frequency", replication_frequency)
@@ -560,7 +598,11 @@ class VolumeDataProtectionSnapshotPolicy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              snapshot_policy_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snapshotPolicyId' in kwargs:
+            snapshot_policy_id = kwargs['snapshotPolicyId']
+
         _setter("snapshot_policy_id", snapshot_policy_id)
 
     @property
@@ -631,7 +673,21 @@ class VolumeExportPolicyRule(dict):
              root_access_enabled: Optional[bool] = None,
              unix_read_only: Optional[bool] = None,
              unix_read_write: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedClients' in kwargs:
+            allowed_clients = kwargs['allowedClients']
+        if 'ruleIndex' in kwargs:
+            rule_index = kwargs['ruleIndex']
+        if 'protocolsEnabled' in kwargs:
+            protocols_enabled = kwargs['protocolsEnabled']
+        if 'rootAccessEnabled' in kwargs:
+            root_access_enabled = kwargs['rootAccessEnabled']
+        if 'unixReadOnly' in kwargs:
+            unix_read_only = kwargs['unixReadOnly']
+        if 'unixReadWrite' in kwargs:
+            unix_read_write = kwargs['unixReadWrite']
+
         _setter("allowed_clients", allowed_clients)
         _setter("rule_index", rule_index)
         if protocols_enabled is not None:
@@ -817,7 +873,37 @@ class VolumeGroupSapHanaVolume(dict):
              mount_ip_addresses: Optional[Sequence[str]] = None,
              proximity_placement_group_id: Optional[str] = None,
              tags: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityPoolId' in kwargs:
+            capacity_pool_id = kwargs['capacityPoolId']
+        if 'exportPolicyRules' in kwargs:
+            export_policy_rules = kwargs['exportPolicyRules']
+        if 'securityStyle' in kwargs:
+            security_style = kwargs['securityStyle']
+        if 'serviceLevel' in kwargs:
+            service_level = kwargs['serviceLevel']
+        if 'snapshotDirectoryVisible' in kwargs:
+            snapshot_directory_visible = kwargs['snapshotDirectoryVisible']
+        if 'storageQuotaInGb' in kwargs:
+            storage_quota_in_gb = kwargs['storageQuotaInGb']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'throughputInMibps' in kwargs:
+            throughput_in_mibps = kwargs['throughputInMibps']
+        if 'volumePath' in kwargs:
+            volume_path = kwargs['volumePath']
+        if 'volumeSpecName' in kwargs:
+            volume_spec_name = kwargs['volumeSpecName']
+        if 'dataProtectionReplication' in kwargs:
+            data_protection_replication = kwargs['dataProtectionReplication']
+        if 'dataProtectionSnapshotPolicy' in kwargs:
+            data_protection_snapshot_policy = kwargs['dataProtectionSnapshotPolicy']
+        if 'mountIpAddresses' in kwargs:
+            mount_ip_addresses = kwargs['mountIpAddresses']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+
         _setter("capacity_pool_id", capacity_pool_id)
         _setter("export_policy_rules", export_policy_rules)
         _setter("name", name)
@@ -1035,7 +1121,17 @@ class VolumeGroupSapHanaVolumeDataProtectionReplication(dict):
              remote_volume_resource_id: str,
              replication_frequency: str,
              endpoint_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'remoteVolumeLocation' in kwargs:
+            remote_volume_location = kwargs['remoteVolumeLocation']
+        if 'remoteVolumeResourceId' in kwargs:
+            remote_volume_resource_id = kwargs['remoteVolumeResourceId']
+        if 'replicationFrequency' in kwargs:
+            replication_frequency = kwargs['replicationFrequency']
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+
         _setter("remote_volume_location", remote_volume_location)
         _setter("remote_volume_resource_id", remote_volume_resource_id)
         _setter("replication_frequency", replication_frequency)
@@ -1107,7 +1203,11 @@ class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              snapshot_policy_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snapshotPolicyId' in kwargs:
+            snapshot_policy_id = kwargs['snapshotPolicyId']
+
         _setter("snapshot_policy_id", snapshot_policy_id)
 
     @property
@@ -1187,7 +1287,23 @@ class VolumeGroupSapHanaVolumeExportPolicyRule(dict):
              root_access_enabled: Optional[bool] = None,
              unix_read_only: Optional[bool] = None,
              unix_read_write: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedClients' in kwargs:
+            allowed_clients = kwargs['allowedClients']
+        if 'nfsv3Enabled' in kwargs:
+            nfsv3_enabled = kwargs['nfsv3Enabled']
+        if 'nfsv41Enabled' in kwargs:
+            nfsv41_enabled = kwargs['nfsv41Enabled']
+        if 'ruleIndex' in kwargs:
+            rule_index = kwargs['ruleIndex']
+        if 'rootAccessEnabled' in kwargs:
+            root_access_enabled = kwargs['rootAccessEnabled']
+        if 'unixReadOnly' in kwargs:
+            unix_read_only = kwargs['unixReadOnly']
+        if 'unixReadWrite' in kwargs:
+            unix_read_write = kwargs['unixReadWrite']
+
         _setter("allowed_clients", allowed_clients)
         _setter("nfsv3_enabled", nfsv3_enabled)
         _setter("nfsv41_enabled", nfsv41_enabled)
@@ -1279,7 +1395,11 @@ class GetSnapshotPolicyDailyScheduleResult(dict):
              hour: int,
              minute: int,
              snapshots_to_keep: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snapshotsToKeep' in kwargs:
+            snapshots_to_keep = kwargs['snapshotsToKeep']
+
         _setter("hour", hour)
         _setter("minute", minute)
         _setter("snapshots_to_keep", snapshots_to_keep)
@@ -1328,7 +1448,11 @@ class GetSnapshotPolicyHourlyScheduleResult(dict):
              _setter: Callable[[Any, Any], None],
              minute: int,
              snapshots_to_keep: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snapshotsToKeep' in kwargs:
+            snapshots_to_keep = kwargs['snapshotsToKeep']
+
         _setter("minute", minute)
         _setter("snapshots_to_keep", snapshots_to_keep)
 
@@ -1375,7 +1499,13 @@ class GetSnapshotPolicyMonthlyScheduleResult(dict):
              hour: int,
              minute: int,
              snapshots_to_keep: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysOfMonths' in kwargs:
+            days_of_months = kwargs['daysOfMonths']
+        if 'snapshotsToKeep' in kwargs:
+            snapshots_to_keep = kwargs['snapshotsToKeep']
+
         _setter("days_of_months", days_of_months)
         _setter("hour", hour)
         _setter("minute", minute)
@@ -1438,7 +1568,13 @@ class GetSnapshotPolicyWeeklyScheduleResult(dict):
              hour: int,
              minute: int,
              snapshots_to_keep: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+        if 'snapshotsToKeep' in kwargs:
+            snapshots_to_keep = kwargs['snapshotsToKeep']
+
         _setter("days_of_weeks", days_of_weeks)
         _setter("hour", hour)
         _setter("minute", minute)
@@ -1504,7 +1640,17 @@ class GetVolumeDataProtectionReplicationResult(dict):
              remote_volume_location: str,
              remote_volume_resource_id: str,
              replication_frequency: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'remoteVolumeLocation' in kwargs:
+            remote_volume_location = kwargs['remoteVolumeLocation']
+        if 'remoteVolumeResourceId' in kwargs:
+            remote_volume_resource_id = kwargs['remoteVolumeResourceId']
+        if 'replicationFrequency' in kwargs:
+            replication_frequency = kwargs['replicationFrequency']
+
         _setter("endpoint_type", endpoint_type)
         _setter("remote_volume_location", remote_volume_location)
         _setter("remote_volume_resource_id", remote_volume_resource_id)
@@ -1626,7 +1772,37 @@ class GetVolumeGroupSapHanaVolumeResult(dict):
              throughput_in_mibps: float,
              volume_path: str,
              volume_spec_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'capacityPoolId' in kwargs:
+            capacity_pool_id = kwargs['capacityPoolId']
+        if 'dataProtectionReplications' in kwargs:
+            data_protection_replications = kwargs['dataProtectionReplications']
+        if 'dataProtectionSnapshotPolicies' in kwargs:
+            data_protection_snapshot_policies = kwargs['dataProtectionSnapshotPolicies']
+        if 'exportPolicyRules' in kwargs:
+            export_policy_rules = kwargs['exportPolicyRules']
+        if 'mountIpAddresses' in kwargs:
+            mount_ip_addresses = kwargs['mountIpAddresses']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if 'securityStyle' in kwargs:
+            security_style = kwargs['securityStyle']
+        if 'serviceLevel' in kwargs:
+            service_level = kwargs['serviceLevel']
+        if 'snapshotDirectoryVisible' in kwargs:
+            snapshot_directory_visible = kwargs['snapshotDirectoryVisible']
+        if 'storageQuotaInGb' in kwargs:
+            storage_quota_in_gb = kwargs['storageQuotaInGb']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'throughputInMibps' in kwargs:
+            throughput_in_mibps = kwargs['throughputInMibps']
+        if 'volumePath' in kwargs:
+            volume_path = kwargs['volumePath']
+        if 'volumeSpecName' in kwargs:
+            volume_spec_name = kwargs['volumeSpecName']
+
         _setter("capacity_pool_id", capacity_pool_id)
         _setter("data_protection_replications", data_protection_replications)
         _setter("data_protection_snapshot_policies", data_protection_snapshot_policies)
@@ -1818,7 +1994,17 @@ class GetVolumeGroupSapHanaVolumeDataProtectionReplicationResult(dict):
              remote_volume_location: str,
              remote_volume_resource_id: str,
              replication_frequency: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if 'remoteVolumeLocation' in kwargs:
+            remote_volume_location = kwargs['remoteVolumeLocation']
+        if 'remoteVolumeResourceId' in kwargs:
+            remote_volume_resource_id = kwargs['remoteVolumeResourceId']
+        if 'replicationFrequency' in kwargs:
+            replication_frequency = kwargs['replicationFrequency']
+
         _setter("endpoint_type", endpoint_type)
         _setter("remote_volume_location", remote_volume_location)
         _setter("remote_volume_resource_id", remote_volume_resource_id)
@@ -1872,7 +2058,11 @@ class GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              snapshot_policy_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'snapshotPolicyId' in kwargs:
+            snapshot_policy_id = kwargs['snapshotPolicyId']
+
         _setter("snapshot_policy_id", snapshot_policy_id)
 
     @property
@@ -1923,7 +2113,23 @@ class GetVolumeGroupSapHanaVolumeExportPolicyRuleResult(dict):
              rule_index: int,
              unix_read_only: bool,
              unix_read_write: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedClients' in kwargs:
+            allowed_clients = kwargs['allowedClients']
+        if 'nfsv3Enabled' in kwargs:
+            nfsv3_enabled = kwargs['nfsv3Enabled']
+        if 'nfsv41Enabled' in kwargs:
+            nfsv41_enabled = kwargs['nfsv41Enabled']
+        if 'rootAccessEnabled' in kwargs:
+            root_access_enabled = kwargs['rootAccessEnabled']
+        if 'ruleIndex' in kwargs:
+            rule_index = kwargs['ruleIndex']
+        if 'unixReadOnly' in kwargs:
+            unix_read_only = kwargs['unixReadOnly']
+        if 'unixReadWrite' in kwargs:
+            unix_read_write = kwargs['unixReadWrite']
+
         _setter("allowed_clients", allowed_clients)
         _setter("nfsv3_enabled", nfsv3_enabled)
         _setter("nfsv41_enabled", nfsv41_enabled)

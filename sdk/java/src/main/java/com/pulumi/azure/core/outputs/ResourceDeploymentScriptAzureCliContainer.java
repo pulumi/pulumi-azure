@@ -48,9 +48,9 @@ public final class ResourceDeploymentScriptAzureCliContainer {
             return this;
         }
         public ResourceDeploymentScriptAzureCliContainer build() {
-            final var o = new ResourceDeploymentScriptAzureCliContainer();
-            o.containerGroupName = containerGroupName;
-            return o;
+            final var _resultValue = new ResourceDeploymentScriptAzureCliContainer();
+            _resultValue.containerGroupName = containerGroupName;
+            return _resultValue;
         }
     }
 }

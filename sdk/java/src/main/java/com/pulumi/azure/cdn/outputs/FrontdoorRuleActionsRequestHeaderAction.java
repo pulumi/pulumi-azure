@@ -94,11 +94,11 @@ public final class FrontdoorRuleActionsRequestHeaderAction {
             return this;
         }
         public FrontdoorRuleActionsRequestHeaderAction build() {
-            final var o = new FrontdoorRuleActionsRequestHeaderAction();
-            o.headerAction = headerAction;
-            o.headerName = headerName;
-            o.value = value;
-            return o;
+            final var _resultValue = new FrontdoorRuleActionsRequestHeaderAction();
+            _resultValue.headerAction = headerAction;
+            _resultValue.headerName = headerName;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

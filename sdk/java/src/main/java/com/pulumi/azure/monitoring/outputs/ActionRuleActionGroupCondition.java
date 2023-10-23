@@ -168,15 +168,15 @@ public final class ActionRuleActionGroupCondition {
             return this;
         }
         public ActionRuleActionGroupCondition build() {
-            final var o = new ActionRuleActionGroupCondition();
-            o.alertContext = alertContext;
-            o.alertRuleId = alertRuleId;
-            o.description = description;
-            o.monitor = monitor;
-            o.monitorService = monitorService;
-            o.severity = severity;
-            o.targetResourceType = targetResourceType;
-            return o;
+            final var _resultValue = new ActionRuleActionGroupCondition();
+            _resultValue.alertContext = alertContext;
+            _resultValue.alertRuleId = alertRuleId;
+            _resultValue.description = description;
+            _resultValue.monitor = monitor;
+            _resultValue.monitorService = monitorService;
+            _resultValue.severity = severity;
+            _resultValue.targetResourceType = targetResourceType;
+            return _resultValue;
         }
     }
 }

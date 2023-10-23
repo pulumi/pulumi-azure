@@ -125,13 +125,13 @@ public final class ThreatIntelligenceIndicatorExternalReference {
             return this;
         }
         public ThreatIntelligenceIndicatorExternalReference build() {
-            final var o = new ThreatIntelligenceIndicatorExternalReference();
-            o.description = description;
-            o.hashes = hashes;
-            o.id = id;
-            o.sourceName = sourceName;
-            o.url = url;
-            return o;
+            final var _resultValue = new ThreatIntelligenceIndicatorExternalReference();
+            _resultValue.description = description;
+            _resultValue.hashes = hashes;
+            _resultValue.id = id;
+            _resultValue.sourceName = sourceName;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

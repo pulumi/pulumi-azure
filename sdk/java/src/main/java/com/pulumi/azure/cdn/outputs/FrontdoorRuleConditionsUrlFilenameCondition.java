@@ -16,8 +16,10 @@ public final class FrontdoorRuleConditionsUrlFilenameCondition {
     /**
      * @return A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
      * 
+     * &gt; **NOTE:** The `match_values` field is only optional if the `operator` is set to `Any`.
+     * 
      */
-    private List<String> matchValues;
+    private @Nullable List<String> matchValues;
     /**
      * @return If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
      * 
@@ -38,9 +40,11 @@ public final class FrontdoorRuleConditionsUrlFilenameCondition {
     /**
      * @return A list of one or more string or integer values(e.g. &#34;1&#34;) representing the value of the request file name to match. If multiple values are specified, they&#39;re evaluated using `OR` logic.
      * 
+     * &gt; **NOTE:** The `match_values` field is only optional if the `operator` is set to `Any`.
+     * 
      */
     public List<String> matchValues() {
-        return this.matchValues;
+        return this.matchValues == null ? List.of() : this.matchValues;
     }
     /**
      * @return If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
@@ -73,7 +77,7 @@ public final class FrontdoorRuleConditionsUrlFilenameCondition {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> matchValues;
+        private @Nullable List<String> matchValues;
         private @Nullable Boolean negateCondition;
         private String operator;
         private @Nullable List<String> transforms;
@@ -87,8 +91,8 @@ public final class FrontdoorRuleConditionsUrlFilenameCondition {
         }
 
         @CustomType.Setter
-        public Builder matchValues(List<String> matchValues) {
-            this.matchValues = Objects.requireNonNull(matchValues);
+        public Builder matchValues(@Nullable List<String> matchValues) {
+            this.matchValues = matchValues;
             return this;
         }
         public Builder matchValues(String... matchValues) {
@@ -113,12 +117,12 @@ public final class FrontdoorRuleConditionsUrlFilenameCondition {
             return transforms(List.of(transforms));
         }
         public FrontdoorRuleConditionsUrlFilenameCondition build() {
-            final var o = new FrontdoorRuleConditionsUrlFilenameCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            o.transforms = transforms;
-            return o;
+            final var _resultValue = new FrontdoorRuleConditionsUrlFilenameCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            _resultValue.transforms = transforms;
+            return _resultValue;
         }
     }
 }

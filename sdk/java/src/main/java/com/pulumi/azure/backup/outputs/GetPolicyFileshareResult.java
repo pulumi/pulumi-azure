@@ -79,12 +79,12 @@ public final class GetPolicyFileshareResult {
             return this;
         }
         public GetPolicyFileshareResult build() {
-            final var o = new GetPolicyFileshareResult();
-            o.id = id;
-            o.name = name;
-            o.recoveryVaultName = recoveryVaultName;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetPolicyFileshareResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.recoveryVaultName = recoveryVaultName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

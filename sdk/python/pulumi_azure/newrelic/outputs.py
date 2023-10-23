@@ -66,7 +66,17 @@ class MonitorPlan(dict):
              billing_cycle: Optional[str] = None,
              plan_id: Optional[str] = None,
              usage_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'effectiveDate' in kwargs:
+            effective_date = kwargs['effectiveDate']
+        if 'billingCycle' in kwargs:
+            billing_cycle = kwargs['billingCycle']
+        if 'planId' in kwargs:
+            plan_id = kwargs['planId']
+        if 'usageType' in kwargs:
+            usage_type = kwargs['usageType']
+
         _setter("effective_date", effective_date)
         if billing_cycle is not None:
             _setter("billing_cycle", billing_cycle)
@@ -156,7 +166,15 @@ class MonitorUser(dict):
              first_name: str,
              last_name: str,
              phone_number: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("email", email)
         _setter("first_name", first_name)
         _setter("last_name", last_name)
@@ -218,7 +236,9 @@ class TagRuleLogTagFilter(dict):
              action: str,
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         _setter("value", value)
@@ -271,7 +291,9 @@ class TagRuleMetricTagFilter(dict):
              action: str,
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         _setter("value", value)

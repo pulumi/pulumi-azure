@@ -55,7 +55,25 @@ class SqlPoolSecurityAlertPolicyArgs:
              retention_days: Optional[pulumi.Input[int]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyState' in kwargs:
+            policy_state = kwargs['policyState']
+        if 'sqlPoolId' in kwargs:
+            sql_pool_id = kwargs['sqlPoolId']
+        if 'disabledAlerts' in kwargs:
+            disabled_alerts = kwargs['disabledAlerts']
+        if 'emailAccountAdminsEnabled' in kwargs:
+            email_account_admins_enabled = kwargs['emailAccountAdminsEnabled']
+        if 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         _setter("policy_state", policy_state)
         _setter("sql_pool_id", sql_pool_id)
         if disabled_alerts is not None:
@@ -212,7 +230,25 @@ class _SqlPoolSecurityAlertPolicyState:
              sql_pool_id: Optional[pulumi.Input[str]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disabledAlerts' in kwargs:
+            disabled_alerts = kwargs['disabledAlerts']
+        if 'emailAccountAdminsEnabled' in kwargs:
+            email_account_admins_enabled = kwargs['emailAccountAdminsEnabled']
+        if 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if 'policyState' in kwargs:
+            policy_state = kwargs['policyState']
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if 'sqlPoolId' in kwargs:
+            sql_pool_id = kwargs['sqlPoolId']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         if disabled_alerts is not None:
             _setter("disabled_alerts", disabled_alerts)
         if email_account_admins_enabled is not None:

@@ -67,10 +67,10 @@ public final class LinuxVirtualMachineOsDiskDiffDiskSettings {
             return this;
         }
         public LinuxVirtualMachineOsDiskDiffDiskSettings build() {
-            final var o = new LinuxVirtualMachineOsDiskDiffDiskSettings();
-            o.option = option;
-            o.placement = placement;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineOsDiskDiffDiskSettings();
+            _resultValue.option = option;
+            _resultValue.placement = placement;
+            return _resultValue;
         }
     }
 }

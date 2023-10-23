@@ -106,12 +106,12 @@ public final class SparkClusterDiskEncryption {
             return this;
         }
         public SparkClusterDiskEncryption build() {
-            final var o = new SparkClusterDiskEncryption();
-            o.encryptionAlgorithm = encryptionAlgorithm;
-            o.encryptionAtHostEnabled = encryptionAtHostEnabled;
-            o.keyVaultKeyId = keyVaultKeyId;
-            o.keyVaultManagedIdentityId = keyVaultManagedIdentityId;
-            return o;
+            final var _resultValue = new SparkClusterDiskEncryption();
+            _resultValue.encryptionAlgorithm = encryptionAlgorithm;
+            _resultValue.encryptionAtHostEnabled = encryptionAtHostEnabled;
+            _resultValue.keyVaultKeyId = keyVaultKeyId;
+            _resultValue.keyVaultManagedIdentityId = keyVaultManagedIdentityId;
+            return _resultValue;
         }
     }
 }

@@ -71,10 +71,10 @@ public final class AlertPrometheusRuleGroupRuleAction {
             return this;
         }
         public AlertPrometheusRuleGroupRuleAction build() {
-            final var o = new AlertPrometheusRuleGroupRuleAction();
-            o.actionGroupId = actionGroupId;
-            o.actionProperties = actionProperties;
-            return o;
+            final var _resultValue = new AlertPrometheusRuleGroupRuleAction();
+            _resultValue.actionGroupId = actionGroupId;
+            _resultValue.actionProperties = actionProperties;
+            return _resultValue;
         }
     }
 }

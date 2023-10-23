@@ -53,7 +53,13 @@ class NetworkManagerArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scopeAccesses' in kwargs:
+            scope_accesses = kwargs['scopeAccesses']
+
         _setter("resource_group_name", resource_group_name)
         _setter("scope", scope)
         _setter("scope_accesses", scope_accesses)
@@ -195,7 +201,15 @@ class _NetworkManagerState:
              scope: Optional[pulumi.Input['NetworkManagerScopeArgs']] = None,
              scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'crossTenantScopes' in kwargs:
+            cross_tenant_scopes = kwargs['crossTenantScopes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scopeAccesses' in kwargs:
+            scope_accesses = kwargs['scopeAccesses']
+
         if cross_tenant_scopes is not None:
             _setter("cross_tenant_scopes", cross_tenant_scopes)
         if description is not None:

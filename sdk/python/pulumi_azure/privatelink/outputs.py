@@ -60,7 +60,11 @@ class EndpointCustomDnsConfig(dict):
              _setter: Callable[[Any, Any], None],
              fqdn: Optional[str] = None,
              ip_addresses: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if fqdn is not None:
             _setter("fqdn", fqdn)
         if ip_addresses is not None:
@@ -133,7 +137,15 @@ class EndpointIpConfiguration(dict):
              private_ip_address: str,
              member_name: Optional[str] = None,
              subresource_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'memberName' in kwargs:
+            member_name = kwargs['memberName']
+        if 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+
         _setter("name", name)
         _setter("private_ip_address", private_ip_address)
         if member_name is not None:
@@ -195,7 +207,9 @@ class EndpointNetworkInterface(dict):
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if name is not None:
@@ -264,7 +278,13 @@ class EndpointPrivateDnsZoneConfig(dict):
              name: Optional[str] = None,
              private_dns_zone_id: Optional[str] = None,
              record_sets: Optional[Sequence['outputs.EndpointPrivateDnsZoneConfigRecordSet']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateDnsZoneId' in kwargs:
+            private_dns_zone_id = kwargs['privateDnsZoneId']
+        if 'recordSets' in kwargs:
+            record_sets = kwargs['recordSets']
+
         if id is not None:
             _setter("id", id)
         if name is not None:
@@ -355,7 +375,11 @@ class EndpointPrivateDnsZoneConfigRecordSet(dict):
              name: Optional[str] = None,
              ttl: Optional[int] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if fqdn is not None:
             _setter("fqdn", fqdn)
         if ip_addresses is not None:
@@ -448,7 +472,11 @@ class EndpointPrivateDnsZoneGroup(dict):
              name: str,
              private_dns_zone_ids: Sequence[str],
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateDnsZoneIds' in kwargs:
+            private_dns_zone_ids = kwargs['privateDnsZoneIds']
+
         _setter("name", name)
         _setter("private_dns_zone_ids", private_dns_zone_ids)
         if id is not None:
@@ -549,7 +577,21 @@ class EndpointPrivateServiceConnection(dict):
              private_ip_address: Optional[str] = None,
              request_message: Optional[str] = None,
              subresource_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isManualConnection' in kwargs:
+            is_manual_connection = kwargs['isManualConnection']
+        if 'privateConnectionResourceAlias' in kwargs:
+            private_connection_resource_alias = kwargs['privateConnectionResourceAlias']
+        if 'privateConnectionResourceId' in kwargs:
+            private_connection_resource_id = kwargs['privateConnectionResourceId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+        if 'subresourceNames' in kwargs:
+            subresource_names = kwargs['subresourceNames']
+
         _setter("is_manual_connection", is_manual_connection)
         _setter("name", name)
         if private_connection_resource_alias is not None:
@@ -643,7 +685,9 @@ class GetEndpointConnectionNetworkInterfaceResult(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("name", name)
 
@@ -696,7 +740,13 @@ class GetEndpointConnectionPrivateServiceConnectionResult(dict):
              private_ip_address: str,
              request_response: str,
              status: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'requestResponse' in kwargs:
+            request_response = kwargs['requestResponse']
+
         _setter("name", name)
         _setter("private_ip_address", private_ip_address)
         _setter("request_response", request_response)
@@ -779,7 +829,19 @@ class GetServiceEndpointConnectionsPrivateEndpointConnectionResult(dict):
              private_endpoint_id: str,
              private_endpoint_name: str,
              status: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionRequired' in kwargs:
+            action_required = kwargs['actionRequired']
+        if 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if 'connectionName' in kwargs:
+            connection_name = kwargs['connectionName']
+        if 'privateEndpointId' in kwargs:
+            private_endpoint_id = kwargs['privateEndpointId']
+        if 'privateEndpointName' in kwargs:
+            private_endpoint_name = kwargs['privateEndpointName']
+
         _setter("action_required", action_required)
         _setter("connection_id", connection_id)
         _setter("connection_name", connection_name)
@@ -876,7 +938,15 @@ class GetServiceNatIpConfigurationResult(dict):
              private_ip_address: str,
              private_ip_address_version: str,
              subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddressVersion' in kwargs:
+            private_ip_address_version = kwargs['privateIpAddressVersion']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("name", name)
         _setter("primary", primary)
         _setter("private_ip_address", private_ip_address)

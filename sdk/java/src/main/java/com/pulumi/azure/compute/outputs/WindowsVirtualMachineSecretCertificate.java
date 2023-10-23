@@ -69,10 +69,10 @@ public final class WindowsVirtualMachineSecretCertificate {
             return this;
         }
         public WindowsVirtualMachineSecretCertificate build() {
-            final var o = new WindowsVirtualMachineSecretCertificate();
-            o.store = store;
-            o.url = url;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineSecretCertificate();
+            _resultValue.store = store;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

@@ -71,10 +71,10 @@ public final class SubscriptionPolicyAssignmentOverride {
             return this;
         }
         public SubscriptionPolicyAssignmentOverride build() {
-            final var o = new SubscriptionPolicyAssignmentOverride();
-            o.selectors = selectors;
-            o.value = value;
-            return o;
+            final var _resultValue = new SubscriptionPolicyAssignmentOverride();
+            _resultValue.selectors = selectors;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

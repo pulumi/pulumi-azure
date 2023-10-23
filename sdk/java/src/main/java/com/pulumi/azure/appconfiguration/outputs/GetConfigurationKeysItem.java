@@ -200,17 +200,17 @@ public final class GetConfigurationKeysItem {
             return this;
         }
         public GetConfigurationKeysItem build() {
-            final var o = new GetConfigurationKeysItem();
-            o.contentType = contentType;
-            o.etag = etag;
-            o.key = key;
-            o.label = label;
-            o.locked = locked;
-            o.tags = tags;
-            o.type = type;
-            o.value = value;
-            o.vaultKeyReference = vaultKeyReference;
-            return o;
+            final var _resultValue = new GetConfigurationKeysItem();
+            _resultValue.contentType = contentType;
+            _resultValue.etag = etag;
+            _resultValue.key = key;
+            _resultValue.label = label;
+            _resultValue.locked = locked;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            _resultValue.vaultKeyReference = vaultKeyReference;
+            return _resultValue;
         }
     }
 }

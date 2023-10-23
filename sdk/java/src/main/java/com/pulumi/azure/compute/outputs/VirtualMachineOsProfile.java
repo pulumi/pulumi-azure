@@ -109,12 +109,12 @@ public final class VirtualMachineOsProfile {
             return this;
         }
         public VirtualMachineOsProfile build() {
-            final var o = new VirtualMachineOsProfile();
-            o.adminPassword = adminPassword;
-            o.adminUsername = adminUsername;
-            o.computerName = computerName;
-            o.customData = customData;
-            return o;
+            final var _resultValue = new VirtualMachineOsProfile();
+            _resultValue.adminPassword = adminPassword;
+            _resultValue.adminUsername = adminUsername;
+            _resultValue.computerName = computerName;
+            _resultValue.customData = customData;
+            return _resultValue;
         }
     }
 }

@@ -257,21 +257,21 @@ public final class GetNetworkAttachedDataNetworkResult {
             return this;
         }
         public GetNetworkAttachedDataNetworkResult build() {
-            final var o = new GetNetworkAttachedDataNetworkResult();
-            o.dnsAddresses = dnsAddresses;
-            o.id = id;
-            o.location = location;
-            o.mobileNetworkDataNetworkName = mobileNetworkDataNetworkName;
-            o.mobileNetworkPacketCoreDataPlaneId = mobileNetworkPacketCoreDataPlaneId;
-            o.networkAddressPortTranslations = networkAddressPortTranslations;
-            o.tags = tags;
-            o.userEquipmentAddressPoolPrefixes = userEquipmentAddressPoolPrefixes;
-            o.userEquipmentStaticAddressPoolPrefixes = userEquipmentStaticAddressPoolPrefixes;
-            o.userPlaneAccessIpv4Address = userPlaneAccessIpv4Address;
-            o.userPlaneAccessIpv4Gateway = userPlaneAccessIpv4Gateway;
-            o.userPlaneAccessIpv4Subnet = userPlaneAccessIpv4Subnet;
-            o.userPlaneAccessName = userPlaneAccessName;
-            return o;
+            final var _resultValue = new GetNetworkAttachedDataNetworkResult();
+            _resultValue.dnsAddresses = dnsAddresses;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.mobileNetworkDataNetworkName = mobileNetworkDataNetworkName;
+            _resultValue.mobileNetworkPacketCoreDataPlaneId = mobileNetworkPacketCoreDataPlaneId;
+            _resultValue.networkAddressPortTranslations = networkAddressPortTranslations;
+            _resultValue.tags = tags;
+            _resultValue.userEquipmentAddressPoolPrefixes = userEquipmentAddressPoolPrefixes;
+            _resultValue.userEquipmentStaticAddressPoolPrefixes = userEquipmentStaticAddressPoolPrefixes;
+            _resultValue.userPlaneAccessIpv4Address = userPlaneAccessIpv4Address;
+            _resultValue.userPlaneAccessIpv4Gateway = userPlaneAccessIpv4Gateway;
+            _resultValue.userPlaneAccessIpv4Subnet = userPlaneAccessIpv4Subnet;
+            _resultValue.userPlaneAccessName = userPlaneAccessName;
+            return _resultValue;
         }
     }
 }

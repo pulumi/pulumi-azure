@@ -88,11 +88,11 @@ public final class IoTHubEnrichment {
             return this;
         }
         public IoTHubEnrichment build() {
-            final var o = new IoTHubEnrichment();
-            o.endpointNames = endpointNames;
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new IoTHubEnrichment();
+            _resultValue.endpointNames = endpointNames;
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

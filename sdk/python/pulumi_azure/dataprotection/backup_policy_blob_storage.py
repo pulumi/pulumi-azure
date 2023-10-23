@@ -35,7 +35,13 @@ class BackupPolicyBlobStorageArgs:
              retention_duration: pulumi.Input[str],
              vault_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionDuration' in kwargs:
+            retention_duration = kwargs['retentionDuration']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         _setter("retention_duration", retention_duration)
         _setter("vault_id", vault_id)
         if name is not None:
@@ -102,7 +108,13 @@ class _BackupPolicyBlobStorageState:
              name: Optional[pulumi.Input[str]] = None,
              retention_duration: Optional[pulumi.Input[str]] = None,
              vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionDuration' in kwargs:
+            retention_duration = kwargs['retentionDuration']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         if name is not None:
             _setter("name", name)
         if retention_duration is not None:

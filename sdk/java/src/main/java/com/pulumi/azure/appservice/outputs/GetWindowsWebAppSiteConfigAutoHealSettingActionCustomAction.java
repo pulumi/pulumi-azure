@@ -65,10 +65,10 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction {
             return this;
         }
         public GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction build() {
-            final var o = new GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction();
-            o.executable = executable;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction();
+            _resultValue.executable = executable;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

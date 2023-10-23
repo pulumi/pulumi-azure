@@ -62,11 +62,11 @@ public final class FeaturesVirtualMachine {
             return this;
         }
         public FeaturesVirtualMachine build() {
-            final var o = new FeaturesVirtualMachine();
-            o.deleteOsDiskOnDeletion = deleteOsDiskOnDeletion;
-            o.gracefulShutdown = gracefulShutdown;
-            o.skipShutdownAndForceDelete = skipShutdownAndForceDelete;
-            return o;
+            final var _resultValue = new FeaturesVirtualMachine();
+            _resultValue.deleteOsDiskOnDeletion = deleteOsDiskOnDeletion;
+            _resultValue.gracefulShutdown = gracefulShutdown;
+            _resultValue.skipShutdownAndForceDelete = skipShutdownAndForceDelete;
+            return _resultValue;
         }
     }
 }

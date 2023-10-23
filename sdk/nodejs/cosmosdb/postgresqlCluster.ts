@@ -67,7 +67,7 @@ export class PostgresqlCluster extends pulumi.CustomResource {
      */
     public readonly administratorLoginPassword!: pulumi.Output<string>;
     /**
-     * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+     * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
      */
     public readonly citusVersion!: pulumi.Output<string>;
     /**
@@ -153,7 +153,7 @@ export class PostgresqlCluster extends pulumi.CustomResource {
      */
     public readonly sourceResourceId!: pulumi.Output<string | undefined>;
     /**
-     * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+     * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
      */
     public readonly sqlVersion!: pulumi.Output<string>;
     /**
@@ -256,7 +256,7 @@ export interface PostgresqlClusterState {
      */
     administratorLoginPassword?: pulumi.Input<string>;
     /**
-     * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+     * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
      */
     citusVersion?: pulumi.Input<string>;
     /**
@@ -342,7 +342,7 @@ export interface PostgresqlClusterState {
      */
     sourceResourceId?: pulumi.Input<string>;
     /**
-     * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+     * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
      */
     sqlVersion?: pulumi.Input<string>;
     /**
@@ -360,7 +360,7 @@ export interface PostgresqlClusterArgs {
      */
     administratorLoginPassword: pulumi.Input<string>;
     /**
-     * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+     * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
      */
     citusVersion?: pulumi.Input<string>;
     /**
@@ -442,7 +442,7 @@ export interface PostgresqlClusterArgs {
      */
     sourceResourceId?: pulumi.Input<string>;
     /**
-     * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+     * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
      */
     sqlVersion?: pulumi.Input<string>;
     /**

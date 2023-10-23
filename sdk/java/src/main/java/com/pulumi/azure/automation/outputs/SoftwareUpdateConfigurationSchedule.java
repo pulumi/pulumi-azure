@@ -299,24 +299,24 @@ public final class SoftwareUpdateConfigurationSchedule {
             return this;
         }
         public SoftwareUpdateConfigurationSchedule build() {
-            final var o = new SoftwareUpdateConfigurationSchedule();
-            o.advancedMonthDays = advancedMonthDays;
-            o.advancedWeekDays = advancedWeekDays;
-            o.creationTime = creationTime;
-            o.description = description;
-            o.expiryTime = expiryTime;
-            o.expiryTimeOffsetMinutes = expiryTimeOffsetMinutes;
-            o.frequency = frequency;
-            o.interval = interval;
-            o.isEnabled = isEnabled;
-            o.lastModifiedTime = lastModifiedTime;
-            o.monthlyOccurrences = monthlyOccurrences;
-            o.nextRun = nextRun;
-            o.nextRunOffsetMinutes = nextRunOffsetMinutes;
-            o.startTime = startTime;
-            o.startTimeOffsetMinutes = startTimeOffsetMinutes;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new SoftwareUpdateConfigurationSchedule();
+            _resultValue.advancedMonthDays = advancedMonthDays;
+            _resultValue.advancedWeekDays = advancedWeekDays;
+            _resultValue.creationTime = creationTime;
+            _resultValue.description = description;
+            _resultValue.expiryTime = expiryTime;
+            _resultValue.expiryTimeOffsetMinutes = expiryTimeOffsetMinutes;
+            _resultValue.frequency = frequency;
+            _resultValue.interval = interval;
+            _resultValue.isEnabled = isEnabled;
+            _resultValue.lastModifiedTime = lastModifiedTime;
+            _resultValue.monthlyOccurrences = monthlyOccurrences;
+            _resultValue.nextRun = nextRun;
+            _resultValue.nextRunOffsetMinutes = nextRunOffsetMinutes;
+            _resultValue.startTime = startTime;
+            _resultValue.startTimeOffsetMinutes = startTimeOffsetMinutes;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

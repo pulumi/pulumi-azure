@@ -93,7 +93,31 @@ class SlotArgs:
              site_config: Optional[pulumi.Input['SlotSiteConfigArgs']] = None,
              storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceName' in kwargs:
+            app_service_name = kwargs['appServiceName']
+        if 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if 'clientAffinityEnabled' in kwargs:
+            client_affinity_enabled = kwargs['clientAffinityEnabled']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'keyVaultReferenceIdentityId' in kwargs:
+            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+
         _setter("app_service_name", app_service_name)
         _setter("app_service_plan_id", app_service_plan_id)
         _setter("resource_group_name", resource_group_name)
@@ -419,7 +443,35 @@ class _SlotState:
              site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['SlotSiteCredentialArgs']]]] = None,
              storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['SlotStorageAccountArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceName' in kwargs:
+            app_service_name = kwargs['appServiceName']
+        if 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if 'clientAffinityEnabled' in kwargs:
+            client_affinity_enabled = kwargs['clientAffinityEnabled']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'defaultSiteHostname' in kwargs:
+            default_site_hostname = kwargs['defaultSiteHostname']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'keyVaultReferenceIdentityId' in kwargs:
+            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if 'siteCredentials' in kwargs:
+            site_credentials = kwargs['siteCredentials']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+
         if app_service_name is not None:
             _setter("app_service_name", app_service_name)
         if app_service_plan_id is not None:

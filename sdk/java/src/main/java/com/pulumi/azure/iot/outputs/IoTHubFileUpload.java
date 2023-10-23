@@ -210,17 +210,17 @@ public final class IoTHubFileUpload {
             return this;
         }
         public IoTHubFileUpload build() {
-            final var o = new IoTHubFileUpload();
-            o.authenticationType = authenticationType;
-            o.connectionString = connectionString;
-            o.containerName = containerName;
-            o.defaultTtl = defaultTtl;
-            o.identityId = identityId;
-            o.lockDuration = lockDuration;
-            o.maxDeliveryCount = maxDeliveryCount;
-            o.notifications = notifications;
-            o.sasTtl = sasTtl;
-            return o;
+            final var _resultValue = new IoTHubFileUpload();
+            _resultValue.authenticationType = authenticationType;
+            _resultValue.connectionString = connectionString;
+            _resultValue.containerName = containerName;
+            _resultValue.defaultTtl = defaultTtl;
+            _resultValue.identityId = identityId;
+            _resultValue.lockDuration = lockDuration;
+            _resultValue.maxDeliveryCount = maxDeliveryCount;
+            _resultValue.notifications = notifications;
+            _resultValue.sasTtl = sasTtl;
+            return _resultValue;
         }
     }
 }

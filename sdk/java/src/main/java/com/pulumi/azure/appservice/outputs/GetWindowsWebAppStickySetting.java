@@ -72,10 +72,10 @@ public final class GetWindowsWebAppStickySetting {
             return connectionStringNames(List.of(connectionStringNames));
         }
         public GetWindowsWebAppStickySetting build() {
-            final var o = new GetWindowsWebAppStickySetting();
-            o.appSettingNames = appSettingNames;
-            o.connectionStringNames = connectionStringNames;
-            return o;
+            final var _resultValue = new GetWindowsWebAppStickySetting();
+            _resultValue.appSettingNames = appSettingNames;
+            _resultValue.connectionStringNames = connectionStringNames;
+            return _resultValue;
         }
     }
 }

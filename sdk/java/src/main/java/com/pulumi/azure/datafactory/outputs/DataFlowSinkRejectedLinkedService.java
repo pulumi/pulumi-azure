@@ -67,10 +67,10 @@ public final class DataFlowSinkRejectedLinkedService {
             return this;
         }
         public DataFlowSinkRejectedLinkedService build() {
-            final var o = new DataFlowSinkRejectedLinkedService();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new DataFlowSinkRejectedLinkedService();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class CacheDirectoryFlatFile {
             return this;
         }
         public CacheDirectoryFlatFile build() {
-            final var o = new CacheDirectoryFlatFile();
-            o.groupFileUri = groupFileUri;
-            o.passwordFileUri = passwordFileUri;
-            return o;
+            final var _resultValue = new CacheDirectoryFlatFile();
+            _resultValue.groupFileUri = groupFileUri;
+            _resultValue.passwordFileUri = passwordFileUri;
+            return _resultValue;
         }
     }
 }

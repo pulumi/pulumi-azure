@@ -70,10 +70,10 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
             return this;
         }
         public FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation build() {
-            final var o = new FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation();
-            o.domains = domains;
-            o.patternsToMatch = patternsToMatch;
-            return o;
+            final var _resultValue = new FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation();
+            _resultValue.domains = domains;
+            _resultValue.patternsToMatch = patternsToMatch;
+            return _resultValue;
         }
     }
 }

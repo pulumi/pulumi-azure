@@ -50,9 +50,9 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
             return this;
         }
         public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate build() {
-            final var o = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate();
-            o.url = url;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate();
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

@@ -49,7 +49,19 @@ class CacheNfsTargetArgs:
              target_host_name: pulumi.Input[str],
              usage_model: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheName' in kwargs:
+            cache_name = kwargs['cacheName']
+        if 'namespaceJunctions' in kwargs:
+            namespace_junctions = kwargs['namespaceJunctions']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'targetHostName' in kwargs:
+            target_host_name = kwargs['targetHostName']
+        if 'usageModel' in kwargs:
+            usage_model = kwargs['usageModel']
+
         _setter("cache_name", cache_name)
         _setter("namespace_junctions", namespace_junctions)
         _setter("resource_group_name", resource_group_name)
@@ -167,7 +179,19 @@ class _CacheNfsTargetState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              target_host_name: Optional[pulumi.Input[str]] = None,
              usage_model: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheName' in kwargs:
+            cache_name = kwargs['cacheName']
+        if 'namespaceJunctions' in kwargs:
+            namespace_junctions = kwargs['namespaceJunctions']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'targetHostName' in kwargs:
+            target_host_name = kwargs['targetHostName']
+        if 'usageModel' in kwargs:
+            usage_model = kwargs['usageModel']
+
         if cache_name is not None:
             _setter("cache_name", cache_name)
         if name is not None:

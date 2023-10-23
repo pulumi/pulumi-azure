@@ -212,18 +212,18 @@ public final class GetNetworkSimPolicyResult {
             return userEquipmentAggregateMaximumBitRates(List.of(userEquipmentAggregateMaximumBitRates));
         }
         public GetNetworkSimPolicyResult build() {
-            final var o = new GetNetworkSimPolicyResult();
-            o.defaultSliceId = defaultSliceId;
-            o.id = id;
-            o.location = location;
-            o.mobileNetworkId = mobileNetworkId;
-            o.name = name;
-            o.ratFrequencySelectionPriorityIndex = ratFrequencySelectionPriorityIndex;
-            o.registrationTimerInSeconds = registrationTimerInSeconds;
-            o.slices = slices;
-            o.tags = tags;
-            o.userEquipmentAggregateMaximumBitRates = userEquipmentAggregateMaximumBitRates;
-            return o;
+            final var _resultValue = new GetNetworkSimPolicyResult();
+            _resultValue.defaultSliceId = defaultSliceId;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.mobileNetworkId = mobileNetworkId;
+            _resultValue.name = name;
+            _resultValue.ratFrequencySelectionPriorityIndex = ratFrequencySelectionPriorityIndex;
+            _resultValue.registrationTimerInSeconds = registrationTimerInSeconds;
+            _resultValue.slices = slices;
+            _resultValue.tags = tags;
+            _resultValue.userEquipmentAggregateMaximumBitRates = userEquipmentAggregateMaximumBitRates;
+            return _resultValue;
         }
     }
 }

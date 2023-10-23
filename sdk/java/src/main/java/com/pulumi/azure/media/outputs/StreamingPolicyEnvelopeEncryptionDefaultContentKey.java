@@ -67,10 +67,10 @@ public final class StreamingPolicyEnvelopeEncryptionDefaultContentKey {
             return this;
         }
         public StreamingPolicyEnvelopeEncryptionDefaultContentKey build() {
-            final var o = new StreamingPolicyEnvelopeEncryptionDefaultContentKey();
-            o.label = label;
-            o.policyName = policyName;
-            return o;
+            final var _resultValue = new StreamingPolicyEnvelopeEncryptionDefaultContentKey();
+            _resultValue.label = label;
+            _resultValue.policyName = policyName;
+            return _resultValue;
         }
     }
 }

@@ -177,17 +177,17 @@ public final class GetFrontdoorOriginGroupResult {
             return this;
         }
         public GetFrontdoorOriginGroupResult build() {
-            final var o = new GetFrontdoorOriginGroupResult();
-            o.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
-            o.healthProbes = healthProbes;
-            o.id = id;
-            o.loadBalancings = loadBalancings;
-            o.name = name;
-            o.profileName = profileName;
-            o.resourceGroupName = resourceGroupName;
-            o.restoreTrafficTimeToHealedOrNewEndpointInMinutes = restoreTrafficTimeToHealedOrNewEndpointInMinutes;
-            o.sessionAffinityEnabled = sessionAffinityEnabled;
-            return o;
+            final var _resultValue = new GetFrontdoorOriginGroupResult();
+            _resultValue.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
+            _resultValue.healthProbes = healthProbes;
+            _resultValue.id = id;
+            _resultValue.loadBalancings = loadBalancings;
+            _resultValue.name = name;
+            _resultValue.profileName = profileName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.restoreTrafficTimeToHealedOrNewEndpointInMinutes = restoreTrafficTimeToHealedOrNewEndpointInMinutes;
+            _resultValue.sessionAffinityEnabled = sessionAffinityEnabled;
+            return _resultValue;
         }
     }
 }

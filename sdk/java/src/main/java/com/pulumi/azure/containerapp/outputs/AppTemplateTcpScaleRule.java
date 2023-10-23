@@ -90,11 +90,11 @@ public final class AppTemplateTcpScaleRule {
             return this;
         }
         public AppTemplateTcpScaleRule build() {
-            final var o = new AppTemplateTcpScaleRule();
-            o.authentications = authentications;
-            o.concurrentRequests = concurrentRequests;
-            o.name = name;
-            return o;
+            final var _resultValue = new AppTemplateTcpScaleRule();
+            _resultValue.authentications = authentications;
+            _resultValue.concurrentRequests = concurrentRequests;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

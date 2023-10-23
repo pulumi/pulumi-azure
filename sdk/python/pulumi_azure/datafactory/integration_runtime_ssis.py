@@ -89,7 +89,31 @@ class IntegrationRuntimeSsisArgs:
              package_stores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]] = None,
              proxy: Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']] = None,
              vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'nodeSize' in kwargs:
+            node_size = kwargs['nodeSize']
+        if 'catalogInfo' in kwargs:
+            catalog_info = kwargs['catalogInfo']
+        if 'customSetupScript' in kwargs:
+            custom_setup_script = kwargs['customSetupScript']
+        if 'expressCustomSetup' in kwargs:
+            express_custom_setup = kwargs['expressCustomSetup']
+        if 'expressVnetIntegration' in kwargs:
+            express_vnet_integration = kwargs['expressVnetIntegration']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'maxParallelExecutionsPerNode' in kwargs:
+            max_parallel_executions_per_node = kwargs['maxParallelExecutionsPerNode']
+        if 'numberOfNodes' in kwargs:
+            number_of_nodes = kwargs['numberOfNodes']
+        if 'packageStores' in kwargs:
+            package_stores = kwargs['packageStores']
+        if 'vnetIntegration' in kwargs:
+            vnet_integration = kwargs['vnetIntegration']
+
         _setter("data_factory_id", data_factory_id)
         _setter("node_size", node_size)
         if catalog_info is not None:
@@ -390,7 +414,31 @@ class _IntegrationRuntimeSsisState:
              package_stores: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisPackageStoreArgs']]]] = None,
              proxy: Optional[pulumi.Input['IntegrationRuntimeSsisProxyArgs']] = None,
              vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisVnetIntegrationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'catalogInfo' in kwargs:
+            catalog_info = kwargs['catalogInfo']
+        if 'customSetupScript' in kwargs:
+            custom_setup_script = kwargs['customSetupScript']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'expressCustomSetup' in kwargs:
+            express_custom_setup = kwargs['expressCustomSetup']
+        if 'expressVnetIntegration' in kwargs:
+            express_vnet_integration = kwargs['expressVnetIntegration']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'maxParallelExecutionsPerNode' in kwargs:
+            max_parallel_executions_per_node = kwargs['maxParallelExecutionsPerNode']
+        if 'nodeSize' in kwargs:
+            node_size = kwargs['nodeSize']
+        if 'numberOfNodes' in kwargs:
+            number_of_nodes = kwargs['numberOfNodes']
+        if 'packageStores' in kwargs:
+            package_stores = kwargs['packageStores']
+        if 'vnetIntegration' in kwargs:
+            vnet_integration = kwargs['vnetIntegration']
+
         if catalog_info is not None:
             _setter("catalog_info", catalog_info)
         if custom_setup_script is not None:

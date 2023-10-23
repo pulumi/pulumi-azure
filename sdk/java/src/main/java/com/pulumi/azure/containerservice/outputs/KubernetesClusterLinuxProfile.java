@@ -66,10 +66,10 @@ public final class KubernetesClusterLinuxProfile {
             return this;
         }
         public KubernetesClusterLinuxProfile build() {
-            final var o = new KubernetesClusterLinuxProfile();
-            o.adminUsername = adminUsername;
-            o.sshKey = sshKey;
-            return o;
+            final var _resultValue = new KubernetesClusterLinuxProfile();
+            _resultValue.adminUsername = adminUsername;
+            _resultValue.sshKey = sshKey;
+            return _resultValue;
         }
     }
 }

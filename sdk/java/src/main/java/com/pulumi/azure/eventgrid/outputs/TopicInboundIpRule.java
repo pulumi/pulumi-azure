@@ -67,10 +67,10 @@ public final class TopicInboundIpRule {
             return this;
         }
         public TopicInboundIpRule build() {
-            final var o = new TopicInboundIpRule();
-            o.action = action;
-            o.ipMask = ipMask;
-            return o;
+            final var _resultValue = new TopicInboundIpRule();
+            _resultValue.action = action;
+            _resultValue.ipMask = ipMask;
+            return _resultValue;
         }
     }
 }

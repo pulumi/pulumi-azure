@@ -41,7 +41,15 @@ class GroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              parent_management_group_id: Optional[pulumi.Input[str]] = None,
              subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'parentManagementGroupId' in kwargs:
+            parent_management_group_id = kwargs['parentManagementGroupId']
+        if 'subscriptionIds' in kwargs:
+            subscription_ids = kwargs['subscriptionIds']
+
         if display_name is not None:
             _setter("display_name", display_name)
         if name is not None:
@@ -132,7 +140,15 @@ class _GroupState:
              name: Optional[pulumi.Input[str]] = None,
              parent_management_group_id: Optional[pulumi.Input[str]] = None,
              subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'parentManagementGroupId' in kwargs:
+            parent_management_group_id = kwargs['parentManagementGroupId']
+        if 'subscriptionIds' in kwargs:
+            subscription_ids = kwargs['subscriptionIds']
+
         if display_name is not None:
             _setter("display_name", display_name)
         if name is not None:

@@ -67,10 +67,10 @@ public final class KeyRotationPolicyAutomatic {
             return this;
         }
         public KeyRotationPolicyAutomatic build() {
-            final var o = new KeyRotationPolicyAutomatic();
-            o.timeAfterCreation = timeAfterCreation;
-            o.timeBeforeExpiry = timeBeforeExpiry;
-            return o;
+            final var _resultValue = new KeyRotationPolicyAutomatic();
+            _resultValue.timeAfterCreation = timeAfterCreation;
+            _resultValue.timeBeforeExpiry = timeBeforeExpiry;
+            return _resultValue;
         }
     }
 }

@@ -87,12 +87,12 @@ public final class GetSourceControlTokenResult {
             return this;
         }
         public GetSourceControlTokenResult build() {
-            final var o = new GetSourceControlTokenResult();
-            o.id = id;
-            o.token = token;
-            o.tokenSecret = tokenSecret;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetSourceControlTokenResult();
+            _resultValue.id = id;
+            _resultValue.token = token;
+            _resultValue.tokenSecret = tokenSecret;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

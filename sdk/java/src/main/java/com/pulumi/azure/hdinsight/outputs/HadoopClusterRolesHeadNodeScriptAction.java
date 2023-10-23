@@ -86,11 +86,11 @@ public final class HadoopClusterRolesHeadNodeScriptAction {
             return this;
         }
         public HadoopClusterRolesHeadNodeScriptAction build() {
-            final var o = new HadoopClusterRolesHeadNodeScriptAction();
-            o.name = name;
-            o.parameters = parameters;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new HadoopClusterRolesHeadNodeScriptAction();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

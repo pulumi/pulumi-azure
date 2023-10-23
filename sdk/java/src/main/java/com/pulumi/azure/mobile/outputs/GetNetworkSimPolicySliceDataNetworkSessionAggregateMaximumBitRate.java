@@ -65,10 +65,10 @@ public final class GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBit
             return this;
         }
         public GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate build() {
-            final var o = new GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate();
-            o.downlink = downlink;
-            o.uplink = uplink;
-            return o;
+            final var _resultValue = new GetNetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRate();
+            _resultValue.downlink = downlink;
+            _resultValue.uplink = uplink;
+            return _resultValue;
         }
     }
 }

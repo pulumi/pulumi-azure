@@ -41,7 +41,11 @@ class VirtualHubRouteTableArgs:
              labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         _setter("virtual_hub_id", virtual_hub_id)
         if labels is not None:
             _setter("labels", labels)
@@ -127,7 +131,11 @@ class _VirtualHubRouteTableState:
              name: Optional[pulumi.Input[str]] = None,
              routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableRouteArgs']]]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         if labels is not None:
             _setter("labels", labels)
         if name is not None:

@@ -110,12 +110,12 @@ public final class AppTemplateCustomScaleRule {
             return this;
         }
         public AppTemplateCustomScaleRule build() {
-            final var o = new AppTemplateCustomScaleRule();
-            o.authentications = authentications;
-            o.customRuleType = customRuleType;
-            o.metadata = metadata;
-            o.name = name;
-            return o;
+            final var _resultValue = new AppTemplateCustomScaleRule();
+            _resultValue.authentications = authentications;
+            _resultValue.customRuleType = customRuleType;
+            _resultValue.metadata = metadata;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

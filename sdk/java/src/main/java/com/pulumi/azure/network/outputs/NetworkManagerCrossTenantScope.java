@@ -93,11 +93,11 @@ public final class NetworkManagerCrossTenantScope {
             return this;
         }
         public NetworkManagerCrossTenantScope build() {
-            final var o = new NetworkManagerCrossTenantScope();
-            o.managementGroups = managementGroups;
-            o.subscriptions = subscriptions;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new NetworkManagerCrossTenantScope();
+            _resultValue.managementGroups = managementGroups;
+            _resultValue.subscriptions = subscriptions;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

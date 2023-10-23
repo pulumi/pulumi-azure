@@ -74,10 +74,10 @@ public final class StreamingEndpointAccessControl {
             return ipAllows(List.of(ipAllows));
         }
         public StreamingEndpointAccessControl build() {
-            final var o = new StreamingEndpointAccessControl();
-            o.akamaiSignatureHeaderAuthenticationKeys = akamaiSignatureHeaderAuthenticationKeys;
-            o.ipAllows = ipAllows;
-            return o;
+            final var _resultValue = new StreamingEndpointAccessControl();
+            _resultValue.akamaiSignatureHeaderAuthenticationKeys = akamaiSignatureHeaderAuthenticationKeys;
+            _resultValue.ipAllows = ipAllows;
+            return _resultValue;
         }
     }
 }

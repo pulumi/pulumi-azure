@@ -48,9 +48,9 @@ public final class SpringCloudServiceDefaultBuildService {
             return this;
         }
         public SpringCloudServiceDefaultBuildService build() {
-            final var o = new SpringCloudServiceDefaultBuildService();
-            o.containerRegistryName = containerRegistryName;
-            return o;
+            final var _resultValue = new SpringCloudServiceDefaultBuildService();
+            _resultValue.containerRegistryName = containerRegistryName;
+            return _resultValue;
         }
     }
 }

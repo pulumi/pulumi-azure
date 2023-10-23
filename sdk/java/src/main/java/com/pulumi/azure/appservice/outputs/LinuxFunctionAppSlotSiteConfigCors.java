@@ -72,10 +72,10 @@ public final class LinuxFunctionAppSlotSiteConfigCors {
             return this;
         }
         public LinuxFunctionAppSlotSiteConfigCors build() {
-            final var o = new LinuxFunctionAppSlotSiteConfigCors();
-            o.allowedOrigins = allowedOrigins;
-            o.supportCredentials = supportCredentials;
-            return o;
+            final var _resultValue = new LinuxFunctionAppSlotSiteConfigCors();
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.supportCredentials = supportCredentials;
+            return _resultValue;
         }
     }
 }

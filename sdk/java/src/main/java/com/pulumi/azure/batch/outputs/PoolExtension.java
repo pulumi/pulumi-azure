@@ -209,17 +209,17 @@ public final class PoolExtension {
             return this;
         }
         public PoolExtension build() {
-            final var o = new PoolExtension();
-            o.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
-            o.automaticUpgradeEnabled = automaticUpgradeEnabled;
-            o.name = name;
-            o.protectedSettings = protectedSettings;
-            o.provisionAfterExtensions = provisionAfterExtensions;
-            o.publisher = publisher;
-            o.settingsJson = settingsJson;
-            o.type = type;
-            o.typeHandlerVersion = typeHandlerVersion;
-            return o;
+            final var _resultValue = new PoolExtension();
+            _resultValue.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            _resultValue.automaticUpgradeEnabled = automaticUpgradeEnabled;
+            _resultValue.name = name;
+            _resultValue.protectedSettings = protectedSettings;
+            _resultValue.provisionAfterExtensions = provisionAfterExtensions;
+            _resultValue.publisher = publisher;
+            _resultValue.settingsJson = settingsJson;
+            _resultValue.type = type;
+            _resultValue.typeHandlerVersion = typeHandlerVersion;
+            return _resultValue;
         }
     }
 }

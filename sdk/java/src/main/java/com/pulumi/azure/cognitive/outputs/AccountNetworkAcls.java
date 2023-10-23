@@ -93,11 +93,11 @@ public final class AccountNetworkAcls {
             return virtualNetworkRules(List.of(virtualNetworkRules));
         }
         public AccountNetworkAcls build() {
-            final var o = new AccountNetworkAcls();
-            o.defaultAction = defaultAction;
-            o.ipRules = ipRules;
-            o.virtualNetworkRules = virtualNetworkRules;
-            return o;
+            final var _resultValue = new AccountNetworkAcls();
+            _resultValue.defaultAction = defaultAction;
+            _resultValue.ipRules = ipRules;
+            _resultValue.virtualNetworkRules = virtualNetworkRules;
+            return _resultValue;
         }
     }
 }

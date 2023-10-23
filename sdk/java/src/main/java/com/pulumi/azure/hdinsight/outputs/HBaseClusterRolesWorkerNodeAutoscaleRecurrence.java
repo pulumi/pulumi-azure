@@ -54,10 +54,10 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
             return this;
         }
         public HBaseClusterRolesWorkerNodeAutoscaleRecurrence build() {
-            final var o = new HBaseClusterRolesWorkerNodeAutoscaleRecurrence();
-            o.schedules = schedules;
-            o.timezone = timezone;
-            return o;
+            final var _resultValue = new HBaseClusterRolesWorkerNodeAutoscaleRecurrence();
+            _resultValue.schedules = schedules;
+            _resultValue.timezone = timezone;
+            return _resultValue;
         }
     }
 }

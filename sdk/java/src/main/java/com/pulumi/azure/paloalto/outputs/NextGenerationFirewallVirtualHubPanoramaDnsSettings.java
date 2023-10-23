@@ -70,11 +70,11 @@ public final class NextGenerationFirewallVirtualHubPanoramaDnsSettings {
             return this;
         }
         public NextGenerationFirewallVirtualHubPanoramaDnsSettings build() {
-            final var o = new NextGenerationFirewallVirtualHubPanoramaDnsSettings();
-            o.azureDnsServers = azureDnsServers;
-            o.dnsServers = dnsServers;
-            o.useAzureDns = useAzureDns;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualHubPanoramaDnsSettings();
+            _resultValue.azureDnsServers = azureDnsServers;
+            _resultValue.dnsServers = dnsServers;
+            _resultValue.useAzureDns = useAzureDns;
+            return _resultValue;
         }
     }
 }

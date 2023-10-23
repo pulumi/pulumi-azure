@@ -86,11 +86,11 @@ public final class HadoopClusterRolesZookeeperNodeScriptAction {
             return this;
         }
         public HadoopClusterRolesZookeeperNodeScriptAction build() {
-            final var o = new HadoopClusterRolesZookeeperNodeScriptAction();
-            o.name = name;
-            o.parameters = parameters;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new HadoopClusterRolesZookeeperNodeScriptAction();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

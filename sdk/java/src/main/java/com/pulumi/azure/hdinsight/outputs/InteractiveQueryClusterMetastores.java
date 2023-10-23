@@ -88,11 +88,11 @@ public final class InteractiveQueryClusterMetastores {
             return this;
         }
         public InteractiveQueryClusterMetastores build() {
-            final var o = new InteractiveQueryClusterMetastores();
-            o.ambari = ambari;
-            o.hive = hive;
-            o.oozie = oozie;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterMetastores();
+            _resultValue.ambari = ambari;
+            _resultValue.hive = hive;
+            _resultValue.oozie = oozie;
+            return _resultValue;
         }
     }
 }

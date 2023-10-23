@@ -47,7 +47,21 @@ class IdentityProviderAadArgs:
              client_secret: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              signin_tenant: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedTenants' in kwargs:
+            allowed_tenants = kwargs['allowedTenants']
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'signinTenant' in kwargs:
+            signin_tenant = kwargs['signinTenant']
+
         _setter("allowed_tenants", allowed_tenants)
         _setter("api_management_name", api_management_name)
         _setter("client_id", client_id)
@@ -165,7 +179,21 @@ class _IdentityProviderAadState:
              client_secret: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              signin_tenant: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedTenants' in kwargs:
+            allowed_tenants = kwargs['allowedTenants']
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'signinTenant' in kwargs:
+            signin_tenant = kwargs['signinTenant']
+
         if allowed_tenants is not None:
             _setter("allowed_tenants", allowed_tenants)
         if api_management_name is not None:

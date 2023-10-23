@@ -69,10 +69,10 @@ public final class DataCollectionRuleDataSourcesPlatformTelemetry {
             return streams(List.of(streams));
         }
         public DataCollectionRuleDataSourcesPlatformTelemetry build() {
-            final var o = new DataCollectionRuleDataSourcesPlatformTelemetry();
-            o.name = name;
-            o.streams = streams;
-            return o;
+            final var _resultValue = new DataCollectionRuleDataSourcesPlatformTelemetry();
+            _resultValue.name = name;
+            _resultValue.streams = streams;
+            return _resultValue;
         }
     }
 }

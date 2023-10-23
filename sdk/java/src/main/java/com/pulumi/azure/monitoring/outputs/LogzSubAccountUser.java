@@ -107,12 +107,12 @@ public final class LogzSubAccountUser {
             return this;
         }
         public LogzSubAccountUser build() {
-            final var o = new LogzSubAccountUser();
-            o.email = email;
-            o.firstName = firstName;
-            o.lastName = lastName;
-            o.phoneNumber = phoneNumber;
-            return o;
+            final var _resultValue = new LogzSubAccountUser();
+            _resultValue.email = email;
+            _resultValue.firstName = firstName;
+            _resultValue.lastName = lastName;
+            _resultValue.phoneNumber = phoneNumber;
+            return _resultValue;
         }
     }
 }

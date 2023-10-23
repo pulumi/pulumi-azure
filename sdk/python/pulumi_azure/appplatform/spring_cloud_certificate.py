@@ -47,7 +47,19 @@ class SpringCloudCertificateArgs:
              exclude_private_key: Optional[pulumi.Input[bool]] = None,
              key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'certificateContent' in kwargs:
+            certificate_content = kwargs['certificateContent']
+        if 'excludePrivateKey' in kwargs:
+            exclude_private_key = kwargs['excludePrivateKey']
+        if 'keyVaultCertificateId' in kwargs:
+            key_vault_certificate_id = kwargs['keyVaultCertificateId']
+
         _setter("resource_group_name", resource_group_name)
         _setter("service_name", service_name)
         if certificate_content is not None:
@@ -172,7 +184,19 @@ class _SpringCloudCertificateState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              service_name: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateContent' in kwargs:
+            certificate_content = kwargs['certificateContent']
+        if 'excludePrivateKey' in kwargs:
+            exclude_private_key = kwargs['excludePrivateKey']
+        if 'keyVaultCertificateId' in kwargs:
+            key_vault_certificate_id = kwargs['keyVaultCertificateId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+
         if certificate_content is not None:
             _setter("certificate_content", certificate_content)
         if exclude_private_key is not None:

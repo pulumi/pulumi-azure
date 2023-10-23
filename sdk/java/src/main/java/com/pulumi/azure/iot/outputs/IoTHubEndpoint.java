@@ -285,21 +285,21 @@ public final class IoTHubEndpoint {
             return this;
         }
         public IoTHubEndpoint build() {
-            final var o = new IoTHubEndpoint();
-            o.authenticationType = authenticationType;
-            o.batchFrequencyInSeconds = batchFrequencyInSeconds;
-            o.connectionString = connectionString;
-            o.containerName = containerName;
-            o.encoding = encoding;
-            o.endpointUri = endpointUri;
-            o.entityPath = entityPath;
-            o.fileNameFormat = fileNameFormat;
-            o.identityId = identityId;
-            o.maxChunkSizeInBytes = maxChunkSizeInBytes;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.type = type;
-            return o;
+            final var _resultValue = new IoTHubEndpoint();
+            _resultValue.authenticationType = authenticationType;
+            _resultValue.batchFrequencyInSeconds = batchFrequencyInSeconds;
+            _resultValue.connectionString = connectionString;
+            _resultValue.containerName = containerName;
+            _resultValue.encoding = encoding;
+            _resultValue.endpointUri = endpointUri;
+            _resultValue.entityPath = entityPath;
+            _resultValue.fileNameFormat = fileNameFormat;
+            _resultValue.identityId = identityId;
+            _resultValue.maxChunkSizeInBytes = maxChunkSizeInBytes;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

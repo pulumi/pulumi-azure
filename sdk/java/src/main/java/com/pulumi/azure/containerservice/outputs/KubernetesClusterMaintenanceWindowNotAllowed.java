@@ -65,10 +65,10 @@ public final class KubernetesClusterMaintenanceWindowNotAllowed {
             return this;
         }
         public KubernetesClusterMaintenanceWindowNotAllowed build() {
-            final var o = new KubernetesClusterMaintenanceWindowNotAllowed();
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new KubernetesClusterMaintenanceWindowNotAllowed();
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

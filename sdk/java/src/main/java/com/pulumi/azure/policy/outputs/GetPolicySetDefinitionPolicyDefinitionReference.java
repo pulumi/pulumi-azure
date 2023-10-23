@@ -127,13 +127,13 @@ public final class GetPolicySetDefinitionPolicyDefinitionReference {
             return this;
         }
         public GetPolicySetDefinitionPolicyDefinitionReference build() {
-            final var o = new GetPolicySetDefinitionPolicyDefinitionReference();
-            o.parameterValues = parameterValues;
-            o.parameters = parameters;
-            o.policyDefinitionId = policyDefinitionId;
-            o.policyGroupNames = policyGroupNames;
-            o.referenceId = referenceId;
-            return o;
+            final var _resultValue = new GetPolicySetDefinitionPolicyDefinitionReference();
+            _resultValue.parameterValues = parameterValues;
+            _resultValue.parameters = parameters;
+            _resultValue.policyDefinitionId = policyDefinitionId;
+            _resultValue.policyGroupNames = policyGroupNames;
+            _resultValue.referenceId = referenceId;
+            return _resultValue;
         }
     }
 }

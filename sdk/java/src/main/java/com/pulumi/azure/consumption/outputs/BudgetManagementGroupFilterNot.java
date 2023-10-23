@@ -68,10 +68,10 @@ public final class BudgetManagementGroupFilterNot {
             return this;
         }
         public BudgetManagementGroupFilterNot build() {
-            final var o = new BudgetManagementGroupFilterNot();
-            o.dimension = dimension;
-            o.tag = tag;
-            return o;
+            final var _resultValue = new BudgetManagementGroupFilterNot();
+            _resultValue.dimension = dimension;
+            _resultValue.tag = tag;
+            return _resultValue;
         }
     }
 }

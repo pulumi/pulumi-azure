@@ -126,14 +126,14 @@ public final class GetSyncResult {
             return this;
         }
         public GetSyncResult build() {
-            final var o = new GetSyncResult();
-            o.id = id;
-            o.incomingTrafficPolicy = incomingTrafficPolicy;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSyncResult();
+            _resultValue.id = id;
+            _resultValue.incomingTrafficPolicy = incomingTrafficPolicy;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

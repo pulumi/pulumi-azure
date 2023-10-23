@@ -106,12 +106,12 @@ public final class PointToPointVpnGatewayConnectionConfigurationRoute {
             return this;
         }
         public PointToPointVpnGatewayConnectionConfigurationRoute build() {
-            final var o = new PointToPointVpnGatewayConnectionConfigurationRoute();
-            o.associatedRouteTableId = associatedRouteTableId;
-            o.inboundRouteMapId = inboundRouteMapId;
-            o.outboundRouteMapId = outboundRouteMapId;
-            o.propagatedRouteTable = propagatedRouteTable;
-            return o;
+            final var _resultValue = new PointToPointVpnGatewayConnectionConfigurationRoute();
+            _resultValue.associatedRouteTableId = associatedRouteTableId;
+            _resultValue.inboundRouteMapId = inboundRouteMapId;
+            _resultValue.outboundRouteMapId = outboundRouteMapId;
+            _resultValue.propagatedRouteTable = propagatedRouteTable;
+            return _resultValue;
         }
     }
 }

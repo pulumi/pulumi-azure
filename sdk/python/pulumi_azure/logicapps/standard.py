@@ -105,7 +105,37 @@ class StandardArgs:
              use_extension_bundle: Optional[pulumi.Input[bool]] = None,
              version: Optional[pulumi.Input[str]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'bundleVersion' in kwargs:
+            bundle_version = kwargs['bundleVersion']
+        if 'clientAffinityEnabled' in kwargs:
+            client_affinity_enabled = kwargs['clientAffinityEnabled']
+        if 'clientCertificateMode' in kwargs:
+            client_certificate_mode = kwargs['clientCertificateMode']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if 'storageAccountShareName' in kwargs:
+            storage_account_share_name = kwargs['storageAccountShareName']
+        if 'useExtensionBundle' in kwargs:
+            use_extension_bundle = kwargs['useExtensionBundle']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("app_service_plan_id", app_service_plan_id)
         _setter("resource_group_name", resource_group_name)
         _setter("storage_account_access_key", storage_account_access_key)
@@ -496,7 +526,47 @@ class _StandardState:
              use_extension_bundle: Optional[pulumi.Input[bool]] = None,
              version: Optional[pulumi.Input[str]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'bundleVersion' in kwargs:
+            bundle_version = kwargs['bundleVersion']
+        if 'clientAffinityEnabled' in kwargs:
+            client_affinity_enabled = kwargs['clientAffinityEnabled']
+        if 'clientCertificateMode' in kwargs:
+            client_certificate_mode = kwargs['clientCertificateMode']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'customDomainVerificationId' in kwargs:
+            custom_domain_verification_id = kwargs['customDomainVerificationId']
+        if 'defaultHostname' in kwargs:
+            default_hostname = kwargs['defaultHostname']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'outboundIpAddresses' in kwargs:
+            outbound_ip_addresses = kwargs['outboundIpAddresses']
+        if 'possibleOutboundIpAddresses' in kwargs:
+            possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if 'siteCredentials' in kwargs:
+            site_credentials = kwargs['siteCredentials']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'storageAccountShareName' in kwargs:
+            storage_account_share_name = kwargs['storageAccountShareName']
+        if 'useExtensionBundle' in kwargs:
+            use_extension_bundle = kwargs['useExtensionBundle']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if app_service_plan_id is not None:
             _setter("app_service_plan_id", app_service_plan_id)
         if app_settings is not None:

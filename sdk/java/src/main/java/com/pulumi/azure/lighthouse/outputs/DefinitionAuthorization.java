@@ -109,12 +109,12 @@ public final class DefinitionAuthorization {
             return this;
         }
         public DefinitionAuthorization build() {
-            final var o = new DefinitionAuthorization();
-            o.delegatedRoleDefinitionIds = delegatedRoleDefinitionIds;
-            o.principalDisplayName = principalDisplayName;
-            o.principalId = principalId;
-            o.roleDefinitionId = roleDefinitionId;
-            return o;
+            final var _resultValue = new DefinitionAuthorization();
+            _resultValue.delegatedRoleDefinitionIds = delegatedRoleDefinitionIds;
+            _resultValue.principalDisplayName = principalDisplayName;
+            _resultValue.principalId = principalId;
+            _resultValue.roleDefinitionId = roleDefinitionId;
+            return _resultValue;
         }
     }
 }

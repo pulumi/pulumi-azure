@@ -55,7 +55,17 @@ class DscConfigurationArgs:
              log_verbose: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'contentEmbedded' in kwargs:
+            content_embedded = kwargs['contentEmbedded']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'logVerbose' in kwargs:
+            log_verbose = kwargs['logVerbose']
+
         _setter("automation_account_name", automation_account_name)
         _setter("content_embedded", content_embedded)
         _setter("resource_group_name", resource_group_name)
@@ -214,7 +224,17 @@ class _DscConfigurationState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'contentEmbedded' in kwargs:
+            content_embedded = kwargs['contentEmbedded']
+        if 'logVerbose' in kwargs:
+            log_verbose = kwargs['logVerbose']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if automation_account_name is not None:
             _setter("automation_account_name", automation_account_name)
         if content_embedded is not None:

@@ -89,11 +89,11 @@ public final class FunctionAppAuthSettingsGoogle {
             return oauthScopes(List.of(oauthScopes));
         }
         public FunctionAppAuthSettingsGoogle build() {
-            final var o = new FunctionAppAuthSettingsGoogle();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.oauthScopes = oauthScopes;
-            return o;
+            final var _resultValue = new FunctionAppAuthSettingsGoogle();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.oauthScopes = oauthScopes;
+            return _resultValue;
         }
     }
 }

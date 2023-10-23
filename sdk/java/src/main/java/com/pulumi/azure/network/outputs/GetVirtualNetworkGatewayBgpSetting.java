@@ -91,11 +91,11 @@ public final class GetVirtualNetworkGatewayBgpSetting {
             return this;
         }
         public GetVirtualNetworkGatewayBgpSetting build() {
-            final var o = new GetVirtualNetworkGatewayBgpSetting();
-            o.asn = asn;
-            o.peerWeight = peerWeight;
-            o.peeringAddress = peeringAddress;
-            return o;
+            final var _resultValue = new GetVirtualNetworkGatewayBgpSetting();
+            _resultValue.asn = asn;
+            _resultValue.peerWeight = peerWeight;
+            _resultValue.peeringAddress = peeringAddress;
+            return _resultValue;
         }
     }
 }

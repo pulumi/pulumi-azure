@@ -162,15 +162,15 @@ public final class ServiceSecurity {
             return this;
         }
         public ServiceSecurity build() {
-            final var o = new ServiceSecurity();
-            o.kerberosArmoringEnabled = kerberosArmoringEnabled;
-            o.kerberosRc4EncryptionEnabled = kerberosRc4EncryptionEnabled;
-            o.ntlmV1Enabled = ntlmV1Enabled;
-            o.syncKerberosPasswords = syncKerberosPasswords;
-            o.syncNtlmPasswords = syncNtlmPasswords;
-            o.syncOnPremPasswords = syncOnPremPasswords;
-            o.tlsV1Enabled = tlsV1Enabled;
-            return o;
+            final var _resultValue = new ServiceSecurity();
+            _resultValue.kerberosArmoringEnabled = kerberosArmoringEnabled;
+            _resultValue.kerberosRc4EncryptionEnabled = kerberosRc4EncryptionEnabled;
+            _resultValue.ntlmV1Enabled = ntlmV1Enabled;
+            _resultValue.syncKerberosPasswords = syncKerberosPasswords;
+            _resultValue.syncNtlmPasswords = syncNtlmPasswords;
+            _resultValue.syncOnPremPasswords = syncOnPremPasswords;
+            _resultValue.tlsV1Enabled = tlsV1Enabled;
+            return _resultValue;
         }
     }
 }

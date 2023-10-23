@@ -174,15 +174,15 @@ public final class GroupInitContainer {
             return volumes(List.of(volumes));
         }
         public GroupInitContainer build() {
-            final var o = new GroupInitContainer();
-            o.commands = commands;
-            o.environmentVariables = environmentVariables;
-            o.image = image;
-            o.name = name;
-            o.secureEnvironmentVariables = secureEnvironmentVariables;
-            o.securities = securities;
-            o.volumes = volumes;
-            return o;
+            final var _resultValue = new GroupInitContainer();
+            _resultValue.commands = commands;
+            _resultValue.environmentVariables = environmentVariables;
+            _resultValue.image = image;
+            _resultValue.name = name;
+            _resultValue.secureEnvironmentVariables = secureEnvironmentVariables;
+            _resultValue.securities = securities;
+            _resultValue.volumes = volumes;
+            return _resultValue;
         }
     }
 }

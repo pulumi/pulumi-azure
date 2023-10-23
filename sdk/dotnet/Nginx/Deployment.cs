@@ -95,6 +95,8 @@ namespace Pulumi.Azure.Nginx
     ///                 SubnetId = exampleSubnet.Id,
     ///             },
     ///         },
+    ///         Capacity = 20,
+    ///         Email = "user@test.com",
     ///     });
     /// 
     /// });
@@ -112,10 +114,24 @@ namespace Pulumi.Azure.Nginx
     public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Specify the number of NGINX capacity units for this NGINX deployment.
+        /// 
+        /// &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        /// </summary>
+        [Output("capacity")]
+        public Output<int?> Capacity { get; private set; } = null!;
+
+        /// <summary>
         /// Should the diagnosis support be enabled?
         /// </summary>
         [Output("diagnoseSupportEnabled")]
         public Output<bool?> DiagnoseSupportEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specify the preferred support contact email address of the user used for sending alerts and notification.
+        /// </summary>
+        [Output("email")]
+        public Output<string?> Email { get; private set; } = null!;
 
         /// <summary>
         /// One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
@@ -242,10 +258,24 @@ namespace Pulumi.Azure.Nginx
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specify the number of NGINX capacity units for this NGINX deployment.
+        /// 
+        /// &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        /// </summary>
+        [Input("capacity")]
+        public Input<int>? Capacity { get; set; }
+
+        /// <summary>
         /// Should the diagnosis support be enabled?
         /// </summary>
         [Input("diagnoseSupportEnabled")]
         public Input<bool>? DiagnoseSupportEnabled { get; set; }
+
+        /// <summary>
+        /// Specify the preferred support contact email address of the user used for sending alerts and notification.
+        /// </summary>
+        [Input("email")]
+        public Input<string>? Email { get; set; }
 
         [Input("frontendPrivates")]
         private InputList<Inputs.DeploymentFrontendPrivateArgs>? _frontendPrivates;
@@ -346,10 +376,24 @@ namespace Pulumi.Azure.Nginx
     public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specify the number of NGINX capacity units for this NGINX deployment.
+        /// 
+        /// &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        /// </summary>
+        [Input("capacity")]
+        public Input<int>? Capacity { get; set; }
+
+        /// <summary>
         /// Should the diagnosis support be enabled?
         /// </summary>
         [Input("diagnoseSupportEnabled")]
         public Input<bool>? DiagnoseSupportEnabled { get; set; }
+
+        /// <summary>
+        /// Specify the preferred support contact email address of the user used for sending alerts and notification.
+        /// </summary>
+        [Input("email")]
+        public Input<string>? Email { get; set; }
 
         [Input("frontendPrivates")]
         private InputList<Inputs.DeploymentFrontendPrivateGetArgs>? _frontendPrivates;

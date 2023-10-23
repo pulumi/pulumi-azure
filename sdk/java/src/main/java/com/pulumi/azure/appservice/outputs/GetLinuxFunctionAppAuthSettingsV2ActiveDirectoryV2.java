@@ -276,20 +276,20 @@ public final class GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2 {
             return this;
         }
         public GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2 build() {
-            final var o = new GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2();
-            o.allowedApplications = allowedApplications;
-            o.allowedAudiences = allowedAudiences;
-            o.allowedGroups = allowedGroups;
-            o.allowedIdentities = allowedIdentities;
-            o.clientId = clientId;
-            o.clientSecretCertificateThumbprint = clientSecretCertificateThumbprint;
-            o.clientSecretSettingName = clientSecretSettingName;
-            o.jwtAllowedClientApplications = jwtAllowedClientApplications;
-            o.jwtAllowedGroups = jwtAllowedGroups;
-            o.loginParameters = loginParameters;
-            o.tenantAuthEndpoint = tenantAuthEndpoint;
-            o.wwwAuthenticationDisabled = wwwAuthenticationDisabled;
-            return o;
+            final var _resultValue = new GetLinuxFunctionAppAuthSettingsV2ActiveDirectoryV2();
+            _resultValue.allowedApplications = allowedApplications;
+            _resultValue.allowedAudiences = allowedAudiences;
+            _resultValue.allowedGroups = allowedGroups;
+            _resultValue.allowedIdentities = allowedIdentities;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecretCertificateThumbprint = clientSecretCertificateThumbprint;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            _resultValue.jwtAllowedClientApplications = jwtAllowedClientApplications;
+            _resultValue.jwtAllowedGroups = jwtAllowedGroups;
+            _resultValue.loginParameters = loginParameters;
+            _resultValue.tenantAuthEndpoint = tenantAuthEndpoint;
+            _resultValue.wwwAuthenticationDisabled = wwwAuthenticationDisabled;
+            return _resultValue;
         }
     }
 }

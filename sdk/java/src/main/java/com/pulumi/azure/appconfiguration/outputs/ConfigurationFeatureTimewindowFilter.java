@@ -67,10 +67,10 @@ public final class ConfigurationFeatureTimewindowFilter {
             return this;
         }
         public ConfigurationFeatureTimewindowFilter build() {
-            final var o = new ConfigurationFeatureTimewindowFilter();
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new ConfigurationFeatureTimewindowFilter();
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

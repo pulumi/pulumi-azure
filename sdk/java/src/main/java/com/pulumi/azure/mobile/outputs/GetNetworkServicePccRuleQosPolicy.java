@@ -151,14 +151,14 @@ public final class GetNetworkServicePccRuleQosPolicy {
             return this;
         }
         public GetNetworkServicePccRuleQosPolicy build() {
-            final var o = new GetNetworkServicePccRuleQosPolicy();
-            o.allocationAndRetentionPriorityLevel = allocationAndRetentionPriorityLevel;
-            o.guaranteedBitRates = guaranteedBitRates;
-            o.maximumBitRates = maximumBitRates;
-            o.preemptionCapability = preemptionCapability;
-            o.preemptionVulnerability = preemptionVulnerability;
-            o.qosIndicator = qosIndicator;
-            return o;
+            final var _resultValue = new GetNetworkServicePccRuleQosPolicy();
+            _resultValue.allocationAndRetentionPriorityLevel = allocationAndRetentionPriorityLevel;
+            _resultValue.guaranteedBitRates = guaranteedBitRates;
+            _resultValue.maximumBitRates = maximumBitRates;
+            _resultValue.preemptionCapability = preemptionCapability;
+            _resultValue.preemptionVulnerability = preemptionVulnerability;
+            _resultValue.qosIndicator = qosIndicator;
+            return _resultValue;
         }
     }
 }

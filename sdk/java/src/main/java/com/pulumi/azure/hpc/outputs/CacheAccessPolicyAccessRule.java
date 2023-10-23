@@ -187,16 +187,16 @@ public final class CacheAccessPolicyAccessRule {
             return this;
         }
         public CacheAccessPolicyAccessRule build() {
-            final var o = new CacheAccessPolicyAccessRule();
-            o.access = access;
-            o.anonymousGid = anonymousGid;
-            o.anonymousUid = anonymousUid;
-            o.filter = filter;
-            o.rootSquashEnabled = rootSquashEnabled;
-            o.scope = scope;
-            o.submountAccessEnabled = submountAccessEnabled;
-            o.suidEnabled = suidEnabled;
-            return o;
+            final var _resultValue = new CacheAccessPolicyAccessRule();
+            _resultValue.access = access;
+            _resultValue.anonymousGid = anonymousGid;
+            _resultValue.anonymousUid = anonymousUid;
+            _resultValue.filter = filter;
+            _resultValue.rootSquashEnabled = rootSquashEnabled;
+            _resultValue.scope = scope;
+            _resultValue.submountAccessEnabled = submountAccessEnabled;
+            _resultValue.suidEnabled = suidEnabled;
+            return _resultValue;
         }
     }
 }

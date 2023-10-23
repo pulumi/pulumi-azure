@@ -66,10 +66,10 @@ public final class AlertRuleScheduledIncidentConfiguration {
             return this;
         }
         public AlertRuleScheduledIncidentConfiguration build() {
-            final var o = new AlertRuleScheduledIncidentConfiguration();
-            o.createIncident = createIncident;
-            o.grouping = grouping;
-            return o;
+            final var _resultValue = new AlertRuleScheduledIncidentConfiguration();
+            _resultValue.createIncident = createIncident;
+            _resultValue.grouping = grouping;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class ApplicationGatewayIdentity {
             return this;
         }
         public ApplicationGatewayIdentity build() {
-            final var o = new ApplicationGatewayIdentity();
-            o.identityIds = identityIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new ApplicationGatewayIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

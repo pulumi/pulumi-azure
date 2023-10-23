@@ -35,7 +35,13 @@ class ApiOperationTagArgs:
              api_operation_id: pulumi.Input[str],
              display_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiOperationId' in kwargs:
+            api_operation_id = kwargs['apiOperationId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("api_operation_id", api_operation_id)
         _setter("display_name", display_name)
         if name is not None:
@@ -102,7 +108,13 @@ class _ApiOperationTagState:
              api_operation_id: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiOperationId' in kwargs:
+            api_operation_id = kwargs['apiOperationId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if api_operation_id is not None:
             _setter("api_operation_id", api_operation_id)
         if display_name is not None:

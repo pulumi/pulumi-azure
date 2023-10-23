@@ -57,7 +57,19 @@ class ConfigurationAntimalwareArgs:
              scheduled_scan_enabled: Optional[pulumi.Input[bool]] = None,
              scheduled_scan_time_in_minutes: Optional[pulumi.Input[int]] = None,
              scheduled_scan_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'realTimeProtectionEnabled' in kwargs:
+            real_time_protection_enabled = kwargs['realTimeProtectionEnabled']
+        if 'scheduledScanDay' in kwargs:
+            scheduled_scan_day = kwargs['scheduledScanDay']
+        if 'scheduledScanEnabled' in kwargs:
+            scheduled_scan_enabled = kwargs['scheduledScanEnabled']
+        if 'scheduledScanTimeInMinutes' in kwargs:
+            scheduled_scan_time_in_minutes = kwargs['scheduledScanTimeInMinutes']
+        if 'scheduledScanType' in kwargs:
+            scheduled_scan_type = kwargs['scheduledScanType']
+
         if exclusions is not None:
             _setter("exclusions", exclusions)
         if real_time_protection_enabled is not None:
@@ -167,7 +179,9 @@ class ConfigurationAntimalwareExclusionsArgs:
              extensions: Optional[pulumi.Input[str]] = None,
              paths: Optional[pulumi.Input[str]] = None,
              processes: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if extensions is not None:
             _setter("extensions", extensions)
         if paths is not None:
@@ -227,7 +241,11 @@ class ConfigurationAzureSecurityBaselineArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              assignment_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignmentType' in kwargs:
+            assignment_type = kwargs['assignmentType']
+
         if assignment_type is not None:
             _setter("assignment_type", assignment_type)
 
@@ -275,7 +293,19 @@ class ConfigurationBackupArgs:
              retention_policy: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyArgs']] = None,
              schedule_policy: Optional[pulumi.Input['ConfigurationBackupSchedulePolicyArgs']] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'instantRpRetentionRangeInDays' in kwargs:
+            instant_rp_retention_range_in_days = kwargs['instantRpRetentionRangeInDays']
+        if 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if 'schedulePolicy' in kwargs:
+            schedule_policy = kwargs['schedulePolicy']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if instant_rp_retention_range_in_days is not None:
             _setter("instant_rp_retention_range_in_days", instant_rp_retention_range_in_days)
         if policy_name is not None:
@@ -371,7 +401,15 @@ class ConfigurationBackupRetentionPolicyArgs:
              daily_schedule: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleArgs']] = None,
              retention_policy_type: Optional[pulumi.Input[str]] = None,
              weekly_schedule: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dailySchedule' in kwargs:
+            daily_schedule = kwargs['dailySchedule']
+        if 'retentionPolicyType' in kwargs:
+            retention_policy_type = kwargs['retentionPolicyType']
+        if 'weeklySchedule' in kwargs:
+            weekly_schedule = kwargs['weeklySchedule']
+
         if daily_schedule is not None:
             _setter("daily_schedule", daily_schedule)
         if retention_policy_type is not None:
@@ -435,7 +473,13 @@ class ConfigurationBackupRetentionPolicyDailyScheduleArgs:
              _setter: Callable[[Any, Any], None],
              retention_duration: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs']] = None,
              retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionDuration' in kwargs:
+            retention_duration = kwargs['retentionDuration']
+        if 'retentionTimes' in kwargs:
+            retention_times = kwargs['retentionTimes']
+
         if retention_duration is not None:
             _setter("retention_duration", retention_duration)
         if retention_times is not None:
@@ -485,7 +529,11 @@ class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs:
              _setter: Callable[[Any, Any], None],
              count: Optional[pulumi.Input[int]] = None,
              duration_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationType' in kwargs:
+            duration_type = kwargs['durationType']
+
         if count is not None:
             _setter("count", count)
         if duration_type is not None:
@@ -535,7 +583,13 @@ class ConfigurationBackupRetentionPolicyWeeklyScheduleArgs:
              _setter: Callable[[Any, Any], None],
              retention_duration: Optional[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs']] = None,
              retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionDuration' in kwargs:
+            retention_duration = kwargs['retentionDuration']
+        if 'retentionTimes' in kwargs:
+            retention_times = kwargs['retentionTimes']
+
         if retention_duration is not None:
             _setter("retention_duration", retention_duration)
         if retention_times is not None:
@@ -585,7 +639,11 @@ class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs:
              _setter: Callable[[Any, Any], None],
              count: Optional[pulumi.Input[int]] = None,
              duration_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'durationType' in kwargs:
+            duration_type = kwargs['durationType']
+
         if count is not None:
             _setter("count", count)
         if duration_type is not None:
@@ -643,7 +701,17 @@ class ConfigurationBackupSchedulePolicyArgs:
              schedule_run_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              schedule_run_frequency: Optional[pulumi.Input[str]] = None,
              schedule_run_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'schedulePolicyType' in kwargs:
+            schedule_policy_type = kwargs['schedulePolicyType']
+        if 'scheduleRunDays' in kwargs:
+            schedule_run_days = kwargs['scheduleRunDays']
+        if 'scheduleRunFrequency' in kwargs:
+            schedule_run_frequency = kwargs['scheduleRunFrequency']
+        if 'scheduleRunTimes' in kwargs:
+            schedule_run_times = kwargs['scheduleRunTimes']
+
         if schedule_policy_type is not None:
             _setter("schedule_policy_type", schedule_policy_type)
         if schedule_run_days is not None:

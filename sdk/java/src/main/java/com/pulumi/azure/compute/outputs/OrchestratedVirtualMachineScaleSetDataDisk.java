@@ -186,17 +186,17 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
             return this;
         }
         public OrchestratedVirtualMachineScaleSetDataDisk build() {
-            final var o = new OrchestratedVirtualMachineScaleSetDataDisk();
-            o.caching = caching;
-            o.createOption = createOption;
-            o.diskEncryptionSetId = diskEncryptionSetId;
-            o.diskSizeGb = diskSizeGb;
-            o.lun = lun;
-            o.storageAccountType = storageAccountType;
-            o.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
-            o.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
-            o.writeAcceleratorEnabled = writeAcceleratorEnabled;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetDataDisk();
+            _resultValue.caching = caching;
+            _resultValue.createOption = createOption;
+            _resultValue.diskEncryptionSetId = diskEncryptionSetId;
+            _resultValue.diskSizeGb = diskSizeGb;
+            _resultValue.lun = lun;
+            _resultValue.storageAccountType = storageAccountType;
+            _resultValue.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
+            _resultValue.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
+            _resultValue.writeAcceleratorEnabled = writeAcceleratorEnabled;
+            return _resultValue;
         }
     }
 }

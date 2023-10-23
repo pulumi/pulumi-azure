@@ -91,11 +91,11 @@ public final class StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping {
             return tracks(List.of(tracks));
         }
         public StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping build() {
-            final var o = new StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping();
-            o.label = label;
-            o.policyName = policyName;
-            o.tracks = tracks;
-            return o;
+            final var _resultValue = new StreamingPolicyCommonEncryptionCencContentKeyToTrackMapping();
+            _resultValue.label = label;
+            _resultValue.policyName = policyName;
+            _resultValue.tracks = tracks;
+            return _resultValue;
         }
     }
 }

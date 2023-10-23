@@ -38,7 +38,13 @@ class VmwareReplicationPolicyAssociationArgs:
              policy_id: pulumi.Input[str],
              recovery_vault_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+
         _setter("policy_id", policy_id)
         _setter("recovery_vault_id", recovery_vault_id)
         if name is not None:
@@ -111,7 +117,13 @@ class _VmwareReplicationPolicyAssociationState:
              name: Optional[pulumi.Input[str]] = None,
              policy_id: Optional[pulumi.Input[str]] = None,
              recovery_vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+
         if name is not None:
             _setter("name", name)
         if policy_id is not None:

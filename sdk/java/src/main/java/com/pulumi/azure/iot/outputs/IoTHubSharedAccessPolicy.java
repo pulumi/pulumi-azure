@@ -105,12 +105,12 @@ public final class IoTHubSharedAccessPolicy {
             return this;
         }
         public IoTHubSharedAccessPolicy build() {
-            final var o = new IoTHubSharedAccessPolicy();
-            o.keyName = keyName;
-            o.permissions = permissions;
-            o.primaryKey = primaryKey;
-            o.secondaryKey = secondaryKey;
-            return o;
+            final var _resultValue = new IoTHubSharedAccessPolicy();
+            _resultValue.keyName = keyName;
+            _resultValue.permissions = permissions;
+            _resultValue.primaryKey = primaryKey;
+            _resultValue.secondaryKey = secondaryKey;
+            return _resultValue;
         }
     }
 }

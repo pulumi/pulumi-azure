@@ -71,10 +71,10 @@ public final class GroupPolicyAssignmentOverride {
             return this;
         }
         public GroupPolicyAssignmentOverride build() {
-            final var o = new GroupPolicyAssignmentOverride();
-            o.selectors = selectors;
-            o.value = value;
-            return o;
+            final var _resultValue = new GroupPolicyAssignmentOverride();
+            _resultValue.selectors = selectors;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

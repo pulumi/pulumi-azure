@@ -107,12 +107,12 @@ public final class GetWindowsWebAppAuthSettingActiveDirectory {
             return this;
         }
         public GetWindowsWebAppAuthSettingActiveDirectory build() {
-            final var o = new GetWindowsWebAppAuthSettingActiveDirectory();
-            o.allowedAudiences = allowedAudiences;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.clientSecretSettingName = clientSecretSettingName;
-            return o;
+            final var _resultValue = new GetWindowsWebAppAuthSettingActiveDirectory();
+            _resultValue.allowedAudiences = allowedAudiences;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            return _resultValue;
         }
     }
 }

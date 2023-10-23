@@ -68,10 +68,10 @@ public final class ActionRuleSuppressionSuppression {
             return this;
         }
         public ActionRuleSuppressionSuppression build() {
-            final var o = new ActionRuleSuppressionSuppression();
-            o.recurrenceType = recurrenceType;
-            o.schedule = schedule;
-            return o;
+            final var _resultValue = new ActionRuleSuppressionSuppression();
+            _resultValue.recurrenceType = recurrenceType;
+            _resultValue.schedule = schedule;
+            return _resultValue;
         }
     }
 }

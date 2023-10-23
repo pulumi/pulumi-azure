@@ -73,11 +73,11 @@ public final class GetAppTemplateTcpScaleRule {
             return this;
         }
         public GetAppTemplateTcpScaleRule build() {
-            final var o = new GetAppTemplateTcpScaleRule();
-            o.authentications = authentications;
-            o.concurrentRequests = concurrentRequests;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetAppTemplateTcpScaleRule();
+            _resultValue.authentications = authentications;
+            _resultValue.concurrentRequests = concurrentRequests;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -131,13 +131,13 @@ public final class VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurat
             return this;
         }
         public VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration build() {
-            final var o = new VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration();
-            o.loadBalancerId = loadBalancerId;
-            o.privateIpAddress = privateIpAddress;
-            o.probePort = probePort;
-            o.sqlVirtualMachineIds = sqlVirtualMachineIds;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration();
+            _resultValue.loadBalancerId = loadBalancerId;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.probePort = probePort;
+            _resultValue.sqlVirtualMachineIds = sqlVirtualMachineIds;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

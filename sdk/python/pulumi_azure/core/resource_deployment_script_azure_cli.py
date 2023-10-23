@@ -37,7 +37,7 @@ class ResourceDeploymentScriptAzureCliArgs:
         The set of arguments for constructing a ResourceDeploymentScriptAzureCli resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[str] version: Azure CLI module version to be used. The supported versions are `2.0.77`, `2.0.78`, `2.0.79`, `2.0.80`, `2.0.81`, `2.1.0`, `2.10.0`, `2.10.1`, `2.11.0`, `2.11.1`, `2.12.0`, `2.12.1`, `2.13.0`, `2.14.0`, `2.14.1`, `2.14.2`, `2.15.0`, `2.15.1`, `2.16.0`, `2.17.0`, `2.17.1`, `2.18.0`, `2.19.0`, `2.19.1`, `2.2.0`, `2.20.0`, `2.21.0`, `2.22.0`, `2.22.1`, `2.23.0`, `2.24.0`, `2.24.1`, `2.24.2`, `2.25.0`, `2.26.0`, `2.26.1`, `2.27.0`, `2.27.1`, `2.27.2`, `2.28.0`, `2.29.0`, `2.29.1`, `2.29.2`, `2.3.0`, `2.3.1`, `2.30.0`, `2.31.0`, `2.32.0`, `2.33.0`, `2.33.1`, `2.34.0`, `2.34.1`, `2.35.0`, `2.36.0`, `2.37.0`, `2.38.0`, `2.39.0`, `2.4.0`, `2.40.0`, `2.41.0`, `2.5.0`, `2.5.1`, `2.6.0`, `2.7.0`, `2.8.0`, `2.9.0`, `2.9.1`. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[str] version: Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] cleanup_preference: Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] command_line: Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input['ResourceDeploymentScriptAzureCliContainerArgs'] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
@@ -93,7 +93,29 @@ class ResourceDeploymentScriptAzureCliArgs:
              supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retentionInterval' in kwargs:
+            retention_interval = kwargs['retentionInterval']
+        if 'cleanupPreference' in kwargs:
+            cleanup_preference = kwargs['cleanupPreference']
+        if 'commandLine' in kwargs:
+            command_line = kwargs['commandLine']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'primaryScriptUri' in kwargs:
+            primary_script_uri = kwargs['primaryScriptUri']
+        if 'scriptContent' in kwargs:
+            script_content = kwargs['scriptContent']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+        if 'supportingScriptUris' in kwargs:
+            supporting_script_uris = kwargs['supportingScriptUris']
+
         _setter("resource_group_name", resource_group_name)
         _setter("retention_interval", retention_interval)
         _setter("version", version)
@@ -154,7 +176,7 @@ class ResourceDeploymentScriptAzureCliArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        Azure CLI module version to be used. The supported versions are `2.0.77`, `2.0.78`, `2.0.79`, `2.0.80`, `2.0.81`, `2.1.0`, `2.10.0`, `2.10.1`, `2.11.0`, `2.11.1`, `2.12.0`, `2.12.1`, `2.13.0`, `2.14.0`, `2.14.1`, `2.14.2`, `2.15.0`, `2.15.1`, `2.16.0`, `2.17.0`, `2.17.1`, `2.18.0`, `2.19.0`, `2.19.1`, `2.2.0`, `2.20.0`, `2.21.0`, `2.22.0`, `2.22.1`, `2.23.0`, `2.24.0`, `2.24.1`, `2.24.2`, `2.25.0`, `2.26.0`, `2.26.1`, `2.27.0`, `2.27.1`, `2.27.2`, `2.28.0`, `2.29.0`, `2.29.1`, `2.29.2`, `2.3.0`, `2.3.1`, `2.30.0`, `2.31.0`, `2.32.0`, `2.33.0`, `2.33.1`, `2.34.0`, `2.34.1`, `2.35.0`, `2.36.0`, `2.37.0`, `2.38.0`, `2.39.0`, `2.4.0`, `2.40.0`, `2.41.0`, `2.5.0`, `2.5.1`, `2.6.0`, `2.7.0`, `2.8.0`, `2.9.0`, `2.9.1`. Changing this forces a new Resource Deployment Script to be created.
+        Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "version")
 
@@ -371,7 +393,7 @@ class _ResourceDeploymentScriptAzureCliState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supporting_script_uris: Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Deployment Script.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[str] version: Azure CLI module version to be used. The supported versions are `2.0.77`, `2.0.78`, `2.0.79`, `2.0.80`, `2.0.81`, `2.1.0`, `2.10.0`, `2.10.1`, `2.11.0`, `2.11.1`, `2.12.0`, `2.12.1`, `2.13.0`, `2.14.0`, `2.14.1`, `2.14.2`, `2.15.0`, `2.15.1`, `2.16.0`, `2.17.0`, `2.17.1`, `2.18.0`, `2.19.0`, `2.19.1`, `2.2.0`, `2.20.0`, `2.21.0`, `2.22.0`, `2.22.1`, `2.23.0`, `2.24.0`, `2.24.1`, `2.24.2`, `2.25.0`, `2.26.0`, `2.26.1`, `2.27.0`, `2.27.1`, `2.27.2`, `2.28.0`, `2.29.0`, `2.29.1`, `2.29.2`, `2.3.0`, `2.3.1`, `2.30.0`, `2.31.0`, `2.32.0`, `2.33.0`, `2.33.1`, `2.34.0`, `2.34.1`, `2.35.0`, `2.36.0`, `2.37.0`, `2.38.0`, `2.39.0`, `2.4.0`, `2.40.0`, `2.41.0`, `2.5.0`, `2.5.1`, `2.6.0`, `2.7.0`, `2.8.0`, `2.9.0`, `2.9.1`. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[str] version: Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
         """
         _ResourceDeploymentScriptAzureCliState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -415,7 +437,29 @@ class _ResourceDeploymentScriptAzureCliState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cleanupPreference' in kwargs:
+            cleanup_preference = kwargs['cleanupPreference']
+        if 'commandLine' in kwargs:
+            command_line = kwargs['commandLine']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'primaryScriptUri' in kwargs:
+            primary_script_uri = kwargs['primaryScriptUri']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retentionInterval' in kwargs:
+            retention_interval = kwargs['retentionInterval']
+        if 'scriptContent' in kwargs:
+            script_content = kwargs['scriptContent']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+        if 'supportingScriptUris' in kwargs:
+            supporting_script_uris = kwargs['supportingScriptUris']
+
         if cleanup_preference is not None:
             _setter("cleanup_preference", cleanup_preference)
         if command_line is not None:
@@ -661,7 +705,7 @@ class _ResourceDeploymentScriptAzureCliState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Azure CLI module version to be used. The supported versions are `2.0.77`, `2.0.78`, `2.0.79`, `2.0.80`, `2.0.81`, `2.1.0`, `2.10.0`, `2.10.1`, `2.11.0`, `2.11.1`, `2.12.0`, `2.12.1`, `2.13.0`, `2.14.0`, `2.14.1`, `2.14.2`, `2.15.0`, `2.15.1`, `2.16.0`, `2.17.0`, `2.17.1`, `2.18.0`, `2.19.0`, `2.19.1`, `2.2.0`, `2.20.0`, `2.21.0`, `2.22.0`, `2.22.1`, `2.23.0`, `2.24.0`, `2.24.1`, `2.24.2`, `2.25.0`, `2.26.0`, `2.26.1`, `2.27.0`, `2.27.1`, `2.27.2`, `2.28.0`, `2.29.0`, `2.29.1`, `2.29.2`, `2.3.0`, `2.3.1`, `2.30.0`, `2.31.0`, `2.32.0`, `2.33.0`, `2.33.1`, `2.34.0`, `2.34.1`, `2.35.0`, `2.36.0`, `2.37.0`, `2.38.0`, `2.39.0`, `2.4.0`, `2.40.0`, `2.41.0`, `2.5.0`, `2.5.1`, `2.6.0`, `2.7.0`, `2.8.0`, `2.9.0`, `2.9.1`. Changing this forces a new Resource Deployment Script to be created.
+        Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "version")
 
@@ -751,7 +795,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supporting_script_uris: Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Deployment Script.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[str] version: Azure CLI module version to be used. The supported versions are `2.0.77`, `2.0.78`, `2.0.79`, `2.0.80`, `2.0.81`, `2.1.0`, `2.10.0`, `2.10.1`, `2.11.0`, `2.11.1`, `2.12.0`, `2.12.1`, `2.13.0`, `2.14.0`, `2.14.1`, `2.14.2`, `2.15.0`, `2.15.1`, `2.16.0`, `2.17.0`, `2.17.1`, `2.18.0`, `2.19.0`, `2.19.1`, `2.2.0`, `2.20.0`, `2.21.0`, `2.22.0`, `2.22.1`, `2.23.0`, `2.24.0`, `2.24.1`, `2.24.2`, `2.25.0`, `2.26.0`, `2.26.1`, `2.27.0`, `2.27.1`, `2.27.2`, `2.28.0`, `2.29.0`, `2.29.1`, `2.29.2`, `2.3.0`, `2.3.1`, `2.30.0`, `2.31.0`, `2.32.0`, `2.33.0`, `2.33.1`, `2.34.0`, `2.34.1`, `2.35.0`, `2.36.0`, `2.37.0`, `2.38.0`, `2.39.0`, `2.4.0`, `2.40.0`, `2.41.0`, `2.5.0`, `2.5.1`, `2.6.0`, `2.7.0`, `2.8.0`, `2.9.0`, `2.9.1`. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[str] version: Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
         """
         ...
     @overload
@@ -935,7 +979,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supporting_script_uris: Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Deployment Script.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[str] version: Azure CLI module version to be used. The supported versions are `2.0.77`, `2.0.78`, `2.0.79`, `2.0.80`, `2.0.81`, `2.1.0`, `2.10.0`, `2.10.1`, `2.11.0`, `2.11.1`, `2.12.0`, `2.12.1`, `2.13.0`, `2.14.0`, `2.14.1`, `2.14.2`, `2.15.0`, `2.15.1`, `2.16.0`, `2.17.0`, `2.17.1`, `2.18.0`, `2.19.0`, `2.19.1`, `2.2.0`, `2.20.0`, `2.21.0`, `2.22.0`, `2.22.1`, `2.23.0`, `2.24.0`, `2.24.1`, `2.24.2`, `2.25.0`, `2.26.0`, `2.26.1`, `2.27.0`, `2.27.1`, `2.27.2`, `2.28.0`, `2.29.0`, `2.29.1`, `2.29.2`, `2.3.0`, `2.3.1`, `2.30.0`, `2.31.0`, `2.32.0`, `2.33.0`, `2.33.1`, `2.34.0`, `2.34.1`, `2.35.0`, `2.36.0`, `2.37.0`, `2.38.0`, `2.39.0`, `2.4.0`, `2.40.0`, `2.41.0`, `2.5.0`, `2.5.1`, `2.6.0`, `2.7.0`, `2.8.0`, `2.9.0`, `2.9.1`. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[str] version: Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1101,7 +1145,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
-        Azure CLI module version to be used. The supported versions are `2.0.77`, `2.0.78`, `2.0.79`, `2.0.80`, `2.0.81`, `2.1.0`, `2.10.0`, `2.10.1`, `2.11.0`, `2.11.1`, `2.12.0`, `2.12.1`, `2.13.0`, `2.14.0`, `2.14.1`, `2.14.2`, `2.15.0`, `2.15.1`, `2.16.0`, `2.17.0`, `2.17.1`, `2.18.0`, `2.19.0`, `2.19.1`, `2.2.0`, `2.20.0`, `2.21.0`, `2.22.0`, `2.22.1`, `2.23.0`, `2.24.0`, `2.24.1`, `2.24.2`, `2.25.0`, `2.26.0`, `2.26.1`, `2.27.0`, `2.27.1`, `2.27.2`, `2.28.0`, `2.29.0`, `2.29.1`, `2.29.2`, `2.3.0`, `2.3.1`, `2.30.0`, `2.31.0`, `2.32.0`, `2.33.0`, `2.33.1`, `2.34.0`, `2.34.1`, `2.35.0`, `2.36.0`, `2.37.0`, `2.38.0`, `2.39.0`, `2.4.0`, `2.40.0`, `2.41.0`, `2.5.0`, `2.5.1`, `2.6.0`, `2.7.0`, `2.8.0`, `2.9.0`, `2.9.1`. Changing this forces a new Resource Deployment Script to be created.
+        Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "version")
 

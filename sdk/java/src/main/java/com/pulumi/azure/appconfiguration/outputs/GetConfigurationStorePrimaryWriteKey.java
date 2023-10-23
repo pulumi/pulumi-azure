@@ -84,11 +84,11 @@ public final class GetConfigurationStorePrimaryWriteKey {
             return this;
         }
         public GetConfigurationStorePrimaryWriteKey build() {
-            final var o = new GetConfigurationStorePrimaryWriteKey();
-            o.connectionString = connectionString;
-            o.id = id;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new GetConfigurationStorePrimaryWriteKey();
+            _resultValue.connectionString = connectionString;
+            _resultValue.id = id;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

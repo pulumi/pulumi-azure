@@ -63,7 +63,19 @@ class GalleryApplicationArgs:
              privacy_statement_uri: Optional[pulumi.Input[str]] = None,
              release_note_uri: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'galleryId' in kwargs:
+            gallery_id = kwargs['galleryId']
+        if 'supportedOsType' in kwargs:
+            supported_os_type = kwargs['supportedOsType']
+        if 'endOfLifeDate' in kwargs:
+            end_of_life_date = kwargs['endOfLifeDate']
+        if 'privacyStatementUri' in kwargs:
+            privacy_statement_uri = kwargs['privacyStatementUri']
+        if 'releaseNoteUri' in kwargs:
+            release_note_uri = kwargs['releaseNoteUri']
+
         _setter("gallery_id", gallery_id)
         _setter("supported_os_type", supported_os_type)
         if description is not None:
@@ -256,7 +268,19 @@ class _GalleryApplicationState:
              release_note_uri: Optional[pulumi.Input[str]] = None,
              supported_os_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endOfLifeDate' in kwargs:
+            end_of_life_date = kwargs['endOfLifeDate']
+        if 'galleryId' in kwargs:
+            gallery_id = kwargs['galleryId']
+        if 'privacyStatementUri' in kwargs:
+            privacy_statement_uri = kwargs['privacyStatementUri']
+        if 'releaseNoteUri' in kwargs:
+            release_note_uri = kwargs['releaseNoteUri']
+        if 'supportedOsType' in kwargs:
+            supported_os_type = kwargs['supportedOsType']
+
         if description is not None:
             _setter("description", description)
         if end_of_life_date is not None:

@@ -249,19 +249,19 @@ public final class AutoscaleSettingProfileRuleMetricTrigger {
             return this;
         }
         public AutoscaleSettingProfileRuleMetricTrigger build() {
-            final var o = new AutoscaleSettingProfileRuleMetricTrigger();
-            o.dimensions = dimensions;
-            o.divideByInstanceCount = divideByInstanceCount;
-            o.metricName = metricName;
-            o.metricNamespace = metricNamespace;
-            o.metricResourceId = metricResourceId;
-            o.operator = operator;
-            o.statistic = statistic;
-            o.threshold = threshold;
-            o.timeAggregation = timeAggregation;
-            o.timeGrain = timeGrain;
-            o.timeWindow = timeWindow;
-            return o;
+            final var _resultValue = new AutoscaleSettingProfileRuleMetricTrigger();
+            _resultValue.dimensions = dimensions;
+            _resultValue.divideByInstanceCount = divideByInstanceCount;
+            _resultValue.metricName = metricName;
+            _resultValue.metricNamespace = metricNamespace;
+            _resultValue.metricResourceId = metricResourceId;
+            _resultValue.operator = operator;
+            _resultValue.statistic = statistic;
+            _resultValue.threshold = threshold;
+            _resultValue.timeAggregation = timeAggregation;
+            _resultValue.timeGrain = timeGrain;
+            _resultValue.timeWindow = timeWindow;
+            return _resultValue;
         }
     }
 }

@@ -109,12 +109,12 @@ public final class WindowsWebAppSlotAuthSettingsFacebook {
             return oauthScopes(List.of(oauthScopes));
         }
         public WindowsWebAppSlotAuthSettingsFacebook build() {
-            final var o = new WindowsWebAppSlotAuthSettingsFacebook();
-            o.appId = appId;
-            o.appSecret = appSecret;
-            o.appSecretSettingName = appSecretSettingName;
-            o.oauthScopes = oauthScopes;
-            return o;
+            final var _resultValue = new WindowsWebAppSlotAuthSettingsFacebook();
+            _resultValue.appId = appId;
+            _resultValue.appSecret = appSecret;
+            _resultValue.appSecretSettingName = appSecretSettingName;
+            _resultValue.oauthScopes = oauthScopes;
+            return _resultValue;
         }
     }
 }

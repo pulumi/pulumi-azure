@@ -46,9 +46,9 @@ public final class AlertRuleScheduledEventGrouping {
             return this;
         }
         public AlertRuleScheduledEventGrouping build() {
-            final var o = new AlertRuleScheduledEventGrouping();
-            o.aggregationMethod = aggregationMethod;
-            return o;
+            final var _resultValue = new AlertRuleScheduledEventGrouping();
+            _resultValue.aggregationMethod = aggregationMethod;
+            return _resultValue;
         }
     }
 }

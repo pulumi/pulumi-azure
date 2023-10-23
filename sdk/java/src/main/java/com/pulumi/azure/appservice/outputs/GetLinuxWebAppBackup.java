@@ -109,12 +109,12 @@ public final class GetLinuxWebAppBackup {
             return this;
         }
         public GetLinuxWebAppBackup build() {
-            final var o = new GetLinuxWebAppBackup();
-            o.enabled = enabled;
-            o.name = name;
-            o.schedules = schedules;
-            o.storageAccountUrl = storageAccountUrl;
-            return o;
+            final var _resultValue = new GetLinuxWebAppBackup();
+            _resultValue.enabled = enabled;
+            _resultValue.name = name;
+            _resultValue.schedules = schedules;
+            _resultValue.storageAccountUrl = storageAccountUrl;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class AccountBlobPropertiesContainerDeleteRetentionPolicy {
             return this;
         }
         public AccountBlobPropertiesContainerDeleteRetentionPolicy build() {
-            final var o = new AccountBlobPropertiesContainerDeleteRetentionPolicy();
-            o.days = days;
-            return o;
+            final var _resultValue = new AccountBlobPropertiesContainerDeleteRetentionPolicy();
+            _resultValue.days = days;
+            return _resultValue;
         }
     }
 }

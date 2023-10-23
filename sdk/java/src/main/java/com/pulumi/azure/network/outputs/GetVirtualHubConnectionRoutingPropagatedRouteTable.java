@@ -72,10 +72,10 @@ public final class GetVirtualHubConnectionRoutingPropagatedRouteTable {
             return routeTableIds(List.of(routeTableIds));
         }
         public GetVirtualHubConnectionRoutingPropagatedRouteTable build() {
-            final var o = new GetVirtualHubConnectionRoutingPropagatedRouteTable();
-            o.labels = labels;
-            o.routeTableIds = routeTableIds;
-            return o;
+            final var _resultValue = new GetVirtualHubConnectionRoutingPropagatedRouteTable();
+            _resultValue.labels = labels;
+            _resultValue.routeTableIds = routeTableIds;
+            return _resultValue;
         }
     }
 }

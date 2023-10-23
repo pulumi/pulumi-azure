@@ -45,7 +45,13 @@ class ProfileArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerNetworkInterface' in kwargs:
+            container_network_interface = kwargs['containerNetworkInterface']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("container_network_interface", container_network_interface)
         _setter("resource_group_name", resource_group_name)
         if location is not None:
@@ -152,7 +158,15 @@ class _ProfileState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerNetworkInterface' in kwargs:
+            container_network_interface = kwargs['containerNetworkInterface']
+        if 'containerNetworkInterfaceIds' in kwargs:
+            container_network_interface_ids = kwargs['containerNetworkInterfaceIds']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if container_network_interface is not None:
             _setter("container_network_interface", container_network_interface)
         if container_network_interface_ids is not None:

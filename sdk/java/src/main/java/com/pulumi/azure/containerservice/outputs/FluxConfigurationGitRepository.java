@@ -239,19 +239,19 @@ public final class FluxConfigurationGitRepository {
             return this;
         }
         public FluxConfigurationGitRepository build() {
-            final var o = new FluxConfigurationGitRepository();
-            o.httpsCaCertBase64 = httpsCaCertBase64;
-            o.httpsKeyBase64 = httpsKeyBase64;
-            o.httpsUser = httpsUser;
-            o.localAuthReference = localAuthReference;
-            o.referenceType = referenceType;
-            o.referenceValue = referenceValue;
-            o.sshKnownHostsBase64 = sshKnownHostsBase64;
-            o.sshPrivateKeyBase64 = sshPrivateKeyBase64;
-            o.syncIntervalInSeconds = syncIntervalInSeconds;
-            o.timeoutInSeconds = timeoutInSeconds;
-            o.url = url;
-            return o;
+            final var _resultValue = new FluxConfigurationGitRepository();
+            _resultValue.httpsCaCertBase64 = httpsCaCertBase64;
+            _resultValue.httpsKeyBase64 = httpsKeyBase64;
+            _resultValue.httpsUser = httpsUser;
+            _resultValue.localAuthReference = localAuthReference;
+            _resultValue.referenceType = referenceType;
+            _resultValue.referenceValue = referenceValue;
+            _resultValue.sshKnownHostsBase64 = sshKnownHostsBase64;
+            _resultValue.sshPrivateKeyBase64 = sshPrivateKeyBase64;
+            _resultValue.syncIntervalInSeconds = syncIntervalInSeconds;
+            _resultValue.timeoutInSeconds = timeoutInSeconds;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

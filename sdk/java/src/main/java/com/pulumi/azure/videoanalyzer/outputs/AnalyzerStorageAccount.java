@@ -65,10 +65,10 @@ public final class AnalyzerStorageAccount {
             return this;
         }
         public AnalyzerStorageAccount build() {
-            final var o = new AnalyzerStorageAccount();
-            o.id = id;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new AnalyzerStorageAccount();
+            _resultValue.id = id;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

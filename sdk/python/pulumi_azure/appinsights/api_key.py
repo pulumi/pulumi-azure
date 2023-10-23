@@ -41,7 +41,15 @@ class ApiKeyArgs:
              name: Optional[pulumi.Input[str]] = None,
              read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if 'readPermissions' in kwargs:
+            read_permissions = kwargs['readPermissions']
+        if 'writePermissions' in kwargs:
+            write_permissions = kwargs['writePermissions']
+
         _setter("application_insights_id", application_insights_id)
         if name is not None:
             _setter("name", name)
@@ -135,7 +143,17 @@ class _ApiKeyState:
              name: Optional[pulumi.Input[str]] = None,
              read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if 'readPermissions' in kwargs:
+            read_permissions = kwargs['readPermissions']
+        if 'writePermissions' in kwargs:
+            write_permissions = kwargs['writePermissions']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if application_insights_id is not None:

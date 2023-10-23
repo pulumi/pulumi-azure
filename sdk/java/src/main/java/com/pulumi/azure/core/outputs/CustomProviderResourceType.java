@@ -86,11 +86,11 @@ public final class CustomProviderResourceType {
             return this;
         }
         public CustomProviderResourceType build() {
-            final var o = new CustomProviderResourceType();
-            o.endpoint = endpoint;
-            o.name = name;
-            o.routingType = routingType;
-            return o;
+            final var _resultValue = new CustomProviderResourceType();
+            _resultValue.endpoint = endpoint;
+            _resultValue.name = name;
+            _resultValue.routingType = routingType;
+            return _resultValue;
         }
     }
 }

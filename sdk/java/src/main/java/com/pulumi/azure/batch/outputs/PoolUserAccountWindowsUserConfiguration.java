@@ -46,9 +46,9 @@ public final class PoolUserAccountWindowsUserConfiguration {
             return this;
         }
         public PoolUserAccountWindowsUserConfiguration build() {
-            final var o = new PoolUserAccountWindowsUserConfiguration();
-            o.loginMode = loginMode;
-            return o;
+            final var _resultValue = new PoolUserAccountWindowsUserConfiguration();
+            _resultValue.loginMode = loginMode;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class LedgerCertificateBasedSecurityPrincipal {
             return this;
         }
         public LedgerCertificateBasedSecurityPrincipal build() {
-            final var o = new LedgerCertificateBasedSecurityPrincipal();
-            o.ledgerRoleName = ledgerRoleName;
-            o.pemPublicKey = pemPublicKey;
-            return o;
+            final var _resultValue = new LedgerCertificateBasedSecurityPrincipal();
+            _resultValue.ledgerRoleName = ledgerRoleName;
+            _resultValue.pemPublicKey = pemPublicKey;
+            return _resultValue;
         }
     }
 }

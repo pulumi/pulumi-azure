@@ -46,9 +46,9 @@ public final class DeploymentNetworkInterface {
             return this;
         }
         public DeploymentNetworkInterface build() {
-            final var o = new DeploymentNetworkInterface();
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new DeploymentNetworkInterface();
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

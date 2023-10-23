@@ -39,7 +39,15 @@ class SpringCloudStorageArgs:
              storage_account_key: pulumi.Input[str],
              storage_account_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         _setter("spring_cloud_service_id", spring_cloud_service_id)
         _setter("storage_account_key", storage_account_key)
         _setter("storage_account_name", storage_account_name)
@@ -123,7 +131,15 @@ class _SpringCloudStorageState:
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              storage_account_key: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         if name is not None:
             _setter("name", name)
         if spring_cloud_service_id is not None:

@@ -86,11 +86,11 @@ public final class ApiContact {
             return this;
         }
         public ApiContact build() {
-            final var o = new ApiContact();
-            o.email = email;
-            o.name = name;
-            o.url = url;
-            return o;
+            final var _resultValue = new ApiContact();
+            _resultValue.email = email;
+            _resultValue.name = name;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

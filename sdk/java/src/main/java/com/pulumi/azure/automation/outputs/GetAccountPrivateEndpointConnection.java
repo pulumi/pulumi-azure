@@ -65,10 +65,10 @@ public final class GetAccountPrivateEndpointConnection {
             return this;
         }
         public GetAccountPrivateEndpointConnection build() {
-            final var o = new GetAccountPrivateEndpointConnection();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetAccountPrivateEndpointConnection();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

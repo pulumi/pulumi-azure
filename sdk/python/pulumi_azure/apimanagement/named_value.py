@@ -59,7 +59,17 @@ class NamedValueArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              value: Optional[pulumi.Input[str]] = None,
              value_from_key_vault: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'valueFromKeyVault' in kwargs:
+            value_from_key_vault = kwargs['valueFromKeyVault']
+
         _setter("api_management_name", api_management_name)
         _setter("display_name", display_name)
         _setter("resource_group_name", resource_group_name)
@@ -219,7 +229,17 @@ class _NamedValueState:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              value: Optional[pulumi.Input[str]] = None,
              value_from_key_vault: Optional[pulumi.Input['NamedValueValueFromKeyVaultArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'valueFromKeyVault' in kwargs:
+            value_from_key_vault = kwargs['valueFromKeyVault']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if display_name is not None:

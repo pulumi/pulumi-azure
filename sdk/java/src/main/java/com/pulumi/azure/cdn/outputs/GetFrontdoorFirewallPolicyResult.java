@@ -168,16 +168,16 @@ public final class GetFrontdoorFirewallPolicyResult {
             return this;
         }
         public GetFrontdoorFirewallPolicyResult build() {
-            final var o = new GetFrontdoorFirewallPolicyResult();
-            o.enabled = enabled;
-            o.frontendEndpointIds = frontendEndpointIds;
-            o.id = id;
-            o.mode = mode;
-            o.name = name;
-            o.redirectUrl = redirectUrl;
-            o.resourceGroupName = resourceGroupName;
-            o.skuName = skuName;
-            return o;
+            final var _resultValue = new GetFrontdoorFirewallPolicyResult();
+            _resultValue.enabled = enabled;
+            _resultValue.frontendEndpointIds = frontendEndpointIds;
+            _resultValue.id = id;
+            _resultValue.mode = mode;
+            _resultValue.name = name;
+            _resultValue.redirectUrl = redirectUrl;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.skuName = skuName;
+            return _resultValue;
         }
     }
 }

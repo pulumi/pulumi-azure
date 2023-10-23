@@ -86,11 +86,11 @@ public final class MetadataAuthor {
             return this;
         }
         public MetadataAuthor build() {
-            final var o = new MetadataAuthor();
-            o.email = email;
-            o.link = link;
-            o.name = name;
-            return o;
+            final var _resultValue = new MetadataAuthor();
+            _resultValue.email = email;
+            _resultValue.link = link;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

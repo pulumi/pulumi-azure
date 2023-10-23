@@ -65,10 +65,10 @@ public final class LinkedServiceAzureDatabricksKeyVaultPassword {
             return this;
         }
         public LinkedServiceAzureDatabricksKeyVaultPassword build() {
-            final var o = new LinkedServiceAzureDatabricksKeyVaultPassword();
-            o.linkedServiceName = linkedServiceName;
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new LinkedServiceAzureDatabricksKeyVaultPassword();
+            _resultValue.linkedServiceName = linkedServiceName;
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

@@ -93,11 +93,11 @@ public final class SubscriptionPolicyAssignmentOverrideSelector {
             return notIns(List.of(notIns));
         }
         public SubscriptionPolicyAssignmentOverrideSelector build() {
-            final var o = new SubscriptionPolicyAssignmentOverrideSelector();
-            o.ins = ins;
-            o.kind = kind;
-            o.notIns = notIns;
-            return o;
+            final var _resultValue = new SubscriptionPolicyAssignmentOverrideSelector();
+            _resultValue.ins = ins;
+            _resultValue.kind = kind;
+            _resultValue.notIns = notIns;
+            return _resultValue;
         }
     }
 }

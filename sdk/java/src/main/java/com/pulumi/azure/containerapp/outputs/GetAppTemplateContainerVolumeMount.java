@@ -65,10 +65,10 @@ public final class GetAppTemplateContainerVolumeMount {
             return this;
         }
         public GetAppTemplateContainerVolumeMount build() {
-            final var o = new GetAppTemplateContainerVolumeMount();
-            o.name = name;
-            o.path = path;
-            return o;
+            final var _resultValue = new GetAppTemplateContainerVolumeMount();
+            _resultValue.name = name;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

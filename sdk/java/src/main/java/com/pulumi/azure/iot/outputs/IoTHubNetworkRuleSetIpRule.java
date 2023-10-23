@@ -86,11 +86,11 @@ public final class IoTHubNetworkRuleSetIpRule {
             return this;
         }
         public IoTHubNetworkRuleSetIpRule build() {
-            final var o = new IoTHubNetworkRuleSetIpRule();
-            o.action = action;
-            o.ipMask = ipMask;
-            o.name = name;
-            return o;
+            final var _resultValue = new IoTHubNetworkRuleSetIpRule();
+            _resultValue.action = action;
+            _resultValue.ipMask = ipMask;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

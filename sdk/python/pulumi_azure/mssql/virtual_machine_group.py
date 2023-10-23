@@ -53,7 +53,17 @@ class VirtualMachineGroupArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sqlImageOffer' in kwargs:
+            sql_image_offer = kwargs['sqlImageOffer']
+        if 'sqlImageSku' in kwargs:
+            sql_image_sku = kwargs['sqlImageSku']
+        if 'wsfcDomainProfile' in kwargs:
+            wsfc_domain_profile = kwargs['wsfcDomainProfile']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sql_image_offer", sql_image_offer)
         _setter("sql_image_sku", sql_image_sku)
@@ -190,7 +200,17 @@ class _VirtualMachineGroupState:
              sql_image_sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              wsfc_domain_profile: Optional[pulumi.Input['VirtualMachineGroupWsfcDomainProfileArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sqlImageOffer' in kwargs:
+            sql_image_offer = kwargs['sqlImageOffer']
+        if 'sqlImageSku' in kwargs:
+            sql_image_sku = kwargs['sqlImageSku']
+        if 'wsfcDomainProfile' in kwargs:
+            wsfc_domain_profile = kwargs['wsfcDomainProfile']
+
         if location is not None:
             _setter("location", location)
         if name is not None:

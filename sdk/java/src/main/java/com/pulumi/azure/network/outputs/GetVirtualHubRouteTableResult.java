@@ -152,15 +152,15 @@ public final class GetVirtualHubRouteTableResult {
             return this;
         }
         public GetVirtualHubRouteTableResult build() {
-            final var o = new GetVirtualHubRouteTableResult();
-            o.id = id;
-            o.labels = labels;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.routes = routes;
-            o.virtualHubId = virtualHubId;
-            o.virtualHubName = virtualHubName;
-            return o;
+            final var _resultValue = new GetVirtualHubRouteTableResult();
+            _resultValue.id = id;
+            _resultValue.labels = labels;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.routes = routes;
+            _resultValue.virtualHubId = virtualHubId;
+            _resultValue.virtualHubName = virtualHubName;
+            return _resultValue;
         }
     }
 }

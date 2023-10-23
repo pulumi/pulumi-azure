@@ -106,12 +106,12 @@ public final class DefinitionEligibleAuthorization {
             return this;
         }
         public DefinitionEligibleAuthorization build() {
-            final var o = new DefinitionEligibleAuthorization();
-            o.justInTimeAccessPolicy = justInTimeAccessPolicy;
-            o.principalDisplayName = principalDisplayName;
-            o.principalId = principalId;
-            o.roleDefinitionId = roleDefinitionId;
-            return o;
+            final var _resultValue = new DefinitionEligibleAuthorization();
+            _resultValue.justInTimeAccessPolicy = justInTimeAccessPolicy;
+            _resultValue.principalDisplayName = principalDisplayName;
+            _resultValue.principalId = principalId;
+            _resultValue.roleDefinitionId = roleDefinitionId;
+            return _resultValue;
         }
     }
 }

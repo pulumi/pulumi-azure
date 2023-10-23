@@ -130,14 +130,14 @@ public final class GetNetworkSiteResult {
             return this;
         }
         public GetNetworkSiteResult build() {
-            final var o = new GetNetworkSiteResult();
-            o.id = id;
-            o.location = location;
-            o.mobileNetworkId = mobileNetworkId;
-            o.name = name;
-            o.networkFunctionIds = networkFunctionIds;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetNetworkSiteResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.mobileNetworkId = mobileNetworkId;
+            _resultValue.name = name;
+            _resultValue.networkFunctionIds = networkFunctionIds;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -91,11 +91,11 @@ public final class FrontdoorRuleConditionsHttpVersionCondition {
             return this;
         }
         public FrontdoorRuleConditionsHttpVersionCondition build() {
-            final var o = new FrontdoorRuleConditionsHttpVersionCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new FrontdoorRuleConditionsHttpVersionCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

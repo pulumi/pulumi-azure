@@ -84,11 +84,11 @@ public final class ServerIpv4FirewallRule {
             return this;
         }
         public ServerIpv4FirewallRule build() {
-            final var o = new ServerIpv4FirewallRule();
-            o.name = name;
-            o.rangeEnd = rangeEnd;
-            o.rangeStart = rangeStart;
-            return o;
+            final var _resultValue = new ServerIpv4FirewallRule();
+            _resultValue.name = name;
+            _resultValue.rangeEnd = rangeEnd;
+            _resultValue.rangeStart = rangeStart;
+            return _resultValue;
         }
     }
 }

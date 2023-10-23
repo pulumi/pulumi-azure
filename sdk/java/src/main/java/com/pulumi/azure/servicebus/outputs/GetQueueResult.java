@@ -403,28 +403,28 @@ public final class GetQueueResult {
             return this;
         }
         public GetQueueResult build() {
-            final var o = new GetQueueResult();
-            o.autoDeleteOnIdle = autoDeleteOnIdle;
-            o.deadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
-            o.defaultMessageTtl = defaultMessageTtl;
-            o.duplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
-            o.enableBatchedOperations = enableBatchedOperations;
-            o.enableExpress = enableExpress;
-            o.enablePartitioning = enablePartitioning;
-            o.forwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
-            o.forwardTo = forwardTo;
-            o.id = id;
-            o.lockDuration = lockDuration;
-            o.maxDeliveryCount = maxDeliveryCount;
-            o.maxSizeInMegabytes = maxSizeInMegabytes;
-            o.name = name;
-            o.namespaceId = namespaceId;
-            o.namespaceName = namespaceName;
-            o.requiresDuplicateDetection = requiresDuplicateDetection;
-            o.requiresSession = requiresSession;
-            o.resourceGroupName = resourceGroupName;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetQueueResult();
+            _resultValue.autoDeleteOnIdle = autoDeleteOnIdle;
+            _resultValue.deadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
+            _resultValue.defaultMessageTtl = defaultMessageTtl;
+            _resultValue.duplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
+            _resultValue.enableBatchedOperations = enableBatchedOperations;
+            _resultValue.enableExpress = enableExpress;
+            _resultValue.enablePartitioning = enablePartitioning;
+            _resultValue.forwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
+            _resultValue.forwardTo = forwardTo;
+            _resultValue.id = id;
+            _resultValue.lockDuration = lockDuration;
+            _resultValue.maxDeliveryCount = maxDeliveryCount;
+            _resultValue.maxSizeInMegabytes = maxSizeInMegabytes;
+            _resultValue.name = name;
+            _resultValue.namespaceId = namespaceId;
+            _resultValue.namespaceName = namespaceName;
+            _resultValue.requiresDuplicateDetection = requiresDuplicateDetection;
+            _resultValue.requiresSession = requiresSession;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

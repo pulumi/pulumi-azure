@@ -46,9 +46,9 @@ public final class AccountCapacity {
             return this;
         }
         public AccountCapacity build() {
-            final var o = new AccountCapacity();
-            o.totalThroughputLimit = totalThroughputLimit;
-            return o;
+            final var _resultValue = new AccountCapacity();
+            _resultValue.totalThroughputLimit = totalThroughputLimit;
+            return _resultValue;
         }
     }
 }

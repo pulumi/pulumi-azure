@@ -88,11 +88,11 @@ public final class ConfigurationBackupRetentionPolicy {
             return this;
         }
         public ConfigurationBackupRetentionPolicy build() {
-            final var o = new ConfigurationBackupRetentionPolicy();
-            o.dailySchedule = dailySchedule;
-            o.retentionPolicyType = retentionPolicyType;
-            o.weeklySchedule = weeklySchedule;
-            return o;
+            final var _resultValue = new ConfigurationBackupRetentionPolicy();
+            _resultValue.dailySchedule = dailySchedule;
+            _resultValue.retentionPolicyType = retentionPolicyType;
+            _resultValue.weeklySchedule = weeklySchedule;
+            return _resultValue;
         }
     }
 }

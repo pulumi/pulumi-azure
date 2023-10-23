@@ -108,12 +108,12 @@ public final class WorkflowAccessControl {
             return this;
         }
         public WorkflowAccessControl build() {
-            final var o = new WorkflowAccessControl();
-            o.action = action;
-            o.content = content;
-            o.trigger = trigger;
-            o.workflowManagement = workflowManagement;
-            return o;
+            final var _resultValue = new WorkflowAccessControl();
+            _resultValue.action = action;
+            _resultValue.content = content;
+            _resultValue.trigger = trigger;
+            _resultValue.workflowManagement = workflowManagement;
+            return _resultValue;
         }
     }
 }

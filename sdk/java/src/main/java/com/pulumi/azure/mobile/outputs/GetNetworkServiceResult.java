@@ -182,16 +182,16 @@ public final class GetNetworkServiceResult {
             return this;
         }
         public GetNetworkServiceResult build() {
-            final var o = new GetNetworkServiceResult();
-            o.id = id;
-            o.location = location;
-            o.mobileNetworkId = mobileNetworkId;
-            o.name = name;
-            o.pccRules = pccRules;
-            o.servicePrecedence = servicePrecedence;
-            o.serviceQosPolicies = serviceQosPolicies;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetNetworkServiceResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.mobileNetworkId = mobileNetworkId;
+            _resultValue.name = name;
+            _resultValue.pccRules = pccRules;
+            _resultValue.servicePrecedence = servicePrecedence;
+            _resultValue.serviceQosPolicies = serviceQosPolicies;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

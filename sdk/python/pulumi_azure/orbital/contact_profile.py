@@ -65,7 +65,21 @@ class ContactProfileArgs:
              minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoTracking' in kwargs:
+            auto_tracking = kwargs['autoTracking']
+        if 'minimumVariableContactDuration' in kwargs:
+            minimum_variable_contact_duration = kwargs['minimumVariableContactDuration']
+        if 'networkConfigurationSubnetId' in kwargs:
+            network_configuration_subnet_id = kwargs['networkConfigurationSubnetId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'eventHubUri' in kwargs:
+            event_hub_uri = kwargs['eventHubUri']
+        if 'minimumElevationDegrees' in kwargs:
+            minimum_elevation_degrees = kwargs['minimumElevationDegrees']
+
         _setter("auto_tracking", auto_tracking)
         _setter("links", links)
         _setter("minimum_variable_contact_duration", minimum_variable_contact_duration)
@@ -255,7 +269,21 @@ class _ContactProfileState:
              network_configuration_subnet_id: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoTracking' in kwargs:
+            auto_tracking = kwargs['autoTracking']
+        if 'eventHubUri' in kwargs:
+            event_hub_uri = kwargs['eventHubUri']
+        if 'minimumElevationDegrees' in kwargs:
+            minimum_elevation_degrees = kwargs['minimumElevationDegrees']
+        if 'minimumVariableContactDuration' in kwargs:
+            minimum_variable_contact_duration = kwargs['minimumVariableContactDuration']
+        if 'networkConfigurationSubnetId' in kwargs:
+            network_configuration_subnet_id = kwargs['networkConfigurationSubnetId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if auto_tracking is not None:
             _setter("auto_tracking", auto_tracking)
         if event_hub_uri is not None:

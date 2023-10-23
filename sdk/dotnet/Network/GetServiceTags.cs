@@ -157,6 +157,10 @@ namespace Pulumi.Azure.Network
         public readonly ImmutableArray<string> Ipv6Cidrs;
         public readonly string Location;
         public readonly string? LocationFilter;
+        /// <summary>
+        /// The name of this Service Tags block.
+        /// </summary>
+        public readonly string Name;
         public readonly string Service;
 
         [OutputConstructor]
@@ -173,6 +177,8 @@ namespace Pulumi.Azure.Network
 
             string? locationFilter,
 
+            string name,
+
             string service)
         {
             AddressPrefixes = addressPrefixes;
@@ -181,6 +187,7 @@ namespace Pulumi.Azure.Network
             Ipv6Cidrs = ipv6Cidrs;
             Location = location;
             LocationFilter = locationFilter;
+            Name = name;
             Service = service;
         }
     }

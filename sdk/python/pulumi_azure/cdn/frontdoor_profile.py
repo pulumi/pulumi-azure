@@ -43,7 +43,15 @@ class FrontdoorProfileArgs:
              name: Optional[pulumi.Input[str]] = None,
              response_timeout_seconds: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'responseTimeoutSeconds' in kwargs:
+            response_timeout_seconds = kwargs['responseTimeoutSeconds']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
         if name is not None:
@@ -150,7 +158,17 @@ class _FrontdoorProfileState:
              response_timeout_seconds: Optional[pulumi.Input[int]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceGuid' in kwargs:
+            resource_guid = kwargs['resourceGuid']
+        if 'responseTimeoutSeconds' in kwargs:
+            response_timeout_seconds = kwargs['responseTimeoutSeconds']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if name is not None:
             _setter("name", name)
         if resource_group_name is not None:

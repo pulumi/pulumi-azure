@@ -145,14 +145,14 @@ public final class ContentKeyPolicyPolicyOptionFairplayConfiguration {
             return this;
         }
         public ContentKeyPolicyPolicyOptionFairplayConfiguration build() {
-            final var o = new ContentKeyPolicyPolicyOptionFairplayConfiguration();
-            o.ask = ask;
-            o.offlineRentalConfiguration = offlineRentalConfiguration;
-            o.pfx = pfx;
-            o.pfxPassword = pfxPassword;
-            o.rentalAndLeaseKeyType = rentalAndLeaseKeyType;
-            o.rentalDurationSeconds = rentalDurationSeconds;
-            return o;
+            final var _resultValue = new ContentKeyPolicyPolicyOptionFairplayConfiguration();
+            _resultValue.ask = ask;
+            _resultValue.offlineRentalConfiguration = offlineRentalConfiguration;
+            _resultValue.pfx = pfx;
+            _resultValue.pfxPassword = pfxPassword;
+            _resultValue.rentalAndLeaseKeyType = rentalAndLeaseKeyType;
+            _resultValue.rentalDurationSeconds = rentalDurationSeconds;
+            return _resultValue;
         }
     }
 }

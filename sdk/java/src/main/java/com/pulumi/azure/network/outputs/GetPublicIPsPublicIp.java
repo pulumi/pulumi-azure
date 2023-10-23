@@ -122,13 +122,13 @@ public final class GetPublicIPsPublicIp {
             return this;
         }
         public GetPublicIPsPublicIp build() {
-            final var o = new GetPublicIPsPublicIp();
-            o.domainNameLabel = domainNameLabel;
-            o.fqdn = fqdn;
-            o.id = id;
-            o.ipAddress = ipAddress;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetPublicIPsPublicIp();
+            _resultValue.domainNameLabel = domainNameLabel;
+            _resultValue.fqdn = fqdn;
+            _resultValue.id = id;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

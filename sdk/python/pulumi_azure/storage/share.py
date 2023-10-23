@@ -61,7 +61,15 @@ class ShareArgs:
              enabled_protocol: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'accessTier' in kwargs:
+            access_tier = kwargs['accessTier']
+        if 'enabledProtocol' in kwargs:
+            enabled_protocol = kwargs['enabledProtocol']
+
         _setter("quota", quota)
         _setter("storage_account_name", storage_account_name)
         if access_tier is not None:
@@ -224,7 +232,17 @@ class _ShareState:
              resource_manager_id: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessTier' in kwargs:
+            access_tier = kwargs['accessTier']
+        if 'enabledProtocol' in kwargs:
+            enabled_protocol = kwargs['enabledProtocol']
+        if 'resourceManagerId' in kwargs:
+            resource_manager_id = kwargs['resourceManagerId']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         if access_tier is not None:
             _setter("access_tier", access_tier)
         if acls is not None:

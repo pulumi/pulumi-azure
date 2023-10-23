@@ -325,23 +325,23 @@ public final class ApplicationGatewayBackendHttpSetting {
             return trustedRootCertificateNames(List.of(trustedRootCertificateNames));
         }
         public ApplicationGatewayBackendHttpSetting build() {
-            final var o = new ApplicationGatewayBackendHttpSetting();
-            o.affinityCookieName = affinityCookieName;
-            o.authenticationCertificates = authenticationCertificates;
-            o.connectionDraining = connectionDraining;
-            o.cookieBasedAffinity = cookieBasedAffinity;
-            o.hostName = hostName;
-            o.id = id;
-            o.name = name;
-            o.path = path;
-            o.pickHostNameFromBackendAddress = pickHostNameFromBackendAddress;
-            o.port = port;
-            o.probeId = probeId;
-            o.probeName = probeName;
-            o.protocol = protocol;
-            o.requestTimeout = requestTimeout;
-            o.trustedRootCertificateNames = trustedRootCertificateNames;
-            return o;
+            final var _resultValue = new ApplicationGatewayBackendHttpSetting();
+            _resultValue.affinityCookieName = affinityCookieName;
+            _resultValue.authenticationCertificates = authenticationCertificates;
+            _resultValue.connectionDraining = connectionDraining;
+            _resultValue.cookieBasedAffinity = cookieBasedAffinity;
+            _resultValue.hostName = hostName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.pickHostNameFromBackendAddress = pickHostNameFromBackendAddress;
+            _resultValue.port = port;
+            _resultValue.probeId = probeId;
+            _resultValue.probeName = probeName;
+            _resultValue.protocol = protocol;
+            _resultValue.requestTimeout = requestTimeout;
+            _resultValue.trustedRootCertificateNames = trustedRootCertificateNames;
+            return _resultValue;
         }
     }
 }

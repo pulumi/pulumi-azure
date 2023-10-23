@@ -218,17 +218,17 @@ public final class VirtualMachineStorageDataDisk {
             return this;
         }
         public VirtualMachineStorageDataDisk build() {
-            final var o = new VirtualMachineStorageDataDisk();
-            o.caching = caching;
-            o.createOption = createOption;
-            o.diskSizeGb = diskSizeGb;
-            o.lun = lun;
-            o.managedDiskId = managedDiskId;
-            o.managedDiskType = managedDiskType;
-            o.name = name;
-            o.vhdUri = vhdUri;
-            o.writeAcceleratorEnabled = writeAcceleratorEnabled;
-            return o;
+            final var _resultValue = new VirtualMachineStorageDataDisk();
+            _resultValue.caching = caching;
+            _resultValue.createOption = createOption;
+            _resultValue.diskSizeGb = diskSizeGb;
+            _resultValue.lun = lun;
+            _resultValue.managedDiskId = managedDiskId;
+            _resultValue.managedDiskType = managedDiskType;
+            _resultValue.name = name;
+            _resultValue.vhdUri = vhdUri;
+            _resultValue.writeAcceleratorEnabled = writeAcceleratorEnabled;
+            return _resultValue;
         }
     }
 }

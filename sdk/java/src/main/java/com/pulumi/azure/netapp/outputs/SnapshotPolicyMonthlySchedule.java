@@ -107,12 +107,12 @@ public final class SnapshotPolicyMonthlySchedule {
             return this;
         }
         public SnapshotPolicyMonthlySchedule build() {
-            final var o = new SnapshotPolicyMonthlySchedule();
-            o.daysOfMonths = daysOfMonths;
-            o.hour = hour;
-            o.minute = minute;
-            o.snapshotsToKeep = snapshotsToKeep;
-            return o;
+            final var _resultValue = new SnapshotPolicyMonthlySchedule();
+            _resultValue.daysOfMonths = daysOfMonths;
+            _resultValue.hour = hour;
+            _resultValue.minute = minute;
+            _resultValue.snapshotsToKeep = snapshotsToKeep;
+            return _resultValue;
         }
     }
 }

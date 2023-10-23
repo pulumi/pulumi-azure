@@ -29,7 +29,11 @@ class PortalTenantConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              private_markdown_storage_enforced: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateMarkdownStorageEnforced' in kwargs:
+            private_markdown_storage_enforced = kwargs['privateMarkdownStorageEnforced']
+
         _setter("private_markdown_storage_enforced", private_markdown_storage_enforced)
 
     @property
@@ -65,7 +69,11 @@ class _PortalTenantConfigurationState:
     def _configure(
              _setter: Callable[[Any, Any], None],
              private_markdown_storage_enforced: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateMarkdownStorageEnforced' in kwargs:
+            private_markdown_storage_enforced = kwargs['privateMarkdownStorageEnforced']
+
         if private_markdown_storage_enforced is not None:
             _setter("private_markdown_storage_enforced", private_markdown_storage_enforced)
 

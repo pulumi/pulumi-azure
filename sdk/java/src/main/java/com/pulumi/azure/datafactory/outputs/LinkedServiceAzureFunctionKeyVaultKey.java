@@ -65,10 +65,10 @@ public final class LinkedServiceAzureFunctionKeyVaultKey {
             return this;
         }
         public LinkedServiceAzureFunctionKeyVaultKey build() {
-            final var o = new LinkedServiceAzureFunctionKeyVaultKey();
-            o.linkedServiceName = linkedServiceName;
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new LinkedServiceAzureFunctionKeyVaultKey();
+            _resultValue.linkedServiceName = linkedServiceName;
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

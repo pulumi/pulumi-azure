@@ -68,10 +68,10 @@ public final class TransformOutputBuiltinPreset {
             return this;
         }
         public TransformOutputBuiltinPreset build() {
-            final var o = new TransformOutputBuiltinPreset();
-            o.presetConfiguration = presetConfiguration;
-            o.presetName = presetName;
-            return o;
+            final var _resultValue = new TransformOutputBuiltinPreset();
+            _resultValue.presetConfiguration = presetConfiguration;
+            _resultValue.presetName = presetName;
+            return _resultValue;
         }
     }
 }

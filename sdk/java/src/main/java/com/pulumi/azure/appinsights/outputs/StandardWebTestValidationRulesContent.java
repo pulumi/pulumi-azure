@@ -87,11 +87,11 @@ public final class StandardWebTestValidationRulesContent {
             return this;
         }
         public StandardWebTestValidationRulesContent build() {
-            final var o = new StandardWebTestValidationRulesContent();
-            o.contentMatch = contentMatch;
-            o.ignoreCase = ignoreCase;
-            o.passIfTextFound = passIfTextFound;
-            return o;
+            final var _resultValue = new StandardWebTestValidationRulesContent();
+            _resultValue.contentMatch = contentMatch;
+            _resultValue.ignoreCase = ignoreCase;
+            _resultValue.passIfTextFound = passIfTextFound;
+            return _resultValue;
         }
     }
 }

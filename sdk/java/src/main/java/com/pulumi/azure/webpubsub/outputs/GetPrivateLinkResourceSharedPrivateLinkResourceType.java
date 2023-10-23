@@ -65,10 +65,10 @@ public final class GetPrivateLinkResourceSharedPrivateLinkResourceType {
             return this;
         }
         public GetPrivateLinkResourceSharedPrivateLinkResourceType build() {
-            final var o = new GetPrivateLinkResourceSharedPrivateLinkResourceType();
-            o.description = description;
-            o.subresourceName = subresourceName;
-            return o;
+            final var _resultValue = new GetPrivateLinkResourceSharedPrivateLinkResourceType();
+            _resultValue.description = description;
+            _resultValue.subresourceName = subresourceName;
+            return _resultValue;
         }
     }
 }

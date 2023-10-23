@@ -125,13 +125,13 @@ public final class SpringCloudAppIngressSettings {
             return this;
         }
         public SpringCloudAppIngressSettings build() {
-            final var o = new SpringCloudAppIngressSettings();
-            o.backendProtocol = backendProtocol;
-            o.readTimeoutInSeconds = readTimeoutInSeconds;
-            o.sendTimeoutInSeconds = sendTimeoutInSeconds;
-            o.sessionAffinity = sessionAffinity;
-            o.sessionCookieMaxAge = sessionCookieMaxAge;
-            return o;
+            final var _resultValue = new SpringCloudAppIngressSettings();
+            _resultValue.backendProtocol = backendProtocol;
+            _resultValue.readTimeoutInSeconds = readTimeoutInSeconds;
+            _resultValue.sendTimeoutInSeconds = sendTimeoutInSeconds;
+            _resultValue.sessionAffinity = sessionAffinity;
+            _resultValue.sessionCookieMaxAge = sessionCookieMaxAge;
+            return _resultValue;
         }
     }
 }

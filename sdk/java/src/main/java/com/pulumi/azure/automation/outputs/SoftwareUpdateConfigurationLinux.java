@@ -126,13 +126,13 @@ public final class SoftwareUpdateConfigurationLinux {
             return this;
         }
         public SoftwareUpdateConfigurationLinux build() {
-            final var o = new SoftwareUpdateConfigurationLinux();
-            o.classificationIncluded = classificationIncluded;
-            o.classificationsIncludeds = classificationsIncludeds;
-            o.excludedPackages = excludedPackages;
-            o.includedPackages = includedPackages;
-            o.reboot = reboot;
-            return o;
+            final var _resultValue = new SoftwareUpdateConfigurationLinux();
+            _resultValue.classificationIncluded = classificationIncluded;
+            _resultValue.classificationsIncludeds = classificationsIncludeds;
+            _resultValue.excludedPackages = excludedPackages;
+            _resultValue.includedPackages = includedPackages;
+            _resultValue.reboot = reboot;
+            return _resultValue;
         }
     }
 }

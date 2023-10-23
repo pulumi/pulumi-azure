@@ -57,7 +57,17 @@ class LoggerArgs:
              eventhub: Optional[pulumi.Input['LoggerEventhubArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'applicationInsights' in kwargs:
+            application_insights = kwargs['applicationInsights']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         _setter("api_management_name", api_management_name)
         _setter("resource_group_name", resource_group_name)
         if application_insights is not None:
@@ -214,7 +224,17 @@ class _LoggerState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'applicationInsights' in kwargs:
+            application_insights = kwargs['applicationInsights']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if application_insights is not None:

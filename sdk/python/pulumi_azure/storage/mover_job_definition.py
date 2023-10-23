@@ -59,7 +59,23 @@ class MoverJobDefinitionArgs:
              name: Optional[pulumi.Input[str]] = None,
              source_sub_path: Optional[pulumi.Input[str]] = None,
              target_sub_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'copyMode' in kwargs:
+            copy_mode = kwargs['copyMode']
+        if 'sourceName' in kwargs:
+            source_name = kwargs['sourceName']
+        if 'storageMoverProjectId' in kwargs:
+            storage_mover_project_id = kwargs['storageMoverProjectId']
+        if 'targetName' in kwargs:
+            target_name = kwargs['targetName']
+        if 'agentName' in kwargs:
+            agent_name = kwargs['agentName']
+        if 'sourceSubPath' in kwargs:
+            source_sub_path = kwargs['sourceSubPath']
+        if 'targetSubPath' in kwargs:
+            target_sub_path = kwargs['targetSubPath']
+
         _setter("copy_mode", copy_mode)
         _setter("source_name", source_name)
         _setter("storage_mover_project_id", storage_mover_project_id)
@@ -232,7 +248,23 @@ class _MoverJobDefinitionState:
              storage_mover_project_id: Optional[pulumi.Input[str]] = None,
              target_name: Optional[pulumi.Input[str]] = None,
              target_sub_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agentName' in kwargs:
+            agent_name = kwargs['agentName']
+        if 'copyMode' in kwargs:
+            copy_mode = kwargs['copyMode']
+        if 'sourceName' in kwargs:
+            source_name = kwargs['sourceName']
+        if 'sourceSubPath' in kwargs:
+            source_sub_path = kwargs['sourceSubPath']
+        if 'storageMoverProjectId' in kwargs:
+            storage_mover_project_id = kwargs['storageMoverProjectId']
+        if 'targetName' in kwargs:
+            target_name = kwargs['targetName']
+        if 'targetSubPath' in kwargs:
+            target_sub_path = kwargs['targetSubPath']
+
         if agent_name is not None:
             _setter("agent_name", agent_name)
         if copy_mode is not None:

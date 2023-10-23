@@ -55,7 +55,19 @@ class NetworkPacketCoreDataPlaneArgs:
              user_plane_access_ipv4_gateway: Optional[pulumi.Input[str]] = None,
              user_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
              user_plane_access_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkPacketCoreControlPlaneId' in kwargs:
+            mobile_network_packet_core_control_plane_id = kwargs['mobileNetworkPacketCoreControlPlaneId']
+        if 'userPlaneAccessIpv4Address' in kwargs:
+            user_plane_access_ipv4_address = kwargs['userPlaneAccessIpv4Address']
+        if 'userPlaneAccessIpv4Gateway' in kwargs:
+            user_plane_access_ipv4_gateway = kwargs['userPlaneAccessIpv4Gateway']
+        if 'userPlaneAccessIpv4Subnet' in kwargs:
+            user_plane_access_ipv4_subnet = kwargs['userPlaneAccessIpv4Subnet']
+        if 'userPlaneAccessName' in kwargs:
+            user_plane_access_name = kwargs['userPlaneAccessName']
+
         _setter("mobile_network_packet_core_control_plane_id", mobile_network_packet_core_control_plane_id)
         if location is not None:
             _setter("location", location)
@@ -213,7 +225,19 @@ class _NetworkPacketCoreDataPlaneState:
              user_plane_access_ipv4_gateway: Optional[pulumi.Input[str]] = None,
              user_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
              user_plane_access_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkPacketCoreControlPlaneId' in kwargs:
+            mobile_network_packet_core_control_plane_id = kwargs['mobileNetworkPacketCoreControlPlaneId']
+        if 'userPlaneAccessIpv4Address' in kwargs:
+            user_plane_access_ipv4_address = kwargs['userPlaneAccessIpv4Address']
+        if 'userPlaneAccessIpv4Gateway' in kwargs:
+            user_plane_access_ipv4_gateway = kwargs['userPlaneAccessIpv4Gateway']
+        if 'userPlaneAccessIpv4Subnet' in kwargs:
+            user_plane_access_ipv4_subnet = kwargs['userPlaneAccessIpv4Subnet']
+        if 'userPlaneAccessName' in kwargs:
+            user_plane_access_name = kwargs['userPlaneAccessName']
+
         if location is not None:
             _setter("location", location)
         if mobile_network_packet_core_control_plane_id is not None:

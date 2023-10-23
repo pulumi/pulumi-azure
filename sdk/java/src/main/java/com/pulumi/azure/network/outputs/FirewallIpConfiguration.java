@@ -105,12 +105,12 @@ public final class FirewallIpConfiguration {
             return this;
         }
         public FirewallIpConfiguration build() {
-            final var o = new FirewallIpConfiguration();
-            o.name = name;
-            o.privateIpAddress = privateIpAddress;
-            o.publicIpAddressId = publicIpAddressId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new FirewallIpConfiguration();
+            _resultValue.name = name;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

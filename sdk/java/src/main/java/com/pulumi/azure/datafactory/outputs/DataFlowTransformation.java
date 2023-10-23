@@ -127,13 +127,13 @@ public final class DataFlowTransformation {
             return this;
         }
         public DataFlowTransformation build() {
-            final var o = new DataFlowTransformation();
-            o.dataset = dataset;
-            o.description = description;
-            o.flowlet = flowlet;
-            o.linkedService = linkedService;
-            o.name = name;
-            return o;
+            final var _resultValue = new DataFlowTransformation();
+            _resultValue.dataset = dataset;
+            _resultValue.description = description;
+            _resultValue.flowlet = flowlet;
+            _resultValue.linkedService = linkedService;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

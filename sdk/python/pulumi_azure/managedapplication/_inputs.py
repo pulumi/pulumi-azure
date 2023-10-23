@@ -47,7 +47,11 @@ class ApplicationPlanArgs:
              publisher: pulumi.Input[str],
              version: pulumi.Input[str],
              promotion_code: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'promotionCode' in kwargs:
+            promotion_code = kwargs['promotionCode']
+
         _setter("name", name)
         _setter("product", product)
         _setter("publisher", publisher)
@@ -137,7 +141,13 @@ class DefinitionAuthorizationArgs:
              _setter: Callable[[Any, Any], None],
              role_definition_id: pulumi.Input[str],
              service_principal_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if 'servicePrincipalId' in kwargs:
+            service_principal_id = kwargs['servicePrincipalId']
+
         _setter("role_definition_id", role_definition_id)
         _setter("service_principal_id", service_principal_id)
 

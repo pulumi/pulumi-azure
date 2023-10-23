@@ -365,35 +365,35 @@ public final class GetStandardResult {
             return this;
         }
         public GetStandardResult build() {
-            final var o = new GetStandardResult();
-            o.appServicePlanId = appServicePlanId;
-            o.appSettings = appSettings;
-            o.bundleVersion = bundleVersion;
-            o.clientAffinityEnabled = clientAffinityEnabled;
-            o.clientCertificateMode = clientCertificateMode;
-            o.connectionStrings = connectionStrings;
-            o.customDomainVerificationId = customDomainVerificationId;
-            o.defaultHostname = defaultHostname;
-            o.enabled = enabled;
-            o.httpsOnly = httpsOnly;
-            o.id = id;
-            o.identities = identities;
-            o.kind = kind;
-            o.location = location;
-            o.name = name;
-            o.outboundIpAddresses = outboundIpAddresses;
-            o.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
-            o.resourceGroupName = resourceGroupName;
-            o.siteConfig = siteConfig;
-            o.siteCredentials = siteCredentials;
-            o.storageAccountAccessKey = storageAccountAccessKey;
-            o.storageAccountName = storageAccountName;
-            o.storageAccountShareName = storageAccountShareName;
-            o.tags = tags;
-            o.useExtensionBundle = useExtensionBundle;
-            o.version = version;
-            o.virtualNetworkSubnetId = virtualNetworkSubnetId;
-            return o;
+            final var _resultValue = new GetStandardResult();
+            _resultValue.appServicePlanId = appServicePlanId;
+            _resultValue.appSettings = appSettings;
+            _resultValue.bundleVersion = bundleVersion;
+            _resultValue.clientAffinityEnabled = clientAffinityEnabled;
+            _resultValue.clientCertificateMode = clientCertificateMode;
+            _resultValue.connectionStrings = connectionStrings;
+            _resultValue.customDomainVerificationId = customDomainVerificationId;
+            _resultValue.defaultHostname = defaultHostname;
+            _resultValue.enabled = enabled;
+            _resultValue.httpsOnly = httpsOnly;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.kind = kind;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.outboundIpAddresses = outboundIpAddresses;
+            _resultValue.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.siteConfig = siteConfig;
+            _resultValue.siteCredentials = siteCredentials;
+            _resultValue.storageAccountAccessKey = storageAccountAccessKey;
+            _resultValue.storageAccountName = storageAccountName;
+            _resultValue.storageAccountShareName = storageAccountShareName;
+            _resultValue.tags = tags;
+            _resultValue.useExtensionBundle = useExtensionBundle;
+            _resultValue.version = version;
+            _resultValue.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            return _resultValue;
         }
     }
 }

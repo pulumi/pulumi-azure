@@ -69,7 +69,21 @@ class LinkedServiceCosmosDbArgs:
              integration_runtime_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'accountEndpoint' in kwargs:
+            account_endpoint = kwargs['accountEndpoint']
+        if 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+
         _setter("data_factory_id", data_factory_id)
         if account_endpoint is not None:
             _setter("account_endpoint", account_endpoint)
@@ -285,7 +299,21 @@ class _LinkedServiceCosmosDbState:
              integration_runtime_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountEndpoint' in kwargs:
+            account_endpoint = kwargs['accountEndpoint']
+        if 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+
         if account_endpoint is not None:
             _setter("account_endpoint", account_endpoint)
         if account_key is not None:

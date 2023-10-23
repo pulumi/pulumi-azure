@@ -145,14 +145,14 @@ public final class WindowsVirtualMachineScaleSetRollingUpgradePolicy {
             return this;
         }
         public WindowsVirtualMachineScaleSetRollingUpgradePolicy build() {
-            final var o = new WindowsVirtualMachineScaleSetRollingUpgradePolicy();
-            o.crossZoneUpgradesEnabled = crossZoneUpgradesEnabled;
-            o.maxBatchInstancePercent = maxBatchInstancePercent;
-            o.maxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
-            o.maxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
-            o.pauseTimeBetweenBatches = pauseTimeBetweenBatches;
-            o.prioritizeUnhealthyInstancesEnabled = prioritizeUnhealthyInstancesEnabled;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetRollingUpgradePolicy();
+            _resultValue.crossZoneUpgradesEnabled = crossZoneUpgradesEnabled;
+            _resultValue.maxBatchInstancePercent = maxBatchInstancePercent;
+            _resultValue.maxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
+            _resultValue.maxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
+            _resultValue.pauseTimeBetweenBatches = pauseTimeBetweenBatches;
+            _resultValue.prioritizeUnhealthyInstancesEnabled = prioritizeUnhealthyInstancesEnabled;
+            return _resultValue;
         }
     }
 }

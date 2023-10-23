@@ -72,10 +72,10 @@ public final class NetworkConnectionMonitorEndpointFilter {
             return this;
         }
         public NetworkConnectionMonitorEndpointFilter build() {
-            final var o = new NetworkConnectionMonitorEndpointFilter();
-            o.items = items;
-            o.type = type;
-            return o;
+            final var _resultValue = new NetworkConnectionMonitorEndpointFilter();
+            _resultValue.items = items;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

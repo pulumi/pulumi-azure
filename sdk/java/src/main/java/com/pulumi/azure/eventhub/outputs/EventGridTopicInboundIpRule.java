@@ -67,10 +67,10 @@ public final class EventGridTopicInboundIpRule {
             return this;
         }
         public EventGridTopicInboundIpRule build() {
-            final var o = new EventGridTopicInboundIpRule();
-            o.action = action;
-            o.ipMask = ipMask;
-            return o;
+            final var _resultValue = new EventGridTopicInboundIpRule();
+            _resultValue.action = action;
+            _resultValue.ipMask = ipMask;
+            return _resultValue;
         }
     }
 }

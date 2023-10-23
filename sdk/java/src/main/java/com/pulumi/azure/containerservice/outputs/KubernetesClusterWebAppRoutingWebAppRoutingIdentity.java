@@ -90,11 +90,11 @@ public final class KubernetesClusterWebAppRoutingWebAppRoutingIdentity {
             return this;
         }
         public KubernetesClusterWebAppRoutingWebAppRoutingIdentity build() {
-            final var o = new KubernetesClusterWebAppRoutingWebAppRoutingIdentity();
-            o.clientId = clientId;
-            o.objectId = objectId;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new KubernetesClusterWebAppRoutingWebAppRoutingIdentity();
+            _resultValue.clientId = clientId;
+            _resultValue.objectId = objectId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

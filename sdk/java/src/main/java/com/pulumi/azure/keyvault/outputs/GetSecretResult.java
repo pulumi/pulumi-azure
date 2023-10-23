@@ -234,20 +234,20 @@ public final class GetSecretResult {
             return this;
         }
         public GetSecretResult build() {
-            final var o = new GetSecretResult();
-            o.contentType = contentType;
-            o.expirationDate = expirationDate;
-            o.id = id;
-            o.keyVaultId = keyVaultId;
-            o.name = name;
-            o.notBeforeDate = notBeforeDate;
-            o.resourceId = resourceId;
-            o.resourceVersionlessId = resourceVersionlessId;
-            o.tags = tags;
-            o.value = value;
-            o.version = version;
-            o.versionlessId = versionlessId;
-            return o;
+            final var _resultValue = new GetSecretResult();
+            _resultValue.contentType = contentType;
+            _resultValue.expirationDate = expirationDate;
+            _resultValue.id = id;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.name = name;
+            _resultValue.notBeforeDate = notBeforeDate;
+            _resultValue.resourceId = resourceId;
+            _resultValue.resourceVersionlessId = resourceVersionlessId;
+            _resultValue.tags = tags;
+            _resultValue.value = value;
+            _resultValue.version = version;
+            _resultValue.versionlessId = versionlessId;
+            return _resultValue;
         }
     }
 }

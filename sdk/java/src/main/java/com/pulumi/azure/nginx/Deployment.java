@@ -16,6 +16,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -102,6 +103,8 @@ import javax.annotation.Nullable;
  *             .networkInterfaces(DeploymentNetworkInterfaceArgs.builder()
  *                 .subnetId(exampleSubnet.id())
  *                 .build())
+ *             .capacity(20)
+ *             .email(&#34;user@test.com&#34;)
  *             .build());
  * 
  *     }
@@ -120,6 +123,24 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:nginx/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
     /**
+     * Specify the number of NGINX capacity units for this NGINX deployment.
+     * 
+     * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     * 
+     */
+    @Export(name="capacity", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> capacity;
+
+    /**
+     * @return Specify the number of NGINX capacity units for this NGINX deployment.
+     * 
+     * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     * 
+     */
+    public Output<Optional<Integer>> capacity() {
+        return Codegen.optional(this.capacity);
+    }
+    /**
      * Should the diagnosis support be enabled?
      * 
      */
@@ -132,6 +153,20 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> diagnoseSupportEnabled() {
         return Codegen.optional(this.diagnoseSupportEnabled);
+    }
+    /**
+     * Specify the preferred support contact email address of the user used for sending alerts and notification.
+     * 
+     */
+    @Export(name="email", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> email;
+
+    /**
+     * @return Specify the preferred support contact email address of the user used for sending alerts and notification.
+     * 
+     */
+    public Output<Optional<String>> email() {
+        return Codegen.optional(this.email);
     }
     /**
      * One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.

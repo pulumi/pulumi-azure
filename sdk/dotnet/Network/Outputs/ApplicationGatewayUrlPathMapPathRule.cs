@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? BackendHttpSettingsName;
         /// <summary>
-        /// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+        /// The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
         /// </summary>
         public readonly string? FirewallPolicyId;
         /// <summary>

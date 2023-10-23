@@ -72,10 +72,10 @@ public final class HBaseClusterNetwork {
             return this;
         }
         public HBaseClusterNetwork build() {
-            final var o = new HBaseClusterNetwork();
-            o.connectionDirection = connectionDirection;
-            o.privateLinkEnabled = privateLinkEnabled;
-            return o;
+            final var _resultValue = new HBaseClusterNetwork();
+            _resultValue.connectionDirection = connectionDirection;
+            _resultValue.privateLinkEnabled = privateLinkEnabled;
+            return _resultValue;
         }
     }
 }

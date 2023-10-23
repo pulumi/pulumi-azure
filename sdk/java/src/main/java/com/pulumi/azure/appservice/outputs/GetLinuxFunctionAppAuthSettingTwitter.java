@@ -84,11 +84,11 @@ public final class GetLinuxFunctionAppAuthSettingTwitter {
             return this;
         }
         public GetLinuxFunctionAppAuthSettingTwitter build() {
-            final var o = new GetLinuxFunctionAppAuthSettingTwitter();
-            o.consumerKey = consumerKey;
-            o.consumerSecret = consumerSecret;
-            o.consumerSecretSettingName = consumerSecretSettingName;
-            return o;
+            final var _resultValue = new GetLinuxFunctionAppAuthSettingTwitter();
+            _resultValue.consumerKey = consumerKey;
+            _resultValue.consumerSecret = consumerSecret;
+            _resultValue.consumerSecretSettingName = consumerSecretSettingName;
+            return _resultValue;
         }
     }
 }

@@ -89,11 +89,11 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSche
             return this;
         }
         public InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule build() {
-            final var o = new InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule();
-            o.days = days;
-            o.targetInstanceCount = targetInstanceCount;
-            o.time = time;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule();
+            _resultValue.days = days;
+            _resultValue.targetInstanceCount = targetInstanceCount;
+            _resultValue.time = time;
+            return _resultValue;
         }
     }
 }

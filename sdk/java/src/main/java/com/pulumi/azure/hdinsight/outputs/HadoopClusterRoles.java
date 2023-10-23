@@ -108,12 +108,12 @@ public final class HadoopClusterRoles {
             return this;
         }
         public HadoopClusterRoles build() {
-            final var o = new HadoopClusterRoles();
-            o.edgeNode = edgeNode;
-            o.headNode = headNode;
-            o.workerNode = workerNode;
-            o.zookeeperNode = zookeeperNode;
-            return o;
+            final var _resultValue = new HadoopClusterRoles();
+            _resultValue.edgeNode = edgeNode;
+            _resultValue.headNode = headNode;
+            _resultValue.workerNode = workerNode;
+            _resultValue.zookeeperNode = zookeeperNode;
+            return _resultValue;
         }
     }
 }

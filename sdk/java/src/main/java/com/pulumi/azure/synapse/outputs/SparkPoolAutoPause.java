@@ -46,9 +46,9 @@ public final class SparkPoolAutoPause {
             return this;
         }
         public SparkPoolAutoPause build() {
-            final var o = new SparkPoolAutoPause();
-            o.delayInMinutes = delayInMinutes;
-            return o;
+            final var _resultValue = new SparkPoolAutoPause();
+            _resultValue.delayInMinutes = delayInMinutes;
+            return _resultValue;
         }
     }
 }

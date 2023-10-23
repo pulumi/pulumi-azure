@@ -113,12 +113,12 @@ public final class IntegrationRuntimeSsisVnetIntegration {
             return this;
         }
         public IntegrationRuntimeSsisVnetIntegration build() {
-            final var o = new IntegrationRuntimeSsisVnetIntegration();
-            o.publicIps = publicIps;
-            o.subnetId = subnetId;
-            o.subnetName = subnetName;
-            o.vnetId = vnetId;
-            return o;
+            final var _resultValue = new IntegrationRuntimeSsisVnetIntegration();
+            _resultValue.publicIps = publicIps;
+            _resultValue.subnetId = subnetId;
+            _resultValue.subnetName = subnetName;
+            _resultValue.vnetId = vnetId;
+            return _resultValue;
         }
     }
 }

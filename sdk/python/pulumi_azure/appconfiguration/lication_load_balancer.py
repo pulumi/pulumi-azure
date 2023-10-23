@@ -39,7 +39,11 @@ class LicationLoadBalancerArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("resource_group_name", resource_group_name)
         if location is not None:
             _setter("location", location)
@@ -129,7 +133,13 @@ class _LicationLoadBalancerState:
              primary_configuration_endpoint: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primaryConfigurationEndpoint' in kwargs:
+            primary_configuration_endpoint = kwargs['primaryConfigurationEndpoint']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if location is not None:
             _setter("location", location)
         if name is not None:

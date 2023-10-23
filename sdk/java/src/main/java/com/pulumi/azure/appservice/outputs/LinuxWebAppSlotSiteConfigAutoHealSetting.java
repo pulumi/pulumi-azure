@@ -68,10 +68,10 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSetting {
             return this;
         }
         public LinuxWebAppSlotSiteConfigAutoHealSetting build() {
-            final var o = new LinuxWebAppSlotSiteConfigAutoHealSetting();
-            o.action = action;
-            o.trigger = trigger;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotSiteConfigAutoHealSetting();
+            _resultValue.action = action;
+            _resultValue.trigger = trigger;
+            return _resultValue;
         }
     }
 }

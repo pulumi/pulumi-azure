@@ -48,9 +48,9 @@ public final class VpnSiteO365Policy {
             return this;
         }
         public VpnSiteO365Policy build() {
-            final var o = new VpnSiteO365Policy();
-            o.trafficCategory = trafficCategory;
-            return o;
+            final var _resultValue = new VpnSiteO365Policy();
+            _resultValue.trafficCategory = trafficCategory;
+            return _resultValue;
         }
     }
 }

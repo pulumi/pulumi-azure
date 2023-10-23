@@ -106,12 +106,12 @@ public final class PolicyManagedRulesExclusion {
             return this;
         }
         public PolicyManagedRulesExclusion build() {
-            final var o = new PolicyManagedRulesExclusion();
-            o.excludedRuleSet = excludedRuleSet;
-            o.matchVariable = matchVariable;
-            o.selector = selector;
-            o.selectorMatchOperator = selectorMatchOperator;
-            return o;
+            final var _resultValue = new PolicyManagedRulesExclusion();
+            _resultValue.excludedRuleSet = excludedRuleSet;
+            _resultValue.matchVariable = matchVariable;
+            _resultValue.selector = selector;
+            _resultValue.selectorMatchOperator = selectorMatchOperator;
+            return _resultValue;
         }
     }
 }

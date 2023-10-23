@@ -59,7 +59,13 @@ class ActionHttpArgs:
              name: Optional[pulumi.Input[str]] = None,
              queries: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              run_afters: Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+        if 'runAfters' in kwargs:
+            run_afters = kwargs['runAfters']
+
         _setter("logic_app_id", logic_app_id)
         _setter("method", method)
         _setter("uri", uri)
@@ -219,7 +225,13 @@ class _ActionHttpState:
              queries: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              run_afters: Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]] = None,
              uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+        if 'runAfters' in kwargs:
+            run_afters = kwargs['runAfters']
+
         if body is not None:
             _setter("body", body)
         if headers is not None:

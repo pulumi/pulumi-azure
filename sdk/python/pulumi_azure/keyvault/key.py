@@ -65,7 +65,23 @@ class KeyArgs:
              not_before_date: Optional[pulumi.Input[str]] = None,
              rotation_policy: Optional[pulumi.Input['KeyRotationPolicyArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyOpts' in kwargs:
+            key_opts = kwargs['keyOpts']
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+        if 'notBeforeDate' in kwargs:
+            not_before_date = kwargs['notBeforeDate']
+        if 'rotationPolicy' in kwargs:
+            rotation_policy = kwargs['rotationPolicy']
+
         _setter("key_opts", key_opts)
         _setter("key_type", key_type)
         _setter("key_vault_id", key_vault_id)
@@ -297,7 +313,33 @@ class _KeyState:
              versionless_id: Optional[pulumi.Input[str]] = None,
              x: Optional[pulumi.Input[str]] = None,
              y: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'keyOpts' in kwargs:
+            key_opts = kwargs['keyOpts']
+        if 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'notBeforeDate' in kwargs:
+            not_before_date = kwargs['notBeforeDate']
+        if 'publicKeyOpenssh' in kwargs:
+            public_key_openssh = kwargs['publicKeyOpenssh']
+        if 'publicKeyPem' in kwargs:
+            public_key_pem = kwargs['publicKeyPem']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourceVersionlessId' in kwargs:
+            resource_versionless_id = kwargs['resourceVersionlessId']
+        if 'rotationPolicy' in kwargs:
+            rotation_policy = kwargs['rotationPolicy']
+        if 'versionlessId' in kwargs:
+            versionless_id = kwargs['versionlessId']
+
         if curve is not None:
             _setter("curve", curve)
         if e is not None:

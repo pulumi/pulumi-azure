@@ -251,23 +251,23 @@ public final class GetQueueAuthorizationRuleResult {
             return this;
         }
         public GetQueueAuthorizationRuleResult build() {
-            final var o = new GetQueueAuthorizationRuleResult();
-            o.id = id;
-            o.listen = listen;
-            o.manage = manage;
-            o.name = name;
-            o.namespaceName = namespaceName;
-            o.primaryConnectionString = primaryConnectionString;
-            o.primaryConnectionStringAlias = primaryConnectionStringAlias;
-            o.primaryKey = primaryKey;
-            o.queueId = queueId;
-            o.queueName = queueName;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryConnectionString = secondaryConnectionString;
-            o.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
-            o.secondaryKey = secondaryKey;
-            o.send = send;
-            return o;
+            final var _resultValue = new GetQueueAuthorizationRuleResult();
+            _resultValue.id = id;
+            _resultValue.listen = listen;
+            _resultValue.manage = manage;
+            _resultValue.name = name;
+            _resultValue.namespaceName = namespaceName;
+            _resultValue.primaryConnectionString = primaryConnectionString;
+            _resultValue.primaryConnectionStringAlias = primaryConnectionStringAlias;
+            _resultValue.primaryKey = primaryKey;
+            _resultValue.queueId = queueId;
+            _resultValue.queueName = queueName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryConnectionString = secondaryConnectionString;
+            _resultValue.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
+            _resultValue.secondaryKey = secondaryKey;
+            _resultValue.send = send;
+            return _resultValue;
         }
     }
 }

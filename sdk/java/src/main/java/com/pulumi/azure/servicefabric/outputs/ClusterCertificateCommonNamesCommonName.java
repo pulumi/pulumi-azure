@@ -71,10 +71,10 @@ public final class ClusterCertificateCommonNamesCommonName {
             return this;
         }
         public ClusterCertificateCommonNamesCommonName build() {
-            final var o = new ClusterCertificateCommonNamesCommonName();
-            o.certificateCommonName = certificateCommonName;
-            o.certificateIssuerThumbprint = certificateIssuerThumbprint;
-            return o;
+            final var _resultValue = new ClusterCertificateCommonNamesCommonName();
+            _resultValue.certificateCommonName = certificateCommonName;
+            _resultValue.certificateIssuerThumbprint = certificateIssuerThumbprint;
+            return _resultValue;
         }
     }
 }

@@ -136,13 +136,13 @@ public final class PolicyCustomRuleMatchCondition {
             return transforms(List.of(transforms));
         }
         public PolicyCustomRuleMatchCondition build() {
-            final var o = new PolicyCustomRuleMatchCondition();
-            o.matchValues = matchValues;
-            o.matchVariables = matchVariables;
-            o.negationCondition = negationCondition;
-            o.operator = operator;
-            o.transforms = transforms;
-            return o;
+            final var _resultValue = new PolicyCustomRuleMatchCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.matchVariables = matchVariables;
+            _resultValue.negationCondition = negationCondition;
+            _resultValue.operator = operator;
+            _resultValue.transforms = transforms;
+            return _resultValue;
         }
     }
 }

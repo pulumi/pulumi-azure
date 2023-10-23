@@ -35,7 +35,13 @@ class NotebookWorkspaceArgs:
              account_name: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("account_name", account_name)
         _setter("resource_group_name", resource_group_name)
         if name is not None:
@@ -106,7 +112,15 @@ class _NotebookWorkspaceState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverEndpoint' in kwargs:
+            server_endpoint = kwargs['serverEndpoint']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if name is not None:

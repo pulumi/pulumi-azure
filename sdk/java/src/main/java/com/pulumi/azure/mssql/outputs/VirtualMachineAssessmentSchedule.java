@@ -110,12 +110,12 @@ public final class VirtualMachineAssessmentSchedule {
             return this;
         }
         public VirtualMachineAssessmentSchedule build() {
-            final var o = new VirtualMachineAssessmentSchedule();
-            o.dayOfWeek = dayOfWeek;
-            o.monthlyOccurrence = monthlyOccurrence;
-            o.startTime = startTime;
-            o.weeklyInterval = weeklyInterval;
-            return o;
+            final var _resultValue = new VirtualMachineAssessmentSchedule();
+            _resultValue.dayOfWeek = dayOfWeek;
+            _resultValue.monthlyOccurrence = monthlyOccurrence;
+            _resultValue.startTime = startTime;
+            _resultValue.weeklyInterval = weeklyInterval;
+            return _resultValue;
         }
     }
 }

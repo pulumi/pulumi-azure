@@ -91,11 +91,11 @@ public final class FrontdoorRuleConditionsClientPortCondition {
             return this;
         }
         public FrontdoorRuleConditionsClientPortCondition build() {
-            final var o = new FrontdoorRuleConditionsClientPortCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new FrontdoorRuleConditionsClientPortCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

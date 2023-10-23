@@ -190,16 +190,16 @@ public final class NetworkInterfaceIpConfiguration {
             return this;
         }
         public NetworkInterfaceIpConfiguration build() {
-            final var o = new NetworkInterfaceIpConfiguration();
-            o.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
-            o.name = name;
-            o.primary = primary;
-            o.privateIpAddress = privateIpAddress;
-            o.privateIpAddressAllocation = privateIpAddressAllocation;
-            o.privateIpAddressVersion = privateIpAddressVersion;
-            o.publicIpAddressId = publicIpAddressId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new NetworkInterfaceIpConfiguration();
+            _resultValue.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
+            _resultValue.name = name;
+            _resultValue.primary = primary;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.privateIpAddressAllocation = privateIpAddressAllocation;
+            _resultValue.privateIpAddressVersion = privateIpAddressVersion;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

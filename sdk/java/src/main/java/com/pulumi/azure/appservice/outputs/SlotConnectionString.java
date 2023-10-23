@@ -84,11 +84,11 @@ public final class SlotConnectionString {
             return this;
         }
         public SlotConnectionString build() {
-            final var o = new SlotConnectionString();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new SlotConnectionString();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

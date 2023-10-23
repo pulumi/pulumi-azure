@@ -463,22 +463,22 @@ public final class CacheRedisConfiguration {
             return this;
         }
         public CacheRedisConfiguration build() {
-            final var o = new CacheRedisConfiguration();
-            o.aofBackupEnabled = aofBackupEnabled;
-            o.aofStorageConnectionString0 = aofStorageConnectionString0;
-            o.aofStorageConnectionString1 = aofStorageConnectionString1;
-            o.enableAuthentication = enableAuthentication;
-            o.maxclients = maxclients;
-            o.maxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
-            o.maxmemoryDelta = maxmemoryDelta;
-            o.maxmemoryPolicy = maxmemoryPolicy;
-            o.maxmemoryReserved = maxmemoryReserved;
-            o.notifyKeyspaceEvents = notifyKeyspaceEvents;
-            o.rdbBackupEnabled = rdbBackupEnabled;
-            o.rdbBackupFrequency = rdbBackupFrequency;
-            o.rdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
-            o.rdbStorageConnectionString = rdbStorageConnectionString;
-            return o;
+            final var _resultValue = new CacheRedisConfiguration();
+            _resultValue.aofBackupEnabled = aofBackupEnabled;
+            _resultValue.aofStorageConnectionString0 = aofStorageConnectionString0;
+            _resultValue.aofStorageConnectionString1 = aofStorageConnectionString1;
+            _resultValue.enableAuthentication = enableAuthentication;
+            _resultValue.maxclients = maxclients;
+            _resultValue.maxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
+            _resultValue.maxmemoryDelta = maxmemoryDelta;
+            _resultValue.maxmemoryPolicy = maxmemoryPolicy;
+            _resultValue.maxmemoryReserved = maxmemoryReserved;
+            _resultValue.notifyKeyspaceEvents = notifyKeyspaceEvents;
+            _resultValue.rdbBackupEnabled = rdbBackupEnabled;
+            _resultValue.rdbBackupFrequency = rdbBackupFrequency;
+            _resultValue.rdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
+            _resultValue.rdbStorageConnectionString = rdbStorageConnectionString;
+            return _resultValue;
         }
     }
 }

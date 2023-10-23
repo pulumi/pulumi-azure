@@ -68,10 +68,10 @@ public final class NetworkConnectionMonitorTestConfigurationSuccessThreshold {
             return this;
         }
         public NetworkConnectionMonitorTestConfigurationSuccessThreshold build() {
-            final var o = new NetworkConnectionMonitorTestConfigurationSuccessThreshold();
-            o.checksFailedPercent = checksFailedPercent;
-            o.roundTripTimeMs = roundTripTimeMs;
-            return o;
+            final var _resultValue = new NetworkConnectionMonitorTestConfigurationSuccessThreshold();
+            _resultValue.checksFailedPercent = checksFailedPercent;
+            _resultValue.roundTripTimeMs = roundTripTimeMs;
+            return _resultValue;
         }
     }
 }

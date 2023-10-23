@@ -130,13 +130,13 @@ public final class GetSpringCloudServiceRequiredNetworkTrafficRule {
             return this;
         }
         public GetSpringCloudServiceRequiredNetworkTrafficRule build() {
-            final var o = new GetSpringCloudServiceRequiredNetworkTrafficRule();
-            o.direction = direction;
-            o.fqdns = fqdns;
-            o.ipAddresses = ipAddresses;
-            o.port = port;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new GetSpringCloudServiceRequiredNetworkTrafficRule();
+            _resultValue.direction = direction;
+            _resultValue.fqdns = fqdns;
+            _resultValue.ipAddresses = ipAddresses;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

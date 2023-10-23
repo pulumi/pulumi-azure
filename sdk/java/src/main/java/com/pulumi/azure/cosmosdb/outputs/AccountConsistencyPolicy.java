@@ -91,11 +91,11 @@ public final class AccountConsistencyPolicy {
             return this;
         }
         public AccountConsistencyPolicy build() {
-            final var o = new AccountConsistencyPolicy();
-            o.consistencyLevel = consistencyLevel;
-            o.maxIntervalInSeconds = maxIntervalInSeconds;
-            o.maxStalenessPrefix = maxStalenessPrefix;
-            return o;
+            final var _resultValue = new AccountConsistencyPolicy();
+            _resultValue.consistencyLevel = consistencyLevel;
+            _resultValue.maxIntervalInSeconds = maxIntervalInSeconds;
+            _resultValue.maxStalenessPrefix = maxStalenessPrefix;
+            return _resultValue;
         }
     }
 }

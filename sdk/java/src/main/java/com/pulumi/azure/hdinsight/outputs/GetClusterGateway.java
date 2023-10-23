@@ -85,11 +85,11 @@ public final class GetClusterGateway {
             return this;
         }
         public GetClusterGateway build() {
-            final var o = new GetClusterGateway();
-            o.enabled = enabled;
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetClusterGateway();
+            _resultValue.enabled = enabled;
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

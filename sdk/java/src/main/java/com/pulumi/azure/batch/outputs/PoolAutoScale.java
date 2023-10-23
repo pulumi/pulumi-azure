@@ -67,10 +67,10 @@ public final class PoolAutoScale {
             return this;
         }
         public PoolAutoScale build() {
-            final var o = new PoolAutoScale();
-            o.evaluationInterval = evaluationInterval;
-            o.formula = formula;
-            return o;
+            final var _resultValue = new PoolAutoScale();
+            _resultValue.evaluationInterval = evaluationInterval;
+            _resultValue.formula = formula;
+            return _resultValue;
         }
     }
 }

@@ -195,18 +195,18 @@ public final class GetConfidentialLedgerResult {
             return this;
         }
         public GetConfidentialLedgerResult build() {
-            final var o = new GetConfidentialLedgerResult();
-            o.azureadBasedServicePrincipals = azureadBasedServicePrincipals;
-            o.certificateBasedSecurityPrincipals = certificateBasedSecurityPrincipals;
-            o.id = id;
-            o.identityServiceEndpoint = identityServiceEndpoint;
-            o.ledgerEndpoint = ledgerEndpoint;
-            o.ledgerType = ledgerType;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetConfidentialLedgerResult();
+            _resultValue.azureadBasedServicePrincipals = azureadBasedServicePrincipals;
+            _resultValue.certificateBasedSecurityPrincipals = certificateBasedSecurityPrincipals;
+            _resultValue.id = id;
+            _resultValue.identityServiceEndpoint = identityServiceEndpoint;
+            _resultValue.ledgerEndpoint = ledgerEndpoint;
+            _resultValue.ledgerType = ledgerType;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetAgentExtensionsAllowList {
             return this;
         }
         public GetAgentExtensionsAllowList build() {
-            final var o = new GetAgentExtensionsAllowList();
-            o.publisher = publisher;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetAgentExtensionsAllowList();
+            _resultValue.publisher = publisher;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

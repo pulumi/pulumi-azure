@@ -124,13 +124,13 @@ public final class PolicySetDefinitionPolicyDefinitionGroup {
             return this;
         }
         public PolicySetDefinitionPolicyDefinitionGroup build() {
-            final var o = new PolicySetDefinitionPolicyDefinitionGroup();
-            o.additionalMetadataResourceId = additionalMetadataResourceId;
-            o.category = category;
-            o.description = description;
-            o.displayName = displayName;
-            o.name = name;
-            return o;
+            final var _resultValue = new PolicySetDefinitionPolicyDefinitionGroup();
+            _resultValue.additionalMetadataResourceId = additionalMetadataResourceId;
+            _resultValue.category = category;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings {
             return this;
         }
         public WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings build() {
-            final var o = new WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings();
-            o.option = option;
-            o.placement = placement;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings();
+            _resultValue.option = option;
+            _resultValue.placement = placement;
+            return _resultValue;
         }
     }
 }

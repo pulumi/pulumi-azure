@@ -86,11 +86,11 @@ public final class AccountImmutabilityPolicy {
             return this;
         }
         public AccountImmutabilityPolicy build() {
-            final var o = new AccountImmutabilityPolicy();
-            o.allowProtectedAppendWrites = allowProtectedAppendWrites;
-            o.periodSinceCreationInDays = periodSinceCreationInDays;
-            o.state = state;
-            return o;
+            final var _resultValue = new AccountImmutabilityPolicy();
+            _resultValue.allowProtectedAppendWrites = allowProtectedAppendWrites;
+            _resultValue.periodSinceCreationInDays = periodSinceCreationInDays;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

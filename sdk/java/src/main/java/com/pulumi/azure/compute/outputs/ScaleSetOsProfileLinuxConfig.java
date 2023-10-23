@@ -80,10 +80,10 @@ public final class ScaleSetOsProfileLinuxConfig {
             return sshKeys(List.of(sshKeys));
         }
         public ScaleSetOsProfileLinuxConfig build() {
-            final var o = new ScaleSetOsProfileLinuxConfig();
-            o.disablePasswordAuthentication = disablePasswordAuthentication;
-            o.sshKeys = sshKeys;
-            return o;
+            final var _resultValue = new ScaleSetOsProfileLinuxConfig();
+            _resultValue.disablePasswordAuthentication = disablePasswordAuthentication;
+            _resultValue.sshKeys = sshKeys;
+            return _resultValue;
         }
     }
 }

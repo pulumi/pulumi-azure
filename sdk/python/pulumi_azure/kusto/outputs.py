@@ -79,7 +79,21 @@ class AttachedDatabaseConfigurationSharing(dict):
              materialized_views_to_includes: Optional[Sequence[str]] = None,
              tables_to_excludes: Optional[Sequence[str]] = None,
              tables_to_includes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalTablesToExcludes' in kwargs:
+            external_tables_to_excludes = kwargs['externalTablesToExcludes']
+        if 'externalTablesToIncludes' in kwargs:
+            external_tables_to_includes = kwargs['externalTablesToIncludes']
+        if 'materializedViewsToExcludes' in kwargs:
+            materialized_views_to_excludes = kwargs['materializedViewsToExcludes']
+        if 'materializedViewsToIncludes' in kwargs:
+            materialized_views_to_includes = kwargs['materializedViewsToIncludes']
+        if 'tablesToExcludes' in kwargs:
+            tables_to_excludes = kwargs['tablesToExcludes']
+        if 'tablesToIncludes' in kwargs:
+            tables_to_includes = kwargs['tablesToIncludes']
+
         if external_tables_to_excludes is not None:
             _setter("external_tables_to_excludes", external_tables_to_excludes)
         if external_tables_to_includes is not None:
@@ -192,7 +206,15 @@ class ClusterIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -274,7 +296,13 @@ class ClusterOptimizedAutoScale(dict):
              _setter: Callable[[Any, Any], None],
              maximum_instances: int,
              minimum_instances: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumInstances' in kwargs:
+            maximum_instances = kwargs['maximumInstances']
+        if 'minimumInstances' in kwargs:
+            minimum_instances = kwargs['minimumInstances']
+
         _setter("maximum_instances", maximum_instances)
         _setter("minimum_instances", minimum_instances)
 
@@ -317,7 +345,9 @@ class ClusterSku(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if capacity is not None:
             _setter("capacity", capacity)
@@ -386,7 +416,15 @@ class ClusterVirtualNetworkConfiguration(dict):
              data_management_public_ip_id: str,
              engine_public_ip_id: str,
              subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataManagementPublicIpId' in kwargs:
+            data_management_public_ip_id = kwargs['dataManagementPublicIpId']
+        if 'enginePublicIpId' in kwargs:
+            engine_public_ip_id = kwargs['enginePublicIpId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("data_management_public_ip_id", data_management_public_ip_id)
         _setter("engine_public_ip_id", engine_public_ip_id)
         _setter("subnet_id", subnet_id)

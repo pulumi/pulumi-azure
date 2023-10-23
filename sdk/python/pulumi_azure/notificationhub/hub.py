@@ -57,7 +57,17 @@ class HubArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'apnsCredential' in kwargs:
+            apns_credential = kwargs['apnsCredential']
+        if 'gcmCredential' in kwargs:
+            gcm_credential = kwargs['gcmCredential']
+
         _setter("namespace_name", namespace_name)
         _setter("resource_group_name", resource_group_name)
         if apns_credential is not None:
@@ -204,7 +214,17 @@ class _HubState:
              namespace_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apnsCredential' in kwargs:
+            apns_credential = kwargs['apnsCredential']
+        if 'gcmCredential' in kwargs:
+            gcm_credential = kwargs['gcmCredential']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if apns_credential is not None:
             _setter("apns_credential", apns_credential)
         if gcm_credential is not None:

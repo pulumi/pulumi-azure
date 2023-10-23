@@ -86,11 +86,11 @@ public final class EventGridTopicInputMappingDefaultValues {
             return this;
         }
         public EventGridTopicInputMappingDefaultValues build() {
-            final var o = new EventGridTopicInputMappingDefaultValues();
-            o.dataVersion = dataVersion;
-            o.eventType = eventType;
-            o.subject = subject;
-            return o;
+            final var _resultValue = new EventGridTopicInputMappingDefaultValues();
+            _resultValue.dataVersion = dataVersion;
+            _resultValue.eventType = eventType;
+            _resultValue.subject = subject;
+            return _resultValue;
         }
     }
 }

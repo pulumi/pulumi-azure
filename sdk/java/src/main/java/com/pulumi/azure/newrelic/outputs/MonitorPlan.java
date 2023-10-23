@@ -105,12 +105,12 @@ public final class MonitorPlan {
             return this;
         }
         public MonitorPlan build() {
-            final var o = new MonitorPlan();
-            o.billingCycle = billingCycle;
-            o.effectiveDate = effectiveDate;
-            o.planId = planId;
-            o.usageType = usageType;
-            return o;
+            final var _resultValue = new MonitorPlan();
+            _resultValue.billingCycle = billingCycle;
+            _resultValue.effectiveDate = effectiveDate;
+            _resultValue.planId = planId;
+            _resultValue.usageType = usageType;
+            return _resultValue;
         }
     }
 }

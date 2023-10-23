@@ -125,13 +125,13 @@ public final class DatasetJsonHttpServerLocation {
             return this;
         }
         public DatasetJsonHttpServerLocation build() {
-            final var o = new DatasetJsonHttpServerLocation();
-            o.dynamicFilenameEnabled = dynamicFilenameEnabled;
-            o.dynamicPathEnabled = dynamicPathEnabled;
-            o.filename = filename;
-            o.path = path;
-            o.relativeUrl = relativeUrl;
-            return o;
+            final var _resultValue = new DatasetJsonHttpServerLocation();
+            _resultValue.dynamicFilenameEnabled = dynamicFilenameEnabled;
+            _resultValue.dynamicPathEnabled = dynamicPathEnabled;
+            _resultValue.filename = filename;
+            _resultValue.path = path;
+            _resultValue.relativeUrl = relativeUrl;
+            return _resultValue;
         }
     }
 }

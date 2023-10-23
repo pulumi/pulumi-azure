@@ -86,11 +86,11 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaDnsSettings {
             return this;
         }
         public NextGenerationFirewallVirtualNetworkPanoramaDnsSettings build() {
-            final var o = new NextGenerationFirewallVirtualNetworkPanoramaDnsSettings();
-            o.azureDnsServers = azureDnsServers;
-            o.dnsServers = dnsServers;
-            o.useAzureDns = useAzureDns;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualNetworkPanoramaDnsSettings();
+            _resultValue.azureDnsServers = azureDnsServers;
+            _resultValue.dnsServers = dnsServers;
+            _resultValue.useAzureDns = useAzureDns;
+            return _resultValue;
         }
     }
 }

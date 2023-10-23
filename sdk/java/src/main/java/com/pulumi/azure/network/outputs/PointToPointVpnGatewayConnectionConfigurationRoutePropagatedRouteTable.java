@@ -73,10 +73,10 @@ public final class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedR
             return labels(List.of(labels));
         }
         public PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable build() {
-            final var o = new PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable();
-            o.ids = ids;
-            o.labels = labels;
-            return o;
+            final var _resultValue = new PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable();
+            _resultValue.ids = ids;
+            _resultValue.labels = labels;
+            return _resultValue;
         }
     }
 }

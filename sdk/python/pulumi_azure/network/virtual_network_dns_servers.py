@@ -31,7 +31,13 @@ class VirtualNetworkDnsServersArgs:
              _setter: Callable[[Any, Any], None],
              virtual_network_id: pulumi.Input[str],
              dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+
         _setter("virtual_network_id", virtual_network_id)
         if dns_servers is not None:
             _setter("dns_servers", dns_servers)
@@ -81,7 +87,13 @@ class _VirtualNetworkDnsServersState:
              _setter: Callable[[Any, Any], None],
              dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         if dns_servers is not None:
             _setter("dns_servers", dns_servers)
         if virtual_network_id is not None:

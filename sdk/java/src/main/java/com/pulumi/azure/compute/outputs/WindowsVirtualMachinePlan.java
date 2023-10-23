@@ -88,11 +88,11 @@ public final class WindowsVirtualMachinePlan {
             return this;
         }
         public WindowsVirtualMachinePlan build() {
-            final var o = new WindowsVirtualMachinePlan();
-            o.name = name;
-            o.product = product;
-            o.publisher = publisher;
-            return o;
+            final var _resultValue = new WindowsVirtualMachinePlan();
+            _resultValue.name = name;
+            _resultValue.product = product;
+            _resultValue.publisher = publisher;
+            return _resultValue;
         }
     }
 }

@@ -323,24 +323,24 @@ public final class GetHostPoolResult {
             return this;
         }
         public GetHostPoolResult build() {
-            final var o = new GetHostPoolResult();
-            o.customRdpProperties = customRdpProperties;
-            o.description = description;
-            o.friendlyName = friendlyName;
-            o.id = id;
-            o.loadBalancerType = loadBalancerType;
-            o.location = location;
-            o.maximumSessionsAllowed = maximumSessionsAllowed;
-            o.name = name;
-            o.personalDesktopAssignmentType = personalDesktopAssignmentType;
-            o.preferredAppGroupType = preferredAppGroupType;
-            o.resourceGroupName = resourceGroupName;
-            o.scheduledAgentUpdates = scheduledAgentUpdates;
-            o.startVmOnConnect = startVmOnConnect;
-            o.tags = tags;
-            o.type = type;
-            o.validateEnvironment = validateEnvironment;
-            return o;
+            final var _resultValue = new GetHostPoolResult();
+            _resultValue.customRdpProperties = customRdpProperties;
+            _resultValue.description = description;
+            _resultValue.friendlyName = friendlyName;
+            _resultValue.id = id;
+            _resultValue.loadBalancerType = loadBalancerType;
+            _resultValue.location = location;
+            _resultValue.maximumSessionsAllowed = maximumSessionsAllowed;
+            _resultValue.name = name;
+            _resultValue.personalDesktopAssignmentType = personalDesktopAssignmentType;
+            _resultValue.preferredAppGroupType = preferredAppGroupType;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.scheduledAgentUpdates = scheduledAgentUpdates;
+            _resultValue.startVmOnConnect = startVmOnConnect;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.validateEnvironment = validateEnvironment;
+            return _resultValue;
         }
     }
 }

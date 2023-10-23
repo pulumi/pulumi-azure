@@ -106,12 +106,12 @@ public final class PolicyPolicySettingsLogScrubbingRule {
             return this;
         }
         public PolicyPolicySettingsLogScrubbingRule build() {
-            final var o = new PolicyPolicySettingsLogScrubbingRule();
-            o.enabled = enabled;
-            o.matchVariable = matchVariable;
-            o.selector = selector;
-            o.selectorMatchOperator = selectorMatchOperator;
-            return o;
+            final var _resultValue = new PolicyPolicySettingsLogScrubbingRule();
+            _resultValue.enabled = enabled;
+            _resultValue.matchVariable = matchVariable;
+            _resultValue.selector = selector;
+            _resultValue.selectorMatchOperator = selectorMatchOperator;
+            return _resultValue;
         }
     }
 }

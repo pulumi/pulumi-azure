@@ -50,9 +50,9 @@ public final class StreamingPolicyCommonEncryptionCbcsClearKeyEncryption {
             return this;
         }
         public StreamingPolicyCommonEncryptionCbcsClearKeyEncryption build() {
-            final var o = new StreamingPolicyCommonEncryptionCbcsClearKeyEncryption();
-            o.customKeysAcquisitionUrlTemplate = customKeysAcquisitionUrlTemplate;
-            return o;
+            final var _resultValue = new StreamingPolicyCommonEncryptionCbcsClearKeyEncryption();
+            _resultValue.customKeysAcquisitionUrlTemplate = customKeysAcquisitionUrlTemplate;
+            return _resultValue;
         }
     }
 }

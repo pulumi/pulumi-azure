@@ -53,7 +53,19 @@ class VpnGatewayConnectionArgs:
              name: Optional[pulumi.Input[str]] = None,
              routing: Optional[pulumi.Input['VpnGatewayConnectionRoutingArgs']] = None,
              traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'remoteVpnSiteId' in kwargs:
+            remote_vpn_site_id = kwargs['remoteVpnSiteId']
+        if 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+        if 'vpnLinks' in kwargs:
+            vpn_links = kwargs['vpnLinks']
+        if 'internetSecurityEnabled' in kwargs:
+            internet_security_enabled = kwargs['internetSecurityEnabled']
+        if 'trafficSelectorPolicies' in kwargs:
+            traffic_selector_policies = kwargs['trafficSelectorPolicies']
+
         _setter("remote_vpn_site_id", remote_vpn_site_id)
         _setter("vpn_gateway_id", vpn_gateway_id)
         _setter("vpn_links", vpn_links)
@@ -191,7 +203,19 @@ class _VpnGatewayConnectionState:
              traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] = None,
              vpn_gateway_id: Optional[pulumi.Input[str]] = None,
              vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'internetSecurityEnabled' in kwargs:
+            internet_security_enabled = kwargs['internetSecurityEnabled']
+        if 'remoteVpnSiteId' in kwargs:
+            remote_vpn_site_id = kwargs['remoteVpnSiteId']
+        if 'trafficSelectorPolicies' in kwargs:
+            traffic_selector_policies = kwargs['trafficSelectorPolicies']
+        if 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+        if 'vpnLinks' in kwargs:
+            vpn_links = kwargs['vpnLinks']
+
         if internet_security_enabled is not None:
             _setter("internet_security_enabled", internet_security_enabled)
         if name is not None:

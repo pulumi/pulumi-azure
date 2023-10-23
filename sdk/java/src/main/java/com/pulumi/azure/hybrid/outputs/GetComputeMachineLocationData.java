@@ -103,12 +103,12 @@ public final class GetComputeMachineLocationData {
             return this;
         }
         public GetComputeMachineLocationData build() {
-            final var o = new GetComputeMachineLocationData();
-            o.city = city;
-            o.countryOrRegion = countryOrRegion;
-            o.district = district;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetComputeMachineLocationData();
+            _resultValue.city = city;
+            _resultValue.countryOrRegion = countryOrRegion;
+            _resultValue.district = district;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class HBaseClusterRolesZookeeperNodeScriptAction {
             return this;
         }
         public HBaseClusterRolesZookeeperNodeScriptAction build() {
-            final var o = new HBaseClusterRolesZookeeperNodeScriptAction();
-            o.name = name;
-            o.parameters = parameters;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new HBaseClusterRolesZookeeperNodeScriptAction();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

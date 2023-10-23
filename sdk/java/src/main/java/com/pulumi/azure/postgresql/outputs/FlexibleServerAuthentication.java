@@ -95,11 +95,11 @@ public final class FlexibleServerAuthentication {
             return this;
         }
         public FlexibleServerAuthentication build() {
-            final var o = new FlexibleServerAuthentication();
-            o.activeDirectoryAuthEnabled = activeDirectoryAuthEnabled;
-            o.passwordAuthEnabled = passwordAuthEnabled;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new FlexibleServerAuthentication();
+            _resultValue.activeDirectoryAuthEnabled = activeDirectoryAuthEnabled;
+            _resultValue.passwordAuthEnabled = passwordAuthEnabled;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

@@ -113,12 +113,12 @@ public final class FrontdoorRuleConditionsQueryStringCondition {
             return transforms(List.of(transforms));
         }
         public FrontdoorRuleConditionsQueryStringCondition build() {
-            final var o = new FrontdoorRuleConditionsQueryStringCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            o.transforms = transforms;
-            return o;
+            final var _resultValue = new FrontdoorRuleConditionsQueryStringCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            _resultValue.transforms = transforms;
+            return _resultValue;
         }
     }
 }

@@ -93,11 +93,11 @@ public final class GetComputeMachineOsProfile {
             return windowsConfigurations(List.of(windowsConfigurations));
         }
         public GetComputeMachineOsProfile build() {
-            final var o = new GetComputeMachineOsProfile();
-            o.computerName = computerName;
-            o.linuxConfigurations = linuxConfigurations;
-            o.windowsConfigurations = windowsConfigurations;
-            return o;
+            final var _resultValue = new GetComputeMachineOsProfile();
+            _resultValue.computerName = computerName;
+            _resultValue.linuxConfigurations = linuxConfigurations;
+            _resultValue.windowsConfigurations = windowsConfigurations;
+            return _resultValue;
         }
     }
 }

@@ -91,11 +91,11 @@ public final class PrivateCloudManagementCluster {
             return this;
         }
         public PrivateCloudManagementCluster build() {
-            final var o = new PrivateCloudManagementCluster();
-            o.hosts = hosts;
-            o.id = id;
-            o.size = size;
-            return o;
+            final var _resultValue = new PrivateCloudManagementCluster();
+            _resultValue.hosts = hosts;
+            _resultValue.id = id;
+            _resultValue.size = size;
+            return _resultValue;
         }
     }
 }

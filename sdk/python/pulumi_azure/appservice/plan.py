@@ -79,7 +79,21 @@ class PlanArgs:
              reserved: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'appServiceEnvironmentId' in kwargs:
+            app_service_environment_id = kwargs['appServiceEnvironmentId']
+        if 'isXenon' in kwargs:
+            is_xenon = kwargs['isXenon']
+        if 'maximumElasticWorkerCount' in kwargs:
+            maximum_elastic_worker_count = kwargs['maximumElasticWorkerCount']
+        if 'perSiteScaling' in kwargs:
+            per_site_scaling = kwargs['perSiteScaling']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
         if app_service_environment_id is not None:
@@ -324,7 +338,23 @@ class _PlanState:
              sku: Optional[pulumi.Input['PlanSkuArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceEnvironmentId' in kwargs:
+            app_service_environment_id = kwargs['appServiceEnvironmentId']
+        if 'isXenon' in kwargs:
+            is_xenon = kwargs['isXenon']
+        if 'maximumElasticWorkerCount' in kwargs:
+            maximum_elastic_worker_count = kwargs['maximumElasticWorkerCount']
+        if 'maximumNumberOfWorkers' in kwargs:
+            maximum_number_of_workers = kwargs['maximumNumberOfWorkers']
+        if 'perSiteScaling' in kwargs:
+            per_site_scaling = kwargs['perSiteScaling']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         if app_service_environment_id is not None:
             _setter("app_service_environment_id", app_service_environment_id)
         if is_xenon is not None:

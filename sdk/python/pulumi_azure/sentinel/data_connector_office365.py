@@ -51,7 +51,19 @@ class DataConnectorOffice365Args:
              sharepoint_enabled: Optional[pulumi.Input[bool]] = None,
              teams_enabled: Optional[pulumi.Input[bool]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'exchangeEnabled' in kwargs:
+            exchange_enabled = kwargs['exchangeEnabled']
+        if 'sharepointEnabled' in kwargs:
+            sharepoint_enabled = kwargs['sharepointEnabled']
+        if 'teamsEnabled' in kwargs:
+            teams_enabled = kwargs['teamsEnabled']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if exchange_enabled is not None:
             _setter("exchange_enabled", exchange_enabled)
@@ -181,7 +193,19 @@ class _DataConnectorOffice365State:
              sharepoint_enabled: Optional[pulumi.Input[bool]] = None,
              teams_enabled: Optional[pulumi.Input[bool]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exchangeEnabled' in kwargs:
+            exchange_enabled = kwargs['exchangeEnabled']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'sharepointEnabled' in kwargs:
+            sharepoint_enabled = kwargs['sharepointEnabled']
+        if 'teamsEnabled' in kwargs:
+            teams_enabled = kwargs['teamsEnabled']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if exchange_enabled is not None:
             _setter("exchange_enabled", exchange_enabled)
         if log_analytics_workspace_id is not None:

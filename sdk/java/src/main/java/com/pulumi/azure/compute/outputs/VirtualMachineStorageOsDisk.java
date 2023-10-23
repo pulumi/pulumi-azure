@@ -229,18 +229,18 @@ public final class VirtualMachineStorageOsDisk {
             return this;
         }
         public VirtualMachineStorageOsDisk build() {
-            final var o = new VirtualMachineStorageOsDisk();
-            o.caching = caching;
-            o.createOption = createOption;
-            o.diskSizeGb = diskSizeGb;
-            o.imageUri = imageUri;
-            o.managedDiskId = managedDiskId;
-            o.managedDiskType = managedDiskType;
-            o.name = name;
-            o.osType = osType;
-            o.vhdUri = vhdUri;
-            o.writeAcceleratorEnabled = writeAcceleratorEnabled;
-            return o;
+            final var _resultValue = new VirtualMachineStorageOsDisk();
+            _resultValue.caching = caching;
+            _resultValue.createOption = createOption;
+            _resultValue.diskSizeGb = diskSizeGb;
+            _resultValue.imageUri = imageUri;
+            _resultValue.managedDiskId = managedDiskId;
+            _resultValue.managedDiskType = managedDiskType;
+            _resultValue.name = name;
+            _resultValue.osType = osType;
+            _resultValue.vhdUri = vhdUri;
+            _resultValue.writeAcceleratorEnabled = writeAcceleratorEnabled;
+            return _resultValue;
         }
     }
 }

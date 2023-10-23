@@ -67,10 +67,10 @@ public final class SubscriptionPolicyAssignmentNonComplianceMessage {
             return this;
         }
         public SubscriptionPolicyAssignmentNonComplianceMessage build() {
-            final var o = new SubscriptionPolicyAssignmentNonComplianceMessage();
-            o.content = content;
-            o.policyDefinitionReferenceId = policyDefinitionReferenceId;
-            return o;
+            final var _resultValue = new SubscriptionPolicyAssignmentNonComplianceMessage();
+            _resultValue.content = content;
+            _resultValue.policyDefinitionReferenceId = policyDefinitionReferenceId;
+            return _resultValue;
         }
     }
 }

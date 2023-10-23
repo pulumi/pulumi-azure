@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Azure NAT Gateway.
+ * Manages an Azure NAT Gateway.
  * 
  * ## Example Usage
  * ```java
@@ -29,10 +29,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.network.PublicIp;
- * import com.pulumi.azure.network.PublicIpArgs;
- * import com.pulumi.azure.network.PublicIpPrefix;
- * import com.pulumi.azure.network.PublicIpPrefixArgs;
  * import com.pulumi.azure.network.NatGateway;
  * import com.pulumi.azure.network.NatGatewayArgs;
  * import java.util.List;
@@ -52,21 +48,6 @@ import javax.annotation.Nullable;
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .allocationMethod(&#34;Static&#34;)
- *             .sku(&#34;Standard&#34;)
- *             .zones(&#34;1&#34;)
- *             .build());
- * 
- *         var examplePublicIpPrefix = new PublicIpPrefix(&#34;examplePublicIpPrefix&#34;, PublicIpPrefixArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .prefixLength(30)
- *             .zones(&#34;1&#34;)
- *             .build());
- * 
  *         var exampleNatGateway = new NatGateway(&#34;exampleNatGateway&#34;, NatGatewayArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -78,6 +59,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * 
+ * For more complete examples, please see the azure.network.NatGatewayPublicIpAssociation and azure.network.NatGatewayPublicIpPrefixAssociation resources.
  * 
  * ## Import
  * 

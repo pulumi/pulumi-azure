@@ -148,14 +148,14 @@ public final class AssetFilterPresentationTimeRange {
             return this;
         }
         public AssetFilterPresentationTimeRange build() {
-            final var o = new AssetFilterPresentationTimeRange();
-            o.endInUnits = endInUnits;
-            o.forceEnd = forceEnd;
-            o.liveBackoffInUnits = liveBackoffInUnits;
-            o.presentationWindowInUnits = presentationWindowInUnits;
-            o.startInUnits = startInUnits;
-            o.unitTimescaleInMiliseconds = unitTimescaleInMiliseconds;
-            return o;
+            final var _resultValue = new AssetFilterPresentationTimeRange();
+            _resultValue.endInUnits = endInUnits;
+            _resultValue.forceEnd = forceEnd;
+            _resultValue.liveBackoffInUnits = liveBackoffInUnits;
+            _resultValue.presentationWindowInUnits = presentationWindowInUnits;
+            _resultValue.startInUnits = startInUnits;
+            _resultValue.unitTimescaleInMiliseconds = unitTimescaleInMiliseconds;
+            return _resultValue;
         }
     }
 }

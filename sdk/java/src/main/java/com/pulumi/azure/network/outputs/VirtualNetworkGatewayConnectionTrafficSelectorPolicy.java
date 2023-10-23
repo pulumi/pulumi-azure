@@ -72,10 +72,10 @@ public final class VirtualNetworkGatewayConnectionTrafficSelectorPolicy {
             return remoteAddressCidrs(List.of(remoteAddressCidrs));
         }
         public VirtualNetworkGatewayConnectionTrafficSelectorPolicy build() {
-            final var o = new VirtualNetworkGatewayConnectionTrafficSelectorPolicy();
-            o.localAddressCidrs = localAddressCidrs;
-            o.remoteAddressCidrs = remoteAddressCidrs;
-            return o;
+            final var _resultValue = new VirtualNetworkGatewayConnectionTrafficSelectorPolicy();
+            _resultValue.localAddressCidrs = localAddressCidrs;
+            _resultValue.remoteAddressCidrs = remoteAddressCidrs;
+            return _resultValue;
         }
     }
 }

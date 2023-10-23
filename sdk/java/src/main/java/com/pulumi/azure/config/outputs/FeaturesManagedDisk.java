@@ -40,9 +40,9 @@ public final class FeaturesManagedDisk {
             return this;
         }
         public FeaturesManagedDisk build() {
-            final var o = new FeaturesManagedDisk();
-            o.expandWithoutDowntime = expandWithoutDowntime;
-            return o;
+            final var _resultValue = new FeaturesManagedDisk();
+            _resultValue.expandWithoutDowntime = expandWithoutDowntime;
+            return _resultValue;
         }
     }
 }

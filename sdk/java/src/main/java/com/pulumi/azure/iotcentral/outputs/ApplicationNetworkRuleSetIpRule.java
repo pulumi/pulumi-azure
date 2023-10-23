@@ -65,10 +65,10 @@ public final class ApplicationNetworkRuleSetIpRule {
             return this;
         }
         public ApplicationNetworkRuleSetIpRule build() {
-            final var o = new ApplicationNetworkRuleSetIpRule();
-            o.ipMask = ipMask;
-            o.name = name;
-            return o;
+            final var _resultValue = new ApplicationNetworkRuleSetIpRule();
+            _resultValue.ipMask = ipMask;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class AlertRuleScheduledSentinelEntityMapping {
             return this;
         }
         public AlertRuleScheduledSentinelEntityMapping build() {
-            final var o = new AlertRuleScheduledSentinelEntityMapping();
-            o.columnName = columnName;
-            return o;
+            final var _resultValue = new AlertRuleScheduledSentinelEntityMapping();
+            _resultValue.columnName = columnName;
+            return _resultValue;
         }
     }
 }

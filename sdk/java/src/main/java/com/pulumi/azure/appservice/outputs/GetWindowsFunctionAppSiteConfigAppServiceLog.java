@@ -65,10 +65,10 @@ public final class GetWindowsFunctionAppSiteConfigAppServiceLog {
             return this;
         }
         public GetWindowsFunctionAppSiteConfigAppServiceLog build() {
-            final var o = new GetWindowsFunctionAppSiteConfigAppServiceLog();
-            o.diskQuotaMb = diskQuotaMb;
-            o.retentionPeriodDays = retentionPeriodDays;
-            return o;
+            final var _resultValue = new GetWindowsFunctionAppSiteConfigAppServiceLog();
+            _resultValue.diskQuotaMb = diskQuotaMb;
+            _resultValue.retentionPeriodDays = retentionPeriodDays;
+            return _resultValue;
         }
     }
 }

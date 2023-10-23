@@ -88,11 +88,11 @@ public final class GetScheduledQueryRulesLogCriteriaDimension {
             return values(List.of(values));
         }
         public GetScheduledQueryRulesLogCriteriaDimension build() {
-            final var o = new GetScheduledQueryRulesLogCriteriaDimension();
-            o.name = name;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetScheduledQueryRulesLogCriteriaDimension();
+            _resultValue.name = name;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -122,13 +122,13 @@ public final class GetLinuxFunctionAppSiteConfigApplicationStackDocker {
             return this;
         }
         public GetLinuxFunctionAppSiteConfigApplicationStackDocker build() {
-            final var o = new GetLinuxFunctionAppSiteConfigApplicationStackDocker();
-            o.imageName = imageName;
-            o.imageTag = imageTag;
-            o.registryPassword = registryPassword;
-            o.registryUrl = registryUrl;
-            o.registryUsername = registryUsername;
-            return o;
+            final var _resultValue = new GetLinuxFunctionAppSiteConfigApplicationStackDocker();
+            _resultValue.imageName = imageName;
+            _resultValue.imageTag = imageTag;
+            _resultValue.registryPassword = registryPassword;
+            _resultValue.registryUrl = registryUrl;
+            _resultValue.registryUsername = registryUsername;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class DataFlowTransformationFlowlet {
             return this;
         }
         public DataFlowTransformationFlowlet build() {
-            final var o = new DataFlowTransformationFlowlet();
-            o.datasetParameters = datasetParameters;
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new DataFlowTransformationFlowlet();
+            _resultValue.datasetParameters = datasetParameters;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

@@ -126,14 +126,14 @@ public final class GetVaultResult {
             return this;
         }
         public GetVaultResult build() {
-            final var o = new GetVaultResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.sku = sku;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetVaultResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sku = sku;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

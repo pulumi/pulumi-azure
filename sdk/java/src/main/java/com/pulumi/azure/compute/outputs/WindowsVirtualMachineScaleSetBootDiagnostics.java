@@ -52,9 +52,9 @@ public final class WindowsVirtualMachineScaleSetBootDiagnostics {
             return this;
         }
         public WindowsVirtualMachineScaleSetBootDiagnostics build() {
-            final var o = new WindowsVirtualMachineScaleSetBootDiagnostics();
-            o.storageAccountUri = storageAccountUri;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetBootDiagnostics();
+            _resultValue.storageAccountUri = storageAccountUri;
+            return _resultValue;
         }
     }
 }

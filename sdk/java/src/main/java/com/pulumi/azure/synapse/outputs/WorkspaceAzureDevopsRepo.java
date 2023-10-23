@@ -162,15 +162,15 @@ public final class WorkspaceAzureDevopsRepo {
             return this;
         }
         public WorkspaceAzureDevopsRepo build() {
-            final var o = new WorkspaceAzureDevopsRepo();
-            o.accountName = accountName;
-            o.branchName = branchName;
-            o.lastCommitId = lastCommitId;
-            o.projectName = projectName;
-            o.repositoryName = repositoryName;
-            o.rootFolder = rootFolder;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new WorkspaceAzureDevopsRepo();
+            _resultValue.accountName = accountName;
+            _resultValue.branchName = branchName;
+            _resultValue.lastCommitId = lastCommitId;
+            _resultValue.projectName = projectName;
+            _resultValue.repositoryName = repositoryName;
+            _resultValue.rootFolder = rootFolder;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

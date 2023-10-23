@@ -67,10 +67,10 @@ public final class CertifiateCertificatePolicyLifetimeActionTrigger {
             return this;
         }
         public CertifiateCertificatePolicyLifetimeActionTrigger build() {
-            final var o = new CertifiateCertificatePolicyLifetimeActionTrigger();
-            o.daysBeforeExpiry = daysBeforeExpiry;
-            o.lifetimePercentage = lifetimePercentage;
-            return o;
+            final var _resultValue = new CertifiateCertificatePolicyLifetimeActionTrigger();
+            _resultValue.daysBeforeExpiry = daysBeforeExpiry;
+            _resultValue.lifetimePercentage = lifetimePercentage;
+            return _resultValue;
         }
     }
 }

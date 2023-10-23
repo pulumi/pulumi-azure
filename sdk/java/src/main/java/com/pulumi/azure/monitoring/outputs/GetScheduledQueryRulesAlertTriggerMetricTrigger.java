@@ -88,12 +88,12 @@ public final class GetScheduledQueryRulesAlertTriggerMetricTrigger {
             return this;
         }
         public GetScheduledQueryRulesAlertTriggerMetricTrigger build() {
-            final var o = new GetScheduledQueryRulesAlertTriggerMetricTrigger();
-            o.metricColumn = metricColumn;
-            o.metricTriggerType = metricTriggerType;
-            o.operator = operator;
-            o.threshold = threshold;
-            return o;
+            final var _resultValue = new GetScheduledQueryRulesAlertTriggerMetricTrigger();
+            _resultValue.metricColumn = metricColumn;
+            _resultValue.metricTriggerType = metricTriggerType;
+            _resultValue.operator = operator;
+            _resultValue.threshold = threshold;
+            return _resultValue;
         }
     }
 }

@@ -158,14 +158,14 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
             return this;
         }
         public ApplicationGatewayRewriteRuleSetRewriteRule build() {
-            final var o = new ApplicationGatewayRewriteRuleSetRewriteRule();
-            o.conditions = conditions;
-            o.name = name;
-            o.requestHeaderConfigurations = requestHeaderConfigurations;
-            o.responseHeaderConfigurations = responseHeaderConfigurations;
-            o.ruleSequence = ruleSequence;
-            o.url = url;
-            return o;
+            final var _resultValue = new ApplicationGatewayRewriteRuleSetRewriteRule();
+            _resultValue.conditions = conditions;
+            _resultValue.name = name;
+            _resultValue.requestHeaderConfigurations = requestHeaderConfigurations;
+            _resultValue.responseHeaderConfigurations = responseHeaderConfigurations;
+            _resultValue.ruleSequence = ruleSequence;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

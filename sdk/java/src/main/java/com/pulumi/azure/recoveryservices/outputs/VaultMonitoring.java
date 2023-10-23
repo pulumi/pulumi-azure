@@ -67,10 +67,10 @@ public final class VaultMonitoring {
             return this;
         }
         public VaultMonitoring build() {
-            final var o = new VaultMonitoring();
-            o.alertsForAllJobFailuresEnabled = alertsForAllJobFailuresEnabled;
-            o.alertsForCriticalOperationFailuresEnabled = alertsForCriticalOperationFailuresEnabled;
-            return o;
+            final var _resultValue = new VaultMonitoring();
+            _resultValue.alertsForAllJobFailuresEnabled = alertsForAllJobFailuresEnabled;
+            _resultValue.alertsForCriticalOperationFailuresEnabled = alertsForCriticalOperationFailuresEnabled;
+            return _resultValue;
         }
     }
 }

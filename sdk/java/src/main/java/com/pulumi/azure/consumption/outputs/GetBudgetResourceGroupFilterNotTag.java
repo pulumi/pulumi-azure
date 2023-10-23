@@ -88,11 +88,11 @@ public final class GetBudgetResourceGroupFilterNotTag {
             return values(List.of(values));
         }
         public GetBudgetResourceGroupFilterNotTag build() {
-            final var o = new GetBudgetResourceGroupFilterNotTag();
-            o.name = name;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetBudgetResourceGroupFilterNotTag();
+            _resultValue.name = name;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

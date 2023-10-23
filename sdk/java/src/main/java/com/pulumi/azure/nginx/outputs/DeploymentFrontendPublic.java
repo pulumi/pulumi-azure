@@ -51,9 +51,9 @@ public final class DeploymentFrontendPublic {
             return ipAddresses(List.of(ipAddresses));
         }
         public DeploymentFrontendPublic build() {
-            final var o = new DeploymentFrontendPublic();
-            o.ipAddresses = ipAddresses;
-            return o;
+            final var _resultValue = new DeploymentFrontendPublic();
+            _resultValue.ipAddresses = ipAddresses;
+            return _resultValue;
         }
     }
 }

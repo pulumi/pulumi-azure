@@ -133,13 +133,13 @@ public final class VirtualMachineConfigurationAssignmentConfiguration {
             return this;
         }
         public VirtualMachineConfigurationAssignmentConfiguration build() {
-            final var o = new VirtualMachineConfigurationAssignmentConfiguration();
-            o.assignmentType = assignmentType;
-            o.contentHash = contentHash;
-            o.contentUri = contentUri;
-            o.parameters = parameters;
-            o.version = version;
-            return o;
+            final var _resultValue = new VirtualMachineConfigurationAssignmentConfiguration();
+            _resultValue.assignmentType = assignmentType;
+            _resultValue.contentHash = contentHash;
+            _resultValue.contentUri = contentUri;
+            _resultValue.parameters = parameters;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

@@ -65,11 +65,11 @@ public final class GetFirewallPolicyDn {
             return servers(List.of(servers));
         }
         public GetFirewallPolicyDn build() {
-            final var o = new GetFirewallPolicyDn();
-            o.networkRuleFqdnEnabled = networkRuleFqdnEnabled;
-            o.proxyEnabled = proxyEnabled;
-            o.servers = servers;
-            return o;
+            final var _resultValue = new GetFirewallPolicyDn();
+            _resultValue.networkRuleFqdnEnabled = networkRuleFqdnEnabled;
+            _resultValue.proxyEnabled = proxyEnabled;
+            _resultValue.servers = servers;
+            return _resultValue;
         }
     }
 }

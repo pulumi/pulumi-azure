@@ -59,7 +59,19 @@ class FailoverGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              readonly_endpoint_failover_policy: Optional[pulumi.Input['FailoverGroupReadonlyEndpointFailoverPolicyArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partnerServers' in kwargs:
+            partner_servers = kwargs['partnerServers']
+        if 'readWriteEndpointFailoverPolicy' in kwargs:
+            read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'readonlyEndpointFailoverPolicy' in kwargs:
+            readonly_endpoint_failover_policy = kwargs['readonlyEndpointFailoverPolicy']
+
         _setter("partner_servers", partner_servers)
         _setter("read_write_endpoint_failover_policy", read_write_endpoint_failover_policy)
         _setter("resource_group_name", resource_group_name)
@@ -226,7 +238,19 @@ class _FailoverGroupState:
              role: Optional[pulumi.Input[str]] = None,
              server_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partnerServers' in kwargs:
+            partner_servers = kwargs['partnerServers']
+        if 'readWriteEndpointFailoverPolicy' in kwargs:
+            read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
+        if 'readonlyEndpointFailoverPolicy' in kwargs:
+            readonly_endpoint_failover_policy = kwargs['readonlyEndpointFailoverPolicy']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+
         if databases is not None:
             _setter("databases", databases)
         if location is not None:

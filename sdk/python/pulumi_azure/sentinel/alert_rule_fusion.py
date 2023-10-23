@@ -45,7 +45,13 @@ class AlertRuleFusionArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertRuleTemplateGuid' in kwargs:
+            alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+
         _setter("alert_rule_template_guid", alert_rule_template_guid)
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if enabled is not None:
@@ -148,7 +154,13 @@ class _AlertRuleFusionState:
              log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertRuleTemplateGuid' in kwargs:
+            alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+
         if alert_rule_template_guid is not None:
             _setter("alert_rule_template_guid", alert_rule_template_guid)
         if enabled is not None:

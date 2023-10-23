@@ -84,11 +84,11 @@ public final class DatasetBlobStorageStorageAccount {
             return this;
         }
         public DatasetBlobStorageStorageAccount build() {
-            final var o = new DatasetBlobStorageStorageAccount();
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.subscriptionId = subscriptionId;
-            return o;
+            final var _resultValue = new DatasetBlobStorageStorageAccount();
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.subscriptionId = subscriptionId;
+            return _resultValue;
         }
     }
 }

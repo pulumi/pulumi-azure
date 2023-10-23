@@ -86,11 +86,11 @@ public final class VpnSiteO365PolicyTrafficCategory {
             return this;
         }
         public VpnSiteO365PolicyTrafficCategory build() {
-            final var o = new VpnSiteO365PolicyTrafficCategory();
-            o.allowEndpointEnabled = allowEndpointEnabled;
-            o.defaultEndpointEnabled = defaultEndpointEnabled;
-            o.optimizeEndpointEnabled = optimizeEndpointEnabled;
-            return o;
+            final var _resultValue = new VpnSiteO365PolicyTrafficCategory();
+            _resultValue.allowEndpointEnabled = allowEndpointEnabled;
+            _resultValue.defaultEndpointEnabled = defaultEndpointEnabled;
+            _resultValue.optimizeEndpointEnabled = optimizeEndpointEnabled;
+            return _resultValue;
         }
     }
 }

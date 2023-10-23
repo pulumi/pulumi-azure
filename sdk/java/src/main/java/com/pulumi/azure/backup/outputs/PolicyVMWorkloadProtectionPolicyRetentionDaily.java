@@ -46,9 +46,9 @@ public final class PolicyVMWorkloadProtectionPolicyRetentionDaily {
             return this;
         }
         public PolicyVMWorkloadProtectionPolicyRetentionDaily build() {
-            final var o = new PolicyVMWorkloadProtectionPolicyRetentionDaily();
-            o.count = count;
-            return o;
+            final var _resultValue = new PolicyVMWorkloadProtectionPolicyRetentionDaily();
+            _resultValue.count = count;
+            return _resultValue;
         }
     }
 }

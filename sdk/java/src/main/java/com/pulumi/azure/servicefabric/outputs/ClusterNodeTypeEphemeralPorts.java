@@ -65,10 +65,10 @@ public final class ClusterNodeTypeEphemeralPorts {
             return this;
         }
         public ClusterNodeTypeEphemeralPorts build() {
-            final var o = new ClusterNodeTypeEphemeralPorts();
-            o.endPort = endPort;
-            o.startPort = startPort;
-            return o;
+            final var _resultValue = new ClusterNodeTypeEphemeralPorts();
+            _resultValue.endPort = endPort;
+            _resultValue.startPort = startPort;
+            return _resultValue;
         }
     }
 }

@@ -162,15 +162,15 @@ public final class PoolMountAzureBlobFileSystem {
             return this;
         }
         public PoolMountAzureBlobFileSystem build() {
-            final var o = new PoolMountAzureBlobFileSystem();
-            o.accountKey = accountKey;
-            o.accountName = accountName;
-            o.blobfuseOptions = blobfuseOptions;
-            o.containerName = containerName;
-            o.identityId = identityId;
-            o.relativeMountPath = relativeMountPath;
-            o.sasKey = sasKey;
-            return o;
+            final var _resultValue = new PoolMountAzureBlobFileSystem();
+            _resultValue.accountKey = accountKey;
+            _resultValue.accountName = accountName;
+            _resultValue.blobfuseOptions = blobfuseOptions;
+            _resultValue.containerName = containerName;
+            _resultValue.identityId = identityId;
+            _resultValue.relativeMountPath = relativeMountPath;
+            _resultValue.sasKey = sasKey;
+            return _resultValue;
         }
     }
 }

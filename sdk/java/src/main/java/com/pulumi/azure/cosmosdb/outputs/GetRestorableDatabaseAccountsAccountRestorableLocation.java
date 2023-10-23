@@ -103,12 +103,12 @@ public final class GetRestorableDatabaseAccountsAccountRestorableLocation {
             return this;
         }
         public GetRestorableDatabaseAccountsAccountRestorableLocation build() {
-            final var o = new GetRestorableDatabaseAccountsAccountRestorableLocation();
-            o.creationTime = creationTime;
-            o.deletionTime = deletionTime;
-            o.location = location;
-            o.regionalDatabaseAccountInstanceId = regionalDatabaseAccountInstanceId;
-            return o;
+            final var _resultValue = new GetRestorableDatabaseAccountsAccountRestorableLocation();
+            _resultValue.creationTime = creationTime;
+            _resultValue.deletionTime = deletionTime;
+            _resultValue.location = location;
+            _resultValue.regionalDatabaseAccountInstanceId = regionalDatabaseAccountInstanceId;
+            return _resultValue;
         }
     }
 }

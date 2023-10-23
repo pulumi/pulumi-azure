@@ -55,7 +55,15 @@ class ARecordArgs:
              records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'zoneName' in kwargs:
+            zone_name = kwargs['zoneName']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         _setter("resource_group_name", resource_group_name)
         _setter("ttl", ttl)
         _setter("zone_name", zone_name)
@@ -205,7 +213,15 @@ class _ARecordState:
              target_resource_id: Optional[pulumi.Input[str]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
              zone_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'zoneName' in kwargs:
+            zone_name = kwargs['zoneName']
+
         if fqdn is not None:
             _setter("fqdn", fqdn)
         if name is not None:

@@ -141,9 +141,9 @@ public class EventHub extends com.pulumi.resources.CustomResource {
         return this.namespaceName;
     }
     /**
-     * Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+     * Specifies the current number of shards on the Event Hub.
      * 
-     * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+     * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
      * 
      * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      * 
@@ -152,9 +152,9 @@ public class EventHub extends com.pulumi.resources.CustomResource {
     private Output<Integer> partitionCount;
 
     /**
-     * @return Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+     * @return Specifies the current number of shards on the Event Hub.
      * 
-     * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+     * &gt; **Note:** `partition_count` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
      * 
      * &gt; **Note:** When using a dedicated Event Hubs cluster, maximum value of `partition_count` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      * 

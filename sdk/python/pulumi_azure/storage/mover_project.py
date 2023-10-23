@@ -35,7 +35,11 @@ class MoverProjectArgs:
              storage_mover_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageMoverId' in kwargs:
+            storage_mover_id = kwargs['storageMoverId']
+
         _setter("storage_mover_id", storage_mover_id)
         if description is not None:
             _setter("description", description)
@@ -103,7 +107,11 @@ class _MoverProjectState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_mover_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageMoverId' in kwargs:
+            storage_mover_id = kwargs['storageMoverId']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

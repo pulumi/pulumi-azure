@@ -134,7 +134,9 @@ class CustomDatasetLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -216,7 +218,15 @@ class DataFlowSink(dict):
              linked_service: Optional['outputs.DataFlowSinkLinkedService'] = None,
              rejected_linked_service: Optional['outputs.DataFlowSinkRejectedLinkedService'] = None,
              schema_linked_service: Optional['outputs.DataFlowSinkSchemaLinkedService'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedService' in kwargs:
+            linked_service = kwargs['linkedService']
+        if 'rejectedLinkedService' in kwargs:
+            rejected_linked_service = kwargs['rejectedLinkedService']
+        if 'schemaLinkedService' in kwargs:
+            schema_linked_service = kwargs['schemaLinkedService']
+
         _setter("name", name)
         if dataset is not None:
             _setter("dataset", dataset)
@@ -307,7 +317,9 @@ class DataFlowSinkDataset(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -369,7 +381,11 @@ class DataFlowSinkFlowlet(dict):
              name: str,
              dataset_parameters: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetParameters' in kwargs:
+            dataset_parameters = kwargs['datasetParameters']
+
         _setter("name", name)
         if dataset_parameters is not None:
             _setter("dataset_parameters", dataset_parameters)
@@ -420,7 +436,9 @@ class DataFlowSinkLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -461,7 +479,9 @@ class DataFlowSinkRejectedLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -502,7 +522,9 @@ class DataFlowSinkSchemaLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -584,7 +606,15 @@ class DataFlowSource(dict):
              linked_service: Optional['outputs.DataFlowSourceLinkedService'] = None,
              rejected_linked_service: Optional['outputs.DataFlowSourceRejectedLinkedService'] = None,
              schema_linked_service: Optional['outputs.DataFlowSourceSchemaLinkedService'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedService' in kwargs:
+            linked_service = kwargs['linkedService']
+        if 'rejectedLinkedService' in kwargs:
+            rejected_linked_service = kwargs['rejectedLinkedService']
+        if 'schemaLinkedService' in kwargs:
+            schema_linked_service = kwargs['schemaLinkedService']
+
         _setter("name", name)
         if dataset is not None:
             _setter("dataset", dataset)
@@ -675,7 +705,9 @@ class DataFlowSourceDataset(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -737,7 +769,11 @@ class DataFlowSourceFlowlet(dict):
              name: str,
              dataset_parameters: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetParameters' in kwargs:
+            dataset_parameters = kwargs['datasetParameters']
+
         _setter("name", name)
         if dataset_parameters is not None:
             _setter("dataset_parameters", dataset_parameters)
@@ -788,7 +824,9 @@ class DataFlowSourceLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -829,7 +867,9 @@ class DataFlowSourceRejectedLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -870,7 +910,9 @@ class DataFlowSourceSchemaLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -940,7 +982,11 @@ class DataFlowTransformation(dict):
              description: Optional[str] = None,
              flowlet: Optional['outputs.DataFlowTransformationFlowlet'] = None,
              linked_service: Optional['outputs.DataFlowTransformationLinkedService'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedService' in kwargs:
+            linked_service = kwargs['linkedService']
+
         _setter("name", name)
         if dataset is not None:
             _setter("dataset", dataset)
@@ -1011,7 +1057,9 @@ class DataFlowTransformationDataset(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -1073,7 +1121,11 @@ class DataFlowTransformationFlowlet(dict):
              name: str,
              dataset_parameters: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetParameters' in kwargs:
+            dataset_parameters = kwargs['datasetParameters']
+
         _setter("name", name)
         if dataset_parameters is not None:
             _setter("dataset_parameters", dataset_parameters)
@@ -1124,7 +1176,9 @@ class DataFlowTransformationLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -1169,7 +1223,9 @@ class DatasetAzureBlobSchemaColumn(dict):
              name: str,
              description: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -1224,7 +1280,9 @@ class DatasetAzureSqlTableSchemaColumn(dict):
              name: str,
              description: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -1312,7 +1370,15 @@ class DatasetBinaryAzureBlobStorageLocation(dict):
              dynamic_path_enabled: Optional[bool] = None,
              filename: Optional[str] = None,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dynamicContainerEnabled' in kwargs:
+            dynamic_container_enabled = kwargs['dynamicContainerEnabled']
+        if 'dynamicFilenameEnabled' in kwargs:
+            dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
+        if 'dynamicPathEnabled' in kwargs:
+            dynamic_path_enabled = kwargs['dynamicPathEnabled']
+
         _setter("container", container)
         if dynamic_container_enabled is not None:
             _setter("dynamic_container_enabled", dynamic_container_enabled)
@@ -1393,7 +1459,9 @@ class DatasetBinaryCompression(dict):
              _setter: Callable[[Any, Any], None],
              type: str,
              level: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
         if level is not None:
             _setter("level", level)
@@ -1467,7 +1535,15 @@ class DatasetBinaryHttpServerLocation(dict):
              relative_url: str,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relativeUrl' in kwargs:
+            relative_url = kwargs['relativeUrl']
+        if 'dynamicFilenameEnabled' in kwargs:
+            dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
+        if 'dynamicPathEnabled' in kwargs:
+            dynamic_path_enabled = kwargs['dynamicPathEnabled']
+
         _setter("filename", filename)
         _setter("path", path)
         _setter("relative_url", relative_url)
@@ -1563,7 +1639,13 @@ class DatasetBinarySftpServerLocation(dict):
              path: str,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dynamicFilenameEnabled' in kwargs:
+            dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
+        if 'dynamicPathEnabled' in kwargs:
+            dynamic_path_enabled = kwargs['dynamicPathEnabled']
+
         _setter("filename", filename)
         _setter("path", path)
         if dynamic_filename_enabled is not None:
@@ -1627,7 +1709,9 @@ class DatasetCosmosDBApiSchemaColumn(dict):
              name: str,
              description: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -1717,7 +1801,17 @@ class DatasetDelimitedTextAzureBlobFsLocation(dict):
              file_system: Optional[str] = None,
              filename: Optional[str] = None,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dynamicFileSystemEnabled' in kwargs:
+            dynamic_file_system_enabled = kwargs['dynamicFileSystemEnabled']
+        if 'dynamicFilenameEnabled' in kwargs:
+            dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
+        if 'dynamicPathEnabled' in kwargs:
+            dynamic_path_enabled = kwargs['dynamicPathEnabled']
+        if 'fileSystem' in kwargs:
+            file_system = kwargs['fileSystem']
+
         if dynamic_file_system_enabled is not None:
             _setter("dynamic_file_system_enabled", dynamic_file_system_enabled)
         if dynamic_filename_enabled is not None:
@@ -1836,7 +1930,15 @@ class DatasetDelimitedTextAzureBlobStorageLocation(dict):
              dynamic_path_enabled: Optional[bool] = None,
              filename: Optional[str] = None,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dynamicContainerEnabled' in kwargs:
+            dynamic_container_enabled = kwargs['dynamicContainerEnabled']
+        if 'dynamicFilenameEnabled' in kwargs:
+            dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
+        if 'dynamicPathEnabled' in kwargs:
+            dynamic_path_enabled = kwargs['dynamicPathEnabled']
+
         _setter("container", container)
         if dynamic_container_enabled is not None:
             _setter("dynamic_container_enabled", dynamic_container_enabled)
@@ -1950,7 +2052,15 @@ class DatasetDelimitedTextHttpServerLocation(dict):
              relative_url: str,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relativeUrl' in kwargs:
+            relative_url = kwargs['relativeUrl']
+        if 'dynamicFilenameEnabled' in kwargs:
+            dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
+        if 'dynamicPathEnabled' in kwargs:
+            dynamic_path_enabled = kwargs['dynamicPathEnabled']
+
         _setter("filename", filename)
         _setter("path", path)
         _setter("relative_url", relative_url)
@@ -2023,7 +2133,9 @@ class DatasetDelimitedTextSchemaColumn(dict):
              name: str,
              description: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -2078,7 +2190,9 @@ class DatasetHttpSchemaColumn(dict):
              name: str,
              description: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -2166,7 +2280,15 @@ class DatasetJsonAzureBlobStorageLocation(dict):
              dynamic_container_enabled: Optional[bool] = None,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dynamicContainerEnabled' in kwargs:
+            dynamic_container_enabled = kwargs['dynamicContainerEnabled']
+        if 'dynamicFilenameEnabled' in kwargs:
+            dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
+        if 'dynamicPathEnabled' in kwargs:
+            dynamic_path_enabled = kwargs['dynamicPathEnabled']
+
         _setter("container", container)
         _setter("filename", filename)
         _setter("path", path)
@@ -2278,7 +2400,15 @@ class DatasetJsonHttpServerLocation(dict):
              relative_url: str,
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relativeUrl' in kwargs:
+            relative_url = kwargs['relativeUrl']
+        if 'dynamicFilenameEnabled' in kwargs:
+            dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
+        if 'dynamicPathEnabled' in kwargs:
+            dynamic_path_enabled = kwargs['dynamicPathEnabled']
+
         _setter("filename", filename)
         _setter("path", path)
         _setter("relative_url", relative_url)
@@ -2351,7 +2481,9 @@ class DatasetJsonSchemaColumn(dict):
              name: str,
              description: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -2406,7 +2538,9 @@ class DatasetMysqlSchemaColumn(dict):
              name: str,
              description: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -2496,7 +2630,17 @@ class DatasetParquetAzureBlobFsLocation(dict):
              file_system: Optional[str] = None,
              filename: Optional[str] = None,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dynamicFileSystemEnabled' in kwargs:
+            dynamic_file_system_enabled = kwargs['dynamicFileSystemEnabled']
+        if 'dynamicFilenameEnabled' in kwargs:
+            dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
+        if 'dynamicPathEnabled' in kwargs:
+            dynamic_path_enabled = kwargs['dynamicPathEnabled']
+        if 'fileSystem' in kwargs:
+            file_system = kwargs['fileSystem']
+
         if dynamic_file_system_enabled is not None:
             _setter("dynamic_file_system_enabled", dynamic_file_system_enabled)
         if dynamic_filename_enabled is not None:
@@ -2615,7 +2759,15 @@ class DatasetParquetAzureBlobStorageLocation(dict):
              dynamic_path_enabled: Optional[bool] = None,
              filename: Optional[str] = None,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dynamicContainerEnabled' in kwargs:
+            dynamic_container_enabled = kwargs['dynamicContainerEnabled']
+        if 'dynamicFilenameEnabled' in kwargs:
+            dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
+        if 'dynamicPathEnabled' in kwargs:
+            dynamic_path_enabled = kwargs['dynamicPathEnabled']
+
         _setter("container", container)
         if dynamic_container_enabled is not None:
             _setter("dynamic_container_enabled", dynamic_container_enabled)
@@ -2729,7 +2881,15 @@ class DatasetParquetHttpServerLocation(dict):
              dynamic_filename_enabled: Optional[bool] = None,
              dynamic_path_enabled: Optional[bool] = None,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'relativeUrl' in kwargs:
+            relative_url = kwargs['relativeUrl']
+        if 'dynamicFilenameEnabled' in kwargs:
+            dynamic_filename_enabled = kwargs['dynamicFilenameEnabled']
+        if 'dynamicPathEnabled' in kwargs:
+            dynamic_path_enabled = kwargs['dynamicPathEnabled']
+
         _setter("filename", filename)
         _setter("relative_url", relative_url)
         if dynamic_filename_enabled is not None:
@@ -2803,7 +2963,9 @@ class DatasetParquetSchemaColumn(dict):
              name: str,
              description: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -2858,7 +3020,9 @@ class DatasetPostgresqlSchemaColumn(dict):
              name: str,
              description: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -2917,7 +3081,9 @@ class DatasetSnowflakeSchemaColumn(dict):
              precision: Optional[int] = None,
              scale: Optional[int] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if precision is not None:
             _setter("precision", precision)
@@ -2982,7 +3148,9 @@ class DatasetSqlServerTableSchemaColumn(dict):
              name: str,
              description: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -3078,7 +3246,21 @@ class FactoryGithubConfiguration(dict):
              repository_name: str,
              root_folder: str,
              publishing_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if 'gitUrl' in kwargs:
+            git_url = kwargs['gitUrl']
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if 'rootFolder' in kwargs:
+            root_folder = kwargs['rootFolder']
+        if 'publishingEnabled' in kwargs:
+            publishing_enabled = kwargs['publishingEnabled']
+
         _setter("account_name", account_name)
         _setter("branch_name", branch_name)
         _setter("git_url", git_url)
@@ -3163,7 +3345,9 @@ class FactoryGlobalParameter(dict):
              name: str,
              type: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -3245,7 +3429,15 @@ class FactoryIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -3357,7 +3549,23 @@ class FactoryVstsConfiguration(dict):
              root_folder: str,
              tenant_id: str,
              publishing_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if 'rootFolder' in kwargs:
+            root_folder = kwargs['rootFolder']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'publishingEnabled' in kwargs:
+            publishing_enabled = kwargs['publishingEnabled']
+
         _setter("account_name", account_name)
         _setter("branch_name", branch_name)
         _setter("project_name", project_name)
@@ -3484,7 +3692,15 @@ class FlowletDataFlowSink(dict):
              linked_service: Optional['outputs.FlowletDataFlowSinkLinkedService'] = None,
              rejected_linked_service: Optional['outputs.FlowletDataFlowSinkRejectedLinkedService'] = None,
              schema_linked_service: Optional['outputs.FlowletDataFlowSinkSchemaLinkedService'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedService' in kwargs:
+            linked_service = kwargs['linkedService']
+        if 'rejectedLinkedService' in kwargs:
+            rejected_linked_service = kwargs['rejectedLinkedService']
+        if 'schemaLinkedService' in kwargs:
+            schema_linked_service = kwargs['schemaLinkedService']
+
         _setter("name", name)
         if dataset is not None:
             _setter("dataset", dataset)
@@ -3575,7 +3791,9 @@ class FlowletDataFlowSinkDataset(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -3637,7 +3855,11 @@ class FlowletDataFlowSinkFlowlet(dict):
              name: str,
              dataset_parameters: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetParameters' in kwargs:
+            dataset_parameters = kwargs['datasetParameters']
+
         _setter("name", name)
         if dataset_parameters is not None:
             _setter("dataset_parameters", dataset_parameters)
@@ -3688,7 +3910,9 @@ class FlowletDataFlowSinkLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -3729,7 +3953,9 @@ class FlowletDataFlowSinkRejectedLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -3770,7 +3996,9 @@ class FlowletDataFlowSinkSchemaLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -3852,7 +4080,15 @@ class FlowletDataFlowSource(dict):
              linked_service: Optional['outputs.FlowletDataFlowSourceLinkedService'] = None,
              rejected_linked_service: Optional['outputs.FlowletDataFlowSourceRejectedLinkedService'] = None,
              schema_linked_service: Optional['outputs.FlowletDataFlowSourceSchemaLinkedService'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedService' in kwargs:
+            linked_service = kwargs['linkedService']
+        if 'rejectedLinkedService' in kwargs:
+            rejected_linked_service = kwargs['rejectedLinkedService']
+        if 'schemaLinkedService' in kwargs:
+            schema_linked_service = kwargs['schemaLinkedService']
+
         _setter("name", name)
         if dataset is not None:
             _setter("dataset", dataset)
@@ -3943,7 +4179,9 @@ class FlowletDataFlowSourceDataset(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -4005,7 +4243,11 @@ class FlowletDataFlowSourceFlowlet(dict):
              name: str,
              dataset_parameters: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetParameters' in kwargs:
+            dataset_parameters = kwargs['datasetParameters']
+
         _setter("name", name)
         if dataset_parameters is not None:
             _setter("dataset_parameters", dataset_parameters)
@@ -4056,7 +4298,9 @@ class FlowletDataFlowSourceLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -4097,7 +4341,9 @@ class FlowletDataFlowSourceRejectedLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -4138,7 +4384,9 @@ class FlowletDataFlowSourceSchemaLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -4208,7 +4456,11 @@ class FlowletDataFlowTransformation(dict):
              description: Optional[str] = None,
              flowlet: Optional['outputs.FlowletDataFlowTransformationFlowlet'] = None,
              linked_service: Optional['outputs.FlowletDataFlowTransformationLinkedService'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedService' in kwargs:
+            linked_service = kwargs['linkedService']
+
         _setter("name", name)
         if dataset is not None:
             _setter("dataset", dataset)
@@ -4279,7 +4531,9 @@ class FlowletDataFlowTransformationDataset(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -4341,7 +4595,11 @@ class FlowletDataFlowTransformationFlowlet(dict):
              name: str,
              dataset_parameters: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datasetParameters' in kwargs:
+            dataset_parameters = kwargs['datasetParameters']
+
         _setter("name", name)
         if dataset_parameters is not None:
             _setter("dataset_parameters", dataset_parameters)
@@ -4392,7 +4650,9 @@ class FlowletDataFlowTransformationLinkedService(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -4464,7 +4724,17 @@ class IntegrationRuntimeManagedCatalogInfo(dict):
              administrator_login: Optional[str] = None,
              administrator_password: Optional[str] = None,
              pricing_tier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverEndpoint' in kwargs:
+            server_endpoint = kwargs['serverEndpoint']
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorPassword' in kwargs:
+            administrator_password = kwargs['administratorPassword']
+        if 'pricingTier' in kwargs:
+            pricing_tier = kwargs['pricingTier']
+
         _setter("server_endpoint", server_endpoint)
         if administrator_login is not None:
             _setter("administrator_login", administrator_login)
@@ -4544,7 +4814,13 @@ class IntegrationRuntimeManagedCustomSetupScript(dict):
              _setter: Callable[[Any, Any], None],
              blob_container_uri: str,
              sas_token: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobContainerUri' in kwargs:
+            blob_container_uri = kwargs['blobContainerUri']
+        if 'sasToken' in kwargs:
+            sas_token = kwargs['sasToken']
+
         _setter("blob_container_uri", blob_container_uri)
         _setter("sas_token", sas_token)
 
@@ -4603,7 +4879,13 @@ class IntegrationRuntimeManagedVnetIntegration(dict):
              _setter: Callable[[Any, Any], None],
              subnet_name: str,
              vnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetName' in kwargs:
+            subnet_name = kwargs['subnetName']
+        if 'vnetId' in kwargs:
+            vnet_id = kwargs['vnetId']
+
         _setter("subnet_name", subnet_name)
         _setter("vnet_id", vnet_id)
 
@@ -4660,7 +4942,11 @@ class IntegrationRuntimeSelfHostedRbacAuthorization(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         _setter("resource_id", resource_id)
 
     @property
@@ -4738,7 +5024,21 @@ class IntegrationRuntimeSsisCatalogInfo(dict):
              dual_standby_pair_name: Optional[str] = None,
              elastic_pool_name: Optional[str] = None,
              pricing_tier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverEndpoint' in kwargs:
+            server_endpoint = kwargs['serverEndpoint']
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorPassword' in kwargs:
+            administrator_password = kwargs['administratorPassword']
+        if 'dualStandbyPairName' in kwargs:
+            dual_standby_pair_name = kwargs['dualStandbyPairName']
+        if 'elasticPoolName' in kwargs:
+            elastic_pool_name = kwargs['elasticPoolName']
+        if 'pricingTier' in kwargs:
+            pricing_tier = kwargs['pricingTier']
+
         _setter("server_endpoint", server_endpoint)
         if administrator_login is not None:
             _setter("administrator_login", administrator_login)
@@ -4838,7 +5138,13 @@ class IntegrationRuntimeSsisCustomSetupScript(dict):
              _setter: Callable[[Any, Any], None],
              blob_container_uri: str,
              sas_token: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobContainerUri' in kwargs:
+            blob_container_uri = kwargs['blobContainerUri']
+        if 'sasToken' in kwargs:
+            sas_token = kwargs['sasToken']
+
         _setter("blob_container_uri", blob_container_uri)
         _setter("sas_token", sas_token)
 
@@ -4907,7 +5213,13 @@ class IntegrationRuntimeSsisExpressCustomSetup(dict):
              components: Optional[Sequence['outputs.IntegrationRuntimeSsisExpressCustomSetupComponent']] = None,
              environment: Optional[Mapping[str, str]] = None,
              powershell_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'commandKeys' in kwargs:
+            command_keys = kwargs['commandKeys']
+        if 'powershellVersion' in kwargs:
+            powershell_version = kwargs['powershellVersion']
+
         if command_keys is not None:
             _setter("command_keys", command_keys)
         if components is not None:
@@ -5000,7 +5312,15 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKey(dict):
              user_name: str,
              key_vault_password: Optional['outputs.IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword'] = None,
              password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetName' in kwargs:
+            target_name = kwargs['targetName']
+        if 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+
         _setter("target_name", target_name)
         _setter("user_name", user_name)
         if key_vault_password is not None:
@@ -5089,7 +5409,15 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword(dict):
              secret_name: str,
              parameters: Optional[Mapping[str, str]] = None,
              secret_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'secretVersion' in kwargs:
+            secret_version = kwargs['secretVersion']
+
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
         if parameters is not None:
@@ -5170,7 +5498,11 @@ class IntegrationRuntimeSsisExpressCustomSetupComponent(dict):
              name: str,
              key_vault_license: Optional['outputs.IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense'] = None,
              license: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultLicense' in kwargs:
+            key_vault_license = kwargs['keyVaultLicense']
+
         _setter("name", name)
         if key_vault_license is not None:
             _setter("key_vault_license", key_vault_license)
@@ -5250,7 +5582,15 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense(dict):
              secret_name: str,
              parameters: Optional[Mapping[str, str]] = None,
              secret_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'secretVersion' in kwargs:
+            secret_version = kwargs['secretVersion']
+
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
         if parameters is not None:
@@ -5323,7 +5663,11 @@ class IntegrationRuntimeSsisExpressVnetIntegration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("subnet_id", subnet_id)
 
     @property
@@ -5371,7 +5715,11 @@ class IntegrationRuntimeSsisPackageStore(dict):
              _setter: Callable[[Any, Any], None],
              linked_service_name: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+
         _setter("linked_service_name", linked_service_name)
         _setter("name", name)
 
@@ -5434,7 +5782,13 @@ class IntegrationRuntimeSsisProxy(dict):
              self_hosted_integration_runtime_name: str,
              staging_storage_linked_service_name: str,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'selfHostedIntegrationRuntimeName' in kwargs:
+            self_hosted_integration_runtime_name = kwargs['selfHostedIntegrationRuntimeName']
+        if 'stagingStorageLinkedServiceName' in kwargs:
+            staging_storage_linked_service_name = kwargs['stagingStorageLinkedServiceName']
+
         _setter("self_hosted_integration_runtime_name", self_hosted_integration_runtime_name)
         _setter("staging_storage_linked_service_name", staging_storage_linked_service_name)
         if path is not None:
@@ -5517,7 +5871,17 @@ class IntegrationRuntimeSsisVnetIntegration(dict):
              subnet_id: Optional[str] = None,
              subnet_name: Optional[str] = None,
              vnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicIps' in kwargs:
+            public_ips = kwargs['publicIps']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'subnetName' in kwargs:
+            subnet_name = kwargs['subnetName']
+        if 'vnetId' in kwargs:
+            vnet_id = kwargs['vnetId']
+
         if public_ips is not None:
             _setter("public_ips", public_ips)
         if subnet_id is not None:
@@ -5581,7 +5945,9 @@ class LinkedCustomServiceIntegrationRuntime(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -5641,7 +6007,13 @@ class LinkedServiceAzureBlobStorageKeyVaultSasToken(dict):
              _setter: Callable[[Any, Any], None],
              linked_service_name: str,
              secret_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
 
@@ -5700,7 +6072,13 @@ class LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey(dict):
              _setter: Callable[[Any, Any], None],
              linked_service_name: str,
              secret_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
 
@@ -5771,7 +6149,17 @@ class LinkedServiceAzureDatabricksInstancePool(dict):
              instance_pool_id: str,
              max_number_of_workers: Optional[int] = None,
              min_number_of_workers: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterVersion' in kwargs:
+            cluster_version = kwargs['clusterVersion']
+        if 'instancePoolId' in kwargs:
+            instance_pool_id = kwargs['instancePoolId']
+        if 'maxNumberOfWorkers' in kwargs:
+            max_number_of_workers = kwargs['maxNumberOfWorkers']
+        if 'minNumberOfWorkers' in kwargs:
+            min_number_of_workers = kwargs['minNumberOfWorkers']
+
         _setter("cluster_version", cluster_version)
         _setter("instance_pool_id", instance_pool_id)
         if max_number_of_workers is not None:
@@ -5850,7 +6238,13 @@ class LinkedServiceAzureDatabricksKeyVaultPassword(dict):
              _setter: Callable[[Any, Any], None],
              linked_service_name: str,
              secret_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
 
@@ -5957,7 +6351,29 @@ class LinkedServiceAzureDatabricksNewClusterConfig(dict):
              min_number_of_workers: Optional[int] = None,
              spark_config: Optional[Mapping[str, str]] = None,
              spark_environment_variables: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterVersion' in kwargs:
+            cluster_version = kwargs['clusterVersion']
+        if 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if 'customTags' in kwargs:
+            custom_tags = kwargs['customTags']
+        if 'driverNodeType' in kwargs:
+            driver_node_type = kwargs['driverNodeType']
+        if 'initScripts' in kwargs:
+            init_scripts = kwargs['initScripts']
+        if 'logDestination' in kwargs:
+            log_destination = kwargs['logDestination']
+        if 'maxNumberOfWorkers' in kwargs:
+            max_number_of_workers = kwargs['maxNumberOfWorkers']
+        if 'minNumberOfWorkers' in kwargs:
+            min_number_of_workers = kwargs['minNumberOfWorkers']
+        if 'sparkConfig' in kwargs:
+            spark_config = kwargs['sparkConfig']
+        if 'sparkEnvironmentVariables' in kwargs:
+            spark_environment_variables = kwargs['sparkEnvironmentVariables']
+
         _setter("cluster_version", cluster_version)
         _setter("node_type", node_type)
         if custom_tags is not None:
@@ -6096,7 +6512,13 @@ class LinkedServiceAzureFileStorageKeyVaultPassword(dict):
              _setter: Callable[[Any, Any], None],
              linked_service_name: str,
              secret_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
 
@@ -6155,7 +6577,13 @@ class LinkedServiceAzureFunctionKeyVaultKey(dict):
              _setter: Callable[[Any, Any], None],
              linked_service_name: str,
              secret_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
 
@@ -6214,7 +6642,13 @@ class LinkedServiceAzureSqlDatabaseKeyVaultConnectionString(dict):
              _setter: Callable[[Any, Any], None],
              linked_service_name: str,
              secret_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
 
@@ -6273,7 +6707,13 @@ class LinkedServiceAzureSqlDatabaseKeyVaultPassword(dict):
              _setter: Callable[[Any, Any], None],
              linked_service_name: str,
              secret_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
 
@@ -6313,7 +6753,9 @@ class LinkedServiceOdataBasicAuthentication(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -6353,7 +6795,9 @@ class LinkedServiceOdbcBasicAuthentication(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -6412,7 +6856,13 @@ class LinkedServiceSnowflakeKeyVaultPassword(dict):
              _setter: Callable[[Any, Any], None],
              linked_service_name: str,
              secret_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
 
@@ -6471,7 +6921,13 @@ class LinkedServiceSqlServerKeyVaultConnectionString(dict):
              _setter: Callable[[Any, Any], None],
              linked_service_name: str,
              secret_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
 
@@ -6530,7 +6986,13 @@ class LinkedServiceSqlServerKeyVaultPassword(dict):
              _setter: Callable[[Any, Any], None],
              linked_service_name: str,
              secret_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
 
@@ -6589,7 +7051,13 @@ class LinkedServiceSynapseKeyVaultPassword(dict):
              _setter: Callable[[Any, Any], None],
              linked_service_name: str,
              secret_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("linked_service_name", linked_service_name)
         _setter("secret_name", secret_name)
 
@@ -6629,7 +7097,9 @@ class TriggerBlobEventPipeline(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -6670,7 +7140,9 @@ class TriggerCustomEventPipeline(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -6711,7 +7183,9 @@ class TriggerSchedulePipeline(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -6783,7 +7257,13 @@ class TriggerScheduleSchedule(dict):
              hours: Optional[Sequence[int]] = None,
              minutes: Optional[Sequence[int]] = None,
              monthlies: Optional[Sequence['outputs.TriggerScheduleScheduleMonthly']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysOfMonths' in kwargs:
+            days_of_months = kwargs['daysOfMonths']
+        if 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+
         if days_of_months is not None:
             _setter("days_of_months", days_of_months)
         if days_of_weeks is not None:
@@ -6855,7 +7335,9 @@ class TriggerScheduleScheduleMonthly(dict):
              _setter: Callable[[Any, Any], None],
              weekday: str,
              week: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("weekday", weekday)
         if week is not None:
             _setter("week", week)
@@ -6896,7 +7378,9 @@ class TriggerTumblingWindowPipeline(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              parameters: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -6937,7 +7421,9 @@ class TriggerTumblingWindowRetry(dict):
              _setter: Callable[[Any, Any], None],
              count: int,
              interval: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("count", count)
         if interval is not None:
             _setter("interval", interval)
@@ -6999,7 +7485,11 @@ class TriggerTumblingWindowTriggerDependency(dict):
              offset: Optional[str] = None,
              size: Optional[str] = None,
              trigger_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'triggerName' in kwargs:
+            trigger_name = kwargs['triggerName']
+
         if offset is not None:
             _setter("offset", offset)
         if size is not None:
@@ -7063,7 +7553,19 @@ class GetFactoryGithubConfigurationResult(dict):
              git_url: str,
              repository_name: str,
              root_folder: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if 'gitUrl' in kwargs:
+            git_url = kwargs['gitUrl']
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if 'rootFolder' in kwargs:
+            root_folder = kwargs['rootFolder']
+
         _setter("account_name", account_name)
         _setter("branch_name", branch_name)
         _setter("git_url", git_url)
@@ -7138,7 +7640,15 @@ class GetFactoryIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -7212,7 +7722,21 @@ class GetFactoryVstsConfigurationResult(dict):
              repository_name: str,
              root_folder: str,
              tenant_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if 'rootFolder' in kwargs:
+            root_folder = kwargs['rootFolder']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("account_name", account_name)
         _setter("branch_name", branch_name)
         _setter("project_name", project_name)

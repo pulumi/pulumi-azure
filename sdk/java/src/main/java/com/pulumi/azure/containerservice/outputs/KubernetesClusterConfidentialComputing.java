@@ -46,9 +46,9 @@ public final class KubernetesClusterConfidentialComputing {
             return this;
         }
         public KubernetesClusterConfidentialComputing build() {
-            final var o = new KubernetesClusterConfidentialComputing();
-            o.sgxQuoteHelperEnabled = sgxQuoteHelperEnabled;
-            return o;
+            final var _resultValue = new KubernetesClusterConfidentialComputing();
+            _resultValue.sgxQuoteHelperEnabled = sgxQuoteHelperEnabled;
+            return _resultValue;
         }
     }
 }

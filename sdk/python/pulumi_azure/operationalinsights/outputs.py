@@ -56,7 +56,11 @@ class AnalyticsSolutionPlan(dict):
              publisher: str,
              name: Optional[str] = None,
              promotion_code: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'promotionCode' in kwargs:
+            promotion_code = kwargs['promotionCode']
+
         _setter("product", product)
         _setter("publisher", publisher)
         if name is not None:

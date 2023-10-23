@@ -50,9 +50,9 @@ public final class SqlContainerIndexingPolicyCompositeIndex {
             return indices(List.of(indices));
         }
         public SqlContainerIndexingPolicyCompositeIndex build() {
-            final var o = new SqlContainerIndexingPolicyCompositeIndex();
-            o.indices = indices;
-            return o;
+            final var _resultValue = new SqlContainerIndexingPolicyCompositeIndex();
+            _resultValue.indices = indices;
+            return _resultValue;
         }
     }
 }

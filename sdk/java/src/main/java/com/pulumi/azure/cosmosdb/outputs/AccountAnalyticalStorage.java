@@ -46,9 +46,9 @@ public final class AccountAnalyticalStorage {
             return this;
         }
         public AccountAnalyticalStorage build() {
-            final var o = new AccountAnalyticalStorage();
-            o.schemaType = schemaType;
-            return o;
+            final var _resultValue = new AccountAnalyticalStorage();
+            _resultValue.schemaType = schemaType;
+            return _resultValue;
         }
     }
 }

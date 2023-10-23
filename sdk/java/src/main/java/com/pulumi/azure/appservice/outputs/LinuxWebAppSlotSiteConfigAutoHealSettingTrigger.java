@@ -95,11 +95,11 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
             return statusCodes(List.of(statusCodes));
         }
         public LinuxWebAppSlotSiteConfigAutoHealSettingTrigger build() {
-            final var o = new LinuxWebAppSlotSiteConfigAutoHealSettingTrigger();
-            o.requests = requests;
-            o.slowRequests = slowRequests;
-            o.statusCodes = statusCodes;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotSiteConfigAutoHealSettingTrigger();
+            _resultValue.requests = requests;
+            _resultValue.slowRequests = slowRequests;
+            _resultValue.statusCodes = statusCodes;
+            return _resultValue;
         }
     }
 }

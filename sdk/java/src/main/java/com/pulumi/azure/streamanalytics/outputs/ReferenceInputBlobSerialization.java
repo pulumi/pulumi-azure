@@ -94,11 +94,11 @@ public final class ReferenceInputBlobSerialization {
             return this;
         }
         public ReferenceInputBlobSerialization build() {
-            final var o = new ReferenceInputBlobSerialization();
-            o.encoding = encoding;
-            o.fieldDelimiter = fieldDelimiter;
-            o.type = type;
-            return o;
+            final var _resultValue = new ReferenceInputBlobSerialization();
+            _resultValue.encoding = encoding;
+            _resultValue.fieldDelimiter = fieldDelimiter;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

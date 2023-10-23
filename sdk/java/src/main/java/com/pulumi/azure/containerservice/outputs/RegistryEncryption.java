@@ -91,11 +91,11 @@ public final class RegistryEncryption {
             return this;
         }
         public RegistryEncryption build() {
-            final var o = new RegistryEncryption();
-            o.enabled = enabled;
-            o.identityClientId = identityClientId;
-            o.keyVaultKeyId = keyVaultKeyId;
-            return o;
+            final var _resultValue = new RegistryEncryption();
+            _resultValue.enabled = enabled;
+            _resultValue.identityClientId = identityClientId;
+            _resultValue.keyVaultKeyId = keyVaultKeyId;
+            return _resultValue;
         }
     }
 }

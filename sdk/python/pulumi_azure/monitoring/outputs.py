@@ -240,7 +240,11 @@ class AadDiagnosticSettingEnabledLog(dict):
              _setter: Callable[[Any, Any], None],
              category: str,
              retention_policy: 'outputs.AadDiagnosticSettingEnabledLogRetentionPolicy',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+
         _setter("category", category)
         _setter("retention_policy", retention_policy)
 
@@ -280,7 +284,9 @@ class AadDiagnosticSettingEnabledLogRetentionPolicy(dict):
              _setter: Callable[[Any, Any], None],
              days: Optional[int] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if days is not None:
             _setter("days", days)
         if enabled is not None:
@@ -343,7 +349,11 @@ class AadDiagnosticSettingLog(dict):
              category: str,
              retention_policy: 'outputs.AadDiagnosticSettingLogRetentionPolicy',
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+
         _setter("category", category)
         _setter("retention_policy", retention_policy)
         if enabled is not None:
@@ -393,7 +403,9 @@ class AadDiagnosticSettingLogRetentionPolicy(dict):
              _setter: Callable[[Any, Any], None],
              days: Optional[int] = None,
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if days is not None:
             _setter("days", days)
         if enabled is not None:
@@ -458,7 +470,13 @@ class ActionGroupArmRoleReceiver(dict):
              name: str,
              role_id: str,
              use_common_alert_schema: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleId' in kwargs:
+            role_id = kwargs['roleId']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
         _setter("name", name)
         _setter("role_id", role_id)
         if use_common_alert_schema is not None:
@@ -555,7 +573,21 @@ class ActionGroupAutomationRunbookReceiver(dict):
              service_uri: str,
              webhook_resource_id: str,
              use_common_alert_schema: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountId' in kwargs:
+            automation_account_id = kwargs['automationAccountId']
+        if 'isGlobalRunbook' in kwargs:
+            is_global_runbook = kwargs['isGlobalRunbook']
+        if 'runbookName' in kwargs:
+            runbook_name = kwargs['runbookName']
+        if 'serviceUri' in kwargs:
+            service_uri = kwargs['serviceUri']
+        if 'webhookResourceId' in kwargs:
+            webhook_resource_id = kwargs['webhookResourceId']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
         _setter("automation_account_id", automation_account_id)
         _setter("is_global_runbook", is_global_runbook)
         _setter("name", name)
@@ -658,7 +690,11 @@ class ActionGroupAzureAppPushReceiver(dict):
              _setter: Callable[[Any, Any], None],
              email_address: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+
         _setter("email_address", email_address)
         _setter("name", name)
 
@@ -733,7 +769,17 @@ class ActionGroupAzureFunctionReceiver(dict):
              http_trigger_url: str,
              name: str,
              use_common_alert_schema: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionAppResourceId' in kwargs:
+            function_app_resource_id = kwargs['functionAppResourceId']
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'httpTriggerUrl' in kwargs:
+            http_trigger_url = kwargs['httpTriggerUrl']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
         _setter("function_app_resource_id", function_app_resource_id)
         _setter("function_name", function_name)
         _setter("http_trigger_url", http_trigger_url)
@@ -824,7 +870,13 @@ class ActionGroupEmailReceiver(dict):
              email_address: str,
              name: str,
              use_common_alert_schema: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
         _setter("email_address", email_address)
         _setter("name", name)
         if use_common_alert_schema is not None:
@@ -923,7 +975,21 @@ class ActionGroupEventHubReceiver(dict):
              subscription_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
              use_common_alert_schema: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHubId' in kwargs:
+            event_hub_id = kwargs['eventHubId']
+        if 'eventHubName' in kwargs:
+            event_hub_name = kwargs['eventHubName']
+        if 'eventHubNamespace' in kwargs:
+            event_hub_namespace = kwargs['eventHubNamespace']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
         _setter("name", name)
         if event_hub_id is not None:
             _setter("event_hub_id", event_hub_id)
@@ -1054,7 +1120,15 @@ class ActionGroupItsmReceiver(dict):
              region: str,
              ticket_configuration: str,
              workspace_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if 'ticketConfiguration' in kwargs:
+            ticket_configuration = kwargs['ticketConfiguration']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         _setter("connection_id", connection_id)
         _setter("name", name)
         _setter("region", region)
@@ -1152,7 +1226,15 @@ class ActionGroupLogicAppReceiver(dict):
              name: str,
              resource_id: str,
              use_common_alert_schema: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'callbackUrl' in kwargs:
+            callback_url = kwargs['callbackUrl']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
         _setter("callback_url", callback_url)
         _setter("name", name)
         _setter("resource_id", resource_id)
@@ -1234,7 +1316,13 @@ class ActionGroupSmsReceiver(dict):
              country_code: str,
              name: str,
              phone_number: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("country_code", country_code)
         _setter("name", name)
         _setter("phone_number", phone_number)
@@ -1306,7 +1394,13 @@ class ActionGroupVoiceReceiver(dict):
              country_code: str,
              name: str,
              phone_number: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("country_code", country_code)
         _setter("name", name)
         _setter("phone_number", phone_number)
@@ -1386,7 +1480,15 @@ class ActionGroupWebhookReceiver(dict):
              service_uri: str,
              aad_auth: Optional['outputs.ActionGroupWebhookReceiverAadAuth'] = None,
              use_common_alert_schema: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceUri' in kwargs:
+            service_uri = kwargs['serviceUri']
+        if 'aadAuth' in kwargs:
+            aad_auth = kwargs['aadAuth']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
         _setter("name", name)
         _setter("service_uri", service_uri)
         if aad_auth is not None:
@@ -1473,7 +1575,15 @@ class ActionGroupWebhookReceiverAadAuth(dict):
              object_id: str,
              identifier_uri: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'identifierUri' in kwargs:
+            identifier_uri = kwargs['identifierUri']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("object_id", object_id)
         if identifier_uri is not None:
             _setter("identifier_uri", identifier_uri)
@@ -1567,7 +1677,17 @@ class ActionRuleActionGroupCondition(dict):
              monitor_service: Optional['outputs.ActionRuleActionGroupConditionMonitorService'] = None,
              severity: Optional['outputs.ActionRuleActionGroupConditionSeverity'] = None,
              target_resource_type: Optional['outputs.ActionRuleActionGroupConditionTargetResourceType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertContext' in kwargs:
+            alert_context = kwargs['alertContext']
+        if 'alertRuleId' in kwargs:
+            alert_rule_id = kwargs['alertRuleId']
+        if 'monitorService' in kwargs:
+            monitor_service = kwargs['monitorService']
+        if 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+
         if alert_context is not None:
             _setter("alert_context", alert_context)
         if alert_rule_id is not None:
@@ -1659,7 +1779,9 @@ class ActionRuleActionGroupConditionAlertContext(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -1699,7 +1821,9 @@ class ActionRuleActionGroupConditionAlertRuleId(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -1739,7 +1863,9 @@ class ActionRuleActionGroupConditionDescription(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -1779,7 +1905,9 @@ class ActionRuleActionGroupConditionMonitor(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -1819,7 +1947,9 @@ class ActionRuleActionGroupConditionMonitorService(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -1859,7 +1989,9 @@ class ActionRuleActionGroupConditionSeverity(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -1899,7 +2031,9 @@ class ActionRuleActionGroupConditionTargetResourceType(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -1956,7 +2090,11 @@ class ActionRuleActionGroupScope(dict):
              _setter: Callable[[Any, Any], None],
              resource_ids: Sequence[str],
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceIds' in kwargs:
+            resource_ids = kwargs['resourceIds']
+
         _setter("resource_ids", resource_ids)
         _setter("type", type)
 
@@ -2039,7 +2177,17 @@ class ActionRuleSuppressionCondition(dict):
              monitor_service: Optional['outputs.ActionRuleSuppressionConditionMonitorService'] = None,
              severity: Optional['outputs.ActionRuleSuppressionConditionSeverity'] = None,
              target_resource_type: Optional['outputs.ActionRuleSuppressionConditionTargetResourceType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertContext' in kwargs:
+            alert_context = kwargs['alertContext']
+        if 'alertRuleId' in kwargs:
+            alert_rule_id = kwargs['alertRuleId']
+        if 'monitorService' in kwargs:
+            monitor_service = kwargs['monitorService']
+        if 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+
         if alert_context is not None:
             _setter("alert_context", alert_context)
         if alert_rule_id is not None:
@@ -2131,7 +2279,9 @@ class ActionRuleSuppressionConditionAlertContext(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -2171,7 +2321,9 @@ class ActionRuleSuppressionConditionAlertRuleId(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -2211,7 +2363,9 @@ class ActionRuleSuppressionConditionDescription(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -2251,7 +2405,9 @@ class ActionRuleSuppressionConditionMonitor(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -2291,7 +2447,9 @@ class ActionRuleSuppressionConditionMonitorService(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -2331,7 +2489,9 @@ class ActionRuleSuppressionConditionSeverity(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -2371,7 +2531,9 @@ class ActionRuleSuppressionConditionTargetResourceType(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -2428,7 +2590,11 @@ class ActionRuleSuppressionScope(dict):
              _setter: Callable[[Any, Any], None],
              resource_ids: Sequence[str],
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceIds' in kwargs:
+            resource_ids = kwargs['resourceIds']
+
         _setter("resource_ids", resource_ids)
         _setter("type", type)
 
@@ -2485,7 +2651,11 @@ class ActionRuleSuppressionSuppression(dict):
              _setter: Callable[[Any, Any], None],
              recurrence_type: str,
              schedule: Optional['outputs.ActionRuleSuppressionSuppressionSchedule'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recurrenceType' in kwargs:
+            recurrence_type = kwargs['recurrenceType']
+
         _setter("recurrence_type", recurrence_type)
         if schedule is not None:
             _setter("schedule", schedule)
@@ -2557,7 +2727,17 @@ class ActionRuleSuppressionSuppressionSchedule(dict):
              start_date_utc: str,
              recurrence_monthlies: Optional[Sequence[int]] = None,
              recurrence_weeklies: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endDateUtc' in kwargs:
+            end_date_utc = kwargs['endDateUtc']
+        if 'startDateUtc' in kwargs:
+            start_date_utc = kwargs['startDateUtc']
+        if 'recurrenceMonthlies' in kwargs:
+            recurrence_monthlies = kwargs['recurrenceMonthlies']
+        if 'recurrenceWeeklies' in kwargs:
+            recurrence_weeklies = kwargs['recurrenceWeeklies']
+
         _setter("end_date_utc", end_date_utc)
         _setter("start_date_utc", start_date_utc)
         if recurrence_monthlies is not None:
@@ -2636,7 +2816,13 @@ class ActivityLogAlertAction(dict):
              _setter: Callable[[Any, Any], None],
              action_group_id: str,
              webhook_properties: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroupId' in kwargs:
+            action_group_id = kwargs['actionGroupId']
+        if 'webhookProperties' in kwargs:
+            webhook_properties = kwargs['webhookProperties']
+
         _setter("action_group_id", action_group_id)
         if webhook_properties is not None:
             _setter("webhook_properties", webhook_properties)
@@ -2738,7 +2924,7 @@ class ActivityLogAlertCriteria(dict):
                
                > **NOTE:** `level` and `levels` are mutually exclusive.
         :param str operation_name: The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
-        :param str recommendation_category: The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+        :param str recommendation_category: The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
         :param str recommendation_impact: The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
         :param str recommendation_type: The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
         :param str resource_group: The name of resource group monitored by the activity log alert.
@@ -2818,7 +3004,41 @@ class ActivityLogAlertCriteria(dict):
              statuses: Optional[Sequence[str]] = None,
              sub_status: Optional[str] = None,
              sub_statuses: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'operationName' in kwargs:
+            operation_name = kwargs['operationName']
+        if 'recommendationCategory' in kwargs:
+            recommendation_category = kwargs['recommendationCategory']
+        if 'recommendationImpact' in kwargs:
+            recommendation_impact = kwargs['recommendationImpact']
+        if 'recommendationType' in kwargs:
+            recommendation_type = kwargs['recommendationType']
+        if 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if 'resourceGroups' in kwargs:
+            resource_groups = kwargs['resourceGroups']
+        if 'resourceHealths' in kwargs:
+            resource_healths = kwargs['resourceHealths']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'resourceIds' in kwargs:
+            resource_ids = kwargs['resourceIds']
+        if 'resourceProvider' in kwargs:
+            resource_provider = kwargs['resourceProvider']
+        if 'resourceProviders' in kwargs:
+            resource_providers = kwargs['resourceProviders']
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+        if 'serviceHealths' in kwargs:
+            service_healths = kwargs['serviceHealths']
+        if 'subStatus' in kwargs:
+            sub_status = kwargs['subStatus']
+        if 'subStatuses' in kwargs:
+            sub_statuses = kwargs['subStatuses']
+
         _setter("category", category)
         if caller is not None:
             _setter("caller", caller)
@@ -2909,7 +3129,7 @@ class ActivityLogAlertCriteria(dict):
     @pulumi.getter(name="recommendationCategory")
     def recommendation_category(self) -> Optional[str]:
         """
-        The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+        The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
         """
         return pulumi.get(self, "recommendation_category")
 
@@ -3077,7 +3297,9 @@ class ActivityLogAlertCriteriaResourceHealth(dict):
              currents: Optional[Sequence[str]] = None,
              previouses: Optional[Sequence[str]] = None,
              reasons: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if currents is not None:
             _setter("currents", currents)
         if previouses is not None:
@@ -3133,7 +3355,9 @@ class ActivityLogAlertCriteriaServiceHealth(dict):
              events: Optional[Sequence[str]] = None,
              locations: Optional[Sequence[str]] = None,
              services: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if events is not None:
             _setter("events", events)
         if locations is not None:
@@ -3256,7 +3480,27 @@ class AlertProcessingRuleActionGroupCondition(dict):
              target_resource: Optional['outputs.AlertProcessingRuleActionGroupConditionTargetResource'] = None,
              target_resource_group: Optional['outputs.AlertProcessingRuleActionGroupConditionTargetResourceGroup'] = None,
              target_resource_type: Optional['outputs.AlertProcessingRuleActionGroupConditionTargetResourceType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertContext' in kwargs:
+            alert_context = kwargs['alertContext']
+        if 'alertRuleId' in kwargs:
+            alert_rule_id = kwargs['alertRuleId']
+        if 'alertRuleName' in kwargs:
+            alert_rule_name = kwargs['alertRuleName']
+        if 'monitorCondition' in kwargs:
+            monitor_condition = kwargs['monitorCondition']
+        if 'monitorService' in kwargs:
+            monitor_service = kwargs['monitorService']
+        if 'signalType' in kwargs:
+            signal_type = kwargs['signalType']
+        if 'targetResource' in kwargs:
+            target_resource = kwargs['targetResource']
+        if 'targetResourceGroup' in kwargs:
+            target_resource_group = kwargs['targetResourceGroup']
+        if 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+
         if alert_context is not None:
             _setter("alert_context", alert_context)
         if alert_rule_id is not None:
@@ -3390,7 +3634,9 @@ class AlertProcessingRuleActionGroupConditionAlertContext(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -3430,7 +3676,9 @@ class AlertProcessingRuleActionGroupConditionAlertRuleId(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -3470,7 +3718,9 @@ class AlertProcessingRuleActionGroupConditionAlertRuleName(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -3510,7 +3760,9 @@ class AlertProcessingRuleActionGroupConditionDescription(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -3550,7 +3802,9 @@ class AlertProcessingRuleActionGroupConditionMonitorCondition(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -3590,7 +3844,9 @@ class AlertProcessingRuleActionGroupConditionMonitorService(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -3630,7 +3886,9 @@ class AlertProcessingRuleActionGroupConditionSeverity(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -3670,7 +3928,9 @@ class AlertProcessingRuleActionGroupConditionSignalType(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -3710,7 +3970,9 @@ class AlertProcessingRuleActionGroupConditionTargetResource(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -3750,7 +4012,9 @@ class AlertProcessingRuleActionGroupConditionTargetResourceGroup(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -3790,7 +4054,9 @@ class AlertProcessingRuleActionGroupConditionTargetResourceType(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -3859,7 +4125,15 @@ class AlertProcessingRuleActionGroupSchedule(dict):
              effective_until: Optional[str] = None,
              recurrence: Optional['outputs.AlertProcessingRuleActionGroupScheduleRecurrence'] = None,
              time_zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'effectiveFrom' in kwargs:
+            effective_from = kwargs['effectiveFrom']
+        if 'effectiveUntil' in kwargs:
+            effective_until = kwargs['effectiveUntil']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if effective_from is not None:
             _setter("effective_from", effective_from)
         if effective_until is not None:
@@ -3925,7 +4199,9 @@ class AlertProcessingRuleActionGroupScheduleRecurrence(dict):
              dailies: Optional[Sequence['outputs.AlertProcessingRuleActionGroupScheduleRecurrenceDaily']] = None,
              monthlies: Optional[Sequence['outputs.AlertProcessingRuleActionGroupScheduleRecurrenceMonthly']] = None,
              weeklies: Optional[Sequence['outputs.AlertProcessingRuleActionGroupScheduleRecurrenceWeekly']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if dailies is not None:
             _setter("dailies", dailies)
         if monthlies is not None:
@@ -3996,7 +4272,13 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceDaily(dict):
              _setter: Callable[[Any, Any], None],
              end_time: str,
              start_time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("end_time", end_time)
         _setter("start_time", start_time)
 
@@ -4061,7 +4343,15 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceMonthly(dict):
              days_of_months: Sequence[int],
              end_time: Optional[str] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysOfMonths' in kwargs:
+            days_of_months = kwargs['daysOfMonths']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("days_of_months", days_of_months)
         if end_time is not None:
             _setter("end_time", end_time)
@@ -4137,7 +4427,15 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceWeekly(dict):
              days_of_weeks: Sequence[str],
              end_time: Optional[str] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("days_of_weeks", days_of_weeks)
         if end_time is not None:
             _setter("end_time", end_time)
@@ -4257,7 +4555,27 @@ class AlertProcessingRuleSuppressionCondition(dict):
              target_resource: Optional['outputs.AlertProcessingRuleSuppressionConditionTargetResource'] = None,
              target_resource_group: Optional['outputs.AlertProcessingRuleSuppressionConditionTargetResourceGroup'] = None,
              target_resource_type: Optional['outputs.AlertProcessingRuleSuppressionConditionTargetResourceType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertContext' in kwargs:
+            alert_context = kwargs['alertContext']
+        if 'alertRuleId' in kwargs:
+            alert_rule_id = kwargs['alertRuleId']
+        if 'alertRuleName' in kwargs:
+            alert_rule_name = kwargs['alertRuleName']
+        if 'monitorCondition' in kwargs:
+            monitor_condition = kwargs['monitorCondition']
+        if 'monitorService' in kwargs:
+            monitor_service = kwargs['monitorService']
+        if 'signalType' in kwargs:
+            signal_type = kwargs['signalType']
+        if 'targetResource' in kwargs:
+            target_resource = kwargs['targetResource']
+        if 'targetResourceGroup' in kwargs:
+            target_resource_group = kwargs['targetResourceGroup']
+        if 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+
         if alert_context is not None:
             _setter("alert_context", alert_context)
         if alert_rule_id is not None:
@@ -4389,7 +4707,9 @@ class AlertProcessingRuleSuppressionConditionAlertContext(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -4429,7 +4749,9 @@ class AlertProcessingRuleSuppressionConditionAlertRuleId(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -4469,7 +4791,9 @@ class AlertProcessingRuleSuppressionConditionAlertRuleName(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -4509,7 +4833,9 @@ class AlertProcessingRuleSuppressionConditionDescription(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -4549,7 +4875,9 @@ class AlertProcessingRuleSuppressionConditionMonitorCondition(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -4589,7 +4917,9 @@ class AlertProcessingRuleSuppressionConditionMonitorService(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -4629,7 +4959,9 @@ class AlertProcessingRuleSuppressionConditionSeverity(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -4669,7 +5001,9 @@ class AlertProcessingRuleSuppressionConditionSignalType(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -4709,7 +5043,9 @@ class AlertProcessingRuleSuppressionConditionTargetResource(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -4749,7 +5085,9 @@ class AlertProcessingRuleSuppressionConditionTargetResourceGroup(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -4789,7 +5127,9 @@ class AlertProcessingRuleSuppressionConditionTargetResourceType(dict):
              _setter: Callable[[Any, Any], None],
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("values", values)
 
@@ -4858,7 +5198,15 @@ class AlertProcessingRuleSuppressionSchedule(dict):
              effective_until: Optional[str] = None,
              recurrence: Optional['outputs.AlertProcessingRuleSuppressionScheduleRecurrence'] = None,
              time_zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'effectiveFrom' in kwargs:
+            effective_from = kwargs['effectiveFrom']
+        if 'effectiveUntil' in kwargs:
+            effective_until = kwargs['effectiveUntil']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if effective_from is not None:
             _setter("effective_from", effective_from)
         if effective_until is not None:
@@ -4924,7 +5272,9 @@ class AlertProcessingRuleSuppressionScheduleRecurrence(dict):
              dailies: Optional[Sequence['outputs.AlertProcessingRuleSuppressionScheduleRecurrenceDaily']] = None,
              monthlies: Optional[Sequence['outputs.AlertProcessingRuleSuppressionScheduleRecurrenceMonthly']] = None,
              weeklies: Optional[Sequence['outputs.AlertProcessingRuleSuppressionScheduleRecurrenceWeekly']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if dailies is not None:
             _setter("dailies", dailies)
         if monthlies is not None:
@@ -4995,7 +5345,13 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceDaily(dict):
              _setter: Callable[[Any, Any], None],
              end_time: str,
              start_time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("end_time", end_time)
         _setter("start_time", start_time)
 
@@ -5060,7 +5416,15 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceMonthly(dict):
              days_of_months: Sequence[int],
              end_time: Optional[str] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysOfMonths' in kwargs:
+            days_of_months = kwargs['daysOfMonths']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("days_of_months", days_of_months)
         if end_time is not None:
             _setter("end_time", end_time)
@@ -5136,7 +5500,15 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceWeekly(dict):
              days_of_weeks: Sequence[str],
              end_time: Optional[str] = None,
              start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("days_of_weeks", days_of_weeks)
         if end_time is not None:
             _setter("end_time", end_time)
@@ -5238,7 +5610,13 @@ class AlertPrometheusRuleGroupRule(dict):
              labels: Optional[Mapping[str, str]] = None,
              record: Optional[str] = None,
              severity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertResolution' in kwargs:
+            alert_resolution = kwargs['alertResolution']
+        if 'for' in kwargs:
+            for_ = kwargs['for']
+
         _setter("expression", expression)
         if actions is not None:
             _setter("actions", actions)
@@ -5380,7 +5758,13 @@ class AlertPrometheusRuleGroupRuleAction(dict):
              _setter: Callable[[Any, Any], None],
              action_group_id: str,
              action_properties: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroupId' in kwargs:
+            action_group_id = kwargs['actionGroupId']
+        if 'actionProperties' in kwargs:
+            action_properties = kwargs['actionProperties']
+
         _setter("action_group_id", action_group_id)
         if action_properties is not None:
             _setter("action_properties", action_properties)
@@ -5442,7 +5826,13 @@ class AlertPrometheusRuleGroupRuleAlertResolution(dict):
              _setter: Callable[[Any, Any], None],
              auto_resolved: Optional[bool] = None,
              time_to_resolve: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoResolved' in kwargs:
+            auto_resolved = kwargs['autoResolved']
+        if 'timeToResolve' in kwargs:
+            time_to_resolve = kwargs['timeToResolve']
+
         if auto_resolved is not None:
             _setter("auto_resolved", auto_resolved)
         if time_to_resolve is not None:
@@ -5484,7 +5874,9 @@ class AutoscaleSettingNotification(dict):
              _setter: Callable[[Any, Any], None],
              email: Optional['outputs.AutoscaleSettingNotificationEmail'] = None,
              webhooks: Optional[Sequence['outputs.AutoscaleSettingNotificationWebhook']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if email is not None:
             _setter("email", email)
         if webhooks is not None:
@@ -5551,7 +5943,15 @@ class AutoscaleSettingNotificationEmail(dict):
              custom_emails: Optional[Sequence[str]] = None,
              send_to_subscription_administrator: Optional[bool] = None,
              send_to_subscription_co_administrator: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customEmails' in kwargs:
+            custom_emails = kwargs['customEmails']
+        if 'sendToSubscriptionAdministrator' in kwargs:
+            send_to_subscription_administrator = kwargs['sendToSubscriptionAdministrator']
+        if 'sendToSubscriptionCoAdministrator' in kwargs:
+            send_to_subscription_co_administrator = kwargs['sendToSubscriptionCoAdministrator']
+
         if custom_emails is not None:
             _setter("custom_emails", custom_emails)
         if send_to_subscription_administrator is not None:
@@ -5620,7 +6020,11 @@ class AutoscaleSettingNotificationWebhook(dict):
              _setter: Callable[[Any, Any], None],
              service_uri: str,
              properties: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceUri' in kwargs:
+            service_uri = kwargs['serviceUri']
+
         _setter("service_uri", service_uri)
         if properties is not None:
             _setter("properties", properties)
@@ -5680,7 +6084,13 @@ class AutoscaleSettingPredictive(dict):
              _setter: Callable[[Any, Any], None],
              scale_mode: str,
              look_ahead_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scaleMode' in kwargs:
+            scale_mode = kwargs['scaleMode']
+        if 'lookAheadTime' in kwargs:
+            look_ahead_time = kwargs['lookAheadTime']
+
         _setter("scale_mode", scale_mode)
         if look_ahead_time is not None:
             _setter("look_ahead_time", look_ahead_time)
@@ -5750,7 +6160,11 @@ class AutoscaleSettingProfile(dict):
              fixed_date: Optional['outputs.AutoscaleSettingProfileFixedDate'] = None,
              recurrence: Optional['outputs.AutoscaleSettingProfileRecurrence'] = None,
              rules: Optional[Sequence['outputs.AutoscaleSettingProfileRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fixedDate' in kwargs:
+            fixed_date = kwargs['fixedDate']
+
         _setter("capacity", capacity)
         _setter("name", name)
         if fixed_date is not None:
@@ -5826,7 +6240,9 @@ class AutoscaleSettingProfileCapacity(dict):
              default: int,
              maximum: int,
              minimum: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("default", default)
         _setter("maximum", maximum)
         _setter("minimum", minimum)
@@ -5881,7 +6297,9 @@ class AutoscaleSettingProfileFixedDate(dict):
              end: str,
              start: str,
              timezone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("end", end)
         _setter("start", start)
         if timezone is not None:
@@ -5939,7 +6357,9 @@ class AutoscaleSettingProfileRecurrence(dict):
              hours: int,
              minutes: int,
              timezone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("days", days)
         _setter("hours", hours)
         _setter("minutes", minutes)
@@ -6017,7 +6437,13 @@ class AutoscaleSettingProfileRule(dict):
              _setter: Callable[[Any, Any], None],
              metric_trigger: 'outputs.AutoscaleSettingProfileRuleMetricTrigger',
              scale_action: 'outputs.AutoscaleSettingProfileRuleScaleAction',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricTrigger' in kwargs:
+            metric_trigger = kwargs['metricTrigger']
+        if 'scaleAction' in kwargs:
+            scale_action = kwargs['scaleAction']
+
         _setter("metric_trigger", metric_trigger)
         _setter("scale_action", scale_action)
 
@@ -6124,7 +6550,23 @@ class AutoscaleSettingProfileRuleMetricTrigger(dict):
              dimensions: Optional[Sequence['outputs.AutoscaleSettingProfileRuleMetricTriggerDimension']] = None,
              divide_by_instance_count: Optional[bool] = None,
              metric_namespace: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'metricResourceId' in kwargs:
+            metric_resource_id = kwargs['metricResourceId']
+        if 'timeAggregation' in kwargs:
+            time_aggregation = kwargs['timeAggregation']
+        if 'timeGrain' in kwargs:
+            time_grain = kwargs['timeGrain']
+        if 'timeWindow' in kwargs:
+            time_window = kwargs['timeWindow']
+        if 'divideByInstanceCount' in kwargs:
+            divide_by_instance_count = kwargs['divideByInstanceCount']
+        if 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+
         _setter("metric_name", metric_name)
         _setter("metric_resource_id", metric_resource_id)
         _setter("operator", operator)
@@ -6254,7 +6696,9 @@ class AutoscaleSettingProfileRuleMetricTriggerDimension(dict):
              name: str,
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("operator", operator)
         _setter("values", values)
@@ -6311,7 +6755,9 @@ class AutoscaleSettingProfileRuleScaleAction(dict):
              direction: str,
              type: str,
              value: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("cooldown", cooldown)
         _setter("direction", direction)
         _setter("type", type)
@@ -6402,7 +6848,15 @@ class DataCollectionRuleDataFlow(dict):
              built_in_transform: Optional[str] = None,
              output_stream: Optional[str] = None,
              transform_kql: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'builtInTransform' in kwargs:
+            built_in_transform = kwargs['builtInTransform']
+        if 'outputStream' in kwargs:
+            output_stream = kwargs['outputStream']
+        if 'transformKql' in kwargs:
+            transform_kql = kwargs['transformKql']
+
         _setter("destinations", destinations)
         _setter("streams", streams)
         if built_in_transform is not None:
@@ -6535,7 +6989,25 @@ class DataCollectionRuleDataSources(dict):
              syslogs: Optional[Sequence['outputs.DataCollectionRuleDataSourcesSyslog']] = None,
              windows_event_logs: Optional[Sequence['outputs.DataCollectionRuleDataSourcesWindowsEventLog']] = None,
              windows_firewall_logs: Optional[Sequence['outputs.DataCollectionRuleDataSourcesWindowsFirewallLog']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataImport' in kwargs:
+            data_import = kwargs['dataImport']
+        if 'iisLogs' in kwargs:
+            iis_logs = kwargs['iisLogs']
+        if 'logFiles' in kwargs:
+            log_files = kwargs['logFiles']
+        if 'performanceCounters' in kwargs:
+            performance_counters = kwargs['performanceCounters']
+        if 'platformTelemetries' in kwargs:
+            platform_telemetries = kwargs['platformTelemetries']
+        if 'prometheusForwarders' in kwargs:
+            prometheus_forwarders = kwargs['prometheusForwarders']
+        if 'windowsEventLogs' in kwargs:
+            windows_event_logs = kwargs['windowsEventLogs']
+        if 'windowsFirewallLogs' in kwargs:
+            windows_firewall_logs = kwargs['windowsFirewallLogs']
+
         if data_import is not None:
             _setter("data_import", data_import)
         if extensions is not None:
@@ -6670,7 +7142,11 @@ class DataCollectionRuleDataSourcesDataImport(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              event_hub_data_sources: Sequence['outputs.DataCollectionRuleDataSourcesDataImportEventHubDataSource'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHubDataSources' in kwargs:
+            event_hub_data_sources = kwargs['eventHubDataSources']
+
         _setter("event_hub_data_sources", event_hub_data_sources)
 
     @property
@@ -6722,7 +7198,11 @@ class DataCollectionRuleDataSourcesDataImportEventHubDataSource(dict):
              name: str,
              stream: str,
              consumer_group: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerGroup' in kwargs:
+            consumer_group = kwargs['consumerGroup']
+
         _setter("name", name)
         _setter("stream", stream)
         if consumer_group is not None:
@@ -6805,7 +7285,15 @@ class DataCollectionRuleDataSourcesExtension(dict):
              streams: Sequence[str],
              extension_json: Optional[str] = None,
              input_data_sources: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'extensionName' in kwargs:
+            extension_name = kwargs['extensionName']
+        if 'extensionJson' in kwargs:
+            extension_json = kwargs['extensionJson']
+        if 'inputDataSources' in kwargs:
+            input_data_sources = kwargs['inputDataSources']
+
         _setter("extension_name", extension_name)
         _setter("name", name)
         _setter("streams", streams)
@@ -6895,7 +7383,11 @@ class DataCollectionRuleDataSourcesIisLog(dict):
              name: str,
              streams: Sequence[str],
              log_directories: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logDirectories' in kwargs:
+            log_directories = kwargs['logDirectories']
+
         _setter("name", name)
         _setter("streams", streams)
         if log_directories is not None:
@@ -6974,7 +7466,11 @@ class DataCollectionRuleDataSourcesLogFile(dict):
              name: str,
              streams: Sequence[str],
              settings: Optional['outputs.DataCollectionRuleDataSourcesLogFileSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filePatterns' in kwargs:
+            file_patterns = kwargs['filePatterns']
+
         _setter("file_patterns", file_patterns)
         _setter("format", format)
         _setter("name", name)
@@ -7038,7 +7534,9 @@ class DataCollectionRuleDataSourcesLogFileSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              text: 'outputs.DataCollectionRuleDataSourcesLogFileSettingsText',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("text", text)
 
     @property
@@ -7082,7 +7580,11 @@ class DataCollectionRuleDataSourcesLogFileSettingsText(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              record_start_timestamp_format: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordStartTimestampFormat' in kwargs:
+            record_start_timestamp_format = kwargs['recordStartTimestampFormat']
+
         _setter("record_start_timestamp_format", record_start_timestamp_format)
 
     @property
@@ -7140,7 +7642,13 @@ class DataCollectionRuleDataSourcesPerformanceCounter(dict):
              name: str,
              sampling_frequency_in_seconds: int,
              streams: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'counterSpecifiers' in kwargs:
+            counter_specifiers = kwargs['counterSpecifiers']
+        if 'samplingFrequencyInSeconds' in kwargs:
+            sampling_frequency_in_seconds = kwargs['samplingFrequencyInSeconds']
+
         _setter("counter_specifiers", counter_specifiers)
         _setter("name", name)
         _setter("sampling_frequency_in_seconds", sampling_frequency_in_seconds)
@@ -7198,7 +7706,9 @@ class DataCollectionRuleDataSourcesPlatformTelemetry(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              streams: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("streams", streams)
 
@@ -7259,7 +7769,11 @@ class DataCollectionRuleDataSourcesPrometheusForwarder(dict):
              name: str,
              streams: Sequence[str],
              label_include_filters: Optional[Sequence['outputs.DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labelIncludeFilters' in kwargs:
+            label_include_filters = kwargs['labelIncludeFilters']
+
         _setter("name", name)
         _setter("streams", streams)
         if label_include_filters is not None:
@@ -7309,7 +7823,9 @@ class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilter(dict):
              _setter: Callable[[Any, Any], None],
              label: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("label", label)
         _setter("value", value)
 
@@ -7378,7 +7894,13 @@ class DataCollectionRuleDataSourcesSyslog(dict):
              log_levels: Sequence[str],
              name: str,
              streams: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'facilityNames' in kwargs:
+            facility_names = kwargs['facilityNames']
+        if 'logLevels' in kwargs:
+            log_levels = kwargs['logLevels']
+
         _setter("facility_names", facility_names)
         _setter("log_levels", log_levels)
         _setter("name", name)
@@ -7460,7 +7982,11 @@ class DataCollectionRuleDataSourcesWindowsEventLog(dict):
              name: str,
              streams: Sequence[str],
              x_path_queries: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xPathQueries' in kwargs:
+            x_path_queries = kwargs['xPathQueries']
+
         _setter("name", name)
         _setter("streams", streams)
         _setter("x_path_queries", x_path_queries)
@@ -7509,7 +8035,9 @@ class DataCollectionRuleDataSourcesWindowsFirewallLog(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              streams: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("streams", streams)
 
@@ -7608,7 +8136,25 @@ class DataCollectionRuleDestinations(dict):
              storage_blob_directs: Optional[Sequence['outputs.DataCollectionRuleDestinationsStorageBlobDirect']] = None,
              storage_blobs: Optional[Sequence['outputs.DataCollectionRuleDestinationsStorageBlob']] = None,
              storage_table_directs: Optional[Sequence['outputs.DataCollectionRuleDestinationsStorageTableDirect']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureMonitorMetrics' in kwargs:
+            azure_monitor_metrics = kwargs['azureMonitorMetrics']
+        if 'eventHub' in kwargs:
+            event_hub = kwargs['eventHub']
+        if 'eventHubDirect' in kwargs:
+            event_hub_direct = kwargs['eventHubDirect']
+        if 'logAnalytics' in kwargs:
+            log_analytics = kwargs['logAnalytics']
+        if 'monitorAccounts' in kwargs:
+            monitor_accounts = kwargs['monitorAccounts']
+        if 'storageBlobDirects' in kwargs:
+            storage_blob_directs = kwargs['storageBlobDirects']
+        if 'storageBlobs' in kwargs:
+            storage_blobs = kwargs['storageBlobs']
+        if 'storageTableDirects' in kwargs:
+            storage_table_directs = kwargs['storageTableDirects']
+
         if azure_monitor_metrics is not None:
             _setter("azure_monitor_metrics", azure_monitor_metrics)
         if event_hub is not None:
@@ -7710,7 +8256,9 @@ class DataCollectionRuleDestinationsAzureMonitorMetrics(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -7758,7 +8306,11 @@ class DataCollectionRuleDestinationsEventHub(dict):
              _setter: Callable[[Any, Any], None],
              event_hub_id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHubId' in kwargs:
+            event_hub_id = kwargs['eventHubId']
+
         _setter("event_hub_id", event_hub_id)
         _setter("name", name)
 
@@ -7815,7 +8367,11 @@ class DataCollectionRuleDestinationsEventHubDirect(dict):
              _setter: Callable[[Any, Any], None],
              event_hub_id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHubId' in kwargs:
+            event_hub_id = kwargs['eventHubId']
+
         _setter("event_hub_id", event_hub_id)
         _setter("name", name)
 
@@ -7872,7 +8428,11 @@ class DataCollectionRuleDestinationsLogAnalytic(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              workspace_resource_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+
         _setter("name", name)
         _setter("workspace_resource_id", workspace_resource_id)
 
@@ -7929,7 +8489,11 @@ class DataCollectionRuleDestinationsMonitorAccount(dict):
              _setter: Callable[[Any, Any], None],
              monitor_account_id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitorAccountId' in kwargs:
+            monitor_account_id = kwargs['monitorAccountId']
+
         _setter("monitor_account_id", monitor_account_id)
         _setter("name", name)
 
@@ -7992,7 +8556,13 @@ class DataCollectionRuleDestinationsStorageBlob(dict):
              container_name: str,
              name: str,
              storage_account_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("container_name", container_name)
         _setter("name", name)
         _setter("storage_account_id", storage_account_id)
@@ -8064,7 +8634,13 @@ class DataCollectionRuleDestinationsStorageBlobDirect(dict):
              container_name: str,
              name: str,
              storage_account_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("container_name", container_name)
         _setter("name", name)
         _setter("storage_account_id", storage_account_id)
@@ -8136,7 +8712,13 @@ class DataCollectionRuleDestinationsStorageTableDirect(dict):
              name: str,
              storage_account_id: str,
              table_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("name", name)
         _setter("storage_account_id", storage_account_id)
         _setter("table_name", table_name)
@@ -8216,7 +8798,15 @@ class DataCollectionRuleIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -8296,7 +8886,11 @@ class DataCollectionRuleStreamDeclaration(dict):
              _setter: Callable[[Any, Any], None],
              columns: Sequence['outputs.DataCollectionRuleStreamDeclarationColumn'],
              stream_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+
         _setter("columns", columns)
         _setter("stream_name", stream_name)
 
@@ -8336,7 +8930,9 @@ class DataCollectionRuleStreamDeclarationColumn(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -8407,7 +9003,13 @@ class DiagnosticSettingEnabledLog(dict):
              category: Optional[str] = None,
              category_group: Optional[str] = None,
              retention_policy: Optional['outputs.DiagnosticSettingEnabledLogRetentionPolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'categoryGroup' in kwargs:
+            category_group = kwargs['categoryGroup']
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+
         if category is not None:
             _setter("category", category)
         if category_group is not None:
@@ -8473,7 +9075,9 @@ class DiagnosticSettingEnabledLogRetentionPolicy(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if days is not None:
             _setter("days", days)
@@ -8552,7 +9156,13 @@ class DiagnosticSettingLog(dict):
              category_group: Optional[str] = None,
              enabled: Optional[bool] = None,
              retention_policy: Optional['outputs.DiagnosticSettingLogRetentionPolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'categoryGroup' in kwargs:
+            category_group = kwargs['categoryGroup']
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+
         if category is not None:
             _setter("category", category)
         if category_group is not None:
@@ -8628,7 +9238,9 @@ class DiagnosticSettingLogRetentionPolicy(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if days is not None:
             _setter("days", days)
@@ -8697,7 +9309,11 @@ class DiagnosticSettingMetric(dict):
              category: str,
              enabled: Optional[bool] = None,
              retention_policy: Optional['outputs.DiagnosticSettingMetricRetentionPolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+
         _setter("category", category)
         if enabled is not None:
             _setter("enabled", enabled)
@@ -8758,7 +9374,9 @@ class DiagnosticSettingMetricRetentionPolicy(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if days is not None:
             _setter("days", days)
@@ -8802,7 +9420,9 @@ class LogProfileRetentionPolicy(dict):
              _setter: Callable[[Any, Any], None],
              enabled: bool,
              days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         if days is not None:
             _setter("days", days)
@@ -8874,7 +9494,17 @@ class LogzMonitorPlan(dict):
              effective_date: str,
              usage_type: str,
              plan_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingCycle' in kwargs:
+            billing_cycle = kwargs['billingCycle']
+        if 'effectiveDate' in kwargs:
+            effective_date = kwargs['effectiveDate']
+        if 'usageType' in kwargs:
+            usage_type = kwargs['usageType']
+        if 'planId' in kwargs:
+            plan_id = kwargs['planId']
+
         _setter("billing_cycle", billing_cycle)
         _setter("effective_date", effective_date)
         _setter("usage_type", usage_type)
@@ -8964,7 +9594,15 @@ class LogzMonitorUser(dict):
              first_name: str,
              last_name: str,
              phone_number: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("email", email)
         _setter("first_name", first_name)
         _setter("last_name", last_name)
@@ -9028,7 +9666,9 @@ class LogzSubAccountTagRuleTagFilter(dict):
              action: str,
              name: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         if value is not None:
@@ -9109,7 +9749,15 @@ class LogzSubAccountUser(dict):
              first_name: str,
              last_name: str,
              phone_number: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("email", email)
         _setter("first_name", first_name)
         _setter("last_name", last_name)
@@ -9173,7 +9821,9 @@ class LogzTagRuleTagFilter(dict):
              action: str,
              name: str,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         if value is not None:
@@ -9242,7 +9892,13 @@ class MetricAlertAction(dict):
              _setter: Callable[[Any, Any], None],
              action_group_id: str,
              webhook_properties: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroupId' in kwargs:
+            action_group_id = kwargs['actionGroupId']
+        if 'webhookProperties' in kwargs:
+            webhook_properties = kwargs['webhookProperties']
+
         _setter("action_group_id", action_group_id)
         if webhook_properties is not None:
             _setter("webhook_properties", webhook_properties)
@@ -9308,7 +9964,15 @@ class MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria(dict):
              component_id: str,
              failed_location_count: int,
              web_test_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'componentId' in kwargs:
+            component_id = kwargs['componentId']
+        if 'failedLocationCount' in kwargs:
+            failed_location_count = kwargs['failedLocationCount']
+        if 'webTestId' in kwargs:
+            web_test_id = kwargs['webTestId']
+
         _setter("component_id", component_id)
         _setter("failed_location_count", failed_location_count)
         _setter("web_test_id", web_test_id)
@@ -9398,7 +10062,15 @@ class MetricAlertCriteria(dict):
              threshold: float,
              dimensions: Optional[Sequence['outputs.MetricAlertCriteriaDimension']] = None,
              skip_metric_validation: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if 'skipMetricValidation' in kwargs:
+            skip_metric_validation = kwargs['skipMetricValidation']
+
         _setter("aggregation", aggregation)
         _setter("metric_name", metric_name)
         _setter("metric_namespace", metric_namespace)
@@ -9489,7 +10161,9 @@ class MetricAlertCriteriaDimension(dict):
              name: str,
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("operator", operator)
         _setter("values", values)
@@ -9599,7 +10273,23 @@ class MetricAlertDynamicCriteria(dict):
              evaluation_total_count: Optional[int] = None,
              ignore_data_before: Optional[str] = None,
              skip_metric_validation: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertSensitivity' in kwargs:
+            alert_sensitivity = kwargs['alertSensitivity']
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if 'evaluationFailureCount' in kwargs:
+            evaluation_failure_count = kwargs['evaluationFailureCount']
+        if 'evaluationTotalCount' in kwargs:
+            evaluation_total_count = kwargs['evaluationTotalCount']
+        if 'ignoreDataBefore' in kwargs:
+            ignore_data_before = kwargs['ignoreDataBefore']
+        if 'skipMetricValidation' in kwargs:
+            skip_metric_validation = kwargs['skipMetricValidation']
+
         _setter("aggregation", aggregation)
         _setter("alert_sensitivity", alert_sensitivity)
         _setter("metric_name", metric_name)
@@ -9720,7 +10410,9 @@ class MetricAlertDynamicCriteriaDimension(dict):
              name: str,
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("operator", operator)
         _setter("values", values)
@@ -9794,7 +10486,15 @@ class ScheduledQueryRulesAlertAction(dict):
              action_groups: Sequence[str],
              custom_webhook_payload: Optional[str] = None,
              email_subject: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroups' in kwargs:
+            action_groups = kwargs['actionGroups']
+        if 'customWebhookPayload' in kwargs:
+            custom_webhook_payload = kwargs['customWebhookPayload']
+        if 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+
         _setter("action_groups", action_groups)
         if custom_webhook_payload is not None:
             _setter("custom_webhook_payload", custom_webhook_payload)
@@ -9866,7 +10566,11 @@ class ScheduledQueryRulesAlertTrigger(dict):
              operator: str,
              threshold: float,
              metric_trigger: Optional['outputs.ScheduledQueryRulesAlertTriggerMetricTrigger'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricTrigger' in kwargs:
+            metric_trigger = kwargs['metricTrigger']
+
         _setter("operator", operator)
         _setter("threshold", threshold)
         if metric_trigger is not None:
@@ -9943,7 +10647,13 @@ class ScheduledQueryRulesAlertTriggerMetricTrigger(dict):
              operator: str,
              threshold: float,
              metric_column: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricTriggerType' in kwargs:
+            metric_trigger_type = kwargs['metricTriggerType']
+        if 'metricColumn' in kwargs:
+            metric_column = kwargs['metricColumn']
+
         _setter("metric_trigger_type", metric_trigger_type)
         _setter("operator", operator)
         _setter("threshold", threshold)
@@ -10021,7 +10731,13 @@ class ScheduledQueryRulesAlertV2Action(dict):
              _setter: Callable[[Any, Any], None],
              action_groups: Optional[Sequence[str]] = None,
              custom_properties: Optional[Mapping[str, str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroups' in kwargs:
+            action_groups = kwargs['actionGroups']
+        if 'customProperties' in kwargs:
+            custom_properties = kwargs['customProperties']
+
         if action_groups is not None:
             _setter("action_groups", action_groups)
         if custom_properties is not None:
@@ -10112,7 +10828,17 @@ class ScheduledQueryRulesAlertV2Criteria(dict):
              failing_periods: Optional['outputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriods'] = None,
              metric_measure_column: Optional[str] = None,
              resource_id_column: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeAggregationMethod' in kwargs:
+            time_aggregation_method = kwargs['timeAggregationMethod']
+        if 'failingPeriods' in kwargs:
+            failing_periods = kwargs['failingPeriods']
+        if 'metricMeasureColumn' in kwargs:
+            metric_measure_column = kwargs['metricMeasureColumn']
+        if 'resourceIdColumn' in kwargs:
+            resource_id_column = kwargs['resourceIdColumn']
+
         _setter("operator", operator)
         _setter("query", query)
         _setter("threshold", threshold)
@@ -10216,7 +10942,9 @@ class ScheduledQueryRulesAlertV2CriteriaDimension(dict):
              name: str,
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("operator", operator)
         _setter("values", values)
@@ -10288,7 +11016,13 @@ class ScheduledQueryRulesAlertV2CriteriaFailingPeriods(dict):
              _setter: Callable[[Any, Any], None],
              minimum_failing_periods_to_trigger_alert: int,
              number_of_evaluation_periods: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'minimumFailingPeriodsToTriggerAlert' in kwargs:
+            minimum_failing_periods_to_trigger_alert = kwargs['minimumFailingPeriodsToTriggerAlert']
+        if 'numberOfEvaluationPeriods' in kwargs:
+            number_of_evaluation_periods = kwargs['numberOfEvaluationPeriods']
+
         _setter("minimum_failing_periods_to_trigger_alert", minimum_failing_periods_to_trigger_alert)
         _setter("number_of_evaluation_periods", number_of_evaluation_periods)
 
@@ -10349,7 +11083,11 @@ class ScheduledQueryRulesLogCriteria(dict):
              _setter: Callable[[Any, Any], None],
              dimensions: Sequence['outputs.ScheduledQueryRulesLogCriteriaDimension'],
              metric_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("dimensions", dimensions)
         _setter("metric_name", metric_name)
 
@@ -10393,7 +11131,9 @@ class ScheduledQueryRulesLogCriteriaDimension(dict):
              name: str,
              values: Sequence[str],
              operator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("values", values)
         if operator is not None:
@@ -10466,7 +11206,13 @@ class SmartDetectorAlertRuleActionGroup(dict):
              ids: Sequence[str],
              email_subject: Optional[str] = None,
              webhook_payload: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+        if 'webhookPayload' in kwargs:
+            webhook_payload = kwargs['webhookPayload']
+
         _setter("ids", ids)
         if email_subject is not None:
             _setter("email_subject", email_subject)
@@ -10521,7 +11267,13 @@ class GetActionGroupArmRoleReceiverResult(dict):
              name: str,
              role_id: str,
              use_common_alert_schema: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'roleId' in kwargs:
+            role_id = kwargs['roleId']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
         _setter("name", name)
         _setter("role_id", role_id)
         _setter("use_common_alert_schema", use_common_alert_schema)
@@ -10590,7 +11342,21 @@ class GetActionGroupAutomationRunbookReceiverResult(dict):
              service_uri: str,
              use_common_alert_schema: bool,
              webhook_resource_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountId' in kwargs:
+            automation_account_id = kwargs['automationAccountId']
+        if 'isGlobalRunbook' in kwargs:
+            is_global_runbook = kwargs['isGlobalRunbook']
+        if 'runbookName' in kwargs:
+            runbook_name = kwargs['runbookName']
+        if 'serviceUri' in kwargs:
+            service_uri = kwargs['serviceUri']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+        if 'webhookResourceId' in kwargs:
+            webhook_resource_id = kwargs['webhookResourceId']
+
         _setter("automation_account_id", automation_account_id)
         _setter("is_global_runbook", is_global_runbook)
         _setter("name", name)
@@ -10675,7 +11441,11 @@ class GetActionGroupAzureAppPushReceiverResult(dict):
              _setter: Callable[[Any, Any], None],
              email_address: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+
         _setter("email_address", email_address)
         _setter("name", name)
 
@@ -10727,7 +11497,17 @@ class GetActionGroupAzureFunctionReceiverResult(dict):
              http_trigger_url: str,
              name: str,
              use_common_alert_schema: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionAppResourceId' in kwargs:
+            function_app_resource_id = kwargs['functionAppResourceId']
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'httpTriggerUrl' in kwargs:
+            http_trigger_url = kwargs['httpTriggerUrl']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
         _setter("function_app_resource_id", function_app_resource_id)
         _setter("function_name", function_name)
         _setter("http_trigger_url", http_trigger_url)
@@ -10798,7 +11578,13 @@ class GetActionGroupEmailReceiverResult(dict):
              email_address: str,
              name: str,
              use_common_alert_schema: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
         _setter("email_address", email_address)
         _setter("name", name)
         _setter("use_common_alert_schema", use_common_alert_schema)
@@ -10867,7 +11653,21 @@ class GetActionGroupEventHubReceiverResult(dict):
              subscription_id: str,
              tenant_id: str,
              use_common_alert_schema: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHubId' in kwargs:
+            event_hub_id = kwargs['eventHubId']
+        if 'eventHubName' in kwargs:
+            event_hub_name = kwargs['eventHubName']
+        if 'eventHubNamespace' in kwargs:
+            event_hub_namespace = kwargs['eventHubNamespace']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
         _setter("event_hub_id", event_hub_id)
         _setter("event_hub_name", event_hub_name)
         _setter("event_hub_namespace", event_hub_namespace)
@@ -10968,7 +11768,15 @@ class GetActionGroupItsmReceiverResult(dict):
              region: str,
              ticket_configuration: str,
              workspace_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if 'ticketConfiguration' in kwargs:
+            ticket_configuration = kwargs['ticketConfiguration']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         _setter("connection_id", connection_id)
         _setter("name", name)
         _setter("region", region)
@@ -11043,7 +11851,15 @@ class GetActionGroupLogicAppReceiverResult(dict):
              name: str,
              resource_id: str,
              use_common_alert_schema: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'callbackUrl' in kwargs:
+            callback_url = kwargs['callbackUrl']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
         _setter("callback_url", callback_url)
         _setter("name", name)
         _setter("resource_id", resource_id)
@@ -11105,7 +11921,13 @@ class GetActionGroupSmsReceiverResult(dict):
              country_code: str,
              name: str,
              phone_number: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("country_code", country_code)
         _setter("name", name)
         _setter("phone_number", phone_number)
@@ -11158,7 +11980,13 @@ class GetActionGroupVoiceReceiverResult(dict):
              country_code: str,
              name: str,
              phone_number: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("country_code", country_code)
         _setter("name", name)
         _setter("phone_number", phone_number)
@@ -11214,7 +12042,15 @@ class GetActionGroupWebhookReceiverResult(dict):
              name: str,
              service_uri: str,
              use_common_alert_schema: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aadAuths' in kwargs:
+            aad_auths = kwargs['aadAuths']
+        if 'serviceUri' in kwargs:
+            service_uri = kwargs['serviceUri']
+        if 'useCommonAlertSchema' in kwargs:
+            use_common_alert_schema = kwargs['useCommonAlertSchema']
+
         _setter("aad_auths", aad_auths)
         _setter("name", name)
         _setter("service_uri", service_uri)
@@ -11271,7 +12107,15 @@ class GetActionGroupWebhookReceiverAadAuthResult(dict):
              identifier_uri: str,
              object_id: str,
              tenant_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identifierUri' in kwargs:
+            identifier_uri = kwargs['identifierUri']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identifier_uri", identifier_uri)
         _setter("object_id", object_id)
         _setter("tenant_id", tenant_id)
@@ -11326,7 +12170,15 @@ class GetDataCollectionRuleDataFlowResult(dict):
              output_stream: str,
              streams: Sequence[str],
              transform_kql: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'builtInTransform' in kwargs:
+            built_in_transform = kwargs['builtInTransform']
+        if 'outputStream' in kwargs:
+            output_stream = kwargs['outputStream']
+        if 'transformKql' in kwargs:
+            transform_kql = kwargs['transformKql']
+
         _setter("built_in_transform", built_in_transform)
         _setter("destinations", destinations)
         _setter("output_stream", output_stream)
@@ -11425,7 +12277,25 @@ class GetDataCollectionRuleDataSourceResult(dict):
              windows_firewall_logs: Sequence['outputs.GetDataCollectionRuleDataSourceWindowsFirewallLogResult'],
              log_files: Optional[Sequence['outputs.GetDataCollectionRuleDataSourceLogFileResult']] = None,
              platform_telemetries: Optional[Sequence['outputs.GetDataCollectionRuleDataSourcePlatformTelemetryResult']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataImports' in kwargs:
+            data_imports = kwargs['dataImports']
+        if 'iisLogs' in kwargs:
+            iis_logs = kwargs['iisLogs']
+        if 'performanceCounters' in kwargs:
+            performance_counters = kwargs['performanceCounters']
+        if 'prometheusForwarders' in kwargs:
+            prometheus_forwarders = kwargs['prometheusForwarders']
+        if 'windowsEventLogs' in kwargs:
+            windows_event_logs = kwargs['windowsEventLogs']
+        if 'windowsFirewallLogs' in kwargs:
+            windows_firewall_logs = kwargs['windowsFirewallLogs']
+        if 'logFiles' in kwargs:
+            log_files = kwargs['logFiles']
+        if 'platformTelemetries' in kwargs:
+            platform_telemetries = kwargs['platformTelemetries']
+
         _setter("data_imports", data_imports)
         _setter("extensions", extensions)
         _setter("iis_logs", iis_logs)
@@ -11535,7 +12405,11 @@ class GetDataCollectionRuleDataSourceDataImportResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              event_hub_data_sources: Sequence['outputs.GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHubDataSources' in kwargs:
+            event_hub_data_sources = kwargs['eventHubDataSources']
+
         _setter("event_hub_data_sources", event_hub_data_sources)
 
     @property
@@ -11570,7 +12444,11 @@ class GetDataCollectionRuleDataSourceDataImportEventHubDataSourceResult(dict):
              consumer_group: str,
              name: str,
              stream: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consumerGroup' in kwargs:
+            consumer_group = kwargs['consumerGroup']
+
         _setter("consumer_group", consumer_group)
         _setter("name", name)
         _setter("stream", stream)
@@ -11631,7 +12509,15 @@ class GetDataCollectionRuleDataSourceExtensionResult(dict):
              input_data_sources: Sequence[str],
              name: str,
              streams: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'extensionJson' in kwargs:
+            extension_json = kwargs['extensionJson']
+        if 'extensionName' in kwargs:
+            extension_name = kwargs['extensionName']
+        if 'inputDataSources' in kwargs:
+            input_data_sources = kwargs['inputDataSources']
+
         _setter("extension_json", extension_json)
         _setter("extension_name", extension_name)
         _setter("input_data_sources", input_data_sources)
@@ -11702,7 +12588,11 @@ class GetDataCollectionRuleDataSourceIisLogResult(dict):
              log_directories: Sequence[str],
              name: str,
              streams: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logDirectories' in kwargs:
+            log_directories = kwargs['logDirectories']
+
         _setter("log_directories", log_directories)
         _setter("name", name)
         _setter("streams", streams)
@@ -11763,7 +12653,11 @@ class GetDataCollectionRuleDataSourceLogFileResult(dict):
              name: str,
              settings: Sequence['outputs.GetDataCollectionRuleDataSourceLogFileSettingResult'],
              streams: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filePatterns' in kwargs:
+            file_patterns = kwargs['filePatterns']
+
         _setter("file_patterns", file_patterns)
         _setter("format", format)
         _setter("name", name)
@@ -11826,7 +12720,9 @@ class GetDataCollectionRuleDataSourceLogFileSettingResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              texts: Sequence['outputs.GetDataCollectionRuleDataSourceLogFileSettingTextResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("texts", texts)
 
     @property
@@ -11853,7 +12749,11 @@ class GetDataCollectionRuleDataSourceLogFileSettingTextResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              record_start_timestamp_format: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recordStartTimestampFormat' in kwargs:
+            record_start_timestamp_format = kwargs['recordStartTimestampFormat']
+
         _setter("record_start_timestamp_format", record_start_timestamp_format)
 
     @property
@@ -11892,7 +12792,13 @@ class GetDataCollectionRuleDataSourcePerformanceCounterResult(dict):
              name: str,
              sampling_frequency_in_seconds: int,
              streams: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'counterSpecifiers' in kwargs:
+            counter_specifiers = kwargs['counterSpecifiers']
+        if 'samplingFrequencyInSeconds' in kwargs:
+            sampling_frequency_in_seconds = kwargs['samplingFrequencyInSeconds']
+
         _setter("counter_specifiers", counter_specifiers)
         _setter("name", name)
         _setter("sampling_frequency_in_seconds", sampling_frequency_in_seconds)
@@ -11950,7 +12856,9 @@ class GetDataCollectionRuleDataSourcePlatformTelemetryResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              streams: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("streams", streams)
 
@@ -11994,7 +12902,11 @@ class GetDataCollectionRuleDataSourcePrometheusForwarderResult(dict):
              label_include_filters: Sequence['outputs.GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult'],
              name: str,
              streams: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labelIncludeFilters' in kwargs:
+            label_include_filters = kwargs['labelIncludeFilters']
+
         _setter("label_include_filters", label_include_filters)
         _setter("name", name)
         _setter("streams", streams)
@@ -12043,7 +12955,9 @@ class GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilterResult
              _setter: Callable[[Any, Any], None],
              label: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("label", label)
         _setter("value", value)
 
@@ -12091,7 +13005,13 @@ class GetDataCollectionRuleDataSourceSyslogResult(dict):
              log_levels: Sequence[str],
              name: str,
              streams: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'facilityNames' in kwargs:
+            facility_names = kwargs['facilityNames']
+        if 'logLevels' in kwargs:
+            log_levels = kwargs['logLevels']
+
         _setter("facility_names", facility_names)
         _setter("log_levels", log_levels)
         _setter("name", name)
@@ -12153,7 +13073,11 @@ class GetDataCollectionRuleDataSourceWindowsEventLogResult(dict):
              name: str,
              streams: Sequence[str],
              x_path_queries: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xPathQueries' in kwargs:
+            x_path_queries = kwargs['xPathQueries']
+
         _setter("name", name)
         _setter("streams", streams)
         _setter("x_path_queries", x_path_queries)
@@ -12202,7 +13126,9 @@ class GetDataCollectionRuleDataSourceWindowsFirewallLogResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              streams: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("streams", streams)
 
@@ -12266,7 +13192,25 @@ class GetDataCollectionRuleDestinationResult(dict):
              storage_table_directs: Sequence['outputs.GetDataCollectionRuleDestinationStorageTableDirectResult'],
              event_hub: Optional['outputs.GetDataCollectionRuleDestinationEventHubResult'] = None,
              event_hub_direct: Optional['outputs.GetDataCollectionRuleDestinationEventHubDirectResult'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureMonitorMetrics' in kwargs:
+            azure_monitor_metrics = kwargs['azureMonitorMetrics']
+        if 'logAnalytics' in kwargs:
+            log_analytics = kwargs['logAnalytics']
+        if 'monitorAccounts' in kwargs:
+            monitor_accounts = kwargs['monitorAccounts']
+        if 'storageBlobDirects' in kwargs:
+            storage_blob_directs = kwargs['storageBlobDirects']
+        if 'storageBlobs' in kwargs:
+            storage_blobs = kwargs['storageBlobs']
+        if 'storageTableDirects' in kwargs:
+            storage_table_directs = kwargs['storageTableDirects']
+        if 'eventHub' in kwargs:
+            event_hub = kwargs['eventHub']
+        if 'eventHubDirect' in kwargs:
+            event_hub_direct = kwargs['eventHubDirect']
+
         _setter("azure_monitor_metrics", azure_monitor_metrics)
         _setter("log_analytics", log_analytics)
         _setter("monitor_accounts", monitor_accounts)
@@ -12358,7 +13302,9 @@ class GetDataCollectionRuleDestinationAzureMonitorMetricResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -12389,7 +13335,11 @@ class GetDataCollectionRuleDestinationEventHubResult(dict):
              _setter: Callable[[Any, Any], None],
              event_hub_id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHubId' in kwargs:
+            event_hub_id = kwargs['eventHubId']
+
         _setter("event_hub_id", event_hub_id)
         _setter("name", name)
 
@@ -12429,7 +13379,11 @@ class GetDataCollectionRuleDestinationEventHubDirectResult(dict):
              _setter: Callable[[Any, Any], None],
              event_hub_id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHubId' in kwargs:
+            event_hub_id = kwargs['eventHubId']
+
         _setter("event_hub_id", event_hub_id)
         _setter("name", name)
 
@@ -12469,7 +13423,11 @@ class GetDataCollectionRuleDestinationLogAnalyticResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              workspace_resource_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+
         _setter("name", name)
         _setter("workspace_resource_id", workspace_resource_id)
 
@@ -12509,7 +13467,11 @@ class GetDataCollectionRuleDestinationMonitorAccountResult(dict):
              _setter: Callable[[Any, Any], None],
              monitor_account_id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitorAccountId' in kwargs:
+            monitor_account_id = kwargs['monitorAccountId']
+
         _setter("monitor_account_id", monitor_account_id)
         _setter("name", name)
 
@@ -12553,7 +13515,13 @@ class GetDataCollectionRuleDestinationStorageBlobResult(dict):
              container_name: str,
              name: str,
              storage_account_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("container_name", container_name)
         _setter("name", name)
         _setter("storage_account_id", storage_account_id)
@@ -12606,7 +13574,13 @@ class GetDataCollectionRuleDestinationStorageBlobDirectResult(dict):
              container_name: str,
              name: str,
              storage_account_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("container_name", container_name)
         _setter("name", name)
         _setter("storage_account_id", storage_account_id)
@@ -12659,7 +13633,13 @@ class GetDataCollectionRuleDestinationStorageTableDirectResult(dict):
              name: str,
              storage_account_id: str,
              table_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("name", name)
         _setter("storage_account_id", storage_account_id)
         _setter("table_name", table_name)
@@ -12716,7 +13696,15 @@ class GetDataCollectionRuleIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -12774,7 +13762,11 @@ class GetDataCollectionRuleStreamDeclarationResult(dict):
              _setter: Callable[[Any, Any], None],
              columns: Sequence['outputs.GetDataCollectionRuleStreamDeclarationColumnResult'],
              stream_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+
         _setter("columns", columns)
         _setter("stream_name", stream_name)
 
@@ -12814,7 +13806,9 @@ class GetDataCollectionRuleStreamDeclarationColumnResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -12854,7 +13848,9 @@ class GetLogProfileRetentionPolicyResult(dict):
              _setter: Callable[[Any, Any], None],
              days: int,
              enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("days", days)
         _setter("enabled", enabled)
 
@@ -12898,7 +13894,15 @@ class GetScheduledQueryRulesAlertActionResult(dict):
              action_groups: Sequence[str],
              custom_webhook_payload: str,
              email_subject: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroups' in kwargs:
+            action_groups = kwargs['actionGroups']
+        if 'customWebhookPayload' in kwargs:
+            custom_webhook_payload = kwargs['customWebhookPayload']
+        if 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+
         _setter("action_groups", action_groups)
         _setter("custom_webhook_payload", custom_webhook_payload)
         _setter("email_subject", email_subject)
@@ -12950,7 +13954,11 @@ class GetScheduledQueryRulesAlertTriggerResult(dict):
              metric_triggers: Sequence['outputs.GetScheduledQueryRulesAlertTriggerMetricTriggerResult'],
              operator: str,
              threshold: float,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricTriggers' in kwargs:
+            metric_triggers = kwargs['metricTriggers']
+
         _setter("metric_triggers", metric_triggers)
         _setter("operator", operator)
         _setter("threshold", threshold)
@@ -13002,7 +14010,13 @@ class GetScheduledQueryRulesAlertTriggerMetricTriggerResult(dict):
              metric_trigger_type: str,
              operator: str,
              threshold: float,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricColumn' in kwargs:
+            metric_column = kwargs['metricColumn']
+        if 'metricTriggerType' in kwargs:
+            metric_trigger_type = kwargs['metricTriggerType']
+
         _setter("metric_column", metric_column)
         _setter("metric_trigger_type", metric_trigger_type)
         _setter("operator", operator)
@@ -13054,7 +14068,11 @@ class GetScheduledQueryRulesLogCriteriaResult(dict):
              _setter: Callable[[Any, Any], None],
              dimensions: Sequence['outputs.GetScheduledQueryRulesLogCriteriaDimensionResult'],
              metric_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("dimensions", dimensions)
         _setter("metric_name", metric_name)
 
@@ -13098,7 +14116,9 @@ class GetScheduledQueryRulesLogCriteriaDimensionResult(dict):
              name: str,
              operator: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("operator", operator)
         _setter("values", values)

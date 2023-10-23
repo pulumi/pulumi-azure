@@ -46,9 +46,9 @@ public final class GetKubernetesClusterServicePrincipal {
             return this;
         }
         public GetKubernetesClusterServicePrincipal build() {
-            final var o = new GetKubernetesClusterServicePrincipal();
-            o.clientId = clientId;
-            return o;
+            final var _resultValue = new GetKubernetesClusterServicePrincipal();
+            _resultValue.clientId = clientId;
+            return _resultValue;
         }
     }
 }

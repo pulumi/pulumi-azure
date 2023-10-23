@@ -46,9 +46,9 @@ public final class DataCollectionRuleDataSourcesLogFileSettingsText {
             return this;
         }
         public DataCollectionRuleDataSourcesLogFileSettingsText build() {
-            final var o = new DataCollectionRuleDataSourcesLogFileSettingsText();
-            o.recordStartTimestampFormat = recordStartTimestampFormat;
-            return o;
+            final var _resultValue = new DataCollectionRuleDataSourcesLogFileSettingsText();
+            _resultValue.recordStartTimestampFormat = recordStartTimestampFormat;
+            return _resultValue;
         }
     }
 }

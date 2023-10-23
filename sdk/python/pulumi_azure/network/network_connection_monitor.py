@@ -61,7 +61,17 @@ class NetworkConnectionMonitorArgs:
              notes: Optional[pulumi.Input[str]] = None,
              output_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkWatcherId' in kwargs:
+            network_watcher_id = kwargs['networkWatcherId']
+        if 'testConfigurations' in kwargs:
+            test_configurations = kwargs['testConfigurations']
+        if 'testGroups' in kwargs:
+            test_groups = kwargs['testGroups']
+        if 'outputWorkspaceResourceIds' in kwargs:
+            output_workspace_resource_ids = kwargs['outputWorkspaceResourceIds']
+
         _setter("endpoints", endpoints)
         _setter("network_watcher_id", network_watcher_id)
         _setter("test_configurations", test_configurations)
@@ -234,7 +244,17 @@ class _NetworkConnectionMonitorState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationArgs']]]] = None,
              test_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkConnectionMonitorTestGroupArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkWatcherId' in kwargs:
+            network_watcher_id = kwargs['networkWatcherId']
+        if 'outputWorkspaceResourceIds' in kwargs:
+            output_workspace_resource_ids = kwargs['outputWorkspaceResourceIds']
+        if 'testConfigurations' in kwargs:
+            test_configurations = kwargs['testConfigurations']
+        if 'testGroups' in kwargs:
+            test_groups = kwargs['testGroups']
+
         if endpoints is not None:
             _setter("endpoints", endpoints)
         if location is not None:

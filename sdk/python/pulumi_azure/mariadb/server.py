@@ -97,7 +97,37 @@ class ServerArgs:
              ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
              storage_mb: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'sslEnforcementEnabled' in kwargs:
+            ssl_enforcement_enabled = kwargs['sslEnforcementEnabled']
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'autoGrowEnabled' in kwargs:
+            auto_grow_enabled = kwargs['autoGrowEnabled']
+        if 'backupRetentionDays' in kwargs:
+            backup_retention_days = kwargs['backupRetentionDays']
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'creationSourceServerId' in kwargs:
+            creation_source_server_id = kwargs['creationSourceServerId']
+        if 'geoRedundantBackupEnabled' in kwargs:
+            geo_redundant_backup_enabled = kwargs['geoRedundantBackupEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'restorePointInTime' in kwargs:
+            restore_point_in_time = kwargs['restorePointInTime']
+        if 'sslMinimalTlsVersionEnforced' in kwargs:
+            ssl_minimal_tls_version_enforced = kwargs['sslMinimalTlsVersionEnforced']
+        if 'storageMb' in kwargs:
+            storage_mb = kwargs['storageMb']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
         _setter("ssl_enforcement_enabled", ssl_enforcement_enabled)
@@ -440,7 +470,37 @@ class _ServerState:
              storage_mb: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'autoGrowEnabled' in kwargs:
+            auto_grow_enabled = kwargs['autoGrowEnabled']
+        if 'backupRetentionDays' in kwargs:
+            backup_retention_days = kwargs['backupRetentionDays']
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'creationSourceServerId' in kwargs:
+            creation_source_server_id = kwargs['creationSourceServerId']
+        if 'geoRedundantBackupEnabled' in kwargs:
+            geo_redundant_backup_enabled = kwargs['geoRedundantBackupEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'restorePointInTime' in kwargs:
+            restore_point_in_time = kwargs['restorePointInTime']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'sslEnforcementEnabled' in kwargs:
+            ssl_enforcement_enabled = kwargs['sslEnforcementEnabled']
+        if 'sslMinimalTlsVersionEnforced' in kwargs:
+            ssl_minimal_tls_version_enforced = kwargs['sslMinimalTlsVersionEnforced']
+        if 'storageMb' in kwargs:
+            storage_mb = kwargs['storageMb']
+
         if administrator_login is not None:
             _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:

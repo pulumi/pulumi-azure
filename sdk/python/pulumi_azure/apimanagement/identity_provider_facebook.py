@@ -39,7 +39,17 @@ class IdentityProviderFacebookArgs:
              app_id: pulumi.Input[str],
              app_secret: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("api_management_name", api_management_name)
         _setter("app_id", app_id)
         _setter("app_secret", app_secret)
@@ -122,7 +132,17 @@ class _IdentityProviderFacebookState:
              app_id: Optional[pulumi.Input[str]] = None,
              app_secret: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appSecret' in kwargs:
+            app_secret = kwargs['appSecret']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if app_id is not None:

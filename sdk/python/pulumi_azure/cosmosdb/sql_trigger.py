@@ -43,7 +43,11 @@ class SqlTriggerArgs:
              operation: pulumi.Input[str],
              type: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerId' in kwargs:
+            container_id = kwargs['containerId']
+
         _setter("body", body)
         _setter("container_id", container_id)
         _setter("operation", operation)
@@ -144,7 +148,11 @@ class _SqlTriggerState:
              name: Optional[pulumi.Input[str]] = None,
              operation: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerId' in kwargs:
+            container_id = kwargs['containerId']
+
         if body is not None:
             _setter("body", body)
         if container_id is not None:

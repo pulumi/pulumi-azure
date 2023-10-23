@@ -51,7 +51,15 @@ class NamespaceArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceType' in kwargs:
+            namespace_type = kwargs['namespaceType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         _setter("namespace_type", namespace_type)
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -193,7 +201,17 @@ class _NamespaceState:
              servicebus_endpoint: Optional[pulumi.Input[str]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceType' in kwargs:
+            namespace_type = kwargs['namespaceType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'servicebusEndpoint' in kwargs:
+            servicebus_endpoint = kwargs['servicebusEndpoint']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if location is not None:

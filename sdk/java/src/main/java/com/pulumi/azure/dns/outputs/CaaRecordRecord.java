@@ -85,11 +85,11 @@ public final class CaaRecordRecord {
             return this;
         }
         public CaaRecordRecord build() {
-            final var o = new CaaRecordRecord();
-            o.flags = flags;
-            o.tag = tag;
-            o.value = value;
-            return o;
+            final var _resultValue = new CaaRecordRecord();
+            _resultValue.flags = flags;
+            _resultValue.tag = tag;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

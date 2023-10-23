@@ -65,10 +65,10 @@ public final class ProfileContainerNetworkInterfaceIpConfiguration {
             return this;
         }
         public ProfileContainerNetworkInterfaceIpConfiguration build() {
-            final var o = new ProfileContainerNetworkInterfaceIpConfiguration();
-            o.name = name;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new ProfileContainerNetworkInterfaceIpConfiguration();
+            _resultValue.name = name;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

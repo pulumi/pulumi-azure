@@ -105,12 +105,12 @@ public final class PrivateCloudCircuit {
             return this;
         }
         public PrivateCloudCircuit build() {
-            final var o = new PrivateCloudCircuit();
-            o.expressRouteId = expressRouteId;
-            o.expressRoutePrivatePeeringId = expressRoutePrivatePeeringId;
-            o.primarySubnetCidr = primarySubnetCidr;
-            o.secondarySubnetCidr = secondarySubnetCidr;
-            return o;
+            final var _resultValue = new PrivateCloudCircuit();
+            _resultValue.expressRouteId = expressRouteId;
+            _resultValue.expressRoutePrivatePeeringId = expressRoutePrivatePeeringId;
+            _resultValue.primarySubnetCidr = primarySubnetCidr;
+            _resultValue.secondarySubnetCidr = secondarySubnetCidr;
+            return _resultValue;
         }
     }
 }

@@ -50,9 +50,9 @@ public final class SqlContainerUniqueKey {
             return paths(List.of(paths));
         }
         public SqlContainerUniqueKey build() {
-            final var o = new SqlContainerUniqueKey();
-            o.paths = paths;
-            return o;
+            final var _resultValue = new SqlContainerUniqueKey();
+            _resultValue.paths = paths;
+            return _resultValue;
         }
     }
 }

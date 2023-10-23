@@ -82,7 +82,25 @@ class RunBookArgs:
              name: Optional[pulumi.Input[str]] = None,
              publish_content_link: Optional[pulumi.Input['RunBookPublishContentLinkArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'logProgress' in kwargs:
+            log_progress = kwargs['logProgress']
+        if 'logVerbose' in kwargs:
+            log_verbose = kwargs['logVerbose']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'runbookType' in kwargs:
+            runbook_type = kwargs['runbookType']
+        if 'jobSchedules' in kwargs:
+            job_schedules = kwargs['jobSchedules']
+        if 'logActivityTraceLevel' in kwargs:
+            log_activity_trace_level = kwargs['logActivityTraceLevel']
+        if 'publishContentLink' in kwargs:
+            publish_content_link = kwargs['publishContentLink']
+
         _setter("automation_account_name", automation_account_name)
         _setter("log_progress", log_progress)
         _setter("log_verbose", log_verbose)
@@ -344,7 +362,25 @@ class _RunBookState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              runbook_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'jobSchedules' in kwargs:
+            job_schedules = kwargs['jobSchedules']
+        if 'logActivityTraceLevel' in kwargs:
+            log_activity_trace_level = kwargs['logActivityTraceLevel']
+        if 'logProgress' in kwargs:
+            log_progress = kwargs['logProgress']
+        if 'logVerbose' in kwargs:
+            log_verbose = kwargs['logVerbose']
+        if 'publishContentLink' in kwargs:
+            publish_content_link = kwargs['publishContentLink']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'runbookType' in kwargs:
+            runbook_type = kwargs['runbookType']
+
         if automation_account_name is not None:
             _setter("automation_account_name", automation_account_name)
         if content is not None:

@@ -50,9 +50,9 @@ public final class PointToPointVpnGatewayConnectionConfigurationVpnClientAddress
             return addressPrefixes(List.of(addressPrefixes));
         }
         public PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool build() {
-            final var o = new PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool();
-            o.addressPrefixes = addressPrefixes;
-            return o;
+            final var _resultValue = new PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool();
+            _resultValue.addressPrefixes = addressPrefixes;
+            return _resultValue;
         }
     }
 }

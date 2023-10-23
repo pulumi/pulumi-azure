@@ -97,11 +97,11 @@ public final class AlertProcessingRuleActionGroupScheduleRecurrence {
             return weeklies(List.of(weeklies));
         }
         public AlertProcessingRuleActionGroupScheduleRecurrence build() {
-            final var o = new AlertProcessingRuleActionGroupScheduleRecurrence();
-            o.dailies = dailies;
-            o.monthlies = monthlies;
-            o.weeklies = weeklies;
-            return o;
+            final var _resultValue = new AlertProcessingRuleActionGroupScheduleRecurrence();
+            _resultValue.dailies = dailies;
+            _resultValue.monthlies = monthlies;
+            _resultValue.weeklies = weeklies;
+            return _resultValue;
         }
     }
 }

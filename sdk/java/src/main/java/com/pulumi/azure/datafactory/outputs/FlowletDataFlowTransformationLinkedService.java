@@ -67,10 +67,10 @@ public final class FlowletDataFlowTransformationLinkedService {
             return this;
         }
         public FlowletDataFlowTransformationLinkedService build() {
-            final var o = new FlowletDataFlowTransformationLinkedService();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new FlowletDataFlowTransformationLinkedService();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class VnpGatewayNatRuleInternalMapping {
             return this;
         }
         public VnpGatewayNatRuleInternalMapping build() {
-            final var o = new VnpGatewayNatRuleInternalMapping();
-            o.addressSpace = addressSpace;
-            o.portRange = portRange;
-            return o;
+            final var _resultValue = new VnpGatewayNatRuleInternalMapping();
+            _resultValue.addressSpace = addressSpace;
+            _resultValue.portRange = portRange;
+            return _resultValue;
         }
     }
 }

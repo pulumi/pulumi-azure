@@ -103,12 +103,12 @@ public final class WindowsVirtualMachineScaleSetSourceImageReference {
             return this;
         }
         public WindowsVirtualMachineScaleSetSourceImageReference build() {
-            final var o = new WindowsVirtualMachineScaleSetSourceImageReference();
-            o.offer = offer;
-            o.publisher = publisher;
-            o.sku = sku;
-            o.version = version;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetSourceImageReference();
+            _resultValue.offer = offer;
+            _resultValue.publisher = publisher;
+            _resultValue.sku = sku;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

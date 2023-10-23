@@ -106,12 +106,12 @@ public final class TransformOutputVideoAnalyzerPreset {
             return this;
         }
         public TransformOutputVideoAnalyzerPreset build() {
-            final var o = new TransformOutputVideoAnalyzerPreset();
-            o.audioAnalysisMode = audioAnalysisMode;
-            o.audioLanguage = audioLanguage;
-            o.experimentalOptions = experimentalOptions;
-            o.insightsType = insightsType;
-            return o;
+            final var _resultValue = new TransformOutputVideoAnalyzerPreset();
+            _resultValue.audioAnalysisMode = audioAnalysisMode;
+            _resultValue.audioLanguage = audioLanguage;
+            _resultValue.experimentalOptions = experimentalOptions;
+            _resultValue.insightsType = insightsType;
+            return _resultValue;
         }
     }
 }

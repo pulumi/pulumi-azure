@@ -86,11 +86,11 @@ public final class KafkaClusterRolesWorkerNodeScriptAction {
             return this;
         }
         public KafkaClusterRolesWorkerNodeScriptAction build() {
-            final var o = new KafkaClusterRolesWorkerNodeScriptAction();
-            o.name = name;
-            o.parameters = parameters;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new KafkaClusterRolesWorkerNodeScriptAction();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

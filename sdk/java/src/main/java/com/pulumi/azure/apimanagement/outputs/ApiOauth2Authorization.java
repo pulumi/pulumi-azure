@@ -67,10 +67,10 @@ public final class ApiOauth2Authorization {
             return this;
         }
         public ApiOauth2Authorization build() {
-            final var o = new ApiOauth2Authorization();
-            o.authorizationServerName = authorizationServerName;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new ApiOauth2Authorization();
+            _resultValue.authorizationServerName = authorizationServerName;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

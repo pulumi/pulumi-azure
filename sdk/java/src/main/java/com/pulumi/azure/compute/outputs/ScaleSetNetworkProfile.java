@@ -169,15 +169,15 @@ public final class ScaleSetNetworkProfile {
             return this;
         }
         public ScaleSetNetworkProfile build() {
-            final var o = new ScaleSetNetworkProfile();
-            o.acceleratedNetworking = acceleratedNetworking;
-            o.dnsSettings = dnsSettings;
-            o.ipConfigurations = ipConfigurations;
-            o.ipForwarding = ipForwarding;
-            o.name = name;
-            o.networkSecurityGroupId = networkSecurityGroupId;
-            o.primary = primary;
-            return o;
+            final var _resultValue = new ScaleSetNetworkProfile();
+            _resultValue.acceleratedNetworking = acceleratedNetworking;
+            _resultValue.dnsSettings = dnsSettings;
+            _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.ipForwarding = ipForwarding;
+            _resultValue.name = name;
+            _resultValue.networkSecurityGroupId = networkSecurityGroupId;
+            _resultValue.primary = primary;
+            return _resultValue;
         }
     }
 }

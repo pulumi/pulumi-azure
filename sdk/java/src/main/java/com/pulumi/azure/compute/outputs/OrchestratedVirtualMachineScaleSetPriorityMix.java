@@ -67,10 +67,10 @@ public final class OrchestratedVirtualMachineScaleSetPriorityMix {
             return this;
         }
         public OrchestratedVirtualMachineScaleSetPriorityMix build() {
-            final var o = new OrchestratedVirtualMachineScaleSetPriorityMix();
-            o.baseRegularCount = baseRegularCount;
-            o.regularPercentageAboveBase = regularPercentageAboveBase;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetPriorityMix();
+            _resultValue.baseRegularCount = baseRegularCount;
+            _resultValue.regularPercentageAboveBase = regularPercentageAboveBase;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class ModuleModuleLink {
             return this;
         }
         public ModuleModuleLink build() {
-            final var o = new ModuleModuleLink();
-            o.hash = hash;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new ModuleModuleLink();
+            _resultValue.hash = hash;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

@@ -237,20 +237,20 @@ public final class GetPolicyDefintionResult {
             return this;
         }
         public GetPolicyDefintionResult build() {
-            final var o = new GetPolicyDefintionResult();
-            o.description = description;
-            o.displayName = displayName;
-            o.id = id;
-            o.managementGroupName = managementGroupName;
-            o.metadata = metadata;
-            o.mode = mode;
-            o.name = name;
-            o.parameters = parameters;
-            o.policyRule = policyRule;
-            o.policyType = policyType;
-            o.roleDefinitionIds = roleDefinitionIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetPolicyDefintionResult();
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.managementGroupName = managementGroupName;
+            _resultValue.metadata = metadata;
+            _resultValue.mode = mode;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.policyRule = policyRule;
+            _resultValue.policyType = policyType;
+            _resultValue.roleDefinitionIds = roleDefinitionIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

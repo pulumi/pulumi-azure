@@ -50,9 +50,9 @@ public final class GremlinGraphIndexPolicyCompositeIndex {
             return indices(List.of(indices));
         }
         public GremlinGraphIndexPolicyCompositeIndex build() {
-            final var o = new GremlinGraphIndexPolicyCompositeIndex();
-            o.indices = indices;
-            return o;
+            final var _resultValue = new GremlinGraphIndexPolicyCompositeIndex();
+            _resultValue.indices = indices;
+            return _resultValue;
         }
     }
 }

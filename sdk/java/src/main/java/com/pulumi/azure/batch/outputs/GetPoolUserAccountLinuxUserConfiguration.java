@@ -85,11 +85,11 @@ public final class GetPoolUserAccountLinuxUserConfiguration {
             return this;
         }
         public GetPoolUserAccountLinuxUserConfiguration build() {
-            final var o = new GetPoolUserAccountLinuxUserConfiguration();
-            o.gid = gid;
-            o.sshPrivateKey = sshPrivateKey;
-            o.uid = uid;
-            return o;
+            final var _resultValue = new GetPoolUserAccountLinuxUserConfiguration();
+            _resultValue.gid = gid;
+            _resultValue.sshPrivateKey = sshPrivateKey;
+            _resultValue.uid = uid;
+            return _resultValue;
         }
     }
 }

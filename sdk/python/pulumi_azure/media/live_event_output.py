@@ -58,7 +58,23 @@ class LiveEventOutputArgs:
              name: Optional[pulumi.Input[str]] = None,
              output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None,
              rewind_window_duration: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveWindowDuration' in kwargs:
+            archive_window_duration = kwargs['archiveWindowDuration']
+        if 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if 'liveEventId' in kwargs:
+            live_event_id = kwargs['liveEventId']
+        if 'hlsFragmentsPerTsSegment' in kwargs:
+            hls_fragments_per_ts_segment = kwargs['hlsFragmentsPerTsSegment']
+        if 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if 'outputSnapTimeInSeconds' in kwargs:
+            output_snap_time_in_seconds = kwargs['outputSnapTimeInSeconds']
+        if 'rewindWindowDuration' in kwargs:
+            rewind_window_duration = kwargs['rewindWindowDuration']
+
         _setter("archive_window_duration", archive_window_duration)
         _setter("asset_name", asset_name)
         _setter("live_event_id", live_event_id)
@@ -228,7 +244,23 @@ class _LiveEventOutputState:
              name: Optional[pulumi.Input[str]] = None,
              output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None,
              rewind_window_duration: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveWindowDuration' in kwargs:
+            archive_window_duration = kwargs['archiveWindowDuration']
+        if 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if 'hlsFragmentsPerTsSegment' in kwargs:
+            hls_fragments_per_ts_segment = kwargs['hlsFragmentsPerTsSegment']
+        if 'liveEventId' in kwargs:
+            live_event_id = kwargs['liveEventId']
+        if 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if 'outputSnapTimeInSeconds' in kwargs:
+            output_snap_time_in_seconds = kwargs['outputSnapTimeInSeconds']
+        if 'rewindWindowDuration' in kwargs:
+            rewind_window_duration = kwargs['rewindWindowDuration']
+
         if archive_window_duration is not None:
             _setter("archive_window_duration", archive_window_duration)
         if asset_name is not None:

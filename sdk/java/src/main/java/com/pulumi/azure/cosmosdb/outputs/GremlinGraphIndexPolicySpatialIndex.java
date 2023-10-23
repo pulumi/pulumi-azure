@@ -62,10 +62,10 @@ public final class GremlinGraphIndexPolicySpatialIndex {
             return types(List.of(types));
         }
         public GremlinGraphIndexPolicySpatialIndex build() {
-            final var o = new GremlinGraphIndexPolicySpatialIndex();
-            o.path = path;
-            o.types = types;
-            return o;
+            final var _resultValue = new GremlinGraphIndexPolicySpatialIndex();
+            _resultValue.path = path;
+            _resultValue.types = types;
+            return _resultValue;
         }
     }
 }

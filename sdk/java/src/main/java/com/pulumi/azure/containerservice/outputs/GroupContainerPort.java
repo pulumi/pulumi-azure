@@ -72,10 +72,10 @@ public final class GroupContainerPort {
             return this;
         }
         public GroupContainerPort build() {
-            final var o = new GroupContainerPort();
-            o.port = port;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new GroupContainerPort();
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

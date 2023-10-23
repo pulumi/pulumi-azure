@@ -154,14 +154,14 @@ public final class GetDiagnosticCategoriesResult {
             return this;
         }
         public GetDiagnosticCategoriesResult build() {
-            final var o = new GetDiagnosticCategoriesResult();
-            o.id = id;
-            o.logCategoryGroups = logCategoryGroups;
-            o.logCategoryTypes = logCategoryTypes;
-            o.logs = logs;
-            o.metrics = metrics;
-            o.resourceId = resourceId;
-            return o;
+            final var _resultValue = new GetDiagnosticCategoriesResult();
+            _resultValue.id = id;
+            _resultValue.logCategoryGroups = logCategoryGroups;
+            _resultValue.logCategoryTypes = logCategoryTypes;
+            _resultValue.logs = logs;
+            _resultValue.metrics = metrics;
+            _resultValue.resourceId = resourceId;
+            return _resultValue;
         }
     }
 }

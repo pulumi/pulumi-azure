@@ -129,13 +129,13 @@ public final class FrontdoorBackendPool {
             return this;
         }
         public FrontdoorBackendPool build() {
-            final var o = new FrontdoorBackendPool();
-            o.backends = backends;
-            o.healthProbeName = healthProbeName;
-            o.id = id;
-            o.loadBalancingName = loadBalancingName;
-            o.name = name;
-            return o;
+            final var _resultValue = new FrontdoorBackendPool();
+            _resultValue.backends = backends;
+            _resultValue.healthProbeName = healthProbeName;
+            _resultValue.id = id;
+            _resultValue.loadBalancingName = loadBalancingName;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

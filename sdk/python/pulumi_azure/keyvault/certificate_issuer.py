@@ -53,7 +53,17 @@ class CertificateIssuerArgs:
              name: Optional[pulumi.Input[str]] = None,
              org_id: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'orgId' in kwargs:
+            org_id = kwargs['orgId']
+
         _setter("key_vault_id", key_vault_id)
         _setter("provider_name", provider_name)
         if account_id is not None:
@@ -192,7 +202,17 @@ class _CertificateIssuerState:
              org_id: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              provider_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'orgId' in kwargs:
+            org_id = kwargs['orgId']
+        if 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+
         if account_id is not None:
             _setter("account_id", account_id)
         if admins is not None:

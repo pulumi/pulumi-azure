@@ -45,7 +45,17 @@ class HubApnsCredentialArgs:
              key_id: pulumi.Input[str],
              team_id: pulumi.Input[str],
              token: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationMode' in kwargs:
+            application_mode = kwargs['applicationMode']
+        if 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         _setter("application_mode", application_mode)
         _setter("bundle_id", bundle_id)
         _setter("key_id", key_id)
@@ -128,7 +138,11 @@ class HubGcmCredentialArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              api_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+
         _setter("api_key", api_key)
 
     @property

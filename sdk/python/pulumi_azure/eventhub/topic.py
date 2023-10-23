@@ -80,7 +80,31 @@ class TopicArgs:
              requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
              status: Optional[pulumi.Input[str]] = None,
              support_ordering: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if 'autoDeleteOnIdle' in kwargs:
+            auto_delete_on_idle = kwargs['autoDeleteOnIdle']
+        if 'defaultMessageTtl' in kwargs:
+            default_message_ttl = kwargs['defaultMessageTtl']
+        if 'duplicateDetectionHistoryTimeWindow' in kwargs:
+            duplicate_detection_history_time_window = kwargs['duplicateDetectionHistoryTimeWindow']
+        if 'enableBatchedOperations' in kwargs:
+            enable_batched_operations = kwargs['enableBatchedOperations']
+        if 'enableExpress' in kwargs:
+            enable_express = kwargs['enableExpress']
+        if 'enablePartitioning' in kwargs:
+            enable_partitioning = kwargs['enablePartitioning']
+        if 'maxMessageSizeInKilobytes' in kwargs:
+            max_message_size_in_kilobytes = kwargs['maxMessageSizeInKilobytes']
+        if 'maxSizeInMegabytes' in kwargs:
+            max_size_in_megabytes = kwargs['maxSizeInMegabytes']
+        if 'requiresDuplicateDetection' in kwargs:
+            requires_duplicate_detection = kwargs['requiresDuplicateDetection']
+        if 'supportOrdering' in kwargs:
+            support_ordering = kwargs['supportOrdering']
+
         _setter("namespace_id", namespace_id)
         if auto_delete_on_idle is not None:
             _setter("auto_delete_on_idle", auto_delete_on_idle)
@@ -344,7 +368,35 @@ class _TopicState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              support_ordering: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoDeleteOnIdle' in kwargs:
+            auto_delete_on_idle = kwargs['autoDeleteOnIdle']
+        if 'defaultMessageTtl' in kwargs:
+            default_message_ttl = kwargs['defaultMessageTtl']
+        if 'duplicateDetectionHistoryTimeWindow' in kwargs:
+            duplicate_detection_history_time_window = kwargs['duplicateDetectionHistoryTimeWindow']
+        if 'enableBatchedOperations' in kwargs:
+            enable_batched_operations = kwargs['enableBatchedOperations']
+        if 'enableExpress' in kwargs:
+            enable_express = kwargs['enableExpress']
+        if 'enablePartitioning' in kwargs:
+            enable_partitioning = kwargs['enablePartitioning']
+        if 'maxMessageSizeInKilobytes' in kwargs:
+            max_message_size_in_kilobytes = kwargs['maxMessageSizeInKilobytes']
+        if 'maxSizeInMegabytes' in kwargs:
+            max_size_in_megabytes = kwargs['maxSizeInMegabytes']
+        if 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'requiresDuplicateDetection' in kwargs:
+            requires_duplicate_detection = kwargs['requiresDuplicateDetection']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'supportOrdering' in kwargs:
+            support_ordering = kwargs['supportOrdering']
+
         if auto_delete_on_idle is not None:
             _setter("auto_delete_on_idle", auto_delete_on_idle)
         if default_message_ttl is not None:

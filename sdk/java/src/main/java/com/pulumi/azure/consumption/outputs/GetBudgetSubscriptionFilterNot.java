@@ -73,10 +73,10 @@ public final class GetBudgetSubscriptionFilterNot {
             return tags(List.of(tags));
         }
         public GetBudgetSubscriptionFilterNot build() {
-            final var o = new GetBudgetSubscriptionFilterNot();
-            o.dimensions = dimensions;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetBudgetSubscriptionFilterNot();
+            _resultValue.dimensions = dimensions;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

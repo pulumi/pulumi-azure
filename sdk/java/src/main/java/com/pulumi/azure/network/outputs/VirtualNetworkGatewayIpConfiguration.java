@@ -105,12 +105,12 @@ public final class VirtualNetworkGatewayIpConfiguration {
             return this;
         }
         public VirtualNetworkGatewayIpConfiguration build() {
-            final var o = new VirtualNetworkGatewayIpConfiguration();
-            o.name = name;
-            o.privateIpAddressAllocation = privateIpAddressAllocation;
-            o.publicIpAddressId = publicIpAddressId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new VirtualNetworkGatewayIpConfiguration();
+            _resultValue.name = name;
+            _resultValue.privateIpAddressAllocation = privateIpAddressAllocation;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

@@ -35,7 +35,15 @@ class NetworkInterfaceNatRuleAssociationArgs:
              ip_configuration_name: pulumi.Input[str],
              nat_rule_id: pulumi.Input[str],
              network_interface_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfigurationName' in kwargs:
+            ip_configuration_name = kwargs['ipConfigurationName']
+        if 'natRuleId' in kwargs:
+            nat_rule_id = kwargs['natRuleId']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+
         _setter("ip_configuration_name", ip_configuration_name)
         _setter("nat_rule_id", nat_rule_id)
         _setter("network_interface_id", network_interface_id)
@@ -101,7 +109,15 @@ class _NetworkInterfaceNatRuleAssociationState:
              ip_configuration_name: Optional[pulumi.Input[str]] = None,
              nat_rule_id: Optional[pulumi.Input[str]] = None,
              network_interface_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfigurationName' in kwargs:
+            ip_configuration_name = kwargs['ipConfigurationName']
+        if 'natRuleId' in kwargs:
+            nat_rule_id = kwargs['natRuleId']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+
         if ip_configuration_name is not None:
             _setter("ip_configuration_name", ip_configuration_name)
         if nat_rule_id is not None:

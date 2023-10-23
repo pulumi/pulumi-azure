@@ -132,13 +132,13 @@ public final class DataCollectionRuleDataSourcesLogFile {
             return streams(List.of(streams));
         }
         public DataCollectionRuleDataSourcesLogFile build() {
-            final var o = new DataCollectionRuleDataSourcesLogFile();
-            o.filePatterns = filePatterns;
-            o.format = format;
-            o.name = name;
-            o.settings = settings;
-            o.streams = streams;
-            return o;
+            final var _resultValue = new DataCollectionRuleDataSourcesLogFile();
+            _resultValue.filePatterns = filePatterns;
+            _resultValue.format = format;
+            _resultValue.name = name;
+            _resultValue.settings = settings;
+            _resultValue.streams = streams;
+            return _resultValue;
         }
     }
 }

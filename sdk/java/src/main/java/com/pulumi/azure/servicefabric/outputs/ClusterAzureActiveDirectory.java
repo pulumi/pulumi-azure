@@ -84,11 +84,11 @@ public final class ClusterAzureActiveDirectory {
             return this;
         }
         public ClusterAzureActiveDirectory build() {
-            final var o = new ClusterAzureActiveDirectory();
-            o.clientApplicationId = clientApplicationId;
-            o.clusterApplicationId = clusterApplicationId;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new ClusterAzureActiveDirectory();
+            _resultValue.clientApplicationId = clientApplicationId;
+            _resultValue.clusterApplicationId = clusterApplicationId;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class ManagementPolicyRuleActionsVersion {
             return this;
         }
         public ManagementPolicyRuleActionsVersion build() {
-            final var o = new ManagementPolicyRuleActionsVersion();
-            o.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
-            o.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
-            o.deleteAfterDaysSinceCreation = deleteAfterDaysSinceCreation;
-            o.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
-            return o;
+            final var _resultValue = new ManagementPolicyRuleActionsVersion();
+            _resultValue.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
+            _resultValue.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
+            _resultValue.deleteAfterDaysSinceCreation = deleteAfterDaysSinceCreation;
+            _resultValue.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class BackupPolicyDiskRetentionRule {
             return this;
         }
         public BackupPolicyDiskRetentionRule build() {
-            final var o = new BackupPolicyDiskRetentionRule();
-            o.criteria = criteria;
-            o.duration = duration;
-            o.name = name;
-            o.priority = priority;
-            return o;
+            final var _resultValue = new BackupPolicyDiskRetentionRule();
+            _resultValue.criteria = criteria;
+            _resultValue.duration = duration;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            return _resultValue;
         }
     }
 }

@@ -45,7 +45,17 @@ class RoleAssignmentArgs:
              role_name: pulumi.Input[str],
              synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'synapseSparkPoolId' in kwargs:
+            synapse_spark_pool_id = kwargs['synapseSparkPoolId']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+
         _setter("principal_id", principal_id)
         _setter("role_name", role_name)
         if synapse_spark_pool_id is not None:
@@ -142,7 +152,17 @@ class _RoleAssignmentState:
              role_name: Optional[pulumi.Input[str]] = None,
              synapse_spark_pool_id: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if 'synapseSparkPoolId' in kwargs:
+            synapse_spark_pool_id = kwargs['synapseSparkPoolId']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+
         if principal_id is not None:
             _setter("principal_id", principal_id)
         if role_name is not None:

@@ -65,10 +65,10 @@ public final class IntegrationRuntimeManagedCustomSetupScript {
             return this;
         }
         public IntegrationRuntimeManagedCustomSetupScript build() {
-            final var o = new IntegrationRuntimeManagedCustomSetupScript();
-            o.blobContainerUri = blobContainerUri;
-            o.sasToken = sasToken;
-            return o;
+            final var _resultValue = new IntegrationRuntimeManagedCustomSetupScript();
+            _resultValue.blobContainerUri = blobContainerUri;
+            _resultValue.sasToken = sasToken;
+            return _resultValue;
         }
     }
 }

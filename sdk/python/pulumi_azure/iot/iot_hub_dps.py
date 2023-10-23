@@ -65,7 +65,21 @@ class IotHubDpsArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allocationPolicy' in kwargs:
+            allocation_policy = kwargs['allocationPolicy']
+        if 'dataResidencyEnabled' in kwargs:
+            data_residency_enabled = kwargs['dataResidencyEnabled']
+        if 'ipFilterRules' in kwargs:
+            ip_filter_rules = kwargs['ipFilterRules']
+        if 'linkedHubs' in kwargs:
+            linked_hubs = kwargs['linkedHubs']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
         if allocation_policy is not None:
@@ -270,7 +284,27 @@ class _IotHubDpsState:
              service_operations_host_name: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input['IotHubDpsSkuArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationPolicy' in kwargs:
+            allocation_policy = kwargs['allocationPolicy']
+        if 'dataResidencyEnabled' in kwargs:
+            data_residency_enabled = kwargs['dataResidencyEnabled']
+        if 'deviceProvisioningHostName' in kwargs:
+            device_provisioning_host_name = kwargs['deviceProvisioningHostName']
+        if 'idScope' in kwargs:
+            id_scope = kwargs['idScope']
+        if 'ipFilterRules' in kwargs:
+            ip_filter_rules = kwargs['ipFilterRules']
+        if 'linkedHubs' in kwargs:
+            linked_hubs = kwargs['linkedHubs']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceOperationsHostName' in kwargs:
+            service_operations_host_name = kwargs['serviceOperationsHostName']
+
         if allocation_policy is not None:
             _setter("allocation_policy", allocation_policy)
         if data_residency_enabled is not None:

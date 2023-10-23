@@ -105,7 +105,39 @@ class DatabaseArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'elasticPoolName' in kwargs:
+            elastic_pool_name = kwargs['elasticPoolName']
+        if 'import' in kwargs:
+            import_ = kwargs['import']
+        if 'maxSizeBytes' in kwargs:
+            max_size_bytes = kwargs['maxSizeBytes']
+        if 'maxSizeGb' in kwargs:
+            max_size_gb = kwargs['maxSizeGb']
+        if 'readScale' in kwargs:
+            read_scale = kwargs['readScale']
+        if 'requestedServiceObjectiveId' in kwargs:
+            requested_service_objective_id = kwargs['requestedServiceObjectiveId']
+        if 'requestedServiceObjectiveName' in kwargs:
+            requested_service_objective_name = kwargs['requestedServiceObjectiveName']
+        if 'restorePointInTime' in kwargs:
+            restore_point_in_time = kwargs['restorePointInTime']
+        if 'sourceDatabaseDeletionDate' in kwargs:
+            source_database_deletion_date = kwargs['sourceDatabaseDeletionDate']
+        if 'sourceDatabaseId' in kwargs:
+            source_database_id = kwargs['sourceDatabaseId']
+        if 'threatDetectionPolicy' in kwargs:
+            threat_detection_policy = kwargs['threatDetectionPolicy']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         _setter("resource_group_name", resource_group_name)
         _setter("server_name", server_name)
         if collation is not None:
@@ -487,7 +519,43 @@ class _DatabaseState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'creationDate' in kwargs:
+            creation_date = kwargs['creationDate']
+        if 'defaultSecondaryLocation' in kwargs:
+            default_secondary_location = kwargs['defaultSecondaryLocation']
+        if 'elasticPoolName' in kwargs:
+            elastic_pool_name = kwargs['elasticPoolName']
+        if 'import' in kwargs:
+            import_ = kwargs['import']
+        if 'maxSizeBytes' in kwargs:
+            max_size_bytes = kwargs['maxSizeBytes']
+        if 'maxSizeGb' in kwargs:
+            max_size_gb = kwargs['maxSizeGb']
+        if 'readScale' in kwargs:
+            read_scale = kwargs['readScale']
+        if 'requestedServiceObjectiveId' in kwargs:
+            requested_service_objective_id = kwargs['requestedServiceObjectiveId']
+        if 'requestedServiceObjectiveName' in kwargs:
+            requested_service_objective_name = kwargs['requestedServiceObjectiveName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'restorePointInTime' in kwargs:
+            restore_point_in_time = kwargs['restorePointInTime']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'sourceDatabaseDeletionDate' in kwargs:
+            source_database_deletion_date = kwargs['sourceDatabaseDeletionDate']
+        if 'sourceDatabaseId' in kwargs:
+            source_database_id = kwargs['sourceDatabaseId']
+        if 'threatDetectionPolicy' in kwargs:
+            threat_detection_policy = kwargs['threatDetectionPolicy']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         if collation is not None:
             _setter("collation", collation)
         if create_mode is not None:

@@ -35,7 +35,13 @@ class AssignmentDedicatedHostArgs:
              dedicated_host_id: pulumi.Input[str],
              maintenance_configuration_id: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dedicatedHostId' in kwargs:
+            dedicated_host_id = kwargs['dedicatedHostId']
+        if 'maintenanceConfigurationId' in kwargs:
+            maintenance_configuration_id = kwargs['maintenanceConfigurationId']
+
         _setter("dedicated_host_id", dedicated_host_id)
         _setter("maintenance_configuration_id", maintenance_configuration_id)
         if location is not None:
@@ -102,7 +108,13 @@ class _AssignmentDedicatedHostState:
              dedicated_host_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dedicatedHostId' in kwargs:
+            dedicated_host_id = kwargs['dedicatedHostId']
+        if 'maintenanceConfigurationId' in kwargs:
+            maintenance_configuration_id = kwargs['maintenanceConfigurationId']
+
         if dedicated_host_id is not None:
             _setter("dedicated_host_id", dedicated_host_id)
         if location is not None:

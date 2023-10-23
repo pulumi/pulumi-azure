@@ -103,12 +103,12 @@ public final class WindowsVirtualMachineSourceImageReference {
             return this;
         }
         public WindowsVirtualMachineSourceImageReference build() {
-            final var o = new WindowsVirtualMachineSourceImageReference();
-            o.offer = offer;
-            o.publisher = publisher;
-            o.sku = sku;
-            o.version = version;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineSourceImageReference();
+            _resultValue.offer = offer;
+            _resultValue.publisher = publisher;
+            _resultValue.sku = sku;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

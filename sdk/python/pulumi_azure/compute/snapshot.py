@@ -73,7 +73,25 @@ class SnapshotArgs:
              source_uri: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'encryptionSettings' in kwargs:
+            encryption_settings = kwargs['encryptionSettings']
+        if 'incrementalEnabled' in kwargs:
+            incremental_enabled = kwargs['incrementalEnabled']
+        if 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+        if 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("create_option", create_option)
         _setter("resource_group_name", resource_group_name)
         if disk_size_gb is not None:
@@ -296,7 +314,27 @@ class _SnapshotState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if 'diskSizeGb' in kwargs:
+            disk_size_gb = kwargs['diskSizeGb']
+        if 'encryptionSettings' in kwargs:
+            encryption_settings = kwargs['encryptionSettings']
+        if 'incrementalEnabled' in kwargs:
+            incremental_enabled = kwargs['incrementalEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+        if 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'trustedLaunchEnabled' in kwargs:
+            trusted_launch_enabled = kwargs['trustedLaunchEnabled']
+
         if create_option is not None:
             _setter("create_option", create_option)
         if disk_size_gb is not None:

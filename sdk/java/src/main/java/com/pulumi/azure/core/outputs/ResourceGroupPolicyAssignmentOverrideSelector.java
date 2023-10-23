@@ -93,11 +93,11 @@ public final class ResourceGroupPolicyAssignmentOverrideSelector {
             return notIns(List.of(notIns));
         }
         public ResourceGroupPolicyAssignmentOverrideSelector build() {
-            final var o = new ResourceGroupPolicyAssignmentOverrideSelector();
-            o.ins = ins;
-            o.kind = kind;
-            o.notIns = notIns;
-            return o;
+            final var _resultValue = new ResourceGroupPolicyAssignmentOverrideSelector();
+            _resultValue.ins = ins;
+            _resultValue.kind = kind;
+            _resultValue.notIns = notIns;
+            return _resultValue;
         }
     }
 }

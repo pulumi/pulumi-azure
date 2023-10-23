@@ -166,16 +166,16 @@ public final class GetDnsZoneResult {
             return this;
         }
         public GetDnsZoneResult build() {
-            final var o = new GetDnsZoneResult();
-            o.id = id;
-            o.maxNumberOfRecordSets = maxNumberOfRecordSets;
-            o.maxNumberOfVirtualNetworkLinks = maxNumberOfVirtualNetworkLinks;
-            o.maxNumberOfVirtualNetworkLinksWithRegistration = maxNumberOfVirtualNetworkLinksWithRegistration;
-            o.name = name;
-            o.numberOfRecordSets = numberOfRecordSets;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDnsZoneResult();
+            _resultValue.id = id;
+            _resultValue.maxNumberOfRecordSets = maxNumberOfRecordSets;
+            _resultValue.maxNumberOfVirtualNetworkLinks = maxNumberOfVirtualNetworkLinks;
+            _resultValue.maxNumberOfVirtualNetworkLinksWithRegistration = maxNumberOfVirtualNetworkLinksWithRegistration;
+            _resultValue.name = name;
+            _resultValue.numberOfRecordSets = numberOfRecordSets;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

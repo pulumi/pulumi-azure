@@ -77,7 +77,29 @@ class ManagedHardwareSecurityModuleArgs:
              security_domain_quorum: Optional[pulumi.Input[int]] = None,
              soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminObjectIds' in kwargs:
+            admin_object_ids = kwargs['adminObjectIds']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'networkAcls' in kwargs:
+            network_acls = kwargs['networkAcls']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'purgeProtectionEnabled' in kwargs:
+            purge_protection_enabled = kwargs['purgeProtectionEnabled']
+        if 'securityDomainKeyVaultCertificateIds' in kwargs:
+            security_domain_key_vault_certificate_ids = kwargs['securityDomainKeyVaultCertificateIds']
+        if 'securityDomainQuorum' in kwargs:
+            security_domain_quorum = kwargs['securityDomainQuorum']
+        if 'softDeleteRetentionDays' in kwargs:
+            soft_delete_retention_days = kwargs['softDeleteRetentionDays']
+
         _setter("admin_object_ids", admin_object_ids)
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -330,7 +352,33 @@ class _ManagedHardwareSecurityModuleState:
              soft_delete_retention_days: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminObjectIds' in kwargs:
+            admin_object_ids = kwargs['adminObjectIds']
+        if 'hsmUri' in kwargs:
+            hsm_uri = kwargs['hsmUri']
+        if 'networkAcls' in kwargs:
+            network_acls = kwargs['networkAcls']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'purgeProtectionEnabled' in kwargs:
+            purge_protection_enabled = kwargs['purgeProtectionEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'securityDomainEncryptedData' in kwargs:
+            security_domain_encrypted_data = kwargs['securityDomainEncryptedData']
+        if 'securityDomainKeyVaultCertificateIds' in kwargs:
+            security_domain_key_vault_certificate_ids = kwargs['securityDomainKeyVaultCertificateIds']
+        if 'securityDomainQuorum' in kwargs:
+            security_domain_quorum = kwargs['securityDomainQuorum']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'softDeleteRetentionDays' in kwargs:
+            soft_delete_retention_days = kwargs['softDeleteRetentionDays']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if admin_object_ids is not None:
             _setter("admin_object_ids", admin_object_ids)
         if hsm_uri is not None:

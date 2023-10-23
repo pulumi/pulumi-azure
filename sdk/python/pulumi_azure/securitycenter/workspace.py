@@ -31,7 +31,11 @@ class WorkspaceArgs:
              _setter: Callable[[Any, Any], None],
              scope: pulumi.Input[str],
              workspace_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         _setter("scope", scope)
         _setter("workspace_id", workspace_id)
 
@@ -80,7 +84,11 @@ class _WorkspaceState:
              _setter: Callable[[Any, Any], None],
              scope: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if scope is not None:
             _setter("scope", scope)
         if workspace_id is not None:

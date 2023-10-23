@@ -46,9 +46,9 @@ public final class GetCertificateCertificatePolicyIssuerParameter {
             return this;
         }
         public GetCertificateCertificatePolicyIssuerParameter build() {
-            final var o = new GetCertificateCertificatePolicyIssuerParameter();
-            o.name = name;
-            return o;
+            final var _resultValue = new GetCertificateCertificatePolicyIssuerParameter();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

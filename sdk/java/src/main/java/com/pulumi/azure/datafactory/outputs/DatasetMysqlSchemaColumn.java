@@ -86,11 +86,11 @@ public final class DatasetMysqlSchemaColumn {
             return this;
         }
         public DatasetMysqlSchemaColumn build() {
-            final var o = new DatasetMysqlSchemaColumn();
-            o.description = description;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DatasetMysqlSchemaColumn();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

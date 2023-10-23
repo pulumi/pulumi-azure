@@ -87,11 +87,11 @@ public final class RunBookDraftContentLink {
             return this;
         }
         public RunBookDraftContentLink build() {
-            final var o = new RunBookDraftContentLink();
-            o.hash = hash;
-            o.uri = uri;
-            o.version = version;
-            return o;
+            final var _resultValue = new RunBookDraftContentLink();
+            _resultValue.hash = hash;
+            _resultValue.uri = uri;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

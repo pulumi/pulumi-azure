@@ -71,10 +71,10 @@ public final class CacheDns {
             return servers(List.of(servers));
         }
         public CacheDns build() {
-            final var o = new CacheDns();
-            o.searchDomain = searchDomain;
-            o.servers = servers;
-            return o;
+            final var _resultValue = new CacheDns();
+            _resultValue.searchDomain = searchDomain;
+            _resultValue.servers = servers;
+            return _resultValue;
         }
     }
 }

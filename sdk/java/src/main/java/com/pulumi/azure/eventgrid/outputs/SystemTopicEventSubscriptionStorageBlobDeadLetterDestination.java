@@ -65,10 +65,10 @@ public final class SystemTopicEventSubscriptionStorageBlobDeadLetterDestination 
             return this;
         }
         public SystemTopicEventSubscriptionStorageBlobDeadLetterDestination build() {
-            final var o = new SystemTopicEventSubscriptionStorageBlobDeadLetterDestination();
-            o.storageAccountId = storageAccountId;
-            o.storageBlobContainerName = storageBlobContainerName;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionStorageBlobDeadLetterDestination();
+            _resultValue.storageAccountId = storageAccountId;
+            _resultValue.storageBlobContainerName = storageBlobContainerName;
+            return _resultValue;
         }
     }
 }

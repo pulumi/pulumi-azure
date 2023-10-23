@@ -86,11 +86,11 @@ public final class ClusterUpgradePolicyDeltaHealthPolicy {
             return this;
         }
         public ClusterUpgradePolicyDeltaHealthPolicy build() {
-            final var o = new ClusterUpgradePolicyDeltaHealthPolicy();
-            o.maxDeltaUnhealthyApplicationsPercent = maxDeltaUnhealthyApplicationsPercent;
-            o.maxDeltaUnhealthyNodesPercent = maxDeltaUnhealthyNodesPercent;
-            o.maxUpgradeDomainDeltaUnhealthyNodesPercent = maxUpgradeDomainDeltaUnhealthyNodesPercent;
-            return o;
+            final var _resultValue = new ClusterUpgradePolicyDeltaHealthPolicy();
+            _resultValue.maxDeltaUnhealthyApplicationsPercent = maxDeltaUnhealthyApplicationsPercent;
+            _resultValue.maxDeltaUnhealthyNodesPercent = maxDeltaUnhealthyNodesPercent;
+            _resultValue.maxUpgradeDomainDeltaUnhealthyNodesPercent = maxUpgradeDomainDeltaUnhealthyNodesPercent;
+            return _resultValue;
         }
     }
 }

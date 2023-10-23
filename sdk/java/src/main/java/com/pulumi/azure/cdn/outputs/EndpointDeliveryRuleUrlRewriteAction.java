@@ -87,11 +87,11 @@ public final class EndpointDeliveryRuleUrlRewriteAction {
             return this;
         }
         public EndpointDeliveryRuleUrlRewriteAction build() {
-            final var o = new EndpointDeliveryRuleUrlRewriteAction();
-            o.destination = destination;
-            o.preserveUnmatchedPath = preserveUnmatchedPath;
-            o.sourcePattern = sourcePattern;
-            return o;
+            final var _resultValue = new EndpointDeliveryRuleUrlRewriteAction();
+            _resultValue.destination = destination;
+            _resultValue.preserveUnmatchedPath = preserveUnmatchedPath;
+            _resultValue.sourcePattern = sourcePattern;
+            return _resultValue;
         }
     }
 }

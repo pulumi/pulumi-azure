@@ -66,10 +66,10 @@ public final class NetworkWatcherFlowLogRetentionPolicy {
             return this;
         }
         public NetworkWatcherFlowLogRetentionPolicy build() {
-            final var o = new NetworkWatcherFlowLogRetentionPolicy();
-            o.days = days;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new NetworkWatcherFlowLogRetentionPolicy();
+            _resultValue.days = days;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

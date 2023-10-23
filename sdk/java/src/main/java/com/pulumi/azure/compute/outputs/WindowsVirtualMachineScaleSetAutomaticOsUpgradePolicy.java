@@ -65,10 +65,10 @@ public final class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
             return this;
         }
         public WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy build() {
-            final var o = new WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy();
-            o.disableAutomaticRollback = disableAutomaticRollback;
-            o.enableAutomaticOsUpgrade = enableAutomaticOsUpgrade;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy();
+            _resultValue.disableAutomaticRollback = disableAutomaticRollback;
+            _resultValue.enableAutomaticOsUpgrade = enableAutomaticOsUpgrade;
+            return _resultValue;
         }
     }
 }

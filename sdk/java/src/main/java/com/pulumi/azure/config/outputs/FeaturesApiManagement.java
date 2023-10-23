@@ -51,10 +51,10 @@ public final class FeaturesApiManagement {
             return this;
         }
         public FeaturesApiManagement build() {
-            final var o = new FeaturesApiManagement();
-            o.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
-            o.recoverSoftDeleted = recoverSoftDeleted;
-            return o;
+            final var _resultValue = new FeaturesApiManagement();
+            _resultValue.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
+            _resultValue.recoverSoftDeleted = recoverSoftDeleted;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class ExtensionProtectedSettingsFromKeyVault {
             return this;
         }
         public ExtensionProtectedSettingsFromKeyVault build() {
-            final var o = new ExtensionProtectedSettingsFromKeyVault();
-            o.secretUrl = secretUrl;
-            o.sourceVaultId = sourceVaultId;
-            return o;
+            final var _resultValue = new ExtensionProtectedSettingsFromKeyVault();
+            _resultValue.secretUrl = secretUrl;
+            _resultValue.sourceVaultId = sourceVaultId;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
             return this;
         }
         public StreamingPolicyCommonEncryptionCbcsDefaultContentKey build() {
-            final var o = new StreamingPolicyCommonEncryptionCbcsDefaultContentKey();
-            o.label = label;
-            o.policyName = policyName;
-            return o;
+            final var _resultValue = new StreamingPolicyCommonEncryptionCbcsDefaultContentKey();
+            _resultValue.label = label;
+            _resultValue.policyName = policyName;
+            return _resultValue;
         }
     }
 }

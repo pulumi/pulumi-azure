@@ -410,29 +410,29 @@ public final class GetManagedInstanceResult {
             return this;
         }
         public GetManagedInstanceResult build() {
-            final var o = new GetManagedInstanceResult();
-            o.administratorLogin = administratorLogin;
-            o.collation = collation;
-            o.customerManagedKeyId = customerManagedKeyId;
-            o.dnsZonePartnerId = dnsZonePartnerId;
-            o.fqdn = fqdn;
-            o.id = id;
-            o.identities = identities;
-            o.licenseType = licenseType;
-            o.location = location;
-            o.minimumTlsVersion = minimumTlsVersion;
-            o.name = name;
-            o.proxyOverride = proxyOverride;
-            o.publicDataEndpointEnabled = publicDataEndpointEnabled;
-            o.resourceGroupName = resourceGroupName;
-            o.skuName = skuName;
-            o.storageAccountType = storageAccountType;
-            o.storageSizeInGb = storageSizeInGb;
-            o.subnetId = subnetId;
-            o.tags = tags;
-            o.timezoneId = timezoneId;
-            o.vcores = vcores;
-            return o;
+            final var _resultValue = new GetManagedInstanceResult();
+            _resultValue.administratorLogin = administratorLogin;
+            _resultValue.collation = collation;
+            _resultValue.customerManagedKeyId = customerManagedKeyId;
+            _resultValue.dnsZonePartnerId = dnsZonePartnerId;
+            _resultValue.fqdn = fqdn;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.licenseType = licenseType;
+            _resultValue.location = location;
+            _resultValue.minimumTlsVersion = minimumTlsVersion;
+            _resultValue.name = name;
+            _resultValue.proxyOverride = proxyOverride;
+            _resultValue.publicDataEndpointEnabled = publicDataEndpointEnabled;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.skuName = skuName;
+            _resultValue.storageAccountType = storageAccountType;
+            _resultValue.storageSizeInGb = storageSizeInGb;
+            _resultValue.subnetId = subnetId;
+            _resultValue.tags = tags;
+            _resultValue.timezoneId = timezoneId;
+            _resultValue.vcores = vcores;
+            return _resultValue;
         }
     }
 }

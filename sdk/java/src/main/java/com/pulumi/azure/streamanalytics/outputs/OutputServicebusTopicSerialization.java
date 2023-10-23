@@ -117,12 +117,12 @@ public final class OutputServicebusTopicSerialization {
             return this;
         }
         public OutputServicebusTopicSerialization build() {
-            final var o = new OutputServicebusTopicSerialization();
-            o.encoding = encoding;
-            o.fieldDelimiter = fieldDelimiter;
-            o.format = format;
-            o.type = type;
-            return o;
+            final var _resultValue = new OutputServicebusTopicSerialization();
+            _resultValue.encoding = encoding;
+            _resultValue.fieldDelimiter = fieldDelimiter;
+            _resultValue.format = format;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

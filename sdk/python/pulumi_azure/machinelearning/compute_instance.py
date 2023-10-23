@@ -77,7 +77,23 @@ class ComputeInstanceArgs:
              ssh: Optional[pulumi.Input['ComputeInstanceSshArgs']] = None,
              subnet_resource_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'machineLearningWorkspaceId' in kwargs:
+            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
+        if 'virtualMachineSize' in kwargs:
+            virtual_machine_size = kwargs['virtualMachineSize']
+        if 'assignToUser' in kwargs:
+            assign_to_user = kwargs['assignToUser']
+        if 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'nodePublicIpEnabled' in kwargs:
+            node_public_ip_enabled = kwargs['nodePublicIpEnabled']
+        if 'subnetResourceId' in kwargs:
+            subnet_resource_id = kwargs['subnetResourceId']
+
         _setter("machine_learning_workspace_id", machine_learning_workspace_id)
         _setter("virtual_machine_size", virtual_machine_size)
         if assign_to_user is not None:
@@ -324,7 +340,23 @@ class _ComputeInstanceState:
              subnet_resource_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_machine_size: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assignToUser' in kwargs:
+            assign_to_user = kwargs['assignToUser']
+        if 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'machineLearningWorkspaceId' in kwargs:
+            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
+        if 'nodePublicIpEnabled' in kwargs:
+            node_public_ip_enabled = kwargs['nodePublicIpEnabled']
+        if 'subnetResourceId' in kwargs:
+            subnet_resource_id = kwargs['subnetResourceId']
+        if 'virtualMachineSize' in kwargs:
+            virtual_machine_size = kwargs['virtualMachineSize']
+
         if assign_to_user is not None:
             _setter("assign_to_user", assign_to_user)
         if authorization_type is not None:

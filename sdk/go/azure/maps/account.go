@@ -76,6 +76,8 @@ type Account struct {
 	// The secondary key used to authenticate and authorize access to the Maps REST APIs.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
 	// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags to assign to the Azure Maps Account.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -135,6 +137,8 @@ type accountState struct {
 	// The secondary key used to authenticate and authorize access to the Maps REST APIs.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
 	// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags to assign to the Azure Maps Account.
 	Tags map[string]string `pulumi:"tags"`
@@ -154,6 +158,8 @@ type AccountState struct {
 	// The secondary key used to authenticate and authorize access to the Maps REST APIs.
 	SecondaryAccessKey pulumi.StringPtrInput
 	// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags to assign to the Azure Maps Account.
 	Tags pulumi.StringMapInput
@@ -173,6 +179,8 @@ type accountArgs struct {
 	// The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags to assign to the Azure Maps Account.
 	Tags map[string]string `pulumi:"tags"`
@@ -187,6 +195,8 @@ type AccountArgs struct {
 	// The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
 	SkuName pulumi.StringInput
 	// A mapping of tags to assign to the Azure Maps Account.
 	Tags pulumi.StringMapInput
@@ -329,6 +339,8 @@ func (o AccountOutput) SecondaryAccessKey() pulumi.StringOutput {
 }
 
 // The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+//
+// > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
 func (o AccountOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

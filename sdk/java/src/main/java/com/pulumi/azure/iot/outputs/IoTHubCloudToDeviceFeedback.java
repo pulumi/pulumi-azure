@@ -87,11 +87,11 @@ public final class IoTHubCloudToDeviceFeedback {
             return this;
         }
         public IoTHubCloudToDeviceFeedback build() {
-            final var o = new IoTHubCloudToDeviceFeedback();
-            o.lockDuration = lockDuration;
-            o.maxDeliveryCount = maxDeliveryCount;
-            o.timeToLive = timeToLive;
-            return o;
+            final var _resultValue = new IoTHubCloudToDeviceFeedback();
+            _resultValue.lockDuration = lockDuration;
+            _resultValue.maxDeliveryCount = maxDeliveryCount;
+            _resultValue.timeToLive = timeToLive;
+            return _resultValue;
         }
     }
 }

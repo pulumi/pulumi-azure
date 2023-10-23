@@ -87,11 +87,11 @@ public final class OrderShipmentHistory {
             return this;
         }
         public OrderShipmentHistory build() {
-            final var o = new OrderShipmentHistory();
-            o.additionalDetails = additionalDetails;
-            o.comments = comments;
-            o.lastUpdate = lastUpdate;
-            return o;
+            final var _resultValue = new OrderShipmentHistory();
+            _resultValue.additionalDetails = additionalDetails;
+            _resultValue.comments = comments;
+            _resultValue.lastUpdate = lastUpdate;
+            return _resultValue;
         }
     }
 }

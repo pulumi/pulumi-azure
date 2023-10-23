@@ -106,12 +106,12 @@ public final class PoolDataDisk {
             return this;
         }
         public PoolDataDisk build() {
-            final var o = new PoolDataDisk();
-            o.caching = caching;
-            o.diskSizeGb = diskSizeGb;
-            o.lun = lun;
-            o.storageAccountType = storageAccountType;
-            return o;
+            final var _resultValue = new PoolDataDisk();
+            _resultValue.caching = caching;
+            _resultValue.diskSizeGb = diskSizeGb;
+            _resultValue.lun = lun;
+            _resultValue.storageAccountType = storageAccountType;
+            return _resultValue;
         }
     }
 }

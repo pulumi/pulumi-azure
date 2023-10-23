@@ -476,32 +476,32 @@ public final class GetAccountResult {
             return writeEndpoints(List.of(writeEndpoints));
         }
         public GetAccountResult build() {
-            final var o = new GetAccountResult();
-            o.capabilities = capabilities;
-            o.consistencyPolicies = consistencyPolicies;
-            o.enableAutomaticFailover = enableAutomaticFailover;
-            o.enableFreeTier = enableFreeTier;
-            o.enableMultipleWriteLocations = enableMultipleWriteLocations;
-            o.endpoint = endpoint;
-            o.geoLocations = geoLocations;
-            o.id = id;
-            o.ipRangeFilter = ipRangeFilter;
-            o.isVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
-            o.keyVaultKeyId = keyVaultKeyId;
-            o.kind = kind;
-            o.location = location;
-            o.name = name;
-            o.offerType = offerType;
-            o.primaryKey = primaryKey;
-            o.primaryReadonlyKey = primaryReadonlyKey;
-            o.readEndpoints = readEndpoints;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryKey = secondaryKey;
-            o.secondaryReadonlyKey = secondaryReadonlyKey;
-            o.tags = tags;
-            o.virtualNetworkRules = virtualNetworkRules;
-            o.writeEndpoints = writeEndpoints;
-            return o;
+            final var _resultValue = new GetAccountResult();
+            _resultValue.capabilities = capabilities;
+            _resultValue.consistencyPolicies = consistencyPolicies;
+            _resultValue.enableAutomaticFailover = enableAutomaticFailover;
+            _resultValue.enableFreeTier = enableFreeTier;
+            _resultValue.enableMultipleWriteLocations = enableMultipleWriteLocations;
+            _resultValue.endpoint = endpoint;
+            _resultValue.geoLocations = geoLocations;
+            _resultValue.id = id;
+            _resultValue.ipRangeFilter = ipRangeFilter;
+            _resultValue.isVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
+            _resultValue.keyVaultKeyId = keyVaultKeyId;
+            _resultValue.kind = kind;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.offerType = offerType;
+            _resultValue.primaryKey = primaryKey;
+            _resultValue.primaryReadonlyKey = primaryReadonlyKey;
+            _resultValue.readEndpoints = readEndpoints;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryKey = secondaryKey;
+            _resultValue.secondaryReadonlyKey = secondaryReadonlyKey;
+            _resultValue.tags = tags;
+            _resultValue.virtualNetworkRules = virtualNetworkRules;
+            _resultValue.writeEndpoints = writeEndpoints;
+            return _resultValue;
         }
     }
 }

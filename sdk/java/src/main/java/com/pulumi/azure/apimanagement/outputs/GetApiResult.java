@@ -327,25 +327,25 @@ public final class GetApiResult {
             return this;
         }
         public GetApiResult build() {
-            final var o = new GetApiResult();
-            o.apiManagementName = apiManagementName;
-            o.description = description;
-            o.displayName = displayName;
-            o.id = id;
-            o.isCurrent = isCurrent;
-            o.isOnline = isOnline;
-            o.name = name;
-            o.path = path;
-            o.protocols = protocols;
-            o.resourceGroupName = resourceGroupName;
-            o.revision = revision;
-            o.serviceUrl = serviceUrl;
-            o.soapPassThrough = soapPassThrough;
-            o.subscriptionKeyParameterNames = subscriptionKeyParameterNames;
-            o.subscriptionRequired = subscriptionRequired;
-            o.version = version;
-            o.versionSetId = versionSetId;
-            return o;
+            final var _resultValue = new GetApiResult();
+            _resultValue.apiManagementName = apiManagementName;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.isCurrent = isCurrent;
+            _resultValue.isOnline = isOnline;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.protocols = protocols;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.revision = revision;
+            _resultValue.serviceUrl = serviceUrl;
+            _resultValue.soapPassThrough = soapPassThrough;
+            _resultValue.subscriptionKeyParameterNames = subscriptionKeyParameterNames;
+            _resultValue.subscriptionRequired = subscriptionRequired;
+            _resultValue.version = version;
+            _resultValue.versionSetId = versionSetId;
+            return _resultValue;
         }
     }
 }

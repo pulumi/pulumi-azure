@@ -73,7 +73,25 @@ class ScheduleArgs:
              status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              weekly_recurrence: Optional[pulumi.Input['ScheduleWeeklyRecurrenceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if 'notificationSettings' in kwargs:
+            notification_settings = kwargs['notificationSettings']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if 'timeZoneId' in kwargs:
+            time_zone_id = kwargs['timeZoneId']
+        if 'dailyRecurrence' in kwargs:
+            daily_recurrence = kwargs['dailyRecurrence']
+        if 'hourlyRecurrence' in kwargs:
+            hourly_recurrence = kwargs['hourlyRecurrence']
+        if 'weeklyRecurrence' in kwargs:
+            weekly_recurrence = kwargs['weeklyRecurrence']
+
         _setter("lab_name", lab_name)
         _setter("notification_settings", notification_settings)
         _setter("resource_group_name", resource_group_name)
@@ -299,7 +317,25 @@ class _ScheduleState:
              task_type: Optional[pulumi.Input[str]] = None,
              time_zone_id: Optional[pulumi.Input[str]] = None,
              weekly_recurrence: Optional[pulumi.Input['ScheduleWeeklyRecurrenceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dailyRecurrence' in kwargs:
+            daily_recurrence = kwargs['dailyRecurrence']
+        if 'hourlyRecurrence' in kwargs:
+            hourly_recurrence = kwargs['hourlyRecurrence']
+        if 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if 'notificationSettings' in kwargs:
+            notification_settings = kwargs['notificationSettings']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if 'timeZoneId' in kwargs:
+            time_zone_id = kwargs['timeZoneId']
+        if 'weeklyRecurrence' in kwargs:
+            weekly_recurrence = kwargs['weeklyRecurrence']
+
         if daily_recurrence is not None:
             _setter("daily_recurrence", daily_recurrence)
         if hourly_recurrence is not None:

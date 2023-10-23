@@ -145,14 +145,14 @@ public final class GetServiceReplicaSet {
             return this;
         }
         public GetServiceReplicaSet build() {
-            final var o = new GetServiceReplicaSet();
-            o.domainControllerIpAddresses = domainControllerIpAddresses;
-            o.externalAccessIpAddress = externalAccessIpAddress;
-            o.id = id;
-            o.location = location;
-            o.serviceStatus = serviceStatus;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetServiceReplicaSet();
+            _resultValue.domainControllerIpAddresses = domainControllerIpAddresses;
+            _resultValue.externalAccessIpAddress = externalAccessIpAddress;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.serviceStatus = serviceStatus;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

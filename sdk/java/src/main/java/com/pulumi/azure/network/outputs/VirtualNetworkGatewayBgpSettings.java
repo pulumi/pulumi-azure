@@ -91,11 +91,11 @@ public final class VirtualNetworkGatewayBgpSettings {
             return peeringAddresses(List.of(peeringAddresses));
         }
         public VirtualNetworkGatewayBgpSettings build() {
-            final var o = new VirtualNetworkGatewayBgpSettings();
-            o.asn = asn;
-            o.peerWeight = peerWeight;
-            o.peeringAddresses = peeringAddresses;
-            return o;
+            final var _resultValue = new VirtualNetworkGatewayBgpSettings();
+            _resultValue.asn = asn;
+            _resultValue.peerWeight = peerWeight;
+            _resultValue.peeringAddresses = peeringAddresses;
+            return _resultValue;
         }
     }
 }

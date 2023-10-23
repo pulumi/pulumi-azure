@@ -71,10 +71,10 @@ public final class ShareAcl {
             return this;
         }
         public ShareAcl build() {
-            final var o = new ShareAcl();
-            o.accessPolicies = accessPolicies;
-            o.id = id;
-            return o;
+            final var _resultValue = new ShareAcl();
+            _resultValue.accessPolicies = accessPolicies;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

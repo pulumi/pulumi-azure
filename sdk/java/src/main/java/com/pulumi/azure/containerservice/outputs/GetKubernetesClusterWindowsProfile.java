@@ -46,9 +46,9 @@ public final class GetKubernetesClusterWindowsProfile {
             return this;
         }
         public GetKubernetesClusterWindowsProfile build() {
-            final var o = new GetKubernetesClusterWindowsProfile();
-            o.adminUsername = adminUsername;
-            return o;
+            final var _resultValue = new GetKubernetesClusterWindowsProfile();
+            _resultValue.adminUsername = adminUsername;
+            return _resultValue;
         }
     }
 }

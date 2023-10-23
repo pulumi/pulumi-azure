@@ -55,7 +55,23 @@ class OutputFunctionArgs:
              batch_max_count: Optional[pulumi.Input[int]] = None,
              batch_max_in_bytes: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'functionApp' in kwargs:
+            function_app = kwargs['functionApp']
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if 'batchMaxCount' in kwargs:
+            batch_max_count = kwargs['batchMaxCount']
+        if 'batchMaxInBytes' in kwargs:
+            batch_max_in_bytes = kwargs['batchMaxInBytes']
+
         _setter("api_key", api_key)
         _setter("function_app", function_app)
         _setter("function_name", function_name)
@@ -209,7 +225,23 @@ class _OutputFunctionState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if 'batchMaxCount' in kwargs:
+            batch_max_count = kwargs['batchMaxCount']
+        if 'batchMaxInBytes' in kwargs:
+            batch_max_in_bytes = kwargs['batchMaxInBytes']
+        if 'functionApp' in kwargs:
+            function_app = kwargs['functionApp']
+        if 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+
         if api_key is not None:
             _setter("api_key", api_key)
         if batch_max_count is not None:

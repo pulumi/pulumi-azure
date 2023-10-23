@@ -331,25 +331,25 @@ public final class GetAppResult {
             return templates(List.of(templates));
         }
         public GetAppResult build() {
-            final var o = new GetAppResult();
-            o.containerAppEnvironmentId = containerAppEnvironmentId;
-            o.customDomainVerificationId = customDomainVerificationId;
-            o.daprs = daprs;
-            o.id = id;
-            o.identities = identities;
-            o.ingresses = ingresses;
-            o.latestRevisionFqdn = latestRevisionFqdn;
-            o.latestRevisionName = latestRevisionName;
-            o.location = location;
-            o.name = name;
-            o.outboundIpAddresses = outboundIpAddresses;
-            o.registries = registries;
-            o.resourceGroupName = resourceGroupName;
-            o.revisionMode = revisionMode;
-            o.secrets = secrets;
-            o.tags = tags;
-            o.templates = templates;
-            return o;
+            final var _resultValue = new GetAppResult();
+            _resultValue.containerAppEnvironmentId = containerAppEnvironmentId;
+            _resultValue.customDomainVerificationId = customDomainVerificationId;
+            _resultValue.daprs = daprs;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.ingresses = ingresses;
+            _resultValue.latestRevisionFqdn = latestRevisionFqdn;
+            _resultValue.latestRevisionName = latestRevisionName;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.outboundIpAddresses = outboundIpAddresses;
+            _resultValue.registries = registries;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.revisionMode = revisionMode;
+            _resultValue.secrets = secrets;
+            _resultValue.tags = tags;
+            _resultValue.templates = templates;
+            return _resultValue;
         }
     }
 }

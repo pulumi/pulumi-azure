@@ -131,14 +131,14 @@ public final class GetResolverInboundEndpointResult {
             return this;
         }
         public GetResolverInboundEndpointResult build() {
-            final var o = new GetResolverInboundEndpointResult();
-            o.id = id;
-            o.ipConfigurations = ipConfigurations;
-            o.location = location;
-            o.name = name;
-            o.privateDnsResolverId = privateDnsResolverId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetResolverInboundEndpointResult();
+            _resultValue.id = id;
+            _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.privateDnsResolverId = privateDnsResolverId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

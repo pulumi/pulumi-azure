@@ -149,15 +149,15 @@ public final class GetAlertRuleTemplateResult {
             return securityIncidentTemplates(List.of(securityIncidentTemplates));
         }
         public GetAlertRuleTemplateResult build() {
-            final var o = new GetAlertRuleTemplateResult();
-            o.displayName = displayName;
-            o.id = id;
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.name = name;
-            o.nrtTemplates = nrtTemplates;
-            o.scheduledTemplates = scheduledTemplates;
-            o.securityIncidentTemplates = securityIncidentTemplates;
-            return o;
+            final var _resultValue = new GetAlertRuleTemplateResult();
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.name = name;
+            _resultValue.nrtTemplates = nrtTemplates;
+            _resultValue.scheduledTemplates = scheduledTemplates;
+            _resultValue.securityIncidentTemplates = securityIncidentTemplates;
+            return _resultValue;
         }
     }
 }

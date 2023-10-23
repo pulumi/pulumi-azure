@@ -86,11 +86,11 @@ public final class AppTemplateVolume {
             return this;
         }
         public AppTemplateVolume build() {
-            final var o = new AppTemplateVolume();
-            o.name = name;
-            o.storageName = storageName;
-            o.storageType = storageType;
-            return o;
+            final var _resultValue = new AppTemplateVolume();
+            _resultValue.name = name;
+            _resultValue.storageName = storageName;
+            _resultValue.storageType = storageType;
+            return _resultValue;
         }
     }
 }

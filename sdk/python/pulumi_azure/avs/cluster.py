@@ -39,7 +39,15 @@ class ClusterArgs:
              sku_name: pulumi.Input[str],
              vmware_cloud_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterNodeCount' in kwargs:
+            cluster_node_count = kwargs['clusterNodeCount']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'vmwareCloudId' in kwargs:
+            vmware_cloud_id = kwargs['vmwareCloudId']
+
         _setter("cluster_node_count", cluster_node_count)
         _setter("sku_name", sku_name)
         _setter("vmware_cloud_id", vmware_cloud_id)
@@ -131,7 +139,17 @@ class _ClusterState:
              name: Optional[pulumi.Input[str]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              vmware_cloud_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterNodeCount' in kwargs:
+            cluster_node_count = kwargs['clusterNodeCount']
+        if 'clusterNumber' in kwargs:
+            cluster_number = kwargs['clusterNumber']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'vmwareCloudId' in kwargs:
+            vmware_cloud_id = kwargs['vmwareCloudId']
+
         if cluster_node_count is not None:
             _setter("cluster_node_count", cluster_node_count)
         if cluster_number is not None:

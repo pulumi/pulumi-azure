@@ -59,7 +59,19 @@ class ShareFileArgs:
              name: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageShareId' in kwargs:
+            storage_share_id = kwargs['storageShareId']
+        if 'contentDisposition' in kwargs:
+            content_disposition = kwargs['contentDisposition']
+        if 'contentEncoding' in kwargs:
+            content_encoding = kwargs['contentEncoding']
+        if 'contentMd5' in kwargs:
+            content_md5 = kwargs['contentMd5']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         _setter("storage_share_id", storage_share_id)
         if content_disposition is not None:
             _setter("content_disposition", content_disposition)
@@ -239,7 +251,21 @@ class _ShareFileState:
              path: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
              storage_share_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentDisposition' in kwargs:
+            content_disposition = kwargs['contentDisposition']
+        if 'contentEncoding' in kwargs:
+            content_encoding = kwargs['contentEncoding']
+        if 'contentLength' in kwargs:
+            content_length = kwargs['contentLength']
+        if 'contentMd5' in kwargs:
+            content_md5 = kwargs['contentMd5']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'storageShareId' in kwargs:
+            storage_share_id = kwargs['storageShareId']
+
         if content_disposition is not None:
             _setter("content_disposition", content_disposition)
         if content_encoding is not None:

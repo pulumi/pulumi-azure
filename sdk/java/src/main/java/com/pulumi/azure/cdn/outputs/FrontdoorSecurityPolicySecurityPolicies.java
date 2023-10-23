@@ -46,9 +46,9 @@ public final class FrontdoorSecurityPolicySecurityPolicies {
             return this;
         }
         public FrontdoorSecurityPolicySecurityPolicies build() {
-            final var o = new FrontdoorSecurityPolicySecurityPolicies();
-            o.firewall = firewall;
-            return o;
+            final var _resultValue = new FrontdoorSecurityPolicySecurityPolicies();
+            _resultValue.firewall = firewall;
+            return _resultValue;
         }
     }
 }

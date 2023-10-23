@@ -79,10 +79,10 @@ public final class ScaleSetOsProfileLinuxConfigSshKey {
             return this;
         }
         public ScaleSetOsProfileLinuxConfigSshKey build() {
-            final var o = new ScaleSetOsProfileLinuxConfigSshKey();
-            o.keyData = keyData;
-            o.path = path;
-            return o;
+            final var _resultValue = new ScaleSetOsProfileLinuxConfigSshKey();
+            _resultValue.keyData = keyData;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class SparkClusterRolesWorkerNodeAutoscale {
             return this;
         }
         public SparkClusterRolesWorkerNodeAutoscale build() {
-            final var o = new SparkClusterRolesWorkerNodeAutoscale();
-            o.capacity = capacity;
-            o.recurrence = recurrence;
-            return o;
+            final var _resultValue = new SparkClusterRolesWorkerNodeAutoscale();
+            _resultValue.capacity = capacity;
+            _resultValue.recurrence = recurrence;
+            return _resultValue;
         }
     }
 }

@@ -70,10 +70,10 @@ public final class GetShareAcl {
             return this;
         }
         public GetShareAcl build() {
-            final var o = new GetShareAcl();
-            o.accessPolicies = accessPolicies;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetShareAcl();
+            _resultValue.accessPolicies = accessPolicies;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

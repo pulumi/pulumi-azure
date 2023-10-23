@@ -122,14 +122,14 @@ public final class GetFrontdoorSecretResult {
             return secrets(List.of(secrets));
         }
         public GetFrontdoorSecretResult build() {
-            final var o = new GetFrontdoorSecretResult();
-            o.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
-            o.id = id;
-            o.name = name;
-            o.profileName = profileName;
-            o.resourceGroupName = resourceGroupName;
-            o.secrets = secrets;
-            return o;
+            final var _resultValue = new GetFrontdoorSecretResult();
+            _resultValue.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.profileName = profileName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secrets = secrets;
+            return _resultValue;
         }
     }
 }

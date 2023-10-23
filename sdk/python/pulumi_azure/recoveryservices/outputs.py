@@ -69,7 +69,17 @@ class VaultEncryption(dict):
              key_id: str,
              use_system_assigned_identity: Optional[bool] = None,
              user_assigned_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+        if 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if 'useSystemAssignedIdentity' in kwargs:
+            use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         _setter("key_id", key_id)
         if use_system_assigned_identity is not None:
@@ -164,7 +174,15 @@ class VaultIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -246,7 +264,13 @@ class VaultMonitoring(dict):
              _setter: Callable[[Any, Any], None],
              alerts_for_all_job_failures_enabled: Optional[bool] = None,
              alerts_for_critical_operation_failures_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertsForAllJobFailuresEnabled' in kwargs:
+            alerts_for_all_job_failures_enabled = kwargs['alertsForAllJobFailuresEnabled']
+        if 'alertsForCriticalOperationFailuresEnabled' in kwargs:
+            alerts_for_critical_operation_failures_enabled = kwargs['alertsForCriticalOperationFailuresEnabled']
+
         if alerts_for_all_job_failures_enabled is not None:
             _setter("alerts_for_all_job_failures_enabled", alerts_for_all_job_failures_enabled)
         if alerts_for_critical_operation_failures_enabled is not None:

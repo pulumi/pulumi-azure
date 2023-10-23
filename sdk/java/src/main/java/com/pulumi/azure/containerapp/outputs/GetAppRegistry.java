@@ -103,12 +103,12 @@ public final class GetAppRegistry {
             return this;
         }
         public GetAppRegistry build() {
-            final var o = new GetAppRegistry();
-            o.identity = identity;
-            o.passwordSecretName = passwordSecretName;
-            o.server = server;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetAppRegistry();
+            _resultValue.identity = identity;
+            _resultValue.passwordSecretName = passwordSecretName;
+            _resultValue.server = server;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

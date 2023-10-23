@@ -68,11 +68,11 @@ public final class GetMpaAccountScopeResult {
             return this;
         }
         public GetMpaAccountScopeResult build() {
-            final var o = new GetMpaAccountScopeResult();
-            o.billingAccountName = billingAccountName;
-            o.customerName = customerName;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetMpaAccountScopeResult();
+            _resultValue.billingAccountName = billingAccountName;
+            _resultValue.customerName = customerName;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class IotHubDpsIpFilterRule {
             return this;
         }
         public IotHubDpsIpFilterRule build() {
-            final var o = new IotHubDpsIpFilterRule();
-            o.action = action;
-            o.ipMask = ipMask;
-            o.name = name;
-            o.target = target;
-            return o;
+            final var _resultValue = new IotHubDpsIpFilterRule();
+            _resultValue.action = action;
+            _resultValue.ipMask = ipMask;
+            _resultValue.name = name;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

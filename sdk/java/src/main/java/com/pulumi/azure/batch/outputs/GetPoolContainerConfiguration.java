@@ -92,11 +92,11 @@ public final class GetPoolContainerConfiguration {
             return this;
         }
         public GetPoolContainerConfiguration build() {
-            final var o = new GetPoolContainerConfiguration();
-            o.containerImageNames = containerImageNames;
-            o.containerRegistries = containerRegistries;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetPoolContainerConfiguration();
+            _resultValue.containerImageNames = containerImageNames;
+            _resultValue.containerRegistries = containerRegistries;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

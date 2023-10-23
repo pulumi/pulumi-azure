@@ -66,10 +66,10 @@ public final class GetLogProfileRetentionPolicy {
             return this;
         }
         public GetLogProfileRetentionPolicy build() {
-            final var o = new GetLogProfileRetentionPolicy();
-            o.days = days;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new GetLogProfileRetentionPolicy();
+            _resultValue.days = days;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

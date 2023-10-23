@@ -220,17 +220,17 @@ public final class FirewallNatRuleCollectionRule {
             return this;
         }
         public FirewallNatRuleCollectionRule build() {
-            final var o = new FirewallNatRuleCollectionRule();
-            o.description = description;
-            o.destinationAddresses = destinationAddresses;
-            o.destinationPorts = destinationPorts;
-            o.name = name;
-            o.protocols = protocols;
-            o.sourceAddresses = sourceAddresses;
-            o.sourceIpGroups = sourceIpGroups;
-            o.translatedAddress = translatedAddress;
-            o.translatedPort = translatedPort;
-            return o;
+            final var _resultValue = new FirewallNatRuleCollectionRule();
+            _resultValue.description = description;
+            _resultValue.destinationAddresses = destinationAddresses;
+            _resultValue.destinationPorts = destinationPorts;
+            _resultValue.name = name;
+            _resultValue.protocols = protocols;
+            _resultValue.sourceAddresses = sourceAddresses;
+            _resultValue.sourceIpGroups = sourceIpGroups;
+            _resultValue.translatedAddress = translatedAddress;
+            _resultValue.translatedPort = translatedPort;
+            return _resultValue;
         }
     }
 }

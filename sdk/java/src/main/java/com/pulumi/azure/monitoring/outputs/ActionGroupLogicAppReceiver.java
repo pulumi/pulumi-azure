@@ -106,12 +106,12 @@ public final class ActionGroupLogicAppReceiver {
             return this;
         }
         public ActionGroupLogicAppReceiver build() {
-            final var o = new ActionGroupLogicAppReceiver();
-            o.callbackUrl = callbackUrl;
-            o.name = name;
-            o.resourceId = resourceId;
-            o.useCommonAlertSchema = useCommonAlertSchema;
-            return o;
+            final var _resultValue = new ActionGroupLogicAppReceiver();
+            _resultValue.callbackUrl = callbackUrl;
+            _resultValue.name = name;
+            _resultValue.resourceId = resourceId;
+            _resultValue.useCommonAlertSchema = useCommonAlertSchema;
+            return _resultValue;
         }
     }
 }

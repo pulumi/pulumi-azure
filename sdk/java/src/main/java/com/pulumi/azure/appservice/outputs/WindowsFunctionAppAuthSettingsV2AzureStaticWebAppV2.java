@@ -46,9 +46,9 @@ public final class WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2 {
             return this;
         }
         public WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2 build() {
-            final var o = new WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2();
-            o.clientId = clientId;
-            return o;
+            final var _resultValue = new WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2();
+            _resultValue.clientId = clientId;
+            return _resultValue;
         }
     }
 }

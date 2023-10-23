@@ -163,16 +163,16 @@ public final class GetSqlRoleDefinitionResult {
             return this;
         }
         public GetSqlRoleDefinitionResult build() {
-            final var o = new GetSqlRoleDefinitionResult();
-            o.accountName = accountName;
-            o.assignableScopes = assignableScopes;
-            o.id = id;
-            o.name = name;
-            o.permissions = permissions;
-            o.resourceGroupName = resourceGroupName;
-            o.roleDefinitionId = roleDefinitionId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetSqlRoleDefinitionResult();
+            _resultValue.accountName = accountName;
+            _resultValue.assignableScopes = assignableScopes;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.permissions = permissions;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.roleDefinitionId = roleDefinitionId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -107,12 +107,12 @@ public final class GetAlertRuleAnomalySingleSelectObservation {
             return this;
         }
         public GetAlertRuleAnomalySingleSelectObservation build() {
-            final var o = new GetAlertRuleAnomalySingleSelectObservation();
-            o.description = description;
-            o.name = name;
-            o.supportedValues = supportedValues;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetAlertRuleAnomalySingleSelectObservation();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.supportedValues = supportedValues;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

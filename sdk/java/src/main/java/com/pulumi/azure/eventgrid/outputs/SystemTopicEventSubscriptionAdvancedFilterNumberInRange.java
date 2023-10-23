@@ -71,10 +71,10 @@ public final class SystemTopicEventSubscriptionAdvancedFilterNumberInRange {
             return this;
         }
         public SystemTopicEventSubscriptionAdvancedFilterNumberInRange build() {
-            final var o = new SystemTopicEventSubscriptionAdvancedFilterNumberInRange();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionAdvancedFilterNumberInRange();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

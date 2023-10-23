@@ -103,12 +103,12 @@ public final class LinuxVirtualMachineScaleSetSourceImageReference {
             return this;
         }
         public LinuxVirtualMachineScaleSetSourceImageReference build() {
-            final var o = new LinuxVirtualMachineScaleSetSourceImageReference();
-            o.offer = offer;
-            o.publisher = publisher;
-            o.sku = sku;
-            o.version = version;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetSourceImageReference();
+            _resultValue.offer = offer;
+            _resultValue.publisher = publisher;
+            _resultValue.sku = sku;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

@@ -240,19 +240,19 @@ public final class GetWindowsWebAppAuthSettingsV2CustomOidcV2 {
             return this;
         }
         public GetWindowsWebAppAuthSettingsV2CustomOidcV2 build() {
-            final var o = new GetWindowsWebAppAuthSettingsV2CustomOidcV2();
-            o.authorisationEndpoint = authorisationEndpoint;
-            o.certificationUri = certificationUri;
-            o.clientCredentialMethod = clientCredentialMethod;
-            o.clientId = clientId;
-            o.clientSecretSettingName = clientSecretSettingName;
-            o.issuerEndpoint = issuerEndpoint;
-            o.name = name;
-            o.nameClaimType = nameClaimType;
-            o.openidConfigurationEndpoint = openidConfigurationEndpoint;
-            o.scopes = scopes;
-            o.tokenEndpoint = tokenEndpoint;
-            return o;
+            final var _resultValue = new GetWindowsWebAppAuthSettingsV2CustomOidcV2();
+            _resultValue.authorisationEndpoint = authorisationEndpoint;
+            _resultValue.certificationUri = certificationUri;
+            _resultValue.clientCredentialMethod = clientCredentialMethod;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            _resultValue.issuerEndpoint = issuerEndpoint;
+            _resultValue.name = name;
+            _resultValue.nameClaimType = nameClaimType;
+            _resultValue.openidConfigurationEndpoint = openidConfigurationEndpoint;
+            _resultValue.scopes = scopes;
+            _resultValue.tokenEndpoint = tokenEndpoint;
+            return _resultValue;
         }
     }
 }

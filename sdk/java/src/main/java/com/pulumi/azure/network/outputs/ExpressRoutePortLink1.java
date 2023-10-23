@@ -224,18 +224,18 @@ public final class ExpressRoutePortLink1 {
             return this;
         }
         public ExpressRoutePortLink1 build() {
-            final var o = new ExpressRoutePortLink1();
-            o.adminEnabled = adminEnabled;
-            o.connectorType = connectorType;
-            o.id = id;
-            o.interfaceName = interfaceName;
-            o.macsecCakKeyvaultSecretId = macsecCakKeyvaultSecretId;
-            o.macsecCipher = macsecCipher;
-            o.macsecCknKeyvaultSecretId = macsecCknKeyvaultSecretId;
-            o.patchPanelId = patchPanelId;
-            o.rackId = rackId;
-            o.routerName = routerName;
-            return o;
+            final var _resultValue = new ExpressRoutePortLink1();
+            _resultValue.adminEnabled = adminEnabled;
+            _resultValue.connectorType = connectorType;
+            _resultValue.id = id;
+            _resultValue.interfaceName = interfaceName;
+            _resultValue.macsecCakKeyvaultSecretId = macsecCakKeyvaultSecretId;
+            _resultValue.macsecCipher = macsecCipher;
+            _resultValue.macsecCknKeyvaultSecretId = macsecCknKeyvaultSecretId;
+            _resultValue.patchPanelId = patchPanelId;
+            _resultValue.rackId = rackId;
+            _resultValue.routerName = routerName;
+            return _resultValue;
         }
     }
 }

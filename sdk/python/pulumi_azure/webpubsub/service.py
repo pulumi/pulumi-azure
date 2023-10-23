@@ -73,7 +73,21 @@ class ServiceArgs:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tls_client_cert_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'aadAuthEnabled' in kwargs:
+            aad_auth_enabled = kwargs['aadAuthEnabled']
+        if 'liveTrace' in kwargs:
+            live_trace = kwargs['liveTrace']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'tlsClientCertEnabled' in kwargs:
+            tls_client_cert_enabled = kwargs['tlsClientCertEnabled']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
         if aad_auth_enabled is not None:
@@ -337,7 +351,35 @@ class _ServiceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tls_client_cert_enabled: Optional[pulumi.Input[bool]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aadAuthEnabled' in kwargs:
+            aad_auth_enabled = kwargs['aadAuthEnabled']
+        if 'externalIp' in kwargs:
+            external_ip = kwargs['externalIp']
+        if 'liveTrace' in kwargs:
+            live_trace = kwargs['liveTrace']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'primaryAccessKey' in kwargs:
+            primary_access_key = kwargs['primaryAccessKey']
+        if 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'publicPort' in kwargs:
+            public_port = kwargs['publicPort']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryAccessKey' in kwargs:
+            secondary_access_key = kwargs['secondaryAccessKey']
+        if 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if 'serverPort' in kwargs:
+            server_port = kwargs['serverPort']
+        if 'tlsClientCertEnabled' in kwargs:
+            tls_client_cert_enabled = kwargs['tlsClientCertEnabled']
+
         if aad_auth_enabled is not None:
             _setter("aad_auth_enabled", aad_auth_enabled)
         if capacity is not None:

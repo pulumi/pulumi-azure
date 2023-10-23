@@ -50,9 +50,9 @@ public final class GetDataCollectionRuleDataSourceLogFileSetting {
             return texts(List.of(texts));
         }
         public GetDataCollectionRuleDataSourceLogFileSetting build() {
-            final var o = new GetDataCollectionRuleDataSourceLogFileSetting();
-            o.texts = texts;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleDataSourceLogFileSetting();
+            _resultValue.texts = texts;
+            return _resultValue;
         }
     }
 }

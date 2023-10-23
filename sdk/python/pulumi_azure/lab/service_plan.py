@@ -67,7 +67,21 @@ class ServicePlanArgs:
              shared_gallery_id: Optional[pulumi.Input[str]] = None,
              support: Optional[pulumi.Input['ServicePlanSupportArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedRegions' in kwargs:
+            allowed_regions = kwargs['allowedRegions']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'defaultAutoShutdown' in kwargs:
+            default_auto_shutdown = kwargs['defaultAutoShutdown']
+        if 'defaultConnection' in kwargs:
+            default_connection = kwargs['defaultConnection']
+        if 'defaultNetworkSubnetId' in kwargs:
+            default_network_subnet_id = kwargs['defaultNetworkSubnetId']
+        if 'sharedGalleryId' in kwargs:
+            shared_gallery_id = kwargs['sharedGalleryId']
+
         _setter("allowed_regions", allowed_regions)
         _setter("resource_group_name", resource_group_name)
         if default_auto_shutdown is not None:
@@ -264,7 +278,21 @@ class _ServicePlanState:
              shared_gallery_id: Optional[pulumi.Input[str]] = None,
              support: Optional[pulumi.Input['ServicePlanSupportArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedRegions' in kwargs:
+            allowed_regions = kwargs['allowedRegions']
+        if 'defaultAutoShutdown' in kwargs:
+            default_auto_shutdown = kwargs['defaultAutoShutdown']
+        if 'defaultConnection' in kwargs:
+            default_connection = kwargs['defaultConnection']
+        if 'defaultNetworkSubnetId' in kwargs:
+            default_network_subnet_id = kwargs['defaultNetworkSubnetId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sharedGalleryId' in kwargs:
+            shared_gallery_id = kwargs['sharedGalleryId']
+
         if allowed_regions is not None:
             _setter("allowed_regions", allowed_regions)
         if default_auto_shutdown is not None:

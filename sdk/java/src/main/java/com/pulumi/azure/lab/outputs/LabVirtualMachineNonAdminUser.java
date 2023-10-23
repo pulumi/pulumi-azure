@@ -65,10 +65,10 @@ public final class LabVirtualMachineNonAdminUser {
             return this;
         }
         public LabVirtualMachineNonAdminUser build() {
-            final var o = new LabVirtualMachineNonAdminUser();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new LabVirtualMachineNonAdminUser();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

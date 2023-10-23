@@ -110,12 +110,12 @@ public final class ScheduleRecurrence {
             return weekDays(List.of(weekDays));
         }
         public ScheduleRecurrence build() {
-            final var o = new ScheduleRecurrence();
-            o.expirationDate = expirationDate;
-            o.frequency = frequency;
-            o.interval = interval;
-            o.weekDays = weekDays;
-            return o;
+            final var _resultValue = new ScheduleRecurrence();
+            _resultValue.expirationDate = expirationDate;
+            _resultValue.frequency = frequency;
+            _resultValue.interval = interval;
+            _resultValue.weekDays = weekDays;
+            return _resultValue;
         }
     }
 }

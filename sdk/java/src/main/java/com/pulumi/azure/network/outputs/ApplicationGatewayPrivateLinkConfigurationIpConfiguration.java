@@ -125,13 +125,13 @@ public final class ApplicationGatewayPrivateLinkConfigurationIpConfiguration {
             return this;
         }
         public ApplicationGatewayPrivateLinkConfigurationIpConfiguration build() {
-            final var o = new ApplicationGatewayPrivateLinkConfigurationIpConfiguration();
-            o.name = name;
-            o.primary = primary;
-            o.privateIpAddress = privateIpAddress;
-            o.privateIpAddressAllocation = privateIpAddressAllocation;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new ApplicationGatewayPrivateLinkConfigurationIpConfiguration();
+            _resultValue.name = name;
+            _resultValue.primary = primary;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.privateIpAddressAllocation = privateIpAddressAllocation;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

@@ -343,23 +343,23 @@ public final class GetWindowsWebAppAuthSetting {
             return this;
         }
         public GetWindowsWebAppAuthSetting build() {
-            final var o = new GetWindowsWebAppAuthSetting();
-            o.activeDirectories = activeDirectories;
-            o.additionalLoginParameters = additionalLoginParameters;
-            o.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
-            o.defaultProvider = defaultProvider;
-            o.enabled = enabled;
-            o.facebooks = facebooks;
-            o.githubs = githubs;
-            o.googles = googles;
-            o.issuer = issuer;
-            o.microsofts = microsofts;
-            o.runtimeVersion = runtimeVersion;
-            o.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
-            o.tokenStoreEnabled = tokenStoreEnabled;
-            o.twitters = twitters;
-            o.unauthenticatedClientAction = unauthenticatedClientAction;
-            return o;
+            final var _resultValue = new GetWindowsWebAppAuthSetting();
+            _resultValue.activeDirectories = activeDirectories;
+            _resultValue.additionalLoginParameters = additionalLoginParameters;
+            _resultValue.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
+            _resultValue.defaultProvider = defaultProvider;
+            _resultValue.enabled = enabled;
+            _resultValue.facebooks = facebooks;
+            _resultValue.githubs = githubs;
+            _resultValue.googles = googles;
+            _resultValue.issuer = issuer;
+            _resultValue.microsofts = microsofts;
+            _resultValue.runtimeVersion = runtimeVersion;
+            _resultValue.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
+            _resultValue.tokenStoreEnabled = tokenStoreEnabled;
+            _resultValue.twitters = twitters;
+            _resultValue.unauthenticatedClientAction = unauthenticatedClientAction;
+            return _resultValue;
         }
     }
 }

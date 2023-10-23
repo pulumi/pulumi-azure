@@ -336,24 +336,24 @@ public final class GetNetworkSecurityGroupSecurityRule {
             return sourcePortRanges(List.of(sourcePortRanges));
         }
         public GetNetworkSecurityGroupSecurityRule build() {
-            final var o = new GetNetworkSecurityGroupSecurityRule();
-            o.access = access;
-            o.description = description;
-            o.destinationAddressPrefix = destinationAddressPrefix;
-            o.destinationAddressPrefixes = destinationAddressPrefixes;
-            o.destinationApplicationSecurityGroupIds = destinationApplicationSecurityGroupIds;
-            o.destinationPortRange = destinationPortRange;
-            o.destinationPortRanges = destinationPortRanges;
-            o.direction = direction;
-            o.name = name;
-            o.priority = priority;
-            o.protocol = protocol;
-            o.sourceAddressPrefix = sourceAddressPrefix;
-            o.sourceAddressPrefixes = sourceAddressPrefixes;
-            o.sourceApplicationSecurityGroupIds = sourceApplicationSecurityGroupIds;
-            o.sourcePortRange = sourcePortRange;
-            o.sourcePortRanges = sourcePortRanges;
-            return o;
+            final var _resultValue = new GetNetworkSecurityGroupSecurityRule();
+            _resultValue.access = access;
+            _resultValue.description = description;
+            _resultValue.destinationAddressPrefix = destinationAddressPrefix;
+            _resultValue.destinationAddressPrefixes = destinationAddressPrefixes;
+            _resultValue.destinationApplicationSecurityGroupIds = destinationApplicationSecurityGroupIds;
+            _resultValue.destinationPortRange = destinationPortRange;
+            _resultValue.destinationPortRanges = destinationPortRanges;
+            _resultValue.direction = direction;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            _resultValue.protocol = protocol;
+            _resultValue.sourceAddressPrefix = sourceAddressPrefix;
+            _resultValue.sourceAddressPrefixes = sourceAddressPrefixes;
+            _resultValue.sourceApplicationSecurityGroupIds = sourceApplicationSecurityGroupIds;
+            _resultValue.sourcePortRange = sourcePortRange;
+            _resultValue.sourcePortRanges = sourcePortRanges;
+            return _resultValue;
         }
     }
 }

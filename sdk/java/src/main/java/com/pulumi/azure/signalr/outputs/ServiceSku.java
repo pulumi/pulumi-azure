@@ -66,10 +66,10 @@ public final class ServiceSku {
             return this;
         }
         public ServiceSku build() {
-            final var o = new ServiceSku();
-            o.capacity = capacity;
-            o.name = name;
-            return o;
+            final var _resultValue = new ServiceSku();
+            _resultValue.capacity = capacity;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

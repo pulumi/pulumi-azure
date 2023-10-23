@@ -98,13 +98,13 @@ public final class GetFrontdoorRuleSetResult {
             return this;
         }
         public GetFrontdoorRuleSetResult build() {
-            final var o = new GetFrontdoorRuleSetResult();
-            o.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
-            o.id = id;
-            o.name = name;
-            o.profileName = profileName;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetFrontdoorRuleSetResult();
+            _resultValue.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.profileName = profileName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

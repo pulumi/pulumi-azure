@@ -67,10 +67,10 @@ public final class TransformOutputCustomPresetFilterDeinterlace {
             return this;
         }
         public TransformOutputCustomPresetFilterDeinterlace build() {
-            final var o = new TransformOutputCustomPresetFilterDeinterlace();
-            o.mode = mode;
-            o.parity = parity;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFilterDeinterlace();
+            _resultValue.mode = mode;
+            _resultValue.parity = parity;
+            return _resultValue;
         }
     }
 }

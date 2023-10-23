@@ -151,15 +151,15 @@ public final class GetResolverForwardingRuleResult {
             return targetDnsServers(List.of(targetDnsServers));
         }
         public GetResolverForwardingRuleResult build() {
-            final var o = new GetResolverForwardingRuleResult();
-            o.dnsForwardingRulesetId = dnsForwardingRulesetId;
-            o.domainName = domainName;
-            o.enabled = enabled;
-            o.id = id;
-            o.metadata = metadata;
-            o.name = name;
-            o.targetDnsServers = targetDnsServers;
-            return o;
+            final var _resultValue = new GetResolverForwardingRuleResult();
+            _resultValue.dnsForwardingRulesetId = dnsForwardingRulesetId;
+            _resultValue.domainName = domainName;
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.metadata = metadata;
+            _resultValue.name = name;
+            _resultValue.targetDnsServers = targetDnsServers;
+            return _resultValue;
         }
     }
 }

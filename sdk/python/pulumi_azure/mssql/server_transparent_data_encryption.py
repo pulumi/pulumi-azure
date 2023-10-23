@@ -39,7 +39,15 @@ class ServerTransparentDataEncryptionArgs:
              server_id: pulumi.Input[str],
              auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if 'autoRotationEnabled' in kwargs:
+            auto_rotation_enabled = kwargs['autoRotationEnabled']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+
         _setter("server_id", server_id)
         if auto_rotation_enabled is not None:
             _setter("auto_rotation_enabled", auto_rotation_enabled)
@@ -115,7 +123,15 @@ class _ServerTransparentDataEncryptionState:
              auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoRotationEnabled' in kwargs:
+            auto_rotation_enabled = kwargs['autoRotationEnabled']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         if auto_rotation_enabled is not None:
             _setter("auto_rotation_enabled", auto_rotation_enabled)
         if key_vault_key_id is not None:
@@ -175,6 +191,8 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
                  __props__=None):
         """
         Manages the transparent data encryption configuration for a MSSQL Server
+
+        !> **IMPORTANT:** This resource is obsolete and should only be used on pre-existing MS SQL Instances that are over 2 years old. By default all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
 
         > **NOTE:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `key_vault_uri` for more information on how to specify the key types. As SQL Server only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
 
@@ -303,6 +321,8 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the transparent data encryption configuration for a MSSQL Server
+
+        !> **IMPORTANT:** This resource is obsolete and should only be used on pre-existing MS SQL Instances that are over 2 years old. By default all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
 
         > **NOTE:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `key_vault_uri` for more information on how to specify the key types. As SQL Server only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
 

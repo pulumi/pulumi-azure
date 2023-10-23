@@ -141,13 +141,13 @@ public final class TriggerScheduleSchedule {
             return monthlies(List.of(monthlies));
         }
         public TriggerScheduleSchedule build() {
-            final var o = new TriggerScheduleSchedule();
-            o.daysOfMonths = daysOfMonths;
-            o.daysOfWeeks = daysOfWeeks;
-            o.hours = hours;
-            o.minutes = minutes;
-            o.monthlies = monthlies;
-            return o;
+            final var _resultValue = new TriggerScheduleSchedule();
+            _resultValue.daysOfMonths = daysOfMonths;
+            _resultValue.daysOfWeeks = daysOfWeeks;
+            _resultValue.hours = hours;
+            _resultValue.minutes = minutes;
+            _resultValue.monthlies = monthlies;
+            return _resultValue;
         }
     }
 }

@@ -155,16 +155,16 @@ public final class GetSharedAccessPolicyResult {
             return this;
         }
         public GetSharedAccessPolicyResult build() {
-            final var o = new GetSharedAccessPolicyResult();
-            o.id = id;
-            o.iothubName = iothubName;
-            o.name = name;
-            o.primaryConnectionString = primaryConnectionString;
-            o.primaryKey = primaryKey;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryConnectionString = secondaryConnectionString;
-            o.secondaryKey = secondaryKey;
-            return o;
+            final var _resultValue = new GetSharedAccessPolicyResult();
+            _resultValue.id = id;
+            _resultValue.iothubName = iothubName;
+            _resultValue.name = name;
+            _resultValue.primaryConnectionString = primaryConnectionString;
+            _resultValue.primaryKey = primaryKey;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryConnectionString = secondaryConnectionString;
+            _resultValue.secondaryKey = secondaryKey;
+            return _resultValue;
         }
     }
 }

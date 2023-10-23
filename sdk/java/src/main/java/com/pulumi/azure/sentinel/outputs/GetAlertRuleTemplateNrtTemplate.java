@@ -107,12 +107,12 @@ public final class GetAlertRuleTemplateNrtTemplate {
             return tactics(List.of(tactics));
         }
         public GetAlertRuleTemplateNrtTemplate build() {
-            final var o = new GetAlertRuleTemplateNrtTemplate();
-            o.description = description;
-            o.query = query;
-            o.severity = severity;
-            o.tactics = tactics;
-            return o;
+            final var _resultValue = new GetAlertRuleTemplateNrtTemplate();
+            _resultValue.description = description;
+            _resultValue.query = query;
+            _resultValue.severity = severity;
+            _resultValue.tactics = tactics;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class VpnGatewayConnectionTrafficSelectorPolicy {
             return remoteAddressRanges(List.of(remoteAddressRanges));
         }
         public VpnGatewayConnectionTrafficSelectorPolicy build() {
-            final var o = new VpnGatewayConnectionTrafficSelectorPolicy();
-            o.localAddressRanges = localAddressRanges;
-            o.remoteAddressRanges = remoteAddressRanges;
-            return o;
+            final var _resultValue = new VpnGatewayConnectionTrafficSelectorPolicy();
+            _resultValue.localAddressRanges = localAddressRanges;
+            _resultValue.remoteAddressRanges = remoteAddressRanges;
+            return _resultValue;
         }
     }
 }

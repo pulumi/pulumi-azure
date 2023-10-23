@@ -176,16 +176,16 @@ public final class GetDatasetBlobStorageResult {
             return storageAccounts(List.of(storageAccounts));
         }
         public GetDatasetBlobStorageResult build() {
-            final var o = new GetDatasetBlobStorageResult();
-            o.containerName = containerName;
-            o.dataShareId = dataShareId;
-            o.displayName = displayName;
-            o.filePath = filePath;
-            o.folderPath = folderPath;
-            o.id = id;
-            o.name = name;
-            o.storageAccounts = storageAccounts;
-            return o;
+            final var _resultValue = new GetDatasetBlobStorageResult();
+            _resultValue.containerName = containerName;
+            _resultValue.dataShareId = dataShareId;
+            _resultValue.displayName = displayName;
+            _resultValue.filePath = filePath;
+            _resultValue.folderPath = folderPath;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.storageAccounts = storageAccounts;
+            return _resultValue;
         }
     }
 }

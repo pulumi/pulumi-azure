@@ -395,28 +395,28 @@ public final class GetServerResult {
             return this;
         }
         public GetServerResult build() {
-            final var o = new GetServerResult();
-            o.administratorLogin = administratorLogin;
-            o.autoGrowEnabled = autoGrowEnabled;
-            o.backupRetentionDays = backupRetentionDays;
-            o.fqdn = fqdn;
-            o.geoRedundantBackupEnabled = geoRedundantBackupEnabled;
-            o.id = id;
-            o.identities = identities;
-            o.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
-            o.location = location;
-            o.name = name;
-            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            o.resourceGroupName = resourceGroupName;
-            o.restorePointInTime = restorePointInTime;
-            o.skuName = skuName;
-            o.sslEnforcementEnabled = sslEnforcementEnabled;
-            o.sslMinimalTlsVersionEnforced = sslMinimalTlsVersionEnforced;
-            o.storageMb = storageMb;
-            o.tags = tags;
-            o.threatDetectionPolicies = threatDetectionPolicies;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetServerResult();
+            _resultValue.administratorLogin = administratorLogin;
+            _resultValue.autoGrowEnabled = autoGrowEnabled;
+            _resultValue.backupRetentionDays = backupRetentionDays;
+            _resultValue.fqdn = fqdn;
+            _resultValue.geoRedundantBackupEnabled = geoRedundantBackupEnabled;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.restorePointInTime = restorePointInTime;
+            _resultValue.skuName = skuName;
+            _resultValue.sslEnforcementEnabled = sslEnforcementEnabled;
+            _resultValue.sslMinimalTlsVersionEnforced = sslMinimalTlsVersionEnforced;
+            _resultValue.storageMb = storageMb;
+            _resultValue.tags = tags;
+            _resultValue.threatDetectionPolicies = threatDetectionPolicies;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

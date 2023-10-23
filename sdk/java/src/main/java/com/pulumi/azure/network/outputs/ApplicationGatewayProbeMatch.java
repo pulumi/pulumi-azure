@@ -71,10 +71,10 @@ public final class ApplicationGatewayProbeMatch {
             return statusCodes(List.of(statusCodes));
         }
         public ApplicationGatewayProbeMatch build() {
-            final var o = new ApplicationGatewayProbeMatch();
-            o.body = body;
-            o.statusCodes = statusCodes;
-            return o;
+            final var _resultValue = new ApplicationGatewayProbeMatch();
+            _resultValue.body = body;
+            _resultValue.statusCodes = statusCodes;
+            return _resultValue;
         }
     }
 }

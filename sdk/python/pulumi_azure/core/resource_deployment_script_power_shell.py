@@ -37,7 +37,7 @@ class ResourceDeploymentScriptPowerShellArgs:
         The set of arguments for constructing a ResourceDeploymentScriptPowerShell resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[str] version: Azure PowerShell module version to be used. The supported versions are `2.7`, `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`, `3.7`, `3.8`, `4.1`, `4.2`, `4.3`, `4.4`, `4.5`, `4.6`, `4.7`, `4.8`, `5.0`, `5.1`, `5.2`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8`, `5.9`, `6.0`, `6.1`, `6.2`, `6.3`, `6.4`, `6.5`, `6.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `7.5`, `8.0`, `8.1`, `8.2`, `8.3`, `9.0`. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[str] version: Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] cleanup_preference: Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] command_line: Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input['ResourceDeploymentScriptPowerShellContainerArgs'] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
@@ -93,7 +93,29 @@ class ResourceDeploymentScriptPowerShellArgs:
              supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retentionInterval' in kwargs:
+            retention_interval = kwargs['retentionInterval']
+        if 'cleanupPreference' in kwargs:
+            cleanup_preference = kwargs['cleanupPreference']
+        if 'commandLine' in kwargs:
+            command_line = kwargs['commandLine']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'primaryScriptUri' in kwargs:
+            primary_script_uri = kwargs['primaryScriptUri']
+        if 'scriptContent' in kwargs:
+            script_content = kwargs['scriptContent']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+        if 'supportingScriptUris' in kwargs:
+            supporting_script_uris = kwargs['supportingScriptUris']
+
         _setter("resource_group_name", resource_group_name)
         _setter("retention_interval", retention_interval)
         _setter("version", version)
@@ -154,7 +176,7 @@ class ResourceDeploymentScriptPowerShellArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        Azure PowerShell module version to be used. The supported versions are `2.7`, `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`, `3.7`, `3.8`, `4.1`, `4.2`, `4.3`, `4.4`, `4.5`, `4.6`, `4.7`, `4.8`, `5.0`, `5.1`, `5.2`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8`, `5.9`, `6.0`, `6.1`, `6.2`, `6.3`, `6.4`, `6.5`, `6.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `7.5`, `8.0`, `8.1`, `8.2`, `8.3`, `9.0`. Changing this forces a new Resource Deployment Script to be created.
+        Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "version")
 
@@ -371,7 +393,7 @@ class _ResourceDeploymentScriptPowerShellState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supporting_script_uris: Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Deployment Script.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[str] version: Azure PowerShell module version to be used. The supported versions are `2.7`, `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`, `3.7`, `3.8`, `4.1`, `4.2`, `4.3`, `4.4`, `4.5`, `4.6`, `4.7`, `4.8`, `5.0`, `5.1`, `5.2`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8`, `5.9`, `6.0`, `6.1`, `6.2`, `6.3`, `6.4`, `6.5`, `6.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `7.5`, `8.0`, `8.1`, `8.2`, `8.3`, `9.0`. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[str] version: Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
         """
         _ResourceDeploymentScriptPowerShellState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -415,7 +437,29 @@ class _ResourceDeploymentScriptPowerShellState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              timeout: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cleanupPreference' in kwargs:
+            cleanup_preference = kwargs['cleanupPreference']
+        if 'commandLine' in kwargs:
+            command_line = kwargs['commandLine']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'primaryScriptUri' in kwargs:
+            primary_script_uri = kwargs['primaryScriptUri']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retentionInterval' in kwargs:
+            retention_interval = kwargs['retentionInterval']
+        if 'scriptContent' in kwargs:
+            script_content = kwargs['scriptContent']
+        if 'storageAccount' in kwargs:
+            storage_account = kwargs['storageAccount']
+        if 'supportingScriptUris' in kwargs:
+            supporting_script_uris = kwargs['supportingScriptUris']
+
         if cleanup_preference is not None:
             _setter("cleanup_preference", cleanup_preference)
         if command_line is not None:
@@ -661,7 +705,7 @@ class _ResourceDeploymentScriptPowerShellState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Azure PowerShell module version to be used. The supported versions are `2.7`, `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`, `3.7`, `3.8`, `4.1`, `4.2`, `4.3`, `4.4`, `4.5`, `4.6`, `4.7`, `4.8`, `5.0`, `5.1`, `5.2`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8`, `5.9`, `6.0`, `6.1`, `6.2`, `6.3`, `6.4`, `6.5`, `6.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `7.5`, `8.0`, `8.1`, `8.2`, `8.3`, `9.0`. Changing this forces a new Resource Deployment Script to be created.
+        Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "version")
 
@@ -756,7 +800,7 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supporting_script_uris: Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Deployment Script.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[str] version: Azure PowerShell module version to be used. The supported versions are `2.7`, `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`, `3.7`, `3.8`, `4.1`, `4.2`, `4.3`, `4.4`, `4.5`, `4.6`, `4.7`, `4.8`, `5.0`, `5.1`, `5.2`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8`, `5.9`, `6.0`, `6.1`, `6.2`, `6.3`, `6.4`, `6.5`, `6.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `7.5`, `8.0`, `8.1`, `8.2`, `8.3`, `9.0`. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[str] version: Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
         """
         ...
     @overload
@@ -945,7 +989,7 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supporting_script_uris: Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Deployment Script.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[str] version: Azure PowerShell module version to be used. The supported versions are `2.7`, `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`, `3.7`, `3.8`, `4.1`, `4.2`, `4.3`, `4.4`, `4.5`, `4.6`, `4.7`, `4.8`, `5.0`, `5.1`, `5.2`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8`, `5.9`, `6.0`, `6.1`, `6.2`, `6.3`, `6.4`, `6.5`, `6.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `7.5`, `8.0`, `8.1`, `8.2`, `8.3`, `9.0`. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[str] version: Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1111,7 +1155,7 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
-        Azure PowerShell module version to be used. The supported versions are `2.7`, `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`, `3.7`, `3.8`, `4.1`, `4.2`, `4.3`, `4.4`, `4.5`, `4.6`, `4.7`, `4.8`, `5.0`, `5.1`, `5.2`, `5.3`, `5.4`, `5.5`, `5.6`, `5.7`, `5.8`, `5.9`, `6.0`, `6.1`, `6.2`, `6.3`, `6.4`, `6.5`, `6.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`, `7.5`, `8.0`, `8.1`, `8.2`, `8.3`, `9.0`. Changing this forces a new Resource Deployment Script to be created.
+        Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
         """
         return pulumi.get(self, "version")
 

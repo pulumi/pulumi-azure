@@ -113,12 +113,12 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
             return this;
         }
         public ExpressRouteCircuitPeeringIpv6MicrosoftPeering build() {
-            final var o = new ExpressRouteCircuitPeeringIpv6MicrosoftPeering();
-            o.advertisedCommunities = advertisedCommunities;
-            o.advertisedPublicPrefixes = advertisedPublicPrefixes;
-            o.customerAsn = customerAsn;
-            o.routingRegistryName = routingRegistryName;
-            return o;
+            final var _resultValue = new ExpressRouteCircuitPeeringIpv6MicrosoftPeering();
+            _resultValue.advertisedCommunities = advertisedCommunities;
+            _resultValue.advertisedPublicPrefixes = advertisedPublicPrefixes;
+            _resultValue.customerAsn = customerAsn;
+            _resultValue.routingRegistryName = routingRegistryName;
+            return _resultValue;
         }
     }
 }

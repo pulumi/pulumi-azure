@@ -132,13 +132,13 @@ public final class EndpointDeliveryRulePostArgCondition {
             return transforms(List.of(transforms));
         }
         public EndpointDeliveryRulePostArgCondition build() {
-            final var o = new EndpointDeliveryRulePostArgCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            o.selector = selector;
-            o.transforms = transforms;
-            return o;
+            final var _resultValue = new EndpointDeliveryRulePostArgCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            _resultValue.selector = selector;
+            _resultValue.transforms = transforms;
+            return _resultValue;
         }
     }
 }

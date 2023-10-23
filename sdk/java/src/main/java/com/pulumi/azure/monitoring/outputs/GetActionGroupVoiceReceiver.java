@@ -84,11 +84,11 @@ public final class GetActionGroupVoiceReceiver {
             return this;
         }
         public GetActionGroupVoiceReceiver build() {
-            final var o = new GetActionGroupVoiceReceiver();
-            o.countryCode = countryCode;
-            o.name = name;
-            o.phoneNumber = phoneNumber;
-            return o;
+            final var _resultValue = new GetActionGroupVoiceReceiver();
+            _resultValue.countryCode = countryCode;
+            _resultValue.name = name;
+            _resultValue.phoneNumber = phoneNumber;
+            return _resultValue;
         }
     }
 }

@@ -98,11 +98,11 @@ public final class EndpointCustomDomainUserManagedHttps {
             return this;
         }
         public EndpointCustomDomainUserManagedHttps build() {
-            final var o = new EndpointCustomDomainUserManagedHttps();
-            o.keyVaultCertificateId = keyVaultCertificateId;
-            o.keyVaultSecretId = keyVaultSecretId;
-            o.tlsVersion = tlsVersion;
-            return o;
+            final var _resultValue = new EndpointCustomDomainUserManagedHttps();
+            _resultValue.keyVaultCertificateId = keyVaultCertificateId;
+            _resultValue.keyVaultSecretId = keyVaultSecretId;
+            _resultValue.tlsVersion = tlsVersion;
+            return _resultValue;
         }
     }
 }

@@ -170,16 +170,16 @@ public final class GetDiskEncryptionSetResult {
             return this;
         }
         public GetDiskEncryptionSetResult build() {
-            final var o = new GetDiskEncryptionSetResult();
-            o.autoKeyRotationEnabled = autoKeyRotationEnabled;
-            o.id = id;
-            o.identities = identities;
-            o.keyVaultKeyUrl = keyVaultKeyUrl;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDiskEncryptionSetResult();
+            _resultValue.autoKeyRotationEnabled = autoKeyRotationEnabled;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.keyVaultKeyUrl = keyVaultKeyUrl;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

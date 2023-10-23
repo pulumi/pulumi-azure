@@ -164,16 +164,16 @@ public final class GetNetworkResult {
             return this;
         }
         public GetNetworkResult build() {
-            final var o = new GetNetworkResult();
-            o.id = id;
-            o.location = location;
-            o.mobileCountryCode = mobileCountryCode;
-            o.mobileNetworkCode = mobileNetworkCode;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.serviceKey = serviceKey;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetNetworkResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.mobileCountryCode = mobileCountryCode;
+            _resultValue.mobileNetworkCode = mobileNetworkCode;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.serviceKey = serviceKey;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

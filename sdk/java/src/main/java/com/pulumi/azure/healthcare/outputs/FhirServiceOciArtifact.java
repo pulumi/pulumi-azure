@@ -86,11 +86,11 @@ public final class FhirServiceOciArtifact {
             return this;
         }
         public FhirServiceOciArtifact build() {
-            final var o = new FhirServiceOciArtifact();
-            o.digest = digest;
-            o.imageName = imageName;
-            o.loginServer = loginServer;
-            return o;
+            final var _resultValue = new FhirServiceOciArtifact();
+            _resultValue.digest = digest;
+            _resultValue.imageName = imageName;
+            _resultValue.loginServer = loginServer;
+            return _resultValue;
         }
     }
 }

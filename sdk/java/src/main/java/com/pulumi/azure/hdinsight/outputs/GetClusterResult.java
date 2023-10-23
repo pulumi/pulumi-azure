@@ -302,23 +302,23 @@ public final class GetClusterResult {
             return this;
         }
         public GetClusterResult build() {
-            final var o = new GetClusterResult();
-            o.clusterVersion = clusterVersion;
-            o.componentVersions = componentVersions;
-            o.edgeSshEndpoint = edgeSshEndpoint;
-            o.gateways = gateways;
-            o.httpsEndpoint = httpsEndpoint;
-            o.id = id;
-            o.kafkaRestProxyEndpoint = kafkaRestProxyEndpoint;
-            o.kind = kind;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.sshEndpoint = sshEndpoint;
-            o.tags = tags;
-            o.tier = tier;
-            o.tlsMinVersion = tlsMinVersion;
-            return o;
+            final var _resultValue = new GetClusterResult();
+            _resultValue.clusterVersion = clusterVersion;
+            _resultValue.componentVersions = componentVersions;
+            _resultValue.edgeSshEndpoint = edgeSshEndpoint;
+            _resultValue.gateways = gateways;
+            _resultValue.httpsEndpoint = httpsEndpoint;
+            _resultValue.id = id;
+            _resultValue.kafkaRestProxyEndpoint = kafkaRestProxyEndpoint;
+            _resultValue.kind = kind;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sshEndpoint = sshEndpoint;
+            _resultValue.tags = tags;
+            _resultValue.tier = tier;
+            _resultValue.tlsMinVersion = tlsMinVersion;
+            return _resultValue;
         }
     }
 }

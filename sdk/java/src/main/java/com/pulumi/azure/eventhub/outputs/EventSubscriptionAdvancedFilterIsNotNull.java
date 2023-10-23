@@ -46,9 +46,9 @@ public final class EventSubscriptionAdvancedFilterIsNotNull {
             return this;
         }
         public EventSubscriptionAdvancedFilterIsNotNull build() {
-            final var o = new EventSubscriptionAdvancedFilterIsNotNull();
-            o.key = key;
-            return o;
+            final var _resultValue = new EventSubscriptionAdvancedFilterIsNotNull();
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

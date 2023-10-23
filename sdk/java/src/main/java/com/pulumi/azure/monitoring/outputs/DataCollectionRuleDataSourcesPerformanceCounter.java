@@ -111,12 +111,12 @@ public final class DataCollectionRuleDataSourcesPerformanceCounter {
             return streams(List.of(streams));
         }
         public DataCollectionRuleDataSourcesPerformanceCounter build() {
-            final var o = new DataCollectionRuleDataSourcesPerformanceCounter();
-            o.counterSpecifiers = counterSpecifiers;
-            o.name = name;
-            o.samplingFrequencyInSeconds = samplingFrequencyInSeconds;
-            o.streams = streams;
-            return o;
+            final var _resultValue = new DataCollectionRuleDataSourcesPerformanceCounter();
+            _resultValue.counterSpecifiers = counterSpecifiers;
+            _resultValue.name = name;
+            _resultValue.samplingFrequencyInSeconds = samplingFrequencyInSeconds;
+            _resultValue.streams = streams;
+            return _resultValue;
         }
     }
 }

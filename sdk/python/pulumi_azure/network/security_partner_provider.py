@@ -47,7 +47,15 @@ class SecurityPartnerProviderArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'securityProviderName' in kwargs:
+            security_provider_name = kwargs['securityProviderName']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         _setter("resource_group_name", resource_group_name)
         _setter("security_provider_name", security_provider_name)
         if location is not None:
@@ -168,7 +176,15 @@ class _SecurityPartnerProviderState:
              security_provider_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'securityProviderName' in kwargs:
+            security_provider_name = kwargs['securityProviderName']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         if location is not None:
             _setter("location", location)
         if name is not None:

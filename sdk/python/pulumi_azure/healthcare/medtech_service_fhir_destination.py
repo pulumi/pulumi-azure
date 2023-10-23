@@ -47,7 +47,17 @@ class MedtechServiceFhirDestinationArgs:
              medtech_service_id: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationFhirMappingJson' in kwargs:
+            destination_fhir_mapping_json = kwargs['destinationFhirMappingJson']
+        if 'destinationFhirServiceId' in kwargs:
+            destination_fhir_service_id = kwargs['destinationFhirServiceId']
+        if 'destinationIdentityResolutionType' in kwargs:
+            destination_identity_resolution_type = kwargs['destinationIdentityResolutionType']
+        if 'medtechServiceId' in kwargs:
+            medtech_service_id = kwargs['medtechServiceId']
+
         _setter("destination_fhir_mapping_json", destination_fhir_mapping_json)
         _setter("destination_fhir_service_id", destination_fhir_service_id)
         _setter("destination_identity_resolution_type", destination_identity_resolution_type)
@@ -166,7 +176,17 @@ class _MedtechServiceFhirDestinationState:
              location: Optional[pulumi.Input[str]] = None,
              medtech_service_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationFhirMappingJson' in kwargs:
+            destination_fhir_mapping_json = kwargs['destinationFhirMappingJson']
+        if 'destinationFhirServiceId' in kwargs:
+            destination_fhir_service_id = kwargs['destinationFhirServiceId']
+        if 'destinationIdentityResolutionType' in kwargs:
+            destination_identity_resolution_type = kwargs['destinationIdentityResolutionType']
+        if 'medtechServiceId' in kwargs:
+            medtech_service_id = kwargs['medtechServiceId']
+
         if destination_fhir_mapping_json is not None:
             _setter("destination_fhir_mapping_json", destination_fhir_mapping_json)
         if destination_fhir_service_id is not None:

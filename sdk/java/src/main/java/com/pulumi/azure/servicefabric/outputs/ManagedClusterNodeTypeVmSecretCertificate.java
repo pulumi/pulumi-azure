@@ -65,10 +65,10 @@ public final class ManagedClusterNodeTypeVmSecretCertificate {
             return this;
         }
         public ManagedClusterNodeTypeVmSecretCertificate build() {
-            final var o = new ManagedClusterNodeTypeVmSecretCertificate();
-            o.store = store;
-            o.url = url;
-            return o;
+            final var _resultValue = new ManagedClusterNodeTypeVmSecretCertificate();
+            _resultValue.store = store;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

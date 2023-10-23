@@ -101,7 +101,43 @@ class SparkPoolArgs:
              spark_log_folder: Optional[pulumi.Input[str]] = None,
              spark_version: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodeSize' in kwargs:
+            node_size = kwargs['nodeSize']
+        if 'nodeSizeFamily' in kwargs:
+            node_size_family = kwargs['nodeSizeFamily']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if 'autoPause' in kwargs:
+            auto_pause = kwargs['autoPause']
+        if 'autoScale' in kwargs:
+            auto_scale = kwargs['autoScale']
+        if 'cacheSize' in kwargs:
+            cache_size = kwargs['cacheSize']
+        if 'computeIsolationEnabled' in kwargs:
+            compute_isolation_enabled = kwargs['computeIsolationEnabled']
+        if 'dynamicExecutorAllocationEnabled' in kwargs:
+            dynamic_executor_allocation_enabled = kwargs['dynamicExecutorAllocationEnabled']
+        if 'libraryRequirement' in kwargs:
+            library_requirement = kwargs['libraryRequirement']
+        if 'maxExecutors' in kwargs:
+            max_executors = kwargs['maxExecutors']
+        if 'minExecutors' in kwargs:
+            min_executors = kwargs['minExecutors']
+        if 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if 'sessionLevelPackagesEnabled' in kwargs:
+            session_level_packages_enabled = kwargs['sessionLevelPackagesEnabled']
+        if 'sparkConfig' in kwargs:
+            spark_config = kwargs['sparkConfig']
+        if 'sparkEventsFolder' in kwargs:
+            spark_events_folder = kwargs['sparkEventsFolder']
+        if 'sparkLogFolder' in kwargs:
+            spark_log_folder = kwargs['sparkLogFolder']
+        if 'sparkVersion' in kwargs:
+            spark_version = kwargs['sparkVersion']
+
         _setter("node_size", node_size)
         _setter("node_size_family", node_size_family)
         _setter("synapse_workspace_id", synapse_workspace_id)
@@ -455,7 +491,43 @@ class _SparkPoolState:
              spark_version: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoPause' in kwargs:
+            auto_pause = kwargs['autoPause']
+        if 'autoScale' in kwargs:
+            auto_scale = kwargs['autoScale']
+        if 'cacheSize' in kwargs:
+            cache_size = kwargs['cacheSize']
+        if 'computeIsolationEnabled' in kwargs:
+            compute_isolation_enabled = kwargs['computeIsolationEnabled']
+        if 'dynamicExecutorAllocationEnabled' in kwargs:
+            dynamic_executor_allocation_enabled = kwargs['dynamicExecutorAllocationEnabled']
+        if 'libraryRequirement' in kwargs:
+            library_requirement = kwargs['libraryRequirement']
+        if 'maxExecutors' in kwargs:
+            max_executors = kwargs['maxExecutors']
+        if 'minExecutors' in kwargs:
+            min_executors = kwargs['minExecutors']
+        if 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if 'nodeSize' in kwargs:
+            node_size = kwargs['nodeSize']
+        if 'nodeSizeFamily' in kwargs:
+            node_size_family = kwargs['nodeSizeFamily']
+        if 'sessionLevelPackagesEnabled' in kwargs:
+            session_level_packages_enabled = kwargs['sessionLevelPackagesEnabled']
+        if 'sparkConfig' in kwargs:
+            spark_config = kwargs['sparkConfig']
+        if 'sparkEventsFolder' in kwargs:
+            spark_events_folder = kwargs['sparkEventsFolder']
+        if 'sparkLogFolder' in kwargs:
+            spark_log_folder = kwargs['sparkLogFolder']
+        if 'sparkVersion' in kwargs:
+            spark_version = kwargs['sparkVersion']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+
         if auto_pause is not None:
             _setter("auto_pause", auto_pause)
         if auto_scale is not None:

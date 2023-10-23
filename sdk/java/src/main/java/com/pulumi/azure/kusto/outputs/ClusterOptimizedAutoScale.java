@@ -65,10 +65,10 @@ public final class ClusterOptimizedAutoScale {
             return this;
         }
         public ClusterOptimizedAutoScale build() {
-            final var o = new ClusterOptimizedAutoScale();
-            o.maximumInstances = maximumInstances;
-            o.minimumInstances = minimumInstances;
-            return o;
+            final var _resultValue = new ClusterOptimizedAutoScale();
+            _resultValue.maximumInstances = maximumInstances;
+            _resultValue.minimumInstances = minimumInstances;
+            return _resultValue;
         }
     }
 }

@@ -73,10 +73,10 @@ public final class LinuxWebAppStickySettings {
             return connectionStringNames(List.of(connectionStringNames));
         }
         public LinuxWebAppStickySettings build() {
-            final var o = new LinuxWebAppStickySettings();
-            o.appSettingNames = appSettingNames;
-            o.connectionStringNames = connectionStringNames;
-            return o;
+            final var _resultValue = new LinuxWebAppStickySettings();
+            _resultValue.appSettingNames = appSettingNames;
+            _resultValue.connectionStringNames = connectionStringNames;
+            return _resultValue;
         }
     }
 }

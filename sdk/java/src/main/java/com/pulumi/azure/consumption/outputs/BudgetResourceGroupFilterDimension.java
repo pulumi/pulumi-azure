@@ -90,11 +90,11 @@ public final class BudgetResourceGroupFilterDimension {
             return values(List.of(values));
         }
         public BudgetResourceGroupFilterDimension build() {
-            final var o = new BudgetResourceGroupFilterDimension();
-            o.name = name;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new BudgetResourceGroupFilterDimension();
+            _resultValue.name = name;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

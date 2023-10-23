@@ -127,13 +127,13 @@ public final class GetRestorableDatabaseAccountsAccount {
             return restorableLocations(List.of(restorableLocations));
         }
         public GetRestorableDatabaseAccountsAccount build() {
-            final var o = new GetRestorableDatabaseAccountsAccount();
-            o.apiType = apiType;
-            o.creationTime = creationTime;
-            o.deletionTime = deletionTime;
-            o.id = id;
-            o.restorableLocations = restorableLocations;
-            return o;
+            final var _resultValue = new GetRestorableDatabaseAccountsAccount();
+            _resultValue.apiType = apiType;
+            _resultValue.creationTime = creationTime;
+            _resultValue.deletionTime = deletionTime;
+            _resultValue.id = id;
+            _resultValue.restorableLocations = restorableLocations;
+            return _resultValue;
         }
     }
 }

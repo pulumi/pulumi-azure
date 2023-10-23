@@ -86,11 +86,11 @@ public final class JobIdentity {
             return this;
         }
         public JobIdentity build() {
-            final var o = new JobIdentity();
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            o.type = type;
-            return o;
+            final var _resultValue = new JobIdentity();
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

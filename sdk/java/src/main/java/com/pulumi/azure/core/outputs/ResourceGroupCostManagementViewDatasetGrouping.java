@@ -65,10 +65,10 @@ public final class ResourceGroupCostManagementViewDatasetGrouping {
             return this;
         }
         public ResourceGroupCostManagementViewDatasetGrouping build() {
-            final var o = new ResourceGroupCostManagementViewDatasetGrouping();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new ResourceGroupCostManagementViewDatasetGrouping();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -67,7 +67,23 @@ class PrivateCloudArgs:
              nsxt_password: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vcenter_password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementCluster' in kwargs:
+            management_cluster = kwargs['managementCluster']
+        if 'networkSubnetCidr' in kwargs:
+            network_subnet_cidr = kwargs['networkSubnetCidr']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'internetConnectionEnabled' in kwargs:
+            internet_connection_enabled = kwargs['internetConnectionEnabled']
+        if 'nsxtPassword' in kwargs:
+            nsxt_password = kwargs['nsxtPassword']
+        if 'vcenterPassword' in kwargs:
+            vcenter_password = kwargs['vcenterPassword']
+
         _setter("management_cluster", management_cluster)
         _setter("network_subnet_cidr", network_subnet_cidr)
         _setter("resource_group_name", resource_group_name)
@@ -298,7 +314,39 @@ class _PrivateCloudState:
              vcenter_password: Optional[pulumi.Input[str]] = None,
              vcsa_endpoint: Optional[pulumi.Input[str]] = None,
              vmotion_subnet_cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hcxCloudManagerEndpoint' in kwargs:
+            hcx_cloud_manager_endpoint = kwargs['hcxCloudManagerEndpoint']
+        if 'internetConnectionEnabled' in kwargs:
+            internet_connection_enabled = kwargs['internetConnectionEnabled']
+        if 'managementCluster' in kwargs:
+            management_cluster = kwargs['managementCluster']
+        if 'managementSubnetCidr' in kwargs:
+            management_subnet_cidr = kwargs['managementSubnetCidr']
+        if 'networkSubnetCidr' in kwargs:
+            network_subnet_cidr = kwargs['networkSubnetCidr']
+        if 'nsxtCertificateThumbprint' in kwargs:
+            nsxt_certificate_thumbprint = kwargs['nsxtCertificateThumbprint']
+        if 'nsxtManagerEndpoint' in kwargs:
+            nsxt_manager_endpoint = kwargs['nsxtManagerEndpoint']
+        if 'nsxtPassword' in kwargs:
+            nsxt_password = kwargs['nsxtPassword']
+        if 'provisioningSubnetCidr' in kwargs:
+            provisioning_subnet_cidr = kwargs['provisioningSubnetCidr']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'vcenterCertificateThumbprint' in kwargs:
+            vcenter_certificate_thumbprint = kwargs['vcenterCertificateThumbprint']
+        if 'vcenterPassword' in kwargs:
+            vcenter_password = kwargs['vcenterPassword']
+        if 'vcsaEndpoint' in kwargs:
+            vcsa_endpoint = kwargs['vcsaEndpoint']
+        if 'vmotionSubnetCidr' in kwargs:
+            vmotion_subnet_cidr = kwargs['vmotionSubnetCidr']
+
         if circuits is not None:
             _setter("circuits", circuits)
         if hcx_cloud_manager_endpoint is not None:

@@ -108,12 +108,12 @@ public final class GetSnapshotPolicyWeeklySchedule {
             return this;
         }
         public GetSnapshotPolicyWeeklySchedule build() {
-            final var o = new GetSnapshotPolicyWeeklySchedule();
-            o.daysOfWeeks = daysOfWeeks;
-            o.hour = hour;
-            o.minute = minute;
-            o.snapshotsToKeep = snapshotsToKeep;
-            return o;
+            final var _resultValue = new GetSnapshotPolicyWeeklySchedule();
+            _resultValue.daysOfWeeks = daysOfWeeks;
+            _resultValue.hour = hour;
+            _resultValue.minute = minute;
+            _resultValue.snapshotsToKeep = snapshotsToKeep;
+            return _resultValue;
         }
     }
 }

@@ -386,27 +386,27 @@ public final class GetKubernetesClusterAgentPoolProfile {
             return zones(List.of(zones));
         }
         public GetKubernetesClusterAgentPoolProfile build() {
-            final var o = new GetKubernetesClusterAgentPoolProfile();
-            o.count = count;
-            o.enableAutoScaling = enableAutoScaling;
-            o.enableNodePublicIp = enableNodePublicIp;
-            o.maxCount = maxCount;
-            o.maxPods = maxPods;
-            o.minCount = minCount;
-            o.name = name;
-            o.nodeLabels = nodeLabels;
-            o.nodePublicIpPrefixId = nodePublicIpPrefixId;
-            o.nodeTaints = nodeTaints;
-            o.orchestratorVersion = orchestratorVersion;
-            o.osDiskSizeGb = osDiskSizeGb;
-            o.osType = osType;
-            o.tags = tags;
-            o.type = type;
-            o.upgradeSettings = upgradeSettings;
-            o.vmSize = vmSize;
-            o.vnetSubnetId = vnetSubnetId;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new GetKubernetesClusterAgentPoolProfile();
+            _resultValue.count = count;
+            _resultValue.enableAutoScaling = enableAutoScaling;
+            _resultValue.enableNodePublicIp = enableNodePublicIp;
+            _resultValue.maxCount = maxCount;
+            _resultValue.maxPods = maxPods;
+            _resultValue.minCount = minCount;
+            _resultValue.name = name;
+            _resultValue.nodeLabels = nodeLabels;
+            _resultValue.nodePublicIpPrefixId = nodePublicIpPrefixId;
+            _resultValue.nodeTaints = nodeTaints;
+            _resultValue.orchestratorVersion = orchestratorVersion;
+            _resultValue.osDiskSizeGb = osDiskSizeGb;
+            _resultValue.osType = osType;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.upgradeSettings = upgradeSettings;
+            _resultValue.vmSize = vmSize;
+            _resultValue.vnetSubnetId = vnetSubnetId;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

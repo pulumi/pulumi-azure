@@ -67,10 +67,10 @@ public final class ActiveRoleAssignmentTicket {
             return this;
         }
         public ActiveRoleAssignmentTicket build() {
-            final var o = new ActiveRoleAssignmentTicket();
-            o.number = number;
-            o.system = system;
-            return o;
+            final var _resultValue = new ActiveRoleAssignmentTicket();
+            _resultValue.number = number;
+            _resultValue.system = system;
+            return _resultValue;
         }
     }
 }

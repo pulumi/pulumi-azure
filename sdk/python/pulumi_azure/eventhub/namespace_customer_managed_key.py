@@ -35,7 +35,15 @@ class NamespaceCustomerManagedKeyInitArgs:
              eventhub_namespace_id: pulumi.Input[str],
              key_vault_key_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventhubNamespaceId' in kwargs:
+            eventhub_namespace_id = kwargs['eventhubNamespaceId']
+        if 'keyVaultKeyIds' in kwargs:
+            key_vault_key_ids = kwargs['keyVaultKeyIds']
+        if 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+
         _setter("eventhub_namespace_id", eventhub_namespace_id)
         _setter("key_vault_key_ids", key_vault_key_ids)
         if infrastructure_encryption_enabled is not None:
@@ -102,7 +110,15 @@ class _NamespaceCustomerManagedKeyState:
              eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
              infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventhubNamespaceId' in kwargs:
+            eventhub_namespace_id = kwargs['eventhubNamespaceId']
+        if 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+        if 'keyVaultKeyIds' in kwargs:
+            key_vault_key_ids = kwargs['keyVaultKeyIds']
+
         if eventhub_namespace_id is not None:
             _setter("eventhub_namespace_id", eventhub_namespace_id)
         if infrastructure_encryption_enabled is not None:

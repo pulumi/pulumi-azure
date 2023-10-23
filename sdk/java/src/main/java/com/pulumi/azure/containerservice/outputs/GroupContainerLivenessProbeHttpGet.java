@@ -107,12 +107,12 @@ public final class GroupContainerLivenessProbeHttpGet {
             return this;
         }
         public GroupContainerLivenessProbeHttpGet build() {
-            final var o = new GroupContainerLivenessProbeHttpGet();
-            o.httpHeaders = httpHeaders;
-            o.path = path;
-            o.port = port;
-            o.scheme = scheme;
-            return o;
+            final var _resultValue = new GroupContainerLivenessProbeHttpGet();
+            _resultValue.httpHeaders = httpHeaders;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.scheme = scheme;
+            return _resultValue;
         }
     }
 }

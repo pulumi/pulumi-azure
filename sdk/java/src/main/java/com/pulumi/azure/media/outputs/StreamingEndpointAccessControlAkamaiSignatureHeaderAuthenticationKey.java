@@ -86,11 +86,11 @@ public final class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthentica
             return this;
         }
         public StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey build() {
-            final var o = new StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey();
-            o.base64Key = base64Key;
-            o.expiration = expiration;
-            o.identifier = identifier;
-            return o;
+            final var _resultValue = new StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey();
+            _resultValue.base64Key = base64Key;
+            _resultValue.expiration = expiration;
+            _resultValue.identifier = identifier;
+            return _resultValue;
         }
     }
 }

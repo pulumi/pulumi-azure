@@ -87,11 +87,11 @@ public final class GalleryApplicationVersionTargetRegion {
             return this;
         }
         public GalleryApplicationVersionTargetRegion build() {
-            final var o = new GalleryApplicationVersionTargetRegion();
-            o.name = name;
-            o.regionalReplicaCount = regionalReplicaCount;
-            o.storageAccountType = storageAccountType;
-            return o;
+            final var _resultValue = new GalleryApplicationVersionTargetRegion();
+            _resultValue.name = name;
+            _resultValue.regionalReplicaCount = regionalReplicaCount;
+            _resultValue.storageAccountType = storageAccountType;
+            return _resultValue;
         }
     }
 }

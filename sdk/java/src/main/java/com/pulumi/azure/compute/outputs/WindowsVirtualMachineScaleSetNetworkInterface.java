@@ -175,15 +175,15 @@ public final class WindowsVirtualMachineScaleSetNetworkInterface {
             return this;
         }
         public WindowsVirtualMachineScaleSetNetworkInterface build() {
-            final var o = new WindowsVirtualMachineScaleSetNetworkInterface();
-            o.dnsServers = dnsServers;
-            o.enableAcceleratedNetworking = enableAcceleratedNetworking;
-            o.enableIpForwarding = enableIpForwarding;
-            o.ipConfigurations = ipConfigurations;
-            o.name = name;
-            o.networkSecurityGroupId = networkSecurityGroupId;
-            o.primary = primary;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetNetworkInterface();
+            _resultValue.dnsServers = dnsServers;
+            _resultValue.enableAcceleratedNetworking = enableAcceleratedNetworking;
+            _resultValue.enableIpForwarding = enableIpForwarding;
+            _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.name = name;
+            _resultValue.networkSecurityGroupId = networkSecurityGroupId;
+            _resultValue.primary = primary;
+            return _resultValue;
         }
     }
 }

@@ -123,13 +123,13 @@ public final class GetKubernetesClusterStorageProfile {
             return this;
         }
         public GetKubernetesClusterStorageProfile build() {
-            final var o = new GetKubernetesClusterStorageProfile();
-            o.blobDriverEnabled = blobDriverEnabled;
-            o.diskDriverEnabled = diskDriverEnabled;
-            o.diskDriverVersion = diskDriverVersion;
-            o.fileDriverEnabled = fileDriverEnabled;
-            o.snapshotControllerEnabled = snapshotControllerEnabled;
-            return o;
+            final var _resultValue = new GetKubernetesClusterStorageProfile();
+            _resultValue.blobDriverEnabled = blobDriverEnabled;
+            _resultValue.diskDriverEnabled = diskDriverEnabled;
+            _resultValue.diskDriverVersion = diskDriverVersion;
+            _resultValue.fileDriverEnabled = fileDriverEnabled;
+            _resultValue.snapshotControllerEnabled = snapshotControllerEnabled;
+            return _resultValue;
         }
     }
 }

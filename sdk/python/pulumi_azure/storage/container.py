@@ -39,7 +39,13 @@ class ContainerArgs:
              container_access_type: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'containerAccessType' in kwargs:
+            container_access_type = kwargs['containerAccessType']
+
         _setter("storage_account_name", storage_account_name)
         if container_access_type is not None:
             _setter("container_access_type", container_access_type)
@@ -137,7 +143,19 @@ class _ContainerState:
              name: Optional[pulumi.Input[str]] = None,
              resource_manager_id: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerAccessType' in kwargs:
+            container_access_type = kwargs['containerAccessType']
+        if 'hasImmutabilityPolicy' in kwargs:
+            has_immutability_policy = kwargs['hasImmutabilityPolicy']
+        if 'hasLegalHold' in kwargs:
+            has_legal_hold = kwargs['hasLegalHold']
+        if 'resourceManagerId' in kwargs:
+            resource_manager_id = kwargs['resourceManagerId']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         if container_access_type is not None:
             _setter("container_access_type", container_access_type)
         if has_immutability_policy is not None:

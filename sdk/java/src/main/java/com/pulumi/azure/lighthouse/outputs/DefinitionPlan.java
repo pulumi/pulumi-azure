@@ -103,12 +103,12 @@ public final class DefinitionPlan {
             return this;
         }
         public DefinitionPlan build() {
-            final var o = new DefinitionPlan();
-            o.name = name;
-            o.product = product;
-            o.publisher = publisher;
-            o.version = version;
-            return o;
+            final var _resultValue = new DefinitionPlan();
+            _resultValue.name = name;
+            _resultValue.product = product;
+            _resultValue.publisher = publisher;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

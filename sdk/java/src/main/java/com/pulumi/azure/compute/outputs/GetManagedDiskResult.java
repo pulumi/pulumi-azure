@@ -374,27 +374,27 @@ public final class GetManagedDiskResult {
             return zones(List.of(zones));
         }
         public GetManagedDiskResult build() {
-            final var o = new GetManagedDiskResult();
-            o.createOption = createOption;
-            o.diskAccessId = diskAccessId;
-            o.diskEncryptionSetId = diskEncryptionSetId;
-            o.diskIopsReadWrite = diskIopsReadWrite;
-            o.diskMbpsReadWrite = diskMbpsReadWrite;
-            o.diskSizeGb = diskSizeGb;
-            o.encryptionSettings = encryptionSettings;
-            o.id = id;
-            o.imageReferenceId = imageReferenceId;
-            o.name = name;
-            o.networkAccessPolicy = networkAccessPolicy;
-            o.osType = osType;
-            o.resourceGroupName = resourceGroupName;
-            o.sourceResourceId = sourceResourceId;
-            o.sourceUri = sourceUri;
-            o.storageAccountId = storageAccountId;
-            o.storageAccountType = storageAccountType;
-            o.tags = tags;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new GetManagedDiskResult();
+            _resultValue.createOption = createOption;
+            _resultValue.diskAccessId = diskAccessId;
+            _resultValue.diskEncryptionSetId = diskEncryptionSetId;
+            _resultValue.diskIopsReadWrite = diskIopsReadWrite;
+            _resultValue.diskMbpsReadWrite = diskMbpsReadWrite;
+            _resultValue.diskSizeGb = diskSizeGb;
+            _resultValue.encryptionSettings = encryptionSettings;
+            _resultValue.id = id;
+            _resultValue.imageReferenceId = imageReferenceId;
+            _resultValue.name = name;
+            _resultValue.networkAccessPolicy = networkAccessPolicy;
+            _resultValue.osType = osType;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sourceResourceId = sourceResourceId;
+            _resultValue.sourceUri = sourceUri;
+            _resultValue.storageAccountId = storageAccountId;
+            _resultValue.storageAccountType = storageAccountType;
+            _resultValue.tags = tags;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

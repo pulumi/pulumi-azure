@@ -85,10 +85,10 @@ public final class ServiceNetworkAclPublicNetwork {
             return deniedRequestTypes(List.of(deniedRequestTypes));
         }
         public ServiceNetworkAclPublicNetwork build() {
-            final var o = new ServiceNetworkAclPublicNetwork();
-            o.allowedRequestTypes = allowedRequestTypes;
-            o.deniedRequestTypes = deniedRequestTypes;
-            return o;
+            final var _resultValue = new ServiceNetworkAclPublicNetwork();
+            _resultValue.allowedRequestTypes = allowedRequestTypes;
+            _resultValue.deniedRequestTypes = deniedRequestTypes;
+            return _resultValue;
         }
     }
 }

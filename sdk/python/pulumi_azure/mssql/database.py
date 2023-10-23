@@ -151,7 +151,59 @@ class DatabaseArgs:
              threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
              transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if 'autoPauseDelayInMinutes' in kwargs:
+            auto_pause_delay_in_minutes = kwargs['autoPauseDelayInMinutes']
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'creationSourceDatabaseId' in kwargs:
+            creation_source_database_id = kwargs['creationSourceDatabaseId']
+        if 'elasticPoolId' in kwargs:
+            elastic_pool_id = kwargs['elasticPoolId']
+        if 'geoBackupEnabled' in kwargs:
+            geo_backup_enabled = kwargs['geoBackupEnabled']
+        if 'import' in kwargs:
+            import_ = kwargs['import']
+        if 'ledgerEnabled' in kwargs:
+            ledger_enabled = kwargs['ledgerEnabled']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'longTermRetentionPolicy' in kwargs:
+            long_term_retention_policy = kwargs['longTermRetentionPolicy']
+        if 'maintenanceConfigurationName' in kwargs:
+            maintenance_configuration_name = kwargs['maintenanceConfigurationName']
+        if 'maxSizeGb' in kwargs:
+            max_size_gb = kwargs['maxSizeGb']
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if 'readReplicaCount' in kwargs:
+            read_replica_count = kwargs['readReplicaCount']
+        if 'readScale' in kwargs:
+            read_scale = kwargs['readScale']
+        if 'recoverDatabaseId' in kwargs:
+            recover_database_id = kwargs['recoverDatabaseId']
+        if 'restoreDroppedDatabaseId' in kwargs:
+            restore_dropped_database_id = kwargs['restoreDroppedDatabaseId']
+        if 'restorePointInTime' in kwargs:
+            restore_point_in_time = kwargs['restorePointInTime']
+        if 'sampleName' in kwargs:
+            sample_name = kwargs['sampleName']
+        if 'shortTermRetentionPolicy' in kwargs:
+            short_term_retention_policy = kwargs['shortTermRetentionPolicy']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'threatDetectionPolicy' in kwargs:
+            threat_detection_policy = kwargs['threatDetectionPolicy']
+        if 'transparentDataEncryptionEnabled' in kwargs:
+            transparent_data_encryption_enabled = kwargs['transparentDataEncryptionEnabled']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         _setter("server_id", server_id)
         if auto_pause_delay_in_minutes is not None:
             _setter("auto_pause_delay_in_minutes", auto_pause_delay_in_minutes)
@@ -697,7 +749,59 @@ class _DatabaseState:
              threat_detection_policy: Optional[pulumi.Input['DatabaseThreatDetectionPolicyArgs']] = None,
              transparent_data_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoPauseDelayInMinutes' in kwargs:
+            auto_pause_delay_in_minutes = kwargs['autoPauseDelayInMinutes']
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'creationSourceDatabaseId' in kwargs:
+            creation_source_database_id = kwargs['creationSourceDatabaseId']
+        if 'elasticPoolId' in kwargs:
+            elastic_pool_id = kwargs['elasticPoolId']
+        if 'geoBackupEnabled' in kwargs:
+            geo_backup_enabled = kwargs['geoBackupEnabled']
+        if 'import' in kwargs:
+            import_ = kwargs['import']
+        if 'ledgerEnabled' in kwargs:
+            ledger_enabled = kwargs['ledgerEnabled']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'longTermRetentionPolicy' in kwargs:
+            long_term_retention_policy = kwargs['longTermRetentionPolicy']
+        if 'maintenanceConfigurationName' in kwargs:
+            maintenance_configuration_name = kwargs['maintenanceConfigurationName']
+        if 'maxSizeGb' in kwargs:
+            max_size_gb = kwargs['maxSizeGb']
+        if 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if 'readReplicaCount' in kwargs:
+            read_replica_count = kwargs['readReplicaCount']
+        if 'readScale' in kwargs:
+            read_scale = kwargs['readScale']
+        if 'recoverDatabaseId' in kwargs:
+            recover_database_id = kwargs['recoverDatabaseId']
+        if 'restoreDroppedDatabaseId' in kwargs:
+            restore_dropped_database_id = kwargs['restoreDroppedDatabaseId']
+        if 'restorePointInTime' in kwargs:
+            restore_point_in_time = kwargs['restorePointInTime']
+        if 'sampleName' in kwargs:
+            sample_name = kwargs['sampleName']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if 'shortTermRetentionPolicy' in kwargs:
+            short_term_retention_policy = kwargs['shortTermRetentionPolicy']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'threatDetectionPolicy' in kwargs:
+            threat_detection_policy = kwargs['threatDetectionPolicy']
+        if 'transparentDataEncryptionEnabled' in kwargs:
+            transparent_data_encryption_enabled = kwargs['transparentDataEncryptionEnabled']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         if auto_pause_delay_in_minutes is not None:
             _setter("auto_pause_delay_in_minutes", auto_pause_delay_in_minutes)
         if collation is not None:

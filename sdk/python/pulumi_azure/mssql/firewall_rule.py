@@ -41,7 +41,15 @@ class FirewallRuleArgs:
              server_id: pulumi.Input[str],
              start_ip_address: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+
         _setter("end_ip_address", end_ip_address)
         _setter("server_id", server_id)
         _setter("start_ip_address", start_ip_address)
@@ -129,7 +137,15 @@ class _FirewallRuleState:
              name: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[str]] = None,
              start_ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+
         if end_ip_address is not None:
             _setter("end_ip_address", end_ip_address)
         if name is not None:

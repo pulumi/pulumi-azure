@@ -105,12 +105,12 @@ public final class ContactProfileLinkChannelEndPoint {
             return this;
         }
         public ContactProfileLinkChannelEndPoint build() {
-            final var o = new ContactProfileLinkChannelEndPoint();
-            o.endPointName = endPointName;
-            o.ipAddress = ipAddress;
-            o.port = port;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new ContactProfileLinkChannelEndPoint();
+            _resultValue.endPointName = endPointName;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

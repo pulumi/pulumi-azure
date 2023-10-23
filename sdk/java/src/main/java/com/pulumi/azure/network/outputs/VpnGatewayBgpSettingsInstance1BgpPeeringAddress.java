@@ -115,12 +115,12 @@ public final class VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
             return tunnelIps(List.of(tunnelIps));
         }
         public VpnGatewayBgpSettingsInstance1BgpPeeringAddress build() {
-            final var o = new VpnGatewayBgpSettingsInstance1BgpPeeringAddress();
-            o.customIps = customIps;
-            o.defaultIps = defaultIps;
-            o.ipConfigurationId = ipConfigurationId;
-            o.tunnelIps = tunnelIps;
-            return o;
+            final var _resultValue = new VpnGatewayBgpSettingsInstance1BgpPeeringAddress();
+            _resultValue.customIps = customIps;
+            _resultValue.defaultIps = defaultIps;
+            _resultValue.ipConfigurationId = ipConfigurationId;
+            _resultValue.tunnelIps = tunnelIps;
+            return _resultValue;
         }
     }
 }

@@ -76,11 +76,11 @@ public final class GetNetworkSimStaticIpConfiguration {
             return this;
         }
         public GetNetworkSimStaticIpConfiguration build() {
-            final var o = new GetNetworkSimStaticIpConfiguration();
-            o.attachedDataNetworkId = attachedDataNetworkId;
-            o.sliceId = sliceId;
-            o.staticIpv4Address = staticIpv4Address;
-            return o;
+            final var _resultValue = new GetNetworkSimStaticIpConfiguration();
+            _resultValue.attachedDataNetworkId = attachedDataNetworkId;
+            _resultValue.sliceId = sliceId;
+            _resultValue.staticIpv4Address = staticIpv4Address;
+            return _resultValue;
         }
     }
 }

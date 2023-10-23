@@ -46,9 +46,9 @@ public final class RegistryTaskRegistryCredentialSource {
             return this;
         }
         public RegistryTaskRegistryCredentialSource build() {
-            final var o = new RegistryTaskRegistryCredentialSource();
-            o.loginMode = loginMode;
-            return o;
+            final var _resultValue = new RegistryTaskRegistryCredentialSource();
+            _resultValue.loginMode = loginMode;
+            return _resultValue;
         }
     }
 }

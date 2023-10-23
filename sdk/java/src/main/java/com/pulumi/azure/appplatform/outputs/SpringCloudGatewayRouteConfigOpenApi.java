@@ -48,9 +48,9 @@ public final class SpringCloudGatewayRouteConfigOpenApi {
             return this;
         }
         public SpringCloudGatewayRouteConfigOpenApi build() {
-            final var o = new SpringCloudGatewayRouteConfigOpenApi();
-            o.uri = uri;
-            return o;
+            final var _resultValue = new SpringCloudGatewayRouteConfigOpenApi();
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

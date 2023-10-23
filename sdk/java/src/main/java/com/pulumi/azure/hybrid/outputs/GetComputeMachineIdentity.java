@@ -84,11 +84,11 @@ public final class GetComputeMachineIdentity {
             return this;
         }
         public GetComputeMachineIdentity build() {
-            final var o = new GetComputeMachineIdentity();
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetComputeMachineIdentity();
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

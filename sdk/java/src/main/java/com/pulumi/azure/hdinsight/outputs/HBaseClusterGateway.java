@@ -69,10 +69,10 @@ public final class HBaseClusterGateway {
             return this;
         }
         public HBaseClusterGateway build() {
-            final var o = new HBaseClusterGateway();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new HBaseClusterGateway();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

@@ -183,17 +183,17 @@ public final class GetServiceResult {
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.dataLocation = dataLocation;
-            o.id = id;
-            o.name = name;
-            o.primaryConnectionString = primaryConnectionString;
-            o.primaryKey = primaryKey;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryConnectionString = secondaryConnectionString;
-            o.secondaryKey = secondaryKey;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.dataLocation = dataLocation;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.primaryConnectionString = primaryConnectionString;
+            _resultValue.primaryKey = primaryKey;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryConnectionString = secondaryConnectionString;
+            _resultValue.secondaryKey = secondaryKey;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

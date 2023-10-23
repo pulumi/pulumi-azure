@@ -110,12 +110,12 @@ public final class FirewallVirtualHub {
             return this;
         }
         public FirewallVirtualHub build() {
-            final var o = new FirewallVirtualHub();
-            o.privateIpAddress = privateIpAddress;
-            o.publicIpAddresses = publicIpAddresses;
-            o.publicIpCount = publicIpCount;
-            o.virtualHubId = virtualHubId;
-            return o;
+            final var _resultValue = new FirewallVirtualHub();
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.publicIpAddresses = publicIpAddresses;
+            _resultValue.publicIpCount = publicIpCount;
+            _resultValue.virtualHubId = virtualHubId;
+            return _resultValue;
         }
     }
 }

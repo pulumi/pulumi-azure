@@ -65,10 +65,10 @@ public final class TrafficManagerNestedEndpointCustomHeader {
             return this;
         }
         public TrafficManagerNestedEndpointCustomHeader build() {
-            final var o = new TrafficManagerNestedEndpointCustomHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new TrafficManagerNestedEndpointCustomHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

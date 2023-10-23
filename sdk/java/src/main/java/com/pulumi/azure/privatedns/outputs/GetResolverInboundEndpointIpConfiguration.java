@@ -84,11 +84,11 @@ public final class GetResolverInboundEndpointIpConfiguration {
             return this;
         }
         public GetResolverInboundEndpointIpConfiguration build() {
-            final var o = new GetResolverInboundEndpointIpConfiguration();
-            o.privateIpAddress = privateIpAddress;
-            o.privateIpAllocationMethod = privateIpAllocationMethod;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetResolverInboundEndpointIpConfiguration();
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.privateIpAllocationMethod = privateIpAllocationMethod;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

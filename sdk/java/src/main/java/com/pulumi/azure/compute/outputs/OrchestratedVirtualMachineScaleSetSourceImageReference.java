@@ -103,12 +103,12 @@ public final class OrchestratedVirtualMachineScaleSetSourceImageReference {
             return this;
         }
         public OrchestratedVirtualMachineScaleSetSourceImageReference build() {
-            final var o = new OrchestratedVirtualMachineScaleSetSourceImageReference();
-            o.offer = offer;
-            o.publisher = publisher;
-            o.sku = sku;
-            o.version = version;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetSourceImageReference();
+            _resultValue.offer = offer;
+            _resultValue.publisher = publisher;
+            _resultValue.sku = sku;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

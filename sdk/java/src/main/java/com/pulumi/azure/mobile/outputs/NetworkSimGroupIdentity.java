@@ -69,10 +69,10 @@ public final class NetworkSimGroupIdentity {
             return this;
         }
         public NetworkSimGroupIdentity build() {
-            final var o = new NetworkSimGroupIdentity();
-            o.identityIds = identityIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new NetworkSimGroupIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

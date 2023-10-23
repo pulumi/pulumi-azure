@@ -90,11 +90,11 @@ public final class FunctionAppAuthSettingsActiveDirectory {
             return this;
         }
         public FunctionAppAuthSettingsActiveDirectory build() {
-            final var o = new FunctionAppAuthSettingsActiveDirectory();
-            o.allowedAudiences = allowedAudiences;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            return o;
+            final var _resultValue = new FunctionAppAuthSettingsActiveDirectory();
+            _resultValue.allowedAudiences = allowedAudiences;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            return _resultValue;
         }
     }
 }

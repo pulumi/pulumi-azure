@@ -35,7 +35,15 @@ class PolicyArgs:
              api_management_id: pulumi.Input[str],
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'xmlContent' in kwargs:
+            xml_content = kwargs['xmlContent']
+        if 'xmlLink' in kwargs:
+            xml_link = kwargs['xmlLink']
+
         _setter("api_management_id", api_management_id)
         if xml_content is not None:
             _setter("xml_content", xml_content)
@@ -103,7 +111,15 @@ class _PolicyState:
              api_management_id: Optional[pulumi.Input[str]] = None,
              xml_content: Optional[pulumi.Input[str]] = None,
              xml_link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'xmlContent' in kwargs:
+            xml_content = kwargs['xmlContent']
+        if 'xmlLink' in kwargs:
+            xml_link = kwargs['xmlLink']
+
         if api_management_id is not None:
             _setter("api_management_id", api_management_id)
         if xml_content is not None:

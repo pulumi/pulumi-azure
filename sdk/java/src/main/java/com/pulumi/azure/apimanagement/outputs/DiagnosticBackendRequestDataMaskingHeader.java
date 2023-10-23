@@ -65,10 +65,10 @@ public final class DiagnosticBackendRequestDataMaskingHeader {
             return this;
         }
         public DiagnosticBackendRequestDataMaskingHeader build() {
-            final var o = new DiagnosticBackendRequestDataMaskingHeader();
-            o.mode = mode;
-            o.value = value;
-            return o;
+            final var _resultValue = new DiagnosticBackendRequestDataMaskingHeader();
+            _resultValue.mode = mode;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

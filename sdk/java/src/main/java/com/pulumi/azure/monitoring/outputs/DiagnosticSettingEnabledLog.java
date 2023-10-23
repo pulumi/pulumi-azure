@@ -111,11 +111,11 @@ public final class DiagnosticSettingEnabledLog {
             return this;
         }
         public DiagnosticSettingEnabledLog build() {
-            final var o = new DiagnosticSettingEnabledLog();
-            o.category = category;
-            o.categoryGroup = categoryGroup;
-            o.retentionPolicy = retentionPolicy;
-            return o;
+            final var _resultValue = new DiagnosticSettingEnabledLog();
+            _resultValue.category = category;
+            _resultValue.categoryGroup = categoryGroup;
+            _resultValue.retentionPolicy = retentionPolicy;
+            return _resultValue;
         }
     }
 }

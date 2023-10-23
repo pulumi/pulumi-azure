@@ -35,7 +35,11 @@ class WatchlistItemArgs:
              properties: pulumi.Input[Mapping[str, pulumi.Input[str]]],
              watchlist_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'watchlistId' in kwargs:
+            watchlist_id = kwargs['watchlistId']
+
         _setter("properties", properties)
         _setter("watchlist_id", watchlist_id)
         if name is not None:
@@ -102,7 +106,11 @@ class _WatchlistItemState:
              name: Optional[pulumi.Input[str]] = None,
              properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              watchlist_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'watchlistId' in kwargs:
+            watchlist_id = kwargs['watchlistId']
+
         if name is not None:
             _setter("name", name)
         if properties is not None:

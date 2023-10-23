@@ -86,11 +86,11 @@ public final class KeyVaultContact {
             return this;
         }
         public KeyVaultContact build() {
-            final var o = new KeyVaultContact();
-            o.email = email;
-            o.name = name;
-            o.phone = phone;
-            return o;
+            final var _resultValue = new KeyVaultContact();
+            _resultValue.email = email;
+            _resultValue.name = name;
+            _resultValue.phone = phone;
+            return _resultValue;
         }
     }
 }

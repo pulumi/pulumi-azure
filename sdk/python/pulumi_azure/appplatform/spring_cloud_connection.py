@@ -53,7 +53,19 @@ class SpringCloudConnectionArgs:
              name: Optional[pulumi.Input[str]] = None,
              secret_store: Optional[pulumi.Input['SpringCloudConnectionSecretStoreArgs']] = None,
              vnet_solution: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudId' in kwargs:
+            spring_cloud_id = kwargs['springCloudId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'clientType' in kwargs:
+            client_type = kwargs['clientType']
+        if 'secretStore' in kwargs:
+            secret_store = kwargs['secretStore']
+        if 'vnetSolution' in kwargs:
+            vnet_solution = kwargs['vnetSolution']
+
         _setter("authentication", authentication)
         _setter("spring_cloud_id", spring_cloud_id)
         _setter("target_resource_id", target_resource_id)
@@ -191,7 +203,19 @@ class _SpringCloudConnectionState:
              spring_cloud_id: Optional[pulumi.Input[str]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
              vnet_solution: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientType' in kwargs:
+            client_type = kwargs['clientType']
+        if 'secretStore' in kwargs:
+            secret_store = kwargs['secretStore']
+        if 'springCloudId' in kwargs:
+            spring_cloud_id = kwargs['springCloudId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'vnetSolution' in kwargs:
+            vnet_solution = kwargs['vnetSolution']
+
         if authentication is not None:
             _setter("authentication", authentication)
         if client_type is not None:

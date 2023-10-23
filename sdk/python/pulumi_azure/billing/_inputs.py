@@ -33,7 +33,11 @@ class AccountCostManagementExportExportDataOptionsArgs:
              _setter: Callable[[Any, Any], None],
              time_frame: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeFrame' in kwargs:
+            time_frame = kwargs['timeFrame']
+
         _setter("time_frame", time_frame)
         _setter("type", type)
 
@@ -83,7 +87,13 @@ class AccountCostManagementExportExportDataStorageLocationArgs:
              _setter: Callable[[Any, Any], None],
              container_id: pulumi.Input[str],
              root_folder_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerId' in kwargs:
+            container_id = kwargs['containerId']
+        if 'rootFolderPath' in kwargs:
+            root_folder_path = kwargs['rootFolderPath']
+
         _setter("container_id", container_id)
         _setter("root_folder_path", root_folder_path)
 

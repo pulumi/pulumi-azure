@@ -50,9 +50,9 @@ public final class DataCollectionRuleDataSourcesDataImport {
             return eventHubDataSources(List.of(eventHubDataSources));
         }
         public DataCollectionRuleDataSourcesDataImport build() {
-            final var o = new DataCollectionRuleDataSourcesDataImport();
-            o.eventHubDataSources = eventHubDataSources;
-            return o;
+            final var _resultValue = new DataCollectionRuleDataSourcesDataImport();
+            _resultValue.eventHubDataSources = eventHubDataSources;
+            return _resultValue;
         }
     }
 }

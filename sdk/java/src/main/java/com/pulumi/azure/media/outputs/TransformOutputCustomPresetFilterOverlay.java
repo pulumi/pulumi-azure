@@ -72,10 +72,10 @@ public final class TransformOutputCustomPresetFilterOverlay {
             return this;
         }
         public TransformOutputCustomPresetFilterOverlay build() {
-            final var o = new TransformOutputCustomPresetFilterOverlay();
-            o.audio = audio;
-            o.video = video;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFilterOverlay();
+            _resultValue.audio = audio;
+            _resultValue.video = video;
+            return _resultValue;
         }
     }
 }

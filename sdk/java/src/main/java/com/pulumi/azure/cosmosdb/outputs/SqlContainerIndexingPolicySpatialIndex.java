@@ -70,10 +70,10 @@ public final class SqlContainerIndexingPolicySpatialIndex {
             return types(List.of(types));
         }
         public SqlContainerIndexingPolicySpatialIndex build() {
-            final var o = new SqlContainerIndexingPolicySpatialIndex();
-            o.path = path;
-            o.types = types;
-            return o;
+            final var _resultValue = new SqlContainerIndexingPolicySpatialIndex();
+            _resultValue.path = path;
+            _resultValue.types = types;
+            return _resultValue;
         }
     }
 }

@@ -220,18 +220,18 @@ public final class GetServiceResult {
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.id = id;
-            o.identities = identities;
-            o.name = name;
-            o.partitionCount = partitionCount;
-            o.primaryKey = primaryKey;
-            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            o.queryKeys = queryKeys;
-            o.replicaCount = replicaCount;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryKey = secondaryKey;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.name = name;
+            _resultValue.partitionCount = partitionCount;
+            _resultValue.primaryKey = primaryKey;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            _resultValue.queryKeys = queryKeys;
+            _resultValue.replicaCount = replicaCount;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryKey = secondaryKey;
+            return _resultValue;
         }
     }
 }

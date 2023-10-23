@@ -67,10 +67,10 @@ public final class PolicyVMInstantRestoreResourceGroup {
             return this;
         }
         public PolicyVMInstantRestoreResourceGroup build() {
-            final var o = new PolicyVMInstantRestoreResourceGroup();
-            o.prefix = prefix;
-            o.suffix = suffix;
-            return o;
+            final var _resultValue = new PolicyVMInstantRestoreResourceGroup();
+            _resultValue.prefix = prefix;
+            _resultValue.suffix = suffix;
+            return _resultValue;
         }
     }
 }

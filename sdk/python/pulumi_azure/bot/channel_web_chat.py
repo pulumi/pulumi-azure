@@ -47,7 +47,15 @@ class ChannelWebChatArgs:
              location: Optional[pulumi.Input[str]] = None,
              site_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              sites: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'siteNames' in kwargs:
+            site_names = kwargs['siteNames']
+
         _setter("bot_name", bot_name)
         _setter("resource_group_name", resource_group_name)
         if location is not None:
@@ -160,7 +168,15 @@ class _ChannelWebChatState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              site_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              sites: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelWebChatSiteArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'siteNames' in kwargs:
+            site_names = kwargs['siteNames']
+
         if bot_name is not None:
             _setter("bot_name", bot_name)
         if location is not None:

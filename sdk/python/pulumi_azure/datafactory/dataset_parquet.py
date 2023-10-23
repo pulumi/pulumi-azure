@@ -85,7 +85,27 @@ class DatasetParquetArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'azureBlobFsLocation' in kwargs:
+            azure_blob_fs_location = kwargs['azureBlobFsLocation']
+        if 'azureBlobStorageLocation' in kwargs:
+            azure_blob_storage_location = kwargs['azureBlobStorageLocation']
+        if 'compressionCodec' in kwargs:
+            compression_codec = kwargs['compressionCodec']
+        if 'compressionLevel' in kwargs:
+            compression_level = kwargs['compressionLevel']
+        if 'httpServerLocation' in kwargs:
+            http_server_location = kwargs['httpServerLocation']
+        if 'schemaColumns' in kwargs:
+            schema_columns = kwargs['schemaColumns']
+
         _setter("data_factory_id", data_factory_id)
         _setter("linked_service_name", linked_service_name)
         if additional_properties is not None:
@@ -358,7 +378,27 @@ class _DatasetParquetState:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'azureBlobFsLocation' in kwargs:
+            azure_blob_fs_location = kwargs['azureBlobFsLocation']
+        if 'azureBlobStorageLocation' in kwargs:
+            azure_blob_storage_location = kwargs['azureBlobStorageLocation']
+        if 'compressionCodec' in kwargs:
+            compression_codec = kwargs['compressionCodec']
+        if 'compressionLevel' in kwargs:
+            compression_level = kwargs['compressionLevel']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'httpServerLocation' in kwargs:
+            http_server_location = kwargs['httpServerLocation']
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'schemaColumns' in kwargs:
+            schema_columns = kwargs['schemaColumns']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

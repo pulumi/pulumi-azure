@@ -66,10 +66,10 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerRequests {
             return this;
         }
         public LinuxWebAppSiteConfigAutoHealSettingTriggerRequests build() {
-            final var o = new LinuxWebAppSiteConfigAutoHealSettingTriggerRequests();
-            o.count = count;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new LinuxWebAppSiteConfigAutoHealSettingTriggerRequests();
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

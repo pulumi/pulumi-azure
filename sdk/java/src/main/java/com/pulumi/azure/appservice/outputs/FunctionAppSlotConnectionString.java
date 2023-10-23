@@ -84,11 +84,11 @@ public final class FunctionAppSlotConnectionString {
             return this;
         }
         public FunctionAppSlotConnectionString build() {
-            final var o = new FunctionAppSlotConnectionString();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new FunctionAppSlotConnectionString();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class HadoopClusterNetwork {
             return this;
         }
         public HadoopClusterNetwork build() {
-            final var o = new HadoopClusterNetwork();
-            o.connectionDirection = connectionDirection;
-            o.privateLinkEnabled = privateLinkEnabled;
-            return o;
+            final var _resultValue = new HadoopClusterNetwork();
+            _resultValue.connectionDirection = connectionDirection;
+            _resultValue.privateLinkEnabled = privateLinkEnabled;
+            return _resultValue;
         }
     }
 }

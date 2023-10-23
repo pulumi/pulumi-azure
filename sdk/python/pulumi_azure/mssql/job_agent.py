@@ -39,7 +39,11 @@ class JobAgentArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseId' in kwargs:
+            database_id = kwargs['databaseId']
+
         _setter("database_id", database_id)
         if location is not None:
             _setter("location", location)
@@ -125,7 +129,11 @@ class _JobAgentState:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseId' in kwargs:
+            database_id = kwargs['databaseId']
+
         if database_id is not None:
             _setter("database_id", database_id)
         if location is not None:

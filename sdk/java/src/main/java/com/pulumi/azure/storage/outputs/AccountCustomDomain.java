@@ -68,10 +68,10 @@ public final class AccountCustomDomain {
             return this;
         }
         public AccountCustomDomain build() {
-            final var o = new AccountCustomDomain();
-            o.name = name;
-            o.useSubdomain = useSubdomain;
-            return o;
+            final var _resultValue = new AccountCustomDomain();
+            _resultValue.name = name;
+            _resultValue.useSubdomain = useSubdomain;
+            return _resultValue;
         }
     }
 }

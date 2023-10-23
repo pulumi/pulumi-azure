@@ -112,12 +112,12 @@ public final class HBaseClusterStorageAccountGen2 {
             return this;
         }
         public HBaseClusterStorageAccountGen2 build() {
-            final var o = new HBaseClusterStorageAccountGen2();
-            o.filesystemId = filesystemId;
-            o.isDefault = isDefault;
-            o.managedIdentityResourceId = managedIdentityResourceId;
-            o.storageResourceId = storageResourceId;
-            return o;
+            final var _resultValue = new HBaseClusterStorageAccountGen2();
+            _resultValue.filesystemId = filesystemId;
+            _resultValue.isDefault = isDefault;
+            _resultValue.managedIdentityResourceId = managedIdentityResourceId;
+            _resultValue.storageResourceId = storageResourceId;
+            return _resultValue;
         }
     }
 }

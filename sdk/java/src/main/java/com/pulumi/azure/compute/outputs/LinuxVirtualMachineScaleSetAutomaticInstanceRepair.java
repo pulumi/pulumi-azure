@@ -68,10 +68,10 @@ public final class LinuxVirtualMachineScaleSetAutomaticInstanceRepair {
             return this;
         }
         public LinuxVirtualMachineScaleSetAutomaticInstanceRepair build() {
-            final var o = new LinuxVirtualMachineScaleSetAutomaticInstanceRepair();
-            o.enabled = enabled;
-            o.gracePeriod = gracePeriod;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetAutomaticInstanceRepair();
+            _resultValue.enabled = enabled;
+            _resultValue.gracePeriod = gracePeriod;
+            return _resultValue;
         }
     }
 }

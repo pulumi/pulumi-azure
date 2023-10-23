@@ -68,10 +68,10 @@ public final class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy {
             return this;
         }
         public ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy build() {
-            final var o = new ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy();
-            o.graceMinutes = graceMinutes;
-            o.mode = mode;
-            return o;
+            final var _resultValue = new ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy();
+            _resultValue.graceMinutes = graceMinutes;
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

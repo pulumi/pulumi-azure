@@ -65,10 +65,10 @@ public final class EventSubscriptionStorageBlobDeadLetterDestination {
             return this;
         }
         public EventSubscriptionStorageBlobDeadLetterDestination build() {
-            final var o = new EventSubscriptionStorageBlobDeadLetterDestination();
-            o.storageAccountId = storageAccountId;
-            o.storageBlobContainerName = storageBlobContainerName;
-            return o;
+            final var _resultValue = new EventSubscriptionStorageBlobDeadLetterDestination();
+            _resultValue.storageAccountId = storageAccountId;
+            _resultValue.storageBlobContainerName = storageBlobContainerName;
+            return _resultValue;
         }
     }
 }

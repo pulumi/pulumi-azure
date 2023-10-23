@@ -67,10 +67,10 @@ public final class BudgetManagementGroupTimePeriod {
             return this;
         }
         public BudgetManagementGroupTimePeriod build() {
-            final var o = new BudgetManagementGroupTimePeriod();
-            o.endDate = endDate;
-            o.startDate = startDate;
-            return o;
+            final var _resultValue = new BudgetManagementGroupTimePeriod();
+            _resultValue.endDate = endDate;
+            _resultValue.startDate = startDate;
+            return _resultValue;
         }
     }
 }

@@ -169,16 +169,16 @@ public final class GetVirtualHubConnectionResult {
             return this;
         }
         public GetVirtualHubConnectionResult build() {
-            final var o = new GetVirtualHubConnectionResult();
-            o.id = id;
-            o.internetSecurityEnabled = internetSecurityEnabled;
-            o.name = name;
-            o.remoteVirtualNetworkId = remoteVirtualNetworkId;
-            o.resourceGroupName = resourceGroupName;
-            o.routings = routings;
-            o.virtualHubId = virtualHubId;
-            o.virtualHubName = virtualHubName;
-            return o;
+            final var _resultValue = new GetVirtualHubConnectionResult();
+            _resultValue.id = id;
+            _resultValue.internetSecurityEnabled = internetSecurityEnabled;
+            _resultValue.name = name;
+            _resultValue.remoteVirtualNetworkId = remoteVirtualNetworkId;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.routings = routings;
+            _resultValue.virtualHubId = virtualHubId;
+            _resultValue.virtualHubName = virtualHubName;
+            return _resultValue;
         }
     }
 }

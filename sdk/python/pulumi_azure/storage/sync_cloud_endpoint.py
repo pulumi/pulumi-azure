@@ -43,7 +43,17 @@ class SyncCloudEndpointArgs:
              storage_sync_group_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              storage_account_tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileShareName' in kwargs:
+            file_share_name = kwargs['fileShareName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageSyncGroupId' in kwargs:
+            storage_sync_group_id = kwargs['storageSyncGroupId']
+        if 'storageAccountTenantId' in kwargs:
+            storage_account_tenant_id = kwargs['storageAccountTenantId']
+
         _setter("file_share_name", file_share_name)
         _setter("storage_account_id", storage_account_id)
         _setter("storage_sync_group_id", storage_sync_group_id)
@@ -145,7 +155,17 @@ class _SyncCloudEndpointState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              storage_account_tenant_id: Optional[pulumi.Input[str]] = None,
              storage_sync_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileShareName' in kwargs:
+            file_share_name = kwargs['fileShareName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageAccountTenantId' in kwargs:
+            storage_account_tenant_id = kwargs['storageAccountTenantId']
+        if 'storageSyncGroupId' in kwargs:
+            storage_sync_group_id = kwargs['storageSyncGroupId']
+
         if file_share_name is not None:
             _setter("file_share_name", file_share_name)
         if name is not None:

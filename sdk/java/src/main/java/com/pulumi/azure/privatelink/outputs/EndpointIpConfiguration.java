@@ -109,12 +109,12 @@ public final class EndpointIpConfiguration {
             return this;
         }
         public EndpointIpConfiguration build() {
-            final var o = new EndpointIpConfiguration();
-            o.memberName = memberName;
-            o.name = name;
-            o.privateIpAddress = privateIpAddress;
-            o.subresourceName = subresourceName;
-            return o;
+            final var _resultValue = new EndpointIpConfiguration();
+            _resultValue.memberName = memberName;
+            _resultValue.name = name;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.subresourceName = subresourceName;
+            return _resultValue;
         }
     }
 }

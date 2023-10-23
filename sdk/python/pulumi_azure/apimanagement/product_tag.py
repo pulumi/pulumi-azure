@@ -39,7 +39,15 @@ class ProductTagArgs:
              api_management_product_id: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'apiManagementProductId' in kwargs:
+            api_management_product_id = kwargs['apiManagementProductId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("api_management_name", api_management_name)
         _setter("api_management_product_id", api_management_product_id)
         _setter("resource_group_name", resource_group_name)
@@ -123,7 +131,15 @@ class _ProductTagState:
              api_management_product_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'apiManagementProductId' in kwargs:
+            api_management_product_id = kwargs['apiManagementProductId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if api_management_product_id is not None:

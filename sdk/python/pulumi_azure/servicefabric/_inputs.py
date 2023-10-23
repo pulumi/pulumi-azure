@@ -60,7 +60,15 @@ class ClusterAzureActiveDirectoryArgs:
              client_application_id: pulumi.Input[str],
              cluster_application_id: pulumi.Input[str],
              tenant_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientApplicationId' in kwargs:
+            client_application_id = kwargs['clientApplicationId']
+        if 'clusterApplicationId' in kwargs:
+            cluster_application_id = kwargs['clusterApplicationId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("client_application_id", client_application_id)
         _setter("cluster_application_id", cluster_application_id)
         _setter("tenant_id", tenant_id)
@@ -125,7 +133,13 @@ class ClusterCertificateArgs:
              thumbprint: pulumi.Input[str],
              x509_store_name: pulumi.Input[str],
              thumbprint_secondary: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'x509StoreName' in kwargs:
+            x509_store_name = kwargs['x509StoreName']
+        if 'thumbprintSecondary' in kwargs:
+            thumbprint_secondary = kwargs['thumbprintSecondary']
+
         _setter("thumbprint", thumbprint)
         _setter("x509_store_name", x509_store_name)
         if thumbprint_secondary is not None:
@@ -187,7 +201,13 @@ class ClusterCertificateCommonNamesArgs:
              _setter: Callable[[Any, Any], None],
              common_names: pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgs']]],
              x509_store_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'commonNames' in kwargs:
+            common_names = kwargs['commonNames']
+        if 'x509StoreName' in kwargs:
+            x509_store_name = kwargs['x509StoreName']
+
         _setter("common_names", common_names)
         _setter("x509_store_name", x509_store_name)
 
@@ -237,7 +257,13 @@ class ClusterCertificateCommonNamesCommonNameArgs:
              _setter: Callable[[Any, Any], None],
              certificate_common_name: pulumi.Input[str],
              certificate_issuer_thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateCommonName' in kwargs:
+            certificate_common_name = kwargs['certificateCommonName']
+        if 'certificateIssuerThumbprint' in kwargs:
+            certificate_issuer_thumbprint = kwargs['certificateIssuerThumbprint']
+
         _setter("certificate_common_name", certificate_common_name)
         if certificate_issuer_thumbprint is not None:
             _setter("certificate_issuer_thumbprint", certificate_issuer_thumbprint)
@@ -294,7 +320,15 @@ class ClusterClientCertificateCommonNameArgs:
              common_name: pulumi.Input[str],
              is_admin: pulumi.Input[bool],
              issuer_thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if 'isAdmin' in kwargs:
+            is_admin = kwargs['isAdmin']
+        if 'issuerThumbprint' in kwargs:
+            issuer_thumbprint = kwargs['issuerThumbprint']
+
         _setter("common_name", common_name)
         _setter("is_admin", is_admin)
         if issuer_thumbprint is not None:
@@ -358,7 +392,11 @@ class ClusterClientCertificateThumbprintArgs:
              _setter: Callable[[Any, Any], None],
              is_admin: pulumi.Input[bool],
              thumbprint: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isAdmin' in kwargs:
+            is_admin = kwargs['isAdmin']
+
         _setter("is_admin", is_admin)
         _setter("thumbprint", thumbprint)
 
@@ -418,7 +456,19 @@ class ClusterDiagnosticsConfigArgs:
              queue_endpoint: pulumi.Input[str],
              storage_account_name: pulumi.Input[str],
              table_endpoint: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobEndpoint' in kwargs:
+            blob_endpoint = kwargs['blobEndpoint']
+        if 'protectedAccountKeyName' in kwargs:
+            protected_account_key_name = kwargs['protectedAccountKeyName']
+        if 'queueEndpoint' in kwargs:
+            queue_endpoint = kwargs['queueEndpoint']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'tableEndpoint' in kwargs:
+            table_endpoint = kwargs['tableEndpoint']
+
         _setter("blob_endpoint", blob_endpoint)
         _setter("protected_account_key_name", protected_account_key_name)
         _setter("queue_endpoint", queue_endpoint)
@@ -505,7 +555,9 @@ class ClusterFabricSettingArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -598,7 +650,31 @@ class ClusterNodeTypeArgs:
              multiple_availability_zones: Optional[pulumi.Input[bool]] = None,
              placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              reverse_proxy_endpoint_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientEndpointPort' in kwargs:
+            client_endpoint_port = kwargs['clientEndpointPort']
+        if 'httpEndpointPort' in kwargs:
+            http_endpoint_port = kwargs['httpEndpointPort']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'isPrimary' in kwargs:
+            is_primary = kwargs['isPrimary']
+        if 'applicationPorts' in kwargs:
+            application_ports = kwargs['applicationPorts']
+        if 'durabilityLevel' in kwargs:
+            durability_level = kwargs['durabilityLevel']
+        if 'ephemeralPorts' in kwargs:
+            ephemeral_ports = kwargs['ephemeralPorts']
+        if 'isStateless' in kwargs:
+            is_stateless = kwargs['isStateless']
+        if 'multipleAvailabilityZones' in kwargs:
+            multiple_availability_zones = kwargs['multipleAvailabilityZones']
+        if 'placementProperties' in kwargs:
+            placement_properties = kwargs['placementProperties']
+        if 'reverseProxyEndpointPort' in kwargs:
+            reverse_proxy_endpoint_port = kwargs['reverseProxyEndpointPort']
+
         _setter("client_endpoint_port", client_endpoint_port)
         _setter("http_endpoint_port", http_endpoint_port)
         _setter("instance_count", instance_count)
@@ -797,7 +873,13 @@ class ClusterNodeTypeApplicationPortsArgs:
              _setter: Callable[[Any, Any], None],
              end_port: pulumi.Input[int],
              start_port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endPort' in kwargs:
+            end_port = kwargs['endPort']
+        if 'startPort' in kwargs:
+            start_port = kwargs['startPort']
+
         _setter("end_port", end_port)
         _setter("start_port", start_port)
 
@@ -845,7 +927,13 @@ class ClusterNodeTypeEphemeralPortsArgs:
              _setter: Callable[[Any, Any], None],
              end_port: pulumi.Input[int],
              start_port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endPort' in kwargs:
+            end_port = kwargs['endPort']
+        if 'startPort' in kwargs:
+            start_port = kwargs['startPort']
+
         _setter("end_port", end_port)
         _setter("start_port", start_port)
 
@@ -897,7 +985,13 @@ class ClusterReverseProxyCertificateArgs:
              thumbprint: pulumi.Input[str],
              x509_store_name: pulumi.Input[str],
              thumbprint_secondary: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'x509StoreName' in kwargs:
+            x509_store_name = kwargs['x509StoreName']
+        if 'thumbprintSecondary' in kwargs:
+            thumbprint_secondary = kwargs['thumbprintSecondary']
+
         _setter("thumbprint", thumbprint)
         _setter("x509_store_name", x509_store_name)
         if thumbprint_secondary is not None:
@@ -959,7 +1053,13 @@ class ClusterReverseProxyCertificateCommonNamesArgs:
              _setter: Callable[[Any, Any], None],
              common_names: pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArgs']]],
              x509_store_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'commonNames' in kwargs:
+            common_names = kwargs['commonNames']
+        if 'x509StoreName' in kwargs:
+            x509_store_name = kwargs['x509StoreName']
+
         _setter("common_names", common_names)
         _setter("x509_store_name", x509_store_name)
 
@@ -1009,7 +1109,13 @@ class ClusterReverseProxyCertificateCommonNamesCommonNameArgs:
              _setter: Callable[[Any, Any], None],
              certificate_common_name: pulumi.Input[str],
              certificate_issuer_thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateCommonName' in kwargs:
+            certificate_common_name = kwargs['certificateCommonName']
+        if 'certificateIssuerThumbprint' in kwargs:
+            certificate_issuer_thumbprint = kwargs['certificateIssuerThumbprint']
+
         _setter("certificate_common_name", certificate_common_name)
         if certificate_issuer_thumbprint is not None:
             _setter("certificate_issuer_thumbprint", certificate_issuer_thumbprint)
@@ -1088,7 +1194,27 @@ class ClusterUpgradePolicyArgs:
              upgrade_domain_timeout: Optional[pulumi.Input[str]] = None,
              upgrade_replica_set_check_timeout: Optional[pulumi.Input[str]] = None,
              upgrade_timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deltaHealthPolicy' in kwargs:
+            delta_health_policy = kwargs['deltaHealthPolicy']
+        if 'forceRestartEnabled' in kwargs:
+            force_restart_enabled = kwargs['forceRestartEnabled']
+        if 'healthCheckRetryTimeout' in kwargs:
+            health_check_retry_timeout = kwargs['healthCheckRetryTimeout']
+        if 'healthCheckStableDuration' in kwargs:
+            health_check_stable_duration = kwargs['healthCheckStableDuration']
+        if 'healthCheckWaitDuration' in kwargs:
+            health_check_wait_duration = kwargs['healthCheckWaitDuration']
+        if 'healthPolicy' in kwargs:
+            health_policy = kwargs['healthPolicy']
+        if 'upgradeDomainTimeout' in kwargs:
+            upgrade_domain_timeout = kwargs['upgradeDomainTimeout']
+        if 'upgradeReplicaSetCheckTimeout' in kwargs:
+            upgrade_replica_set_check_timeout = kwargs['upgradeReplicaSetCheckTimeout']
+        if 'upgradeTimeout' in kwargs:
+            upgrade_timeout = kwargs['upgradeTimeout']
+
         if delta_health_policy is not None:
             _setter("delta_health_policy", delta_health_policy)
         if force_restart_enabled is not None:
@@ -1240,7 +1366,15 @@ class ClusterUpgradePolicyDeltaHealthPolicyArgs:
              max_delta_unhealthy_applications_percent: Optional[pulumi.Input[int]] = None,
              max_delta_unhealthy_nodes_percent: Optional[pulumi.Input[int]] = None,
              max_upgrade_domain_delta_unhealthy_nodes_percent: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxDeltaUnhealthyApplicationsPercent' in kwargs:
+            max_delta_unhealthy_applications_percent = kwargs['maxDeltaUnhealthyApplicationsPercent']
+        if 'maxDeltaUnhealthyNodesPercent' in kwargs:
+            max_delta_unhealthy_nodes_percent = kwargs['maxDeltaUnhealthyNodesPercent']
+        if 'maxUpgradeDomainDeltaUnhealthyNodesPercent' in kwargs:
+            max_upgrade_domain_delta_unhealthy_nodes_percent = kwargs['maxUpgradeDomainDeltaUnhealthyNodesPercent']
+
         if max_delta_unhealthy_applications_percent is not None:
             _setter("max_delta_unhealthy_applications_percent", max_delta_unhealthy_applications_percent)
         if max_delta_unhealthy_nodes_percent is not None:
@@ -1304,7 +1438,13 @@ class ClusterUpgradePolicyHealthPolicyArgs:
              _setter: Callable[[Any, Any], None],
              max_unhealthy_applications_percent: Optional[pulumi.Input[int]] = None,
              max_unhealthy_nodes_percent: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxUnhealthyApplicationsPercent' in kwargs:
+            max_unhealthy_applications_percent = kwargs['maxUnhealthyApplicationsPercent']
+        if 'maxUnhealthyNodesPercent' in kwargs:
+            max_unhealthy_nodes_percent = kwargs['maxUnhealthyNodesPercent']
+
         if max_unhealthy_applications_percent is not None:
             _setter("max_unhealthy_applications_percent", max_unhealthy_applications_percent)
         if max_unhealthy_nodes_percent is not None:
@@ -1354,7 +1494,11 @@ class ManagedClusterAuthenticationArgs:
              _setter: Callable[[Any, Any], None],
              active_directory: Optional[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgs']] = None,
              certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+
         if active_directory is not None:
             _setter("active_directory", active_directory)
         if certificates is not None:
@@ -1408,7 +1552,15 @@ class ManagedClusterAuthenticationActiveDirectoryArgs:
              client_application_id: pulumi.Input[str],
              cluster_application_id: pulumi.Input[str],
              tenant_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientApplicationId' in kwargs:
+            client_application_id = kwargs['clientApplicationId']
+        if 'clusterApplicationId' in kwargs:
+            cluster_application_id = kwargs['clusterApplicationId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("client_application_id", client_application_id)
         _setter("cluster_application_id", cluster_application_id)
         _setter("tenant_id", tenant_id)
@@ -1473,7 +1625,11 @@ class ManagedClusterAuthenticationCertificateArgs:
              thumbprint: pulumi.Input[str],
              type: pulumi.Input[str],
              common_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+
         _setter("thumbprint", thumbprint)
         _setter("type", type)
         if common_name is not None:
@@ -1539,7 +1695,9 @@ class ManagedClusterCustomFabricSettingArgs:
              parameter: pulumi.Input[str],
              section: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("parameter", parameter)
         _setter("section", section)
         _setter("value", value)
@@ -1612,7 +1770,17 @@ class ManagedClusterLbRuleArgs:
              probe_protocol: pulumi.Input[str],
              protocol: pulumi.Input[str],
              probe_request_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+        if 'probeProtocol' in kwargs:
+            probe_protocol = kwargs['probeProtocol']
+        if 'probeRequestPath' in kwargs:
+            probe_request_path = kwargs['probeRequestPath']
+
         _setter("backend_port", backend_port)
         _setter("frontend_port", frontend_port)
         _setter("probe_protocol", probe_protocol)
@@ -1764,7 +1932,35 @@ class ManagedClusterNodeTypeArgs:
              primary: Optional[pulumi.Input[bool]] = None,
              stateless: Optional[pulumi.Input[bool]] = None,
              vm_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationPortRange' in kwargs:
+            application_port_range = kwargs['applicationPortRange']
+        if 'dataDiskSizeGb' in kwargs:
+            data_disk_size_gb = kwargs['dataDiskSizeGb']
+        if 'ephemeralPortRange' in kwargs:
+            ephemeral_port_range = kwargs['ephemeralPortRange']
+        if 'vmImageOffer' in kwargs:
+            vm_image_offer = kwargs['vmImageOffer']
+        if 'vmImagePublisher' in kwargs:
+            vm_image_publisher = kwargs['vmImagePublisher']
+        if 'vmImageSku' in kwargs:
+            vm_image_sku = kwargs['vmImageSku']
+        if 'vmImageVersion' in kwargs:
+            vm_image_version = kwargs['vmImageVersion']
+        if 'vmInstanceCount' in kwargs:
+            vm_instance_count = kwargs['vmInstanceCount']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'dataDiskType' in kwargs:
+            data_disk_type = kwargs['dataDiskType']
+        if 'multiplePlacementGroupsEnabled' in kwargs:
+            multiple_placement_groups_enabled = kwargs['multiplePlacementGroupsEnabled']
+        if 'placementProperties' in kwargs:
+            placement_properties = kwargs['placementProperties']
+        if 'vmSecrets' in kwargs:
+            vm_secrets = kwargs['vmSecrets']
+
         _setter("application_port_range", application_port_range)
         _setter("data_disk_size_gb", data_disk_size_gb)
         _setter("ephemeral_port_range", ephemeral_port_range)
@@ -2028,7 +2224,11 @@ class ManagedClusterNodeTypeVmSecretArgs:
              _setter: Callable[[Any, Any], None],
              certificates: pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArgs']]],
              vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         _setter("certificates", certificates)
         _setter("vault_id", vault_id)
 
@@ -2076,7 +2276,9 @@ class ManagedClusterNodeTypeVmSecretCertificateArgs:
              _setter: Callable[[Any, Any], None],
              store: pulumi.Input[str],
              url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("store", store)
         _setter("url", url)
 

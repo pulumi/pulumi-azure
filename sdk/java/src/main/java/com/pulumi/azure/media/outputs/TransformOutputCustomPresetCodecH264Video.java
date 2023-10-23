@@ -187,16 +187,16 @@ public final class TransformOutputCustomPresetCodecH264Video {
             return this;
         }
         public TransformOutputCustomPresetCodecH264Video build() {
-            final var o = new TransformOutputCustomPresetCodecH264Video();
-            o.complexity = complexity;
-            o.keyFrameInterval = keyFrameInterval;
-            o.label = label;
-            o.layers = layers;
-            o.rateControlMode = rateControlMode;
-            o.sceneChangeDetectionEnabled = sceneChangeDetectionEnabled;
-            o.stretchMode = stretchMode;
-            o.syncMode = syncMode;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetCodecH264Video();
+            _resultValue.complexity = complexity;
+            _resultValue.keyFrameInterval = keyFrameInterval;
+            _resultValue.label = label;
+            _resultValue.layers = layers;
+            _resultValue.rateControlMode = rateControlMode;
+            _resultValue.sceneChangeDetectionEnabled = sceneChangeDetectionEnabled;
+            _resultValue.stretchMode = stretchMode;
+            _resultValue.syncMode = syncMode;
+            return _resultValue;
         }
     }
 }

@@ -84,11 +84,11 @@ public final class GetKubernetesClusterOmsAgentOmsAgentIdentity {
             return this;
         }
         public GetKubernetesClusterOmsAgentOmsAgentIdentity build() {
-            final var o = new GetKubernetesClusterOmsAgentOmsAgentIdentity();
-            o.clientId = clientId;
-            o.objectId = objectId;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new GetKubernetesClusterOmsAgentOmsAgentIdentity();
+            _resultValue.clientId = clientId;
+            _resultValue.objectId = objectId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

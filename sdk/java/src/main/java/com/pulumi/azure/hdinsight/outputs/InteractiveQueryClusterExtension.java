@@ -65,10 +65,10 @@ public final class InteractiveQueryClusterExtension {
             return this;
         }
         public InteractiveQueryClusterExtension build() {
-            final var o = new InteractiveQueryClusterExtension();
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.primaryKey = primaryKey;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterExtension();
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.primaryKey = primaryKey;
+            return _resultValue;
         }
     }
 }

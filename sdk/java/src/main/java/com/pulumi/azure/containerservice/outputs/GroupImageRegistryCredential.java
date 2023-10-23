@@ -105,12 +105,12 @@ public final class GroupImageRegistryCredential {
             return this;
         }
         public GroupImageRegistryCredential build() {
-            final var o = new GroupImageRegistryCredential();
-            o.password = password;
-            o.server = server;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            o.username = username;
-            return o;
+            final var _resultValue = new GroupImageRegistryCredential();
+            _resultValue.password = password;
+            _resultValue.server = server;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

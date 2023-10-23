@@ -87,11 +87,11 @@ public final class ServiceSignUpTermsOfService {
             return this;
         }
         public ServiceSignUpTermsOfService build() {
-            final var o = new ServiceSignUpTermsOfService();
-            o.consentRequired = consentRequired;
-            o.enabled = enabled;
-            o.text = text;
-            return o;
+            final var _resultValue = new ServiceSignUpTermsOfService();
+            _resultValue.consentRequired = consentRequired;
+            _resultValue.enabled = enabled;
+            _resultValue.text = text;
+            return _resultValue;
         }
     }
 }

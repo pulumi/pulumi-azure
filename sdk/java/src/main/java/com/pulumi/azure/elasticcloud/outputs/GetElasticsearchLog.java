@@ -108,12 +108,12 @@ public final class GetElasticsearchLog {
             return this;
         }
         public GetElasticsearchLog build() {
-            final var o = new GetElasticsearchLog();
-            o.filteringTags = filteringTags;
-            o.sendActivityLogs = sendActivityLogs;
-            o.sendAzureadLogs = sendAzureadLogs;
-            o.sendSubscriptionLogs = sendSubscriptionLogs;
-            return o;
+            final var _resultValue = new GetElasticsearchLog();
+            _resultValue.filteringTags = filteringTags;
+            _resultValue.sendActivityLogs = sendActivityLogs;
+            _resultValue.sendAzureadLogs = sendAzureadLogs;
+            _resultValue.sendSubscriptionLogs = sendSubscriptionLogs;
+            return _resultValue;
         }
     }
 }

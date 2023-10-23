@@ -65,10 +65,10 @@ public final class RegistryNetworkRuleSetIpRule {
             return this;
         }
         public RegistryNetworkRuleSetIpRule build() {
-            final var o = new RegistryNetworkRuleSetIpRule();
-            o.action = action;
-            o.ipRange = ipRange;
-            return o;
+            final var _resultValue = new RegistryNetworkRuleSetIpRule();
+            _resultValue.action = action;
+            _resultValue.ipRange = ipRange;
+            return _resultValue;
         }
     }
 }

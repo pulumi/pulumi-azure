@@ -43,7 +43,15 @@ class EnvironmentCertificateArgs:
              container_app_environment_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateBlobBase64' in kwargs:
+            certificate_blob_base64 = kwargs['certificateBlobBase64']
+        if 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if 'containerAppEnvironmentId' in kwargs:
+            container_app_environment_id = kwargs['containerAppEnvironmentId']
+
         _setter("certificate_blob_base64", certificate_blob_base64)
         _setter("certificate_password", certificate_password)
         _setter("container_app_environment_id", container_app_environment_id)
@@ -165,7 +173,21 @@ class _EnvironmentCertificateState:
              subject_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateBlobBase64' in kwargs:
+            certificate_blob_base64 = kwargs['certificateBlobBase64']
+        if 'certificatePassword' in kwargs:
+            certificate_password = kwargs['certificatePassword']
+        if 'containerAppEnvironmentId' in kwargs:
+            container_app_environment_id = kwargs['containerAppEnvironmentId']
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'issueDate' in kwargs:
+            issue_date = kwargs['issueDate']
+        if 'subjectName' in kwargs:
+            subject_name = kwargs['subjectName']
+
         if certificate_blob_base64 is not None:
             _setter("certificate_blob_base64", certificate_blob_base64)
         if certificate_password is not None:

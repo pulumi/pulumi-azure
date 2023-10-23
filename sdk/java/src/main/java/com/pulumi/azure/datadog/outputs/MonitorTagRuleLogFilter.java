@@ -84,11 +84,11 @@ public final class MonitorTagRuleLogFilter {
             return this;
         }
         public MonitorTagRuleLogFilter build() {
-            final var o = new MonitorTagRuleLogFilter();
-            o.action = action;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new MonitorTagRuleLogFilter();
+            _resultValue.action = action;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

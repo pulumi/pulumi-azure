@@ -53,7 +53,17 @@ class VolumeGroupSapHanaArgs:
              volumes: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]],
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'applicationIdentifier' in kwargs:
+            application_identifier = kwargs['applicationIdentifier']
+        if 'groupDescription' in kwargs:
+            group_description = kwargs['groupDescription']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("account_name", account_name)
         _setter("application_identifier", application_identifier)
         _setter("group_description", group_description)
@@ -189,7 +199,17 @@ class _VolumeGroupSapHanaState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'applicationIdentifier' in kwargs:
+            application_identifier = kwargs['applicationIdentifier']
+        if 'groupDescription' in kwargs:
+            group_description = kwargs['groupDescription']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if application_identifier is not None:

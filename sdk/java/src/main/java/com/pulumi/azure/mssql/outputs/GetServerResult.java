@@ -210,18 +210,18 @@ public final class GetServerResult {
             return this;
         }
         public GetServerResult build() {
-            final var o = new GetServerResult();
-            o.administratorLogin = administratorLogin;
-            o.fullyQualifiedDomainName = fullyQualifiedDomainName;
-            o.id = id;
-            o.identities = identities;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.restorableDroppedDatabaseIds = restorableDroppedDatabaseIds;
-            o.tags = tags;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetServerResult();
+            _resultValue.administratorLogin = administratorLogin;
+            _resultValue.fullyQualifiedDomainName = fullyQualifiedDomainName;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.restorableDroppedDatabaseIds = restorableDroppedDatabaseIds;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

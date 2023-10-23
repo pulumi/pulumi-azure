@@ -342,24 +342,24 @@ public final class ApplicationGatewayRequestRoutingRule {
             return this;
         }
         public ApplicationGatewayRequestRoutingRule build() {
-            final var o = new ApplicationGatewayRequestRoutingRule();
-            o.backendAddressPoolId = backendAddressPoolId;
-            o.backendAddressPoolName = backendAddressPoolName;
-            o.backendHttpSettingsId = backendHttpSettingsId;
-            o.backendHttpSettingsName = backendHttpSettingsName;
-            o.httpListenerId = httpListenerId;
-            o.httpListenerName = httpListenerName;
-            o.id = id;
-            o.name = name;
-            o.priority = priority;
-            o.redirectConfigurationId = redirectConfigurationId;
-            o.redirectConfigurationName = redirectConfigurationName;
-            o.rewriteRuleSetId = rewriteRuleSetId;
-            o.rewriteRuleSetName = rewriteRuleSetName;
-            o.ruleType = ruleType;
-            o.urlPathMapId = urlPathMapId;
-            o.urlPathMapName = urlPathMapName;
-            return o;
+            final var _resultValue = new ApplicationGatewayRequestRoutingRule();
+            _resultValue.backendAddressPoolId = backendAddressPoolId;
+            _resultValue.backendAddressPoolName = backendAddressPoolName;
+            _resultValue.backendHttpSettingsId = backendHttpSettingsId;
+            _resultValue.backendHttpSettingsName = backendHttpSettingsName;
+            _resultValue.httpListenerId = httpListenerId;
+            _resultValue.httpListenerName = httpListenerName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            _resultValue.redirectConfigurationId = redirectConfigurationId;
+            _resultValue.redirectConfigurationName = redirectConfigurationName;
+            _resultValue.rewriteRuleSetId = rewriteRuleSetId;
+            _resultValue.rewriteRuleSetName = rewriteRuleSetName;
+            _resultValue.ruleType = ruleType;
+            _resultValue.urlPathMapId = urlPathMapId;
+            _resultValue.urlPathMapName = urlPathMapName;
+            return _resultValue;
         }
     }
 }

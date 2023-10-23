@@ -65,10 +65,10 @@ public final class BackendServiceFabricClusterServerX509Name {
             return this;
         }
         public BackendServiceFabricClusterServerX509Name build() {
-            final var o = new BackendServiceFabricClusterServerX509Name();
-            o.issuerCertificateThumbprint = issuerCertificateThumbprint;
-            o.name = name;
-            return o;
+            final var _resultValue = new BackendServiceFabricClusterServerX509Name();
+            _resultValue.issuerCertificateThumbprint = issuerCertificateThumbprint;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

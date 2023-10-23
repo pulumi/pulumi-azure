@@ -18,8 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Manages the transparent data encryption configuration for a MSSQL Managed Instance
  * 
- * !&gt; **IMPORTANT:** This resource is obsolete and should only be used on pre-existing MS SQL Instances that are over 2 years old. By default all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
- * 
  * &gt; **NOTE:** Once transparent data encryption(TDE) is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between &#39;ServiceManaged&#39; and &#39;CustomerManaged&#39; keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to &#39;ServiceManaged&#39;. See `key_vault_uri` for more information on how to specify the key types. As SQL Managed Instance only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
  * 
  * &gt; **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.

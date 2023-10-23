@@ -88,11 +88,11 @@ public final class FactoryGlobalParameter {
             return this;
         }
         public FactoryGlobalParameter build() {
-            final var o = new FactoryGlobalParameter();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new FactoryGlobalParameter();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

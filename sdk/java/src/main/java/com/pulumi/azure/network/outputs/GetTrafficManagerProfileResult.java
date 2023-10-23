@@ -222,18 +222,18 @@ public final class GetTrafficManagerProfileResult {
             return this;
         }
         public GetTrafficManagerProfileResult build() {
-            final var o = new GetTrafficManagerProfileResult();
-            o.dnsConfigs = dnsConfigs;
-            o.fqdn = fqdn;
-            o.id = id;
-            o.monitorConfigs = monitorConfigs;
-            o.name = name;
-            o.profileStatus = profileStatus;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.trafficRoutingMethod = trafficRoutingMethod;
-            o.trafficViewEnabled = trafficViewEnabled;
-            return o;
+            final var _resultValue = new GetTrafficManagerProfileResult();
+            _resultValue.dnsConfigs = dnsConfigs;
+            _resultValue.fqdn = fqdn;
+            _resultValue.id = id;
+            _resultValue.monitorConfigs = monitorConfigs;
+            _resultValue.name = name;
+            _resultValue.profileStatus = profileStatus;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.trafficRoutingMethod = trafficRoutingMethod;
+            _resultValue.trafficViewEnabled = trafficViewEnabled;
+            return _resultValue;
         }
     }
 }

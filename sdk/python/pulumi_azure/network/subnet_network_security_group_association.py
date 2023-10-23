@@ -31,7 +31,13 @@ class SubnetNetworkSecurityGroupAssociationArgs:
              _setter: Callable[[Any, Any], None],
              network_security_group_id: pulumi.Input[str],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("network_security_group_id", network_security_group_id)
         _setter("subnet_id", subnet_id)
 
@@ -80,7 +86,13 @@ class _SubnetNetworkSecurityGroupAssociationState:
              _setter: Callable[[Any, Any], None],
              network_security_group_id: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if network_security_group_id is not None:
             _setter("network_security_group_id", network_security_group_id)
         if subnet_id is not None:

@@ -110,12 +110,12 @@ public final class EndpointPrivateDnsZoneConfig {
             return recordSets(List.of(recordSets));
         }
         public EndpointPrivateDnsZoneConfig build() {
-            final var o = new EndpointPrivateDnsZoneConfig();
-            o.id = id;
-            o.name = name;
-            o.privateDnsZoneId = privateDnsZoneId;
-            o.recordSets = recordSets;
-            return o;
+            final var _resultValue = new EndpointPrivateDnsZoneConfig();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.privateDnsZoneId = privateDnsZoneId;
+            _resultValue.recordSets = recordSets;
+            return _resultValue;
         }
     }
 }

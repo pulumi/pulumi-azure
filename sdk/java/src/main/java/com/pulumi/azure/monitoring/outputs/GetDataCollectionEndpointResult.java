@@ -203,18 +203,18 @@ public final class GetDataCollectionEndpointResult {
             return this;
         }
         public GetDataCollectionEndpointResult build() {
-            final var o = new GetDataCollectionEndpointResult();
-            o.configurationAccessEndpoint = configurationAccessEndpoint;
-            o.description = description;
-            o.id = id;
-            o.kind = kind;
-            o.location = location;
-            o.logsIngestionEndpoint = logsIngestionEndpoint;
-            o.name = name;
-            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDataCollectionEndpointResult();
+            _resultValue.configurationAccessEndpoint = configurationAccessEndpoint;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.kind = kind;
+            _resultValue.location = location;
+            _resultValue.logsIngestionEndpoint = logsIngestionEndpoint;
+            _resultValue.name = name;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

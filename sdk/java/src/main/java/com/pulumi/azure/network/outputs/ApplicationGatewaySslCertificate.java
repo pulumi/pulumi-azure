@@ -24,7 +24,7 @@ public final class ApplicationGatewaySslCertificate {
      */
     private @Nullable String id;
     /**
-     * @return Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+     * @return The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
      * 
      * &gt; **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
      * 
@@ -66,7 +66,7 @@ public final class ApplicationGatewaySslCertificate {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+     * @return The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
      * 
      * &gt; **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
      * 
@@ -155,14 +155,14 @@ public final class ApplicationGatewaySslCertificate {
             return this;
         }
         public ApplicationGatewaySslCertificate build() {
-            final var o = new ApplicationGatewaySslCertificate();
-            o.data = data;
-            o.id = id;
-            o.keyVaultSecretId = keyVaultSecretId;
-            o.name = name;
-            o.password = password;
-            o.publicCertData = publicCertData;
-            return o;
+            final var _resultValue = new ApplicationGatewaySslCertificate();
+            _resultValue.data = data;
+            _resultValue.id = id;
+            _resultValue.keyVaultSecretId = keyVaultSecretId;
+            _resultValue.name = name;
+            _resultValue.password = password;
+            _resultValue.publicCertData = publicCertData;
+            return _resultValue;
         }
     }
 }

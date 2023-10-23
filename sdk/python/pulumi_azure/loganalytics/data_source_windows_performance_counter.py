@@ -51,7 +51,21 @@ class DataSourceWindowsPerformanceCounterArgs:
              resource_group_name: pulumi.Input[str],
              workspace_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'counterName' in kwargs:
+            counter_name = kwargs['counterName']
+        if 'instanceName' in kwargs:
+            instance_name = kwargs['instanceName']
+        if 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+
         _setter("counter_name", counter_name)
         _setter("instance_name", instance_name)
         _setter("interval_seconds", interval_seconds)
@@ -186,7 +200,21 @@ class _DataSourceWindowsPerformanceCounterState:
              object_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              workspace_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'counterName' in kwargs:
+            counter_name = kwargs['counterName']
+        if 'instanceName' in kwargs:
+            instance_name = kwargs['instanceName']
+        if 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if 'objectName' in kwargs:
+            object_name = kwargs['objectName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+
         if counter_name is not None:
             _setter("counter_name", counter_name)
         if instance_name is not None:

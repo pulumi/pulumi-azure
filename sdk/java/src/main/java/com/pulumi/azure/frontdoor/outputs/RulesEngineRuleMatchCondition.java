@@ -151,14 +151,14 @@ public final class RulesEngineRuleMatchCondition {
             return this;
         }
         public RulesEngineRuleMatchCondition build() {
-            final var o = new RulesEngineRuleMatchCondition();
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            o.selector = selector;
-            o.transforms = transforms;
-            o.values = values;
-            o.variable = variable;
-            return o;
+            final var _resultValue = new RulesEngineRuleMatchCondition();
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            _resultValue.selector = selector;
+            _resultValue.transforms = transforms;
+            _resultValue.values = values;
+            _resultValue.variable = variable;
+            return _resultValue;
         }
     }
 }

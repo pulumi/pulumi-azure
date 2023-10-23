@@ -172,20 +172,20 @@ public final class Features {
             return this;
         }
         public Features build() {
-            final var o = new Features();
-            o.apiManagement = apiManagement;
-            o.appConfiguration = appConfiguration;
-            o.applicationInsights = applicationInsights;
-            o.cognitiveAccount = cognitiveAccount;
-            o.keyVault = keyVault;
-            o.logAnalyticsWorkspace = logAnalyticsWorkspace;
-            o.managedDisk = managedDisk;
-            o.resourceGroup = resourceGroup;
-            o.subscription = subscription;
-            o.templateDeployment = templateDeployment;
-            o.virtualMachine = virtualMachine;
-            o.virtualMachineScaleSet = virtualMachineScaleSet;
-            return o;
+            final var _resultValue = new Features();
+            _resultValue.apiManagement = apiManagement;
+            _resultValue.appConfiguration = appConfiguration;
+            _resultValue.applicationInsights = applicationInsights;
+            _resultValue.cognitiveAccount = cognitiveAccount;
+            _resultValue.keyVault = keyVault;
+            _resultValue.logAnalyticsWorkspace = logAnalyticsWorkspace;
+            _resultValue.managedDisk = managedDisk;
+            _resultValue.resourceGroup = resourceGroup;
+            _resultValue.subscription = subscription;
+            _resultValue.templateDeployment = templateDeployment;
+            _resultValue.virtualMachine = virtualMachine;
+            _resultValue.virtualMachineScaleSet = virtualMachineScaleSet;
+            return _resultValue;
         }
     }
 }

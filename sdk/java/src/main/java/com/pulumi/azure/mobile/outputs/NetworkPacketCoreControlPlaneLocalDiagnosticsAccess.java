@@ -67,10 +67,10 @@ public final class NetworkPacketCoreControlPlaneLocalDiagnosticsAccess {
             return this;
         }
         public NetworkPacketCoreControlPlaneLocalDiagnosticsAccess build() {
-            final var o = new NetworkPacketCoreControlPlaneLocalDiagnosticsAccess();
-            o.authenticationType = authenticationType;
-            o.httpsServerCertificateUrl = httpsServerCertificateUrl;
-            return o;
+            final var _resultValue = new NetworkPacketCoreControlPlaneLocalDiagnosticsAccess();
+            _resultValue.authenticationType = authenticationType;
+            _resultValue.httpsServerCertificateUrl = httpsServerCertificateUrl;
+            return _resultValue;
         }
     }
 }

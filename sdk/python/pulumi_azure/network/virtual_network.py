@@ -79,7 +79,23 @@ class VirtualNetworkArgs:
              name: Optional[pulumi.Input[str]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressSpaces' in kwargs:
+            address_spaces = kwargs['addressSpaces']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'bgpCommunity' in kwargs:
+            bgp_community = kwargs['bgpCommunity']
+        if 'ddosProtectionPlan' in kwargs:
+            ddos_protection_plan = kwargs['ddosProtectionPlan']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'flowTimeoutInMinutes' in kwargs:
+            flow_timeout_in_minutes = kwargs['flowTimeoutInMinutes']
+
         _setter("address_spaces", address_spaces)
         _setter("resource_group_name", resource_group_name)
         if bgp_community is not None:
@@ -324,7 +340,23 @@ class _VirtualNetworkState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressSpaces' in kwargs:
+            address_spaces = kwargs['addressSpaces']
+        if 'bgpCommunity' in kwargs:
+            bgp_community = kwargs['bgpCommunity']
+        if 'ddosProtectionPlan' in kwargs:
+            ddos_protection_plan = kwargs['ddosProtectionPlan']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'flowTimeoutInMinutes' in kwargs:
+            flow_timeout_in_minutes = kwargs['flowTimeoutInMinutes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if address_spaces is not None:
             _setter("address_spaces", address_spaces)
         if bgp_community is not None:

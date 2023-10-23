@@ -73,10 +73,10 @@ public final class EventSubscriptionAdvancedFilterStringContain {
             return values(List.of(values));
         }
         public EventSubscriptionAdvancedFilterStringContain build() {
-            final var o = new EventSubscriptionAdvancedFilterStringContain();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new EventSubscriptionAdvancedFilterStringContain();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

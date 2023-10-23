@@ -70,10 +70,10 @@ public final class VirtualMachineStorageConfigurationLogSettings {
             return luns(List.of(luns));
         }
         public VirtualMachineStorageConfigurationLogSettings build() {
-            final var o = new VirtualMachineStorageConfigurationLogSettings();
-            o.defaultFilePath = defaultFilePath;
-            o.luns = luns;
-            return o;
+            final var _resultValue = new VirtualMachineStorageConfigurationLogSettings();
+            _resultValue.defaultFilePath = defaultFilePath;
+            _resultValue.luns = luns;
+            return _resultValue;
         }
     }
 }

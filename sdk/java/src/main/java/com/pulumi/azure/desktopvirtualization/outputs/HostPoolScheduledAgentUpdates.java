@@ -115,12 +115,12 @@ public final class HostPoolScheduledAgentUpdates {
             return this;
         }
         public HostPoolScheduledAgentUpdates build() {
-            final var o = new HostPoolScheduledAgentUpdates();
-            o.enabled = enabled;
-            o.schedules = schedules;
-            o.timezone = timezone;
-            o.useSessionHostTimezone = useSessionHostTimezone;
-            return o;
+            final var _resultValue = new HostPoolScheduledAgentUpdates();
+            _resultValue.enabled = enabled;
+            _resultValue.schedules = schedules;
+            _resultValue.timezone = timezone;
+            _resultValue.useSessionHostTimezone = useSessionHostTimezone;
+            return _resultValue;
         }
     }
 }

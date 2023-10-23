@@ -67,10 +67,10 @@ public final class AppTemplateTcpScaleRuleAuthentication {
             return this;
         }
         public AppTemplateTcpScaleRuleAuthentication build() {
-            final var o = new AppTemplateTcpScaleRuleAuthentication();
-            o.secretName = secretName;
-            o.triggerParameter = triggerParameter;
-            return o;
+            final var _resultValue = new AppTemplateTcpScaleRuleAuthentication();
+            _resultValue.secretName = secretName;
+            _resultValue.triggerParameter = triggerParameter;
+            return _resultValue;
         }
     }
 }

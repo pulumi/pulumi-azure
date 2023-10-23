@@ -153,14 +153,14 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfiguration {
             return validStatusCodeRanges(List.of(validStatusCodeRanges));
         }
         public NetworkConnectionMonitorTestConfigurationHttpConfiguration build() {
-            final var o = new NetworkConnectionMonitorTestConfigurationHttpConfiguration();
-            o.method = method;
-            o.path = path;
-            o.port = port;
-            o.preferHttps = preferHttps;
-            o.requestHeaders = requestHeaders;
-            o.validStatusCodeRanges = validStatusCodeRanges;
-            return o;
+            final var _resultValue = new NetworkConnectionMonitorTestConfigurationHttpConfiguration();
+            _resultValue.method = method;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.preferHttps = preferHttps;
+            _resultValue.requestHeaders = requestHeaders;
+            _resultValue.validStatusCodeRanges = validStatusCodeRanges;
+            return _resultValue;
         }
     }
 }

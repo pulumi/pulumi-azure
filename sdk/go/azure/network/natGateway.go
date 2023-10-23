@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Manages a Azure NAT Gateway.
+// Manages an Azure NAT Gateway.
 //
 // ## Example Usage
 //
@@ -36,29 +36,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				AllocationMethod:  pulumi.String("Static"),
-//				Sku:               pulumi.String("Standard"),
-//				Zones: pulumi.StringArray{
-//					pulumi.String("1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = network.NewPublicIpPrefix(ctx, "examplePublicIpPrefix", &network.PublicIpPrefixArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				PrefixLength:      pulumi.Int(30),
-//				Zones: pulumi.StringArray{
-//					pulumi.String("1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			_, err = network.NewNatGateway(ctx, "exampleNatGateway", &network.NatGatewayArgs{
 //				Location:             exampleResourceGroup.Location,
 //				ResourceGroupName:    exampleResourceGroup.Name,
@@ -76,6 +53,8 @@ import (
 //	}
 //
 // ```
+//
+// For more complete examples, please see the network.NatGatewayPublicIpAssociation and network.NatGatewayPublicIpPrefixAssociation resources.
 //
 // ## Import
 //

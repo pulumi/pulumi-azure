@@ -156,14 +156,14 @@ public final class KubernetesClusterIngressApplicationGateway {
             return this;
         }
         public KubernetesClusterIngressApplicationGateway build() {
-            final var o = new KubernetesClusterIngressApplicationGateway();
-            o.effectiveGatewayId = effectiveGatewayId;
-            o.gatewayId = gatewayId;
-            o.gatewayName = gatewayName;
-            o.ingressApplicationGatewayIdentities = ingressApplicationGatewayIdentities;
-            o.subnetCidr = subnetCidr;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new KubernetesClusterIngressApplicationGateway();
+            _resultValue.effectiveGatewayId = effectiveGatewayId;
+            _resultValue.gatewayId = gatewayId;
+            _resultValue.gatewayName = gatewayName;
+            _resultValue.ingressApplicationGatewayIdentities = ingressApplicationGatewayIdentities;
+            _resultValue.subnetCidr = subnetCidr;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

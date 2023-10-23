@@ -55,7 +55,17 @@ class AssessmentPolicyArgs:
              severity: Optional[pulumi.Input[str]] = None,
              threats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_impact: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'implementationEffort' in kwargs:
+            implementation_effort = kwargs['implementationEffort']
+        if 'remediationDescription' in kwargs:
+            remediation_description = kwargs['remediationDescription']
+        if 'userImpact' in kwargs:
+            user_impact = kwargs['userImpact']
+
         _setter("description", description)
         _setter("display_name", display_name)
         if categories is not None:
@@ -216,7 +226,17 @@ class _AssessmentPolicyState:
              severity: Optional[pulumi.Input[str]] = None,
              threats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_impact: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'implementationEffort' in kwargs:
+            implementation_effort = kwargs['implementationEffort']
+        if 'remediationDescription' in kwargs:
+            remediation_description = kwargs['remediationDescription']
+        if 'userImpact' in kwargs:
+            user_impact = kwargs['userImpact']
+
         if categories is not None:
             _setter("categories", categories)
         if description is not None:

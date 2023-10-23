@@ -41,7 +41,15 @@ class ManagedDatabaseArgs:
              long_term_retention_policy: Optional[pulumi.Input['ManagedDatabaseLongTermRetentionPolicyArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              short_term_retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedInstanceId' in kwargs:
+            managed_instance_id = kwargs['managedInstanceId']
+        if 'longTermRetentionPolicy' in kwargs:
+            long_term_retention_policy = kwargs['longTermRetentionPolicy']
+        if 'shortTermRetentionDays' in kwargs:
+            short_term_retention_days = kwargs['shortTermRetentionDays']
+
         _setter("managed_instance_id", managed_instance_id)
         if long_term_retention_policy is not None:
             _setter("long_term_retention_policy", long_term_retention_policy)
@@ -127,7 +135,15 @@ class _ManagedDatabaseState:
              managed_instance_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              short_term_retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'longTermRetentionPolicy' in kwargs:
+            long_term_retention_policy = kwargs['longTermRetentionPolicy']
+        if 'managedInstanceId' in kwargs:
+            managed_instance_id = kwargs['managedInstanceId']
+        if 'shortTermRetentionDays' in kwargs:
+            short_term_retention_days = kwargs['shortTermRetentionDays']
+
         if long_term_retention_policy is not None:
             _setter("long_term_retention_policy", long_term_retention_policy)
         if managed_instance_id is not None:

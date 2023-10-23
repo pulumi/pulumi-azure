@@ -63,7 +63,25 @@ class VirtualNetworkPeeringArgs:
              allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              use_remote_gateways: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'remoteAddressSpacePrefixes' in kwargs:
+            remote_address_space_prefixes = kwargs['remoteAddressSpacePrefixes']
+        if 'remoteVirtualNetworkId' in kwargs:
+            remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'allowForwardedTraffic' in kwargs:
+            allow_forwarded_traffic = kwargs['allowForwardedTraffic']
+        if 'allowGatewayTransit' in kwargs:
+            allow_gateway_transit = kwargs['allowGatewayTransit']
+        if 'allowVirtualNetworkAccess' in kwargs:
+            allow_virtual_network_access = kwargs['allowVirtualNetworkAccess']
+        if 'useRemoteGateways' in kwargs:
+            use_remote_gateways = kwargs['useRemoteGateways']
+
         _setter("remote_address_space_prefixes", remote_address_space_prefixes)
         _setter("remote_virtual_network_id", remote_virtual_network_id)
         _setter("resource_group_name", resource_group_name)
@@ -254,7 +272,29 @@ class _VirtualNetworkPeeringState:
              use_remote_gateways: Optional[pulumi.Input[bool]] = None,
              virtual_network_id: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressSpacePrefixes' in kwargs:
+            address_space_prefixes = kwargs['addressSpacePrefixes']
+        if 'allowForwardedTraffic' in kwargs:
+            allow_forwarded_traffic = kwargs['allowForwardedTraffic']
+        if 'allowGatewayTransit' in kwargs:
+            allow_gateway_transit = kwargs['allowGatewayTransit']
+        if 'allowVirtualNetworkAccess' in kwargs:
+            allow_virtual_network_access = kwargs['allowVirtualNetworkAccess']
+        if 'remoteAddressSpacePrefixes' in kwargs:
+            remote_address_space_prefixes = kwargs['remoteAddressSpacePrefixes']
+        if 'remoteVirtualNetworkId' in kwargs:
+            remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'useRemoteGateways' in kwargs:
+            use_remote_gateways = kwargs['useRemoteGateways']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if address_space_prefixes is not None:
             _setter("address_space_prefixes", address_space_prefixes)
         if allow_forwarded_traffic is not None:

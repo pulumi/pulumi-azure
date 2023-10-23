@@ -93,11 +93,11 @@ public final class GetOsProfile {
             return windows(List.of(windows));
         }
         public GetOsProfile build() {
-            final var o = new GetOsProfile();
-            o.computerName = computerName;
-            o.linuxes = linuxes;
-            o.windows = windows;
-            return o;
+            final var _resultValue = new GetOsProfile();
+            _resultValue.computerName = computerName;
+            _resultValue.linuxes = linuxes;
+            _resultValue.windows = windows;
+            return _resultValue;
         }
     }
 }

@@ -94,11 +94,11 @@ public final class FirewallPolicyManagedRuleOverride {
             return rules(List.of(rules));
         }
         public FirewallPolicyManagedRuleOverride build() {
-            final var o = new FirewallPolicyManagedRuleOverride();
-            o.exclusions = exclusions;
-            o.ruleGroupName = ruleGroupName;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new FirewallPolicyManagedRuleOverride();
+            _resultValue.exclusions = exclusions;
+            _resultValue.ruleGroupName = ruleGroupName;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

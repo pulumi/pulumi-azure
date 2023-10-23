@@ -103,11 +103,11 @@ public final class RegistryNetworkRuleSet {
             return virtualNetworks(List.of(virtualNetworks));
         }
         public RegistryNetworkRuleSet build() {
-            final var o = new RegistryNetworkRuleSet();
-            o.defaultAction = defaultAction;
-            o.ipRules = ipRules;
-            o.virtualNetworks = virtualNetworks;
-            return o;
+            final var _resultValue = new RegistryNetworkRuleSet();
+            _resultValue.defaultAction = defaultAction;
+            _resultValue.ipRules = ipRules;
+            _resultValue.virtualNetworks = virtualNetworks;
+            return _resultValue;
         }
     }
 }

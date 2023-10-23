@@ -248,19 +248,19 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
             return winrmListeners(List.of(winrmListeners));
         }
         public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration build() {
-            final var o = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration();
-            o.adminPassword = adminPassword;
-            o.adminUsername = adminUsername;
-            o.computerNamePrefix = computerNamePrefix;
-            o.enableAutomaticUpdates = enableAutomaticUpdates;
-            o.hotpatchingEnabled = hotpatchingEnabled;
-            o.patchAssessmentMode = patchAssessmentMode;
-            o.patchMode = patchMode;
-            o.provisionVmAgent = provisionVmAgent;
-            o.secrets = secrets;
-            o.timezone = timezone;
-            o.winrmListeners = winrmListeners;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration();
+            _resultValue.adminPassword = adminPassword;
+            _resultValue.adminUsername = adminUsername;
+            _resultValue.computerNamePrefix = computerNamePrefix;
+            _resultValue.enableAutomaticUpdates = enableAutomaticUpdates;
+            _resultValue.hotpatchingEnabled = hotpatchingEnabled;
+            _resultValue.patchAssessmentMode = patchAssessmentMode;
+            _resultValue.patchMode = patchMode;
+            _resultValue.provisionVmAgent = provisionVmAgent;
+            _resultValue.secrets = secrets;
+            _resultValue.timezone = timezone;
+            _resultValue.winrmListeners = winrmListeners;
+            return _resultValue;
         }
     }
 }

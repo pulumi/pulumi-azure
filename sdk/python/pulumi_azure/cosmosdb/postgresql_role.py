@@ -35,7 +35,11 @@ class PostgresqlRoleArgs:
              cluster_id: pulumi.Input[str],
              password: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+
         _setter("cluster_id", cluster_id)
         _setter("password", password)
         if name is not None:
@@ -102,7 +106,11 @@ class _PostgresqlRoleState:
              cluster_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+
         if cluster_id is not None:
             _setter("cluster_id", cluster_id)
         if name is not None:

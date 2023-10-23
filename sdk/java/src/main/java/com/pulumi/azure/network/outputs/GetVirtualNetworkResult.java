@@ -234,19 +234,19 @@ public final class GetVirtualNetworkResult {
             return vnetPeeringsAddresses(List.of(vnetPeeringsAddresses));
         }
         public GetVirtualNetworkResult build() {
-            final var o = new GetVirtualNetworkResult();
-            o.addressSpaces = addressSpaces;
-            o.dnsServers = dnsServers;
-            o.guid = guid;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.subnets = subnets;
-            o.tags = tags;
-            o.vnetPeerings = vnetPeerings;
-            o.vnetPeeringsAddresses = vnetPeeringsAddresses;
-            return o;
+            final var _resultValue = new GetVirtualNetworkResult();
+            _resultValue.addressSpaces = addressSpaces;
+            _resultValue.dnsServers = dnsServers;
+            _resultValue.guid = guid;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.subnets = subnets;
+            _resultValue.tags = tags;
+            _resultValue.vnetPeerings = vnetPeerings;
+            _resultValue.vnetPeeringsAddresses = vnetPeeringsAddresses;
+            return _resultValue;
         }
     }
 }

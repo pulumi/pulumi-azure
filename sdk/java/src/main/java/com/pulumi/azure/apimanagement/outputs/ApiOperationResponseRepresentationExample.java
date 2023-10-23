@@ -124,13 +124,13 @@ public final class ApiOperationResponseRepresentationExample {
             return this;
         }
         public ApiOperationResponseRepresentationExample build() {
-            final var o = new ApiOperationResponseRepresentationExample();
-            o.description = description;
-            o.externalValue = externalValue;
-            o.name = name;
-            o.summary = summary;
-            o.value = value;
-            return o;
+            final var _resultValue = new ApiOperationResponseRepresentationExample();
+            _resultValue.description = description;
+            _resultValue.externalValue = externalValue;
+            _resultValue.name = name;
+            _resultValue.summary = summary;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

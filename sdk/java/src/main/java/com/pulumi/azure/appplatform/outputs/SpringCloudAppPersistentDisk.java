@@ -68,10 +68,10 @@ public final class SpringCloudAppPersistentDisk {
             return this;
         }
         public SpringCloudAppPersistentDisk build() {
-            final var o = new SpringCloudAppPersistentDisk();
-            o.mountPath = mountPath;
-            o.sizeInGb = sizeInGb;
-            return o;
+            final var _resultValue = new SpringCloudAppPersistentDisk();
+            _resultValue.mountPath = mountPath;
+            _resultValue.sizeInGb = sizeInGb;
+            return _resultValue;
         }
     }
 }

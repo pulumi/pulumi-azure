@@ -84,11 +84,11 @@ public final class GetAppTemplateContainerEnv {
             return this;
         }
         public GetAppTemplateContainerEnv build() {
-            final var o = new GetAppTemplateContainerEnv();
-            o.name = name;
-            o.secretName = secretName;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetAppTemplateContainerEnv();
+            _resultValue.name = name;
+            _resultValue.secretName = secretName;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

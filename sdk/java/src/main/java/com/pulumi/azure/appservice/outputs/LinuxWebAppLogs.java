@@ -107,12 +107,12 @@ public final class LinuxWebAppLogs {
             return this;
         }
         public LinuxWebAppLogs build() {
-            final var o = new LinuxWebAppLogs();
-            o.applicationLogs = applicationLogs;
-            o.detailedErrorMessages = detailedErrorMessages;
-            o.failedRequestTracing = failedRequestTracing;
-            o.httpLogs = httpLogs;
-            return o;
+            final var _resultValue = new LinuxWebAppLogs();
+            _resultValue.applicationLogs = applicationLogs;
+            _resultValue.detailedErrorMessages = detailedErrorMessages;
+            _resultValue.failedRequestTracing = failedRequestTracing;
+            _resultValue.httpLogs = httpLogs;
+            return _resultValue;
         }
     }
 }

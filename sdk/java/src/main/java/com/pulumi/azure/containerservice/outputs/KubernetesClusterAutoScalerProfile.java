@@ -355,25 +355,25 @@ public final class KubernetesClusterAutoScalerProfile {
             return this;
         }
         public KubernetesClusterAutoScalerProfile build() {
-            final var o = new KubernetesClusterAutoScalerProfile();
-            o.balanceSimilarNodeGroups = balanceSimilarNodeGroups;
-            o.emptyBulkDeleteMax = emptyBulkDeleteMax;
-            o.expander = expander;
-            o.maxGracefulTerminationSec = maxGracefulTerminationSec;
-            o.maxNodeProvisioningTime = maxNodeProvisioningTime;
-            o.maxUnreadyNodes = maxUnreadyNodes;
-            o.maxUnreadyPercentage = maxUnreadyPercentage;
-            o.newPodScaleUpDelay = newPodScaleUpDelay;
-            o.scaleDownDelayAfterAdd = scaleDownDelayAfterAdd;
-            o.scaleDownDelayAfterDelete = scaleDownDelayAfterDelete;
-            o.scaleDownDelayAfterFailure = scaleDownDelayAfterFailure;
-            o.scaleDownUnneeded = scaleDownUnneeded;
-            o.scaleDownUnready = scaleDownUnready;
-            o.scaleDownUtilizationThreshold = scaleDownUtilizationThreshold;
-            o.scanInterval = scanInterval;
-            o.skipNodesWithLocalStorage = skipNodesWithLocalStorage;
-            o.skipNodesWithSystemPods = skipNodesWithSystemPods;
-            return o;
+            final var _resultValue = new KubernetesClusterAutoScalerProfile();
+            _resultValue.balanceSimilarNodeGroups = balanceSimilarNodeGroups;
+            _resultValue.emptyBulkDeleteMax = emptyBulkDeleteMax;
+            _resultValue.expander = expander;
+            _resultValue.maxGracefulTerminationSec = maxGracefulTerminationSec;
+            _resultValue.maxNodeProvisioningTime = maxNodeProvisioningTime;
+            _resultValue.maxUnreadyNodes = maxUnreadyNodes;
+            _resultValue.maxUnreadyPercentage = maxUnreadyPercentage;
+            _resultValue.newPodScaleUpDelay = newPodScaleUpDelay;
+            _resultValue.scaleDownDelayAfterAdd = scaleDownDelayAfterAdd;
+            _resultValue.scaleDownDelayAfterDelete = scaleDownDelayAfterDelete;
+            _resultValue.scaleDownDelayAfterFailure = scaleDownDelayAfterFailure;
+            _resultValue.scaleDownUnneeded = scaleDownUnneeded;
+            _resultValue.scaleDownUnready = scaleDownUnready;
+            _resultValue.scaleDownUtilizationThreshold = scaleDownUtilizationThreshold;
+            _resultValue.scanInterval = scanInterval;
+            _resultValue.skipNodesWithLocalStorage = skipNodesWithLocalStorage;
+            _resultValue.skipNodesWithSystemPods = skipNodesWithSystemPods;
+            return _resultValue;
         }
     }
 }

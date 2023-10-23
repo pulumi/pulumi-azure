@@ -86,11 +86,11 @@ public final class FailoverGroupPartnerServer {
             return this;
         }
         public FailoverGroupPartnerServer build() {
-            final var o = new FailoverGroupPartnerServer();
-            o.id = id;
-            o.location = location;
-            o.role = role;
-            return o;
+            final var _resultValue = new FailoverGroupPartnerServer();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.role = role;
+            return _resultValue;
         }
     }
 }

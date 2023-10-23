@@ -48,9 +48,9 @@ public final class ResourceDeploymentScriptPowerShellContainer {
             return this;
         }
         public ResourceDeploymentScriptPowerShellContainer build() {
-            final var o = new ResourceDeploymentScriptPowerShellContainer();
-            o.containerGroupName = containerGroupName;
-            return o;
+            final var _resultValue = new ResourceDeploymentScriptPowerShellContainer();
+            _resultValue.containerGroupName = containerGroupName;
+            return _resultValue;
         }
     }
 }

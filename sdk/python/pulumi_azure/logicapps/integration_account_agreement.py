@@ -65,7 +65,23 @@ class IntegrationAccountAgreementArgs:
              resource_group_name: pulumi.Input[str],
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agreementType' in kwargs:
+            agreement_type = kwargs['agreementType']
+        if 'guestIdentity' in kwargs:
+            guest_identity = kwargs['guestIdentity']
+        if 'guestPartnerName' in kwargs:
+            guest_partner_name = kwargs['guestPartnerName']
+        if 'hostIdentity' in kwargs:
+            host_identity = kwargs['hostIdentity']
+        if 'hostPartnerName' in kwargs:
+            host_partner_name = kwargs['hostPartnerName']
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("agreement_type", agreement_type)
         _setter("content", content)
         _setter("guest_identity", guest_identity)
@@ -252,7 +268,23 @@ class _IntegrationAccountAgreementState:
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'agreementType' in kwargs:
+            agreement_type = kwargs['agreementType']
+        if 'guestIdentity' in kwargs:
+            guest_identity = kwargs['guestIdentity']
+        if 'guestPartnerName' in kwargs:
+            guest_partner_name = kwargs['guestPartnerName']
+        if 'hostIdentity' in kwargs:
+            host_identity = kwargs['hostIdentity']
+        if 'hostPartnerName' in kwargs:
+            host_partner_name = kwargs['hostPartnerName']
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if agreement_type is not None:
             _setter("agreement_type", agreement_type)
         if content is not None:

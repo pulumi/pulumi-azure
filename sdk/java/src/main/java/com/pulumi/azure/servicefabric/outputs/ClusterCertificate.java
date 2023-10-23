@@ -86,11 +86,11 @@ public final class ClusterCertificate {
             return this;
         }
         public ClusterCertificate build() {
-            final var o = new ClusterCertificate();
-            o.thumbprint = thumbprint;
-            o.thumbprintSecondary = thumbprintSecondary;
-            o.x509StoreName = x509StoreName;
-            return o;
+            final var _resultValue = new ClusterCertificate();
+            _resultValue.thumbprint = thumbprint;
+            _resultValue.thumbprintSecondary = thumbprintSecondary;
+            _resultValue.x509StoreName = x509StoreName;
+            return _resultValue;
         }
     }
 }

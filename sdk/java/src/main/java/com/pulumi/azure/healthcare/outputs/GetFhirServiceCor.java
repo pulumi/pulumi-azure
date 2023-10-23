@@ -134,13 +134,13 @@ public final class GetFhirServiceCor {
             return this;
         }
         public GetFhirServiceCor build() {
-            final var o = new GetFhirServiceCor();
-            o.allowedHeaders = allowedHeaders;
-            o.allowedMethods = allowedMethods;
-            o.allowedOrigins = allowedOrigins;
-            o.credentialsAllowed = credentialsAllowed;
-            o.maxAgeInSeconds = maxAgeInSeconds;
-            return o;
+            final var _resultValue = new GetFhirServiceCor();
+            _resultValue.allowedHeaders = allowedHeaders;
+            _resultValue.allowedMethods = allowedMethods;
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.credentialsAllowed = credentialsAllowed;
+            _resultValue.maxAgeInSeconds = maxAgeInSeconds;
+            return _resultValue;
         }
     }
 }

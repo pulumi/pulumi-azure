@@ -107,12 +107,12 @@ public final class LogzMonitorUser {
             return this;
         }
         public LogzMonitorUser build() {
-            final var o = new LogzMonitorUser();
-            o.email = email;
-            o.firstName = firstName;
-            o.lastName = lastName;
-            o.phoneNumber = phoneNumber;
-            return o;
+            final var _resultValue = new LogzMonitorUser();
+            _resultValue.email = email;
+            _resultValue.firstName = firstName;
+            _resultValue.lastName = lastName;
+            _resultValue.phoneNumber = phoneNumber;
+            return _resultValue;
         }
     }
 }

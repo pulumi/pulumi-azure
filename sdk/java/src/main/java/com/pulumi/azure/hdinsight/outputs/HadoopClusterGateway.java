@@ -69,10 +69,10 @@ public final class HadoopClusterGateway {
             return this;
         }
         public HadoopClusterGateway build() {
-            final var o = new HadoopClusterGateway();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new HadoopClusterGateway();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

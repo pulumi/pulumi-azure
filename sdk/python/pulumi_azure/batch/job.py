@@ -47,7 +47,17 @@ class JobArgs:
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              task_retry_maximum: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchPoolId' in kwargs:
+            batch_pool_id = kwargs['batchPoolId']
+        if 'commonEnvironmentProperties' in kwargs:
+            common_environment_properties = kwargs['commonEnvironmentProperties']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'taskRetryMaximum' in kwargs:
+            task_retry_maximum = kwargs['taskRetryMaximum']
+
         _setter("batch_pool_id", batch_pool_id)
         if common_environment_properties is not None:
             _setter("common_environment_properties", common_environment_properties)
@@ -169,7 +179,17 @@ class _JobState:
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              task_retry_maximum: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchPoolId' in kwargs:
+            batch_pool_id = kwargs['batchPoolId']
+        if 'commonEnvironmentProperties' in kwargs:
+            common_environment_properties = kwargs['commonEnvironmentProperties']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'taskRetryMaximum' in kwargs:
+            task_retry_maximum = kwargs['taskRetryMaximum']
+
         if batch_pool_id is not None:
             _setter("batch_pool_id", batch_pool_id)
         if common_environment_properties is not None:

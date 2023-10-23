@@ -129,13 +129,13 @@ public final class AlertRuleScheduledAlertDetailsOverride {
             return this;
         }
         public AlertRuleScheduledAlertDetailsOverride build() {
-            final var o = new AlertRuleScheduledAlertDetailsOverride();
-            o.descriptionFormat = descriptionFormat;
-            o.displayNameFormat = displayNameFormat;
-            o.dynamicProperties = dynamicProperties;
-            o.severityColumnName = severityColumnName;
-            o.tacticsColumnName = tacticsColumnName;
-            return o;
+            final var _resultValue = new AlertRuleScheduledAlertDetailsOverride();
+            _resultValue.descriptionFormat = descriptionFormat;
+            _resultValue.displayNameFormat = displayNameFormat;
+            _resultValue.dynamicProperties = dynamicProperties;
+            _resultValue.severityColumnName = severityColumnName;
+            _resultValue.tacticsColumnName = tacticsColumnName;
+            return _resultValue;
         }
     }
 }

@@ -61,7 +61,17 @@ class DefinitionArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
              policy_rule: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'policyRule' in kwargs:
+            policy_rule = kwargs['policyRule']
+
         _setter("display_name", display_name)
         _setter("mode", mode)
         _setter("policy_type", policy_type)
@@ -243,7 +253,19 @@ class _DefinitionState:
              policy_rule: Optional[pulumi.Input[str]] = None,
              policy_type: Optional[pulumi.Input[str]] = None,
              role_definition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'policyRule' in kwargs:
+            policy_rule = kwargs['policyRule']
+        if 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if 'roleDefinitionIds' in kwargs:
+            role_definition_ids = kwargs['roleDefinitionIds']
+
         if description is not None:
             _setter("description", description)
         if display_name is not None:

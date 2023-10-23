@@ -67,10 +67,10 @@ public final class SystemTopicEventSubscriptionDeliveryIdentity {
             return this;
         }
         public SystemTopicEventSubscriptionDeliveryIdentity build() {
-            final var o = new SystemTopicEventSubscriptionDeliveryIdentity();
-            o.type = type;
-            o.userAssignedIdentity = userAssignedIdentity;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionDeliveryIdentity();
+            _resultValue.type = type;
+            _resultValue.userAssignedIdentity = userAssignedIdentity;
+            return _resultValue;
         }
     }
 }

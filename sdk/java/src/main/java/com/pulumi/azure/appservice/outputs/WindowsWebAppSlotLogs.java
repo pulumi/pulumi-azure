@@ -107,12 +107,12 @@ public final class WindowsWebAppSlotLogs {
             return this;
         }
         public WindowsWebAppSlotLogs build() {
-            final var o = new WindowsWebAppSlotLogs();
-            o.applicationLogs = applicationLogs;
-            o.detailedErrorMessages = detailedErrorMessages;
-            o.failedRequestTracing = failedRequestTracing;
-            o.httpLogs = httpLogs;
-            return o;
+            final var _resultValue = new WindowsWebAppSlotLogs();
+            _resultValue.applicationLogs = applicationLogs;
+            _resultValue.detailedErrorMessages = detailedErrorMessages;
+            _resultValue.failedRequestTracing = failedRequestTracing;
+            _resultValue.httpLogs = httpLogs;
+            return _resultValue;
         }
     }
 }

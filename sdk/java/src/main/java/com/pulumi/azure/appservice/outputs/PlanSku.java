@@ -87,11 +87,11 @@ public final class PlanSku {
             return this;
         }
         public PlanSku build() {
-            final var o = new PlanSku();
-            o.capacity = capacity;
-            o.size = size;
-            o.tier = tier;
-            return o;
+            final var _resultValue = new PlanSku();
+            _resultValue.capacity = capacity;
+            _resultValue.size = size;
+            _resultValue.tier = tier;
+            return _resultValue;
         }
     }
 }

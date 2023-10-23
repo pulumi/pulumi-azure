@@ -71,10 +71,10 @@ public final class LinuxFunctionAppSlotSiteConfigAppServiceLogs {
             return this;
         }
         public LinuxFunctionAppSlotSiteConfigAppServiceLogs build() {
-            final var o = new LinuxFunctionAppSlotSiteConfigAppServiceLogs();
-            o.diskQuotaMb = diskQuotaMb;
-            o.retentionPeriodDays = retentionPeriodDays;
-            return o;
+            final var _resultValue = new LinuxFunctionAppSlotSiteConfigAppServiceLogs();
+            _resultValue.diskQuotaMb = diskQuotaMb;
+            _resultValue.retentionPeriodDays = retentionPeriodDays;
+            return _resultValue;
         }
     }
 }

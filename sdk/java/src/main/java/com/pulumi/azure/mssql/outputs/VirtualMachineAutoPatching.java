@@ -85,11 +85,11 @@ public final class VirtualMachineAutoPatching {
             return this;
         }
         public VirtualMachineAutoPatching build() {
-            final var o = new VirtualMachineAutoPatching();
-            o.dayOfWeek = dayOfWeek;
-            o.maintenanceWindowDurationInMinutes = maintenanceWindowDurationInMinutes;
-            o.maintenanceWindowStartingHour = maintenanceWindowStartingHour;
-            return o;
+            final var _resultValue = new VirtualMachineAutoPatching();
+            _resultValue.dayOfWeek = dayOfWeek;
+            _resultValue.maintenanceWindowDurationInMinutes = maintenanceWindowDurationInMinutes;
+            _resultValue.maintenanceWindowStartingHour = maintenanceWindowStartingHour;
+            return _resultValue;
         }
     }
 }

@@ -215,19 +215,19 @@ public final class GetAnalyticsWorkspaceResult {
             return this;
         }
         public GetAnalyticsWorkspaceResult build() {
-            final var o = new GetAnalyticsWorkspaceResult();
-            o.dailyQuotaGb = dailyQuotaGb;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.primarySharedKey = primarySharedKey;
-            o.resourceGroupName = resourceGroupName;
-            o.retentionInDays = retentionInDays;
-            o.secondarySharedKey = secondarySharedKey;
-            o.sku = sku;
-            o.tags = tags;
-            o.workspaceId = workspaceId;
-            return o;
+            final var _resultValue = new GetAnalyticsWorkspaceResult();
+            _resultValue.dailyQuotaGb = dailyQuotaGb;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.primarySharedKey = primarySharedKey;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.secondarySharedKey = secondarySharedKey;
+            _resultValue.sku = sku;
+            _resultValue.tags = tags;
+            _resultValue.workspaceId = workspaceId;
+            return _resultValue;
         }
     }
 }

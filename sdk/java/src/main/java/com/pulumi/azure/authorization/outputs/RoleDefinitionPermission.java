@@ -117,12 +117,12 @@ public final class RoleDefinitionPermission {
             return notDataActions(List.of(notDataActions));
         }
         public RoleDefinitionPermission build() {
-            final var o = new RoleDefinitionPermission();
-            o.actions = actions;
-            o.dataActions = dataActions;
-            o.notActions = notActions;
-            o.notDataActions = notDataActions;
-            return o;
+            final var _resultValue = new RoleDefinitionPermission();
+            _resultValue.actions = actions;
+            _resultValue.dataActions = dataActions;
+            _resultValue.notActions = notActions;
+            _resultValue.notDataActions = notDataActions;
+            return _resultValue;
         }
     }
 }

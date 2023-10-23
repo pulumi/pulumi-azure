@@ -167,15 +167,15 @@ public final class DataFlowSource {
             return this;
         }
         public DataFlowSource build() {
-            final var o = new DataFlowSource();
-            o.dataset = dataset;
-            o.description = description;
-            o.flowlet = flowlet;
-            o.linkedService = linkedService;
-            o.name = name;
-            o.rejectedLinkedService = rejectedLinkedService;
-            o.schemaLinkedService = schemaLinkedService;
-            return o;
+            final var _resultValue = new DataFlowSource();
+            _resultValue.dataset = dataset;
+            _resultValue.description = description;
+            _resultValue.flowlet = flowlet;
+            _resultValue.linkedService = linkedService;
+            _resultValue.name = name;
+            _resultValue.rejectedLinkedService = rejectedLinkedService;
+            _resultValue.schemaLinkedService = schemaLinkedService;
+            return _resultValue;
         }
     }
 }

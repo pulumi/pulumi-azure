@@ -51,7 +51,17 @@ class ExpressRouteGatewayArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scaleUnits' in kwargs:
+            scale_units = kwargs['scaleUnits']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if 'allowNonVirtualWanTraffic' in kwargs:
+            allow_non_virtual_wan_traffic = kwargs['allowNonVirtualWanTraffic']
+
         _setter("resource_group_name", resource_group_name)
         _setter("scale_units", scale_units)
         _setter("virtual_hub_id", virtual_hub_id)
@@ -189,7 +199,17 @@ class _ExpressRouteGatewayState:
              scale_units: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowNonVirtualWanTraffic' in kwargs:
+            allow_non_virtual_wan_traffic = kwargs['allowNonVirtualWanTraffic']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scaleUnits' in kwargs:
+            scale_units = kwargs['scaleUnits']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         if allow_non_virtual_wan_traffic is not None:
             _setter("allow_non_virtual_wan_traffic", allow_non_virtual_wan_traffic)
         if location is not None:

@@ -65,10 +65,10 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingAction {
             return this;
         }
         public GetLinuxWebAppSiteConfigAutoHealSettingAction build() {
-            final var o = new GetLinuxWebAppSiteConfigAutoHealSettingAction();
-            o.actionType = actionType;
-            o.minimumProcessExecutionTime = minimumProcessExecutionTime;
-            return o;
+            final var _resultValue = new GetLinuxWebAppSiteConfigAutoHealSettingAction();
+            _resultValue.actionType = actionType;
+            _resultValue.minimumProcessExecutionTime = minimumProcessExecutionTime;
+            return _resultValue;
         }
     }
 }

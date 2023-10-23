@@ -84,11 +84,11 @@ public final class GetDataCollectionRuleDestinationStorageTableDirect {
             return this;
         }
         public GetDataCollectionRuleDestinationStorageTableDirect build() {
-            final var o = new GetDataCollectionRuleDestinationStorageTableDirect();
-            o.name = name;
-            o.storageAccountId = storageAccountId;
-            o.tableName = tableName;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleDestinationStorageTableDirect();
+            _resultValue.name = name;
+            _resultValue.storageAccountId = storageAccountId;
+            _resultValue.tableName = tableName;
+            return _resultValue;
         }
     }
 }

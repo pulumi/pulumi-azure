@@ -84,11 +84,11 @@ public final class SnapshotPolicyDailySchedule {
             return this;
         }
         public SnapshotPolicyDailySchedule build() {
-            final var o = new SnapshotPolicyDailySchedule();
-            o.hour = hour;
-            o.minute = minute;
-            o.snapshotsToKeep = snapshotsToKeep;
-            return o;
+            final var _resultValue = new SnapshotPolicyDailySchedule();
+            _resultValue.hour = hour;
+            _resultValue.minute = minute;
+            _resultValue.snapshotsToKeep = snapshotsToKeep;
+            return _resultValue;
         }
     }
 }

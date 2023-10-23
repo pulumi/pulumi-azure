@@ -431,27 +431,27 @@ public final class WindowsWebAppSiteConfigApplicationStack {
             return this;
         }
         public WindowsWebAppSiteConfigApplicationStack build() {
-            final var o = new WindowsWebAppSiteConfigApplicationStack();
-            o.currentStack = currentStack;
-            o.dockerContainerName = dockerContainerName;
-            o.dockerContainerRegistry = dockerContainerRegistry;
-            o.dockerContainerTag = dockerContainerTag;
-            o.dockerImageName = dockerImageName;
-            o.dockerRegistryPassword = dockerRegistryPassword;
-            o.dockerRegistryUrl = dockerRegistryUrl;
-            o.dockerRegistryUsername = dockerRegistryUsername;
-            o.dotnetCoreVersion = dotnetCoreVersion;
-            o.dotnetVersion = dotnetVersion;
-            o.javaContainer = javaContainer;
-            o.javaContainerVersion = javaContainerVersion;
-            o.javaEmbeddedServerEnabled = javaEmbeddedServerEnabled;
-            o.javaVersion = javaVersion;
-            o.nodeVersion = nodeVersion;
-            o.phpVersion = phpVersion;
-            o.python = python;
-            o.pythonVersion = pythonVersion;
-            o.tomcatVersion = tomcatVersion;
-            return o;
+            final var _resultValue = new WindowsWebAppSiteConfigApplicationStack();
+            _resultValue.currentStack = currentStack;
+            _resultValue.dockerContainerName = dockerContainerName;
+            _resultValue.dockerContainerRegistry = dockerContainerRegistry;
+            _resultValue.dockerContainerTag = dockerContainerTag;
+            _resultValue.dockerImageName = dockerImageName;
+            _resultValue.dockerRegistryPassword = dockerRegistryPassword;
+            _resultValue.dockerRegistryUrl = dockerRegistryUrl;
+            _resultValue.dockerRegistryUsername = dockerRegistryUsername;
+            _resultValue.dotnetCoreVersion = dotnetCoreVersion;
+            _resultValue.dotnetVersion = dotnetVersion;
+            _resultValue.javaContainer = javaContainer;
+            _resultValue.javaContainerVersion = javaContainerVersion;
+            _resultValue.javaEmbeddedServerEnabled = javaEmbeddedServerEnabled;
+            _resultValue.javaVersion = javaVersion;
+            _resultValue.nodeVersion = nodeVersion;
+            _resultValue.phpVersion = phpVersion;
+            _resultValue.python = python;
+            _resultValue.pythonVersion = pythonVersion;
+            _resultValue.tomcatVersion = tomcatVersion;
+            return _resultValue;
         }
     }
 }

@@ -79,6 +79,20 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
         return this.apiKey;
     }
     /**
+     * A key-value pair of App Settings.
+     * 
+     */
+    @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> appSettings;
+
+    /**
+     * @return A key-value pair of App Settings.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> appSettings() {
+        return Codegen.optional(this.appSettings);
+    }
+    /**
      * The default host name of the Static Web App.
      * 
      */

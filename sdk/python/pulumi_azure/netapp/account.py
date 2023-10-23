@@ -45,7 +45,13 @@ class AccountArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+
         _setter("resource_group_name", resource_group_name)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -149,7 +155,13 @@ class _AccountState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if active_directory is not None:
             _setter("active_directory", active_directory)
         if location is not None:

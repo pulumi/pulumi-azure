@@ -37,7 +37,13 @@ class ObjectReplicationArgs:
              destination_storage_account_id: pulumi.Input[str],
              rules: pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]],
              source_storage_account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationStorageAccountId' in kwargs:
+            destination_storage_account_id = kwargs['destinationStorageAccountId']
+        if 'sourceStorageAccountId' in kwargs:
+            source_storage_account_id = kwargs['sourceStorageAccountId']
+
         _setter("destination_storage_account_id", destination_storage_account_id)
         _setter("rules", rules)
         _setter("source_storage_account_id", source_storage_account_id)
@@ -111,7 +117,17 @@ class _ObjectReplicationState:
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]] = None,
              source_object_replication_id: Optional[pulumi.Input[str]] = None,
              source_storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationObjectReplicationId' in kwargs:
+            destination_object_replication_id = kwargs['destinationObjectReplicationId']
+        if 'destinationStorageAccountId' in kwargs:
+            destination_storage_account_id = kwargs['destinationStorageAccountId']
+        if 'sourceObjectReplicationId' in kwargs:
+            source_object_replication_id = kwargs['sourceObjectReplicationId']
+        if 'sourceStorageAccountId' in kwargs:
+            source_storage_account_id = kwargs['sourceStorageAccountId']
+
         if destination_object_replication_id is not None:
             _setter("destination_object_replication_id", destination_object_replication_id)
         if destination_storage_account_id is not None:

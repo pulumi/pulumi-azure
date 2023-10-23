@@ -125,13 +125,13 @@ public final class RegistryTaskBaseImageTrigger {
             return this;
         }
         public RegistryTaskBaseImageTrigger build() {
-            final var o = new RegistryTaskBaseImageTrigger();
-            o.enabled = enabled;
-            o.name = name;
-            o.type = type;
-            o.updateTriggerEndpoint = updateTriggerEndpoint;
-            o.updateTriggerPayloadType = updateTriggerPayloadType;
-            return o;
+            final var _resultValue = new RegistryTaskBaseImageTrigger();
+            _resultValue.enabled = enabled;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.updateTriggerEndpoint = updateTriggerEndpoint;
+            _resultValue.updateTriggerPayloadType = updateTriggerPayloadType;
+            return _resultValue;
         }
     }
 }

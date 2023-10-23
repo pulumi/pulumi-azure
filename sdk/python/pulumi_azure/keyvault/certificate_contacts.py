@@ -33,7 +33,11 @@ class CertificateContactsArgs:
              _setter: Callable[[Any, Any], None],
              contacts: pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]],
              key_vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+
         _setter("contacts", contacts)
         _setter("key_vault_id", key_vault_id)
 
@@ -82,7 +86,11 @@ class _CertificateContactsState:
              _setter: Callable[[Any, Any], None],
              contacts: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateContactsContactArgs']]]] = None,
              key_vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+
         if contacts is not None:
             _setter("contacts", contacts)
         if key_vault_id is not None:

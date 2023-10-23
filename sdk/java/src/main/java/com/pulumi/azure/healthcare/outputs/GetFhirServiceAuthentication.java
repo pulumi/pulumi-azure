@@ -69,11 +69,11 @@ public final class GetFhirServiceAuthentication {
             return this;
         }
         public GetFhirServiceAuthentication build() {
-            final var o = new GetFhirServiceAuthentication();
-            o.audience = audience;
-            o.authority = authority;
-            o.smartProxyEnabled = smartProxyEnabled;
-            return o;
+            final var _resultValue = new GetFhirServiceAuthentication();
+            _resultValue.audience = audience;
+            _resultValue.authority = authority;
+            _resultValue.smartProxyEnabled = smartProxyEnabled;
+            return _resultValue;
         }
     }
 }

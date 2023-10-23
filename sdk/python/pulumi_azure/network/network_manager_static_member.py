@@ -35,7 +35,13 @@ class NetworkManagerStaticMemberArgs:
              network_group_id: pulumi.Input[str],
              target_virtual_network_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkGroupId' in kwargs:
+            network_group_id = kwargs['networkGroupId']
+        if 'targetVirtualNetworkId' in kwargs:
+            target_virtual_network_id = kwargs['targetVirtualNetworkId']
+
         _setter("network_group_id", network_group_id)
         _setter("target_virtual_network_id", target_virtual_network_id)
         if name is not None:
@@ -106,7 +112,13 @@ class _NetworkManagerStaticMemberState:
              network_group_id: Optional[pulumi.Input[str]] = None,
              region: Optional[pulumi.Input[str]] = None,
              target_virtual_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkGroupId' in kwargs:
+            network_group_id = kwargs['networkGroupId']
+        if 'targetVirtualNetworkId' in kwargs:
+            target_virtual_network_id = kwargs['targetVirtualNetworkId']
+
         if name is not None:
             _setter("name", name)
         if network_group_id is not None:

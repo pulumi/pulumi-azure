@@ -106,12 +106,12 @@ public final class ConnectionTypeField {
             return this;
         }
         public ConnectionTypeField build() {
-            final var o = new ConnectionTypeField();
-            o.isEncrypted = isEncrypted;
-            o.isOptional = isOptional;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new ConnectionTypeField();
+            _resultValue.isEncrypted = isEncrypted;
+            _resultValue.isOptional = isOptional;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

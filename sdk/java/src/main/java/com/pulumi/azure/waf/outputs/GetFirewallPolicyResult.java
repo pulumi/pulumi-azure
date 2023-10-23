@@ -92,13 +92,13 @@ public final class GetFirewallPolicyResult {
             return this;
         }
         public GetFirewallPolicyResult build() {
-            final var o = new GetFirewallPolicyResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetFirewallPolicyResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

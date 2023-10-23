@@ -63,7 +63,15 @@ class PipelineArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'activitiesJson' in kwargs:
+            activities_json = kwargs['activitiesJson']
+        if 'moniterMetricsAfterDuration' in kwargs:
+            moniter_metrics_after_duration = kwargs['moniterMetricsAfterDuration']
+
         _setter("data_factory_id", data_factory_id)
         if activities_json is not None:
             _setter("activities_json", activities_json)
@@ -257,7 +265,15 @@ class _PipelineState:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activitiesJson' in kwargs:
+            activities_json = kwargs['activitiesJson']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'moniterMetricsAfterDuration' in kwargs:
+            moniter_metrics_after_duration = kwargs['moniterMetricsAfterDuration']
+
         if activities_json is not None:
             _setter("activities_json", activities_json)
         if annotations is not None:

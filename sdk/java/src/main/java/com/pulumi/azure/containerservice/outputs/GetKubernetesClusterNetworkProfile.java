@@ -152,15 +152,15 @@ public final class GetKubernetesClusterNetworkProfile {
             return this;
         }
         public GetKubernetesClusterNetworkProfile build() {
-            final var o = new GetKubernetesClusterNetworkProfile();
-            o.dnsServiceIp = dnsServiceIp;
-            o.dockerBridgeCidr = dockerBridgeCidr;
-            o.loadBalancerSku = loadBalancerSku;
-            o.networkPlugin = networkPlugin;
-            o.networkPolicy = networkPolicy;
-            o.podCidr = podCidr;
-            o.serviceCidr = serviceCidr;
-            return o;
+            final var _resultValue = new GetKubernetesClusterNetworkProfile();
+            _resultValue.dnsServiceIp = dnsServiceIp;
+            _resultValue.dockerBridgeCidr = dockerBridgeCidr;
+            _resultValue.loadBalancerSku = loadBalancerSku;
+            _resultValue.networkPlugin = networkPlugin;
+            _resultValue.networkPolicy = networkPolicy;
+            _resultValue.podCidr = podCidr;
+            _resultValue.serviceCidr = serviceCidr;
+            return _resultValue;
         }
     }
 }

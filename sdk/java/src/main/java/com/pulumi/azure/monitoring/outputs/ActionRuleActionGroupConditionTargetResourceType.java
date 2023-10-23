@@ -69,10 +69,10 @@ public final class ActionRuleActionGroupConditionTargetResourceType {
             return values(List.of(values));
         }
         public ActionRuleActionGroupConditionTargetResourceType build() {
-            final var o = new ActionRuleActionGroupConditionTargetResourceType();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new ActionRuleActionGroupConditionTargetResourceType();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

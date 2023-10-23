@@ -222,19 +222,19 @@ public final class GetInsightsResult {
             return this;
         }
         public GetInsightsResult build() {
-            final var o = new GetInsightsResult();
-            o.appId = appId;
-            o.applicationType = applicationType;
-            o.connectionString = connectionString;
-            o.id = id;
-            o.instrumentationKey = instrumentationKey;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.retentionInDays = retentionInDays;
-            o.tags = tags;
-            o.workspaceId = workspaceId;
-            return o;
+            final var _resultValue = new GetInsightsResult();
+            _resultValue.appId = appId;
+            _resultValue.applicationType = applicationType;
+            _resultValue.connectionString = connectionString;
+            _resultValue.id = id;
+            _resultValue.instrumentationKey = instrumentationKey;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.tags = tags;
+            _resultValue.workspaceId = workspaceId;
+            return _resultValue;
         }
     }
 }

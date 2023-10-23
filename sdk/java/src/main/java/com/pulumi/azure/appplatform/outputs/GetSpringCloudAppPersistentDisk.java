@@ -66,10 +66,10 @@ public final class GetSpringCloudAppPersistentDisk {
             return this;
         }
         public GetSpringCloudAppPersistentDisk build() {
-            final var o = new GetSpringCloudAppPersistentDisk();
-            o.mountPath = mountPath;
-            o.sizeInGb = sizeInGb;
-            return o;
+            final var _resultValue = new GetSpringCloudAppPersistentDisk();
+            _resultValue.mountPath = mountPath;
+            _resultValue.sizeInGb = sizeInGb;
+            return _resultValue;
         }
     }
 }

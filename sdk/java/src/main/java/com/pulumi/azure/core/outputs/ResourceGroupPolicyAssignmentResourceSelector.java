@@ -72,10 +72,10 @@ public final class ResourceGroupPolicyAssignmentResourceSelector {
             return selectors(List.of(selectors));
         }
         public ResourceGroupPolicyAssignmentResourceSelector build() {
-            final var o = new ResourceGroupPolicyAssignmentResourceSelector();
-            o.name = name;
-            o.selectors = selectors;
-            return o;
+            final var _resultValue = new ResourceGroupPolicyAssignmentResourceSelector();
+            _resultValue.name = name;
+            _resultValue.selectors = selectors;
+            return _resultValue;
         }
     }
 }

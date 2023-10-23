@@ -87,11 +87,11 @@ public final class DataFlowSinkFlowlet {
             return this;
         }
         public DataFlowSinkFlowlet build() {
-            final var o = new DataFlowSinkFlowlet();
-            o.datasetParameters = datasetParameters;
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new DataFlowSinkFlowlet();
+            _resultValue.datasetParameters = datasetParameters;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

@@ -87,7 +87,27 @@ class EventHubNamespaceArgs:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'autoInflateEnabled' in kwargs:
+            auto_inflate_enabled = kwargs['autoInflateEnabled']
+        if 'dedicatedClusterId' in kwargs:
+            dedicated_cluster_id = kwargs['dedicatedClusterId']
+        if 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if 'maximumThroughputUnits' in kwargs:
+            maximum_throughput_units = kwargs['maximumThroughputUnits']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'networkRulesets' in kwargs:
+            network_rulesets = kwargs['networkRulesets']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
         if auto_inflate_enabled is not None:
@@ -398,7 +418,39 @@ class _EventHubNamespaceState:
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoInflateEnabled' in kwargs:
+            auto_inflate_enabled = kwargs['autoInflateEnabled']
+        if 'dedicatedClusterId' in kwargs:
+            dedicated_cluster_id = kwargs['dedicatedClusterId']
+        if 'defaultPrimaryConnectionString' in kwargs:
+            default_primary_connection_string = kwargs['defaultPrimaryConnectionString']
+        if 'defaultPrimaryConnectionStringAlias' in kwargs:
+            default_primary_connection_string_alias = kwargs['defaultPrimaryConnectionStringAlias']
+        if 'defaultPrimaryKey' in kwargs:
+            default_primary_key = kwargs['defaultPrimaryKey']
+        if 'defaultSecondaryConnectionString' in kwargs:
+            default_secondary_connection_string = kwargs['defaultSecondaryConnectionString']
+        if 'defaultSecondaryConnectionStringAlias' in kwargs:
+            default_secondary_connection_string_alias = kwargs['defaultSecondaryConnectionStringAlias']
+        if 'defaultSecondaryKey' in kwargs:
+            default_secondary_key = kwargs['defaultSecondaryKey']
+        if 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if 'maximumThroughputUnits' in kwargs:
+            maximum_throughput_units = kwargs['maximumThroughputUnits']
+        if 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if 'networkRulesets' in kwargs:
+            network_rulesets = kwargs['networkRulesets']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         if auto_inflate_enabled is not None:
             _setter("auto_inflate_enabled", auto_inflate_enabled)
         if capacity is not None:

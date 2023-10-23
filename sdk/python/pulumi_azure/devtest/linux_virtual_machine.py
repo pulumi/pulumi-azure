@@ -99,7 +99,29 @@ class LinuxVirtualMachineArgs:
              password: Optional[pulumi.Input[str]] = None,
              ssh_key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'galleryImageReference' in kwargs:
+            gallery_image_reference = kwargs['galleryImageReference']
+        if 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if 'labSubnetName' in kwargs:
+            lab_subnet_name = kwargs['labSubnetName']
+        if 'labVirtualNetworkId' in kwargs:
+            lab_virtual_network_id = kwargs['labVirtualNetworkId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'allowClaim' in kwargs:
+            allow_claim = kwargs['allowClaim']
+        if 'disallowPublicIpAddress' in kwargs:
+            disallow_public_ip_address = kwargs['disallowPublicIpAddress']
+        if 'inboundNatRules' in kwargs:
+            inbound_nat_rules = kwargs['inboundNatRules']
+        if 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+
         _setter("gallery_image_reference", gallery_image_reference)
         _setter("lab_name", lab_name)
         _setter("lab_subnet_name", lab_subnet_name)
@@ -432,7 +454,31 @@ class _LinuxVirtualMachineState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              unique_identifier: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowClaim' in kwargs:
+            allow_claim = kwargs['allowClaim']
+        if 'disallowPublicIpAddress' in kwargs:
+            disallow_public_ip_address = kwargs['disallowPublicIpAddress']
+        if 'galleryImageReference' in kwargs:
+            gallery_image_reference = kwargs['galleryImageReference']
+        if 'inboundNatRules' in kwargs:
+            inbound_nat_rules = kwargs['inboundNatRules']
+        if 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if 'labSubnetName' in kwargs:
+            lab_subnet_name = kwargs['labSubnetName']
+        if 'labVirtualNetworkId' in kwargs:
+            lab_virtual_network_id = kwargs['labVirtualNetworkId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'uniqueIdentifier' in kwargs:
+            unique_identifier = kwargs['uniqueIdentifier']
+
         if allow_claim is not None:
             _setter("allow_claim", allow_claim)
         if disallow_public_ip_address is not None:

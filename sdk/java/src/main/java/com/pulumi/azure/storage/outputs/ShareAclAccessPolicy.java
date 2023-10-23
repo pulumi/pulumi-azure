@@ -90,11 +90,11 @@ public final class ShareAclAccessPolicy {
             return this;
         }
         public ShareAclAccessPolicy build() {
-            final var o = new ShareAclAccessPolicy();
-            o.expiry = expiry;
-            o.permissions = permissions;
-            o.start = start;
-            return o;
+            final var _resultValue = new ShareAclAccessPolicy();
+            _resultValue.expiry = expiry;
+            _resultValue.permissions = permissions;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

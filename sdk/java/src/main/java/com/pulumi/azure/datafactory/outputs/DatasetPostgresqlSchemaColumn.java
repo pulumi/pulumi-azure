@@ -86,11 +86,11 @@ public final class DatasetPostgresqlSchemaColumn {
             return this;
         }
         public DatasetPostgresqlSchemaColumn build() {
-            final var o = new DatasetPostgresqlSchemaColumn();
-            o.description = description;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DatasetPostgresqlSchemaColumn();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

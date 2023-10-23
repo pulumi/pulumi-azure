@@ -73,10 +73,10 @@ public final class SystemTopicEventSubscriptionAdvancedFilterStringNotIn {
             return values(List.of(values));
         }
         public SystemTopicEventSubscriptionAdvancedFilterStringNotIn build() {
-            final var o = new SystemTopicEventSubscriptionAdvancedFilterStringNotIn();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionAdvancedFilterStringNotIn();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

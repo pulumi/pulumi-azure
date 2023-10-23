@@ -31,7 +31,13 @@ class WorkspaceCustomerManagedKeyArgs:
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: pulumi.Input[str],
              workspace_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         _setter("key_vault_key_id", key_vault_key_id)
         if workspace_id is not None:
             warnings.warn("""this resource has been deprecated in favour of the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource and will be removed from the v4.0 azurerm provider.""", DeprecationWarning)
@@ -86,7 +92,13 @@ class _WorkspaceCustomerManagedKeyState:
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if key_vault_key_id is not None:
             _setter("key_vault_key_id", key_vault_key_id)
         if workspace_id is not None:

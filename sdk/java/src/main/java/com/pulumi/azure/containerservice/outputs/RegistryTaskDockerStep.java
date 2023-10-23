@@ -206,17 +206,17 @@ public final class RegistryTaskDockerStep {
             return this;
         }
         public RegistryTaskDockerStep build() {
-            final var o = new RegistryTaskDockerStep();
-            o.arguments = arguments;
-            o.cacheEnabled = cacheEnabled;
-            o.contextAccessToken = contextAccessToken;
-            o.contextPath = contextPath;
-            o.dockerfilePath = dockerfilePath;
-            o.imageNames = imageNames;
-            o.pushEnabled = pushEnabled;
-            o.secretArguments = secretArguments;
-            o.target = target;
-            return o;
+            final var _resultValue = new RegistryTaskDockerStep();
+            _resultValue.arguments = arguments;
+            _resultValue.cacheEnabled = cacheEnabled;
+            _resultValue.contextAccessToken = contextAccessToken;
+            _resultValue.contextPath = contextPath;
+            _resultValue.dockerfilePath = dockerfilePath;
+            _resultValue.imageNames = imageNames;
+            _resultValue.pushEnabled = pushEnabled;
+            _resultValue.secretArguments = secretArguments;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

@@ -174,17 +174,17 @@ public final class GetUserResult {
             return this;
         }
         public GetUserResult build() {
-            final var o = new GetUserResult();
-            o.apiManagementName = apiManagementName;
-            o.email = email;
-            o.firstName = firstName;
-            o.id = id;
-            o.lastName = lastName;
-            o.note = note;
-            o.resourceGroupName = resourceGroupName;
-            o.state = state;
-            o.userId = userId;
-            return o;
+            final var _resultValue = new GetUserResult();
+            _resultValue.apiManagementName = apiManagementName;
+            _resultValue.email = email;
+            _resultValue.firstName = firstName;
+            _resultValue.id = id;
+            _resultValue.lastName = lastName;
+            _resultValue.note = note;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.state = state;
+            _resultValue.userId = userId;
+            return _resultValue;
         }
     }
 }

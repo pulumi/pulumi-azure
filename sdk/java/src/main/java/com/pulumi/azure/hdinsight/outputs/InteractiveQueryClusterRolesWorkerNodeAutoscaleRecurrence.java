@@ -70,10 +70,10 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
             return this;
         }
         public InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence build() {
-            final var o = new InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence();
-            o.schedules = schedules;
-            o.timezone = timezone;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence();
+            _resultValue.schedules = schedules;
+            _resultValue.timezone = timezone;
+            return _resultValue;
         }
     }
 }

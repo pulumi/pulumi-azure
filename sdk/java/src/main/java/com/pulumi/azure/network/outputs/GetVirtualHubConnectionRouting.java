@@ -18,10 +18,25 @@ public final class GetVirtualHubConnectionRouting {
      */
     private String associatedRouteTableId;
     /**
+     * @return The ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+     * 
+     */
+    private String inboundRouteMapId;
+    /**
+     * @return The ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+     * 
+     */
+    private String outboundRouteMapId;
+    /**
      * @return A `propagated_route_table` block as defined below.
      * 
      */
     private List<GetVirtualHubConnectionRoutingPropagatedRouteTable> propagatedRouteTables;
+    /**
+     * @return The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet.
+     * 
+     */
+    private String staticVnetLocalRouteOverrideCriteria;
     /**
      * @return A `static_vnet_route` block as defined below.
      * 
@@ -37,11 +52,32 @@ public final class GetVirtualHubConnectionRouting {
         return this.associatedRouteTableId;
     }
     /**
+     * @return The ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+     * 
+     */
+    public String inboundRouteMapId() {
+        return this.inboundRouteMapId;
+    }
+    /**
+     * @return The ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+     * 
+     */
+    public String outboundRouteMapId() {
+        return this.outboundRouteMapId;
+    }
+    /**
      * @return A `propagated_route_table` block as defined below.
      * 
      */
     public List<GetVirtualHubConnectionRoutingPropagatedRouteTable> propagatedRouteTables() {
         return this.propagatedRouteTables;
+    }
+    /**
+     * @return The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet.
+     * 
+     */
+    public String staticVnetLocalRouteOverrideCriteria() {
+        return this.staticVnetLocalRouteOverrideCriteria;
     }
     /**
      * @return A `static_vnet_route` block as defined below.
@@ -61,19 +97,35 @@ public final class GetVirtualHubConnectionRouting {
     @CustomType.Builder
     public static final class Builder {
         private String associatedRouteTableId;
+        private String inboundRouteMapId;
+        private String outboundRouteMapId;
         private List<GetVirtualHubConnectionRoutingPropagatedRouteTable> propagatedRouteTables;
+        private String staticVnetLocalRouteOverrideCriteria;
         private List<GetVirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes;
         public Builder() {}
         public Builder(GetVirtualHubConnectionRouting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.associatedRouteTableId = defaults.associatedRouteTableId;
+    	      this.inboundRouteMapId = defaults.inboundRouteMapId;
+    	      this.outboundRouteMapId = defaults.outboundRouteMapId;
     	      this.propagatedRouteTables = defaults.propagatedRouteTables;
+    	      this.staticVnetLocalRouteOverrideCriteria = defaults.staticVnetLocalRouteOverrideCriteria;
     	      this.staticVnetRoutes = defaults.staticVnetRoutes;
         }
 
         @CustomType.Setter
         public Builder associatedRouteTableId(String associatedRouteTableId) {
             this.associatedRouteTableId = Objects.requireNonNull(associatedRouteTableId);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inboundRouteMapId(String inboundRouteMapId) {
+            this.inboundRouteMapId = Objects.requireNonNull(inboundRouteMapId);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder outboundRouteMapId(String outboundRouteMapId) {
+            this.outboundRouteMapId = Objects.requireNonNull(outboundRouteMapId);
             return this;
         }
         @CustomType.Setter
@@ -85,6 +137,11 @@ public final class GetVirtualHubConnectionRouting {
             return propagatedRouteTables(List.of(propagatedRouteTables));
         }
         @CustomType.Setter
+        public Builder staticVnetLocalRouteOverrideCriteria(String staticVnetLocalRouteOverrideCriteria) {
+            this.staticVnetLocalRouteOverrideCriteria = Objects.requireNonNull(staticVnetLocalRouteOverrideCriteria);
+            return this;
+        }
+        @CustomType.Setter
         public Builder staticVnetRoutes(List<GetVirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes) {
             this.staticVnetRoutes = Objects.requireNonNull(staticVnetRoutes);
             return this;
@@ -93,11 +150,14 @@ public final class GetVirtualHubConnectionRouting {
             return staticVnetRoutes(List.of(staticVnetRoutes));
         }
         public GetVirtualHubConnectionRouting build() {
-            final var o = new GetVirtualHubConnectionRouting();
-            o.associatedRouteTableId = associatedRouteTableId;
-            o.propagatedRouteTables = propagatedRouteTables;
-            o.staticVnetRoutes = staticVnetRoutes;
-            return o;
+            final var _resultValue = new GetVirtualHubConnectionRouting();
+            _resultValue.associatedRouteTableId = associatedRouteTableId;
+            _resultValue.inboundRouteMapId = inboundRouteMapId;
+            _resultValue.outboundRouteMapId = outboundRouteMapId;
+            _resultValue.propagatedRouteTables = propagatedRouteTables;
+            _resultValue.staticVnetLocalRouteOverrideCriteria = staticVnetLocalRouteOverrideCriteria;
+            _resultValue.staticVnetRoutes = staticVnetRoutes;
+            return _resultValue;
         }
     }
 }

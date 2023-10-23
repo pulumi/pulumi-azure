@@ -103,12 +103,12 @@ public final class InteractiveQueryClusterMetastoresHive {
             return this;
         }
         public InteractiveQueryClusterMetastoresHive build() {
-            final var o = new InteractiveQueryClusterMetastoresHive();
-            o.databaseName = databaseName;
-            o.password = password;
-            o.server = server;
-            o.username = username;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterMetastoresHive();
+            _resultValue.databaseName = databaseName;
+            _resultValue.password = password;
+            _resultValue.server = server;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

@@ -51,7 +51,15 @@ class CertificateArgs:
              thumbprint: pulumi.Input[str],
              thumbprint_algorithm: pulumi.Input[str],
              password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'thumbprintAlgorithm' in kwargs:
+            thumbprint_algorithm = kwargs['thumbprintAlgorithm']
+
         _setter("account_name", account_name)
         _setter("certificate", certificate)
         _setter("format", format)
@@ -194,7 +202,17 @@ class _CertificateState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
              thumbprint_algorithm: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'publicData' in kwargs:
+            public_data = kwargs['publicData']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'thumbprintAlgorithm' in kwargs:
+            thumbprint_algorithm = kwargs['thumbprintAlgorithm']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if certificate is not None:

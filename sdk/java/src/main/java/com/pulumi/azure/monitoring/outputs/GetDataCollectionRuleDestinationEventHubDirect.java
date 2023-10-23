@@ -65,10 +65,10 @@ public final class GetDataCollectionRuleDestinationEventHubDirect {
             return this;
         }
         public GetDataCollectionRuleDestinationEventHubDirect build() {
-            final var o = new GetDataCollectionRuleDestinationEventHubDirect();
-            o.eventHubId = eventHubId;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleDestinationEventHubDirect();
+            _resultValue.eventHubId = eventHubId;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

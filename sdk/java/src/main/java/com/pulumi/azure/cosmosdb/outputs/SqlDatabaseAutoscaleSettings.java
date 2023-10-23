@@ -48,9 +48,9 @@ public final class SqlDatabaseAutoscaleSettings {
             return this;
         }
         public SqlDatabaseAutoscaleSettings build() {
-            final var o = new SqlDatabaseAutoscaleSettings();
-            o.maxThroughput = maxThroughput;
-            return o;
+            final var _resultValue = new SqlDatabaseAutoscaleSettings();
+            _resultValue.maxThroughput = maxThroughput;
+            return _resultValue;
         }
     }
 }

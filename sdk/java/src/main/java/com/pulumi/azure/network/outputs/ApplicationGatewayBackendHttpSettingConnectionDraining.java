@@ -66,10 +66,10 @@ public final class ApplicationGatewayBackendHttpSettingConnectionDraining {
             return this;
         }
         public ApplicationGatewayBackendHttpSettingConnectionDraining build() {
-            final var o = new ApplicationGatewayBackendHttpSettingConnectionDraining();
-            o.drainTimeoutSec = drainTimeoutSec;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ApplicationGatewayBackendHttpSettingConnectionDraining();
+            _resultValue.drainTimeoutSec = drainTimeoutSec;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

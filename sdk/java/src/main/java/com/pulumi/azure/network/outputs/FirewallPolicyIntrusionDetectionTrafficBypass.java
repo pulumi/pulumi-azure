@@ -197,16 +197,16 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
             return sourceIpGroups(List.of(sourceIpGroups));
         }
         public FirewallPolicyIntrusionDetectionTrafficBypass build() {
-            final var o = new FirewallPolicyIntrusionDetectionTrafficBypass();
-            o.description = description;
-            o.destinationAddresses = destinationAddresses;
-            o.destinationIpGroups = destinationIpGroups;
-            o.destinationPorts = destinationPorts;
-            o.name = name;
-            o.protocol = protocol;
-            o.sourceAddresses = sourceAddresses;
-            o.sourceIpGroups = sourceIpGroups;
-            return o;
+            final var _resultValue = new FirewallPolicyIntrusionDetectionTrafficBypass();
+            _resultValue.description = description;
+            _resultValue.destinationAddresses = destinationAddresses;
+            _resultValue.destinationIpGroups = destinationIpGroups;
+            _resultValue.destinationPorts = destinationPorts;
+            _resultValue.name = name;
+            _resultValue.protocol = protocol;
+            _resultValue.sourceAddresses = sourceAddresses;
+            _resultValue.sourceIpGroups = sourceIpGroups;
+            return _resultValue;
         }
     }
 }

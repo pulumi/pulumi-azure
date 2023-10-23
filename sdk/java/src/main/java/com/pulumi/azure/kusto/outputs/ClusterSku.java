@@ -74,10 +74,10 @@ public final class ClusterSku {
             return this;
         }
         public ClusterSku build() {
-            final var o = new ClusterSku();
-            o.capacity = capacity;
-            o.name = name;
-            return o;
+            final var _resultValue = new ClusterSku();
+            _resultValue.capacity = capacity;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

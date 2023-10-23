@@ -68,10 +68,10 @@ public final class WindowsWebAppSlotLogsHttpLogsAzureBlobStorage {
             return this;
         }
         public WindowsWebAppSlotLogsHttpLogsAzureBlobStorage build() {
-            final var o = new WindowsWebAppSlotLogsHttpLogsAzureBlobStorage();
-            o.retentionInDays = retentionInDays;
-            o.sasUrl = sasUrl;
-            return o;
+            final var _resultValue = new WindowsWebAppSlotLogsHttpLogsAzureBlobStorage();
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.sasUrl = sasUrl;
+            return _resultValue;
         }
     }
 }

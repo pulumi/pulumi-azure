@@ -124,13 +124,13 @@ public final class LabRoster {
             return this;
         }
         public LabRoster build() {
-            final var o = new LabRoster();
-            o.activeDirectoryGroupId = activeDirectoryGroupId;
-            o.lmsInstance = lmsInstance;
-            o.ltiClientId = ltiClientId;
-            o.ltiContextId = ltiContextId;
-            o.ltiRosterEndpoint = ltiRosterEndpoint;
-            return o;
+            final var _resultValue = new LabRoster();
+            _resultValue.activeDirectoryGroupId = activeDirectoryGroupId;
+            _resultValue.lmsInstance = lmsInstance;
+            _resultValue.ltiClientId = ltiClientId;
+            _resultValue.ltiContextId = ltiContextId;
+            _resultValue.ltiRosterEndpoint = ltiRosterEndpoint;
+            return _resultValue;
         }
     }
 }

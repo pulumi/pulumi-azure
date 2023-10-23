@@ -70,10 +70,10 @@ public final class MongoRoleDefinitionPrivilege {
             return this;
         }
         public MongoRoleDefinitionPrivilege build() {
-            final var o = new MongoRoleDefinitionPrivilege();
-            o.actions = actions;
-            o.resource = resource;
-            return o;
+            final var _resultValue = new MongoRoleDefinitionPrivilege();
+            _resultValue.actions = actions;
+            _resultValue.resource = resource;
+            return _resultValue;
         }
     }
 }

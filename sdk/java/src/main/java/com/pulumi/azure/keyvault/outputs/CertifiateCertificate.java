@@ -123,10 +123,10 @@ public final class CertifiateCertificate {
             return this;
         }
         public CertifiateCertificate build() {
-            final var o = new CertifiateCertificate();
-            o.contents = contents;
-            o.password = password;
-            return o;
+            final var _resultValue = new CertifiateCertificate();
+            _resultValue.contents = contents;
+            _resultValue.password = password;
+            return _resultValue;
         }
     }
 }

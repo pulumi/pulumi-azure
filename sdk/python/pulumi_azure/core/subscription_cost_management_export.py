@@ -57,7 +57,21 @@ class SubscriptionCostManagementExportArgs:
              subscription_id: pulumi.Input[str],
              active: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportDataOptions' in kwargs:
+            export_data_options = kwargs['exportDataOptions']
+        if 'exportDataStorageLocation' in kwargs:
+            export_data_storage_location = kwargs['exportDataStorageLocation']
+        if 'recurrencePeriodEndDate' in kwargs:
+            recurrence_period_end_date = kwargs['recurrencePeriodEndDate']
+        if 'recurrencePeriodStartDate' in kwargs:
+            recurrence_period_start_date = kwargs['recurrencePeriodStartDate']
+        if 'recurrenceType' in kwargs:
+            recurrence_type = kwargs['recurrenceType']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         _setter("export_data_options", export_data_options)
         _setter("export_data_storage_location", export_data_storage_location)
         _setter("recurrence_period_end_date", recurrence_period_end_date)
@@ -210,7 +224,21 @@ class _SubscriptionCostManagementExportState:
              recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
              recurrence_type: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exportDataOptions' in kwargs:
+            export_data_options = kwargs['exportDataOptions']
+        if 'exportDataStorageLocation' in kwargs:
+            export_data_storage_location = kwargs['exportDataStorageLocation']
+        if 'recurrencePeriodEndDate' in kwargs:
+            recurrence_period_end_date = kwargs['recurrencePeriodEndDate']
+        if 'recurrencePeriodStartDate' in kwargs:
+            recurrence_period_start_date = kwargs['recurrencePeriodStartDate']
+        if 'recurrenceType' in kwargs:
+            recurrence_type = kwargs['recurrenceType']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         if active is not None:
             _setter("active", active)
         if export_data_options is not None:

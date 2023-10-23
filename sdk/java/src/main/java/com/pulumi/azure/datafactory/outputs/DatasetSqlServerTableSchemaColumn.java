@@ -86,11 +86,11 @@ public final class DatasetSqlServerTableSchemaColumn {
             return this;
         }
         public DatasetSqlServerTableSchemaColumn build() {
-            final var o = new DatasetSqlServerTableSchemaColumn();
-            o.description = description;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DatasetSqlServerTableSchemaColumn();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

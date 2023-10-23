@@ -65,10 +65,10 @@ public final class RegistryNetworkRuleSetVirtualNetwork {
             return this;
         }
         public RegistryNetworkRuleSetVirtualNetwork build() {
-            final var o = new RegistryNetworkRuleSetVirtualNetwork();
-            o.action = action;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new RegistryNetworkRuleSetVirtualNetwork();
+            _resultValue.action = action;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

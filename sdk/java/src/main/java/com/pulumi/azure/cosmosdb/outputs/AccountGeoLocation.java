@@ -107,12 +107,12 @@ public final class AccountGeoLocation {
             return this;
         }
         public AccountGeoLocation build() {
-            final var o = new AccountGeoLocation();
-            o.failoverPriority = failoverPriority;
-            o.id = id;
-            o.location = location;
-            o.zoneRedundant = zoneRedundant;
-            return o;
+            final var _resultValue = new AccountGeoLocation();
+            _resultValue.failoverPriority = failoverPriority;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.zoneRedundant = zoneRedundant;
+            return _resultValue;
         }
     }
 }

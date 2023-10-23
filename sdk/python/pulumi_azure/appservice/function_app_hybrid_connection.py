@@ -43,7 +43,15 @@ class FunctionAppHybridConnectionArgs:
              port: pulumi.Input[int],
              relay_id: pulumi.Input[str],
              send_key_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionAppId' in kwargs:
+            function_app_id = kwargs['functionAppId']
+        if 'relayId' in kwargs:
+            relay_id = kwargs['relayId']
+        if 'sendKeyName' in kwargs:
+            send_key_name = kwargs['sendKeyName']
+
         _setter("function_app_id", function_app_id)
         _setter("hostname", hostname)
         _setter("port", port)
@@ -164,7 +172,25 @@ class _FunctionAppHybridConnectionState:
              send_key_value: Optional[pulumi.Input[str]] = None,
              service_bus_namespace: Optional[pulumi.Input[str]] = None,
              service_bus_suffix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionAppId' in kwargs:
+            function_app_id = kwargs['functionAppId']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'relayId' in kwargs:
+            relay_id = kwargs['relayId']
+        if 'relayName' in kwargs:
+            relay_name = kwargs['relayName']
+        if 'sendKeyName' in kwargs:
+            send_key_name = kwargs['sendKeyName']
+        if 'sendKeyValue' in kwargs:
+            send_key_value = kwargs['sendKeyValue']
+        if 'serviceBusNamespace' in kwargs:
+            service_bus_namespace = kwargs['serviceBusNamespace']
+        if 'serviceBusSuffix' in kwargs:
+            service_bus_suffix = kwargs['serviceBusSuffix']
+
         if function_app_id is not None:
             _setter("function_app_id", function_app_id)
         if hostname is not None:

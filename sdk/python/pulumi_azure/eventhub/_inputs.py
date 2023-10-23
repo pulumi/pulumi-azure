@@ -92,7 +92,15 @@ class DomainIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -173,7 +181,11 @@ class DomainInboundIpRuleArgs:
              _setter: Callable[[Any, Any], None],
              ip_mask: pulumi.Input[str],
              action: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipMask' in kwargs:
+            ip_mask = kwargs['ipMask']
+
         _setter("ip_mask", ip_mask)
         if action is not None:
             _setter("action", action)
@@ -226,7 +238,13 @@ class DomainInputMappingDefaultValuesArgs:
              data_version: Optional[pulumi.Input[str]] = None,
              event_type: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataVersion' in kwargs:
+            data_version = kwargs['dataVersion']
+        if 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+
         if data_version is not None:
             _setter("data_version", data_version)
         if event_type is not None:
@@ -306,7 +324,15 @@ class DomainInputMappingFieldsArgs:
              id: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              topic: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataVersion' in kwargs:
+            data_version = kwargs['dataVersion']
+        if 'eventTime' in kwargs:
+            event_time = kwargs['eventTime']
+        if 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+
         if data_version is not None:
             _setter("data_version", data_version)
         if event_time is not None:
@@ -424,7 +450,15 @@ class EventGridTopicIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -505,7 +539,11 @@ class EventGridTopicInboundIpRuleArgs:
              _setter: Callable[[Any, Any], None],
              ip_mask: pulumi.Input[str],
              action: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipMask' in kwargs:
+            ip_mask = kwargs['ipMask']
+
         _setter("ip_mask", ip_mask)
         if action is not None:
             _setter("action", action)
@@ -558,7 +596,13 @@ class EventGridTopicInputMappingDefaultValuesArgs:
              data_version: Optional[pulumi.Input[str]] = None,
              event_type: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataVersion' in kwargs:
+            data_version = kwargs['dataVersion']
+        if 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+
         if data_version is not None:
             _setter("data_version", data_version)
         if event_type is not None:
@@ -638,7 +682,15 @@ class EventGridTopicInputMappingFieldsArgs:
              id: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              topic: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataVersion' in kwargs:
+            data_version = kwargs['dataVersion']
+        if 'eventTime' in kwargs:
+            event_time = kwargs['eventTime']
+        if 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+
         if data_version is not None:
             _setter("data_version", data_version)
         if event_time is not None:
@@ -760,7 +812,15 @@ class EventHubCaptureDescriptionArgs:
              interval_in_seconds: Optional[pulumi.Input[int]] = None,
              size_limit_in_bytes: Optional[pulumi.Input[int]] = None,
              skip_empty_archives: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if 'sizeLimitInBytes' in kwargs:
+            size_limit_in_bytes = kwargs['sizeLimitInBytes']
+        if 'skipEmptyArchives' in kwargs:
+            skip_empty_archives = kwargs['skipEmptyArchives']
+
         _setter("destination", destination)
         _setter("enabled", enabled)
         _setter("encoding", encoding)
@@ -873,7 +933,15 @@ class EventHubCaptureDescriptionDestinationArgs:
              blob_container_name: pulumi.Input[str],
              name: pulumi.Input[str],
              storage_account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'archiveNameFormat' in kwargs:
+            archive_name_format = kwargs['archiveNameFormat']
+        if 'blobContainerName' in kwargs:
+            blob_container_name = kwargs['blobContainerName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("archive_name_format", archive_name_format)
         _setter("blob_container_name", blob_container_name)
         _setter("name", name)
@@ -961,7 +1029,15 @@ class EventHubNamespaceIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -1056,7 +1132,19 @@ class EventHubNamespaceNetworkRulesetsArgs:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              trusted_service_access_enabled: Optional[pulumi.Input[bool]] = None,
              virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'trustedServiceAccessEnabled' in kwargs:
+            trusted_service_access_enabled = kwargs['trustedServiceAccessEnabled']
+        if 'virtualNetworkRules' in kwargs:
+            virtual_network_rules = kwargs['virtualNetworkRules']
+
         _setter("default_action", default_action)
         if ip_rules is not None:
             _setter("ip_rules", ip_rules)
@@ -1149,7 +1237,11 @@ class EventHubNamespaceNetworkRulesetsIpRuleArgs:
              _setter: Callable[[Any, Any], None],
              ip_mask: pulumi.Input[str],
              action: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipMask' in kwargs:
+            ip_mask = kwargs['ipMask']
+
         _setter("ip_mask", ip_mask)
         if action is not None:
             _setter("action", action)
@@ -1198,7 +1290,13 @@ class EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs:
              _setter: Callable[[Any, Any], None],
              subnet_id: pulumi.Input[str],
              ignore_missing_virtual_network_service_endpoint: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'ignoreMissingVirtualNetworkServiceEndpoint' in kwargs:
+            ignore_missing_virtual_network_service_endpoint = kwargs['ignoreMissingVirtualNetworkServiceEndpoint']
+
         _setter("subnet_id", subnet_id)
         if ignore_missing_virtual_network_service_endpoint is not None:
             _setter("ignore_missing_virtual_network_service_endpoint", ignore_missing_virtual_network_service_endpoint)
@@ -1317,7 +1415,47 @@ class EventSubscriptionAdvancedFilterArgs:
              string_not_contains: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgs']]]] = None,
              string_not_ends_withs: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgs']]]] = None,
              string_not_ins: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'boolEquals' in kwargs:
+            bool_equals = kwargs['boolEquals']
+        if 'isNotNulls' in kwargs:
+            is_not_nulls = kwargs['isNotNulls']
+        if 'isNullOrUndefineds' in kwargs:
+            is_null_or_undefineds = kwargs['isNullOrUndefineds']
+        if 'numberGreaterThanOrEquals' in kwargs:
+            number_greater_than_or_equals = kwargs['numberGreaterThanOrEquals']
+        if 'numberGreaterThans' in kwargs:
+            number_greater_thans = kwargs['numberGreaterThans']
+        if 'numberInRanges' in kwargs:
+            number_in_ranges = kwargs['numberInRanges']
+        if 'numberIns' in kwargs:
+            number_ins = kwargs['numberIns']
+        if 'numberLessThanOrEquals' in kwargs:
+            number_less_than_or_equals = kwargs['numberLessThanOrEquals']
+        if 'numberLessThans' in kwargs:
+            number_less_thans = kwargs['numberLessThans']
+        if 'numberNotInRanges' in kwargs:
+            number_not_in_ranges = kwargs['numberNotInRanges']
+        if 'numberNotIns' in kwargs:
+            number_not_ins = kwargs['numberNotIns']
+        if 'stringBeginsWiths' in kwargs:
+            string_begins_withs = kwargs['stringBeginsWiths']
+        if 'stringContains' in kwargs:
+            string_contains = kwargs['stringContains']
+        if 'stringEndsWiths' in kwargs:
+            string_ends_withs = kwargs['stringEndsWiths']
+        if 'stringIns' in kwargs:
+            string_ins = kwargs['stringIns']
+        if 'stringNotBeginsWiths' in kwargs:
+            string_not_begins_withs = kwargs['stringNotBeginsWiths']
+        if 'stringNotContains' in kwargs:
+            string_not_contains = kwargs['stringNotContains']
+        if 'stringNotEndsWiths' in kwargs:
+            string_not_ends_withs = kwargs['stringNotEndsWiths']
+        if 'stringNotIns' in kwargs:
+            string_not_ins = kwargs['stringNotIns']
+
         if bool_equals is not None:
             _setter("bool_equals", bool_equals)
         if is_not_nulls is not None:
@@ -1609,7 +1747,9 @@ class EventSubscriptionAdvancedFilterBoolEqualArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1655,7 +1795,9 @@ class EventSubscriptionAdvancedFilterIsNotNullArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
 
     @property
@@ -1686,7 +1828,9 @@ class EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
 
     @property
@@ -1723,7 +1867,9 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1775,7 +1921,9 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1827,7 +1975,9 @@ class EventSubscriptionAdvancedFilterNumberInArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[float]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -1879,7 +2029,9 @@ class EventSubscriptionAdvancedFilterNumberInRangeArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -1931,7 +2083,9 @@ class EventSubscriptionAdvancedFilterNumberLessThanArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1983,7 +2137,9 @@ class EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              value: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2035,7 +2191,9 @@ class EventSubscriptionAdvancedFilterNumberNotInArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[float]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -2087,7 +2245,9 @@ class EventSubscriptionAdvancedFilterNumberNotInRangeArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -2139,7 +2299,9 @@ class EventSubscriptionAdvancedFilterStringBeginsWithArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -2191,7 +2353,9 @@ class EventSubscriptionAdvancedFilterStringContainArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -2243,7 +2407,9 @@ class EventSubscriptionAdvancedFilterStringEndsWithArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -2295,7 +2461,9 @@ class EventSubscriptionAdvancedFilterStringInArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -2347,7 +2515,9 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -2399,7 +2569,9 @@ class EventSubscriptionAdvancedFilterStringNotContainArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -2451,7 +2623,9 @@ class EventSubscriptionAdvancedFilterStringNotEndsWithArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -2503,7 +2677,9 @@ class EventSubscriptionAdvancedFilterStringNotInArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("values", values)
 
@@ -2557,7 +2733,15 @@ class EventSubscriptionAzureFunctionEndpointArgs:
              function_id: pulumi.Input[str],
              max_events_per_batch: Optional[pulumi.Input[int]] = None,
              preferred_batch_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionId' in kwargs:
+            function_id = kwargs['functionId']
+        if 'maxEventsPerBatch' in kwargs:
+            max_events_per_batch = kwargs['maxEventsPerBatch']
+        if 'preferredBatchSizeInKilobytes' in kwargs:
+            preferred_batch_size_in_kilobytes = kwargs['preferredBatchSizeInKilobytes']
+
         _setter("function_id", function_id)
         if max_events_per_batch is not None:
             _setter("max_events_per_batch", max_events_per_batch)
@@ -2620,7 +2804,11 @@ class EventSubscriptionDeadLetterIdentityArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              user_assigned_identity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+
         _setter("type", type)
         if user_assigned_identity is not None:
             _setter("user_assigned_identity", user_assigned_identity)
@@ -2669,7 +2857,11 @@ class EventSubscriptionDeliveryIdentityArgs:
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
              user_assigned_identity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentity' in kwargs:
+            user_assigned_identity = kwargs['userAssignedIdentity']
+
         _setter("type", type)
         if user_assigned_identity is not None:
             _setter("user_assigned_identity", user_assigned_identity)
@@ -2730,7 +2922,13 @@ class EventSubscriptionDeliveryPropertyArgs:
              secret: Optional[pulumi.Input[bool]] = None,
              source_field: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if 'sourceField' in kwargs:
+            source_field = kwargs['sourceField']
+
         _setter("header_name", header_name)
         _setter("type", type)
         if secret is not None:
@@ -2820,7 +3018,13 @@ class EventSubscriptionRetryPolicyArgs:
              _setter: Callable[[Any, Any], None],
              event_time_to_live: pulumi.Input[int],
              max_delivery_attempts: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventTimeToLive' in kwargs:
+            event_time_to_live = kwargs['eventTimeToLive']
+        if 'maxDeliveryAttempts' in kwargs:
+            max_delivery_attempts = kwargs['maxDeliveryAttempts']
+
         _setter("event_time_to_live", event_time_to_live)
         _setter("max_delivery_attempts", max_delivery_attempts)
 
@@ -2868,7 +3072,13 @@ class EventSubscriptionStorageBlobDeadLetterDestinationArgs:
              _setter: Callable[[Any, Any], None],
              storage_account_id: pulumi.Input[str],
              storage_blob_container_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageBlobContainerName' in kwargs:
+            storage_blob_container_name = kwargs['storageBlobContainerName']
+
         _setter("storage_account_id", storage_account_id)
         _setter("storage_blob_container_name", storage_blob_container_name)
 
@@ -2920,7 +3130,15 @@ class EventSubscriptionStorageQueueEndpointArgs:
              queue_name: pulumi.Input[str],
              storage_account_id: pulumi.Input[str],
              queue_message_time_to_live_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'queueMessageTimeToLiveInSeconds' in kwargs:
+            queue_message_time_to_live_in_seconds = kwargs['queueMessageTimeToLiveInSeconds']
+
         _setter("queue_name", queue_name)
         _setter("storage_account_id", storage_account_id)
         if queue_message_time_to_live_in_seconds is not None:
@@ -2986,7 +3204,15 @@ class EventSubscriptionSubjectFilterArgs:
              case_sensitive: Optional[pulumi.Input[bool]] = None,
              subject_begins_with: Optional[pulumi.Input[str]] = None,
              subject_ends_with: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'caseSensitive' in kwargs:
+            case_sensitive = kwargs['caseSensitive']
+        if 'subjectBeginsWith' in kwargs:
+            subject_begins_with = kwargs['subjectBeginsWith']
+        if 'subjectEndsWith' in kwargs:
+            subject_ends_with = kwargs['subjectEndsWith']
+
         if case_sensitive is not None:
             _setter("case_sensitive", case_sensitive)
         if subject_begins_with is not None:
@@ -3066,7 +3292,19 @@ class EventSubscriptionWebhookEndpointArgs:
              base_url: Optional[pulumi.Input[str]] = None,
              max_events_per_batch: Optional[pulumi.Input[int]] = None,
              preferred_batch_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeDirectoryAppIdOrUri' in kwargs:
+            active_directory_app_id_or_uri = kwargs['activeDirectoryAppIdOrUri']
+        if 'activeDirectoryTenantId' in kwargs:
+            active_directory_tenant_id = kwargs['activeDirectoryTenantId']
+        if 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+        if 'maxEventsPerBatch' in kwargs:
+            max_events_per_batch = kwargs['maxEventsPerBatch']
+        if 'preferredBatchSizeInKilobytes' in kwargs:
+            preferred_batch_size_in_kilobytes = kwargs['preferredBatchSizeInKilobytes']
+
         _setter("url", url)
         if active_directory_app_id_or_uri is not None:
             _setter("active_directory_app_id_or_uri", active_directory_app_id_or_uri)
@@ -3175,7 +3413,15 @@ class NamespaceCustomerManagedKeyArgs:
              identity_id: pulumi.Input[str],
              key_vault_key_id: pulumi.Input[str],
              infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+
         _setter("identity_id", identity_id)
         _setter("key_vault_key_id", key_vault_key_id)
         if infrastructure_encryption_enabled is not None:
@@ -3247,7 +3493,15 @@ class NamespaceIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -3338,7 +3592,19 @@ class NamespaceNetworkRuleSetArgs:
              network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'networkRules' in kwargs:
+            network_rules = kwargs['networkRules']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'trustedServicesAllowed' in kwargs:
+            trusted_services_allowed = kwargs['trustedServicesAllowed']
+
         if default_action is not None:
             _setter("default_action", default_action)
         if ip_rules is not None:
@@ -3430,7 +3696,13 @@ class NamespaceNetworkRuleSetNetworkRuleArgs:
              _setter: Callable[[Any, Any], None],
              subnet_id: pulumi.Input[str],
              ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
+
         _setter("subnet_id", subnet_id)
         if ignore_missing_vnet_service_endpoint is not None:
             _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
@@ -3485,7 +3757,15 @@ class SubscriptionClientScopedSubscriptionArgs:
              client_id: Optional[pulumi.Input[str]] = None,
              is_client_scoped_subscription_durable: Optional[pulumi.Input[bool]] = None,
              is_client_scoped_subscription_shareable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'isClientScopedSubscriptionDurable' in kwargs:
+            is_client_scoped_subscription_durable = kwargs['isClientScopedSubscriptionDurable']
+        if 'isClientScopedSubscriptionShareable' in kwargs:
+            is_client_scoped_subscription_shareable = kwargs['isClientScopedSubscriptionShareable']
+
         if client_id is not None:
             _setter("client_id", client_id)
         if is_client_scoped_subscription_durable is not None:
@@ -3581,7 +3861,21 @@ class SubscriptionRuleCorrelationFilterArgs:
              reply_to_session_id: Optional[pulumi.Input[str]] = None,
              session_id: Optional[pulumi.Input[str]] = None,
              to: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'correlationId' in kwargs:
+            correlation_id = kwargs['correlationId']
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if 'replyTo' in kwargs:
+            reply_to = kwargs['replyTo']
+        if 'replyToSessionId' in kwargs:
+            reply_to_session_id = kwargs['replyToSessionId']
+        if 'sessionId' in kwargs:
+            session_id = kwargs['sessionId']
+
         if content_type is not None:
             _setter("content_type", content_type)
         if correlation_id is not None:

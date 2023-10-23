@@ -46,9 +46,9 @@ public final class CertificateCertificatePolicySecretProperties {
             return this;
         }
         public CertificateCertificatePolicySecretProperties build() {
-            final var o = new CertificateCertificatePolicySecretProperties();
-            o.contentType = contentType;
-            return o;
+            final var _resultValue = new CertificateCertificatePolicySecretProperties();
+            _resultValue.contentType = contentType;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class AccountEncryption {
             return this;
         }
         public AccountEncryption build() {
-            final var o = new AccountEncryption();
-            o.currentKeyIdentifier = currentKeyIdentifier;
-            o.keyVaultKeyIdentifier = keyVaultKeyIdentifier;
-            o.managedIdentity = managedIdentity;
-            o.type = type;
-            return o;
+            final var _resultValue = new AccountEncryption();
+            _resultValue.currentKeyIdentifier = currentKeyIdentifier;
+            _resultValue.keyVaultKeyIdentifier = keyVaultKeyIdentifier;
+            _resultValue.managedIdentity = managedIdentity;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

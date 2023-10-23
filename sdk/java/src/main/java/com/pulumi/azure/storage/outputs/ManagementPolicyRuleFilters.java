@@ -100,11 +100,11 @@ public final class ManagementPolicyRuleFilters {
             return prefixMatches(List.of(prefixMatches));
         }
         public ManagementPolicyRuleFilters build() {
-            final var o = new ManagementPolicyRuleFilters();
-            o.blobTypes = blobTypes;
-            o.matchBlobIndexTags = matchBlobIndexTags;
-            o.prefixMatches = prefixMatches;
-            return o;
+            final var _resultValue = new ManagementPolicyRuleFilters();
+            _resultValue.blobTypes = blobTypes;
+            _resultValue.matchBlobIndexTags = matchBlobIndexTags;
+            _resultValue.prefixMatches = prefixMatches;
+            return _resultValue;
         }
     }
 }

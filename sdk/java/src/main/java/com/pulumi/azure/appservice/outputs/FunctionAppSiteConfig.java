@@ -456,29 +456,29 @@ public final class FunctionAppSiteConfig {
             return this;
         }
         public FunctionAppSiteConfig build() {
-            final var o = new FunctionAppSiteConfig();
-            o.alwaysOn = alwaysOn;
-            o.appScaleLimit = appScaleLimit;
-            o.autoSwapSlotName = autoSwapSlotName;
-            o.cors = cors;
-            o.dotnetFrameworkVersion = dotnetFrameworkVersion;
-            o.elasticInstanceMinimum = elasticInstanceMinimum;
-            o.ftpsState = ftpsState;
-            o.healthCheckPath = healthCheckPath;
-            o.http2Enabled = http2Enabled;
-            o.ipRestrictions = ipRestrictions;
-            o.javaVersion = javaVersion;
-            o.linuxFxVersion = linuxFxVersion;
-            o.minTlsVersion = minTlsVersion;
-            o.preWarmedInstanceCount = preWarmedInstanceCount;
-            o.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
-            o.scmIpRestrictions = scmIpRestrictions;
-            o.scmType = scmType;
-            o.scmUseMainIpRestriction = scmUseMainIpRestriction;
-            o.use32BitWorkerProcess = use32BitWorkerProcess;
-            o.vnetRouteAllEnabled = vnetRouteAllEnabled;
-            o.websocketsEnabled = websocketsEnabled;
-            return o;
+            final var _resultValue = new FunctionAppSiteConfig();
+            _resultValue.alwaysOn = alwaysOn;
+            _resultValue.appScaleLimit = appScaleLimit;
+            _resultValue.autoSwapSlotName = autoSwapSlotName;
+            _resultValue.cors = cors;
+            _resultValue.dotnetFrameworkVersion = dotnetFrameworkVersion;
+            _resultValue.elasticInstanceMinimum = elasticInstanceMinimum;
+            _resultValue.ftpsState = ftpsState;
+            _resultValue.healthCheckPath = healthCheckPath;
+            _resultValue.http2Enabled = http2Enabled;
+            _resultValue.ipRestrictions = ipRestrictions;
+            _resultValue.javaVersion = javaVersion;
+            _resultValue.linuxFxVersion = linuxFxVersion;
+            _resultValue.minTlsVersion = minTlsVersion;
+            _resultValue.preWarmedInstanceCount = preWarmedInstanceCount;
+            _resultValue.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            _resultValue.scmIpRestrictions = scmIpRestrictions;
+            _resultValue.scmType = scmType;
+            _resultValue.scmUseMainIpRestriction = scmUseMainIpRestriction;
+            _resultValue.use32BitWorkerProcess = use32BitWorkerProcess;
+            _resultValue.vnetRouteAllEnabled = vnetRouteAllEnabled;
+            _resultValue.websocketsEnabled = websocketsEnabled;
+            return _resultValue;
         }
     }
 }

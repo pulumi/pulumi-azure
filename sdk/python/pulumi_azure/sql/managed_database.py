@@ -35,7 +35,11 @@ class ManagedDatabaseArgs:
              sql_managed_instance_id: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sqlManagedInstanceId' in kwargs:
+            sql_managed_instance_id = kwargs['sqlManagedInstanceId']
+
         _setter("sql_managed_instance_id", sql_managed_instance_id)
         if location is not None:
             _setter("location", location)
@@ -103,7 +107,11 @@ class _ManagedDatabaseState:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sql_managed_instance_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sqlManagedInstanceId' in kwargs:
+            sql_managed_instance_id = kwargs['sqlManagedInstanceId']
+
         if location is not None:
             _setter("location", location)
         if name is not None:

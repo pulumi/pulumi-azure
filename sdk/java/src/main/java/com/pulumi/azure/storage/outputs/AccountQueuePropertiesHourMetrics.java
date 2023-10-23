@@ -107,12 +107,12 @@ public final class AccountQueuePropertiesHourMetrics {
             return this;
         }
         public AccountQueuePropertiesHourMetrics build() {
-            final var o = new AccountQueuePropertiesHourMetrics();
-            o.enabled = enabled;
-            o.includeApis = includeApis;
-            o.retentionPolicyDays = retentionPolicyDays;
-            o.version = version;
-            return o;
+            final var _resultValue = new AccountQueuePropertiesHourMetrics();
+            _resultValue.enabled = enabled;
+            _resultValue.includeApis = includeApis;
+            _resultValue.retentionPolicyDays = retentionPolicyDays;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

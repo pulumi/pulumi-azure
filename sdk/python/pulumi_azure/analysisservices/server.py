@@ -65,7 +65,21 @@ class ServerArgs:
              name: Optional[pulumi.Input[str]] = None,
              querypool_connection_mode: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'adminUsers' in kwargs:
+            admin_users = kwargs['adminUsers']
+        if 'backupBlobContainerUri' in kwargs:
+            backup_blob_container_uri = kwargs['backupBlobContainerUri']
+        if 'enablePowerBiService' in kwargs:
+            enable_power_bi_service = kwargs['enablePowerBiService']
+        if 'ipv4FirewallRules' in kwargs:
+            ipv4_firewall_rules = kwargs['ipv4FirewallRules']
+        if 'querypoolConnectionMode' in kwargs:
+            querypool_connection_mode = kwargs['querypoolConnectionMode']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
         if admin_users is not None:
@@ -262,7 +276,23 @@ class _ServerState:
              server_full_name: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUsers' in kwargs:
+            admin_users = kwargs['adminUsers']
+        if 'backupBlobContainerUri' in kwargs:
+            backup_blob_container_uri = kwargs['backupBlobContainerUri']
+        if 'enablePowerBiService' in kwargs:
+            enable_power_bi_service = kwargs['enablePowerBiService']
+        if 'ipv4FirewallRules' in kwargs:
+            ipv4_firewall_rules = kwargs['ipv4FirewallRules']
+        if 'querypoolConnectionMode' in kwargs:
+            querypool_connection_mode = kwargs['querypoolConnectionMode']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverFullName' in kwargs:
+            server_full_name = kwargs['serverFullName']
+
         if admin_users is not None:
             _setter("admin_users", admin_users)
         if backup_blob_container_uri is not None:

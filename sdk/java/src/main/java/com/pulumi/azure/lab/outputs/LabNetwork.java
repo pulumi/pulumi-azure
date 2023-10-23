@@ -86,11 +86,11 @@ public final class LabNetwork {
             return this;
         }
         public LabNetwork build() {
-            final var o = new LabNetwork();
-            o.loadBalancerId = loadBalancerId;
-            o.publicIpId = publicIpId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new LabNetwork();
+            _resultValue.loadBalancerId = loadBalancerId;
+            _resultValue.publicIpId = publicIpId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

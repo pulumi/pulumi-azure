@@ -72,10 +72,10 @@ public final class FrontdoorBackendPoolSetting {
             return this;
         }
         public FrontdoorBackendPoolSetting build() {
-            final var o = new FrontdoorBackendPoolSetting();
-            o.backendPoolsSendReceiveTimeoutSeconds = backendPoolsSendReceiveTimeoutSeconds;
-            o.enforceBackendPoolsCertificateNameCheck = enforceBackendPoolsCertificateNameCheck;
-            return o;
+            final var _resultValue = new FrontdoorBackendPoolSetting();
+            _resultValue.backendPoolsSendReceiveTimeoutSeconds = backendPoolsSendReceiveTimeoutSeconds;
+            _resultValue.enforceBackendPoolsCertificateNameCheck = enforceBackendPoolsCertificateNameCheck;
+            return _resultValue;
         }
     }
 }

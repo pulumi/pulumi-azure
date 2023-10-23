@@ -106,12 +106,12 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKey {
             return this;
         }
         public IntegrationRuntimeSsisExpressCustomSetupCommandKey build() {
-            final var o = new IntegrationRuntimeSsisExpressCustomSetupCommandKey();
-            o.keyVaultPassword = keyVaultPassword;
-            o.password = password;
-            o.targetName = targetName;
-            o.userName = userName;
-            return o;
+            final var _resultValue = new IntegrationRuntimeSsisExpressCustomSetupCommandKey();
+            _resultValue.keyVaultPassword = keyVaultPassword;
+            _resultValue.password = password;
+            _resultValue.targetName = targetName;
+            _resultValue.userName = userName;
+            return _resultValue;
         }
     }
 }

@@ -108,12 +108,12 @@ public final class ContactProfileLink {
             return this;
         }
         public ContactProfileLink build() {
-            final var o = new ContactProfileLink();
-            o.channels = channels;
-            o.direction = direction;
-            o.name = name;
-            o.polarization = polarization;
-            return o;
+            final var _resultValue = new ContactProfileLink();
+            _resultValue.channels = channels;
+            _resultValue.direction = direction;
+            _resultValue.name = name;
+            _resultValue.polarization = polarization;
+            return _resultValue;
         }
     }
 }

@@ -240,20 +240,20 @@ public final class GetLabResult {
             return this;
         }
         public GetLabResult build() {
-            final var o = new GetLabResult();
-            o.artifactsStorageAccountId = artifactsStorageAccountId;
-            o.defaultPremiumStorageAccountId = defaultPremiumStorageAccountId;
-            o.defaultStorageAccountId = defaultStorageAccountId;
-            o.id = id;
-            o.keyVaultId = keyVaultId;
-            o.location = location;
-            o.name = name;
-            o.premiumDataDiskStorageAccountId = premiumDataDiskStorageAccountId;
-            o.resourceGroupName = resourceGroupName;
-            o.storageType = storageType;
-            o.tags = tags;
-            o.uniqueIdentifier = uniqueIdentifier;
-            return o;
+            final var _resultValue = new GetLabResult();
+            _resultValue.artifactsStorageAccountId = artifactsStorageAccountId;
+            _resultValue.defaultPremiumStorageAccountId = defaultPremiumStorageAccountId;
+            _resultValue.defaultStorageAccountId = defaultStorageAccountId;
+            _resultValue.id = id;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.premiumDataDiskStorageAccountId = premiumDataDiskStorageAccountId;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.storageType = storageType;
+            _resultValue.tags = tags;
+            _resultValue.uniqueIdentifier = uniqueIdentifier;
+            return _resultValue;
         }
     }
 }

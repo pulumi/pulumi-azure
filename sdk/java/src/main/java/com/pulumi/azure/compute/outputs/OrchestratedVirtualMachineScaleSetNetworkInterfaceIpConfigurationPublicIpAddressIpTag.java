@@ -65,10 +65,10 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
             return this;
         }
         public OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag build() {
-            final var o = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag();
-            o.tag = tag;
-            o.type = type;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag();
+            _resultValue.tag = tag;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

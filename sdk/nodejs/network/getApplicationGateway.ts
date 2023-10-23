@@ -50,30 +50,139 @@ export interface GetApplicationGatewayArgs {
  */
 export interface GetApplicationGatewayResult {
     /**
-     * A `backendAddressPool` block as defined below.
+     * One or more `authenticationCertificate` blocks as defined below.
+     */
+    readonly authenticationCertificates: outputs.network.GetApplicationGatewayAuthenticationCertificate[];
+    /**
+     * An `autoscaleConfiguration` block as defined below.
+     */
+    readonly autoscaleConfigurations: outputs.network.GetApplicationGatewayAutoscaleConfiguration[];
+    /**
+     * One or more `backendAddressPool` blocks as defined below.
      */
     readonly backendAddressPools: outputs.network.GetApplicationGatewayBackendAddressPool[];
+    /**
+     * One or more `backendHttpSettings` blocks as defined below.
+     */
+    readonly backendHttpSettings: outputs.network.GetApplicationGatewayBackendHttpSetting[];
+    /**
+     * One or more `customErrorConfiguration` blocks as defined below.
+     */
+    readonly customErrorConfigurations: outputs.network.GetApplicationGatewayCustomErrorConfiguration[];
+    /**
+     * Is FIPS enabled on the Application Gateway?
+     */
+    readonly fipsEnabled: boolean;
+    /**
+     * The ID of the Web Application Firewall Policy which is used as an HTTP Listener for this Path Rule.
+     */
+    readonly firewallPolicyId: string;
+    /**
+     * Is the Firewall Policy associated with the Application Gateway?
+     */
+    readonly forceFirewallPolicyAssociation: boolean;
+    /**
+     * One or more `frontendIpConfiguration` blocks as defined below.
+     */
+    readonly frontendIpConfigurations: outputs.network.GetApplicationGatewayFrontendIpConfiguration[];
+    /**
+     * One or more `frontendPort` blocks as defined below.
+     */
+    readonly frontendPorts: outputs.network.GetApplicationGatewayFrontendPort[];
+    /**
+     * One or more `gatewayIpConfiguration` blocks as defined below.
+     */
+    readonly gatewayIpConfigurations: outputs.network.GetApplicationGatewayGatewayIpConfiguration[];
+    /**
+     * A `global` block as defined below.
+     */
+    readonly globals: outputs.network.GetApplicationGatewayGlobal[];
+    /**
+     * Is HTTP2 enabled on the application gateway resource?
+     */
+    readonly http2Enabled: boolean;
+    /**
+     * One or more `httpListener` blocks as defined below.
+     */
+    readonly httpListeners: outputs.network.GetApplicationGatewayHttpListener[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * A `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     readonly identities: outputs.network.GetApplicationGatewayIdentity[];
     /**
-     * The Azure Region where the Application Gateway exists.
+     * The Azure region where the Application Gateway exists.
      */
     readonly location: string;
     /**
-     * The name of the Backend Address Pool.
+     * Unique name of the Rewrite Rule
      */
     readonly name: string;
+    readonly privateEndpointConnections: outputs.network.GetApplicationGatewayPrivateEndpointConnection[];
+    /**
+     * One or more `privateLinkConfiguration` blocks as defined below.
+     */
+    readonly privateLinkConfigurations: outputs.network.GetApplicationGatewayPrivateLinkConfiguration[];
+    /**
+     * One or more `probe` blocks as defined below.
+     */
+    readonly probes: outputs.network.GetApplicationGatewayProbe[];
+    /**
+     * One or more `redirectConfiguration` blocks as defined below.
+     */
+    readonly redirectConfigurations: outputs.network.GetApplicationGatewayRedirectConfiguration[];
+    /**
+     * One or more `requestRoutingRule` blocks as defined below.
+     */
+    readonly requestRoutingRules: outputs.network.GetApplicationGatewayRequestRoutingRule[];
     readonly resourceGroupName: string;
     /**
-     * A mapping of tags assigned to the Application Gateway.
+     * One or more `rewriteRuleSet` blocks as defined below.
+     */
+    readonly rewriteRuleSets: outputs.network.GetApplicationGatewayRewriteRuleSet[];
+    /**
+     * A `sku` block as defined below.
+     */
+    readonly skus: outputs.network.GetApplicationGatewaySkus[];
+    /**
+     * One or more `sslCertificate` blocks as defined below.
+     */
+    readonly sslCertificates: outputs.network.GetApplicationGatewaySslCertificate[];
+    /**
+     * a `sslPolicy` block as defined below.
+     */
+    readonly sslPolicies: outputs.network.GetApplicationGatewaySslPolicy[];
+    /**
+     * One or more `sslProfile` blocks as defined below.
+     */
+    readonly sslProfiles: outputs.network.GetApplicationGatewaySslProfile[];
+    /**
+     * A mapping of tags to assign to the resource.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * One or more `trustedClientCertificate` blocks as defined below.
+     */
+    readonly trustedClientCertificates: outputs.network.GetApplicationGatewayTrustedClientCertificate[];
+    /**
+     * One or more `trustedRootCertificate` blocks as defined below.
+     */
+    readonly trustedRootCertificates: outputs.network.GetApplicationGatewayTrustedRootCertificate[];
+    /**
+     * One or more `urlPathMap` blocks as defined below.
+     */
+    readonly urlPathMaps: outputs.network.GetApplicationGatewayUrlPathMap[];
+    /**
+     * A `wafConfiguration` block as defined below.
+     */
+    readonly wafConfigurations: outputs.network.GetApplicationGatewayWafConfiguration[];
+    /**
+     * The list of Availability Zones in which this Application Gateway can use.
+     */
+    readonly zones: string[];
 }
 /**
  * Use this data source to access information about an existing Application Gateway.

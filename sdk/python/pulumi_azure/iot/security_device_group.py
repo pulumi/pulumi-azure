@@ -41,7 +41,15 @@ class SecurityDeviceGroupArgs:
              allow_rule: Optional[pulumi.Input['SecurityDeviceGroupAllowRuleArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              range_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if 'allowRule' in kwargs:
+            allow_rule = kwargs['allowRule']
+        if 'rangeRules' in kwargs:
+            range_rules = kwargs['rangeRules']
+
         _setter("iothub_id", iothub_id)
         if allow_rule is not None:
             _setter("allow_rule", allow_rule)
@@ -127,7 +135,15 @@ class _SecurityDeviceGroupState:
              iothub_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              range_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityDeviceGroupRangeRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowRule' in kwargs:
+            allow_rule = kwargs['allowRule']
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if 'rangeRules' in kwargs:
+            range_rules = kwargs['rangeRules']
+
         if allow_rule is not None:
             _setter("allow_rule", allow_rule)
         if iothub_id is not None:

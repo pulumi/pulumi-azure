@@ -205,17 +205,17 @@ public final class SubscriptionRuleCorrelationFilter {
             return this;
         }
         public SubscriptionRuleCorrelationFilter build() {
-            final var o = new SubscriptionRuleCorrelationFilter();
-            o.contentType = contentType;
-            o.correlationId = correlationId;
-            o.label = label;
-            o.messageId = messageId;
-            o.properties = properties;
-            o.replyTo = replyTo;
-            o.replyToSessionId = replyToSessionId;
-            o.sessionId = sessionId;
-            o.to = to;
-            return o;
+            final var _resultValue = new SubscriptionRuleCorrelationFilter();
+            _resultValue.contentType = contentType;
+            _resultValue.correlationId = correlationId;
+            _resultValue.label = label;
+            _resultValue.messageId = messageId;
+            _resultValue.properties = properties;
+            _resultValue.replyTo = replyTo;
+            _resultValue.replyToSessionId = replyToSessionId;
+            _resultValue.sessionId = sessionId;
+            _resultValue.to = to;
+            return _resultValue;
         }
     }
 }

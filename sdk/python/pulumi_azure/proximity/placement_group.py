@@ -51,7 +51,13 @@ class PlacementGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allowedVmSizes' in kwargs:
+            allowed_vm_sizes = kwargs['allowedVmSizes']
+
         _setter("resource_group_name", resource_group_name)
         if allowed_vm_sizes is not None:
             _setter("allowed_vm_sizes", allowed_vm_sizes)
@@ -181,7 +187,13 @@ class _PlacementGroupState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedVmSizes' in kwargs:
+            allowed_vm_sizes = kwargs['allowedVmSizes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if allowed_vm_sizes is not None:
             _setter("allowed_vm_sizes", allowed_vm_sizes)
         if location is not None:

@@ -67,10 +67,10 @@ public final class EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
             return this;
         }
         public EndpointGlobalDeliveryRuleCacheKeyQueryStringAction build() {
-            final var o = new EndpointGlobalDeliveryRuleCacheKeyQueryStringAction();
-            o.behavior = behavior;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new EndpointGlobalDeliveryRuleCacheKeyQueryStringAction();
+            _resultValue.behavior = behavior;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

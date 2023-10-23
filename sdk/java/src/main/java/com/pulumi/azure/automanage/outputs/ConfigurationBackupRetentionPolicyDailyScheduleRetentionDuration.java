@@ -68,10 +68,10 @@ public final class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurat
             return this;
         }
         public ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration build() {
-            final var o = new ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration();
-            o.count = count;
-            o.durationType = durationType;
-            return o;
+            final var _resultValue = new ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration();
+            _resultValue.count = count;
+            _resultValue.durationType = durationType;
+            return _resultValue;
         }
     }
 }

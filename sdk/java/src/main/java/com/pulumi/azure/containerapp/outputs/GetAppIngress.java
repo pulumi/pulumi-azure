@@ -171,15 +171,15 @@ public final class GetAppIngress {
             return this;
         }
         public GetAppIngress build() {
-            final var o = new GetAppIngress();
-            o.allowInsecureConnections = allowInsecureConnections;
-            o.customDomains = customDomains;
-            o.externalEnabled = externalEnabled;
-            o.fqdn = fqdn;
-            o.targetPort = targetPort;
-            o.trafficWeights = trafficWeights;
-            o.transport = transport;
-            return o;
+            final var _resultValue = new GetAppIngress();
+            _resultValue.allowInsecureConnections = allowInsecureConnections;
+            _resultValue.customDomains = customDomains;
+            _resultValue.externalEnabled = externalEnabled;
+            _resultValue.fqdn = fqdn;
+            _resultValue.targetPort = targetPort;
+            _resultValue.trafficWeights = trafficWeights;
+            _resultValue.transport = transport;
+            return _resultValue;
         }
     }
 }

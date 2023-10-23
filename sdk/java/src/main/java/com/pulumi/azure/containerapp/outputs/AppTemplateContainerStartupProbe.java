@@ -206,17 +206,17 @@ public final class AppTemplateContainerStartupProbe {
             return this;
         }
         public AppTemplateContainerStartupProbe build() {
-            final var o = new AppTemplateContainerStartupProbe();
-            o.failureCountThreshold = failureCountThreshold;
-            o.headers = headers;
-            o.host = host;
-            o.intervalSeconds = intervalSeconds;
-            o.path = path;
-            o.port = port;
-            o.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
-            o.timeout = timeout;
-            o.transport = transport;
-            return o;
+            final var _resultValue = new AppTemplateContainerStartupProbe();
+            _resultValue.failureCountThreshold = failureCountThreshold;
+            _resultValue.headers = headers;
+            _resultValue.host = host;
+            _resultValue.intervalSeconds = intervalSeconds;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
+            _resultValue.timeout = timeout;
+            _resultValue.transport = transport;
+            return _resultValue;
         }
     }
 }

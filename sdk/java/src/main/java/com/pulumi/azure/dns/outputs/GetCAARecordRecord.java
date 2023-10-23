@@ -85,11 +85,11 @@ public final class GetCAARecordRecord {
             return this;
         }
         public GetCAARecordRecord build() {
-            final var o = new GetCAARecordRecord();
-            o.flags = flags;
-            o.tag = tag;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetCAARecordRecord();
+            _resultValue.flags = flags;
+            _resultValue.tag = tag;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

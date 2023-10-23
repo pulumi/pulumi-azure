@@ -86,11 +86,11 @@ public final class HBaseClusterRoles {
             return this;
         }
         public HBaseClusterRoles build() {
-            final var o = new HBaseClusterRoles();
-            o.headNode = headNode;
-            o.workerNode = workerNode;
-            o.zookeeperNode = zookeeperNode;
-            return o;
+            final var _resultValue = new HBaseClusterRoles();
+            _resultValue.headNode = headNode;
+            _resultValue.workerNode = workerNode;
+            _resultValue.zookeeperNode = zookeeperNode;
+            return _resultValue;
         }
     }
 }

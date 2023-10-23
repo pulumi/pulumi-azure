@@ -124,13 +124,13 @@ public final class PoolMountCifsMount {
             return this;
         }
         public PoolMountCifsMount build() {
-            final var o = new PoolMountCifsMount();
-            o.mountOptions = mountOptions;
-            o.password = password;
-            o.relativeMountPath = relativeMountPath;
-            o.source = source;
-            o.userName = userName;
-            return o;
+            final var _resultValue = new PoolMountCifsMount();
+            _resultValue.mountOptions = mountOptions;
+            _resultValue.password = password;
+            _resultValue.relativeMountPath = relativeMountPath;
+            _resultValue.source = source;
+            _resultValue.userName = userName;
+            return _resultValue;
         }
     }
 }

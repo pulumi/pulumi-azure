@@ -84,11 +84,11 @@ public final class StandardConnectionString {
             return this;
         }
         public StandardConnectionString build() {
-            final var o = new StandardConnectionString();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new StandardConnectionString();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

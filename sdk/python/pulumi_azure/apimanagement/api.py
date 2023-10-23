@@ -127,7 +127,41 @@ class ApiArgs:
              version: Optional[pulumi.Input[str]] = None,
              version_description: Optional[pulumi.Input[str]] = None,
              version_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'apiType' in kwargs:
+            api_type = kwargs['apiType']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'import' in kwargs:
+            import_ = kwargs['import']
+        if 'oauth2Authorization' in kwargs:
+            oauth2_authorization = kwargs['oauth2Authorization']
+        if 'openidAuthentication' in kwargs:
+            openid_authentication = kwargs['openidAuthentication']
+        if 'revisionDescription' in kwargs:
+            revision_description = kwargs['revisionDescription']
+        if 'serviceUrl' in kwargs:
+            service_url = kwargs['serviceUrl']
+        if 'soapPassThrough' in kwargs:
+            soap_pass_through = kwargs['soapPassThrough']
+        if 'sourceApiId' in kwargs:
+            source_api_id = kwargs['sourceApiId']
+        if 'subscriptionKeyParameterNames' in kwargs:
+            subscription_key_parameter_names = kwargs['subscriptionKeyParameterNames']
+        if 'subscriptionRequired' in kwargs:
+            subscription_required = kwargs['subscriptionRequired']
+        if 'termsOfServiceUrl' in kwargs:
+            terms_of_service_url = kwargs['termsOfServiceUrl']
+        if 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+        if 'versionSetId' in kwargs:
+            version_set_id = kwargs['versionSetId']
+
         _setter("api_management_name", api_management_name)
         _setter("resource_group_name", resource_group_name)
         _setter("revision", revision)
@@ -597,7 +631,45 @@ class _ApiState:
              version: Optional[pulumi.Input[str]] = None,
              version_description: Optional[pulumi.Input[str]] = None,
              version_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'apiType' in kwargs:
+            api_type = kwargs['apiType']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'import' in kwargs:
+            import_ = kwargs['import']
+        if 'isCurrent' in kwargs:
+            is_current = kwargs['isCurrent']
+        if 'isOnline' in kwargs:
+            is_online = kwargs['isOnline']
+        if 'oauth2Authorization' in kwargs:
+            oauth2_authorization = kwargs['oauth2Authorization']
+        if 'openidAuthentication' in kwargs:
+            openid_authentication = kwargs['openidAuthentication']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'revisionDescription' in kwargs:
+            revision_description = kwargs['revisionDescription']
+        if 'serviceUrl' in kwargs:
+            service_url = kwargs['serviceUrl']
+        if 'soapPassThrough' in kwargs:
+            soap_pass_through = kwargs['soapPassThrough']
+        if 'sourceApiId' in kwargs:
+            source_api_id = kwargs['sourceApiId']
+        if 'subscriptionKeyParameterNames' in kwargs:
+            subscription_key_parameter_names = kwargs['subscriptionKeyParameterNames']
+        if 'subscriptionRequired' in kwargs:
+            subscription_required = kwargs['subscriptionRequired']
+        if 'termsOfServiceUrl' in kwargs:
+            terms_of_service_url = kwargs['termsOfServiceUrl']
+        if 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+        if 'versionSetId' in kwargs:
+            version_set_id = kwargs['versionSetId']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if api_type is not None:

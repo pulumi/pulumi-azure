@@ -116,14 +116,14 @@ public final class GetPublicIPsResult {
             return this;
         }
         public GetPublicIPsResult build() {
-            final var o = new GetPublicIPsResult();
-            o.allocationType = allocationType;
-            o.attachmentStatus = attachmentStatus;
-            o.id = id;
-            o.namePrefix = namePrefix;
-            o.publicIps = publicIps;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetPublicIPsResult();
+            _resultValue.allocationType = allocationType;
+            _resultValue.attachmentStatus = attachmentStatus;
+            _resultValue.id = id;
+            _resultValue.namePrefix = namePrefix;
+            _resultValue.publicIps = publicIps;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

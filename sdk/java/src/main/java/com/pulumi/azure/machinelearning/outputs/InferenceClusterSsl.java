@@ -125,13 +125,13 @@ public final class InferenceClusterSsl {
             return this;
         }
         public InferenceClusterSsl build() {
-            final var o = new InferenceClusterSsl();
-            o.cert = cert;
-            o.cname = cname;
-            o.key = key;
-            o.leafDomainLabel = leafDomainLabel;
-            o.overwriteExistingDomain = overwriteExistingDomain;
-            return o;
+            final var _resultValue = new InferenceClusterSsl();
+            _resultValue.cert = cert;
+            _resultValue.cname = cname;
+            _resultValue.key = key;
+            _resultValue.leafDomainLabel = leafDomainLabel;
+            _resultValue.overwriteExistingDomain = overwriteExistingDomain;
+            return _resultValue;
         }
     }
 }

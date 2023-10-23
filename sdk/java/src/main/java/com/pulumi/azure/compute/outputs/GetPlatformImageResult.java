@@ -101,14 +101,14 @@ public final class GetPlatformImageResult {
             return this;
         }
         public GetPlatformImageResult build() {
-            final var o = new GetPlatformImageResult();
-            o.id = id;
-            o.location = location;
-            o.offer = offer;
-            o.publisher = publisher;
-            o.sku = sku;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetPlatformImageResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.offer = offer;
+            _resultValue.publisher = publisher;
+            _resultValue.sku = sku;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

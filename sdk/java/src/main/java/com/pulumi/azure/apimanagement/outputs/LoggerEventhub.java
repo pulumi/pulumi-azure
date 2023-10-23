@@ -65,10 +65,10 @@ public final class LoggerEventhub {
             return this;
         }
         public LoggerEventhub build() {
-            final var o = new LoggerEventhub();
-            o.connectionString = connectionString;
-            o.name = name;
-            return o;
+            final var _resultValue = new LoggerEventhub();
+            _resultValue.connectionString = connectionString;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -71,10 +71,10 @@ public final class ServiceAccountKeyDeliveryAccessControl {
             return ipAllowLists(List.of(ipAllowLists));
         }
         public ServiceAccountKeyDeliveryAccessControl build() {
-            final var o = new ServiceAccountKeyDeliveryAccessControl();
-            o.defaultAction = defaultAction;
-            o.ipAllowLists = ipAllowLists;
-            return o;
+            final var _resultValue = new ServiceAccountKeyDeliveryAccessControl();
+            _resultValue.defaultAction = defaultAction;
+            _resultValue.ipAllowLists = ipAllowLists;
+            return _resultValue;
         }
     }
 }

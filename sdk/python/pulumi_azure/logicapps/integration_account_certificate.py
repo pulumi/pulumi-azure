@@ -49,7 +49,17 @@ class IntegrationAccountCertificateArgs:
              metadata: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              public_certificate: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'keyVaultKey' in kwargs:
+            key_vault_key = kwargs['keyVaultKey']
+        if 'publicCertificate' in kwargs:
+            public_certificate = kwargs['publicCertificate']
+
         _setter("integration_account_name", integration_account_name)
         _setter("resource_group_name", resource_group_name)
         if key_vault_key is not None:
@@ -170,7 +180,17 @@ class _IntegrationAccountCertificateState:
              name: Optional[pulumi.Input[str]] = None,
              public_certificate: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'keyVaultKey' in kwargs:
+            key_vault_key = kwargs['keyVaultKey']
+        if 'publicCertificate' in kwargs:
+            public_certificate = kwargs['publicCertificate']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if integration_account_name is not None:
             _setter("integration_account_name", integration_account_name)
         if key_vault_key is not None:

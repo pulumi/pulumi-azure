@@ -53,7 +53,17 @@ class AnalyticsSolutionArgs:
              workspace_resource_id: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'solutionName' in kwargs:
+            solution_name = kwargs['solutionName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+
         _setter("plan", plan)
         _setter("resource_group_name", resource_group_name)
         _setter("solution_name", solution_name)
@@ -189,7 +199,17 @@ class _AnalyticsSolutionState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_name: Optional[pulumi.Input[str]] = None,
              workspace_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'solutionName' in kwargs:
+            solution_name = kwargs['solutionName']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+
         if location is not None:
             _setter("location", location)
         if plan is not None:

@@ -43,7 +43,15 @@ class MoverTargetEndpointArgs:
              storage_mover_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageContainerName' in kwargs:
+            storage_container_name = kwargs['storageContainerName']
+        if 'storageMoverId' in kwargs:
+            storage_mover_id = kwargs['storageMoverId']
+
         _setter("storage_account_id", storage_account_id)
         _setter("storage_container_name", storage_container_name)
         _setter("storage_mover_id", storage_mover_id)
@@ -145,7 +153,15 @@ class _MoverTargetEndpointState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              storage_container_name: Optional[pulumi.Input[str]] = None,
              storage_mover_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageContainerName' in kwargs:
+            storage_container_name = kwargs['storageContainerName']
+        if 'storageMoverId' in kwargs:
+            storage_mover_id = kwargs['storageMoverId']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

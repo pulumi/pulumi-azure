@@ -65,10 +65,10 @@ public final class AccountCostManagementExportExportDataOptions {
             return this;
         }
         public AccountCostManagementExportExportDataOptions build() {
-            final var o = new AccountCostManagementExportExportDataOptions();
-            o.timeFrame = timeFrame;
-            o.type = type;
-            return o;
+            final var _resultValue = new AccountCostManagementExportExportDataOptions();
+            _resultValue.timeFrame = timeFrame;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

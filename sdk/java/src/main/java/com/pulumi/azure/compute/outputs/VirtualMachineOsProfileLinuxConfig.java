@@ -71,10 +71,10 @@ public final class VirtualMachineOsProfileLinuxConfig {
             return sshKeys(List.of(sshKeys));
         }
         public VirtualMachineOsProfileLinuxConfig build() {
-            final var o = new VirtualMachineOsProfileLinuxConfig();
-            o.disablePasswordAuthentication = disablePasswordAuthentication;
-            o.sshKeys = sshKeys;
-            return o;
+            final var _resultValue = new VirtualMachineOsProfileLinuxConfig();
+            _resultValue.disablePasswordAuthentication = disablePasswordAuthentication;
+            _resultValue.sshKeys = sshKeys;
+            return _resultValue;
         }
     }
 }

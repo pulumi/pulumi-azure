@@ -103,12 +103,12 @@ public final class GetVolumeDataProtectionReplication {
             return this;
         }
         public GetVolumeDataProtectionReplication build() {
-            final var o = new GetVolumeDataProtectionReplication();
-            o.endpointType = endpointType;
-            o.remoteVolumeLocation = remoteVolumeLocation;
-            o.remoteVolumeResourceId = remoteVolumeResourceId;
-            o.replicationFrequency = replicationFrequency;
-            return o;
+            final var _resultValue = new GetVolumeDataProtectionReplication();
+            _resultValue.endpointType = endpointType;
+            _resultValue.remoteVolumeLocation = remoteVolumeLocation;
+            _resultValue.remoteVolumeResourceId = remoteVolumeResourceId;
+            _resultValue.replicationFrequency = replicationFrequency;
+            return _resultValue;
         }
     }
 }

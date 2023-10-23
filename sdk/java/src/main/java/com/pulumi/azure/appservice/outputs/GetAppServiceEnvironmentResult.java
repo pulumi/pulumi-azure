@@ -238,19 +238,19 @@ public final class GetAppServiceEnvironmentResult {
             return this;
         }
         public GetAppServiceEnvironmentResult build() {
-            final var o = new GetAppServiceEnvironmentResult();
-            o.clusterSettings = clusterSettings;
-            o.frontEndScaleFactor = frontEndScaleFactor;
-            o.id = id;
-            o.internalIpAddress = internalIpAddress;
-            o.location = location;
-            o.name = name;
-            o.outboundIpAddresses = outboundIpAddresses;
-            o.pricingTier = pricingTier;
-            o.resourceGroupName = resourceGroupName;
-            o.serviceIpAddress = serviceIpAddress;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetAppServiceEnvironmentResult();
+            _resultValue.clusterSettings = clusterSettings;
+            _resultValue.frontEndScaleFactor = frontEndScaleFactor;
+            _resultValue.id = id;
+            _resultValue.internalIpAddress = internalIpAddress;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.outboundIpAddresses = outboundIpAddresses;
+            _resultValue.pricingTier = pricingTier;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.serviceIpAddress = serviceIpAddress;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

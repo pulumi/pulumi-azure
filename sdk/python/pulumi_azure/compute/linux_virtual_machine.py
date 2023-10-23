@@ -240,7 +240,83 @@ class LinuxVirtualMachineArgs:
              virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
              vtpm_enabled: Optional[pulumi.Input[bool]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'networkInterfaceIds' in kwargs:
+            network_interface_ids = kwargs['networkInterfaceIds']
+        if 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'additionalCapabilities' in kwargs:
+            additional_capabilities = kwargs['additionalCapabilities']
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'adminSshKeys' in kwargs:
+            admin_ssh_keys = kwargs['adminSshKeys']
+        if 'allowExtensionOperations' in kwargs:
+            allow_extension_operations = kwargs['allowExtensionOperations']
+        if 'availabilitySetId' in kwargs:
+            availability_set_id = kwargs['availabilitySetId']
+        if 'bootDiagnostics' in kwargs:
+            boot_diagnostics = kwargs['bootDiagnostics']
+        if 'bypassPlatformSafetyChecksOnUserScheduleEnabled' in kwargs:
+            bypass_platform_safety_checks_on_user_schedule_enabled = kwargs['bypassPlatformSafetyChecksOnUserScheduleEnabled']
+        if 'capacityReservationGroupId' in kwargs:
+            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+        if 'computerName' in kwargs:
+            computer_name = kwargs['computerName']
+        if 'customData' in kwargs:
+            custom_data = kwargs['customData']
+        if 'dedicatedHostGroupId' in kwargs:
+            dedicated_host_group_id = kwargs['dedicatedHostGroupId']
+        if 'dedicatedHostId' in kwargs:
+            dedicated_host_id = kwargs['dedicatedHostId']
+        if 'disablePasswordAuthentication' in kwargs:
+            disable_password_authentication = kwargs['disablePasswordAuthentication']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'encryptionAtHostEnabled' in kwargs:
+            encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
+        if 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if 'extensionsTimeBudget' in kwargs:
+            extensions_time_budget = kwargs['extensionsTimeBudget']
+        if 'galleryApplications' in kwargs:
+            gallery_applications = kwargs['galleryApplications']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'maxBidPrice' in kwargs:
+            max_bid_price = kwargs['maxBidPrice']
+        if 'patchAssessmentMode' in kwargs:
+            patch_assessment_mode = kwargs['patchAssessmentMode']
+        if 'patchMode' in kwargs:
+            patch_mode = kwargs['patchMode']
+        if 'platformFaultDomain' in kwargs:
+            platform_fault_domain = kwargs['platformFaultDomain']
+        if 'provisionVmAgent' in kwargs:
+            provision_vm_agent = kwargs['provisionVmAgent']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if 'rebootSetting' in kwargs:
+            reboot_setting = kwargs['rebootSetting']
+        if 'secureBootEnabled' in kwargs:
+            secure_boot_enabled = kwargs['secureBootEnabled']
+        if 'sourceImageId' in kwargs:
+            source_image_id = kwargs['sourceImageId']
+        if 'sourceImageReference' in kwargs:
+            source_image_reference = kwargs['sourceImageReference']
+        if 'terminationNotification' in kwargs:
+            termination_notification = kwargs['terminationNotification']
+        if 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+        if 'vtpmEnabled' in kwargs:
+            vtpm_enabled = kwargs['vtpmEnabled']
+
         _setter("admin_username", admin_username)
         _setter("network_interface_ids", network_interface_ids)
         _setter("os_disk", os_disk)
@@ -1160,7 +1236,93 @@ class _LinuxVirtualMachineState:
              virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
              vtpm_enabled: Optional[pulumi.Input[bool]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalCapabilities' in kwargs:
+            additional_capabilities = kwargs['additionalCapabilities']
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if 'adminSshKeys' in kwargs:
+            admin_ssh_keys = kwargs['adminSshKeys']
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'allowExtensionOperations' in kwargs:
+            allow_extension_operations = kwargs['allowExtensionOperations']
+        if 'availabilitySetId' in kwargs:
+            availability_set_id = kwargs['availabilitySetId']
+        if 'bootDiagnostics' in kwargs:
+            boot_diagnostics = kwargs['bootDiagnostics']
+        if 'bypassPlatformSafetyChecksOnUserScheduleEnabled' in kwargs:
+            bypass_platform_safety_checks_on_user_schedule_enabled = kwargs['bypassPlatformSafetyChecksOnUserScheduleEnabled']
+        if 'capacityReservationGroupId' in kwargs:
+            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+        if 'computerName' in kwargs:
+            computer_name = kwargs['computerName']
+        if 'customData' in kwargs:
+            custom_data = kwargs['customData']
+        if 'dedicatedHostGroupId' in kwargs:
+            dedicated_host_group_id = kwargs['dedicatedHostGroupId']
+        if 'dedicatedHostId' in kwargs:
+            dedicated_host_id = kwargs['dedicatedHostId']
+        if 'disablePasswordAuthentication' in kwargs:
+            disable_password_authentication = kwargs['disablePasswordAuthentication']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'encryptionAtHostEnabled' in kwargs:
+            encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
+        if 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if 'extensionsTimeBudget' in kwargs:
+            extensions_time_budget = kwargs['extensionsTimeBudget']
+        if 'galleryApplications' in kwargs:
+            gallery_applications = kwargs['galleryApplications']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'maxBidPrice' in kwargs:
+            max_bid_price = kwargs['maxBidPrice']
+        if 'networkInterfaceIds' in kwargs:
+            network_interface_ids = kwargs['networkInterfaceIds']
+        if 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+        if 'patchAssessmentMode' in kwargs:
+            patch_assessment_mode = kwargs['patchAssessmentMode']
+        if 'patchMode' in kwargs:
+            patch_mode = kwargs['patchMode']
+        if 'platformFaultDomain' in kwargs:
+            platform_fault_domain = kwargs['platformFaultDomain']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if 'provisionVmAgent' in kwargs:
+            provision_vm_agent = kwargs['provisionVmAgent']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if 'publicIpAddress' in kwargs:
+            public_ip_address = kwargs['publicIpAddress']
+        if 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+        if 'rebootSetting' in kwargs:
+            reboot_setting = kwargs['rebootSetting']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secureBootEnabled' in kwargs:
+            secure_boot_enabled = kwargs['secureBootEnabled']
+        if 'sourceImageId' in kwargs:
+            source_image_id = kwargs['sourceImageId']
+        if 'sourceImageReference' in kwargs:
+            source_image_reference = kwargs['sourceImageReference']
+        if 'terminationNotification' in kwargs:
+            termination_notification = kwargs['terminationNotification']
+        if 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+        if 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+        if 'vtpmEnabled' in kwargs:
+            vtpm_enabled = kwargs['vtpmEnabled']
+
         if additional_capabilities is not None:
             _setter("additional_capabilities", additional_capabilities)
         if admin_password is not None:

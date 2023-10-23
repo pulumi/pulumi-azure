@@ -90,11 +90,11 @@ public final class MonitorIdentity {
             return this;
         }
         public MonitorIdentity build() {
-            final var o = new MonitorIdentity();
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            o.type = type;
-            return o;
+            final var _resultValue = new MonitorIdentity();
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

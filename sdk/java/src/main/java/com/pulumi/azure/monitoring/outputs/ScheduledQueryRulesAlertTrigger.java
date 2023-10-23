@@ -88,11 +88,11 @@ public final class ScheduledQueryRulesAlertTrigger {
             return this;
         }
         public ScheduledQueryRulesAlertTrigger build() {
-            final var o = new ScheduledQueryRulesAlertTrigger();
-            o.metricTrigger = metricTrigger;
-            o.operator = operator;
-            o.threshold = threshold;
-            return o;
+            final var _resultValue = new ScheduledQueryRulesAlertTrigger();
+            _resultValue.metricTrigger = metricTrigger;
+            _resultValue.operator = operator;
+            _resultValue.threshold = threshold;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class ConnectionSecretStore {
             return this;
         }
         public ConnectionSecretStore build() {
-            final var o = new ConnectionSecretStore();
-            o.keyVaultId = keyVaultId;
-            return o;
+            final var _resultValue = new ConnectionSecretStore();
+            _resultValue.keyVaultId = keyVaultId;
+            return _resultValue;
         }
     }
 }

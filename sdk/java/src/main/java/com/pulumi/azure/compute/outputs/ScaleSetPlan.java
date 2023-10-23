@@ -84,11 +84,11 @@ public final class ScaleSetPlan {
             return this;
         }
         public ScaleSetPlan build() {
-            final var o = new ScaleSetPlan();
-            o.name = name;
-            o.product = product;
-            o.publisher = publisher;
-            return o;
+            final var _resultValue = new ScaleSetPlan();
+            _resultValue.name = name;
+            _resultValue.product = product;
+            _resultValue.publisher = publisher;
+            return _resultValue;
         }
     }
 }

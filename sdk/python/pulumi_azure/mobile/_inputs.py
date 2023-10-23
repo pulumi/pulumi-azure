@@ -69,7 +69,23 @@ class NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs:
              tcp_port_reuse_minimum_hold_time_in_seconds: Optional[pulumi.Input[int]] = None,
              udp_pinhole_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              udp_port_reuse_minimum_hold_time_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'icmpPinholeTimeoutInSeconds' in kwargs:
+            icmp_pinhole_timeout_in_seconds = kwargs['icmpPinholeTimeoutInSeconds']
+        if 'pinholeMaximumNumber' in kwargs:
+            pinhole_maximum_number = kwargs['pinholeMaximumNumber']
+        if 'portRange' in kwargs:
+            port_range = kwargs['portRange']
+        if 'tcpPinholeTimeoutInSeconds' in kwargs:
+            tcp_pinhole_timeout_in_seconds = kwargs['tcpPinholeTimeoutInSeconds']
+        if 'tcpPortReuseMinimumHoldTimeInSeconds' in kwargs:
+            tcp_port_reuse_minimum_hold_time_in_seconds = kwargs['tcpPortReuseMinimumHoldTimeInSeconds']
+        if 'udpPinholeTimeoutInSeconds' in kwargs:
+            udp_pinhole_timeout_in_seconds = kwargs['udpPinholeTimeoutInSeconds']
+        if 'udpPortReuseMinimumHoldTimeInSeconds' in kwargs:
+            udp_port_reuse_minimum_hold_time_in_seconds = kwargs['udpPortReuseMinimumHoldTimeInSeconds']
+
         if icmp_pinhole_timeout_in_seconds is not None:
             _setter("icmp_pinhole_timeout_in_seconds", icmp_pinhole_timeout_in_seconds)
         if pinhole_maximum_number is not None:
@@ -186,7 +202,9 @@ class NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs:
              _setter: Callable[[Any, Any], None],
              maximum: Optional[pulumi.Input[int]] = None,
              minimum: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if maximum is not None:
             _setter("maximum", maximum)
         if minimum is not None:
@@ -236,7 +254,11 @@ class NetworkPacketCoreControlPlaneIdentityArgs:
              _setter: Callable[[Any, Any], None],
              identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+
         _setter("identity_ids", identity_ids)
         _setter("type", type)
 
@@ -284,7 +306,13 @@ class NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs:
              _setter: Callable[[Any, Any], None],
              authentication_type: pulumi.Input[str],
              https_server_certificate_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'httpsServerCertificateUrl' in kwargs:
+            https_server_certificate_url = kwargs['httpsServerCertificateUrl']
+
         _setter("authentication_type", authentication_type)
         if https_server_certificate_url is not None:
             _setter("https_server_certificate_url", https_server_certificate_url)
@@ -347,7 +375,17 @@ class NetworkPacketCoreControlPlanePlatformArgs:
              custom_location_id: Optional[pulumi.Input[str]] = None,
              edge_device_id: Optional[pulumi.Input[str]] = None,
              stack_hci_cluster_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'arcKubernetesClusterId' in kwargs:
+            arc_kubernetes_cluster_id = kwargs['arcKubernetesClusterId']
+        if 'customLocationId' in kwargs:
+            custom_location_id = kwargs['customLocationId']
+        if 'edgeDeviceId' in kwargs:
+            edge_device_id = kwargs['edgeDeviceId']
+        if 'stackHciClusterId' in kwargs:
+            stack_hci_cluster_id = kwargs['stackHciClusterId']
+
         _setter("type", type)
         if arc_kubernetes_cluster_id is not None:
             _setter("arc_kubernetes_cluster_id", arc_kubernetes_cluster_id)
@@ -452,7 +490,15 @@ class NetworkServicePccRuleArgs:
              service_data_flow_templates: pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleServiceDataFlowTemplateArgs']]],
              qos_policy: Optional[pulumi.Input['NetworkServicePccRuleQosPolicyArgs']] = None,
              traffic_control_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serviceDataFlowTemplates' in kwargs:
+            service_data_flow_templates = kwargs['serviceDataFlowTemplates']
+        if 'qosPolicy' in kwargs:
+            qos_policy = kwargs['qosPolicy']
+        if 'trafficControlEnabled' in kwargs:
+            traffic_control_enabled = kwargs['trafficControlEnabled']
+
         _setter("name", name)
         _setter("precedence", precedence)
         _setter("service_data_flow_templates", service_data_flow_templates)
@@ -557,7 +603,21 @@ class NetworkServicePccRuleQosPolicyArgs:
              guaranteed_bit_rate: Optional[pulumi.Input['NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs']] = None,
              preemption_capability: Optional[pulumi.Input[str]] = None,
              preemption_vulnerability: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumBitRate' in kwargs:
+            maximum_bit_rate = kwargs['maximumBitRate']
+        if 'qosIndicator' in kwargs:
+            qos_indicator = kwargs['qosIndicator']
+        if 'allocationAndRetentionPriorityLevel' in kwargs:
+            allocation_and_retention_priority_level = kwargs['allocationAndRetentionPriorityLevel']
+        if 'guaranteedBitRate' in kwargs:
+            guaranteed_bit_rate = kwargs['guaranteedBitRate']
+        if 'preemptionCapability' in kwargs:
+            preemption_capability = kwargs['preemptionCapability']
+        if 'preemptionVulnerability' in kwargs:
+            preemption_vulnerability = kwargs['preemptionVulnerability']
+
         _setter("maximum_bit_rate", maximum_bit_rate)
         _setter("qos_indicator", qos_indicator)
         if allocation_and_retention_priority_level is not None:
@@ -661,7 +721,9 @@ class NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs:
              _setter: Callable[[Any, Any], None],
              downlink: pulumi.Input[str],
              uplink: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("downlink", downlink)
         _setter("uplink", uplink)
 
@@ -709,7 +771,9 @@ class NetworkServicePccRuleQosPolicyMaximumBitRateArgs:
              _setter: Callable[[Any, Any], None],
              downlink: pulumi.Input[str],
              uplink: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("downlink", downlink)
         _setter("uplink", uplink)
 
@@ -769,7 +833,11 @@ class NetworkServicePccRuleServiceDataFlowTemplateArgs:
              protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
              remote_ip_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
              ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'remoteIpLists' in kwargs:
+            remote_ip_lists = kwargs['remoteIpLists']
+
         _setter("direction", direction)
         _setter("name", name)
         _setter("protocols", protocols)
@@ -869,7 +937,19 @@ class NetworkServiceServiceQosPolicyArgs:
              preemption_capability: Optional[pulumi.Input[str]] = None,
              preemption_vulnerability: Optional[pulumi.Input[str]] = None,
              qos_indicator: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumBitRate' in kwargs:
+            maximum_bit_rate = kwargs['maximumBitRate']
+        if 'allocationAndRetentionPriorityLevel' in kwargs:
+            allocation_and_retention_priority_level = kwargs['allocationAndRetentionPriorityLevel']
+        if 'preemptionCapability' in kwargs:
+            preemption_capability = kwargs['preemptionCapability']
+        if 'preemptionVulnerability' in kwargs:
+            preemption_vulnerability = kwargs['preemptionVulnerability']
+        if 'qosIndicator' in kwargs:
+            qos_indicator = kwargs['qosIndicator']
+
         _setter("maximum_bit_rate", maximum_bit_rate)
         if allocation_and_retention_priority_level is not None:
             _setter("allocation_and_retention_priority_level", allocation_and_retention_priority_level)
@@ -960,7 +1040,9 @@ class NetworkServiceServiceQosPolicyMaximumBitRateArgs:
              _setter: Callable[[Any, Any], None],
              downlink: pulumi.Input[str],
              uplink: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("downlink", downlink)
         _setter("uplink", uplink)
 
@@ -1008,7 +1090,11 @@ class NetworkSimGroupIdentityArgs:
              _setter: Callable[[Any, Any], None],
              identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+
         _setter("identity_ids", identity_ids)
         _setter("type", type)
 
@@ -1060,7 +1146,15 @@ class NetworkSimPolicySliceArgs:
              data_networks: pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceDataNetworkArgs']]],
              default_data_network_id: pulumi.Input[str],
              slice_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataNetworks' in kwargs:
+            data_networks = kwargs['dataNetworks']
+        if 'defaultDataNetworkId' in kwargs:
+            default_data_network_id = kwargs['defaultDataNetworkId']
+        if 'sliceId' in kwargs:
+            slice_id = kwargs['sliceId']
+
         _setter("data_networks", data_networks)
         _setter("default_data_network_id", default_data_network_id)
         _setter("slice_id", slice_id)
@@ -1153,7 +1247,29 @@ class NetworkSimPolicySliceDataNetworkArgs:
              max_buffered_packets: Optional[pulumi.Input[int]] = None,
              preemption_capability: Optional[pulumi.Input[str]] = None,
              preemption_vulnerability: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedServicesIds' in kwargs:
+            allowed_services_ids = kwargs['allowedServicesIds']
+        if 'dataNetworkId' in kwargs:
+            data_network_id = kwargs['dataNetworkId']
+        if 'qosIndicator' in kwargs:
+            qos_indicator = kwargs['qosIndicator']
+        if 'sessionAggregateMaximumBitRate' in kwargs:
+            session_aggregate_maximum_bit_rate = kwargs['sessionAggregateMaximumBitRate']
+        if 'additionalAllowedSessionTypes' in kwargs:
+            additional_allowed_session_types = kwargs['additionalAllowedSessionTypes']
+        if 'allocationAndRetentionPriorityLevel' in kwargs:
+            allocation_and_retention_priority_level = kwargs['allocationAndRetentionPriorityLevel']
+        if 'defaultSessionType' in kwargs:
+            default_session_type = kwargs['defaultSessionType']
+        if 'maxBufferedPackets' in kwargs:
+            max_buffered_packets = kwargs['maxBufferedPackets']
+        if 'preemptionCapability' in kwargs:
+            preemption_capability = kwargs['preemptionCapability']
+        if 'preemptionVulnerability' in kwargs:
+            preemption_vulnerability = kwargs['preemptionVulnerability']
+
         _setter("allowed_services_ids", allowed_services_ids)
         _setter("data_network_id", data_network_id)
         _setter("qos_indicator", qos_indicator)
@@ -1311,7 +1427,9 @@ class NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs:
              _setter: Callable[[Any, Any], None],
              downlink: pulumi.Input[str],
              uplink: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("downlink", downlink)
         _setter("uplink", uplink)
 
@@ -1359,7 +1477,9 @@ class NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs:
              _setter: Callable[[Any, Any], None],
              downlink: pulumi.Input[str],
              uplink: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("downlink", downlink)
         _setter("uplink", uplink)
 
@@ -1410,7 +1530,15 @@ class NetworkSimStaticIpConfigurationArgs:
              attached_data_network_id: pulumi.Input[str],
              slice_id: pulumi.Input[str],
              static_ipv4_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachedDataNetworkId' in kwargs:
+            attached_data_network_id = kwargs['attachedDataNetworkId']
+        if 'sliceId' in kwargs:
+            slice_id = kwargs['sliceId']
+        if 'staticIpv4Address' in kwargs:
+            static_ipv4_address = kwargs['staticIpv4Address']
+
         _setter("attached_data_network_id", attached_data_network_id)
         _setter("slice_id", slice_id)
         if static_ipv4_address is not None:
@@ -1469,7 +1597,13 @@ class NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs:
              _setter: Callable[[Any, Any], None],
              slice_service_type: pulumi.Input[int],
              slice_differentiator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sliceServiceType' in kwargs:
+            slice_service_type = kwargs['sliceServiceType']
+        if 'sliceDifferentiator' in kwargs:
+            slice_differentiator = kwargs['sliceDifferentiator']
+
         _setter("slice_service_type", slice_service_type)
         if slice_differentiator is not None:
             _setter("slice_differentiator", slice_differentiator)

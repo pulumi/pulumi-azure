@@ -65,10 +65,10 @@ public final class GetApiSubscriptionKeyParameterName {
             return this;
         }
         public GetApiSubscriptionKeyParameterName build() {
-            final var o = new GetApiSubscriptionKeyParameterName();
-            o.header = header;
-            o.query = query;
-            return o;
+            final var _resultValue = new GetApiSubscriptionKeyParameterName();
+            _resultValue.header = header;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

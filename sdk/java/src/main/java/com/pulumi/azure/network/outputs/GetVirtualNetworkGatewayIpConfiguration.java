@@ -151,14 +151,14 @@ public final class GetVirtualNetworkGatewayIpConfiguration {
             return this;
         }
         public GetVirtualNetworkGatewayIpConfiguration build() {
-            final var o = new GetVirtualNetworkGatewayIpConfiguration();
-            o.id = id;
-            o.name = name;
-            o.privateIpAddress = privateIpAddress;
-            o.privateIpAddressAllocation = privateIpAddressAllocation;
-            o.publicIpAddressId = publicIpAddressId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetVirtualNetworkGatewayIpConfiguration();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.privateIpAddressAllocation = privateIpAddressAllocation;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

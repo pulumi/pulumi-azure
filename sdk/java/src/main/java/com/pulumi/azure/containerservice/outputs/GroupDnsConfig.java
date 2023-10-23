@@ -95,11 +95,11 @@ public final class GroupDnsConfig {
             return searchDomains(List.of(searchDomains));
         }
         public GroupDnsConfig build() {
-            final var o = new GroupDnsConfig();
-            o.nameservers = nameservers;
-            o.options = options;
-            o.searchDomains = searchDomains;
-            return o;
+            final var _resultValue = new GroupDnsConfig();
+            _resultValue.nameservers = nameservers;
+            _resultValue.options = options;
+            _resultValue.searchDomains = searchDomains;
+            return _resultValue;
         }
     }
 }

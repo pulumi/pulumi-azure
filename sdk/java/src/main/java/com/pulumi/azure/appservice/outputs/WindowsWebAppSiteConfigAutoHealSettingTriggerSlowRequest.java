@@ -106,12 +106,12 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
             return this;
         }
         public WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest build() {
-            final var o = new WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest();
-            o.count = count;
-            o.interval = interval;
-            o.path = path;
-            o.timeTaken = timeTaken;
-            return o;
+            final var _resultValue = new WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest();
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            _resultValue.path = path;
+            _resultValue.timeTaken = timeTaken;
+            return _resultValue;
         }
     }
 }

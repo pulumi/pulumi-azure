@@ -256,20 +256,20 @@ public final class GetAccountResult {
             return this;
         }
         public GetAccountResult build() {
-            final var o = new GetAccountResult();
-            o.accountEndpoint = accountEndpoint;
-            o.encryption = encryption;
-            o.id = id;
-            o.keyVaultReferences = keyVaultReferences;
-            o.location = location;
-            o.name = name;
-            o.poolAllocationMode = poolAllocationMode;
-            o.primaryAccessKey = primaryAccessKey;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryAccessKey = secondaryAccessKey;
-            o.storageAccountId = storageAccountId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetAccountResult();
+            _resultValue.accountEndpoint = accountEndpoint;
+            _resultValue.encryption = encryption;
+            _resultValue.id = id;
+            _resultValue.keyVaultReferences = keyVaultReferences;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.poolAllocationMode = poolAllocationMode;
+            _resultValue.primaryAccessKey = primaryAccessKey;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryAccessKey = secondaryAccessKey;
+            _resultValue.storageAccountId = storageAccountId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

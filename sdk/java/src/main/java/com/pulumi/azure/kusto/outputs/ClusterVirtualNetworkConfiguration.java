@@ -84,11 +84,11 @@ public final class ClusterVirtualNetworkConfiguration {
             return this;
         }
         public ClusterVirtualNetworkConfiguration build() {
-            final var o = new ClusterVirtualNetworkConfiguration();
-            o.dataManagementPublicIpId = dataManagementPublicIpId;
-            o.enginePublicIpId = enginePublicIpId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new ClusterVirtualNetworkConfiguration();
+            _resultValue.dataManagementPublicIpId = dataManagementPublicIpId;
+            _resultValue.enginePublicIpId = enginePublicIpId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

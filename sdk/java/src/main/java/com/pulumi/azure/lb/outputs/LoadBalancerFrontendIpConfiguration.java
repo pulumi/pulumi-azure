@@ -293,21 +293,21 @@ public final class LoadBalancerFrontendIpConfiguration {
             return zones(List.of(zones));
         }
         public LoadBalancerFrontendIpConfiguration build() {
-            final var o = new LoadBalancerFrontendIpConfiguration();
-            o.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
-            o.id = id;
-            o.inboundNatRules = inboundNatRules;
-            o.loadBalancerRules = loadBalancerRules;
-            o.name = name;
-            o.outboundRules = outboundRules;
-            o.privateIpAddress = privateIpAddress;
-            o.privateIpAddressAllocation = privateIpAddressAllocation;
-            o.privateIpAddressVersion = privateIpAddressVersion;
-            o.publicIpAddressId = publicIpAddressId;
-            o.publicIpPrefixId = publicIpPrefixId;
-            o.subnetId = subnetId;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new LoadBalancerFrontendIpConfiguration();
+            _resultValue.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
+            _resultValue.id = id;
+            _resultValue.inboundNatRules = inboundNatRules;
+            _resultValue.loadBalancerRules = loadBalancerRules;
+            _resultValue.name = name;
+            _resultValue.outboundRules = outboundRules;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.privateIpAddressAllocation = privateIpAddressAllocation;
+            _resultValue.privateIpAddressVersion = privateIpAddressVersion;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.publicIpPrefixId = publicIpPrefixId;
+            _resultValue.subnetId = subnetId;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

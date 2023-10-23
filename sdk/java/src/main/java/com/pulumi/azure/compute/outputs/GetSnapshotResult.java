@@ -214,20 +214,20 @@ public final class GetSnapshotResult {
             return this;
         }
         public GetSnapshotResult build() {
-            final var o = new GetSnapshotResult();
-            o.creationOption = creationOption;
-            o.diskSizeGb = diskSizeGb;
-            o.encryptionSettings = encryptionSettings;
-            o.id = id;
-            o.name = name;
-            o.osType = osType;
-            o.resourceGroupName = resourceGroupName;
-            o.sourceResourceId = sourceResourceId;
-            o.sourceUri = sourceUri;
-            o.storageAccountId = storageAccountId;
-            o.timeCreated = timeCreated;
-            o.trustedLaunchEnabled = trustedLaunchEnabled;
-            return o;
+            final var _resultValue = new GetSnapshotResult();
+            _resultValue.creationOption = creationOption;
+            _resultValue.diskSizeGb = diskSizeGb;
+            _resultValue.encryptionSettings = encryptionSettings;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.osType = osType;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sourceResourceId = sourceResourceId;
+            _resultValue.sourceUri = sourceUri;
+            _resultValue.storageAccountId = storageAccountId;
+            _resultValue.timeCreated = timeCreated;
+            _resultValue.trustedLaunchEnabled = trustedLaunchEnabled;
+            return _resultValue;
         }
     }
 }

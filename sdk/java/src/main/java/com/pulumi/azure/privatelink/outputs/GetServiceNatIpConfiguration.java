@@ -123,13 +123,13 @@ public final class GetServiceNatIpConfiguration {
             return this;
         }
         public GetServiceNatIpConfiguration build() {
-            final var o = new GetServiceNatIpConfiguration();
-            o.name = name;
-            o.primary = primary;
-            o.privateIpAddress = privateIpAddress;
-            o.privateIpAddressVersion = privateIpAddressVersion;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetServiceNatIpConfiguration();
+            _resultValue.name = name;
+            _resultValue.primary = primary;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.privateIpAddressVersion = privateIpAddressVersion;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class EventSubscriptionRetryPolicy {
             return this;
         }
         public EventSubscriptionRetryPolicy build() {
-            final var o = new EventSubscriptionRetryPolicy();
-            o.eventTimeToLive = eventTimeToLive;
-            o.maxDeliveryAttempts = maxDeliveryAttempts;
-            return o;
+            final var _resultValue = new EventSubscriptionRetryPolicy();
+            _resultValue.eventTimeToLive = eventTimeToLive;
+            _resultValue.maxDeliveryAttempts = maxDeliveryAttempts;
+            return _resultValue;
         }
     }
 }

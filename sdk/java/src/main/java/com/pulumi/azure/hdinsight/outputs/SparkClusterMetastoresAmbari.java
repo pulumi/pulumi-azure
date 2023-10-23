@@ -103,12 +103,12 @@ public final class SparkClusterMetastoresAmbari {
             return this;
         }
         public SparkClusterMetastoresAmbari build() {
-            final var o = new SparkClusterMetastoresAmbari();
-            o.databaseName = databaseName;
-            o.password = password;
-            o.server = server;
-            o.username = username;
-            return o;
+            final var _resultValue = new SparkClusterMetastoresAmbari();
+            _resultValue.databaseName = databaseName;
+            _resultValue.password = password;
+            _resultValue.server = server;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

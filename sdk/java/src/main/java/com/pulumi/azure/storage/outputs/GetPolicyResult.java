@@ -81,11 +81,11 @@ public final class GetPolicyResult {
             return this;
         }
         public GetPolicyResult build() {
-            final var o = new GetPolicyResult();
-            o.id = id;
-            o.rules = rules;
-            o.storageAccountId = storageAccountId;
-            return o;
+            final var _resultValue = new GetPolicyResult();
+            _resultValue.id = id;
+            _resultValue.rules = rules;
+            _resultValue.storageAccountId = storageAccountId;
+            return _resultValue;
         }
     }
 }

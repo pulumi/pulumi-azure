@@ -105,12 +105,12 @@ public final class SourceControlSlotGithubActionConfigurationContainerConfigurat
             return this;
         }
         public SourceControlSlotGithubActionConfigurationContainerConfiguration build() {
-            final var o = new SourceControlSlotGithubActionConfigurationContainerConfiguration();
-            o.imageName = imageName;
-            o.registryPassword = registryPassword;
-            o.registryUrl = registryUrl;
-            o.registryUsername = registryUsername;
-            return o;
+            final var _resultValue = new SourceControlSlotGithubActionConfigurationContainerConfiguration();
+            _resultValue.imageName = imageName;
+            _resultValue.registryPassword = registryPassword;
+            _resultValue.registryUrl = registryUrl;
+            _resultValue.registryUsername = registryUsername;
+            return _resultValue;
         }
     }
 }

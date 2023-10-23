@@ -214,19 +214,19 @@ public final class GetCertificateDataResult {
             return this;
         }
         public GetCertificateDataResult build() {
-            final var o = new GetCertificateDataResult();
-            o.certificatesCount = certificatesCount;
-            o.expires = expires;
-            o.hex = hex;
-            o.id = id;
-            o.key = key;
-            o.keyVaultId = keyVaultId;
-            o.name = name;
-            o.notBefore = notBefore;
-            o.pem = pem;
-            o.tags = tags;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetCertificateDataResult();
+            _resultValue.certificatesCount = certificatesCount;
+            _resultValue.expires = expires;
+            _resultValue.hex = hex;
+            _resultValue.id = id;
+            _resultValue.key = key;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.name = name;
+            _resultValue.notBefore = notBefore;
+            _resultValue.pem = pem;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

@@ -46,7 +46,17 @@ class ApiConnectionArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedApiId' in kwargs:
+            managed_api_id = kwargs['managedApiId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'parameterValues' in kwargs:
+            parameter_values = kwargs['parameterValues']
+
         _setter("managed_api_id", managed_api_id)
         _setter("resource_group_name", resource_group_name)
         if display_name is not None:
@@ -163,7 +173,17 @@ class _ApiConnectionState:
              parameter_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'managedApiId' in kwargs:
+            managed_api_id = kwargs['managedApiId']
+        if 'parameterValues' in kwargs:
+            parameter_values = kwargs['parameterValues']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if display_name is not None:
             _setter("display_name", display_name)
         if managed_api_id is not None:

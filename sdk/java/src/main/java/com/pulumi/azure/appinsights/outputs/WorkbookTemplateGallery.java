@@ -129,13 +129,13 @@ public final class WorkbookTemplateGallery {
             return this;
         }
         public WorkbookTemplateGallery build() {
-            final var o = new WorkbookTemplateGallery();
-            o.category = category;
-            o.name = name;
-            o.order = order;
-            o.resourceType = resourceType;
-            o.type = type;
-            return o;
+            final var _resultValue = new WorkbookTemplateGallery();
+            _resultValue.category = category;
+            _resultValue.name = name;
+            _resultValue.order = order;
+            _resultValue.resourceType = resourceType;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

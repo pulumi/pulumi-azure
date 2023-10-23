@@ -37,7 +37,11 @@ class TriggerCustomArgs:
              body: pulumi.Input[str],
              logic_app_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+
         _setter("body", body)
         _setter("logic_app_id", logic_app_id)
         if name is not None:
@@ -108,7 +112,11 @@ class _TriggerCustomState:
              body: Optional[pulumi.Input[str]] = None,
              logic_app_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+
         if body is not None:
             _setter("body", body)
         if logic_app_id is not None:

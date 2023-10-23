@@ -65,10 +65,10 @@ public final class GetLinuxWebAppLogHttpLogFileSystem {
             return this;
         }
         public GetLinuxWebAppLogHttpLogFileSystem build() {
-            final var o = new GetLinuxWebAppLogHttpLogFileSystem();
-            o.retentionInDays = retentionInDays;
-            o.retentionInMb = retentionInMb;
-            return o;
+            final var _resultValue = new GetLinuxWebAppLogHttpLogFileSystem();
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.retentionInMb = retentionInMb;
+            return _resultValue;
         }
     }
 }

@@ -45,7 +45,19 @@ class ProtectedFileShareArgs:
              resource_group_name: pulumi.Input[str],
              source_file_share_name: pulumi.Input[str],
              source_storage_account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupPolicyId' in kwargs:
+            backup_policy_id = kwargs['backupPolicyId']
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceFileShareName' in kwargs:
+            source_file_share_name = kwargs['sourceFileShareName']
+        if 'sourceStorageAccountId' in kwargs:
+            source_storage_account_id = kwargs['sourceStorageAccountId']
+
         _setter("backup_policy_id", backup_policy_id)
         _setter("recovery_vault_name", recovery_vault_name)
         _setter("resource_group_name", resource_group_name)
@@ -149,7 +161,19 @@ class _ProtectedFileShareState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              source_file_share_name: Optional[pulumi.Input[str]] = None,
              source_storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupPolicyId' in kwargs:
+            backup_policy_id = kwargs['backupPolicyId']
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceFileShareName' in kwargs:
+            source_file_share_name = kwargs['sourceFileShareName']
+        if 'sourceStorageAccountId' in kwargs:
+            source_storage_account_id = kwargs['sourceStorageAccountId']
+
         if backup_policy_id is not None:
             _setter("backup_policy_id", backup_policy_id)
         if recovery_vault_name is not None:

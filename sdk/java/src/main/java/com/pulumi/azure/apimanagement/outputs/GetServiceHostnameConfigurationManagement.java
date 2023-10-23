@@ -85,11 +85,11 @@ public final class GetServiceHostnameConfigurationManagement {
             return this;
         }
         public GetServiceHostnameConfigurationManagement build() {
-            final var o = new GetServiceHostnameConfigurationManagement();
-            o.hostName = hostName;
-            o.keyVaultId = keyVaultId;
-            o.negotiateClientCertificate = negotiateClientCertificate;
-            return o;
+            final var _resultValue = new GetServiceHostnameConfigurationManagement();
+            _resultValue.hostName = hostName;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.negotiateClientCertificate = negotiateClientCertificate;
+            return _resultValue;
         }
     }
 }

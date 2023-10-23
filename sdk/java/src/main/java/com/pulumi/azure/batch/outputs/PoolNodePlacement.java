@@ -48,9 +48,9 @@ public final class PoolNodePlacement {
             return this;
         }
         public PoolNodePlacement build() {
-            final var o = new PoolNodePlacement();
-            o.policy = policy;
-            return o;
+            final var _resultValue = new PoolNodePlacement();
+            _resultValue.policy = policy;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class LinkedServiceSynapseKeyVaultPassword {
             return this;
         }
         public LinkedServiceSynapseKeyVaultPassword build() {
-            final var o = new LinkedServiceSynapseKeyVaultPassword();
-            o.linkedServiceName = linkedServiceName;
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new LinkedServiceSynapseKeyVaultPassword();
+            _resultValue.linkedServiceName = linkedServiceName;
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

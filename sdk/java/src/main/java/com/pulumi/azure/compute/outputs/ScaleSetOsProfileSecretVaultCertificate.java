@@ -67,10 +67,10 @@ public final class ScaleSetOsProfileSecretVaultCertificate {
             return this;
         }
         public ScaleSetOsProfileSecretVaultCertificate build() {
-            final var o = new ScaleSetOsProfileSecretVaultCertificate();
-            o.certificateStore = certificateStore;
-            o.certificateUrl = certificateUrl;
-            return o;
+            final var _resultValue = new ScaleSetOsProfileSecretVaultCertificate();
+            _resultValue.certificateStore = certificateStore;
+            _resultValue.certificateUrl = certificateUrl;
+            return _resultValue;
         }
     }
 }

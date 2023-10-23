@@ -99,12 +99,12 @@ public final class SourceControlGithubActionConfiguration {
             return this;
         }
         public SourceControlGithubActionConfiguration build() {
-            final var o = new SourceControlGithubActionConfiguration();
-            o.codeConfiguration = codeConfiguration;
-            o.containerConfiguration = containerConfiguration;
-            o.generateWorkflowFile = generateWorkflowFile;
-            o.linuxAction = linuxAction;
-            return o;
+            final var _resultValue = new SourceControlGithubActionConfiguration();
+            _resultValue.codeConfiguration = codeConfiguration;
+            _resultValue.containerConfiguration = containerConfiguration;
+            _resultValue.generateWorkflowFile = generateWorkflowFile;
+            _resultValue.linuxAction = linuxAction;
+            return _resultValue;
         }
     }
 }

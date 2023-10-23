@@ -271,21 +271,21 @@ public final class GetPolicyAssignmentResult {
             return this;
         }
         public GetPolicyAssignmentResult build() {
-            final var o = new GetPolicyAssignmentResult();
-            o.description = description;
-            o.displayName = displayName;
-            o.enforce = enforce;
-            o.id = id;
-            o.identities = identities;
-            o.location = location;
-            o.metadata = metadata;
-            o.name = name;
-            o.nonComplianceMessages = nonComplianceMessages;
-            o.notScopes = notScopes;
-            o.parameters = parameters;
-            o.policyDefinitionId = policyDefinitionId;
-            o.scopeId = scopeId;
-            return o;
+            final var _resultValue = new GetPolicyAssignmentResult();
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.enforce = enforce;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.location = location;
+            _resultValue.metadata = metadata;
+            _resultValue.name = name;
+            _resultValue.nonComplianceMessages = nonComplianceMessages;
+            _resultValue.notScopes = notScopes;
+            _resultValue.parameters = parameters;
+            _resultValue.policyDefinitionId = policyDefinitionId;
+            _resultValue.scopeId = scopeId;
+            return _resultValue;
         }
     }
 }

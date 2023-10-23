@@ -84,11 +84,11 @@ public final class WorkspaceAadAdmin {
             return this;
         }
         public WorkspaceAadAdmin build() {
-            final var o = new WorkspaceAadAdmin();
-            o.login = login;
-            o.objectId = objectId;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new WorkspaceAadAdmin();
+            _resultValue.login = login;
+            _resultValue.objectId = objectId;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

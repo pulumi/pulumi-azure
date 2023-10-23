@@ -104,11 +104,11 @@ public final class DiagnosticSettingMetric {
             return this;
         }
         public DiagnosticSettingMetric build() {
-            final var o = new DiagnosticSettingMetric();
-            o.category = category;
-            o.enabled = enabled;
-            o.retentionPolicy = retentionPolicy;
-            return o;
+            final var _resultValue = new DiagnosticSettingMetric();
+            _resultValue.category = category;
+            _resultValue.enabled = enabled;
+            _resultValue.retentionPolicy = retentionPolicy;
+            return _resultValue;
         }
     }
 }

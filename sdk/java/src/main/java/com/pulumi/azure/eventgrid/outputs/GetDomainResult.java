@@ -296,22 +296,22 @@ public final class GetDomainResult {
             return this;
         }
         public GetDomainResult build() {
-            final var o = new GetDomainResult();
-            o.endpoint = endpoint;
-            o.id = id;
-            o.identities = identities;
-            o.inboundIpRules = inboundIpRules;
-            o.inputMappingDefaultValues = inputMappingDefaultValues;
-            o.inputMappingFields = inputMappingFields;
-            o.inputSchema = inputSchema;
-            o.location = location;
-            o.name = name;
-            o.primaryAccessKey = primaryAccessKey;
-            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryAccessKey = secondaryAccessKey;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDomainResult();
+            _resultValue.endpoint = endpoint;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.inboundIpRules = inboundIpRules;
+            _resultValue.inputMappingDefaultValues = inputMappingDefaultValues;
+            _resultValue.inputMappingFields = inputMappingFields;
+            _resultValue.inputSchema = inputSchema;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.primaryAccessKey = primaryAccessKey;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryAccessKey = secondaryAccessKey;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

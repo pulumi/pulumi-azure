@@ -46,9 +46,9 @@ public final class HBaseClusterComponentVersion {
             return this;
         }
         public HBaseClusterComponentVersion build() {
-            final var o = new HBaseClusterComponentVersion();
-            o.hbase = hbase;
-            return o;
+            final var _resultValue = new HBaseClusterComponentVersion();
+            _resultValue.hbase = hbase;
+            return _resultValue;
         }
     }
 }

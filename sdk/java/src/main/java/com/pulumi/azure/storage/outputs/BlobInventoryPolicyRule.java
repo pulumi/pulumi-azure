@@ -167,15 +167,15 @@ public final class BlobInventoryPolicyRule {
             return this;
         }
         public BlobInventoryPolicyRule build() {
-            final var o = new BlobInventoryPolicyRule();
-            o.filter = filter;
-            o.format = format;
-            o.name = name;
-            o.schedule = schedule;
-            o.schemaFields = schemaFields;
-            o.scope = scope;
-            o.storageContainerName = storageContainerName;
-            return o;
+            final var _resultValue = new BlobInventoryPolicyRule();
+            _resultValue.filter = filter;
+            _resultValue.format = format;
+            _resultValue.name = name;
+            _resultValue.schedule = schedule;
+            _resultValue.schemaFields = schemaFields;
+            _resultValue.scope = scope;
+            _resultValue.storageContainerName = storageContainerName;
+            return _resultValue;
         }
     }
 }

@@ -331,23 +331,23 @@ public final class VpnGatewayConnectionVpnLink {
             return this;
         }
         public VpnGatewayConnectionVpnLink build() {
-            final var o = new VpnGatewayConnectionVpnLink();
-            o.bandwidthMbps = bandwidthMbps;
-            o.bgpEnabled = bgpEnabled;
-            o.connectionMode = connectionMode;
-            o.customBgpAddresses = customBgpAddresses;
-            o.egressNatRuleIds = egressNatRuleIds;
-            o.ingressNatRuleIds = ingressNatRuleIds;
-            o.ipsecPolicies = ipsecPolicies;
-            o.localAzureIpAddressEnabled = localAzureIpAddressEnabled;
-            o.name = name;
-            o.policyBasedTrafficSelectorEnabled = policyBasedTrafficSelectorEnabled;
-            o.protocol = protocol;
-            o.ratelimitEnabled = ratelimitEnabled;
-            o.routeWeight = routeWeight;
-            o.sharedKey = sharedKey;
-            o.vpnSiteLinkId = vpnSiteLinkId;
-            return o;
+            final var _resultValue = new VpnGatewayConnectionVpnLink();
+            _resultValue.bandwidthMbps = bandwidthMbps;
+            _resultValue.bgpEnabled = bgpEnabled;
+            _resultValue.connectionMode = connectionMode;
+            _resultValue.customBgpAddresses = customBgpAddresses;
+            _resultValue.egressNatRuleIds = egressNatRuleIds;
+            _resultValue.ingressNatRuleIds = ingressNatRuleIds;
+            _resultValue.ipsecPolicies = ipsecPolicies;
+            _resultValue.localAzureIpAddressEnabled = localAzureIpAddressEnabled;
+            _resultValue.name = name;
+            _resultValue.policyBasedTrafficSelectorEnabled = policyBasedTrafficSelectorEnabled;
+            _resultValue.protocol = protocol;
+            _resultValue.ratelimitEnabled = ratelimitEnabled;
+            _resultValue.routeWeight = routeWeight;
+            _resultValue.sharedKey = sharedKey;
+            _resultValue.vpnSiteLinkId = vpnSiteLinkId;
+            return _resultValue;
         }
     }
 }

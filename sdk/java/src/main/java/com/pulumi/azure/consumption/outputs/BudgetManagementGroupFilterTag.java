@@ -90,11 +90,11 @@ public final class BudgetManagementGroupFilterTag {
             return values(List.of(values));
         }
         public BudgetManagementGroupFilterTag build() {
-            final var o = new BudgetManagementGroupFilterTag();
-            o.name = name;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new BudgetManagementGroupFilterTag();
+            _resultValue.name = name;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

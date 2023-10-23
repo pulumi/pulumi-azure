@@ -207,16 +207,16 @@ public final class GetDataCollectionRuleDestination {
             return storageTableDirects(List.of(storageTableDirects));
         }
         public GetDataCollectionRuleDestination build() {
-            final var o = new GetDataCollectionRuleDestination();
-            o.azureMonitorMetrics = azureMonitorMetrics;
-            o.eventHub = eventHub;
-            o.eventHubDirect = eventHubDirect;
-            o.logAnalytics = logAnalytics;
-            o.monitorAccounts = monitorAccounts;
-            o.storageBlobDirects = storageBlobDirects;
-            o.storageBlobs = storageBlobs;
-            o.storageTableDirects = storageTableDirects;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleDestination();
+            _resultValue.azureMonitorMetrics = azureMonitorMetrics;
+            _resultValue.eventHub = eventHub;
+            _resultValue.eventHubDirect = eventHubDirect;
+            _resultValue.logAnalytics = logAnalytics;
+            _resultValue.monitorAccounts = monitorAccounts;
+            _resultValue.storageBlobDirects = storageBlobDirects;
+            _resultValue.storageBlobs = storageBlobs;
+            _resultValue.storageTableDirects = storageTableDirects;
+            return _resultValue;
         }
     }
 }

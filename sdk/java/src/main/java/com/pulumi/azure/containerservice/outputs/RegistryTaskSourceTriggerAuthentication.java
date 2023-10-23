@@ -125,13 +125,13 @@ public final class RegistryTaskSourceTriggerAuthentication {
             return this;
         }
         public RegistryTaskSourceTriggerAuthentication build() {
-            final var o = new RegistryTaskSourceTriggerAuthentication();
-            o.expireInSeconds = expireInSeconds;
-            o.refreshToken = refreshToken;
-            o.scope = scope;
-            o.token = token;
-            o.tokenType = tokenType;
-            return o;
+            final var _resultValue = new RegistryTaskSourceTriggerAuthentication();
+            _resultValue.expireInSeconds = expireInSeconds;
+            _resultValue.refreshToken = refreshToken;
+            _resultValue.scope = scope;
+            _resultValue.token = token;
+            _resultValue.tokenType = tokenType;
+            return _resultValue;
         }
     }
 }

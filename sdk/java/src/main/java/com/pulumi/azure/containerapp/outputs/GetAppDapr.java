@@ -85,11 +85,11 @@ public final class GetAppDapr {
             return this;
         }
         public GetAppDapr build() {
-            final var o = new GetAppDapr();
-            o.appId = appId;
-            o.appPort = appPort;
-            o.appProtocol = appProtocol;
-            return o;
+            final var _resultValue = new GetAppDapr();
+            _resultValue.appId = appId;
+            _resultValue.appPort = appPort;
+            _resultValue.appProtocol = appProtocol;
+            return _resultValue;
         }
     }
 }

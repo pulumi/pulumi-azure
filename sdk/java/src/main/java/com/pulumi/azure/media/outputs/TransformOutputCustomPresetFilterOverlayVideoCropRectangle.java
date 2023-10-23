@@ -105,12 +105,12 @@ public final class TransformOutputCustomPresetFilterOverlayVideoCropRectangle {
             return this;
         }
         public TransformOutputCustomPresetFilterOverlayVideoCropRectangle build() {
-            final var o = new TransformOutputCustomPresetFilterOverlayVideoCropRectangle();
-            o.height = height;
-            o.left = left;
-            o.top = top;
-            o.width = width;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFilterOverlayVideoCropRectangle();
+            _resultValue.height = height;
+            _resultValue.left = left;
+            _resultValue.top = top;
+            _resultValue.width = width;
+            return _resultValue;
         }
     }
 }

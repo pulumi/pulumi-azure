@@ -35,7 +35,9 @@ class AgreementArgs:
              offer: pulumi.Input[str],
              plan: pulumi.Input[str],
              publisher: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("offer", offer)
         _setter("plan", plan)
         _setter("publisher", publisher)
@@ -107,7 +109,13 @@ class _AgreementState:
              plan: Optional[pulumi.Input[str]] = None,
              privacy_policy_link: Optional[pulumi.Input[str]] = None,
              publisher: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'licenseTextLink' in kwargs:
+            license_text_link = kwargs['licenseTextLink']
+        if 'privacyPolicyLink' in kwargs:
+            privacy_policy_link = kwargs['privacyPolicyLink']
+
         if license_text_link is not None:
             _setter("license_text_link", license_text_link)
         if offer is not None:

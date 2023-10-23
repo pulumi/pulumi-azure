@@ -112,12 +112,12 @@ public final class SparkClusterStorageAccountGen2 {
             return this;
         }
         public SparkClusterStorageAccountGen2 build() {
-            final var o = new SparkClusterStorageAccountGen2();
-            o.filesystemId = filesystemId;
-            o.isDefault = isDefault;
-            o.managedIdentityResourceId = managedIdentityResourceId;
-            o.storageResourceId = storageResourceId;
-            return o;
+            final var _resultValue = new SparkClusterStorageAccountGen2();
+            _resultValue.filesystemId = filesystemId;
+            _resultValue.isDefault = isDefault;
+            _resultValue.managedIdentityResourceId = managedIdentityResourceId;
+            _resultValue.storageResourceId = storageResourceId;
+            return _resultValue;
         }
     }
 }

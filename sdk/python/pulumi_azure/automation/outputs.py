@@ -90,7 +90,15 @@ class AccountEncryption(dict):
              key_vault_key_id: str,
              key_source: Optional[str] = None,
              user_assigned_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'keySource' in kwargs:
+            key_source = kwargs['keySource']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         _setter("key_vault_key_id", key_vault_key_id)
         if key_source is not None:
             _setter("key_source", key_source)
@@ -172,7 +180,15 @@ class AccountIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -235,7 +251,9 @@ class AccountPrivateEndpointConnection(dict):
              _setter: Callable[[Any, Any], None],
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if name is not None:
@@ -304,7 +322,13 @@ class ConnectionTypeField(dict):
              type: str,
              is_encrypted: Optional[bool] = None,
              is_optional: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isEncrypted' in kwargs:
+            is_encrypted = kwargs['isEncrypted']
+        if 'isOptional' in kwargs:
+            is_optional = kwargs['isOptional']
+
         _setter("name", name)
         _setter("type", type)
         if is_encrypted is not None:
@@ -364,7 +388,9 @@ class ModuleModuleLink(dict):
              _setter: Callable[[Any, Any], None],
              uri: str,
              hash: Optional['outputs.ModuleModuleLinkHash'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("uri", uri)
         if hash is not None:
             _setter("hash", hash)
@@ -405,7 +431,9 @@ class ModuleModuleLinkHash(dict):
              _setter: Callable[[Any, Any], None],
              algorithm: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("algorithm", algorithm)
         _setter("value", value)
 
@@ -484,7 +512,19 @@ class RunBookDraft(dict):
              last_modified_time: Optional[str] = None,
              output_types: Optional[Sequence[str]] = None,
              parameters: Optional[Sequence['outputs.RunBookDraftParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentLink' in kwargs:
+            content_link = kwargs['contentLink']
+        if 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if 'editModeEnabled' in kwargs:
+            edit_mode_enabled = kwargs['editModeEnabled']
+        if 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if 'outputTypes' in kwargs:
+            output_types = kwargs['outputTypes']
+
         if content_link is not None:
             _setter("content_link", content_link)
         if creation_time is not None:
@@ -564,7 +604,9 @@ class RunBookDraftContentLink(dict):
              uri: str,
              hash: Optional['outputs.RunBookDraftContentLinkHash'] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("uri", uri)
         if hash is not None:
             _setter("hash", hash)
@@ -615,7 +657,9 @@ class RunBookDraftContentLinkHash(dict):
              _setter: Callable[[Any, Any], None],
              algorithm: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("algorithm", algorithm)
         _setter("value", value)
 
@@ -684,7 +728,11 @@ class RunBookDraftParameter(dict):
              default_value: Optional[str] = None,
              mandatory: Optional[bool] = None,
              position: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         _setter("key", key)
         _setter("type", type)
         if default_value is not None:
@@ -780,7 +828,15 @@ class RunBookJobSchedule(dict):
              job_schedule_id: Optional[str] = None,
              parameters: Optional[Mapping[str, str]] = None,
              run_on: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'scheduleName' in kwargs:
+            schedule_name = kwargs['scheduleName']
+        if 'jobScheduleId' in kwargs:
+            job_schedule_id = kwargs['jobScheduleId']
+        if 'runOn' in kwargs:
+            run_on = kwargs['runOn']
+
         _setter("schedule_name", schedule_name)
         if job_schedule_id is not None:
             _setter("job_schedule_id", job_schedule_id)
@@ -836,7 +892,9 @@ class RunBookPublishContentLink(dict):
              uri: str,
              hash: Optional['outputs.RunBookPublishContentLinkHash'] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("uri", uri)
         if hash is not None:
             _setter("hash", hash)
@@ -887,7 +945,9 @@ class RunBookPublishContentLinkHash(dict):
              _setter: Callable[[Any, Any], None],
              algorithm: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("algorithm", algorithm)
         _setter("value", value)
 
@@ -927,7 +987,9 @@ class ScheduleMonthlyOccurrence(dict):
              _setter: Callable[[Any, Any], None],
              day: str,
              occurrence: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("day", day)
         _setter("occurrence", occurrence)
 
@@ -1001,7 +1063,17 @@ class SoftwareUpdateConfigurationLinux(dict):
              excluded_packages: Optional[Sequence[str]] = None,
              included_packages: Optional[Sequence[str]] = None,
              reboot: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classificationIncluded' in kwargs:
+            classification_included = kwargs['classificationIncluded']
+        if 'classificationsIncludeds' in kwargs:
+            classifications_includeds = kwargs['classificationsIncludeds']
+        if 'excludedPackages' in kwargs:
+            excluded_packages = kwargs['excludedPackages']
+        if 'includedPackages' in kwargs:
+            included_packages = kwargs['includedPackages']
+
         if classification_included is not None:
             _setter("classification_included", classification_included)
         if classifications_includeds is not None:
@@ -1070,7 +1142,9 @@ class SoftwareUpdateConfigurationPostTask(dict):
              _setter: Callable[[Any, Any], None],
              parameters: Optional[Mapping[str, str]] = None,
              source: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if parameters is not None:
             _setter("parameters", parameters)
         if source is not None:
@@ -1112,7 +1186,9 @@ class SoftwareUpdateConfigurationPreTask(dict):
              _setter: Callable[[Any, Any], None],
              parameters: Optional[Mapping[str, str]] = None,
              source: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if parameters is not None:
             _setter("parameters", parameters)
         if source is not None:
@@ -1245,7 +1321,35 @@ class SoftwareUpdateConfigurationSchedule(dict):
              start_time: Optional[str] = None,
              start_time_offset_minutes: Optional[float] = None,
              time_zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'advancedMonthDays' in kwargs:
+            advanced_month_days = kwargs['advancedMonthDays']
+        if 'advancedWeekDays' in kwargs:
+            advanced_week_days = kwargs['advancedWeekDays']
+        if 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+        if 'expiryTimeOffsetMinutes' in kwargs:
+            expiry_time_offset_minutes = kwargs['expiryTimeOffsetMinutes']
+        if 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if 'monthlyOccurrences' in kwargs:
+            monthly_occurrences = kwargs['monthlyOccurrences']
+        if 'nextRun' in kwargs:
+            next_run = kwargs['nextRun']
+        if 'nextRunOffsetMinutes' in kwargs:
+            next_run_offset_minutes = kwargs['nextRunOffsetMinutes']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'startTimeOffsetMinutes' in kwargs:
+            start_time_offset_minutes = kwargs['startTimeOffsetMinutes']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("frequency", frequency)
         if advanced_month_days is not None:
             _setter("advanced_month_days", advanced_month_days)
@@ -1408,7 +1512,9 @@ class SoftwareUpdateConfigurationScheduleMonthlyOccurrence(dict):
              _setter: Callable[[Any, Any], None],
              day: str,
              occurrence: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("day", day)
         _setter("occurrence", occurrence)
 
@@ -1467,7 +1573,13 @@ class SoftwareUpdateConfigurationTarget(dict):
              _setter: Callable[[Any, Any], None],
              azure_queries: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetAzureQuery']] = None,
              non_azure_queries: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetNonAzureQuery']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureQueries' in kwargs:
+            azure_queries = kwargs['azureQueries']
+        if 'nonAzureQueries' in kwargs:
+            non_azure_queries = kwargs['nonAzureQueries']
+
         if azure_queries is not None:
             _setter("azure_queries", azure_queries)
         if non_azure_queries is not None:
@@ -1534,7 +1646,11 @@ class SoftwareUpdateConfigurationTargetAzureQuery(dict):
              scopes: Optional[Sequence[str]] = None,
              tag_filter: Optional[str] = None,
              tags: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetAzureQueryTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tagFilter' in kwargs:
+            tag_filter = kwargs['tagFilter']
+
         if locations is not None:
             _setter("locations", locations)
         if scopes is not None:
@@ -1596,7 +1712,9 @@ class SoftwareUpdateConfigurationTargetAzureQueryTag(dict):
              _setter: Callable[[Any, Any], None],
              tag: str,
              values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("tag", tag)
         _setter("values", values)
 
@@ -1655,7 +1773,13 @@ class SoftwareUpdateConfigurationTargetNonAzureQuery(dict):
              _setter: Callable[[Any, Any], None],
              function_alias: Optional[str] = None,
              workspace_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'functionAlias' in kwargs:
+            function_alias = kwargs['functionAlias']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if function_alias is not None:
             _setter("function_alias", function_alias)
         if workspace_id is not None:
@@ -1731,7 +1855,17 @@ class SoftwareUpdateConfigurationWindows(dict):
              excluded_knowledge_base_numbers: Optional[Sequence[str]] = None,
              included_knowledge_base_numbers: Optional[Sequence[str]] = None,
              reboot: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classificationIncluded' in kwargs:
+            classification_included = kwargs['classificationIncluded']
+        if 'classificationsIncludeds' in kwargs:
+            classifications_includeds = kwargs['classificationsIncludeds']
+        if 'excludedKnowledgeBaseNumbers' in kwargs:
+            excluded_knowledge_base_numbers = kwargs['excludedKnowledgeBaseNumbers']
+        if 'includedKnowledgeBaseNumbers' in kwargs:
+            included_knowledge_base_numbers = kwargs['includedKnowledgeBaseNumbers']
+
         if classification_included is not None:
             _setter("classification_included", classification_included)
         if classifications_includeds is not None:
@@ -1826,7 +1960,13 @@ class SourceControlSecurity(dict):
              token: str,
              token_type: str,
              refresh_token: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tokenType' in kwargs:
+            token_type = kwargs['tokenType']
+        if 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+
         _setter("token", token)
         _setter("token_type", token_type)
         if refresh_token is not None:
@@ -1884,7 +2024,15 @@ class GetAccountIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -1942,7 +2090,9 @@ class GetAccountPrivateEndpointConnectionResult(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         _setter("name", name)
 
@@ -1993,7 +2143,9 @@ class GetVariablesBoolResult(dict):
              id: str,
              name: str,
              value: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("description", description)
         _setter("encrypted", encrypted)
         _setter("id", id)
@@ -2068,7 +2220,9 @@ class GetVariablesDatetimeResult(dict):
              id: str,
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("description", description)
         _setter("encrypted", encrypted)
         _setter("id", id)
@@ -2143,7 +2297,9 @@ class GetVariablesEncryptedResult(dict):
              id: str,
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("description", description)
         _setter("encrypted", encrypted)
         _setter("id", id)
@@ -2218,7 +2374,9 @@ class GetVariablesIntResult(dict):
              id: str,
              name: str,
              value: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("description", description)
         _setter("encrypted", encrypted)
         _setter("id", id)
@@ -2293,7 +2451,9 @@ class GetVariablesNullResult(dict):
              id: str,
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("description", description)
         _setter("encrypted", encrypted)
         _setter("id", id)
@@ -2368,7 +2528,9 @@ class GetVariablesObjectResult(dict):
              id: str,
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("description", description)
         _setter("encrypted", encrypted)
         _setter("id", id)
@@ -2443,7 +2605,9 @@ class GetVariablesStringResult(dict):
              id: str,
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("description", description)
         _setter("encrypted", encrypted)
         _setter("id", id)

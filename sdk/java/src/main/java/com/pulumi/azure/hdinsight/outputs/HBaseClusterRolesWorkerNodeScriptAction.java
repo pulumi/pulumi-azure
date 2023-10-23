@@ -86,11 +86,11 @@ public final class HBaseClusterRolesWorkerNodeScriptAction {
             return this;
         }
         public HBaseClusterRolesWorkerNodeScriptAction build() {
-            final var o = new HBaseClusterRolesWorkerNodeScriptAction();
-            o.name = name;
-            o.parameters = parameters;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new HBaseClusterRolesWorkerNodeScriptAction();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

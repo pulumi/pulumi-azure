@@ -110,12 +110,12 @@ public final class PolicyVMWorkloadProtectionPolicyBackup {
             return weekdays(List.of(weekdays));
         }
         public PolicyVMWorkloadProtectionPolicyBackup build() {
-            final var o = new PolicyVMWorkloadProtectionPolicyBackup();
-            o.frequency = frequency;
-            o.frequencyInMinutes = frequencyInMinutes;
-            o.time = time;
-            o.weekdays = weekdays;
-            return o;
+            final var _resultValue = new PolicyVMWorkloadProtectionPolicyBackup();
+            _resultValue.frequency = frequency;
+            _resultValue.frequencyInMinutes = frequencyInMinutes;
+            _resultValue.time = time;
+            _resultValue.weekdays = weekdays;
+            return _resultValue;
         }
     }
 }

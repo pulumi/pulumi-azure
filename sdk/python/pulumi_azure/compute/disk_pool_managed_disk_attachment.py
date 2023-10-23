@@ -31,7 +31,13 @@ class DiskPoolManagedDiskAttachmentArgs:
              _setter: Callable[[Any, Any], None],
              disk_pool_id: pulumi.Input[str],
              managed_disk_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskPoolId' in kwargs:
+            disk_pool_id = kwargs['diskPoolId']
+        if 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+
         _setter("disk_pool_id", disk_pool_id)
         _setter("managed_disk_id", managed_disk_id)
 
@@ -80,7 +86,13 @@ class _DiskPoolManagedDiskAttachmentState:
              _setter: Callable[[Any, Any], None],
              disk_pool_id: Optional[pulumi.Input[str]] = None,
              managed_disk_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskPoolId' in kwargs:
+            disk_pool_id = kwargs['diskPoolId']
+        if 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+
         if disk_pool_id is not None:
             _setter("disk_pool_id", disk_pool_id)
         if managed_disk_id is not None:

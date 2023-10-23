@@ -225,19 +225,19 @@ public final class GetNetworkSimResult {
             return this;
         }
         public GetNetworkSimResult build() {
-            final var o = new GetNetworkSimResult();
-            o.deviceType = deviceType;
-            o.id = id;
-            o.integratedCircuitCardIdentifier = integratedCircuitCardIdentifier;
-            o.internationalMobileSubscriberIdentity = internationalMobileSubscriberIdentity;
-            o.mobileNetworkSimGroupId = mobileNetworkSimGroupId;
-            o.name = name;
-            o.simPolicyId = simPolicyId;
-            o.simState = simState;
-            o.staticIpConfigurations = staticIpConfigurations;
-            o.vendorKeyFingerprint = vendorKeyFingerprint;
-            o.vendorName = vendorName;
-            return o;
+            final var _resultValue = new GetNetworkSimResult();
+            _resultValue.deviceType = deviceType;
+            _resultValue.id = id;
+            _resultValue.integratedCircuitCardIdentifier = integratedCircuitCardIdentifier;
+            _resultValue.internationalMobileSubscriberIdentity = internationalMobileSubscriberIdentity;
+            _resultValue.mobileNetworkSimGroupId = mobileNetworkSimGroupId;
+            _resultValue.name = name;
+            _resultValue.simPolicyId = simPolicyId;
+            _resultValue.simState = simState;
+            _resultValue.staticIpConfigurations = staticIpConfigurations;
+            _resultValue.vendorKeyFingerprint = vendorKeyFingerprint;
+            _resultValue.vendorName = vendorName;
+            return _resultValue;
         }
     }
 }

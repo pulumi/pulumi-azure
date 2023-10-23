@@ -99,7 +99,31 @@ class CacheArgs:
              name: Optional[pulumi.Input[str]] = None,
              ntp_server: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheSizeInGb' in kwargs:
+            cache_size_in_gb = kwargs['cacheSizeInGb']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'automaticallyRotateKeyToLatestEnabled' in kwargs:
+            automatically_rotate_key_to_latest_enabled = kwargs['automaticallyRotateKeyToLatestEnabled']
+        if 'defaultAccessPolicy' in kwargs:
+            default_access_policy = kwargs['defaultAccessPolicy']
+        if 'directoryActiveDirectory' in kwargs:
+            directory_active_directory = kwargs['directoryActiveDirectory']
+        if 'directoryFlatFile' in kwargs:
+            directory_flat_file = kwargs['directoryFlatFile']
+        if 'directoryLdap' in kwargs:
+            directory_ldap = kwargs['directoryLdap']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'ntpServer' in kwargs:
+            ntp_server = kwargs['ntpServer']
+
         _setter("cache_size_in_gb", cache_size_in_gb)
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -432,7 +456,33 @@ class _CacheState:
              sku_name: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automaticallyRotateKeyToLatestEnabled' in kwargs:
+            automatically_rotate_key_to_latest_enabled = kwargs['automaticallyRotateKeyToLatestEnabled']
+        if 'cacheSizeInGb' in kwargs:
+            cache_size_in_gb = kwargs['cacheSizeInGb']
+        if 'defaultAccessPolicy' in kwargs:
+            default_access_policy = kwargs['defaultAccessPolicy']
+        if 'directoryActiveDirectory' in kwargs:
+            directory_active_directory = kwargs['directoryActiveDirectory']
+        if 'directoryFlatFile' in kwargs:
+            directory_flat_file = kwargs['directoryFlatFile']
+        if 'directoryLdap' in kwargs:
+            directory_ldap = kwargs['directoryLdap']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'mountAddresses' in kwargs:
+            mount_addresses = kwargs['mountAddresses']
+        if 'ntpServer' in kwargs:
+            ntp_server = kwargs['ntpServer']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if automatically_rotate_key_to_latest_enabled is not None:
             _setter("automatically_rotate_key_to_latest_enabled", automatically_rotate_key_to_latest_enabled)
         if cache_size_in_gb is not None:

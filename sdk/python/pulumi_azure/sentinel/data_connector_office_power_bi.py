@@ -37,7 +37,13 @@ class DataConnectorOfficePowerBiArgs:
              log_analytics_workspace_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
             _setter("name", name)
@@ -109,7 +115,13 @@ class _DataConnectorOfficePowerBiState:
              log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if log_analytics_workspace_id is not None:
             _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:

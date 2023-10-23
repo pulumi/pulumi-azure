@@ -109,12 +109,12 @@ public final class GetWindowsWebAppSiteConfigVirtualApplication {
             return this;
         }
         public GetWindowsWebAppSiteConfigVirtualApplication build() {
-            final var o = new GetWindowsWebAppSiteConfigVirtualApplication();
-            o.physicalPath = physicalPath;
-            o.preload = preload;
-            o.virtualDirectories = virtualDirectories;
-            o.virtualPath = virtualPath;
-            return o;
+            final var _resultValue = new GetWindowsWebAppSiteConfigVirtualApplication();
+            _resultValue.physicalPath = physicalPath;
+            _resultValue.preload = preload;
+            _resultValue.virtualDirectories = virtualDirectories;
+            _resultValue.virtualPath = virtualPath;
+            return _resultValue;
         }
     }
 }

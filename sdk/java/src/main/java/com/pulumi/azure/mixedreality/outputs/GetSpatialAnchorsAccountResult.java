@@ -137,15 +137,15 @@ public final class GetSpatialAnchorsAccountResult {
             return this;
         }
         public GetSpatialAnchorsAccountResult build() {
-            final var o = new GetSpatialAnchorsAccountResult();
-            o.accountDomain = accountDomain;
-            o.accountId = accountId;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSpatialAnchorsAccountResult();
+            _resultValue.accountDomain = accountDomain;
+            _resultValue.accountId = accountId;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

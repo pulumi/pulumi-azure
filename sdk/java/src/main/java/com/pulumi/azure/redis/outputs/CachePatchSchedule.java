@@ -91,11 +91,11 @@ public final class CachePatchSchedule {
             return this;
         }
         public CachePatchSchedule build() {
-            final var o = new CachePatchSchedule();
-            o.dayOfWeek = dayOfWeek;
-            o.maintenanceWindow = maintenanceWindow;
-            o.startHourUtc = startHourUtc;
-            return o;
+            final var _resultValue = new CachePatchSchedule();
+            _resultValue.dayOfWeek = dayOfWeek;
+            _resultValue.maintenanceWindow = maintenanceWindow;
+            _resultValue.startHourUtc = startHourUtc;
+            return _resultValue;
         }
     }
 }

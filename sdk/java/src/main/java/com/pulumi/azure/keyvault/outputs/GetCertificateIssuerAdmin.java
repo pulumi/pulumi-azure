@@ -103,12 +103,12 @@ public final class GetCertificateIssuerAdmin {
             return this;
         }
         public GetCertificateIssuerAdmin build() {
-            final var o = new GetCertificateIssuerAdmin();
-            o.emailAddress = emailAddress;
-            o.firstName = firstName;
-            o.lastName = lastName;
-            o.phone = phone;
-            return o;
+            final var _resultValue = new GetCertificateIssuerAdmin();
+            _resultValue.emailAddress = emailAddress;
+            _resultValue.firstName = firstName;
+            _resultValue.lastName = lastName;
+            _resultValue.phone = phone;
+            return _resultValue;
         }
     }
 }

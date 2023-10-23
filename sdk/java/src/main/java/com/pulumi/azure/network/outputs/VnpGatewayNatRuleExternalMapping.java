@@ -67,10 +67,10 @@ public final class VnpGatewayNatRuleExternalMapping {
             return this;
         }
         public VnpGatewayNatRuleExternalMapping build() {
-            final var o = new VnpGatewayNatRuleExternalMapping();
-            o.addressSpace = addressSpace;
-            o.portRange = portRange;
-            return o;
+            final var _resultValue = new VnpGatewayNatRuleExternalMapping();
+            _resultValue.addressSpace = addressSpace;
+            _resultValue.portRange = portRange;
+            return _resultValue;
         }
     }
 }

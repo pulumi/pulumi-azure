@@ -126,14 +126,14 @@ public final class GetNetworkDataNetworkResult {
             return this;
         }
         public GetNetworkDataNetworkResult build() {
-            final var o = new GetNetworkDataNetworkResult();
-            o.description = description;
-            o.id = id;
-            o.location = location;
-            o.mobileNetworkId = mobileNetworkId;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetNetworkDataNetworkResult();
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.mobileNetworkId = mobileNetworkId;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

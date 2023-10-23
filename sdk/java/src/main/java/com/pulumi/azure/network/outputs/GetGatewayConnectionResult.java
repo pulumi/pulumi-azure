@@ -479,32 +479,32 @@ public final class GetGatewayConnectionResult {
             return this;
         }
         public GetGatewayConnectionResult build() {
-            final var o = new GetGatewayConnectionResult();
-            o.authorizationKey = authorizationKey;
-            o.connectionProtocol = connectionProtocol;
-            o.dpdTimeoutSeconds = dpdTimeoutSeconds;
-            o.egressBytesTransferred = egressBytesTransferred;
-            o.enableBgp = enableBgp;
-            o.expressRouteCircuitId = expressRouteCircuitId;
-            o.expressRouteGatewayBypass = expressRouteGatewayBypass;
-            o.id = id;
-            o.ingressBytesTransferred = ingressBytesTransferred;
-            o.ipsecPolicies = ipsecPolicies;
-            o.localAzureIpAddressEnabled = localAzureIpAddressEnabled;
-            o.localNetworkGatewayId = localNetworkGatewayId;
-            o.location = location;
-            o.name = name;
-            o.peerVirtualNetworkGatewayId = peerVirtualNetworkGatewayId;
-            o.resourceGroupName = resourceGroupName;
-            o.resourceGuid = resourceGuid;
-            o.routingWeight = routingWeight;
-            o.sharedKey = sharedKey;
-            o.tags = tags;
-            o.trafficSelectorPolicies = trafficSelectorPolicies;
-            o.type = type;
-            o.usePolicyBasedTrafficSelectors = usePolicyBasedTrafficSelectors;
-            o.virtualNetworkGatewayId = virtualNetworkGatewayId;
-            return o;
+            final var _resultValue = new GetGatewayConnectionResult();
+            _resultValue.authorizationKey = authorizationKey;
+            _resultValue.connectionProtocol = connectionProtocol;
+            _resultValue.dpdTimeoutSeconds = dpdTimeoutSeconds;
+            _resultValue.egressBytesTransferred = egressBytesTransferred;
+            _resultValue.enableBgp = enableBgp;
+            _resultValue.expressRouteCircuitId = expressRouteCircuitId;
+            _resultValue.expressRouteGatewayBypass = expressRouteGatewayBypass;
+            _resultValue.id = id;
+            _resultValue.ingressBytesTransferred = ingressBytesTransferred;
+            _resultValue.ipsecPolicies = ipsecPolicies;
+            _resultValue.localAzureIpAddressEnabled = localAzureIpAddressEnabled;
+            _resultValue.localNetworkGatewayId = localNetworkGatewayId;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.peerVirtualNetworkGatewayId = peerVirtualNetworkGatewayId;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.resourceGuid = resourceGuid;
+            _resultValue.routingWeight = routingWeight;
+            _resultValue.sharedKey = sharedKey;
+            _resultValue.tags = tags;
+            _resultValue.trafficSelectorPolicies = trafficSelectorPolicies;
+            _resultValue.type = type;
+            _resultValue.usePolicyBasedTrafficSelectors = usePolicyBasedTrafficSelectors;
+            _resultValue.virtualNetworkGatewayId = virtualNetworkGatewayId;
+            return _resultValue;
         }
     }
 }

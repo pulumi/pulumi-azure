@@ -85,11 +85,11 @@ public final class VpnServerConfigurationRadiusServer {
             return this;
         }
         public VpnServerConfigurationRadiusServer build() {
-            final var o = new VpnServerConfigurationRadiusServer();
-            o.address = address;
-            o.score = score;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new VpnServerConfigurationRadiusServer();
+            _resultValue.address = address;
+            _resultValue.score = score;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate
             return this;
         }
         public VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate build() {
-            final var o = new VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate();
-            o.name = name;
-            o.thumbprint = thumbprint;
-            return o;
+            final var _resultValue = new VirtualNetworkGatewayVpnClientConfigurationRevokedCertificate();
+            _resultValue.name = name;
+            _resultValue.thumbprint = thumbprint;
+            return _resultValue;
         }
     }
 }
