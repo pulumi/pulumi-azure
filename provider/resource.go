@@ -35,7 +35,7 @@ import (
 	"github.com/hashicorp/terraform-provider-azurerm/shim"
 	"github.com/pulumi/pulumi-azure/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
+	tks "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	tfshim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -97,6 +97,7 @@ const (
 	azureDataBricks            = "DataBricks"            // DataBricks
 	azureDesktopVirtualization = "DesktopVirtualization" // Desktop Virtualization
 	azureDevTest               = "DevTest"               // Dev Test Labs
+	azureDevCenter             = "DevCenter"             // Dev Center
 	azureDigitalTwins          = "DigitalTwins"          // Digital Twins
 	azureDNS                   = "Dns"                   // DNS
 	azureDomainServices        = "DomainServices"        // DomainServices
@@ -248,6 +249,7 @@ var moduleMap = map[string]string{
 	"databricks":              azureDataBricks,
 	"virtual_desktop":         azureDesktopVirtualization,
 	"dev_test":                azureDevTest,
+	"dev_center":              azureDevCenter,
 	"digital_twins":           azureDigitalTwins,
 	"dns":                     azureDNS,
 	"active_directory_domain": azureDomainServices,
@@ -3518,6 +3520,9 @@ func Provider() tfbridge.ProviderInfo {
 	// This allows us to map tokens such as `"azurerm_spring_cloud_app"` into
 	// `azureResource(azureAppPlatform, "SpringCloudApp")`.
 	makeToken := func(mod, name string) (string, error) {
+		if name == "" {
+			name = mod
+		}
 		if m, e, ok := strings.Cut(mod, "~"); ok {
 			mod = m
 			if strings.HasPrefix(name, "get") {
@@ -3528,14 +3533,11 @@ func Provider() tfbridge.ProviderInfo {
 		}
 		return azureResource(mod, name).String(), nil
 	}
-	err := x.ComputeDefaults(&prov, x.TokensMappedModules("azurerm_", "",
-		moduleMap, makeToken))
-	contract.AssertNoErrorf(err, "failed to compute default tokens")
+	prov.MustComputeTokens(tks.MappedModules("azurerm_", "", moduleMap, makeToken))
 
 	prov.SetAutonaming(24, "")
 
-	err = x.AutoAliasing(&prov, prov.GetMetadata())
-	contract.AssertNoErrorf(err, "failed to compute automatic aliasing")
+	prov.MustApplyAutoAliases()
 
 	// Provide default values for certain resource properties, to improve usability:
 	//     For all resources with `location` properties, default to the resource group's location to which the

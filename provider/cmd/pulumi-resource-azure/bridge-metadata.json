@@ -1729,6 +1729,10 @@
                 "current": "azure:appconfiguration/licationLoadBalancer:LicationLoadBalancer",
                 "majorVersion": 5
             },
+            "azurerm_application_load_balancer_frontend": {
+                "current": "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend",
+                "majorVersion": 5
+            },
             "azurerm_application_security_group": {
                 "current": "azure:network/applicationSecurityGroup:ApplicationSecurityGroup",
                 "majorVersion": 5
@@ -5897,6 +5901,26 @@
             },
             "azurerm_dedicated_host_group": {
                 "current": "azure:compute/dedicatedHostGroup:DedicatedHostGroup",
+                "majorVersion": 5
+            },
+            "azurerm_dev_center": {
+                "current": "azure:devcenter/devCenter:DevCenter",
+                "majorVersion": 5,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_dev_center_project": {
+                "current": "azure:devcenter/project:Project",
                 "majorVersion": 5
             },
             "azurerm_dev_test_global_vm_shutdown_schedule": {
@@ -17223,6 +17247,10 @@
                 "current": "azure:securitycenter/setting:Setting",
                 "majorVersion": 5
             },
+            "azurerm_security_center_storage_defender": {
+                "current": "azure:securitycenter/storageDefender:StorageDefender",
+                "majorVersion": 5
+            },
             "azurerm_security_center_subscription_pricing": {
                 "current": "azure:securitycenter/subscriptionPricing:SubscriptionPricing",
                 "majorVersion": 5,
@@ -18483,6 +18511,10 @@
             },
             "azurerm_spring_cloud_app_redis_association": {
                 "current": "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation",
+                "majorVersion": 5
+            },
+            "azurerm_spring_cloud_application_insights_application_performance_monitoring": {
+                "current": "azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring",
                 "majorVersion": 5
             },
             "azurerm_spring_cloud_application_live_view": {
@@ -23068,6 +23100,12 @@
                 "current": "azure:network/getApplicationGateway:getApplicationGateway",
                 "majorVersion": 5,
                 "fields": {
+                    "authentication_certificate": {
+                        "maxItemsOne": false
+                    },
+                    "autoscale_configuration": {
+                        "maxItemsOne": false
+                    },
                     "backend_address_pool": {
                         "maxItemsOne": false,
                         "elem": {
@@ -23076,6 +23114,50 @@
                                     "maxItemsOne": false
                                 },
                                 "ip_addresses": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "backend_http_settings": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "authentication_certificate": {
+                                    "maxItemsOne": false
+                                },
+                                "connection_draining": {
+                                    "maxItemsOne": false
+                                },
+                                "trusted_root_certificate_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "custom_error_configuration": {
+                        "maxItemsOne": false
+                    },
+                    "frontend_ip_configuration": {
+                        "maxItemsOne": false
+                    },
+                    "frontend_port": {
+                        "maxItemsOne": false
+                    },
+                    "gateway_ip_configuration": {
+                        "maxItemsOne": false
+                    },
+                    "global": {
+                        "maxItemsOne": false
+                    },
+                    "http_listener": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "custom_error_configuration": {
+                                    "maxItemsOne": false
+                                },
+                                "host_names": {
                                     "maxItemsOne": false
                                 }
                             }
@@ -23090,6 +23172,156 @@
                                 }
                             }
                         }
+                    },
+                    "private_endpoint_connection": {
+                        "maxItemsOne": false
+                    },
+                    "private_link_configuration": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "ip_configuration": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "probe": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "match": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "status_code": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "redirect_configuration": {
+                        "maxItemsOne": false
+                    },
+                    "request_routing_rule": {
+                        "maxItemsOne": false
+                    },
+                    "rewrite_rule_set": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "rewrite_rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "condition": {
+                                                "maxItemsOne": false
+                                            },
+                                            "request_header_configuration": {
+                                                "maxItemsOne": false
+                                            },
+                                            "response_header_configuration": {
+                                                "maxItemsOne": false
+                                            },
+                                            "url": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "sku": {
+                        "maxItemsOne": false
+                    },
+                    "ssl_certificate": {
+                        "maxItemsOne": false
+                    },
+                    "ssl_policy": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "cipher_suites": {
+                                    "maxItemsOne": false
+                                },
+                                "disabled_protocols": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "ssl_profile": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "ssl_policy": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "cipher_suites": {
+                                                "maxItemsOne": false
+                                            },
+                                            "disabled_protocols": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "trusted_client_certificate_names": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "trusted_client_certificate": {
+                        "maxItemsOne": false
+                    },
+                    "trusted_root_certificate": {
+                        "maxItemsOne": false
+                    },
+                    "url_path_map": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "path_rule": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "paths": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "waf_configuration": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "disabled_rule_group": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "rules": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "exclusion": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "zones": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -29173,6 +29405,7 @@
             "azure:appconfiguration/configurationKey:ConfigurationKey": "azurerm_app_configuration_key",
             "azure:appconfiguration/configurationStore:ConfigurationStore": "azurerm_app_configuration",
             "azure:appconfiguration/licationLoadBalancer:LicationLoadBalancer": "azurerm_application_load_balancer",
+            "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend": "azurerm_application_load_balancer_frontend",
             "azure:appinsights/analyticsItem:AnalyticsItem": "azurerm_application_insights_analytics_item",
             "azure:appinsights/apiKey:ApiKey": "azurerm_application_insights_api_key",
             "azure:appinsights/insights:Insights": "azurerm_application_insights",
@@ -29189,6 +29422,7 @@
             "azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation": "azurerm_spring_cloud_app_cosmosdb_association",
             "azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation": "azurerm_spring_cloud_app_mysql_association",
             "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation": "azurerm_spring_cloud_app_redis_association",
+            "azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring": "azurerm_spring_cloud_application_insights_application_performance_monitoring",
             "azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView": "azurerm_spring_cloud_application_live_view",
             "azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment": "azurerm_spring_cloud_build_deployment",
             "azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding": "azurerm_spring_cloud_build_pack_binding",
@@ -29534,6 +29768,8 @@
             "azure:desktopvirtualization/scalingPlan:ScalingPlan": "azurerm_virtual_desktop_scaling_plan",
             "azure:desktopvirtualization/workspace:Workspace": "azurerm_virtual_desktop_workspace",
             "azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation": "azurerm_virtual_desktop_workspace_application_group_association",
+            "azure:devcenter/devCenter:DevCenter": "azurerm_dev_center",
+            "azure:devcenter/project:Project": "azurerm_dev_center_project",
             "azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule": "azurerm_dev_test_global_vm_shutdown_schedule",
             "azure:devtest/lab:Lab": "azurerm_dev_test_lab",
             "azure:devtest/linuxVirtualMachine:LinuxVirtualMachine": "azurerm_dev_test_linux_virtual_machine",
@@ -30015,6 +30251,7 @@
             "azure:securitycenter/serverVulnerabilityAssessment:ServerVulnerabilityAssessment": "azurerm_security_center_server_vulnerability_assessment",
             "azure:securitycenter/serverVulnerabilityAssessmentVirtualMachine:ServerVulnerabilityAssessmentVirtualMachine": "azurerm_security_center_server_vulnerability_assessment_virtual_machine",
             "azure:securitycenter/setting:Setting": "azurerm_security_center_setting",
+            "azure:securitycenter/storageDefender:StorageDefender": "azurerm_security_center_storage_defender",
             "azure:securitycenter/subscriptionPricing:SubscriptionPricing": "azurerm_security_center_subscription_pricing",
             "azure:securitycenter/workspace:Workspace": "azurerm_security_center_workspace",
             "azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn": "azurerm_sentinel_alert_rule_anomaly_built_in",
@@ -31498,6 +31735,10 @@
                 "primaryConfigurationEndpoint": "primary_configuration_endpoint",
                 "resourceGroupName": "resource_group_name"
             },
+            "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend": {
+                "applicationLoadBalancerId": "application_load_balancer_id",
+                "fullyQualifiedDomainName": "fully_qualified_domain_name"
+            },
             "azure:appinsights/StandardWebTestRequest:StandardWebTestRequest": {
                 "followRedirectsEnabled": "follow_redirects_enabled",
                 "headers": "header",
@@ -31829,6 +32070,15 @@
                 "redisCacheId": "redis_cache_id",
                 "springCloudAppId": "spring_cloud_app_id",
                 "sslEnabled": "ssl_enabled"
+            },
+            "azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring": {
+                "connectionString": "connection_string",
+                "globallyEnabled": "globally_enabled",
+                "roleInstance": "role_instance",
+                "roleName": "role_name",
+                "samplingPercentage": "sampling_percentage",
+                "samplingRequestsPerSecond": "sampling_requests_per_second",
+                "springCloudServiceId": "spring_cloud_service_id"
             },
             "azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView": {
                 "springCloudServiceId": "spring_cloud_service_id"
@@ -36467,6 +36717,7 @@
             },
             "azure:appservice/staticSite:StaticSite": {
                 "apiKey": "api_key",
+                "appSettings": "app_settings",
                 "defaultHostName": "default_host_name",
                 "resourceGroupName": "resource_group_name",
                 "skuSize": "sku_size",
@@ -43386,6 +43637,21 @@
             "azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation": {
                 "applicationGroupId": "application_group_id",
                 "workspaceId": "workspace_id"
+            },
+            "azure:devcenter/DevCenterIdentity:DevCenterIdentity": {
+                "identityIds": "identity_ids",
+                "principalId": "principal_id",
+                "tenantId": "tenant_id"
+            },
+            "azure:devcenter/devCenter:DevCenter": {
+                "devCenterUri": "dev_center_uri",
+                "resourceGroupName": "resource_group_name"
+            },
+            "azure:devcenter/project:Project": {
+                "devCenterId": "dev_center_id",
+                "devCenterUri": "dev_center_uri",
+                "maximumDevBoxesPerUser": "maximum_dev_boxes_per_user",
+                "resourceGroupName": "resource_group_name"
             },
             "azure:devtest/GlobalVMShutdownScheduleNotificationSettings:GlobalVMShutdownScheduleNotificationSettings": {
                 "timeInMinutes": "time_in_minutes",
@@ -51024,15 +51290,229 @@
                 "networkRuleCollections": "network_rule_collection"
             },
             "azure:network/getApplicationGateway:getApplicationGateway": {
+                "authenticationCertificates": "authentication_certificate",
+                "autoscaleConfigurations": "autoscale_configuration",
                 "backendAddressPools": "backend_address_pool",
+                "backendHttpSettings": "backend_http_settings",
+                "customErrorConfigurations": "custom_error_configuration",
+                "fipsEnabled": "fips_enabled",
+                "firewallPolicyId": "firewall_policy_id",
+                "forceFirewallPolicyAssociation": "force_firewall_policy_association",
+                "frontendIpConfigurations": "frontend_ip_configuration",
+                "frontendPorts": "frontend_port",
+                "gatewayIpConfigurations": "gateway_ip_configuration",
+                "globals": "global",
+                "http2Enabled": "http2_enabled",
+                "httpListeners": "http_listener",
                 "identities": "identity",
-                "resourceGroupName": "resource_group_name"
+                "privateEndpointConnections": "private_endpoint_connection",
+                "privateLinkConfigurations": "private_link_configuration",
+                "probes": "probe",
+                "redirectConfigurations": "redirect_configuration",
+                "requestRoutingRules": "request_routing_rule",
+                "resourceGroupName": "resource_group_name",
+                "rewriteRuleSets": "rewrite_rule_set",
+                "skus": "sku",
+                "sslCertificates": "ssl_certificate",
+                "sslPolicies": "ssl_policy",
+                "sslProfiles": "ssl_profile",
+                "trustedClientCertificates": "trusted_client_certificate",
+                "trustedRootCertificates": "trusted_root_certificate",
+                "urlPathMaps": "url_path_map",
+                "wafConfigurations": "waf_configuration"
+            },
+            "azure:network/getApplicationGatewayAutoscaleConfiguration:getApplicationGatewayAutoscaleConfiguration": {
+                "maxCapacity": "max_capacity",
+                "minCapacity": "min_capacity"
             },
             "azure:network/getApplicationGatewayBackendAddressPool:getApplicationGatewayBackendAddressPool": {
                 "ipAddresses": "ip_addresses"
             },
+            "azure:network/getApplicationGatewayBackendHttpSetting:getApplicationGatewayBackendHttpSetting": {
+                "affinityCookieName": "affinity_cookie_name",
+                "authenticationCertificates": "authentication_certificate",
+                "connectionDrainings": "connection_draining",
+                "cookieBasedAffinity": "cookie_based_affinity",
+                "hostName": "host_name",
+                "pickHostNameFromBackendAddress": "pick_host_name_from_backend_address",
+                "probeId": "probe_id",
+                "probeName": "probe_name",
+                "requestTimeout": "request_timeout",
+                "trustedRootCertificateNames": "trusted_root_certificate_names"
+            },
+            "azure:network/getApplicationGatewayBackendHttpSettingConnectionDraining:getApplicationGatewayBackendHttpSettingConnectionDraining": {
+                "drainTimeoutSec": "drain_timeout_sec"
+            },
+            "azure:network/getApplicationGatewayCustomErrorConfiguration:getApplicationGatewayCustomErrorConfiguration": {
+                "customErrorPageUrl": "custom_error_page_url",
+                "statusCode": "status_code"
+            },
+            "azure:network/getApplicationGatewayFrontendIpConfiguration:getApplicationGatewayFrontendIpConfiguration": {
+                "privateIpAddress": "private_ip_address",
+                "privateIpAddressAllocation": "private_ip_address_allocation",
+                "privateLinkConfigurationId": "private_link_configuration_id",
+                "privateLinkConfigurationName": "private_link_configuration_name",
+                "publicIpAddressId": "public_ip_address_id",
+                "subnetId": "subnet_id"
+            },
+            "azure:network/getApplicationGatewayGatewayIpConfiguration:getApplicationGatewayGatewayIpConfiguration": {
+                "subnetId": "subnet_id"
+            },
+            "azure:network/getApplicationGatewayGlobal:getApplicationGatewayGlobal": {
+                "requestBufferingEnabled": "request_buffering_enabled",
+                "responseBufferingEnabled": "response_buffering_enabled"
+            },
+            "azure:network/getApplicationGatewayHttpListener:getApplicationGatewayHttpListener": {
+                "customErrorConfigurations": "custom_error_configuration",
+                "firewallPolicyId": "firewall_policy_id",
+                "frontendIpConfigurationId": "frontend_ip_configuration_id",
+                "frontendIpConfigurationName": "frontend_ip_configuration_name",
+                "frontendPortId": "frontend_port_id",
+                "frontendPortName": "frontend_port_name",
+                "hostName": "host_name",
+                "hostNames": "host_names",
+                "requireSni": "require_sni",
+                "sslCertificateId": "ssl_certificate_id",
+                "sslCertificateName": "ssl_certificate_name",
+                "sslProfileId": "ssl_profile_id",
+                "sslProfileName": "ssl_profile_name"
+            },
+            "azure:network/getApplicationGatewayHttpListenerCustomErrorConfiguration:getApplicationGatewayHttpListenerCustomErrorConfiguration": {
+                "customErrorPageUrl": "custom_error_page_url",
+                "statusCode": "status_code"
+            },
             "azure:network/getApplicationGatewayIdentity:getApplicationGatewayIdentity": {
                 "identityIds": "identity_ids"
+            },
+            "azure:network/getApplicationGatewayPrivateLinkConfiguration:getApplicationGatewayPrivateLinkConfiguration": {
+                "ipConfigurations": "ip_configuration"
+            },
+            "azure:network/getApplicationGatewayPrivateLinkConfigurationIpConfiguration:getApplicationGatewayPrivateLinkConfigurationIpConfiguration": {
+                "privateIpAddress": "private_ip_address",
+                "privateIpAddressAllocation": "private_ip_address_allocation",
+                "subnetId": "subnet_id"
+            },
+            "azure:network/getApplicationGatewayProbe:getApplicationGatewayProbe": {
+                "matches": "match",
+                "minimumServers": "minimum_servers",
+                "pickHostNameFromBackendHttpSettings": "pick_host_name_from_backend_http_settings",
+                "unhealthyThreshold": "unhealthy_threshold"
+            },
+            "azure:network/getApplicationGatewayProbeMatch:getApplicationGatewayProbeMatch": {
+                "statusCodes": "status_code"
+            },
+            "azure:network/getApplicationGatewayRedirectConfiguration:getApplicationGatewayRedirectConfiguration": {
+                "includePath": "include_path",
+                "includeQueryString": "include_query_string",
+                "redirectType": "redirect_type",
+                "targetListenerId": "target_listener_id",
+                "targetListenerName": "target_listener_name",
+                "targetUrl": "target_url"
+            },
+            "azure:network/getApplicationGatewayRequestRoutingRule:getApplicationGatewayRequestRoutingRule": {
+                "backendAddressPoolId": "backend_address_pool_id",
+                "backendAddressPoolName": "backend_address_pool_name",
+                "backendHttpSettingsId": "backend_http_settings_id",
+                "backendHttpSettingsName": "backend_http_settings_name",
+                "httpListenerId": "http_listener_id",
+                "httpListenerName": "http_listener_name",
+                "redirectConfigurationId": "redirect_configuration_id",
+                "redirectConfigurationName": "redirect_configuration_name",
+                "rewriteRuleSetId": "rewrite_rule_set_id",
+                "rewriteRuleSetName": "rewrite_rule_set_name",
+                "ruleType": "rule_type",
+                "urlPathMapId": "url_path_map_id",
+                "urlPathMapName": "url_path_map_name"
+            },
+            "azure:network/getApplicationGatewayRewriteRuleSet:getApplicationGatewayRewriteRuleSet": {
+                "rewriteRules": "rewrite_rule"
+            },
+            "azure:network/getApplicationGatewayRewriteRuleSetRewriteRule:getApplicationGatewayRewriteRuleSetRewriteRule": {
+                "conditions": "condition",
+                "requestHeaderConfigurations": "request_header_configuration",
+                "responseHeaderConfigurations": "response_header_configuration",
+                "ruleSequence": "rule_sequence",
+                "urls": "url"
+            },
+            "azure:network/getApplicationGatewayRewriteRuleSetRewriteRuleCondition:getApplicationGatewayRewriteRuleSetRewriteRuleCondition": {
+                "ignoreCase": "ignore_case"
+            },
+            "azure:network/getApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration:getApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration": {
+                "headerName": "header_name",
+                "headerValue": "header_value"
+            },
+            "azure:network/getApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration:getApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration": {
+                "headerName": "header_name",
+                "headerValue": "header_value"
+            },
+            "azure:network/getApplicationGatewayRewriteRuleSetRewriteRuleUrl:getApplicationGatewayRewriteRuleSetRewriteRuleUrl": {
+                "queryString": "query_string"
+            },
+            "azure:network/getApplicationGatewaySslCertificate:getApplicationGatewaySslCertificate": {
+                "keyVaultSecretId": "key_vault_secret_id",
+                "publicCertData": "public_cert_data"
+            },
+            "azure:network/getApplicationGatewaySslPolicy:getApplicationGatewaySslPolicy": {
+                "cipherSuites": "cipher_suites",
+                "disabledProtocols": "disabled_protocols",
+                "minProtocolVersion": "min_protocol_version",
+                "policyName": "policy_name",
+                "policyType": "policy_type"
+            },
+            "azure:network/getApplicationGatewaySslProfile:getApplicationGatewaySslProfile": {
+                "sslPolicies": "ssl_policy",
+                "trustedClientCertificateNames": "trusted_client_certificate_names",
+                "verifyClientCertificateIssuerDn": "verify_client_certificate_issuer_dn",
+                "verifyClientCertificateRevocation": "verify_client_certificate_revocation"
+            },
+            "azure:network/getApplicationGatewaySslProfileSslPolicy:getApplicationGatewaySslProfileSslPolicy": {
+                "cipherSuites": "cipher_suites",
+                "disabledProtocols": "disabled_protocols",
+                "minProtocolVersion": "min_protocol_version",
+                "policyName": "policy_name",
+                "policyType": "policy_type"
+            },
+            "azure:network/getApplicationGatewayTrustedRootCertificate:getApplicationGatewayTrustedRootCertificate": {
+                "keyVaultSecretId": "key_vault_secret_id"
+            },
+            "azure:network/getApplicationGatewayUrlPathMap:getApplicationGatewayUrlPathMap": {
+                "defaultBackendAddressPoolId": "default_backend_address_pool_id",
+                "defaultBackendAddressPoolName": "default_backend_address_pool_name",
+                "defaultBackendHttpSettingsId": "default_backend_http_settings_id",
+                "defaultBackendHttpSettingsName": "default_backend_http_settings_name",
+                "defaultRedirectConfigurationId": "default_redirect_configuration_id",
+                "defaultRedirectConfigurationName": "default_redirect_configuration_name",
+                "defaultRewriteRuleSetId": "default_rewrite_rule_set_id",
+                "defaultRewriteRuleSetName": "default_rewrite_rule_set_name",
+                "pathRules": "path_rule"
+            },
+            "azure:network/getApplicationGatewayUrlPathMapPathRule:getApplicationGatewayUrlPathMapPathRule": {
+                "backendAddressPoolId": "backend_address_pool_id",
+                "backendAddressPoolName": "backend_address_pool_name",
+                "backendHttpSettingsId": "backend_http_settings_id",
+                "backendHttpSettingsName": "backend_http_settings_name",
+                "firewallPolicyId": "firewall_policy_id",
+                "redirectConfigurationId": "redirect_configuration_id",
+                "redirectConfigurationName": "redirect_configuration_name",
+                "rewriteRuleSetId": "rewrite_rule_set_id",
+                "rewriteRuleSetName": "rewrite_rule_set_name"
+            },
+            "azure:network/getApplicationGatewayWafConfiguration:getApplicationGatewayWafConfiguration": {
+                "disabledRuleGroups": "disabled_rule_group",
+                "exclusions": "exclusion",
+                "fileUploadLimitMb": "file_upload_limit_mb",
+                "firewallMode": "firewall_mode",
+                "maxRequestBodySizeKb": "max_request_body_size_kb",
+                "requestBodyCheck": "request_body_check",
+                "ruleSetType": "rule_set_type",
+                "ruleSetVersion": "rule_set_version"
+            },
+            "azure:network/getApplicationGatewayWafConfigurationDisabledRuleGroup:getApplicationGatewayWafConfigurationDisabledRuleGroup": {
+                "ruleGroupName": "rule_group_name"
+            },
+            "azure:network/getApplicationGatewayWafConfigurationExclusion:getApplicationGatewayWafConfigurationExclusion": {
+                "matchVariable": "match_variable",
+                "selectorMatchOperator": "selector_match_operator"
             },
             "azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup": {
                 "resourceGroupName": "resource_group_name"
@@ -51308,7 +51788,10 @@
             },
             "azure:network/getVirtualHubConnectionRouting:getVirtualHubConnectionRouting": {
                 "associatedRouteTableId": "associated_route_table_id",
+                "inboundRouteMapId": "inbound_route_map_id",
+                "outboundRouteMapId": "outbound_route_map_id",
                 "propagatedRouteTables": "propagated_route_table",
+                "staticVnetLocalRouteOverrideCriteria": "static_vnet_local_route_override_criteria",
                 "staticVnetRoutes": "static_vnet_route"
             },
             "azure:network/getVirtualHubConnectionRoutingPropagatedRouteTable:getVirtualHubConnectionRoutingPropagatedRouteTable": {
@@ -53159,6 +53642,13 @@
             },
             "azure:securitycenter/setting:Setting": {
                 "settingName": "setting_name"
+            },
+            "azure:securitycenter/storageDefender:StorageDefender": {
+                "malwareScanningOnUploadCapGbPerMonth": "malware_scanning_on_upload_cap_gb_per_month",
+                "malwareScanningOnUploadEnabled": "malware_scanning_on_upload_enabled",
+                "overrideSubscriptionSettingsEnabled": "override_subscription_settings_enabled",
+                "sensitiveDataDiscoveryEnabled": "sensitive_data_discovery_enabled",
+                "storageAccountId": "storage_account_id"
             },
             "azure:securitycenter/subscriptionPricing:SubscriptionPricing": {
                 "extensions": "extension",
