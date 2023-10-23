@@ -293,22 +293,22 @@ public final class GetBastionHostResult {
             return this;
         }
         public GetBastionHostResult build() {
-            final var o = new GetBastionHostResult();
-            o.copyPasteEnabled = copyPasteEnabled;
-            o.dnsName = dnsName;
-            o.fileCopyEnabled = fileCopyEnabled;
-            o.id = id;
-            o.ipConfigurations = ipConfigurations;
-            o.ipConnectEnabled = ipConnectEnabled;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.scaleUnits = scaleUnits;
-            o.shareableLinkEnabled = shareableLinkEnabled;
-            o.sku = sku;
-            o.tags = tags;
-            o.tunnelingEnabled = tunnelingEnabled;
-            return o;
+            final var _resultValue = new GetBastionHostResult();
+            _resultValue.copyPasteEnabled = copyPasteEnabled;
+            _resultValue.dnsName = dnsName;
+            _resultValue.fileCopyEnabled = fileCopyEnabled;
+            _resultValue.id = id;
+            _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.ipConnectEnabled = ipConnectEnabled;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.scaleUnits = scaleUnits;
+            _resultValue.shareableLinkEnabled = shareableLinkEnabled;
+            _resultValue.sku = sku;
+            _resultValue.tags = tags;
+            _resultValue.tunnelingEnabled = tunnelingEnabled;
+            return _resultValue;
         }
     }
 }

@@ -212,17 +212,17 @@ public final class SpringCloudGatewayRouteConfigRoute {
             return this;
         }
         public SpringCloudGatewayRouteConfigRoute build() {
-            final var o = new SpringCloudGatewayRouteConfigRoute();
-            o.classificationTags = classificationTags;
-            o.description = description;
-            o.filters = filters;
-            o.order = order;
-            o.predicates = predicates;
-            o.ssoValidationEnabled = ssoValidationEnabled;
-            o.title = title;
-            o.tokenRelay = tokenRelay;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new SpringCloudGatewayRouteConfigRoute();
+            _resultValue.classificationTags = classificationTags;
+            _resultValue.description = description;
+            _resultValue.filters = filters;
+            _resultValue.order = order;
+            _resultValue.predicates = predicates;
+            _resultValue.ssoValidationEnabled = ssoValidationEnabled;
+            _resultValue.title = title;
+            _resultValue.tokenRelay = tokenRelay;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

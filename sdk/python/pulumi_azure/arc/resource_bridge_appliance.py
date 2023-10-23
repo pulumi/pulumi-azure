@@ -57,7 +57,15 @@ class ResourceBridgeApplianceArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_key_base64: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'infrastructureProvider' in kwargs:
+            infrastructure_provider = kwargs['infrastructureProvider']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'publicKeyBase64' in kwargs:
+            public_key_base64 = kwargs['publicKeyBase64']
+
         _setter("distro", distro)
         _setter("identity", identity)
         _setter("infrastructure_provider", infrastructure_provider)
@@ -212,7 +220,15 @@ class _ResourceBridgeApplianceState:
              public_key_base64: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'infrastructureProvider' in kwargs:
+            infrastructure_provider = kwargs['infrastructureProvider']
+        if 'publicKeyBase64' in kwargs:
+            public_key_base64 = kwargs['publicKeyBase64']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if distro is not None:
             _setter("distro", distro)
         if identity is not None:

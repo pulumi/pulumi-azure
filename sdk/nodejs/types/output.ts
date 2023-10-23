@@ -23158,8 +23158,10 @@ export namespace cdn {
     export interface FrontdoorRuleConditionsUrlFilenameCondition {
         /**
          * A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+         *
+         * > **NOTE:** The `matchValues` field is only optional if the `operator` is set to `Any`.
          */
-        matchValues: string[];
+        matchValues?: string[];
         /**
          * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
          */
@@ -26041,7 +26043,7 @@ export namespace compute {
          */
         communityGallery?: outputs.compute.SharedImageGallerySharingCommunityGallery;
         /**
-         * The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+         * The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
          *
          * > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
          */
@@ -27325,7 +27327,7 @@ export namespace config {
 
     export interface FeaturesVirtualMachineScaleSet {
         forceDelete?: boolean;
-        rollInstancesWhenRequired: boolean;
+        rollInstancesWhenRequired?: boolean;
         scaleToZeroBeforeDeletion?: boolean;
     }
 
@@ -31148,6 +31150,8 @@ export namespace containerservice {
          * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
          *
          * > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
+         *
+         * > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
          */
         networkPolicy: string;
         /**
@@ -35809,6 +35813,16 @@ export namespace desktopvirtualization {
 
 }
 
+export namespace devcenter {
+    export interface DevCenterIdentity {
+        identityIds?: string[];
+        principalId: string;
+        tenantId: string;
+        type: string;
+    }
+
+}
+
 export namespace devtest {
     export interface GetVirtualNetworkAllowedSubnet {
         /**
@@ -38748,9 +38762,9 @@ export namespace frontdoor {
          */
         path?: string;
         /**
-         * Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+         * Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
          *
-         * > **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
+         * > **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
          */
         probeMethod?: string;
         /**
@@ -48363,7 +48377,7 @@ export namespace monitoring {
          */
         operationName?: string;
         /**
-         * The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+         * The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
          */
         recommendationCategory?: string;
         /**
@@ -52787,11 +52801,11 @@ export namespace network {
          */
         id: string;
         /**
-         * Whether or not to include the path in the redirected Url. Defaults to `false`
+         * Whether to include the path in the redirected URL. Defaults to `false`
          */
         includePath?: boolean;
         /**
-         * Whether or not to include the query string in the redirected Url. Default to `false`
+         * Whether to include the query string in the redirected URL. Default to `false`
          */
         includeQueryString?: boolean;
         /**
@@ -52808,7 +52822,7 @@ export namespace network {
          */
         targetListenerName?: string;
         /**
-         * The Url to redirect the request to. Cannot be set if `targetListenerName` is set.
+         * The URL to redirect the request to. Cannot be set if `targetListenerName` is set.
          */
         targetUrl?: string;
     }
@@ -52894,7 +52908,7 @@ export namespace network {
          */
         name: string;
         /**
-         * One or more `rewriteRule` blocks as defined above.
+         * One or more `rewriteRule` blocks as defined below.
          */
         rewriteRules?: outputs.network.ApplicationGatewayRewriteRuleSetRewriteRule[];
     }
@@ -52971,7 +52985,7 @@ export namespace network {
         /**
          * The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
          *
-         * > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
+         * > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
          */
         components: string;
         /**
@@ -52983,14 +52997,14 @@ export namespace network {
          */
         queryString?: string;
         /**
-         * Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+         * Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
          */
         reroute?: boolean;
     }
 
     export interface ApplicationGatewaySku {
         /**
-         * The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
+         * The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
          */
         capacity?: number;
         /**
@@ -53017,7 +53031,7 @@ export namespace network {
          */
         id: string;
         /**
-         * Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+         * The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
          *
          * > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
          *
@@ -53054,7 +53068,7 @@ export namespace network {
          */
         minProtocolVersion?: string;
         /**
-         * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+         * The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
          */
         policyName?: string;
         /**
@@ -53108,7 +53122,7 @@ export namespace network {
          */
         minProtocolVersion?: string;
         /**
-         * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+         * The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
          */
         policyName?: string;
         /**
@@ -53221,7 +53235,7 @@ export namespace network {
          */
         backendHttpSettingsName?: string;
         /**
-         * The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+         * The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
          */
         firewallPolicyId?: string;
         /**
@@ -53256,7 +53270,7 @@ export namespace network {
 
     export interface ApplicationGatewayWafConfiguration {
         /**
-         * one or more `disabledRuleGroup` blocks as defined below.
+         * One or more `disabledRuleGroup` blocks as defined below.
          */
         disabledRuleGroups?: outputs.network.ApplicationGatewayWafConfigurationDisabledRuleGroup[];
         /**
@@ -53264,7 +53278,7 @@ export namespace network {
          */
         enabled: boolean;
         /**
-         * one or more `exclusion` blocks as defined below.
+         * One or more `exclusion` blocks as defined below.
          */
         exclusions?: outputs.network.ApplicationGatewayWafConfigurationExclusion[];
         /**
@@ -54085,17 +54099,39 @@ export namespace network {
         virtualHubId: string;
     }
 
-    export interface GetApplicationGatewayBackendAddressPool {
+    export interface GetApplicationGatewayAuthenticationCertificate {
         /**
-         * A list of FQDN's that are included in the Backend Address Pool.
-         */
-        fqdns: string[];
-        /**
-         * The ID of the Backend Address Pool.
+         * The ID of the Rewrite Rule Set
          */
         id: string;
         /**
-         * A list of IP Addresses that are included in the Backend Address Pool.
+         * The name of this Application Gateway.
+         */
+        name: string;
+    }
+
+    export interface GetApplicationGatewayAutoscaleConfiguration {
+        /**
+         * Maximum capacity for autoscaling.
+         */
+        maxCapacity: number;
+        /**
+         * Minimum capacity for autoscaling.
+         */
+        minCapacity: number;
+    }
+
+    export interface GetApplicationGatewayBackendAddressPool {
+        /**
+         * A list of FQDNs which are part of the Backend Address Pool.
+         */
+        fqdns: string[];
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * A list of IP Addresses which are part of the Backend Address Pool.
          */
         ipAddresses: string[];
         /**
@@ -54104,15 +54140,875 @@ export namespace network {
         name: string;
     }
 
+    export interface GetApplicationGatewayBackendHttpSetting {
+        /**
+         * The name of the affinity cookie.
+         */
+        affinityCookieName: string;
+        /**
+         * One or more `authenticationCertificate` blocks as defined below.
+         */
+        authenticationCertificates: outputs.network.GetApplicationGatewayBackendHttpSettingAuthenticationCertificate[];
+        /**
+         * A `connectionDraining` block as defined below.
+         */
+        connectionDrainings: outputs.network.GetApplicationGatewayBackendHttpSettingConnectionDraining[];
+        /**
+         * Is Cookie-Based Affinity enabled?
+         */
+        cookieBasedAffinity: string;
+        /**
+         * The Hostname which is used for this HTTP Listener.
+         */
+        hostName: string;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * The URL path to rewrite.
+         */
+        path: string;
+        /**
+         * Whether host header will be picked from the host name of the backend server.
+         */
+        pickHostNameFromBackendAddress: boolean;
+        /**
+         * Custom port which is used for probing the backend servers.
+         */
+        port: number;
+        /**
+         * The ID of the associated Probe.
+         */
+        probeId: string;
+        /**
+         * The name of the associated HTTP Probe.
+         */
+        probeName: string;
+        /**
+         * The Protocol used for this Probe.
+         */
+        protocol: string;
+        /**
+         * The request timeout in seconds.
+         */
+        requestTimeout: number;
+        /**
+         * A list of `trustedRootCertificate` names.
+         */
+        trustedRootCertificateNames: string[];
+    }
+
+    export interface GetApplicationGatewayBackendHttpSettingAuthenticationCertificate {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+    }
+
+    export interface GetApplicationGatewayBackendHttpSettingConnectionDraining {
+        /**
+         * The number of seconds connection draining is active.
+         */
+        drainTimeoutSec: number;
+        /**
+         * Is the Web Application Firewall enabled?
+         */
+        enabled: boolean;
+    }
+
+    export interface GetApplicationGatewayCustomErrorConfiguration {
+        /**
+         * Error page URL of the application gateway custom error.
+         */
+        customErrorPageUrl: string;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * Status code of the application gateway custom error.
+         */
+        statusCode: string;
+    }
+
+    export interface GetApplicationGatewayFrontendIpConfiguration {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * The Static IP Address which is used.
+         */
+        privateIpAddress: string;
+        /**
+         * The allocation method used for the Private IP Address.
+         */
+        privateIpAddressAllocation: string;
+        /**
+         * The ID of the associated Private Link configuration.
+         */
+        privateLinkConfigurationId: string;
+        /**
+         * The name of the Private Link configuration in use by this Frontend IP Configuration.
+         */
+        privateLinkConfigurationName: string;
+        /**
+         * The ID of the Public IP Address which the Application Gateway will use.
+         */
+        publicIpAddressId: string;
+        /**
+         * The ID of the subnet the private link configuration is connected to.
+         */
+        subnetId: string;
+    }
+
+    export interface GetApplicationGatewayFrontendPort {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * Custom port which is used for probing the backend servers.
+         */
+        port: number;
+    }
+
+    export interface GetApplicationGatewayGatewayIpConfiguration {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * The ID of the subnet the private link configuration is connected to.
+         */
+        subnetId: string;
+    }
+
+    export interface GetApplicationGatewayGlobal {
+        /**
+         * Whether Application Gateway's Request buffer is enabled.
+         */
+        requestBufferingEnabled: boolean;
+        /**
+         * Whether Application Gateway's Response buffer is enabled.
+         */
+        responseBufferingEnabled: boolean;
+    }
+
+    export interface GetApplicationGatewayHttpListener {
+        /**
+         * One or more `customErrorConfiguration` blocks as defined below.
+         */
+        customErrorConfigurations: outputs.network.GetApplicationGatewayHttpListenerCustomErrorConfiguration[];
+        /**
+         * The ID of the Web Application Firewall Policy which is used as an HTTP Listener for this Path Rule.
+         */
+        firewallPolicyId: string;
+        /**
+         * The ID of the associated Frontend Configuration.
+         */
+        frontendIpConfigurationId: string;
+        /**
+         * The Name of the Frontend IP Configuration used for this HTTP Listener.
+         */
+        frontendIpConfigurationName: string;
+        /**
+         * The ID of the associated Frontend Port.
+         */
+        frontendPortId: string;
+        /**
+         * The Name of the Frontend Port used for this HTTP Listener.
+         */
+        frontendPortName: string;
+        /**
+         * The Hostname which is used for this HTTP Listener.
+         */
+        hostName: string;
+        /**
+         * A list of Hostname(s) used for this HTTP Listener. It allows special wildcard characters.
+         */
+        hostNames: string[];
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * The Protocol used for this Probe.
+         */
+        protocol: string;
+        /**
+         * Is Server Name Indication required?
+         */
+        requireSni: boolean;
+        /**
+         * The ID of the associated SSL Certificate.
+         */
+        sslCertificateId: string;
+        /**
+         * The name of the associated SSL Certificate which is used for this HTTP Listener.
+         */
+        sslCertificateName: string;
+        /**
+         * The ID of the associated SSL Profile.
+         */
+        sslProfileId: string;
+        /**
+         * The name of the associated SSL Profile which is used for this HTTP Listener.
+         */
+        sslProfileName: string;
+    }
+
+    export interface GetApplicationGatewayHttpListenerCustomErrorConfiguration {
+        /**
+         * Error page URL of the application gateway custom error.
+         */
+        customErrorPageUrl: string;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * Status code of the application gateway custom error.
+         */
+        statusCode: string;
+    }
+
     export interface GetApplicationGatewayIdentity {
         /**
-         * A list of Managed Identity IDs assigned to this Application Gateway.
+         * The list of User Assigned Managed Identity IDs assigned to this Application Gateway.
          */
         identityIds: string[];
         /**
-         * The type of Managed Identity assigned to this Application Gateway.
+         * The type of Managed Service Identity that is configured on this Application Gateway.
          */
         type: string;
+    }
+
+    export interface GetApplicationGatewayPrivateEndpointConnection {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+    }
+
+    export interface GetApplicationGatewayPrivateLinkConfiguration {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * One or more `ipConfiguration` blocks as defined below.
+         */
+        ipConfigurations: outputs.network.GetApplicationGatewayPrivateLinkConfigurationIpConfiguration[];
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+    }
+
+    export interface GetApplicationGatewayPrivateLinkConfigurationIpConfiguration {
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * Is this the Primary IP Configuration?
+         */
+        primary: boolean;
+        /**
+         * The Static IP Address which is used.
+         */
+        privateIpAddress: string;
+        /**
+         * The allocation method used for the Private IP Address.
+         */
+        privateIpAddressAllocation: string;
+        /**
+         * The ID of the subnet the private link configuration is connected to.
+         */
+        subnetId: string;
+    }
+
+    export interface GetApplicationGatewayProbe {
+        /**
+         * The Hostname used for this Probe.
+         */
+        host: string;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The Interval between two consecutive probes in seconds.
+         */
+        interval: number;
+        /**
+         * A `match` block as defined above.
+         */
+        matches: outputs.network.GetApplicationGatewayProbeMatch[];
+        /**
+         * The minimum number of servers that are always marked as healthy.
+         */
+        minimumServers: number;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * The URL path to rewrite.
+         */
+        path: string;
+        /**
+         * Whether the host header is picked from the backend HTTP settings.
+         */
+        pickHostNameFromBackendHttpSettings: boolean;
+        /**
+         * Custom port which is used for probing the backend servers.
+         */
+        port: number;
+        /**
+         * The Protocol used for this Probe.
+         */
+        protocol: string;
+        /**
+         * The Timeout used for this Probe, indicating when a probe becomes unhealthy.
+         */
+        timeout: number;
+        /**
+         * The Unhealthy Threshold for this Probe, which indicates the amount of retries which will be attempted before a node is deemed unhealthy.
+         */
+        unhealthyThreshold: number;
+    }
+
+    export interface GetApplicationGatewayProbeMatch {
+        /**
+         * A snippet from the Response Body which must be present in the Response.
+         */
+        body: string;
+        /**
+         * Status code of the application gateway custom error.
+         */
+        statusCodes: string[];
+    }
+
+    export interface GetApplicationGatewayRedirectConfiguration {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * Whether the path is included in the redirected URL.
+         */
+        includePath: boolean;
+        /**
+         * Whether to include the query string in the redirected URL.
+         */
+        includeQueryString: boolean;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * The type of redirect.
+         */
+        redirectType: string;
+        targetListenerId: string;
+        /**
+         * The name of the listener to redirect to.
+         */
+        targetListenerName: string;
+        /**
+         * The URL to redirect the request to.
+         */
+        targetUrl: string;
+    }
+
+    export interface GetApplicationGatewayRequestRoutingRule {
+        /**
+         * The ID of the associated Backend Address Pool.
+         */
+        backendAddressPoolId: string;
+        /**
+         * The Name of the Backend Address Pool which is used for this Routing Rule.
+         */
+        backendAddressPoolName: string;
+        /**
+         * The ID of the associated Backend HTTP Settings Configuration.
+         */
+        backendHttpSettingsId: string;
+        /**
+         * The Name of the Backend HTTP Settings Collection which is used for this Routing Rule.
+         */
+        backendHttpSettingsName: string;
+        /**
+         * The ID of the associated HTTP Listener.
+         */
+        httpListenerId: string;
+        /**
+         * The Name of the HTTP Listener which is used for this Routing Rule.
+         */
+        httpListenerName: string;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * The Priority of this Routing Rule.
+         */
+        priority: number;
+        /**
+         * The ID of the associated Redirect Configuration.
+         */
+        redirectConfigurationId: string;
+        /**
+         * The Name of the Redirect Configuration which is used for this Routing Rule.
+         */
+        redirectConfigurationName: string;
+        /**
+         * The ID of the associated Rewrite Rule Set.
+         */
+        rewriteRuleSetId: string;
+        /**
+         * The Name of the Rewrite Rule Set which is used for this Routing Rule.
+         */
+        rewriteRuleSetName: string;
+        /**
+         * The Type of Routing that is used for this Rule.
+         */
+        ruleType: string;
+        /**
+         * The ID of the associated URL Path Map.
+         */
+        urlPathMapId: string;
+        /**
+         * The Name of the URL Path Map which is associated with this Routing Rule.
+         */
+        urlPathMapName: string;
+    }
+
+    export interface GetApplicationGatewayRewriteRuleSet {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * One or more `rewriteRule` blocks as defined below.
+         */
+        rewriteRules: outputs.network.GetApplicationGatewayRewriteRuleSetRewriteRule[];
+    }
+
+    export interface GetApplicationGatewayRewriteRuleSetRewriteRule {
+        /**
+         * One or more `condition` blocks as defined above.
+         */
+        conditions: outputs.network.GetApplicationGatewayRewriteRuleSetRewriteRuleCondition[];
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * One or more `requestHeaderConfiguration` blocks as defined above.
+         */
+        requestHeaderConfigurations: outputs.network.GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration[];
+        /**
+         * One or more `responseHeaderConfiguration` blocks as defined above.
+         */
+        responseHeaderConfigurations: outputs.network.GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration[];
+        /**
+         * Rule sequence of the Rewrite Rule that determines the order of execution in a set.
+         */
+        ruleSequence: number;
+        /**
+         * One `url` block as defined below
+         */
+        urls: outputs.network.GetApplicationGatewayRewriteRuleSetRewriteRuleUrl[];
+    }
+
+    export interface GetApplicationGatewayRewriteRuleSetRewriteRuleCondition {
+        /**
+         * Whether a case insensitive comparison is performed.
+         */
+        ignoreCase: boolean;
+        /**
+         * Whether the result of the condition evaluation is negated.
+         */
+        negate: boolean;
+        /**
+         * The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+         */
+        pattern: string;
+        /**
+         * The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+         */
+        variable: string;
+    }
+
+    export interface GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration {
+        /**
+         * Header name of the header configuration.
+         */
+        headerName: string;
+        /**
+         * Header value of the header configuration.
+         */
+        headerValue: string;
+    }
+
+    export interface GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration {
+        /**
+         * Header name of the header configuration.
+         */
+        headerName: string;
+        /**
+         * Header value of the header configuration.
+         */
+        headerValue: string;
+    }
+
+    export interface GetApplicationGatewayRewriteRuleSetRewriteRuleUrl {
+        /**
+         * The components used to rewrite the URL.
+         */
+        components: string;
+        /**
+         * The URL path to rewrite.
+         */
+        path: string;
+        /**
+         * The query string to rewrite.
+         */
+        queryString: string;
+        /**
+         * Whether the URL path map is reevaluated after this rewrite has been applied.
+         */
+        reroute: boolean;
+    }
+
+    export interface GetApplicationGatewaySkus {
+        /**
+         * The Capacity of the SKU in use for this Application Gateway.
+         */
+        capacity: number;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * The Tier of the SKU in use for this Application Gateway.
+         */
+        tier: string;
+    }
+
+    export interface GetApplicationGatewaySslCertificate {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault.
+         */
+        keyVaultSecretId: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * The Public Certificate Data associated with the SSL Certificate.
+         */
+        publicCertData: string;
+    }
+
+    export interface GetApplicationGatewaySslPolicy {
+        /**
+         * A List of accepted cipher suites.
+         */
+        cipherSuites: string[];
+        /**
+         * A list of SSL Protocols which are disabled on this Application Gateway.
+         */
+        disabledProtocols: string[];
+        /**
+         * The minimum TLS version.
+         */
+        minProtocolVersion: string;
+        /**
+         * The Name of the Policy.
+         */
+        policyName: string;
+        /**
+         * The Type of the Policy.
+         */
+        policyType: string;
+    }
+
+    export interface GetApplicationGatewaySslProfile {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * a `sslPolicy` block as defined below.
+         */
+        sslPolicies: outputs.network.GetApplicationGatewaySslProfileSslPolicy[];
+        /**
+         * The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+         */
+        trustedClientCertificateNames: string[];
+        verifyClientCertificateIssuerDn: boolean;
+        /**
+         * The method used to check client certificate revocation status.
+         */
+        verifyClientCertificateRevocation: string;
+    }
+
+    export interface GetApplicationGatewaySslProfileSslPolicy {
+        /**
+         * A List of accepted cipher suites.
+         */
+        cipherSuites: string[];
+        /**
+         * A list of SSL Protocols which are disabled on this Application Gateway.
+         */
+        disabledProtocols: string[];
+        /**
+         * The minimum TLS version.
+         */
+        minProtocolVersion: string;
+        /**
+         * The Name of the Policy.
+         */
+        policyName: string;
+        /**
+         * The Type of the Policy.
+         */
+        policyType: string;
+    }
+
+    export interface GetApplicationGatewayTrustedClientCertificate {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+    }
+
+    export interface GetApplicationGatewayTrustedRootCertificate {
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault.
+         */
+        keyVaultSecretId: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+    }
+
+    export interface GetApplicationGatewayUrlPathMap {
+        /**
+         * The ID of the Default Backend Address Pool.
+         */
+        defaultBackendAddressPoolId: string;
+        /**
+         * The Name of the Default Backend Address Pool which is used for this URL Path Map.
+         */
+        defaultBackendAddressPoolName: string;
+        /**
+         * The ID of the Default Backend HTTP Settings Collection.
+         */
+        defaultBackendHttpSettingsId: string;
+        /**
+         * The Name of the Default Backend HTTP Settings Collection which is used for this URL Path Map.
+         */
+        defaultBackendHttpSettingsName: string;
+        /**
+         * The ID of the Default Redirect Configuration.
+         */
+        defaultRedirectConfigurationId: string;
+        /**
+         * The Name of the Default Redirect Configuration which is used for this URL Path Map.
+         */
+        defaultRedirectConfigurationName: string;
+        defaultRewriteRuleSetId: string;
+        /**
+         * The Name of the Default Rewrite Rule Set which is used for this URL Path Map.
+         */
+        defaultRewriteRuleSetName: string;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * One or more `pathRule` blocks as defined above.
+         */
+        pathRules: outputs.network.GetApplicationGatewayUrlPathMapPathRule[];
+    }
+
+    export interface GetApplicationGatewayUrlPathMapPathRule {
+        /**
+         * The ID of the associated Backend Address Pool.
+         */
+        backendAddressPoolId: string;
+        /**
+         * The Name of the Backend Address Pool which is used for this Routing Rule.
+         */
+        backendAddressPoolName: string;
+        /**
+         * The ID of the associated Backend HTTP Settings Configuration.
+         */
+        backendHttpSettingsId: string;
+        /**
+         * The Name of the Backend HTTP Settings Collection which is used for this Routing Rule.
+         */
+        backendHttpSettingsName: string;
+        /**
+         * The ID of the Web Application Firewall Policy which is used as an HTTP Listener for this Path Rule.
+         */
+        firewallPolicyId: string;
+        /**
+         * The ID of the Rewrite Rule Set
+         */
+        id: string;
+        /**
+         * The name of this Application Gateway.
+         */
+        name: string;
+        /**
+         * A list of Paths used in this Path Rule.
+         */
+        paths: string[];
+        /**
+         * The ID of the associated Redirect Configuration.
+         */
+        redirectConfigurationId: string;
+        /**
+         * The Name of the Redirect Configuration which is used for this Routing Rule.
+         */
+        redirectConfigurationName: string;
+        /**
+         * The ID of the associated Rewrite Rule Set.
+         */
+        rewriteRuleSetId: string;
+        /**
+         * The Name of the Rewrite Rule Set which is used for this Routing Rule.
+         */
+        rewriteRuleSetName: string;
+    }
+
+    export interface GetApplicationGatewayWafConfiguration {
+        /**
+         * One or more `disabledRuleGroup` blocks as defined below.
+         */
+        disabledRuleGroups: outputs.network.GetApplicationGatewayWafConfigurationDisabledRuleGroup[];
+        /**
+         * Is the Web Application Firewall enabled?
+         */
+        enabled: boolean;
+        /**
+         * One or more `exclusion` blocks as defined below.
+         */
+        exclusions: outputs.network.GetApplicationGatewayWafConfigurationExclusion[];
+        /**
+         * The File Upload Limit in MB.
+         */
+        fileUploadLimitMb: number;
+        /**
+         * The Web Application Firewall Mode.
+         */
+        firewallMode: string;
+        /**
+         * The Maximum Request Body Size in KB.
+         */
+        maxRequestBodySizeKb: number;
+        /**
+         * Is Request Body Inspection enabled?
+         */
+        requestBodyCheck: boolean;
+        /**
+         * The Type of the Rule Set used for this Web Application Firewall.
+         */
+        ruleSetType: string;
+        /**
+         * The Version of the Rule Set used for this Web Application Firewall.
+         */
+        ruleSetVersion: string;
+    }
+
+    export interface GetApplicationGatewayWafConfigurationDisabledRuleGroup {
+        /**
+         * The rule group where specific rules are disabled.
+         */
+        ruleGroupName: string;
+        /**
+         * A list of rules which will be disabled in that group.
+         */
+        rules: number[];
+    }
+
+    export interface GetApplicationGatewayWafConfigurationExclusion {
+        /**
+         * Match variable of the exclusion rule.
+         */
+        matchVariable: string;
+        /**
+         * String value which will be used for the filter operation.
+         */
+        selector: string;
+        /**
+         * Operator which will be used to search in the variable content.
+         */
+        selectorMatchOperator: string;
     }
 
     export interface GetExpressRouteCircuitPeering {
@@ -54541,9 +55437,21 @@ export namespace network {
          */
         associatedRouteTableId: string;
         /**
+         * The ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+         */
+        inboundRouteMapId: string;
+        /**
+         * The ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+         */
+        outboundRouteMapId: string;
+        /**
          * A `propagatedRouteTable` block as defined below.
          */
         propagatedRouteTables: outputs.network.GetVirtualHubConnectionRoutingPropagatedRouteTable[];
+        /**
+         * The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet.
+         */
+        staticVnetLocalRouteOverrideCriteria: string;
         /**
          * A `staticVnetRoute` block as defined below.
          */

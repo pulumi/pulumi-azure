@@ -149,14 +149,14 @@ public final class VolumeExportPolicyRule {
             return this;
         }
         public VolumeExportPolicyRule build() {
-            final var o = new VolumeExportPolicyRule();
-            o.allowedClients = allowedClients;
-            o.protocolsEnabled = protocolsEnabled;
-            o.rootAccessEnabled = rootAccessEnabled;
-            o.ruleIndex = ruleIndex;
-            o.unixReadOnly = unixReadOnly;
-            o.unixReadWrite = unixReadWrite;
-            return o;
+            final var _resultValue = new VolumeExportPolicyRule();
+            _resultValue.allowedClients = allowedClients;
+            _resultValue.protocolsEnabled = protocolsEnabled;
+            _resultValue.rootAccessEnabled = rootAccessEnabled;
+            _resultValue.ruleIndex = ruleIndex;
+            _resultValue.unixReadOnly = unixReadOnly;
+            _resultValue.unixReadWrite = unixReadWrite;
+            return _resultValue;
         }
     }
 }

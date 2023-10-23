@@ -342,26 +342,26 @@ public final class GetServiceResult {
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.deploymentId = deploymentId;
-            o.domainConfigurationType = domainConfigurationType;
-            o.domainName = domainName;
-            o.filteredSyncEnabled = filteredSyncEnabled;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.notifications = notifications;
-            o.replicaSets = replicaSets;
-            o.resourceGroupName = resourceGroupName;
-            o.resourceId = resourceId;
-            o.secureLdaps = secureLdaps;
-            o.securities = securities;
-            o.sku = sku;
-            o.syncOwner = syncOwner;
-            o.tags = tags;
-            o.tenantId = tenantId;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.deploymentId = deploymentId;
+            _resultValue.domainConfigurationType = domainConfigurationType;
+            _resultValue.domainName = domainName;
+            _resultValue.filteredSyncEnabled = filteredSyncEnabled;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.notifications = notifications;
+            _resultValue.replicaSets = replicaSets;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.resourceId = resourceId;
+            _resultValue.secureLdaps = secureLdaps;
+            _resultValue.securities = securities;
+            _resultValue.sku = sku;
+            _resultValue.syncOwner = syncOwner;
+            _resultValue.tags = tags;
+            _resultValue.tenantId = tenantId;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

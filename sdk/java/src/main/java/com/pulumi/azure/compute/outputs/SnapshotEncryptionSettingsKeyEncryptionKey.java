@@ -65,10 +65,10 @@ public final class SnapshotEncryptionSettingsKeyEncryptionKey {
             return this;
         }
         public SnapshotEncryptionSettingsKeyEncryptionKey build() {
-            final var o = new SnapshotEncryptionSettingsKeyEncryptionKey();
-            o.keyUrl = keyUrl;
-            o.sourceVaultId = sourceVaultId;
-            return o;
+            final var _resultValue = new SnapshotEncryptionSettingsKeyEncryptionKey();
+            _resultValue.keyUrl = keyUrl;
+            _resultValue.sourceVaultId = sourceVaultId;
+            return _resultValue;
         }
     }
 }

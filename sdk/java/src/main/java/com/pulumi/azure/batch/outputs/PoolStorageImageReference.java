@@ -128,13 +128,13 @@ public final class PoolStorageImageReference {
             return this;
         }
         public PoolStorageImageReference build() {
-            final var o = new PoolStorageImageReference();
-            o.id = id;
-            o.offer = offer;
-            o.publisher = publisher;
-            o.sku = sku;
-            o.version = version;
-            return o;
+            final var _resultValue = new PoolStorageImageReference();
+            _resultValue.id = id;
+            _resultValue.offer = offer;
+            _resultValue.publisher = publisher;
+            _resultValue.sku = sku;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

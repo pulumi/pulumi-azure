@@ -67,10 +67,10 @@ public final class ApplicationGatewayAutoscaleConfiguration {
             return this;
         }
         public ApplicationGatewayAutoscaleConfiguration build() {
-            final var o = new ApplicationGatewayAutoscaleConfiguration();
-            o.maxCapacity = maxCapacity;
-            o.minCapacity = minCapacity;
-            return o;
+            final var _resultValue = new ApplicationGatewayAutoscaleConfiguration();
+            _resultValue.maxCapacity = maxCapacity;
+            _resultValue.minCapacity = minCapacity;
+            return _resultValue;
         }
     }
 }

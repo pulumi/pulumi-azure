@@ -91,7 +91,29 @@ class AnalyticsWorkspaceArgs:
              retention_in_days: Optional[pulumi.Input[int]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allowResourceOnlyPermissions' in kwargs:
+            allow_resource_only_permissions = kwargs['allowResourceOnlyPermissions']
+        if 'cmkForQueryForced' in kwargs:
+            cmk_for_query_forced = kwargs['cmkForQueryForced']
+        if 'dailyQuotaGb' in kwargs:
+            daily_quota_gb = kwargs['dailyQuotaGb']
+        if 'dataCollectionRuleId' in kwargs:
+            data_collection_rule_id = kwargs['dataCollectionRuleId']
+        if 'internetIngestionEnabled' in kwargs:
+            internet_ingestion_enabled = kwargs['internetIngestionEnabled']
+        if 'internetQueryEnabled' in kwargs:
+            internet_query_enabled = kwargs['internetQueryEnabled']
+        if 'localAuthenticationDisabled' in kwargs:
+            local_authentication_disabled = kwargs['localAuthenticationDisabled']
+        if 'reservationCapacityInGbPerDay' in kwargs:
+            reservation_capacity_in_gb_per_day = kwargs['reservationCapacityInGbPerDay']
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+
         _setter("resource_group_name", resource_group_name)
         if allow_resource_only_permissions is not None:
             _setter("allow_resource_only_permissions", allow_resource_only_permissions)
@@ -393,7 +415,35 @@ class _AnalyticsWorkspaceState:
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowResourceOnlyPermissions' in kwargs:
+            allow_resource_only_permissions = kwargs['allowResourceOnlyPermissions']
+        if 'cmkForQueryForced' in kwargs:
+            cmk_for_query_forced = kwargs['cmkForQueryForced']
+        if 'dailyQuotaGb' in kwargs:
+            daily_quota_gb = kwargs['dailyQuotaGb']
+        if 'dataCollectionRuleId' in kwargs:
+            data_collection_rule_id = kwargs['dataCollectionRuleId']
+        if 'internetIngestionEnabled' in kwargs:
+            internet_ingestion_enabled = kwargs['internetIngestionEnabled']
+        if 'internetQueryEnabled' in kwargs:
+            internet_query_enabled = kwargs['internetQueryEnabled']
+        if 'localAuthenticationDisabled' in kwargs:
+            local_authentication_disabled = kwargs['localAuthenticationDisabled']
+        if 'primarySharedKey' in kwargs:
+            primary_shared_key = kwargs['primarySharedKey']
+        if 'reservationCapacityInGbPerDay' in kwargs:
+            reservation_capacity_in_gb_per_day = kwargs['reservationCapacityInGbPerDay']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'secondarySharedKey' in kwargs:
+            secondary_shared_key = kwargs['secondarySharedKey']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if allow_resource_only_permissions is not None:
             _setter("allow_resource_only_permissions", allow_resource_only_permissions)
         if cmk_for_query_forced is not None:

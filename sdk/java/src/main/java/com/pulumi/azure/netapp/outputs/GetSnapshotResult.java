@@ -120,15 +120,15 @@ public final class GetSnapshotResult {
             return this;
         }
         public GetSnapshotResult build() {
-            final var o = new GetSnapshotResult();
-            o.accountName = accountName;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.poolName = poolName;
-            o.resourceGroupName = resourceGroupName;
-            o.volumeName = volumeName;
-            return o;
+            final var _resultValue = new GetSnapshotResult();
+            _resultValue.accountName = accountName;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.poolName = poolName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.volumeName = volumeName;
+            return _resultValue;
         }
     }
 }

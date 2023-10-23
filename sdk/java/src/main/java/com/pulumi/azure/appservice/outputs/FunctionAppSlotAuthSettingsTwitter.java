@@ -65,10 +65,10 @@ public final class FunctionAppSlotAuthSettingsTwitter {
             return this;
         }
         public FunctionAppSlotAuthSettingsTwitter build() {
-            final var o = new FunctionAppSlotAuthSettingsTwitter();
-            o.consumerKey = consumerKey;
-            o.consumerSecret = consumerSecret;
-            return o;
+            final var _resultValue = new FunctionAppSlotAuthSettingsTwitter();
+            _resultValue.consumerKey = consumerKey;
+            _resultValue.consumerSecret = consumerSecret;
+            return _resultValue;
         }
     }
 }

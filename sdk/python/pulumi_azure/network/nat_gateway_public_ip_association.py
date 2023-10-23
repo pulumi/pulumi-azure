@@ -31,7 +31,13 @@ class NatGatewayPublicIpAssociationArgs:
              _setter: Callable[[Any, Any], None],
              nat_gateway_id: pulumi.Input[str],
              public_ip_address_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'natGatewayId' in kwargs:
+            nat_gateway_id = kwargs['natGatewayId']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+
         _setter("nat_gateway_id", nat_gateway_id)
         _setter("public_ip_address_id", public_ip_address_id)
 
@@ -80,7 +86,13 @@ class _NatGatewayPublicIpAssociationState:
              _setter: Callable[[Any, Any], None],
              nat_gateway_id: Optional[pulumi.Input[str]] = None,
              public_ip_address_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'natGatewayId' in kwargs:
+            nat_gateway_id = kwargs['natGatewayId']
+        if 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+
         if nat_gateway_id is not None:
             _setter("nat_gateway_id", nat_gateway_id)
         if public_ip_address_id is not None:

@@ -46,9 +46,9 @@ public final class TxtRecordRecord {
             return this;
         }
         public TxtRecordRecord build() {
-            final var o = new TxtRecordRecord();
-            o.value = value;
-            return o;
+            final var _resultValue = new TxtRecordRecord();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

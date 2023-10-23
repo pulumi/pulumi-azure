@@ -92,11 +92,11 @@ public final class GetDataCollectionRuleDataSourcePrometheusForwarder {
             return streams(List.of(streams));
         }
         public GetDataCollectionRuleDataSourcePrometheusForwarder build() {
-            final var o = new GetDataCollectionRuleDataSourcePrometheusForwarder();
-            o.labelIncludeFilters = labelIncludeFilters;
-            o.name = name;
-            o.streams = streams;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleDataSourcePrometheusForwarder();
+            _resultValue.labelIncludeFilters = labelIncludeFilters;
+            _resultValue.name = name;
+            _resultValue.streams = streams;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class MetricAlertAction {
             return this;
         }
         public MetricAlertAction build() {
-            final var o = new MetricAlertAction();
-            o.actionGroupId = actionGroupId;
-            o.webhookProperties = webhookProperties;
-            return o;
+            final var _resultValue = new MetricAlertAction();
+            _resultValue.actionGroupId = actionGroupId;
+            _resultValue.webhookProperties = webhookProperties;
+            return _resultValue;
         }
     }
 }

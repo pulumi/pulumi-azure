@@ -84,11 +84,11 @@ public final class ManagedClusterCustomFabricSetting {
             return this;
         }
         public ManagedClusterCustomFabricSetting build() {
-            final var o = new ManagedClusterCustomFabricSetting();
-            o.parameter = parameter;
-            o.section = section;
-            o.value = value;
-            return o;
+            final var _resultValue = new ManagedClusterCustomFabricSetting();
+            _resultValue.parameter = parameter;
+            _resultValue.section = section;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

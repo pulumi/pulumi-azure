@@ -90,11 +90,11 @@ public final class EndpointPrivateDnsZoneGroup {
             return privateDnsZoneIds(List.of(privateDnsZoneIds));
         }
         public EndpointPrivateDnsZoneGroup build() {
-            final var o = new EndpointPrivateDnsZoneGroup();
-            o.id = id;
-            o.name = name;
-            o.privateDnsZoneIds = privateDnsZoneIds;
-            return o;
+            final var _resultValue = new EndpointPrivateDnsZoneGroup();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.privateDnsZoneIds = privateDnsZoneIds;
+            return _resultValue;
         }
     }
 }

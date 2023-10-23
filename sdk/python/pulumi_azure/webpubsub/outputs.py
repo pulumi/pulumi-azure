@@ -69,7 +69,15 @@ class HubEventHandler(dict):
              auth: Optional['outputs.HubEventHandlerAuth'] = None,
              system_events: Optional[Sequence[str]] = None,
              user_event_pattern: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'urlTemplate' in kwargs:
+            url_template = kwargs['urlTemplate']
+        if 'systemEvents' in kwargs:
+            system_events = kwargs['systemEvents']
+        if 'userEventPattern' in kwargs:
+            user_event_pattern = kwargs['userEventPattern']
+
         _setter("url_template", url_template)
         if auth is not None:
             _setter("auth", auth)
@@ -145,7 +153,11 @@ class HubEventHandlerAuth(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              managed_identity_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedIdentityId' in kwargs:
+            managed_identity_id = kwargs['managedIdentityId']
+
         _setter("managed_identity_id", managed_identity_id)
 
     @property
@@ -209,7 +221,17 @@ class HubEventListener(dict):
              eventhub_namespace_name: str,
              system_event_name_filters: Optional[Sequence[str]] = None,
              user_event_name_filters: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'eventhubNamespaceName' in kwargs:
+            eventhub_namespace_name = kwargs['eventhubNamespaceName']
+        if 'systemEventNameFilters' in kwargs:
+            system_event_name_filters = kwargs['systemEventNameFilters']
+        if 'userEventNameFilters' in kwargs:
+            user_event_name_filters = kwargs['userEventNameFilters']
+
         _setter("eventhub_name", eventhub_name)
         _setter("eventhub_namespace_name", eventhub_namespace_name)
         if system_event_name_filters is not None:
@@ -294,7 +316,13 @@ class NetworkAclPrivateEndpoint(dict):
              id: str,
              allowed_request_types: Optional[Sequence[str]] = None,
              denied_request_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedRequestTypes' in kwargs:
+            allowed_request_types = kwargs['allowedRequestTypes']
+        if 'deniedRequestTypes' in kwargs:
+            denied_request_types = kwargs['deniedRequestTypes']
+
         _setter("id", id)
         if allowed_request_types is not None:
             _setter("allowed_request_types", allowed_request_types)
@@ -368,7 +396,13 @@ class NetworkAclPublicNetwork(dict):
              _setter: Callable[[Any, Any], None],
              allowed_request_types: Optional[Sequence[str]] = None,
              denied_request_types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedRequestTypes' in kwargs:
+            allowed_request_types = kwargs['allowedRequestTypes']
+        if 'deniedRequestTypes' in kwargs:
+            denied_request_types = kwargs['deniedRequestTypes']
+
         if allowed_request_types is not None:
             _setter("allowed_request_types", allowed_request_types)
         if denied_request_types is not None:
@@ -443,7 +477,15 @@ class ServiceIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -535,7 +577,15 @@ class ServiceLiveTrace(dict):
              enabled: Optional[bool] = None,
              http_request_logs_enabled: Optional[bool] = None,
              messaging_logs_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectivityLogsEnabled' in kwargs:
+            connectivity_logs_enabled = kwargs['connectivityLogsEnabled']
+        if 'httpRequestLogsEnabled' in kwargs:
+            http_request_logs_enabled = kwargs['httpRequestLogsEnabled']
+        if 'messagingLogsEnabled' in kwargs:
+            messaging_logs_enabled = kwargs['messagingLogsEnabled']
+
         if connectivity_logs_enabled is not None:
             _setter("connectivity_logs_enabled", connectivity_logs_enabled)
         if enabled is not None:
@@ -597,7 +647,11 @@ class GetPrivateLinkResourceSharedPrivateLinkResourceTypeResult(dict):
              _setter: Callable[[Any, Any], None],
              description: str,
              subresource_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+
         _setter("description", description)
         _setter("subresource_name", subresource_name)
 

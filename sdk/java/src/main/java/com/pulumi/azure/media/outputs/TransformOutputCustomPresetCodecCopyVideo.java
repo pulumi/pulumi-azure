@@ -48,9 +48,9 @@ public final class TransformOutputCustomPresetCodecCopyVideo {
             return this;
         }
         public TransformOutputCustomPresetCodecCopyVideo build() {
-            final var o = new TransformOutputCustomPresetCodecCopyVideo();
-            o.label = label;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetCodecCopyVideo();
+            _resultValue.label = label;
+            return _resultValue;
         }
     }
 }

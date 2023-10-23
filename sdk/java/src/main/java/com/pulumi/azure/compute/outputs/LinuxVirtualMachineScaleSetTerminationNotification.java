@@ -72,10 +72,10 @@ public final class LinuxVirtualMachineScaleSetTerminationNotification {
             return this;
         }
         public LinuxVirtualMachineScaleSetTerminationNotification build() {
-            final var o = new LinuxVirtualMachineScaleSetTerminationNotification();
-            o.enabled = enabled;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetTerminationNotification();
+            _resultValue.enabled = enabled;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

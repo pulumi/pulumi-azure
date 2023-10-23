@@ -88,11 +88,11 @@ public final class HBaseClusterMetastores {
             return this;
         }
         public HBaseClusterMetastores build() {
-            final var o = new HBaseClusterMetastores();
-            o.ambari = ambari;
-            o.hive = hive;
-            o.oozie = oozie;
-            return o;
+            final var _resultValue = new HBaseClusterMetastores();
+            _resultValue.ambari = ambari;
+            _resultValue.hive = hive;
+            _resultValue.oozie = oozie;
+            return _resultValue;
         }
     }
 }

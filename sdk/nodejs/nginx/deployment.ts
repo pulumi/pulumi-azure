@@ -54,6 +54,8 @@ import * as utilities from "../utilities";
  *     networkInterfaces: [{
  *         subnetId: exampleSubnet.id,
  *     }],
+ *     capacity: 20,
+ *     email: "user@test.com",
  * });
  * ```
  *
@@ -94,9 +96,19 @@ export class Deployment extends pulumi.CustomResource {
     }
 
     /**
+     * Specify the number of NGINX capacity units for this NGINX deployment.
+     *
+     * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     */
+    public readonly capacity!: pulumi.Output<number | undefined>;
+    /**
      * Should the diagnosis support be enabled?
      */
     public readonly diagnoseSupportEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specify the preferred support contact email address of the user used for sending alerts and notification.
+     */
+    public readonly email!: pulumi.Output<string | undefined>;
     /**
      * One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
      */
@@ -163,7 +175,9 @@ export class Deployment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
+            resourceInputs["capacity"] = state ? state.capacity : undefined;
             resourceInputs["diagnoseSupportEnabled"] = state ? state.diagnoseSupportEnabled : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
             resourceInputs["frontendPrivates"] = state ? state.frontendPrivates : undefined;
             resourceInputs["frontendPublic"] = state ? state.frontendPublic : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -185,7 +199,9 @@ export class Deployment extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["capacity"] = args ? args.capacity : undefined;
             resourceInputs["diagnoseSupportEnabled"] = args ? args.diagnoseSupportEnabled : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
             resourceInputs["frontendPrivates"] = args ? args.frontendPrivates : undefined;
             resourceInputs["frontendPublic"] = args ? args.frontendPublic : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -210,9 +226,19 @@ export class Deployment extends pulumi.CustomResource {
  */
 export interface DeploymentState {
     /**
+     * Specify the number of NGINX capacity units for this NGINX deployment.
+     *
+     * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     */
+    capacity?: pulumi.Input<number>;
+    /**
      * Should the diagnosis support be enabled?
      */
     diagnoseSupportEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specify the preferred support contact email address of the user used for sending alerts and notification.
+     */
+    email?: pulumi.Input<string>;
     /**
      * One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
      */
@@ -272,9 +298,19 @@ export interface DeploymentState {
  */
 export interface DeploymentArgs {
     /**
+     * Specify the number of NGINX capacity units for this NGINX deployment.
+     *
+     * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     */
+    capacity?: pulumi.Input<number>;
+    /**
      * Should the diagnosis support be enabled?
      */
     diagnoseSupportEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specify the preferred support contact email address of the user used for sending alerts and notification.
+     */
+    email?: pulumi.Input<string>;
     /**
      * One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
      */

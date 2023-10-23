@@ -86,11 +86,11 @@ public final class HadoopClusterRolesEdgeNodeUninstallScriptAction {
             return this;
         }
         public HadoopClusterRolesEdgeNodeUninstallScriptAction build() {
-            final var o = new HadoopClusterRolesEdgeNodeUninstallScriptAction();
-            o.name = name;
-            o.parameters = parameters;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new HadoopClusterRolesEdgeNodeUninstallScriptAction();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

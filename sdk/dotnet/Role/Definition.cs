@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Role
     ///                 {
     ///                     "*",
     ///                 },
-    ///                 NotActions = new[] {},
+    ///                 NotActions = new() { },
     ///             },
     ///         },
     ///         AssignableScopes = new[]

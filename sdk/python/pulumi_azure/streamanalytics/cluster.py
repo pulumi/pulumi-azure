@@ -43,7 +43,13 @@ class ClusterArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamingCapacity' in kwargs:
+            streaming_capacity = kwargs['streamingCapacity']
+
         _setter("resource_group_name", resource_group_name)
         _setter("streaming_capacity", streaming_capacity)
         if location is not None:
@@ -146,7 +152,13 @@ class _ClusterState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              streaming_capacity: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamingCapacity' in kwargs:
+            streaming_capacity = kwargs['streamingCapacity']
+
         if location is not None:
             _setter("location", location)
         if name is not None:

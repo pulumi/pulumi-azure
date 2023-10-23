@@ -102,7 +102,31 @@ class VirtualNetworkGatewayArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vpn_client_configuration: Optional[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs']] = None,
              vpn_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'activeActive' in kwargs:
+            active_active = kwargs['activeActive']
+        if 'bgpSettings' in kwargs:
+            bgp_settings = kwargs['bgpSettings']
+        if 'customRoute' in kwargs:
+            custom_route = kwargs['customRoute']
+        if 'defaultLocalNetworkGatewayId' in kwargs:
+            default_local_network_gateway_id = kwargs['defaultLocalNetworkGatewayId']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'enableBgp' in kwargs:
+            enable_bgp = kwargs['enableBgp']
+        if 'privateIpAddressEnabled' in kwargs:
+            private_ip_address_enabled = kwargs['privateIpAddressEnabled']
+        if 'vpnClientConfiguration' in kwargs:
+            vpn_client_configuration = kwargs['vpnClientConfiguration']
+        if 'vpnType' in kwargs:
+            vpn_type = kwargs['vpnType']
+
         _setter("ip_configurations", ip_configurations)
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
@@ -437,7 +461,31 @@ class _VirtualNetworkGatewayState:
              type: Optional[pulumi.Input[str]] = None,
              vpn_client_configuration: Optional[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs']] = None,
              vpn_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activeActive' in kwargs:
+            active_active = kwargs['activeActive']
+        if 'bgpSettings' in kwargs:
+            bgp_settings = kwargs['bgpSettings']
+        if 'customRoute' in kwargs:
+            custom_route = kwargs['customRoute']
+        if 'defaultLocalNetworkGatewayId' in kwargs:
+            default_local_network_gateway_id = kwargs['defaultLocalNetworkGatewayId']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'enableBgp' in kwargs:
+            enable_bgp = kwargs['enableBgp']
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'privateIpAddressEnabled' in kwargs:
+            private_ip_address_enabled = kwargs['privateIpAddressEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vpnClientConfiguration' in kwargs:
+            vpn_client_configuration = kwargs['vpnClientConfiguration']
+        if 'vpnType' in kwargs:
+            vpn_type = kwargs['vpnType']
+
         if active_active is not None:
             _setter("active_active", active_active)
         if bgp_settings is not None:

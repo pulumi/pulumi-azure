@@ -84,11 +84,11 @@ public final class WindowsFunctionAppConnectionString {
             return this;
         }
         public WindowsFunctionAppConnectionString build() {
-            final var o = new WindowsFunctionAppConnectionString();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new WindowsFunctionAppConnectionString();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

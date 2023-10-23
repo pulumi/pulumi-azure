@@ -59,7 +59,19 @@ class LocalNetworkGatewayArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'addressSpaces' in kwargs:
+            address_spaces = kwargs['addressSpaces']
+        if 'bgpSettings' in kwargs:
+            bgp_settings = kwargs['bgpSettings']
+        if 'gatewayAddress' in kwargs:
+            gateway_address = kwargs['gatewayAddress']
+        if 'gatewayFqdn' in kwargs:
+            gateway_fqdn = kwargs['gatewayFqdn']
+
         _setter("resource_group_name", resource_group_name)
         if address_spaces is not None:
             _setter("address_spaces", address_spaces)
@@ -221,7 +233,19 @@ class _LocalNetworkGatewayState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressSpaces' in kwargs:
+            address_spaces = kwargs['addressSpaces']
+        if 'bgpSettings' in kwargs:
+            bgp_settings = kwargs['bgpSettings']
+        if 'gatewayAddress' in kwargs:
+            gateway_address = kwargs['gatewayAddress']
+        if 'gatewayFqdn' in kwargs:
+            gateway_fqdn = kwargs['gatewayFqdn']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if address_spaces is not None:
             _setter("address_spaces", address_spaces)
         if bgp_settings is not None:

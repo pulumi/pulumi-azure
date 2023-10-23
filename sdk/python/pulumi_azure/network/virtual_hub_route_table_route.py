@@ -47,7 +47,17 @@ class VirtualHubRouteTableRouteInitArgs:
              route_table_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              next_hop_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationsType' in kwargs:
+            destinations_type = kwargs['destinationsType']
+        if 'nextHop' in kwargs:
+            next_hop = kwargs['nextHop']
+        if 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if 'nextHopType' in kwargs:
+            next_hop_type = kwargs['nextHopType']
+
         _setter("destinations", destinations)
         _setter("destinations_type", destinations_type)
         _setter("next_hop", next_hop)
@@ -166,7 +176,17 @@ class _VirtualHubRouteTableRouteState:
              next_hop: Optional[pulumi.Input[str]] = None,
              next_hop_type: Optional[pulumi.Input[str]] = None,
              route_table_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationsType' in kwargs:
+            destinations_type = kwargs['destinationsType']
+        if 'nextHop' in kwargs:
+            next_hop = kwargs['nextHop']
+        if 'nextHopType' in kwargs:
+            next_hop_type = kwargs['nextHopType']
+        if 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+
         if destinations is not None:
             _setter("destinations", destinations)
         if destinations_type is not None:

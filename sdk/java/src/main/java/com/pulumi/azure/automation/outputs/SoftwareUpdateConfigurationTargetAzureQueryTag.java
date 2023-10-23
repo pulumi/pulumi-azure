@@ -69,10 +69,10 @@ public final class SoftwareUpdateConfigurationTargetAzureQueryTag {
             return values(List.of(values));
         }
         public SoftwareUpdateConfigurationTargetAzureQueryTag build() {
-            final var o = new SoftwareUpdateConfigurationTargetAzureQueryTag();
-            o.tag = tag;
-            o.values = values;
-            return o;
+            final var _resultValue = new SoftwareUpdateConfigurationTargetAzureQueryTag();
+            _resultValue.tag = tag;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

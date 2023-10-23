@@ -61,7 +61,13 @@ class AlertProcessingRuleActionGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input['AlertProcessingRuleActionGroupScheduleArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addActionGroupIds' in kwargs:
+            add_action_group_ids = kwargs['addActionGroupIds']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("add_action_group_ids", add_action_group_ids)
         _setter("resource_group_name", resource_group_name)
         _setter("scopes", scopes)
@@ -235,7 +241,13 @@ class _AlertProcessingRuleActionGroupState:
              schedule: Optional[pulumi.Input['AlertProcessingRuleActionGroupScheduleArgs']] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addActionGroupIds' in kwargs:
+            add_action_group_ids = kwargs['addActionGroupIds']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if add_action_group_ids is not None:
             _setter("add_action_group_ids", add_action_group_ids)
         if condition is not None:

@@ -69,10 +69,10 @@ public final class AccountCostManagementExportExportDataStorageLocation {
             return this;
         }
         public AccountCostManagementExportExportDataStorageLocation build() {
-            final var o = new AccountCostManagementExportExportDataStorageLocation();
-            o.containerId = containerId;
-            o.rootFolderPath = rootFolderPath;
-            return o;
+            final var _resultValue = new AccountCostManagementExportExportDataStorageLocation();
+            _resultValue.containerId = containerId;
+            _resultValue.rootFolderPath = rootFolderPath;
+            return _resultValue;
         }
     }
 }

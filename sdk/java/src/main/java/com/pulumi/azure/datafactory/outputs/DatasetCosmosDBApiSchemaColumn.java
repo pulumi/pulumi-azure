@@ -86,11 +86,11 @@ public final class DatasetCosmosDBApiSchemaColumn {
             return this;
         }
         public DatasetCosmosDBApiSchemaColumn build() {
-            final var o = new DatasetCosmosDBApiSchemaColumn();
-            o.description = description;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DatasetCosmosDBApiSchemaColumn();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

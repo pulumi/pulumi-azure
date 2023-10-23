@@ -137,15 +137,15 @@ public final class GetPoolResult {
             return this;
         }
         public GetPoolResult build() {
-            final var o = new GetPoolResult();
-            o.accountName = accountName;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.serviceLevel = serviceLevel;
-            o.sizeInTb = sizeInTb;
-            return o;
+            final var _resultValue = new GetPoolResult();
+            _resultValue.accountName = accountName;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.serviceLevel = serviceLevel;
+            _resultValue.sizeInTb = sizeInTb;
+            return _resultValue;
         }
     }
 }

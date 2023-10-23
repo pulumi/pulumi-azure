@@ -72,10 +72,10 @@ public final class PolicyPolicySettingsLogScrubbing {
             return rules(List.of(rules));
         }
         public PolicyPolicySettingsLogScrubbing build() {
-            final var o = new PolicyPolicySettingsLogScrubbing();
-            o.enabled = enabled;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new PolicyPolicySettingsLogScrubbing();
+            _resultValue.enabled = enabled;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

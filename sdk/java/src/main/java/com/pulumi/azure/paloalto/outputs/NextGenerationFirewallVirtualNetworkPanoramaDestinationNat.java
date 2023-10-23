@@ -107,12 +107,12 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaDestinationNat {
             return this;
         }
         public NextGenerationFirewallVirtualNetworkPanoramaDestinationNat build() {
-            final var o = new NextGenerationFirewallVirtualNetworkPanoramaDestinationNat();
-            o.backendConfig = backendConfig;
-            o.frontendConfig = frontendConfig;
-            o.name = name;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualNetworkPanoramaDestinationNat();
+            _resultValue.backendConfig = backendConfig;
+            _resultValue.frontendConfig = frontendConfig;
+            _resultValue.name = name;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

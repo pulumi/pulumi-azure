@@ -171,15 +171,15 @@ public final class TransformOutput {
             return this;
         }
         public TransformOutput build() {
-            final var o = new TransformOutput();
-            o.audioAnalyzerPreset = audioAnalyzerPreset;
-            o.builtinPreset = builtinPreset;
-            o.customPreset = customPreset;
-            o.faceDetectorPreset = faceDetectorPreset;
-            o.onErrorAction = onErrorAction;
-            o.relativePriority = relativePriority;
-            o.videoAnalyzerPreset = videoAnalyzerPreset;
-            return o;
+            final var _resultValue = new TransformOutput();
+            _resultValue.audioAnalyzerPreset = audioAnalyzerPreset;
+            _resultValue.builtinPreset = builtinPreset;
+            _resultValue.customPreset = customPreset;
+            _resultValue.faceDetectorPreset = faceDetectorPreset;
+            _resultValue.onErrorAction = onErrorAction;
+            _resultValue.relativePriority = relativePriority;
+            _resultValue.videoAnalyzerPreset = videoAnalyzerPreset;
+            return _resultValue;
         }
     }
 }

@@ -62,7 +62,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
     ///                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
     ///                 },
-    ///                 NotActions = new[] {},
+    ///                 NotActions = new() { },
     ///             },
     ///         },
     ///         AssignableScopes = new[]

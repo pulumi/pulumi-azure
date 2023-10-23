@@ -62,7 +62,15 @@ class RoleDefinitionPermission(dict):
              data_actions: Optional[Sequence[str]] = None,
              not_actions: Optional[Sequence[str]] = None,
              not_data_actions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataActions' in kwargs:
+            data_actions = kwargs['dataActions']
+        if 'notActions' in kwargs:
+            not_actions = kwargs['notActions']
+        if 'notDataActions' in kwargs:
+            not_data_actions = kwargs['notDataActions']
+
         if actions is not None:
             _setter("actions", actions)
         if data_actions is not None:
@@ -130,7 +138,15 @@ class GetRoleDefinitionPermissionResult(dict):
              not_actions: Sequence[str],
              data_actions: Optional[Sequence[str]] = None,
              not_data_actions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notActions' in kwargs:
+            not_actions = kwargs['notActions']
+        if 'dataActions' in kwargs:
+            data_actions = kwargs['dataActions']
+        if 'notDataActions' in kwargs:
+            not_data_actions = kwargs['notDataActions']
+
         _setter("actions", actions)
         _setter("not_actions", not_actions)
         if data_actions is not None:

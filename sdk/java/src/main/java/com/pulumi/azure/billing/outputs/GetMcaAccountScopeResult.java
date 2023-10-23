@@ -79,12 +79,12 @@ public final class GetMcaAccountScopeResult {
             return this;
         }
         public GetMcaAccountScopeResult build() {
-            final var o = new GetMcaAccountScopeResult();
-            o.billingAccountName = billingAccountName;
-            o.billingProfileName = billingProfileName;
-            o.id = id;
-            o.invoiceSectionName = invoiceSectionName;
-            return o;
+            final var _resultValue = new GetMcaAccountScopeResult();
+            _resultValue.billingAccountName = billingAccountName;
+            _resultValue.billingProfileName = billingProfileName;
+            _resultValue.id = id;
+            _resultValue.invoiceSectionName = invoiceSectionName;
+            return _resultValue;
         }
     }
 }

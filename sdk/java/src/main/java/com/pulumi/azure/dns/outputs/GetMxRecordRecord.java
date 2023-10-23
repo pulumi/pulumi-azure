@@ -65,10 +65,10 @@ public final class GetMxRecordRecord {
             return this;
         }
         public GetMxRecordRecord build() {
-            final var o = new GetMxRecordRecord();
-            o.exchange = exchange;
-            o.preference = preference;
-            return o;
+            final var _resultValue = new GetMxRecordRecord();
+            _resultValue.exchange = exchange;
+            _resultValue.preference = preference;
+            return _resultValue;
         }
     }
 }

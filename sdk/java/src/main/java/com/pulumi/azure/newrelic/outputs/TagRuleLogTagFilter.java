@@ -84,11 +84,11 @@ public final class TagRuleLogTagFilter {
             return this;
         }
         public TagRuleLogTagFilter build() {
-            final var o = new TagRuleLogTagFilter();
-            o.action = action;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new TagRuleLogTagFilter();
+            _resultValue.action = action;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

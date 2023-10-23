@@ -73,7 +73,19 @@ class ExtensionArgs:
              settings: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              type_handler_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'arcMachineId' in kwargs:
+            arc_machine_id = kwargs['arcMachineId']
+        if 'automaticUpgradeEnabled' in kwargs:
+            automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+
         _setter("arc_machine_id", arc_machine_id)
         _setter("publisher", publisher)
         _setter("type", type)
@@ -295,7 +307,19 @@ class _ExtensionState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
              type_handler_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'arcMachineId' in kwargs:
+            arc_machine_id = kwargs['arcMachineId']
+        if 'automaticUpgradeEnabled' in kwargs:
+            automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
+        if 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+
         if arc_machine_id is not None:
             _setter("arc_machine_id", arc_machine_id)
         if automatic_upgrade_enabled is not None:

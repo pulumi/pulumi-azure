@@ -67,10 +67,10 @@ public final class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover
             return this;
         }
         public DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover build() {
-            final var o = new DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover();
-            o.principalDisplayName = principalDisplayName;
-            o.principalId = principalId;
-            return o;
+            final var _resultValue = new DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover();
+            _resultValue.principalDisplayName = principalDisplayName;
+            _resultValue.principalId = principalId;
+            return _resultValue;
         }
     }
 }

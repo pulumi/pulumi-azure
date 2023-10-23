@@ -183,15 +183,15 @@ public final class FirewallApplicationRuleCollectionRule {
             return targetFqdns(List.of(targetFqdns));
         }
         public FirewallApplicationRuleCollectionRule build() {
-            final var o = new FirewallApplicationRuleCollectionRule();
-            o.description = description;
-            o.fqdnTags = fqdnTags;
-            o.name = name;
-            o.protocols = protocols;
-            o.sourceAddresses = sourceAddresses;
-            o.sourceIpGroups = sourceIpGroups;
-            o.targetFqdns = targetFqdns;
-            return o;
+            final var _resultValue = new FirewallApplicationRuleCollectionRule();
+            _resultValue.description = description;
+            _resultValue.fqdnTags = fqdnTags;
+            _resultValue.name = name;
+            _resultValue.protocols = protocols;
+            _resultValue.sourceAddresses = sourceAddresses;
+            _resultValue.sourceIpGroups = sourceIpGroups;
+            _resultValue.targetFqdns = targetFqdns;
+            return _resultValue;
         }
     }
 }

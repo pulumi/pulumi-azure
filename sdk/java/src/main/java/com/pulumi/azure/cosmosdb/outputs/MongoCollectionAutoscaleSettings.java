@@ -48,9 +48,9 @@ public final class MongoCollectionAutoscaleSettings {
             return this;
         }
         public MongoCollectionAutoscaleSettings build() {
-            final var o = new MongoCollectionAutoscaleSettings();
-            o.maxThroughput = maxThroughput;
-            return o;
+            final var _resultValue = new MongoCollectionAutoscaleSettings();
+            _resultValue.maxThroughput = maxThroughput;
+            return _resultValue;
         }
     }
 }

@@ -147,14 +147,14 @@ public final class WorkspaceGithubRepo {
             return this;
         }
         public WorkspaceGithubRepo build() {
-            final var o = new WorkspaceGithubRepo();
-            o.accountName = accountName;
-            o.branchName = branchName;
-            o.gitUrl = gitUrl;
-            o.lastCommitId = lastCommitId;
-            o.repositoryName = repositoryName;
-            o.rootFolder = rootFolder;
-            return o;
+            final var _resultValue = new WorkspaceGithubRepo();
+            _resultValue.accountName = accountName;
+            _resultValue.branchName = branchName;
+            _resultValue.gitUrl = gitUrl;
+            _resultValue.lastCommitId = lastCommitId;
+            _resultValue.repositoryName = repositoryName;
+            _resultValue.rootFolder = rootFolder;
+            return _resultValue;
         }
     }
 }

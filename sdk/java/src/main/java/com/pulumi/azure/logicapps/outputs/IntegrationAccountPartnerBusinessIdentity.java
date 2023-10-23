@@ -65,10 +65,10 @@ public final class IntegrationAccountPartnerBusinessIdentity {
             return this;
         }
         public IntegrationAccountPartnerBusinessIdentity build() {
-            final var o = new IntegrationAccountPartnerBusinessIdentity();
-            o.qualifier = qualifier;
-            o.value = value;
-            return o;
+            final var _resultValue = new IntegrationAccountPartnerBusinessIdentity();
+            _resultValue.qualifier = qualifier;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

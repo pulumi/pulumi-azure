@@ -59,7 +59,17 @@ class ApplicationGroupArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'hostPoolId' in kwargs:
+            host_pool_id = kwargs['hostPoolId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'defaultDesktopDisplayName' in kwargs:
+            default_desktop_display_name = kwargs['defaultDesktopDisplayName']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+
         _setter("host_pool_id", host_pool_id)
         _setter("resource_group_name", resource_group_name)
         _setter("type", type)
@@ -233,7 +243,17 @@ class _ApplicationGroupState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultDesktopDisplayName' in kwargs:
+            default_desktop_display_name = kwargs['defaultDesktopDisplayName']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'hostPoolId' in kwargs:
+            host_pool_id = kwargs['hostPoolId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if default_desktop_display_name is not None:
             _setter("default_desktop_display_name", default_desktop_display_name)
         if description is not None:

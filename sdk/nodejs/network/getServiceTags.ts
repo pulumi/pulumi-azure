@@ -72,6 +72,10 @@ export interface GetServiceTagsResult {
     readonly ipv6Cidrs: string[];
     readonly location: string;
     readonly locationFilter?: string;
+    /**
+     * The name of this Service Tags block.
+     */
+    readonly name: string;
     readonly service: string;
 }
 /**

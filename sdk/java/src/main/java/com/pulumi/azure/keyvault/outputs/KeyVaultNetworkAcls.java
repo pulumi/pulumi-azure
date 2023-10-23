@@ -111,12 +111,12 @@ public final class KeyVaultNetworkAcls {
             return virtualNetworkSubnetIds(List.of(virtualNetworkSubnetIds));
         }
         public KeyVaultNetworkAcls build() {
-            final var o = new KeyVaultNetworkAcls();
-            o.bypass = bypass;
-            o.defaultAction = defaultAction;
-            o.ipRules = ipRules;
-            o.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
-            return o;
+            final var _resultValue = new KeyVaultNetworkAcls();
+            _resultValue.bypass = bypass;
+            _resultValue.defaultAction = defaultAction;
+            _resultValue.ipRules = ipRules;
+            _resultValue.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
+            return _resultValue;
         }
     }
 }

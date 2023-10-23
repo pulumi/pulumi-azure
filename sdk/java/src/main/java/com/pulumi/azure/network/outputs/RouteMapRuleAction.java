@@ -70,10 +70,10 @@ public final class RouteMapRuleAction {
             return this;
         }
         public RouteMapRuleAction build() {
-            final var o = new RouteMapRuleAction();
-            o.parameters = parameters;
-            o.type = type;
-            return o;
+            final var _resultValue = new RouteMapRuleAction();
+            _resultValue.parameters = parameters;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

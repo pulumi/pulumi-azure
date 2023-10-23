@@ -67,10 +67,10 @@ public final class NamedValueValueFromKeyVault {
             return this;
         }
         public NamedValueValueFromKeyVault build() {
-            final var o = new NamedValueValueFromKeyVault();
-            o.identityClientId = identityClientId;
-            o.secretId = secretId;
-            return o;
+            final var _resultValue = new NamedValueValueFromKeyVault();
+            _resultValue.identityClientId = identityClientId;
+            _resultValue.secretId = secretId;
+            return _resultValue;
         }
     }
 }

@@ -122,13 +122,13 @@ public final class GetNetworkPacketCoreControlPlanePlatform {
             return this;
         }
         public GetNetworkPacketCoreControlPlanePlatform build() {
-            final var o = new GetNetworkPacketCoreControlPlanePlatform();
-            o.arcKubernetesClusterId = arcKubernetesClusterId;
-            o.customLocationId = customLocationId;
-            o.edgeDeviceId = edgeDeviceId;
-            o.stackHciClusterId = stackHciClusterId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetNetworkPacketCoreControlPlanePlatform();
+            _resultValue.arcKubernetesClusterId = arcKubernetesClusterId;
+            _resultValue.customLocationId = customLocationId;
+            _resultValue.edgeDeviceId = edgeDeviceId;
+            _resultValue.stackHciClusterId = stackHciClusterId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

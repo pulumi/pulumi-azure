@@ -83,7 +83,27 @@ class CassandraClusterArgs:
              repair_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAdminPassword' in kwargs:
+            default_admin_password = kwargs['defaultAdminPassword']
+        if 'delegatedManagementSubnetId' in kwargs:
+            delegated_management_subnet_id = kwargs['delegatedManagementSubnetId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'authenticationMethod' in kwargs:
+            authentication_method = kwargs['authenticationMethod']
+        if 'clientCertificatePems' in kwargs:
+            client_certificate_pems = kwargs['clientCertificatePems']
+        if 'externalGossipCertificatePems' in kwargs:
+            external_gossip_certificate_pems = kwargs['externalGossipCertificatePems']
+        if 'externalSeedNodeIpAddresses' in kwargs:
+            external_seed_node_ip_addresses = kwargs['externalSeedNodeIpAddresses']
+        if 'hoursBetweenBackups' in kwargs:
+            hours_between_backups = kwargs['hoursBetweenBackups']
+        if 'repairEnabled' in kwargs:
+            repair_enabled = kwargs['repairEnabled']
+
         _setter("default_admin_password", default_admin_password)
         _setter("delegated_management_subnet_id", delegated_management_subnet_id)
         _setter("resource_group_name", resource_group_name)
@@ -351,7 +371,27 @@ class _CassandraClusterState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationMethod' in kwargs:
+            authentication_method = kwargs['authenticationMethod']
+        if 'clientCertificatePems' in kwargs:
+            client_certificate_pems = kwargs['clientCertificatePems']
+        if 'defaultAdminPassword' in kwargs:
+            default_admin_password = kwargs['defaultAdminPassword']
+        if 'delegatedManagementSubnetId' in kwargs:
+            delegated_management_subnet_id = kwargs['delegatedManagementSubnetId']
+        if 'externalGossipCertificatePems' in kwargs:
+            external_gossip_certificate_pems = kwargs['externalGossipCertificatePems']
+        if 'externalSeedNodeIpAddresses' in kwargs:
+            external_seed_node_ip_addresses = kwargs['externalSeedNodeIpAddresses']
+        if 'hoursBetweenBackups' in kwargs:
+            hours_between_backups = kwargs['hoursBetweenBackups']
+        if 'repairEnabled' in kwargs:
+            repair_enabled = kwargs['repairEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if authentication_method is not None:
             _setter("authentication_method", authentication_method)
         if client_certificate_pems is not None:

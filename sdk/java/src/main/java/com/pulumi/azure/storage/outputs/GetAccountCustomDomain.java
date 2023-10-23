@@ -46,9 +46,9 @@ public final class GetAccountCustomDomain {
             return this;
         }
         public GetAccountCustomDomain build() {
-            final var o = new GetAccountCustomDomain();
-            o.name = name;
-            return o;
+            final var _resultValue = new GetAccountCustomDomain();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

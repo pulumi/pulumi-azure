@@ -65,10 +65,10 @@ public final class SubscriptionCostManagementExportExportDataOptions {
             return this;
         }
         public SubscriptionCostManagementExportExportDataOptions build() {
-            final var o = new SubscriptionCostManagementExportExportDataOptions();
-            o.timeFrame = timeFrame;
-            o.type = type;
-            return o;
+            final var _resultValue = new SubscriptionCostManagementExportExportDataOptions();
+            _resultValue.timeFrame = timeFrame;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

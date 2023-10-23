@@ -184,16 +184,16 @@ public final class SpringCloudCustomizedAcceleratorGitRepository {
             return this;
         }
         public SpringCloudCustomizedAcceleratorGitRepository build() {
-            final var o = new SpringCloudCustomizedAcceleratorGitRepository();
-            o.basicAuth = basicAuth;
-            o.branch = branch;
-            o.caCertificateId = caCertificateId;
-            o.commit = commit;
-            o.gitTag = gitTag;
-            o.intervalInSeconds = intervalInSeconds;
-            o.sshAuth = sshAuth;
-            o.url = url;
-            return o;
+            final var _resultValue = new SpringCloudCustomizedAcceleratorGitRepository();
+            _resultValue.basicAuth = basicAuth;
+            _resultValue.branch = branch;
+            _resultValue.caCertificateId = caCertificateId;
+            _resultValue.commit = commit;
+            _resultValue.gitTag = gitTag;
+            _resultValue.intervalInSeconds = intervalInSeconds;
+            _resultValue.sshAuth = sshAuth;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

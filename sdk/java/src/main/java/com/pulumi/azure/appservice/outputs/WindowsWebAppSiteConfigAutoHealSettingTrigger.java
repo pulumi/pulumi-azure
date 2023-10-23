@@ -115,12 +115,12 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTrigger {
             return statusCodes(List.of(statusCodes));
         }
         public WindowsWebAppSiteConfigAutoHealSettingTrigger build() {
-            final var o = new WindowsWebAppSiteConfigAutoHealSettingTrigger();
-            o.privateMemoryKb = privateMemoryKb;
-            o.requests = requests;
-            o.slowRequests = slowRequests;
-            o.statusCodes = statusCodes;
-            return o;
+            final var _resultValue = new WindowsWebAppSiteConfigAutoHealSettingTrigger();
+            _resultValue.privateMemoryKb = privateMemoryKb;
+            _resultValue.requests = requests;
+            _resultValue.slowRequests = slowRequests;
+            _resultValue.statusCodes = statusCodes;
+            return _resultValue;
         }
     }
 }

@@ -148,14 +148,14 @@ public final class FactoryGithubConfiguration {
             return this;
         }
         public FactoryGithubConfiguration build() {
-            final var o = new FactoryGithubConfiguration();
-            o.accountName = accountName;
-            o.branchName = branchName;
-            o.gitUrl = gitUrl;
-            o.publishingEnabled = publishingEnabled;
-            o.repositoryName = repositoryName;
-            o.rootFolder = rootFolder;
-            return o;
+            final var _resultValue = new FactoryGithubConfiguration();
+            _resultValue.accountName = accountName;
+            _resultValue.branchName = branchName;
+            _resultValue.gitUrl = gitUrl;
+            _resultValue.publishingEnabled = publishingEnabled;
+            _resultValue.repositoryName = repositoryName;
+            _resultValue.rootFolder = rootFolder;
+            return _resultValue;
         }
     }
 }

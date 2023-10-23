@@ -39,7 +39,11 @@ class JobCredentialArgs:
              password: pulumi.Input[str],
              username: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobAgentId' in kwargs:
+            job_agent_id = kwargs['jobAgentId']
+
         _setter("job_agent_id", job_agent_id)
         _setter("password", password)
         _setter("username", username)
@@ -123,7 +127,11 @@ class _JobCredentialState:
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'jobAgentId' in kwargs:
+            job_agent_id = kwargs['jobAgentId']
+
         if job_agent_id is not None:
             _setter("job_agent_id", job_agent_id)
         if name is not None:

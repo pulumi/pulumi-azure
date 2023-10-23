@@ -179,15 +179,15 @@ public final class FrontdoorRuleActionsRouteConfigurationOverrideAction {
             return queryStringParameters(List.of(queryStringParameters));
         }
         public FrontdoorRuleActionsRouteConfigurationOverrideAction build() {
-            final var o = new FrontdoorRuleActionsRouteConfigurationOverrideAction();
-            o.cacheBehavior = cacheBehavior;
-            o.cacheDuration = cacheDuration;
-            o.cdnFrontdoorOriginGroupId = cdnFrontdoorOriginGroupId;
-            o.compressionEnabled = compressionEnabled;
-            o.forwardingProtocol = forwardingProtocol;
-            o.queryStringCachingBehavior = queryStringCachingBehavior;
-            o.queryStringParameters = queryStringParameters;
-            return o;
+            final var _resultValue = new FrontdoorRuleActionsRouteConfigurationOverrideAction();
+            _resultValue.cacheBehavior = cacheBehavior;
+            _resultValue.cacheDuration = cacheDuration;
+            _resultValue.cdnFrontdoorOriginGroupId = cdnFrontdoorOriginGroupId;
+            _resultValue.compressionEnabled = compressionEnabled;
+            _resultValue.forwardingProtocol = forwardingProtocol;
+            _resultValue.queryStringCachingBehavior = queryStringCachingBehavior;
+            _resultValue.queryStringParameters = queryStringParameters;
+            return _resultValue;
         }
     }
 }

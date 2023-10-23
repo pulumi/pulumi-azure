@@ -237,18 +237,18 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
             return this;
         }
         public LinuxVirtualMachineScaleSetDataDisk build() {
-            final var o = new LinuxVirtualMachineScaleSetDataDisk();
-            o.caching = caching;
-            o.createOption = createOption;
-            o.diskEncryptionSetId = diskEncryptionSetId;
-            o.diskSizeGb = diskSizeGb;
-            o.lun = lun;
-            o.name = name;
-            o.storageAccountType = storageAccountType;
-            o.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
-            o.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
-            o.writeAcceleratorEnabled = writeAcceleratorEnabled;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetDataDisk();
+            _resultValue.caching = caching;
+            _resultValue.createOption = createOption;
+            _resultValue.diskEncryptionSetId = diskEncryptionSetId;
+            _resultValue.diskSizeGb = diskSizeGb;
+            _resultValue.lun = lun;
+            _resultValue.name = name;
+            _resultValue.storageAccountType = storageAccountType;
+            _resultValue.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
+            _resultValue.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
+            _resultValue.writeAcceleratorEnabled = writeAcceleratorEnabled;
+            return _resultValue;
         }
     }
 }

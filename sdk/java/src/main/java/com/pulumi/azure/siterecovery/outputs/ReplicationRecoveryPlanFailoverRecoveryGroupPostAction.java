@@ -204,16 +204,16 @@ public final class ReplicationRecoveryPlanFailoverRecoveryGroupPostAction {
             return this;
         }
         public ReplicationRecoveryPlanFailoverRecoveryGroupPostAction build() {
-            final var o = new ReplicationRecoveryPlanFailoverRecoveryGroupPostAction();
-            o.fabricLocation = fabricLocation;
-            o.failOverDirections = failOverDirections;
-            o.failOverTypes = failOverTypes;
-            o.manualActionInstruction = manualActionInstruction;
-            o.name = name;
-            o.runbookId = runbookId;
-            o.scriptPath = scriptPath;
-            o.type = type;
-            return o;
+            final var _resultValue = new ReplicationRecoveryPlanFailoverRecoveryGroupPostAction();
+            _resultValue.fabricLocation = fabricLocation;
+            _resultValue.failOverDirections = failOverDirections;
+            _resultValue.failOverTypes = failOverTypes;
+            _resultValue.manualActionInstruction = manualActionInstruction;
+            _resultValue.name = name;
+            _resultValue.runbookId = runbookId;
+            _resultValue.scriptPath = scriptPath;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

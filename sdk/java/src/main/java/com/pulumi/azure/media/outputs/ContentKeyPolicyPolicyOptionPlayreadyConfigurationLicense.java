@@ -263,20 +263,20 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
             return this;
         }
         public ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense build() {
-            final var o = new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense();
-            o.allowTestDevices = allowTestDevices;
-            o.beginDate = beginDate;
-            o.contentKeyLocationFromHeaderEnabled = contentKeyLocationFromHeaderEnabled;
-            o.contentKeyLocationFromKeyId = contentKeyLocationFromKeyId;
-            o.contentType = contentType;
-            o.expirationDate = expirationDate;
-            o.gracePeriod = gracePeriod;
-            o.licenseType = licenseType;
-            o.playRight = playRight;
-            o.relativeBeginDate = relativeBeginDate;
-            o.relativeExpirationDate = relativeExpirationDate;
-            o.securityLevel = securityLevel;
-            return o;
+            final var _resultValue = new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense();
+            _resultValue.allowTestDevices = allowTestDevices;
+            _resultValue.beginDate = beginDate;
+            _resultValue.contentKeyLocationFromHeaderEnabled = contentKeyLocationFromHeaderEnabled;
+            _resultValue.contentKeyLocationFromKeyId = contentKeyLocationFromKeyId;
+            _resultValue.contentType = contentType;
+            _resultValue.expirationDate = expirationDate;
+            _resultValue.gracePeriod = gracePeriod;
+            _resultValue.licenseType = licenseType;
+            _resultValue.playRight = playRight;
+            _resultValue.relativeBeginDate = relativeBeginDate;
+            _resultValue.relativeExpirationDate = relativeExpirationDate;
+            _resultValue.securityLevel = securityLevel;
+            return _resultValue;
         }
     }
 }

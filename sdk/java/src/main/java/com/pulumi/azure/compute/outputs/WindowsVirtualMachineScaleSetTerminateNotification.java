@@ -72,10 +72,10 @@ public final class WindowsVirtualMachineScaleSetTerminateNotification {
             return this;
         }
         public WindowsVirtualMachineScaleSetTerminateNotification build() {
-            final var o = new WindowsVirtualMachineScaleSetTerminateNotification();
-            o.enabled = enabled;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetTerminateNotification();
+            _resultValue.enabled = enabled;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

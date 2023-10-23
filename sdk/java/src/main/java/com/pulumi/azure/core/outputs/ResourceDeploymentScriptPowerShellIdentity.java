@@ -69,10 +69,10 @@ public final class ResourceDeploymentScriptPowerShellIdentity {
             return this;
         }
         public ResourceDeploymentScriptPowerShellIdentity build() {
-            final var o = new ResourceDeploymentScriptPowerShellIdentity();
-            o.identityIds = identityIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new ResourceDeploymentScriptPowerShellIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

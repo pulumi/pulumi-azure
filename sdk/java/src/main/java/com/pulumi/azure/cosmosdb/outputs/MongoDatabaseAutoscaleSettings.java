@@ -48,9 +48,9 @@ public final class MongoDatabaseAutoscaleSettings {
             return this;
         }
         public MongoDatabaseAutoscaleSettings build() {
-            final var o = new MongoDatabaseAutoscaleSettings();
-            o.maxThroughput = maxThroughput;
-            return o;
+            final var _resultValue = new MongoDatabaseAutoscaleSettings();
+            _resultValue.maxThroughput = maxThroughput;
+            return _resultValue;
         }
     }
 }

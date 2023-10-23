@@ -47,7 +47,13 @@ class TriggerHttpRequestArgs:
              method: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              relative_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+        if 'relativePath' in kwargs:
+            relative_path = kwargs['relativePath']
+
         _setter("logic_app_id", logic_app_id)
         _setter("schema", schema)
         if method is not None:
@@ -162,7 +168,15 @@ class _TriggerHttpRequestState:
              name: Optional[pulumi.Input[str]] = None,
              relative_path: Optional[pulumi.Input[str]] = None,
              schema: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'callbackUrl' in kwargs:
+            callback_url = kwargs['callbackUrl']
+        if 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+        if 'relativePath' in kwargs:
+            relative_path = kwargs['relativePath']
+
         if callback_url is not None:
             _setter("callback_url", callback_url)
         if logic_app_id is not None:

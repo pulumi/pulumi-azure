@@ -137,15 +137,15 @@ public final class GetVariableObjectResult {
             return this;
         }
         public GetVariableObjectResult build() {
-            final var o = new GetVariableObjectResult();
-            o.automationAccountName = automationAccountName;
-            o.description = description;
-            o.encrypted = encrypted;
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetVariableObjectResult();
+            _resultValue.automationAccountName = automationAccountName;
+            _resultValue.description = description;
+            _resultValue.encrypted = encrypted;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

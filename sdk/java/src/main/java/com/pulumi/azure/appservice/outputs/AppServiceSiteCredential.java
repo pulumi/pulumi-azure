@@ -67,10 +67,10 @@ public final class AppServiceSiteCredential {
             return this;
         }
         public AppServiceSiteCredential build() {
-            final var o = new AppServiceSiteCredential();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new AppServiceSiteCredential();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

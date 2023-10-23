@@ -50,9 +50,9 @@ public final class TransformOutputCustomPresetFormatTransportStreamOutputFile {
             return labels(List.of(labels));
         }
         public TransformOutputCustomPresetFormatTransportStreamOutputFile build() {
-            final var o = new TransformOutputCustomPresetFormatTransportStreamOutputFile();
-            o.labels = labels;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFormatTransportStreamOutputFile();
+            _resultValue.labels = labels;
+            return _resultValue;
         }
     }
 }

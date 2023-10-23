@@ -87,11 +87,11 @@ public final class SystemTopicEventSubscriptionSubjectFilter {
             return this;
         }
         public SystemTopicEventSubscriptionSubjectFilter build() {
-            final var o = new SystemTopicEventSubscriptionSubjectFilter();
-            o.caseSensitive = caseSensitive;
-            o.subjectBeginsWith = subjectBeginsWith;
-            o.subjectEndsWith = subjectEndsWith;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionSubjectFilter();
+            _resultValue.caseSensitive = caseSensitive;
+            _resultValue.subjectBeginsWith = subjectBeginsWith;
+            _resultValue.subjectEndsWith = subjectEndsWith;
+            return _resultValue;
         }
     }
 }

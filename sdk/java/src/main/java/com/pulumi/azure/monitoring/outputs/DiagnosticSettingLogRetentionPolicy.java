@@ -72,10 +72,10 @@ public final class DiagnosticSettingLogRetentionPolicy {
             return this;
         }
         public DiagnosticSettingLogRetentionPolicy build() {
-            final var o = new DiagnosticSettingLogRetentionPolicy();
-            o.days = days;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new DiagnosticSettingLogRetentionPolicy();
+            _resultValue.days = days;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

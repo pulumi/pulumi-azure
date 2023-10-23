@@ -144,14 +144,14 @@ public final class DatasetParquetAzureBlobFsLocation {
             return this;
         }
         public DatasetParquetAzureBlobFsLocation build() {
-            final var o = new DatasetParquetAzureBlobFsLocation();
-            o.dynamicFileSystemEnabled = dynamicFileSystemEnabled;
-            o.dynamicFilenameEnabled = dynamicFilenameEnabled;
-            o.dynamicPathEnabled = dynamicPathEnabled;
-            o.fileSystem = fileSystem;
-            o.filename = filename;
-            o.path = path;
-            return o;
+            final var _resultValue = new DatasetParquetAzureBlobFsLocation();
+            _resultValue.dynamicFileSystemEnabled = dynamicFileSystemEnabled;
+            _resultValue.dynamicFilenameEnabled = dynamicFilenameEnabled;
+            _resultValue.dynamicPathEnabled = dynamicPathEnabled;
+            _resultValue.fileSystem = fileSystem;
+            _resultValue.filename = filename;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

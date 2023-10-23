@@ -65,10 +65,10 @@ public final class ApiDiagnosticFrontendRequestDataMaskingQueryParam {
             return this;
         }
         public ApiDiagnosticFrontendRequestDataMaskingQueryParam build() {
-            final var o = new ApiDiagnosticFrontendRequestDataMaskingQueryParam();
-            o.mode = mode;
-            o.value = value;
-            return o;
+            final var _resultValue = new ApiDiagnosticFrontendRequestDataMaskingQueryParam();
+            _resultValue.mode = mode;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

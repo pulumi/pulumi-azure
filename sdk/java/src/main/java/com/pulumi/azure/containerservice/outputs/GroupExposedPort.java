@@ -72,10 +72,10 @@ public final class GroupExposedPort {
             return this;
         }
         public GroupExposedPort build() {
-            final var o = new GroupExposedPort();
-            o.port = port;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new GroupExposedPort();
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

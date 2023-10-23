@@ -85,7 +85,25 @@ class LiveEventArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              use_static_hostname: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'autoStartEnabled' in kwargs:
+            auto_start_enabled = kwargs['autoStartEnabled']
+        if 'crossSiteAccessPolicy' in kwargs:
+            cross_site_access_policy = kwargs['crossSiteAccessPolicy']
+        if 'hostnamePrefix' in kwargs:
+            hostname_prefix = kwargs['hostnamePrefix']
+        if 'streamOptions' in kwargs:
+            stream_options = kwargs['streamOptions']
+        if 'transcriptionLanguages' in kwargs:
+            transcription_languages = kwargs['transcriptionLanguages']
+        if 'useStaticHostname' in kwargs:
+            use_static_hostname = kwargs['useStaticHostname']
+
         _setter("input", input)
         _setter("media_services_account_name", media_services_account_name)
         _setter("resource_group_name", resource_group_name)
@@ -367,7 +385,25 @@ class _LiveEventState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              use_static_hostname: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoStartEnabled' in kwargs:
+            auto_start_enabled = kwargs['autoStartEnabled']
+        if 'crossSiteAccessPolicy' in kwargs:
+            cross_site_access_policy = kwargs['crossSiteAccessPolicy']
+        if 'hostnamePrefix' in kwargs:
+            hostname_prefix = kwargs['hostnamePrefix']
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamOptions' in kwargs:
+            stream_options = kwargs['streamOptions']
+        if 'transcriptionLanguages' in kwargs:
+            transcription_languages = kwargs['transcriptionLanguages']
+        if 'useStaticHostname' in kwargs:
+            use_static_hostname = kwargs['useStaticHostname']
+
         if auto_start_enabled is not None:
             _setter("auto_start_enabled", auto_start_enabled)
         if cross_site_access_policy is not None:

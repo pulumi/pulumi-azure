@@ -109,12 +109,12 @@ public final class ConnectedRegistryNotification {
             return this;
         }
         public ConnectedRegistryNotification build() {
-            final var o = new ConnectedRegistryNotification();
-            o.action = action;
-            o.digest = digest;
-            o.name = name;
-            o.tag = tag;
-            return o;
+            final var _resultValue = new ConnectedRegistryNotification();
+            _resultValue.action = action;
+            _resultValue.digest = digest;
+            _resultValue.name = name;
+            _resultValue.tag = tag;
+            return _resultValue;
         }
     }
 }

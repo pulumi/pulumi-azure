@@ -40,9 +40,9 @@ public final class FeaturesApplicationInsights {
             return this;
         }
         public FeaturesApplicationInsights build() {
-            final var o = new FeaturesApplicationInsights();
-            o.disableGeneratedRule = disableGeneratedRule;
-            return o;
+            final var _resultValue = new FeaturesApplicationInsights();
+            _resultValue.disableGeneratedRule = disableGeneratedRule;
+            return _resultValue;
         }
     }
 }

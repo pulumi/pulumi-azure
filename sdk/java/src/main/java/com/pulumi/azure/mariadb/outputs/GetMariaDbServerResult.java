@@ -226,19 +226,19 @@ public final class GetMariaDbServerResult {
             return this;
         }
         public GetMariaDbServerResult build() {
-            final var o = new GetMariaDbServerResult();
-            o.administratorLogin = administratorLogin;
-            o.fqdn = fqdn;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.skuName = skuName;
-            o.sslEnforcement = sslEnforcement;
-            o.storageProfiles = storageProfiles;
-            o.tags = tags;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetMariaDbServerResult();
+            _resultValue.administratorLogin = administratorLogin;
+            _resultValue.fqdn = fqdn;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.skuName = skuName;
+            _resultValue.sslEnforcement = sslEnforcement;
+            _resultValue.storageProfiles = storageProfiles;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

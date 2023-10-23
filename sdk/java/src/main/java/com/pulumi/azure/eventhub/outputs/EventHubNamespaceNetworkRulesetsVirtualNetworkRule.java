@@ -68,10 +68,10 @@ public final class EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
             return this;
         }
         public EventHubNamespaceNetworkRulesetsVirtualNetworkRule build() {
-            final var o = new EventHubNamespaceNetworkRulesetsVirtualNetworkRule();
-            o.ignoreMissingVirtualNetworkServiceEndpoint = ignoreMissingVirtualNetworkServiceEndpoint;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new EventHubNamespaceNetworkRulesetsVirtualNetworkRule();
+            _resultValue.ignoreMissingVirtualNetworkServiceEndpoint = ignoreMissingVirtualNetworkServiceEndpoint;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

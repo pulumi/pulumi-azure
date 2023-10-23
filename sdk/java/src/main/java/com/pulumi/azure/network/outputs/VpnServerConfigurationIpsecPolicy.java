@@ -180,16 +180,16 @@ public final class VpnServerConfigurationIpsecPolicy {
             return this;
         }
         public VpnServerConfigurationIpsecPolicy build() {
-            final var o = new VpnServerConfigurationIpsecPolicy();
-            o.dhGroup = dhGroup;
-            o.ikeEncryption = ikeEncryption;
-            o.ikeIntegrity = ikeIntegrity;
-            o.ipsecEncryption = ipsecEncryption;
-            o.ipsecIntegrity = ipsecIntegrity;
-            o.pfsGroup = pfsGroup;
-            o.saDataSizeKilobytes = saDataSizeKilobytes;
-            o.saLifetimeSeconds = saLifetimeSeconds;
-            return o;
+            final var _resultValue = new VpnServerConfigurationIpsecPolicy();
+            _resultValue.dhGroup = dhGroup;
+            _resultValue.ikeEncryption = ikeEncryption;
+            _resultValue.ikeIntegrity = ikeIntegrity;
+            _resultValue.ipsecEncryption = ipsecEncryption;
+            _resultValue.ipsecIntegrity = ipsecIntegrity;
+            _resultValue.pfsGroup = pfsGroup;
+            _resultValue.saDataSizeKilobytes = saDataSizeKilobytes;
+            _resultValue.saLifetimeSeconds = saLifetimeSeconds;
+            return _resultValue;
         }
     }
 }

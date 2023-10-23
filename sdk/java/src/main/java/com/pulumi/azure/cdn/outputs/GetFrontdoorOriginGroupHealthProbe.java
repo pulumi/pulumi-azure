@@ -104,12 +104,12 @@ public final class GetFrontdoorOriginGroupHealthProbe {
             return this;
         }
         public GetFrontdoorOriginGroupHealthProbe build() {
-            final var o = new GetFrontdoorOriginGroupHealthProbe();
-            o.intervalInSeconds = intervalInSeconds;
-            o.path = path;
-            o.protocol = protocol;
-            o.requestType = requestType;
-            return o;
+            final var _resultValue = new GetFrontdoorOriginGroupHealthProbe();
+            _resultValue.intervalInSeconds = intervalInSeconds;
+            _resultValue.path = path;
+            _resultValue.protocol = protocol;
+            _resultValue.requestType = requestType;
+            return _resultValue;
         }
     }
 }

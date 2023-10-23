@@ -106,12 +106,12 @@ public final class ManagedDatabaseLongTermRetentionPolicy {
             return this;
         }
         public ManagedDatabaseLongTermRetentionPolicy build() {
-            final var o = new ManagedDatabaseLongTermRetentionPolicy();
-            o.monthlyRetention = monthlyRetention;
-            o.weekOfYear = weekOfYear;
-            o.weeklyRetention = weeklyRetention;
-            o.yearlyRetention = yearlyRetention;
-            return o;
+            final var _resultValue = new ManagedDatabaseLongTermRetentionPolicy();
+            _resultValue.monthlyRetention = monthlyRetention;
+            _resultValue.weekOfYear = weekOfYear;
+            _resultValue.weeklyRetention = weeklyRetention;
+            _resultValue.yearlyRetention = yearlyRetention;
+            return _resultValue;
         }
     }
 }

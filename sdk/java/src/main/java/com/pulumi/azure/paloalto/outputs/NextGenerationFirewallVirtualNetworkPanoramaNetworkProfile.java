@@ -121,13 +121,13 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile {
             return this;
         }
         public NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile build() {
-            final var o = new NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile();
-            o.egressNatIpAddressIds = egressNatIpAddressIds;
-            o.egressNatIpAddresses = egressNatIpAddresses;
-            o.publicIpAddressIds = publicIpAddressIds;
-            o.publicIpAddresses = publicIpAddresses;
-            o.vnetConfiguration = vnetConfiguration;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile();
+            _resultValue.egressNatIpAddressIds = egressNatIpAddressIds;
+            _resultValue.egressNatIpAddresses = egressNatIpAddresses;
+            _resultValue.publicIpAddressIds = publicIpAddressIds;
+            _resultValue.publicIpAddresses = publicIpAddresses;
+            _resultValue.vnetConfiguration = vnetConfiguration;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class ServiceSignUp {
             return this;
         }
         public ServiceSignUp build() {
-            final var o = new ServiceSignUp();
-            o.enabled = enabled;
-            o.termsOfService = termsOfService;
-            return o;
+            final var _resultValue = new ServiceSignUp();
+            _resultValue.enabled = enabled;
+            _resultValue.termsOfService = termsOfService;
+            return _resultValue;
         }
     }
 }

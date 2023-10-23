@@ -46,9 +46,9 @@ public final class VirtualNetworkEncryption {
             return this;
         }
         public VirtualNetworkEncryption build() {
-            final var o = new VirtualNetworkEncryption();
-            o.enforcement = enforcement;
-            return o;
+            final var _resultValue = new VirtualNetworkEncryption();
+            _resultValue.enforcement = enforcement;
+            return _resultValue;
         }
     }
 }

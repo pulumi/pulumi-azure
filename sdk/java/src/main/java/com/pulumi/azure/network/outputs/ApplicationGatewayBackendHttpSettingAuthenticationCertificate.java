@@ -67,10 +67,10 @@ public final class ApplicationGatewayBackendHttpSettingAuthenticationCertificate
             return this;
         }
         public ApplicationGatewayBackendHttpSettingAuthenticationCertificate build() {
-            final var o = new ApplicationGatewayBackendHttpSettingAuthenticationCertificate();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new ApplicationGatewayBackendHttpSettingAuthenticationCertificate();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

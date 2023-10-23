@@ -145,14 +145,14 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicy {
             return this;
         }
         public LinuxVirtualMachineScaleSetRollingUpgradePolicy build() {
-            final var o = new LinuxVirtualMachineScaleSetRollingUpgradePolicy();
-            o.crossZoneUpgradesEnabled = crossZoneUpgradesEnabled;
-            o.maxBatchInstancePercent = maxBatchInstancePercent;
-            o.maxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
-            o.maxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
-            o.pauseTimeBetweenBatches = pauseTimeBetweenBatches;
-            o.prioritizeUnhealthyInstancesEnabled = prioritizeUnhealthyInstancesEnabled;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetRollingUpgradePolicy();
+            _resultValue.crossZoneUpgradesEnabled = crossZoneUpgradesEnabled;
+            _resultValue.maxBatchInstancePercent = maxBatchInstancePercent;
+            _resultValue.maxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
+            _resultValue.maxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
+            _resultValue.pauseTimeBetweenBatches = pauseTimeBetweenBatches;
+            _resultValue.prioritizeUnhealthyInstancesEnabled = prioritizeUnhealthyInstancesEnabled;
+            return _resultValue;
         }
     }
 }

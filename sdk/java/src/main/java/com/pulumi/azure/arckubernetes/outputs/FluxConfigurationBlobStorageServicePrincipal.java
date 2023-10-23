@@ -144,14 +144,14 @@ public final class FluxConfigurationBlobStorageServicePrincipal {
             return this;
         }
         public FluxConfigurationBlobStorageServicePrincipal build() {
-            final var o = new FluxConfigurationBlobStorageServicePrincipal();
-            o.clientCertificateBase64 = clientCertificateBase64;
-            o.clientCertificatePassword = clientCertificatePassword;
-            o.clientCertificateSendChain = clientCertificateSendChain;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new FluxConfigurationBlobStorageServicePrincipal();
+            _resultValue.clientCertificateBase64 = clientCertificateBase64;
+            _resultValue.clientCertificatePassword = clientCertificatePassword;
+            _resultValue.clientCertificateSendChain = clientCertificateSendChain;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

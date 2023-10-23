@@ -43,7 +43,15 @@ class NetworkManagerDeploymentArgs:
              scope_access: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
              triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationIds' in kwargs:
+            configuration_ids = kwargs['configurationIds']
+        if 'networkManagerId' in kwargs:
+            network_manager_id = kwargs['networkManagerId']
+        if 'scopeAccess' in kwargs:
+            scope_access = kwargs['scopeAccess']
+
         _setter("configuration_ids", configuration_ids)
         _setter("network_manager_id", network_manager_id)
         _setter("scope_access", scope_access)
@@ -145,7 +153,15 @@ class _NetworkManagerDeploymentState:
              network_manager_id: Optional[pulumi.Input[str]] = None,
              scope_access: Optional[pulumi.Input[str]] = None,
              triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configurationIds' in kwargs:
+            configuration_ids = kwargs['configurationIds']
+        if 'networkManagerId' in kwargs:
+            network_manager_id = kwargs['networkManagerId']
+        if 'scopeAccess' in kwargs:
+            scope_access = kwargs['scopeAccess']
+
         if configuration_ids is not None:
             _setter("configuration_ids", configuration_ids)
         if location is not None:

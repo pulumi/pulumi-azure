@@ -61,7 +61,23 @@ class ScaleSetPacketCaptureArgs:
              maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
              maximum_capture_duration_in_seconds: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkWatcherId' in kwargs:
+            network_watcher_id = kwargs['networkWatcherId']
+        if 'storageLocation' in kwargs:
+            storage_location = kwargs['storageLocation']
+        if 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+        if 'machineScope' in kwargs:
+            machine_scope = kwargs['machineScope']
+        if 'maximumBytesPerPacket' in kwargs:
+            maximum_bytes_per_packet = kwargs['maximumBytesPerPacket']
+        if 'maximumBytesPerSession' in kwargs:
+            maximum_bytes_per_session = kwargs['maximumBytesPerSession']
+        if 'maximumCaptureDurationInSeconds' in kwargs:
+            maximum_capture_duration_in_seconds = kwargs['maximumCaptureDurationInSeconds']
+
         _setter("network_watcher_id", network_watcher_id)
         _setter("storage_location", storage_location)
         _setter("virtual_machine_scale_set_id", virtual_machine_scale_set_id)
@@ -235,7 +251,23 @@ class _ScaleSetPacketCaptureState:
              network_watcher_id: Optional[pulumi.Input[str]] = None,
              storage_location: Optional[pulumi.Input['ScaleSetPacketCaptureStorageLocationArgs']] = None,
              virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'machineScope' in kwargs:
+            machine_scope = kwargs['machineScope']
+        if 'maximumBytesPerPacket' in kwargs:
+            maximum_bytes_per_packet = kwargs['maximumBytesPerPacket']
+        if 'maximumBytesPerSession' in kwargs:
+            maximum_bytes_per_session = kwargs['maximumBytesPerSession']
+        if 'maximumCaptureDurationInSeconds' in kwargs:
+            maximum_capture_duration_in_seconds = kwargs['maximumCaptureDurationInSeconds']
+        if 'networkWatcherId' in kwargs:
+            network_watcher_id = kwargs['networkWatcherId']
+        if 'storageLocation' in kwargs:
+            storage_location = kwargs['storageLocation']
+        if 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+
         if filters is not None:
             _setter("filters", filters)
         if machine_scope is not None:

@@ -73,7 +73,29 @@ class EndpointStorageContainerArgs:
              identity_id: Optional[pulumi.Input[str]] = None,
              max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'batchFrequencyInSeconds' in kwargs:
+            batch_frequency_in_seconds = kwargs['batchFrequencyInSeconds']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'endpointUri' in kwargs:
+            endpoint_uri = kwargs['endpointUri']
+        if 'fileNameFormat' in kwargs:
+            file_name_format = kwargs['fileNameFormat']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'maxChunkSizeInBytes' in kwargs:
+            max_chunk_size_in_bytes = kwargs['maxChunkSizeInBytes']
+
         _setter("container_name", container_name)
         _setter("iothub_id", iothub_id)
         _setter("resource_group_name", resource_group_name)
@@ -305,7 +327,29 @@ class _EndpointStorageContainerState:
              max_chunk_size_in_bytes: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'batchFrequencyInSeconds' in kwargs:
+            batch_frequency_in_seconds = kwargs['batchFrequencyInSeconds']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if 'endpointUri' in kwargs:
+            endpoint_uri = kwargs['endpointUri']
+        if 'fileNameFormat' in kwargs:
+            file_name_format = kwargs['fileNameFormat']
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if 'maxChunkSizeInBytes' in kwargs:
+            max_chunk_size_in_bytes = kwargs['maxChunkSizeInBytes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if authentication_type is not None:
             _setter("authentication_type", authentication_type)
         if batch_frequency_in_seconds is not None:

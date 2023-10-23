@@ -65,10 +65,10 @@ public final class FunctionAppFunctionFile {
             return this;
         }
         public FunctionAppFunctionFile build() {
-            final var o = new FunctionAppFunctionFile();
-            o.content = content;
-            o.name = name;
-            return o;
+            final var _resultValue = new FunctionAppFunctionFile();
+            _resultValue.content = content;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

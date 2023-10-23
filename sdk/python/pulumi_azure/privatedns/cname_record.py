@@ -47,7 +47,13 @@ class CnameRecordArgs:
              zone_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'zoneName' in kwargs:
+            zone_name = kwargs['zoneName']
+
         _setter("record", record)
         _setter("resource_group_name", resource_group_name)
         _setter("ttl", ttl)
@@ -170,7 +176,13 @@ class _CnameRecordState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              ttl: Optional[pulumi.Input[int]] = None,
              zone_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'zoneName' in kwargs:
+            zone_name = kwargs['zoneName']
+
         if fqdn is not None:
             _setter("fqdn", fqdn)
         if name is not None:

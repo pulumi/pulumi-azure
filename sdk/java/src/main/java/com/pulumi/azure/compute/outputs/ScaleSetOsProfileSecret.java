@@ -71,10 +71,10 @@ public final class ScaleSetOsProfileSecret {
             return vaultCertificates(List.of(vaultCertificates));
         }
         public ScaleSetOsProfileSecret build() {
-            final var o = new ScaleSetOsProfileSecret();
-            o.sourceVaultId = sourceVaultId;
-            o.vaultCertificates = vaultCertificates;
-            return o;
+            final var _resultValue = new ScaleSetOsProfileSecret();
+            _resultValue.sourceVaultId = sourceVaultId;
+            _resultValue.vaultCertificates = vaultCertificates;
+            return _resultValue;
         }
     }
 }

@@ -50,9 +50,9 @@ public final class ScaleSetNetworkProfileDnsSettings {
             return dnsServers(List.of(dnsServers));
         }
         public ScaleSetNetworkProfileDnsSettings build() {
-            final var o = new ScaleSetNetworkProfileDnsSettings();
-            o.dnsServers = dnsServers;
-            return o;
+            final var _resultValue = new ScaleSetNetworkProfileDnsSettings();
+            _resultValue.dnsServers = dnsServers;
+            return _resultValue;
         }
     }
 }

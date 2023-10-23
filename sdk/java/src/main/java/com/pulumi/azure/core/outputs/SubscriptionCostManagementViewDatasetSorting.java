@@ -65,10 +65,10 @@ public final class SubscriptionCostManagementViewDatasetSorting {
             return this;
         }
         public SubscriptionCostManagementViewDatasetSorting build() {
-            final var o = new SubscriptionCostManagementViewDatasetSorting();
-            o.direction = direction;
-            o.name = name;
-            return o;
+            final var _resultValue = new SubscriptionCostManagementViewDatasetSorting();
+            _resultValue.direction = direction;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

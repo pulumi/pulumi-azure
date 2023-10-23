@@ -97,12 +97,12 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVne
             return this;
         }
         public NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration build() {
-            final var o = new NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration();
-            o.ipOfTrustForUserDefinedRoutes = ipOfTrustForUserDefinedRoutes;
-            o.trustedSubnetId = trustedSubnetId;
-            o.untrustedSubnetId = untrustedSubnetId;
-            o.virtualNetworkId = virtualNetworkId;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration();
+            _resultValue.ipOfTrustForUserDefinedRoutes = ipOfTrustForUserDefinedRoutes;
+            _resultValue.trustedSubnetId = trustedSubnetId;
+            _resultValue.untrustedSubnetId = untrustedSubnetId;
+            _resultValue.virtualNetworkId = virtualNetworkId;
+            return _resultValue;
         }
     }
 }

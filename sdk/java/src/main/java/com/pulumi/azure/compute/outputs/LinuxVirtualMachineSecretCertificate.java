@@ -50,9 +50,9 @@ public final class LinuxVirtualMachineSecretCertificate {
             return this;
         }
         public LinuxVirtualMachineSecretCertificate build() {
-            final var o = new LinuxVirtualMachineSecretCertificate();
-            o.url = url;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineSecretCertificate();
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

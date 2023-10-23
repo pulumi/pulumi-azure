@@ -84,11 +84,11 @@ public final class GetAppServiceConnectionString {
             return this;
         }
         public GetAppServiceConnectionString build() {
-            final var o = new GetAppServiceConnectionString();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetAppServiceConnectionString();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -12,11 +12,13 @@ namespace Pulumi.Azure.Cdn.Inputs
 
     public sealed class FrontdoorRuleConditionsUrlFilenameConditionGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("matchValues", required: true)]
+        [Input("matchValues")]
         private InputList<string>? _matchValues;
 
         /// <summary>
         /// A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+        /// 
+        /// &gt; **NOTE:** The `match_values` field is only optional if the `operator` is set to `Any`.
         /// </summary>
         public InputList<string> MatchValues
         {

@@ -106,12 +106,12 @@ public final class TransformOutputFaceDetectorPreset {
             return this;
         }
         public TransformOutputFaceDetectorPreset build() {
-            final var o = new TransformOutputFaceDetectorPreset();
-            o.analysisResolution = analysisResolution;
-            o.blurType = blurType;
-            o.experimentalOptions = experimentalOptions;
-            o.faceRedactorMode = faceRedactorMode;
-            return o;
+            final var _resultValue = new TransformOutputFaceDetectorPreset();
+            _resultValue.analysisResolution = analysisResolution;
+            _resultValue.blurType = blurType;
+            _resultValue.experimentalOptions = experimentalOptions;
+            _resultValue.faceRedactorMode = faceRedactorMode;
+            return _resultValue;
         }
     }
 }

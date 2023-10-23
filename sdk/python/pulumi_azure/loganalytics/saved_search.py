@@ -55,7 +55,17 @@ class SavedSearchArgs:
              function_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'functionAlias' in kwargs:
+            function_alias = kwargs['functionAlias']
+        if 'functionParameters' in kwargs:
+            function_parameters = kwargs['functionParameters']
+
         _setter("category", category)
         _setter("display_name", display_name)
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
@@ -210,7 +220,17 @@ class _SavedSearchState:
              name: Optional[pulumi.Input[str]] = None,
              query: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'functionAlias' in kwargs:
+            function_alias = kwargs['functionAlias']
+        if 'functionParameters' in kwargs:
+            function_parameters = kwargs['functionParameters']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+
         if category is not None:
             _setter("category", category)
         if display_name is not None:

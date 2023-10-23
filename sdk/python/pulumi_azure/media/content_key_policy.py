@@ -45,7 +45,15 @@ class ContentKeyPolicyArgs:
              resource_group_name: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'policyOptions' in kwargs:
+            policy_options = kwargs['policyOptions']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("media_services_account_name", media_services_account_name)
         _setter("policy_options", policy_options)
         _setter("resource_group_name", resource_group_name)
@@ -147,7 +155,15 @@ class _ContentKeyPolicyState:
              name: Optional[pulumi.Input[str]] = None,
              policy_options: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'policyOptions' in kwargs:
+            policy_options = kwargs['policyOptions']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if description is not None:
             _setter("description", description)
         if media_services_account_name is not None:

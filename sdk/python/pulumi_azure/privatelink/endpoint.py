@@ -61,7 +61,21 @@ class EndpointArgs:
              name: Optional[pulumi.Input[str]] = None,
              private_dns_zone_group: Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateServiceConnection' in kwargs:
+            private_service_connection = kwargs['privateServiceConnection']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'customNetworkInterfaceName' in kwargs:
+            custom_network_interface_name = kwargs['customNetworkInterfaceName']
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'privateDnsZoneGroup' in kwargs:
+            private_dns_zone_group = kwargs['privateDnsZoneGroup']
+
         _setter("private_service_connection", private_service_connection)
         _setter("resource_group_name", resource_group_name)
         _setter("subnet_id", subnet_id)
@@ -247,7 +261,27 @@ class _EndpointState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customDnsConfigs' in kwargs:
+            custom_dns_configs = kwargs['customDnsConfigs']
+        if 'customNetworkInterfaceName' in kwargs:
+            custom_network_interface_name = kwargs['customNetworkInterfaceName']
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'privateDnsZoneConfigs' in kwargs:
+            private_dns_zone_configs = kwargs['privateDnsZoneConfigs']
+        if 'privateDnsZoneGroup' in kwargs:
+            private_dns_zone_group = kwargs['privateDnsZoneGroup']
+        if 'privateServiceConnection' in kwargs:
+            private_service_connection = kwargs['privateServiceConnection']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if custom_dns_configs is not None:
             _setter("custom_dns_configs", custom_dns_configs)
         if custom_network_interface_name is not None:

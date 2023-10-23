@@ -77,7 +77,31 @@ class RuleArgs:
              load_distribution: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              probe_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'frontendIpConfigurationName' in kwargs:
+            frontend_ip_configuration_name = kwargs['frontendIpConfigurationName']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+        if 'loadbalancerId' in kwargs:
+            loadbalancer_id = kwargs['loadbalancerId']
+        if 'backendAddressPoolIds' in kwargs:
+            backend_address_pool_ids = kwargs['backendAddressPoolIds']
+        if 'disableOutboundSnat' in kwargs:
+            disable_outbound_snat = kwargs['disableOutboundSnat']
+        if 'enableFloatingIp' in kwargs:
+            enable_floating_ip = kwargs['enableFloatingIp']
+        if 'enableTcpReset' in kwargs:
+            enable_tcp_reset = kwargs['enableTcpReset']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'loadDistribution' in kwargs:
+            load_distribution = kwargs['loadDistribution']
+        if 'probeId' in kwargs:
+            probe_id = kwargs['probeId']
+
         _setter("backend_port", backend_port)
         _setter("frontend_ip_configuration_name", frontend_ip_configuration_name)
         _setter("frontend_port", frontend_port)
@@ -328,7 +352,33 @@ class _RuleState:
              name: Optional[pulumi.Input[str]] = None,
              probe_id: Optional[pulumi.Input[str]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendAddressPoolIds' in kwargs:
+            backend_address_pool_ids = kwargs['backendAddressPoolIds']
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'disableOutboundSnat' in kwargs:
+            disable_outbound_snat = kwargs['disableOutboundSnat']
+        if 'enableFloatingIp' in kwargs:
+            enable_floating_ip = kwargs['enableFloatingIp']
+        if 'enableTcpReset' in kwargs:
+            enable_tcp_reset = kwargs['enableTcpReset']
+        if 'frontendIpConfigurationId' in kwargs:
+            frontend_ip_configuration_id = kwargs['frontendIpConfigurationId']
+        if 'frontendIpConfigurationName' in kwargs:
+            frontend_ip_configuration_name = kwargs['frontendIpConfigurationName']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'loadDistribution' in kwargs:
+            load_distribution = kwargs['loadDistribution']
+        if 'loadbalancerId' in kwargs:
+            loadbalancer_id = kwargs['loadbalancerId']
+        if 'probeId' in kwargs:
+            probe_id = kwargs['probeId']
+
         if backend_address_pool_ids is not None:
             _setter("backend_address_pool_ids", backend_address_pool_ids)
         if backend_port is not None:

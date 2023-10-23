@@ -91,11 +91,11 @@ public final class ServiceNotifications {
             return this;
         }
         public ServiceNotifications build() {
-            final var o = new ServiceNotifications();
-            o.additionalRecipients = additionalRecipients;
-            o.notifyDcAdmins = notifyDcAdmins;
-            o.notifyGlobalAdmins = notifyGlobalAdmins;
-            return o;
+            final var _resultValue = new ServiceNotifications();
+            _resultValue.additionalRecipients = additionalRecipients;
+            _resultValue.notifyDcAdmins = notifyDcAdmins;
+            _resultValue.notifyGlobalAdmins = notifyGlobalAdmins;
+            return _resultValue;
         }
     }
 }

@@ -74,10 +74,10 @@ public final class KubernetesClusterMaintenanceWindow {
             return notAlloweds(List.of(notAlloweds));
         }
         public KubernetesClusterMaintenanceWindow build() {
-            final var o = new KubernetesClusterMaintenanceWindow();
-            o.alloweds = alloweds;
-            o.notAlloweds = notAlloweds;
-            return o;
+            final var _resultValue = new KubernetesClusterMaintenanceWindow();
+            _resultValue.alloweds = alloweds;
+            _resultValue.notAlloweds = notAlloweds;
+            return _resultValue;
         }
     }
 }

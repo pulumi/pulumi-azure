@@ -67,10 +67,10 @@ public final class DataFlowSourceSchemaLinkedService {
             return this;
         }
         public DataFlowSourceSchemaLinkedService build() {
-            final var o = new DataFlowSourceSchemaLinkedService();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new DataFlowSourceSchemaLinkedService();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

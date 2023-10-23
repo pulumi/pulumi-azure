@@ -161,14 +161,14 @@ public final class AttachedDatabaseConfigurationSharing {
             return tablesToIncludes(List.of(tablesToIncludes));
         }
         public AttachedDatabaseConfigurationSharing build() {
-            final var o = new AttachedDatabaseConfigurationSharing();
-            o.externalTablesToExcludes = externalTablesToExcludes;
-            o.externalTablesToIncludes = externalTablesToIncludes;
-            o.materializedViewsToExcludes = materializedViewsToExcludes;
-            o.materializedViewsToIncludes = materializedViewsToIncludes;
-            o.tablesToExcludes = tablesToExcludes;
-            o.tablesToIncludes = tablesToIncludes;
-            return o;
+            final var _resultValue = new AttachedDatabaseConfigurationSharing();
+            _resultValue.externalTablesToExcludes = externalTablesToExcludes;
+            _resultValue.externalTablesToIncludes = externalTablesToIncludes;
+            _resultValue.materializedViewsToExcludes = materializedViewsToExcludes;
+            _resultValue.materializedViewsToIncludes = materializedViewsToIncludes;
+            _resultValue.tablesToExcludes = tablesToExcludes;
+            _resultValue.tablesToIncludes = tablesToIncludes;
+            return _resultValue;
         }
     }
 }

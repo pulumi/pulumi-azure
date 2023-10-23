@@ -114,12 +114,12 @@ public final class LinuxVirtualMachineScaleSetGalleryApplication {
             return this;
         }
         public LinuxVirtualMachineScaleSetGalleryApplication build() {
-            final var o = new LinuxVirtualMachineScaleSetGalleryApplication();
-            o.configurationReferenceBlobUri = configurationReferenceBlobUri;
-            o.order = order;
-            o.packageReferenceId = packageReferenceId;
-            o.tag = tag;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetGalleryApplication();
+            _resultValue.configurationReferenceBlobUri = configurationReferenceBlobUri;
+            _resultValue.order = order;
+            _resultValue.packageReferenceId = packageReferenceId;
+            _resultValue.tag = tag;
+            return _resultValue;
         }
     }
 }

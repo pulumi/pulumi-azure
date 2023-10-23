@@ -435,29 +435,29 @@ public final class GetAppServiceResult {
             return this;
         }
         public GetAppServiceResult build() {
-            final var o = new GetAppServiceResult();
-            o.appServicePlanId = appServicePlanId;
-            o.appSettings = appSettings;
-            o.clientAffinityEnabled = clientAffinityEnabled;
-            o.clientCertEnabled = clientCertEnabled;
-            o.connectionStrings = connectionStrings;
-            o.customDomainVerificationId = customDomainVerificationId;
-            o.defaultSiteHostname = defaultSiteHostname;
-            o.enabled = enabled;
-            o.httpsOnly = httpsOnly;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.outboundIpAddressLists = outboundIpAddressLists;
-            o.outboundIpAddresses = outboundIpAddresses;
-            o.possibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
-            o.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
-            o.resourceGroupName = resourceGroupName;
-            o.siteConfigs = siteConfigs;
-            o.siteCredentials = siteCredentials;
-            o.sourceControls = sourceControls;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetAppServiceResult();
+            _resultValue.appServicePlanId = appServicePlanId;
+            _resultValue.appSettings = appSettings;
+            _resultValue.clientAffinityEnabled = clientAffinityEnabled;
+            _resultValue.clientCertEnabled = clientCertEnabled;
+            _resultValue.connectionStrings = connectionStrings;
+            _resultValue.customDomainVerificationId = customDomainVerificationId;
+            _resultValue.defaultSiteHostname = defaultSiteHostname;
+            _resultValue.enabled = enabled;
+            _resultValue.httpsOnly = httpsOnly;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.outboundIpAddressLists = outboundIpAddressLists;
+            _resultValue.outboundIpAddresses = outboundIpAddresses;
+            _resultValue.possibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
+            _resultValue.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.siteConfigs = siteConfigs;
+            _resultValue.siteCredentials = siteCredentials;
+            _resultValue.sourceControls = sourceControls;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

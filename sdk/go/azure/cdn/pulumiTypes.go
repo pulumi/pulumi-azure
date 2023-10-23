@@ -12424,6 +12424,8 @@ func (o FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput) Index(i pul
 
 type FrontdoorRuleConditionsUrlFilenameCondition struct {
 	// A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+	//
+	// > **NOTE:** The `matchValues` field is only optional if the `operator` is set to `Any`.
 	MatchValues []string `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
@@ -12446,6 +12448,8 @@ type FrontdoorRuleConditionsUrlFilenameConditionInput interface {
 
 type FrontdoorRuleConditionsUrlFilenameConditionArgs struct {
 	// A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+	//
+	// > **NOTE:** The `matchValues` field is only optional if the `operator` is set to `Any`.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
@@ -12525,6 +12529,8 @@ func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) ToOutput(ctx context.
 }
 
 // A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+//
+// > **NOTE:** The `matchValues` field is only optional if the `operator` is set to `Any`.
 func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) MatchValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFilenameCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
 }

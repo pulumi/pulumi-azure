@@ -90,11 +90,11 @@ public final class FrontdoorCustomDomainTls {
             return this;
         }
         public FrontdoorCustomDomainTls build() {
-            final var o = new FrontdoorCustomDomainTls();
-            o.cdnFrontdoorSecretId = cdnFrontdoorSecretId;
-            o.certificateType = certificateType;
-            o.minimumTlsVersion = minimumTlsVersion;
-            return o;
+            final var _resultValue = new FrontdoorCustomDomainTls();
+            _resultValue.cdnFrontdoorSecretId = cdnFrontdoorSecretId;
+            _resultValue.certificateType = certificateType;
+            _resultValue.minimumTlsVersion = minimumTlsVersion;
+            return _resultValue;
         }
     }
 }

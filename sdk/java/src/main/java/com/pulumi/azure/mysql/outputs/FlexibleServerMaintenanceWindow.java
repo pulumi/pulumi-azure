@@ -86,11 +86,11 @@ public final class FlexibleServerMaintenanceWindow {
             return this;
         }
         public FlexibleServerMaintenanceWindow build() {
-            final var o = new FlexibleServerMaintenanceWindow();
-            o.dayOfWeek = dayOfWeek;
-            o.startHour = startHour;
-            o.startMinute = startMinute;
-            return o;
+            final var _resultValue = new FlexibleServerMaintenanceWindow();
+            _resultValue.dayOfWeek = dayOfWeek;
+            _resultValue.startHour = startHour;
+            _resultValue.startMinute = startMinute;
+            return _resultValue;
         }
     }
 }

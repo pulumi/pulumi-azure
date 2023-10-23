@@ -48,7 +48,17 @@ class FlexibleServerCustomerManagedKeyArgs:
              geo_backup_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
              key_vault_key_id: Optional[pulumi.Input[str]] = None,
              primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'geoBackupKeyVaultKeyId' in kwargs:
+            geo_backup_key_vault_key_id = kwargs['geoBackupKeyVaultKeyId']
+        if 'geoBackupUserAssignedIdentityId' in kwargs:
+            geo_backup_user_assigned_identity_id = kwargs['geoBackupUserAssignedIdentityId']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'primaryUserAssignedIdentityId' in kwargs:
+            primary_user_assigned_identity_id = kwargs['primaryUserAssignedIdentityId']
+
         if geo_backup_key_vault_key_id is not None:
             _setter("geo_backup_key_vault_key_id", geo_backup_key_vault_key_id)
         if geo_backup_user_assigned_identity_id is not None:
@@ -129,7 +139,11 @@ class FlexibleServerHighAvailabilityArgs:
              _setter: Callable[[Any, Any], None],
              mode: pulumi.Input[str],
              standby_availability_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'standbyAvailabilityZone' in kwargs:
+            standby_availability_zone = kwargs['standbyAvailabilityZone']
+
         _setter("mode", mode)
         if standby_availability_zone is not None:
             _setter("standby_availability_zone", standby_availability_zone)
@@ -177,7 +191,11 @@ class FlexibleServerIdentityArgs:
              _setter: Callable[[Any, Any], None],
              identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+
         _setter("identity_ids", identity_ids)
         _setter("type", type)
 
@@ -229,7 +247,15 @@ class FlexibleServerMaintenanceWindowArgs:
              day_of_week: Optional[pulumi.Input[int]] = None,
              start_hour: Optional[pulumi.Input[int]] = None,
              start_minute: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if 'startMinute' in kwargs:
+            start_minute = kwargs['startMinute']
+
         if day_of_week is not None:
             _setter("day_of_week", day_of_week)
         if start_hour is not None:
@@ -301,7 +327,15 @@ class FlexibleServerStorageArgs:
              io_scaling_enabled: Optional[pulumi.Input[bool]] = None,
              iops: Optional[pulumi.Input[int]] = None,
              size_gb: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoGrowEnabled' in kwargs:
+            auto_grow_enabled = kwargs['autoGrowEnabled']
+        if 'ioScalingEnabled' in kwargs:
+            io_scaling_enabled = kwargs['ioScalingEnabled']
+        if 'sizeGb' in kwargs:
+            size_gb = kwargs['sizeGb']
+
         if auto_grow_enabled is not None:
             _setter("auto_grow_enabled", auto_grow_enabled)
         if io_scaling_enabled is not None:
@@ -383,7 +417,13 @@ class ServerIdentityArgs:
              type: pulumi.Input[str],
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if principal_id is not None:
             _setter("principal_id", principal_id)
@@ -466,7 +506,21 @@ class ServerThreatDetectionPolicyArgs:
              retention_days: Optional[pulumi.Input[int]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disabledAlerts' in kwargs:
+            disabled_alerts = kwargs['disabledAlerts']
+        if 'emailAccountAdmins' in kwargs:
+            email_account_admins = kwargs['emailAccountAdmins']
+        if 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         if disabled_alerts is not None:
             _setter("disabled_alerts", disabled_alerts)
         if email_account_admins is not None:

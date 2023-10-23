@@ -69,7 +69,17 @@ class ServicesCommunicationsGatewayServiceLocation(dict):
              allowed_media_source_address_prefixes: Optional[Sequence[str]] = None,
              allowed_signaling_source_address_prefixes: Optional[Sequence[str]] = None,
              esrp_addresses: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'operatorAddresses' in kwargs:
+            operator_addresses = kwargs['operatorAddresses']
+        if 'allowedMediaSourceAddressPrefixes' in kwargs:
+            allowed_media_source_address_prefixes = kwargs['allowedMediaSourceAddressPrefixes']
+        if 'allowedSignalingSourceAddressPrefixes' in kwargs:
+            allowed_signaling_source_address_prefixes = kwargs['allowedSignalingSourceAddressPrefixes']
+        if 'esrpAddresses' in kwargs:
+            esrp_addresses = kwargs['esrpAddresses']
+
         _setter("location", location)
         _setter("operator_addresses", operator_addresses)
         if allowed_media_source_address_prefixes is not None:

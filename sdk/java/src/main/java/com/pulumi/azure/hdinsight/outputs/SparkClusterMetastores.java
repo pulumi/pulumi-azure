@@ -88,11 +88,11 @@ public final class SparkClusterMetastores {
             return this;
         }
         public SparkClusterMetastores build() {
-            final var o = new SparkClusterMetastores();
-            o.ambari = ambari;
-            o.hive = hive;
-            o.oozie = oozie;
-            return o;
+            final var _resultValue = new SparkClusterMetastores();
+            _resultValue.ambari = ambari;
+            _resultValue.hive = hive;
+            _resultValue.oozie = oozie;
+            return _resultValue;
         }
     }
 }

@@ -70,10 +70,10 @@ public final class GetWindowsWebAppSiteConfigCor {
             return this;
         }
         public GetWindowsWebAppSiteConfigCor build() {
-            final var o = new GetWindowsWebAppSiteConfigCor();
-            o.allowedOrigins = allowedOrigins;
-            o.supportCredentials = supportCredentials;
-            return o;
+            final var _resultValue = new GetWindowsWebAppSiteConfigCor();
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.supportCredentials = supportCredentials;
+            return _resultValue;
         }
     }
 }

@@ -57,7 +57,11 @@ class ActionRuleSuppressionArgs:
              name: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input['ActionRuleSuppressionScopeArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("resource_group_name", resource_group_name)
         _setter("suppression", suppression)
         if condition is not None:
@@ -214,7 +218,11 @@ class _ActionRuleSuppressionState:
              scope: Optional[pulumi.Input['ActionRuleSuppressionScopeArgs']] = None,
              suppression: Optional[pulumi.Input['ActionRuleSuppressionSuppressionArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if condition is not None:
             _setter("condition", condition)
         if description is not None:

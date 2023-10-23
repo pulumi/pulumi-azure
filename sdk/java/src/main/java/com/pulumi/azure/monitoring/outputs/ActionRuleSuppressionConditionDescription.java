@@ -69,10 +69,10 @@ public final class ActionRuleSuppressionConditionDescription {
             return values(List.of(values));
         }
         public ActionRuleSuppressionConditionDescription build() {
-            final var o = new ActionRuleSuppressionConditionDescription();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new ActionRuleSuppressionConditionDescription();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

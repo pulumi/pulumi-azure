@@ -48,9 +48,9 @@ public final class LinuxVirtualMachineScaleSetAdditionalCapabilities {
             return this;
         }
         public LinuxVirtualMachineScaleSetAdditionalCapabilities build() {
-            final var o = new LinuxVirtualMachineScaleSetAdditionalCapabilities();
-            o.ultraSsdEnabled = ultraSsdEnabled;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetAdditionalCapabilities();
+            _resultValue.ultraSsdEnabled = ultraSsdEnabled;
+            return _resultValue;
         }
     }
 }

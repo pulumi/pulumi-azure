@@ -69,10 +69,10 @@ public final class AppSecret {
             return this;
         }
         public AppSecret build() {
-            final var o = new AppSecret();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new AppSecret();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

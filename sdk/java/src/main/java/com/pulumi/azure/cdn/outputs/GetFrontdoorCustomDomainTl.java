@@ -84,11 +84,11 @@ public final class GetFrontdoorCustomDomainTl {
             return this;
         }
         public GetFrontdoorCustomDomainTl build() {
-            final var o = new GetFrontdoorCustomDomainTl();
-            o.cdnFrontdoorSecretId = cdnFrontdoorSecretId;
-            o.certificateType = certificateType;
-            o.minimumTlsVersion = minimumTlsVersion;
-            return o;
+            final var _resultValue = new GetFrontdoorCustomDomainTl();
+            _resultValue.cdnFrontdoorSecretId = cdnFrontdoorSecretId;
+            _resultValue.certificateType = certificateType;
+            _resultValue.minimumTlsVersion = minimumTlsVersion;
+            return _resultValue;
         }
     }
 }

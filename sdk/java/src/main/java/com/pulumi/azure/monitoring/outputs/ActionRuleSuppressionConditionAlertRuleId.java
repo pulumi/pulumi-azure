@@ -69,10 +69,10 @@ public final class ActionRuleSuppressionConditionAlertRuleId {
             return values(List.of(values));
         }
         public ActionRuleSuppressionConditionAlertRuleId build() {
-            final var o = new ActionRuleSuppressionConditionAlertRuleId();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new ActionRuleSuppressionConditionAlertRuleId();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

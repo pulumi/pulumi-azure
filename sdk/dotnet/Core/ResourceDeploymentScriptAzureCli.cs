@@ -176,7 +176,7 @@ namespace Pulumi.Azure.Core
         public Output<string?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// Azure CLI module version to be used. The supported versions are `2.0.77`, `2.0.78`, `2.0.79`, `2.0.80`, `2.0.81`, `2.1.0`, `2.10.0`, `2.10.1`, `2.11.0`, `2.11.1`, `2.12.0`, `2.12.1`, `2.13.0`, `2.14.0`, `2.14.1`, `2.14.2`, `2.15.0`, `2.15.1`, `2.16.0`, `2.17.0`, `2.17.1`, `2.18.0`, `2.19.0`, `2.19.1`, `2.2.0`, `2.20.0`, `2.21.0`, `2.22.0`, `2.22.1`, `2.23.0`, `2.24.0`, `2.24.1`, `2.24.2`, `2.25.0`, `2.26.0`, `2.26.1`, `2.27.0`, `2.27.1`, `2.27.2`, `2.28.0`, `2.29.0`, `2.29.1`, `2.29.2`, `2.3.0`, `2.3.1`, `2.30.0`, `2.31.0`, `2.32.0`, `2.33.0`, `2.33.1`, `2.34.0`, `2.34.1`, `2.35.0`, `2.36.0`, `2.37.0`, `2.38.0`, `2.39.0`, `2.4.0`, `2.40.0`, `2.41.0`, `2.5.0`, `2.5.1`, `2.6.0`, `2.7.0`, `2.8.0`, `2.9.0`, `2.9.1`. Changing this forces a new Resource Deployment Script to be created.
+        /// Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -342,7 +342,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? Timeout { get; set; }
 
         /// <summary>
-        /// Azure CLI module version to be used. The supported versions are `2.0.77`, `2.0.78`, `2.0.79`, `2.0.80`, `2.0.81`, `2.1.0`, `2.10.0`, `2.10.1`, `2.11.0`, `2.11.1`, `2.12.0`, `2.12.1`, `2.13.0`, `2.14.0`, `2.14.1`, `2.14.2`, `2.15.0`, `2.15.1`, `2.16.0`, `2.17.0`, `2.17.1`, `2.18.0`, `2.19.0`, `2.19.1`, `2.2.0`, `2.20.0`, `2.21.0`, `2.22.0`, `2.22.1`, `2.23.0`, `2.24.0`, `2.24.1`, `2.24.2`, `2.25.0`, `2.26.0`, `2.26.1`, `2.27.0`, `2.27.1`, `2.27.2`, `2.28.0`, `2.29.0`, `2.29.1`, `2.29.2`, `2.3.0`, `2.3.1`, `2.30.0`, `2.31.0`, `2.32.0`, `2.33.0`, `2.33.1`, `2.34.0`, `2.34.1`, `2.35.0`, `2.36.0`, `2.37.0`, `2.38.0`, `2.39.0`, `2.4.0`, `2.40.0`, `2.41.0`, `2.5.0`, `2.5.1`, `2.6.0`, `2.7.0`, `2.8.0`, `2.9.0`, `2.9.1`. Changing this forces a new Resource Deployment Script to be created.
+        /// Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
@@ -476,7 +476,7 @@ namespace Pulumi.Azure.Core
         public Input<string>? Timeout { get; set; }
 
         /// <summary>
-        /// Azure CLI module version to be used. The supported versions are `2.0.77`, `2.0.78`, `2.0.79`, `2.0.80`, `2.0.81`, `2.1.0`, `2.10.0`, `2.10.1`, `2.11.0`, `2.11.1`, `2.12.0`, `2.12.1`, `2.13.0`, `2.14.0`, `2.14.1`, `2.14.2`, `2.15.0`, `2.15.1`, `2.16.0`, `2.17.0`, `2.17.1`, `2.18.0`, `2.19.0`, `2.19.1`, `2.2.0`, `2.20.0`, `2.21.0`, `2.22.0`, `2.22.1`, `2.23.0`, `2.24.0`, `2.24.1`, `2.24.2`, `2.25.0`, `2.26.0`, `2.26.1`, `2.27.0`, `2.27.1`, `2.27.2`, `2.28.0`, `2.29.0`, `2.29.1`, `2.29.2`, `2.3.0`, `2.3.1`, `2.30.0`, `2.31.0`, `2.32.0`, `2.33.0`, `2.33.1`, `2.34.0`, `2.34.1`, `2.35.0`, `2.36.0`, `2.37.0`, `2.38.0`, `2.39.0`, `2.4.0`, `2.40.0`, `2.41.0`, `2.5.0`, `2.5.1`, `2.6.0`, `2.7.0`, `2.8.0`, `2.9.0`, `2.9.1`. Changing this forces a new Resource Deployment Script to be created.
+        /// Specifies the version of the Azure CLI that should be used in the format `X.Y.Z` (e.g. `2.30.0`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-cli/tags/list). Changing this forces a new Resource Deployment Script to be created.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

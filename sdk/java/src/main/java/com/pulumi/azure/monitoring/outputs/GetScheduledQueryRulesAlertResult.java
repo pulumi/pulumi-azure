@@ -341,25 +341,25 @@ public final class GetScheduledQueryRulesAlertResult {
             return triggers(List.of(triggers));
         }
         public GetScheduledQueryRulesAlertResult build() {
-            final var o = new GetScheduledQueryRulesAlertResult();
-            o.actions = actions;
-            o.authorizedResourceIds = authorizedResourceIds;
-            o.dataSourceId = dataSourceId;
-            o.description = description;
-            o.enabled = enabled;
-            o.frequency = frequency;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.query = query;
-            o.queryType = queryType;
-            o.resourceGroupName = resourceGroupName;
-            o.severity = severity;
-            o.tags = tags;
-            o.throttling = throttling;
-            o.timeWindow = timeWindow;
-            o.triggers = triggers;
-            return o;
+            final var _resultValue = new GetScheduledQueryRulesAlertResult();
+            _resultValue.actions = actions;
+            _resultValue.authorizedResourceIds = authorizedResourceIds;
+            _resultValue.dataSourceId = dataSourceId;
+            _resultValue.description = description;
+            _resultValue.enabled = enabled;
+            _resultValue.frequency = frequency;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.query = query;
+            _resultValue.queryType = queryType;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.severity = severity;
+            _resultValue.tags = tags;
+            _resultValue.throttling = throttling;
+            _resultValue.timeWindow = timeWindow;
+            _resultValue.triggers = triggers;
+            return _resultValue;
         }
     }
 }

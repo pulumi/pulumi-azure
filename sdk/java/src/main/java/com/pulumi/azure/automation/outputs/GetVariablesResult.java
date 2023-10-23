@@ -211,17 +211,17 @@ public final class GetVariablesResult {
             return strings(List.of(strings));
         }
         public GetVariablesResult build() {
-            final var o = new GetVariablesResult();
-            o.automationAccountId = automationAccountId;
-            o.bools = bools;
-            o.datetimes = datetimes;
-            o.encrypteds = encrypteds;
-            o.id = id;
-            o.ints = ints;
-            o.nulls = nulls;
-            o.objects = objects;
-            o.strings = strings;
-            return o;
+            final var _resultValue = new GetVariablesResult();
+            _resultValue.automationAccountId = automationAccountId;
+            _resultValue.bools = bools;
+            _resultValue.datetimes = datetimes;
+            _resultValue.encrypteds = encrypteds;
+            _resultValue.id = id;
+            _resultValue.ints = ints;
+            _resultValue.nulls = nulls;
+            _resultValue.objects = objects;
+            _resultValue.strings = strings;
+            return _resultValue;
         }
     }
 }

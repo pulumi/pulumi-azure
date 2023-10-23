@@ -73,10 +73,10 @@ public final class MetadataCategory {
             return verticals(List.of(verticals));
         }
         public MetadataCategory build() {
-            final var o = new MetadataCategory();
-            o.domains = domains;
-            o.verticals = verticals;
-            return o;
+            final var _resultValue = new MetadataCategory();
+            _resultValue.domains = domains;
+            _resultValue.verticals = verticals;
+            return _resultValue;
         }
     }
 }

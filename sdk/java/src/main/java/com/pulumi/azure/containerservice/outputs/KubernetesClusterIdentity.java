@@ -113,12 +113,12 @@ public final class KubernetesClusterIdentity {
             return this;
         }
         public KubernetesClusterIdentity build() {
-            final var o = new KubernetesClusterIdentity();
-            o.identityIds = identityIds;
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            o.type = type;
-            return o;
+            final var _resultValue = new KubernetesClusterIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

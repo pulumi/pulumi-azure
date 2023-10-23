@@ -49,7 +49,13 @@ class FirewallNatRuleCollectionArgs:
              resource_group_name: pulumi.Input[str],
              rules: pulumi.Input[Sequence[pulumi.Input['FirewallNatRuleCollectionRuleArgs']]],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureFirewallName' in kwargs:
+            azure_firewall_name = kwargs['azureFirewallName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("action", action)
         _setter("azure_firewall_name", azure_firewall_name)
         _setter("priority", priority)
@@ -167,7 +173,13 @@ class _FirewallNatRuleCollectionState:
              priority: Optional[pulumi.Input[int]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallNatRuleCollectionRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureFirewallName' in kwargs:
+            azure_firewall_name = kwargs['azureFirewallName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if action is not None:
             _setter("action", action)
         if azure_firewall_name is not None:

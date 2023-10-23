@@ -51,7 +51,17 @@ class VolumeQuotaRuleArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              quota_target: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'quotaSizeInKib' in kwargs:
+            quota_size_in_kib = kwargs['quotaSizeInKib']
+        if 'quotaType' in kwargs:
+            quota_type = kwargs['quotaType']
+        if 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+        if 'quotaTarget' in kwargs:
+            quota_target = kwargs['quotaTarget']
+
         _setter("quota_size_in_kib", quota_size_in_kib)
         _setter("quota_type", quota_type)
         _setter("volume_id", volume_id)
@@ -179,7 +189,17 @@ class _VolumeQuotaRuleState:
              quota_target: Optional[pulumi.Input[str]] = None,
              quota_type: Optional[pulumi.Input[str]] = None,
              volume_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'quotaSizeInKib' in kwargs:
+            quota_size_in_kib = kwargs['quotaSizeInKib']
+        if 'quotaTarget' in kwargs:
+            quota_target = kwargs['quotaTarget']
+        if 'quotaType' in kwargs:
+            quota_type = kwargs['quotaType']
+        if 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+
         if location is not None:
             _setter("location", location)
         if name is not None:

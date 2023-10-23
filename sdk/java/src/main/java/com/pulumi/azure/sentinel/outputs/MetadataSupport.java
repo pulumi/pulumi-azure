@@ -105,12 +105,12 @@ public final class MetadataSupport {
             return this;
         }
         public MetadataSupport build() {
-            final var o = new MetadataSupport();
-            o.email = email;
-            o.link = link;
-            o.name = name;
-            o.tier = tier;
-            return o;
+            final var _resultValue = new MetadataSupport();
+            _resultValue.email = email;
+            _resultValue.link = link;
+            _resultValue.name = name;
+            _resultValue.tier = tier;
+            return _resultValue;
         }
     }
 }

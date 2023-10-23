@@ -89,11 +89,11 @@ public final class FunctionAppSlotAuthSettingsMicrosoft {
             return oauthScopes(List.of(oauthScopes));
         }
         public FunctionAppSlotAuthSettingsMicrosoft build() {
-            final var o = new FunctionAppSlotAuthSettingsMicrosoft();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.oauthScopes = oauthScopes;
-            return o;
+            final var _resultValue = new FunctionAppSlotAuthSettingsMicrosoft();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.oauthScopes = oauthScopes;
+            return _resultValue;
         }
     }
 }

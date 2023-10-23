@@ -223,18 +223,18 @@ public final class GetAccountSASPermissions {
             return this;
         }
         public GetAccountSASPermissions build() {
-            final var o = new GetAccountSASPermissions();
-            o.add = add;
-            o.create = create;
-            o.delete = delete;
-            o.filter = filter;
-            o.list = list;
-            o.process = process;
-            o.read = read;
-            o.tag = tag;
-            o.update = update;
-            o.write = write;
-            return o;
+            final var _resultValue = new GetAccountSASPermissions();
+            _resultValue.add = add;
+            _resultValue.create = create;
+            _resultValue.delete = delete;
+            _resultValue.filter = filter;
+            _resultValue.list = list;
+            _resultValue.process = process;
+            _resultValue.read = read;
+            _resultValue.tag = tag;
+            _resultValue.update = update;
+            _resultValue.write = write;
+            return _resultValue;
         }
     }
 }

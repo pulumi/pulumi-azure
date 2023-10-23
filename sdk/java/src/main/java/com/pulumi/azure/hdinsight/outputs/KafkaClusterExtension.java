@@ -65,10 +65,10 @@ public final class KafkaClusterExtension {
             return this;
         }
         public KafkaClusterExtension build() {
-            final var o = new KafkaClusterExtension();
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.primaryKey = primaryKey;
-            return o;
+            final var _resultValue = new KafkaClusterExtension();
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.primaryKey = primaryKey;
+            return _resultValue;
         }
     }
 }

@@ -90,11 +90,11 @@ public final class VirtualHubConnectionRoutingStaticVnetRoute {
             return this;
         }
         public VirtualHubConnectionRoutingStaticVnetRoute build() {
-            final var o = new VirtualHubConnectionRoutingStaticVnetRoute();
-            o.addressPrefixes = addressPrefixes;
-            o.name = name;
-            o.nextHopIpAddress = nextHopIpAddress;
-            return o;
+            final var _resultValue = new VirtualHubConnectionRoutingStaticVnetRoute();
+            _resultValue.addressPrefixes = addressPrefixes;
+            _resultValue.name = name;
+            _resultValue.nextHopIpAddress = nextHopIpAddress;
+            return _resultValue;
         }
     }
 }

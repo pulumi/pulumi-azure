@@ -46,9 +46,9 @@ public final class GetPoolUserAccountWindowsUserConfiguration {
             return this;
         }
         public GetPoolUserAccountWindowsUserConfiguration build() {
-            final var o = new GetPoolUserAccountWindowsUserConfiguration();
-            o.loginMode = loginMode;
-            return o;
+            final var _resultValue = new GetPoolUserAccountWindowsUserConfiguration();
+            _resultValue.loginMode = loginMode;
+            return _resultValue;
         }
     }
 }

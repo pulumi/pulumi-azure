@@ -69,10 +69,10 @@ public final class AlertProcessingRuleActionGroupConditionSeverity {
             return values(List.of(values));
         }
         public AlertProcessingRuleActionGroupConditionSeverity build() {
-            final var o = new AlertProcessingRuleActionGroupConditionSeverity();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new AlertProcessingRuleActionGroupConditionSeverity();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

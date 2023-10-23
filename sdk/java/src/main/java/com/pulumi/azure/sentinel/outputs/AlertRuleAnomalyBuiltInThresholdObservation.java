@@ -124,13 +124,13 @@ public final class AlertRuleAnomalyBuiltInThresholdObservation {
             return this;
         }
         public AlertRuleAnomalyBuiltInThresholdObservation build() {
-            final var o = new AlertRuleAnomalyBuiltInThresholdObservation();
-            o.description = description;
-            o.max = max;
-            o.min = min;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new AlertRuleAnomalyBuiltInThresholdObservation();
+            _resultValue.description = description;
+            _resultValue.max = max;
+            _resultValue.min = min;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

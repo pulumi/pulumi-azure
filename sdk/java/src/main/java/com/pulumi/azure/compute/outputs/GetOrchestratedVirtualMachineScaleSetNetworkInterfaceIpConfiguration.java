@@ -216,17 +216,17 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfig
             return this;
         }
         public GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration build() {
-            final var o = new GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration();
-            o.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
-            o.applicationSecurityGroupIds = applicationSecurityGroupIds;
-            o.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
-            o.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
-            o.name = name;
-            o.primary = primary;
-            o.publicIpAddresses = publicIpAddresses;
-            o.subnetId = subnetId;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration();
+            _resultValue.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
+            _resultValue.applicationSecurityGroupIds = applicationSecurityGroupIds;
+            _resultValue.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
+            _resultValue.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
+            _resultValue.name = name;
+            _resultValue.primary = primary;
+            _resultValue.publicIpAddresses = publicIpAddresses;
+            _resultValue.subnetId = subnetId;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

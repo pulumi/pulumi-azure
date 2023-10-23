@@ -87,11 +87,11 @@ public final class TrafficManagerExternalEndpointSubnet {
             return this;
         }
         public TrafficManagerExternalEndpointSubnet build() {
-            final var o = new TrafficManagerExternalEndpointSubnet();
-            o.first = first;
-            o.last = last;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new TrafficManagerExternalEndpointSubnet();
+            _resultValue.first = first;
+            _resultValue.last = last;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

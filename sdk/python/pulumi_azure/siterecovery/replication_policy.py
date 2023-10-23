@@ -45,7 +45,17 @@ class ReplicationPolicyArgs:
              recovery_vault_name: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
+            application_consistent_snapshot_frequency_in_minutes = kwargs['applicationConsistentSnapshotFrequencyInMinutes']
+        if 'recoveryPointRetentionInMinutes' in kwargs:
+            recovery_point_retention_in_minutes = kwargs['recoveryPointRetentionInMinutes']
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("application_consistent_snapshot_frequency_in_minutes", application_consistent_snapshot_frequency_in_minutes)
         _setter("recovery_point_retention_in_minutes", recovery_point_retention_in_minutes)
         _setter("recovery_vault_name", recovery_vault_name)
@@ -150,7 +160,17 @@ class _ReplicationPolicyState:
              recovery_point_retention_in_minutes: Optional[pulumi.Input[int]] = None,
              recovery_vault_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
+            application_consistent_snapshot_frequency_in_minutes = kwargs['applicationConsistentSnapshotFrequencyInMinutes']
+        if 'recoveryPointRetentionInMinutes' in kwargs:
+            recovery_point_retention_in_minutes = kwargs['recoveryPointRetentionInMinutes']
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if application_consistent_snapshot_frequency_in_minutes is not None:
             _setter("application_consistent_snapshot_frequency_in_minutes", application_consistent_snapshot_frequency_in_minutes)
         if name is not None:

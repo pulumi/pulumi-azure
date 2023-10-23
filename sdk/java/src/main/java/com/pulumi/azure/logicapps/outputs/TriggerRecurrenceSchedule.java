@@ -96,11 +96,11 @@ public final class TriggerRecurrenceSchedule {
             return onTheseDays(List.of(onTheseDays));
         }
         public TriggerRecurrenceSchedule build() {
-            final var o = new TriggerRecurrenceSchedule();
-            o.atTheseHours = atTheseHours;
-            o.atTheseMinutes = atTheseMinutes;
-            o.onTheseDays = onTheseDays;
-            return o;
+            final var _resultValue = new TriggerRecurrenceSchedule();
+            _resultValue.atTheseHours = atTheseHours;
+            _resultValue.atTheseMinutes = atTheseMinutes;
+            _resultValue.onTheseDays = onTheseDays;
+            return _resultValue;
         }
     }
 }

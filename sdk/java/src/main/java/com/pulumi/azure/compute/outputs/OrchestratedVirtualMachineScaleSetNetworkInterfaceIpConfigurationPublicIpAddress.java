@@ -168,15 +168,15 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
             return this;
         }
         public OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {
-            final var o = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
-            o.domainNameLabel = domainNameLabel;
-            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
-            o.ipTags = ipTags;
-            o.name = name;
-            o.publicIpPrefixId = publicIpPrefixId;
-            o.skuName = skuName;
-            o.version = version;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
+            _resultValue.domainNameLabel = domainNameLabel;
+            _resultValue.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            _resultValue.ipTags = ipTags;
+            _resultValue.name = name;
+            _resultValue.publicIpPrefixId = publicIpPrefixId;
+            _resultValue.skuName = skuName;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

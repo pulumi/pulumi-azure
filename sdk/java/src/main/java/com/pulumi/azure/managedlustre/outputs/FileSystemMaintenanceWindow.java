@@ -57,10 +57,10 @@ public final class FileSystemMaintenanceWindow {
             return this;
         }
         public FileSystemMaintenanceWindow build() {
-            final var o = new FileSystemMaintenanceWindow();
-            o.dayOfWeek = dayOfWeek;
-            o.timeOfDayInUtc = timeOfDayInUtc;
-            return o;
+            final var _resultValue = new FileSystemMaintenanceWindow();
+            _resultValue.dayOfWeek = dayOfWeek;
+            _resultValue.timeOfDayInUtc = timeOfDayInUtc;
+            return _resultValue;
         }
     }
 }

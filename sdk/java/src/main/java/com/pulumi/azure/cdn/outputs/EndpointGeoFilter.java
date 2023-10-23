@@ -88,11 +88,11 @@ public final class EndpointGeoFilter {
             return this;
         }
         public EndpointGeoFilter build() {
-            final var o = new EndpointGeoFilter();
-            o.action = action;
-            o.countryCodes = countryCodes;
-            o.relativePath = relativePath;
-            return o;
+            final var _resultValue = new EndpointGeoFilter();
+            _resultValue.action = action;
+            _resultValue.countryCodes = countryCodes;
+            _resultValue.relativePath = relativePath;
+            return _resultValue;
         }
     }
 }

@@ -143,14 +143,14 @@ public final class ServiceCertificate {
             return this;
         }
         public ServiceCertificate build() {
-            final var o = new ServiceCertificate();
-            o.certificatePassword = certificatePassword;
-            o.encodedCertificate = encodedCertificate;
-            o.expiry = expiry;
-            o.storeName = storeName;
-            o.subject = subject;
-            o.thumbprint = thumbprint;
-            return o;
+            final var _resultValue = new ServiceCertificate();
+            _resultValue.certificatePassword = certificatePassword;
+            _resultValue.encodedCertificate = encodedCertificate;
+            _resultValue.expiry = expiry;
+            _resultValue.storeName = storeName;
+            _resultValue.subject = subject;
+            _resultValue.thumbprint = thumbprint;
+            return _resultValue;
         }
     }
 }

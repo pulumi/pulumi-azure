@@ -103,12 +103,12 @@ public final class GetRouteTableRoute {
             return this;
         }
         public GetRouteTableRoute build() {
-            final var o = new GetRouteTableRoute();
-            o.addressPrefix = addressPrefix;
-            o.name = name;
-            o.nextHopInIpAddress = nextHopInIpAddress;
-            o.nextHopType = nextHopType;
-            return o;
+            final var _resultValue = new GetRouteTableRoute();
+            _resultValue.addressPrefix = addressPrefix;
+            _resultValue.name = name;
+            _resultValue.nextHopInIpAddress = nextHopInIpAddress;
+            _resultValue.nextHopType = nextHopType;
+            return _resultValue;
         }
     }
 }

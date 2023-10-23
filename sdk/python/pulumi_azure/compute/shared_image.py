@@ -129,7 +129,43 @@ class SharedImageArgs:
              specialized: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'galleryName' in kwargs:
+            gallery_name = kwargs['galleryName']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'acceleratedNetworkSupportEnabled' in kwargs:
+            accelerated_network_support_enabled = kwargs['acceleratedNetworkSupportEnabled']
+        if 'confidentialVmEnabled' in kwargs:
+            confidential_vm_enabled = kwargs['confidentialVmEnabled']
+        if 'confidentialVmSupported' in kwargs:
+            confidential_vm_supported = kwargs['confidentialVmSupported']
+        if 'diskTypesNotAlloweds' in kwargs:
+            disk_types_not_alloweds = kwargs['diskTypesNotAlloweds']
+        if 'endOfLifeDate' in kwargs:
+            end_of_life_date = kwargs['endOfLifeDate']
+        if 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if 'maxRecommendedMemoryInGb' in kwargs:
+            max_recommended_memory_in_gb = kwargs['maxRecommendedMemoryInGb']
+        if 'maxRecommendedVcpuCount' in kwargs:
+            max_recommended_vcpu_count = kwargs['maxRecommendedVcpuCount']
+        if 'minRecommendedMemoryInGb' in kwargs:
+            min_recommended_memory_in_gb = kwargs['minRecommendedMemoryInGb']
+        if 'minRecommendedVcpuCount' in kwargs:
+            min_recommended_vcpu_count = kwargs['minRecommendedVcpuCount']
+        if 'privacyStatementUri' in kwargs:
+            privacy_statement_uri = kwargs['privacyStatementUri']
+        if 'purchasePlan' in kwargs:
+            purchase_plan = kwargs['purchasePlan']
+        if 'releaseNoteUri' in kwargs:
+            release_note_uri = kwargs['releaseNoteUri']
+        if 'trustedLaunchEnabled' in kwargs:
+            trusted_launch_enabled = kwargs['trustedLaunchEnabled']
+
         _setter("gallery_name", gallery_name)
         _setter("identifier", identifier)
         _setter("os_type", os_type)
@@ -598,7 +634,43 @@ class _SharedImageState:
              specialized: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceleratedNetworkSupportEnabled' in kwargs:
+            accelerated_network_support_enabled = kwargs['acceleratedNetworkSupportEnabled']
+        if 'confidentialVmEnabled' in kwargs:
+            confidential_vm_enabled = kwargs['confidentialVmEnabled']
+        if 'confidentialVmSupported' in kwargs:
+            confidential_vm_supported = kwargs['confidentialVmSupported']
+        if 'diskTypesNotAlloweds' in kwargs:
+            disk_types_not_alloweds = kwargs['diskTypesNotAlloweds']
+        if 'endOfLifeDate' in kwargs:
+            end_of_life_date = kwargs['endOfLifeDate']
+        if 'galleryName' in kwargs:
+            gallery_name = kwargs['galleryName']
+        if 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if 'maxRecommendedMemoryInGb' in kwargs:
+            max_recommended_memory_in_gb = kwargs['maxRecommendedMemoryInGb']
+        if 'maxRecommendedVcpuCount' in kwargs:
+            max_recommended_vcpu_count = kwargs['maxRecommendedVcpuCount']
+        if 'minRecommendedMemoryInGb' in kwargs:
+            min_recommended_memory_in_gb = kwargs['minRecommendedMemoryInGb']
+        if 'minRecommendedVcpuCount' in kwargs:
+            min_recommended_vcpu_count = kwargs['minRecommendedVcpuCount']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'privacyStatementUri' in kwargs:
+            privacy_statement_uri = kwargs['privacyStatementUri']
+        if 'purchasePlan' in kwargs:
+            purchase_plan = kwargs['purchasePlan']
+        if 'releaseNoteUri' in kwargs:
+            release_note_uri = kwargs['releaseNoteUri']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'trustedLaunchEnabled' in kwargs:
+            trusted_launch_enabled = kwargs['trustedLaunchEnabled']
+
         if accelerated_network_support_enabled is not None:
             _setter("accelerated_network_support_enabled", accelerated_network_support_enabled)
         if architecture is not None:

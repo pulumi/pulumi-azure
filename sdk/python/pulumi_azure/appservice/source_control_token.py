@@ -37,7 +37,11 @@ class SourceControlTokenArgs:
              token: pulumi.Input[str],
              type: pulumi.Input[str],
              token_secret: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tokenSecret' in kwargs:
+            token_secret = kwargs['tokenSecret']
+
         _setter("token", token)
         _setter("type", type)
         if token_secret is not None:
@@ -108,7 +112,11 @@ class _SourceControlTokenState:
              token: Optional[pulumi.Input[str]] = None,
              token_secret: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tokenSecret' in kwargs:
+            token_secret = kwargs['tokenSecret']
+
         if token is not None:
             _setter("token", token)
         if token_secret is not None:

@@ -88,11 +88,11 @@ public final class RoutingIntentRoutingPolicy {
             return this;
         }
         public RoutingIntentRoutingPolicy build() {
-            final var o = new RoutingIntentRoutingPolicy();
-            o.destinations = destinations;
-            o.name = name;
-            o.nextHop = nextHop;
-            return o;
+            final var _resultValue = new RoutingIntentRoutingPolicy();
+            _resultValue.destinations = destinations;
+            _resultValue.name = name;
+            _resultValue.nextHop = nextHop;
+            return _resultValue;
         }
     }
 }

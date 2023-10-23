@@ -66,10 +66,10 @@ public final class ClusterClientCertificateThumbprint {
             return this;
         }
         public ClusterClientCertificateThumbprint build() {
-            final var o = new ClusterClientCertificateThumbprint();
-            o.isAdmin = isAdmin;
-            o.thumbprint = thumbprint;
-            return o;
+            final var _resultValue = new ClusterClientCertificateThumbprint();
+            _resultValue.isAdmin = isAdmin;
+            _resultValue.thumbprint = thumbprint;
+            return _resultValue;
         }
     }
 }

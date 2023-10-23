@@ -151,10 +151,10 @@ public final class KubernetesClusterAciConnectorLinux {
             return this;
         }
         public KubernetesClusterAciConnectorLinux build() {
-            final var o = new KubernetesClusterAciConnectorLinux();
-            o.connectorIdentities = connectorIdentities;
-            o.subnetName = subnetName;
-            return o;
+            final var _resultValue = new KubernetesClusterAciConnectorLinux();
+            _resultValue.connectorIdentities = connectorIdentities;
+            _resultValue.subnetName = subnetName;
+            return _resultValue;
         }
     }
 }

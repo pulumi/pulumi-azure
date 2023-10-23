@@ -65,10 +65,10 @@ public final class FunctionAppAuthSettingsTwitter {
             return this;
         }
         public FunctionAppAuthSettingsTwitter build() {
-            final var o = new FunctionAppAuthSettingsTwitter();
-            o.consumerKey = consumerKey;
-            o.consumerSecret = consumerSecret;
-            return o;
+            final var _resultValue = new FunctionAppAuthSettingsTwitter();
+            _resultValue.consumerKey = consumerKey;
+            _resultValue.consumerSecret = consumerSecret;
+            return _resultValue;
         }
     }
 }

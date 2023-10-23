@@ -68,10 +68,10 @@ public final class StreamingEndpointSkus {
             return this;
         }
         public StreamingEndpointSkus build() {
-            final var o = new StreamingEndpointSkus();
-            o.capacity = capacity;
-            o.name = name;
-            return o;
+            final var _resultValue = new StreamingEndpointSkus();
+            _resultValue.capacity = capacity;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

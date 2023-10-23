@@ -59,7 +59,21 @@ class ResourcePolicyExemptionArgs:
              metadata: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'exemptionCategory' in kwargs:
+            exemption_category = kwargs['exemptionCategory']
+        if 'policyAssignmentId' in kwargs:
+            policy_assignment_id = kwargs['policyAssignmentId']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'expiresOn' in kwargs:
+            expires_on = kwargs['expiresOn']
+        if 'policyDefinitionReferenceIds' in kwargs:
+            policy_definition_reference_ids = kwargs['policyDefinitionReferenceIds']
+
         _setter("exemption_category", exemption_category)
         _setter("policy_assignment_id", policy_assignment_id)
         _setter("resource_id", resource_id)
@@ -233,7 +247,21 @@ class _ResourcePolicyExemptionState:
              policy_assignment_id: Optional[pulumi.Input[str]] = None,
              policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'exemptionCategory' in kwargs:
+            exemption_category = kwargs['exemptionCategory']
+        if 'expiresOn' in kwargs:
+            expires_on = kwargs['expiresOn']
+        if 'policyAssignmentId' in kwargs:
+            policy_assignment_id = kwargs['policyAssignmentId']
+        if 'policyDefinitionReferenceIds' in kwargs:
+            policy_definition_reference_ids = kwargs['policyDefinitionReferenceIds']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if description is not None:
             _setter("description", description)
         if display_name is not None:

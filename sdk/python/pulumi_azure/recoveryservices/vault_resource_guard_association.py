@@ -37,7 +37,13 @@ class VaultResourceGuardAssociationArgs:
              resource_guard_id: pulumi.Input[str],
              vault_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGuardId' in kwargs:
+            resource_guard_id = kwargs['resourceGuardId']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         _setter("resource_guard_id", resource_guard_id)
         _setter("vault_id", vault_id)
         if name is not None:
@@ -114,7 +120,13 @@ class _VaultResourceGuardAssociationState:
              name: Optional[pulumi.Input[str]] = None,
              resource_guard_id: Optional[pulumi.Input[str]] = None,
              vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGuardId' in kwargs:
+            resource_guard_id = kwargs['resourceGuardId']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         if name is not None:
             warnings.warn("""The `name` field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""name is deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.""")

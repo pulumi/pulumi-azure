@@ -63,7 +63,23 @@ class NetworkPacketCaptureArgs:
              maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
              maximum_capture_duration: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkWatcherName' in kwargs:
+            network_watcher_name = kwargs['networkWatcherName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageLocation' in kwargs:
+            storage_location = kwargs['storageLocation']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'maximumBytesPerPacket' in kwargs:
+            maximum_bytes_per_packet = kwargs['maximumBytesPerPacket']
+        if 'maximumBytesPerSession' in kwargs:
+            maximum_bytes_per_session = kwargs['maximumBytesPerSession']
+        if 'maximumCaptureDuration' in kwargs:
+            maximum_capture_duration = kwargs['maximumCaptureDuration']
+
         _setter("network_watcher_name", network_watcher_name)
         _setter("resource_group_name", resource_group_name)
         _setter("storage_location", storage_location)
@@ -240,7 +256,23 @@ class _NetworkPacketCaptureState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              storage_location: Optional[pulumi.Input['NetworkPacketCaptureStorageLocationArgs']] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumBytesPerPacket' in kwargs:
+            maximum_bytes_per_packet = kwargs['maximumBytesPerPacket']
+        if 'maximumBytesPerSession' in kwargs:
+            maximum_bytes_per_session = kwargs['maximumBytesPerSession']
+        if 'maximumCaptureDuration' in kwargs:
+            maximum_capture_duration = kwargs['maximumCaptureDuration']
+        if 'networkWatcherName' in kwargs:
+            network_watcher_name = kwargs['networkWatcherName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageLocation' in kwargs:
+            storage_location = kwargs['storageLocation']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if filters is not None:
             _setter("filters", filters)
         if maximum_bytes_per_packet is not None:

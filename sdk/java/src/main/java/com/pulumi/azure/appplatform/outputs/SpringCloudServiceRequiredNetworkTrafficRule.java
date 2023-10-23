@@ -132,13 +132,13 @@ public final class SpringCloudServiceRequiredNetworkTrafficRule {
             return this;
         }
         public SpringCloudServiceRequiredNetworkTrafficRule build() {
-            final var o = new SpringCloudServiceRequiredNetworkTrafficRule();
-            o.direction = direction;
-            o.fqdns = fqdns;
-            o.ipAddresses = ipAddresses;
-            o.port = port;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new SpringCloudServiceRequiredNetworkTrafficRule();
+            _resultValue.direction = direction;
+            _resultValue.fqdns = fqdns;
+            _resultValue.ipAddresses = ipAddresses;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

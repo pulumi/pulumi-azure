@@ -50,9 +50,9 @@ public final class GroupInitContainerSecurity {
             return this;
         }
         public GroupInitContainerSecurity build() {
-            final var o = new GroupInitContainerSecurity();
-            o.privilegeEnabled = privilegeEnabled;
-            return o;
+            final var _resultValue = new GroupInitContainerSecurity();
+            _resultValue.privilegeEnabled = privilegeEnabled;
+            return _resultValue;
         }
     }
 }

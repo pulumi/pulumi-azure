@@ -67,10 +67,10 @@ public final class EventHubNamespaceNetworkRulesetsIpRule {
             return this;
         }
         public EventHubNamespaceNetworkRulesetsIpRule build() {
-            final var o = new EventHubNamespaceNetworkRulesetsIpRule();
-            o.action = action;
-            o.ipMask = ipMask;
-            return o;
+            final var _resultValue = new EventHubNamespaceNetworkRulesetsIpRule();
+            _resultValue.action = action;
+            _resultValue.ipMask = ipMask;
+            return _resultValue;
         }
     }
 }

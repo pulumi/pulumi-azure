@@ -65,10 +65,10 @@ public final class ElasticPoolPerDatabaseSettings {
             return this;
         }
         public ElasticPoolPerDatabaseSettings build() {
-            final var o = new ElasticPoolPerDatabaseSettings();
-            o.maxCapacity = maxCapacity;
-            o.minCapacity = minCapacity;
-            return o;
+            final var _resultValue = new ElasticPoolPerDatabaseSettings();
+            _resultValue.maxCapacity = maxCapacity;
+            _resultValue.minCapacity = minCapacity;
+            return _resultValue;
         }
     }
 }

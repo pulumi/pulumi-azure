@@ -67,10 +67,10 @@ public final class PolicyCustomRuleMatchConditionMatchVariable {
             return this;
         }
         public PolicyCustomRuleMatchConditionMatchVariable build() {
-            final var o = new PolicyCustomRuleMatchConditionMatchVariable();
-            o.selector = selector;
-            o.variableName = variableName;
-            return o;
+            final var _resultValue = new PolicyCustomRuleMatchConditionMatchVariable();
+            _resultValue.selector = selector;
+            _resultValue.variableName = variableName;
+            return _resultValue;
         }
     }
 }

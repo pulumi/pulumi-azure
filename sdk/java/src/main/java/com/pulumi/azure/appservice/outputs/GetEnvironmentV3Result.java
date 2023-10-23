@@ -396,27 +396,27 @@ public final class GetEnvironmentV3Result {
             return this;
         }
         public GetEnvironmentV3Result build() {
-            final var o = new GetEnvironmentV3Result();
-            o.allowNewPrivateEndpointConnections = allowNewPrivateEndpointConnections;
-            o.clusterSettings = clusterSettings;
-            o.dedicatedHostCount = dedicatedHostCount;
-            o.dnsSuffix = dnsSuffix;
-            o.externalInboundIpAddresses = externalInboundIpAddresses;
-            o.id = id;
-            o.inboundNetworkDependencies = inboundNetworkDependencies;
-            o.internalInboundIpAddresses = internalInboundIpAddresses;
-            o.internalLoadBalancingMode = internalLoadBalancingMode;
-            o.ipSslAddressCount = ipSslAddressCount;
-            o.linuxOutboundIpAddresses = linuxOutboundIpAddresses;
-            o.location = location;
-            o.name = name;
-            o.pricingTier = pricingTier;
-            o.resourceGroupName = resourceGroupName;
-            o.subnetId = subnetId;
-            o.tags = tags;
-            o.windowsOutboundIpAddresses = windowsOutboundIpAddresses;
-            o.zoneRedundant = zoneRedundant;
-            return o;
+            final var _resultValue = new GetEnvironmentV3Result();
+            _resultValue.allowNewPrivateEndpointConnections = allowNewPrivateEndpointConnections;
+            _resultValue.clusterSettings = clusterSettings;
+            _resultValue.dedicatedHostCount = dedicatedHostCount;
+            _resultValue.dnsSuffix = dnsSuffix;
+            _resultValue.externalInboundIpAddresses = externalInboundIpAddresses;
+            _resultValue.id = id;
+            _resultValue.inboundNetworkDependencies = inboundNetworkDependencies;
+            _resultValue.internalInboundIpAddresses = internalInboundIpAddresses;
+            _resultValue.internalLoadBalancingMode = internalLoadBalancingMode;
+            _resultValue.ipSslAddressCount = ipSslAddressCount;
+            _resultValue.linuxOutboundIpAddresses = linuxOutboundIpAddresses;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.pricingTier = pricingTier;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.subnetId = subnetId;
+            _resultValue.tags = tags;
+            _resultValue.windowsOutboundIpAddresses = windowsOutboundIpAddresses;
+            _resultValue.zoneRedundant = zoneRedundant;
+            return _resultValue;
         }
     }
 }

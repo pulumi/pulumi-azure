@@ -68,11 +68,11 @@ public final class GetAlertRuleResult {
             return this;
         }
         public GetAlertRuleResult build() {
-            final var o = new GetAlertRuleResult();
-            o.id = id;
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetAlertRuleResult();
+            _resultValue.id = id;
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

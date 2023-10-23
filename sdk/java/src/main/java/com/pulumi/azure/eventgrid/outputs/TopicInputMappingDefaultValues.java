@@ -86,11 +86,11 @@ public final class TopicInputMappingDefaultValues {
             return this;
         }
         public TopicInputMappingDefaultValues build() {
-            final var o = new TopicInputMappingDefaultValues();
-            o.dataVersion = dataVersion;
-            o.eventType = eventType;
-            o.subject = subject;
-            return o;
+            final var _resultValue = new TopicInputMappingDefaultValues();
+            _resultValue.dataVersion = dataVersion;
+            _resultValue.eventType = eventType;
+            _resultValue.subject = subject;
+            return _resultValue;
         }
     }
 }

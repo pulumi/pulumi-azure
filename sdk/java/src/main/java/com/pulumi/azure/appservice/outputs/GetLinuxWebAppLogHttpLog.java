@@ -73,10 +73,10 @@ public final class GetLinuxWebAppLogHttpLog {
             return fileSystems(List.of(fileSystems));
         }
         public GetLinuxWebAppLogHttpLog build() {
-            final var o = new GetLinuxWebAppLogHttpLog();
-            o.azureBlobStorages = azureBlobStorages;
-            o.fileSystems = fileSystems;
-            return o;
+            final var _resultValue = new GetLinuxWebAppLogHttpLog();
+            _resultValue.azureBlobStorages = azureBlobStorages;
+            _resultValue.fileSystems = fileSystems;
+            return _resultValue;
         }
     }
 }

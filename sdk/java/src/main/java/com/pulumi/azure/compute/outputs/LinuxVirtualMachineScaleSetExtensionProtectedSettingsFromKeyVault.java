@@ -65,10 +65,10 @@ public final class LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyV
             return this;
         }
         public LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault build() {
-            final var o = new LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault();
-            o.secretUrl = secretUrl;
-            o.sourceVaultId = sourceVaultId;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault();
+            _resultValue.secretUrl = secretUrl;
+            _resultValue.sourceVaultId = sourceVaultId;
+            return _resultValue;
         }
     }
 }

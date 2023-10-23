@@ -67,10 +67,10 @@ public final class WindowsVirtualMachineOsDiskDiffDiskSettings {
             return this;
         }
         public WindowsVirtualMachineOsDiskDiffDiskSettings build() {
-            final var o = new WindowsVirtualMachineOsDiskDiffDiskSettings();
-            o.option = option;
-            o.placement = placement;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineOsDiskDiffDiskSettings();
+            _resultValue.option = option;
+            _resultValue.placement = placement;
+            return _resultValue;
         }
     }
 }

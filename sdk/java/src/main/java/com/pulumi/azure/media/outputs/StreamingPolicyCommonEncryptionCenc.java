@@ -175,15 +175,15 @@ public final class StreamingPolicyCommonEncryptionCenc {
             return this;
         }
         public StreamingPolicyCommonEncryptionCenc build() {
-            final var o = new StreamingPolicyCommonEncryptionCenc();
-            o.clearKeyEncryption = clearKeyEncryption;
-            o.clearTracks = clearTracks;
-            o.contentKeyToTrackMappings = contentKeyToTrackMappings;
-            o.defaultContentKey = defaultContentKey;
-            o.drmPlayready = drmPlayready;
-            o.drmWidevineCustomLicenseAcquisitionUrlTemplate = drmWidevineCustomLicenseAcquisitionUrlTemplate;
-            o.enabledProtocols = enabledProtocols;
-            return o;
+            final var _resultValue = new StreamingPolicyCommonEncryptionCenc();
+            _resultValue.clearKeyEncryption = clearKeyEncryption;
+            _resultValue.clearTracks = clearTracks;
+            _resultValue.contentKeyToTrackMappings = contentKeyToTrackMappings;
+            _resultValue.defaultContentKey = defaultContentKey;
+            _resultValue.drmPlayready = drmPlayready;
+            _resultValue.drmWidevineCustomLicenseAcquisitionUrlTemplate = drmWidevineCustomLicenseAcquisitionUrlTemplate;
+            _resultValue.enabledProtocols = enabledProtocols;
+            return _resultValue;
         }
     }
 }

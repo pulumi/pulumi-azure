@@ -217,18 +217,18 @@ public final class KubernetesClusterMaintenanceWindowNodeOs {
             return this;
         }
         public KubernetesClusterMaintenanceWindowNodeOs build() {
-            final var o = new KubernetesClusterMaintenanceWindowNodeOs();
-            o.dayOfMonth = dayOfMonth;
-            o.dayOfWeek = dayOfWeek;
-            o.duration = duration;
-            o.frequency = frequency;
-            o.interval = interval;
-            o.notAlloweds = notAlloweds;
-            o.startDate = startDate;
-            o.startTime = startTime;
-            o.utcOffset = utcOffset;
-            o.weekIndex = weekIndex;
-            return o;
+            final var _resultValue = new KubernetesClusterMaintenanceWindowNodeOs();
+            _resultValue.dayOfMonth = dayOfMonth;
+            _resultValue.dayOfWeek = dayOfWeek;
+            _resultValue.duration = duration;
+            _resultValue.frequency = frequency;
+            _resultValue.interval = interval;
+            _resultValue.notAlloweds = notAlloweds;
+            _resultValue.startDate = startDate;
+            _resultValue.startTime = startTime;
+            _resultValue.utcOffset = utcOffset;
+            _resultValue.weekIndex = weekIndex;
+            return _resultValue;
         }
     }
 }

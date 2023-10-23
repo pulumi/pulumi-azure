@@ -72,10 +72,10 @@ public final class FirewallPolicyDns {
             return servers(List.of(servers));
         }
         public FirewallPolicyDns build() {
-            final var o = new FirewallPolicyDns();
-            o.proxyEnabled = proxyEnabled;
-            o.servers = servers;
-            return o;
+            final var _resultValue = new FirewallPolicyDns();
+            _resultValue.proxyEnabled = proxyEnabled;
+            _resultValue.servers = servers;
+            return _resultValue;
         }
     }
 }

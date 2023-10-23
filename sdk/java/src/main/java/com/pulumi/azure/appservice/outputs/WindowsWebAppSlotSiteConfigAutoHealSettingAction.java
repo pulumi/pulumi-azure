@@ -87,11 +87,11 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingAction {
             return this;
         }
         public WindowsWebAppSlotSiteConfigAutoHealSettingAction build() {
-            final var o = new WindowsWebAppSlotSiteConfigAutoHealSettingAction();
-            o.actionType = actionType;
-            o.customAction = customAction;
-            o.minimumProcessExecutionTime = minimumProcessExecutionTime;
-            return o;
+            final var _resultValue = new WindowsWebAppSlotSiteConfigAutoHealSettingAction();
+            _resultValue.actionType = actionType;
+            _resultValue.customAction = customAction;
+            _resultValue.minimumProcessExecutionTime = minimumProcessExecutionTime;
+            return _resultValue;
         }
     }
 }

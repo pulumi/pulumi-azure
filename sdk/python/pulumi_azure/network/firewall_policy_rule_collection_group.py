@@ -49,7 +49,17 @@ class FirewallPolicyRuleCollectionGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]] = None,
              network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'firewallPolicyId' in kwargs:
+            firewall_policy_id = kwargs['firewallPolicyId']
+        if 'applicationRuleCollections' in kwargs:
+            application_rule_collections = kwargs['applicationRuleCollections']
+        if 'natRuleCollections' in kwargs:
+            nat_rule_collections = kwargs['natRuleCollections']
+        if 'networkRuleCollections' in kwargs:
+            network_rule_collections = kwargs['networkRuleCollections']
+
         _setter("firewall_policy_id", firewall_policy_id)
         _setter("priority", priority)
         if application_rule_collections is not None:
@@ -170,7 +180,17 @@ class _FirewallPolicyRuleCollectionGroupState:
              nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]] = None,
              network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]] = None,
              priority: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationRuleCollections' in kwargs:
+            application_rule_collections = kwargs['applicationRuleCollections']
+        if 'firewallPolicyId' in kwargs:
+            firewall_policy_id = kwargs['firewallPolicyId']
+        if 'natRuleCollections' in kwargs:
+            nat_rule_collections = kwargs['natRuleCollections']
+        if 'networkRuleCollections' in kwargs:
+            network_rule_collections = kwargs['networkRuleCollections']
+
         if application_rule_collections is not None:
             _setter("application_rule_collections", application_rule_collections)
         if firewall_policy_id is not None:

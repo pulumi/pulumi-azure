@@ -72,10 +72,10 @@ public final class LinuxFunctionAppSiteConfigCors {
             return this;
         }
         public LinuxFunctionAppSiteConfigCors build() {
-            final var o = new LinuxFunctionAppSiteConfigCors();
-            o.allowedOrigins = allowedOrigins;
-            o.supportCredentials = supportCredentials;
-            return o;
+            final var _resultValue = new LinuxFunctionAppSiteConfigCors();
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.supportCredentials = supportCredentials;
+            return _resultValue;
         }
     }
 }

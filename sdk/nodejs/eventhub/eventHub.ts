@@ -88,9 +88,9 @@ export class EventHub extends pulumi.CustomResource {
      */
     public readonly namespaceName!: pulumi.Output<string>;
     /**
-     * Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+     * Specifies the current number of shards on the Event Hub.
      *
-     * > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+     * > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
      *
      * > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      */
@@ -180,9 +180,9 @@ export interface EventHubState {
      */
     namespaceName?: pulumi.Input<string>;
     /**
-     * Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+     * Specifies the current number of shards on the Event Hub.
      *
-     * > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+     * > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
      *
      * > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      */
@@ -224,9 +224,9 @@ export interface EventHubArgs {
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+     * Specifies the current number of shards on the Event Hub.
      *
-     * > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+     * > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
      *
      * > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      */

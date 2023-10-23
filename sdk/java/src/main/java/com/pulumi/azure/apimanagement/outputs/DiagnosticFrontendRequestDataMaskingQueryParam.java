@@ -65,10 +65,10 @@ public final class DiagnosticFrontendRequestDataMaskingQueryParam {
             return this;
         }
         public DiagnosticFrontendRequestDataMaskingQueryParam build() {
-            final var o = new DiagnosticFrontendRequestDataMaskingQueryParam();
-            o.mode = mode;
-            o.value = value;
-            return o;
+            final var _resultValue = new DiagnosticFrontendRequestDataMaskingQueryParam();
+            _resultValue.mode = mode;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

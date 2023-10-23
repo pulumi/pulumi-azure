@@ -69,10 +69,10 @@ public final class AlertProcessingRuleActionGroupConditionTargetResourceGroup {
             return values(List.of(values));
         }
         public AlertProcessingRuleActionGroupConditionTargetResourceGroup build() {
-            final var o = new AlertProcessingRuleActionGroupConditionTargetResourceGroup();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new AlertProcessingRuleActionGroupConditionTargetResourceGroup();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

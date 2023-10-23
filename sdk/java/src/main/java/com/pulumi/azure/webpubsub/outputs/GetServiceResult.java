@@ -322,28 +322,28 @@ public final class GetServiceResult {
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.aadAuthEnabled = aadAuthEnabled;
-            o.capacity = capacity;
-            o.externalIp = externalIp;
-            o.hostname = hostname;
-            o.id = id;
-            o.localAuthEnabled = localAuthEnabled;
-            o.location = location;
-            o.name = name;
-            o.primaryAccessKey = primaryAccessKey;
-            o.primaryConnectionString = primaryConnectionString;
-            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            o.publicPort = publicPort;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryAccessKey = secondaryAccessKey;
-            o.secondaryConnectionString = secondaryConnectionString;
-            o.serverPort = serverPort;
-            o.sku = sku;
-            o.tags = tags;
-            o.tlsClientCertEnabled = tlsClientCertEnabled;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.aadAuthEnabled = aadAuthEnabled;
+            _resultValue.capacity = capacity;
+            _resultValue.externalIp = externalIp;
+            _resultValue.hostname = hostname;
+            _resultValue.id = id;
+            _resultValue.localAuthEnabled = localAuthEnabled;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.primaryAccessKey = primaryAccessKey;
+            _resultValue.primaryConnectionString = primaryConnectionString;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            _resultValue.publicPort = publicPort;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryAccessKey = secondaryAccessKey;
+            _resultValue.secondaryConnectionString = secondaryConnectionString;
+            _resultValue.serverPort = serverPort;
+            _resultValue.sku = sku;
+            _resultValue.tags = tags;
+            _resultValue.tlsClientCertEnabled = tlsClientCertEnabled;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

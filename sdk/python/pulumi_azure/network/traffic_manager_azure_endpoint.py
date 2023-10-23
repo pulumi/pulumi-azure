@@ -61,7 +61,17 @@ class TrafficManagerAzureEndpointArgs:
              priority: Optional[pulumi.Input[int]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointSubnetArgs']]]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'profileId' in kwargs:
+            profile_id = kwargs['profileId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'geoMappings' in kwargs:
+            geo_mappings = kwargs['geoMappings']
+
         _setter("profile_id", profile_id)
         _setter("target_resource_id", target_resource_id)
         if custom_headers is not None:
@@ -236,7 +246,17 @@ class _TrafficManagerAzureEndpointState:
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointSubnetArgs']]]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'geoMappings' in kwargs:
+            geo_mappings = kwargs['geoMappings']
+        if 'profileId' in kwargs:
+            profile_id = kwargs['profileId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if custom_headers is not None:
             _setter("custom_headers", custom_headers)
         if enabled is not None:

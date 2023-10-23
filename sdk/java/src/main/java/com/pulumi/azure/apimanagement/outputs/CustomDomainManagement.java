@@ -203,19 +203,19 @@ public final class CustomDomainManagement {
             return this;
         }
         public CustomDomainManagement build() {
-            final var o = new CustomDomainManagement();
-            o.certificate = certificate;
-            o.certificatePassword = certificatePassword;
-            o.certificateSource = certificateSource;
-            o.certificateStatus = certificateStatus;
-            o.expiry = expiry;
-            o.hostName = hostName;
-            o.keyVaultId = keyVaultId;
-            o.negotiateClientCertificate = negotiateClientCertificate;
-            o.sslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;
-            o.subject = subject;
-            o.thumbprint = thumbprint;
-            return o;
+            final var _resultValue = new CustomDomainManagement();
+            _resultValue.certificate = certificate;
+            _resultValue.certificatePassword = certificatePassword;
+            _resultValue.certificateSource = certificateSource;
+            _resultValue.certificateStatus = certificateStatus;
+            _resultValue.expiry = expiry;
+            _resultValue.hostName = hostName;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.negotiateClientCertificate = negotiateClientCertificate;
+            _resultValue.sslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;
+            _resultValue.subject = subject;
+            _resultValue.thumbprint = thumbprint;
+            return _resultValue;
         }
     }
 }

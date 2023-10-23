@@ -97,11 +97,11 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverride {
             return rules(List.of(rules));
         }
         public PolicyManagedRulesManagedRuleSetRuleGroupOverride build() {
-            final var o = new PolicyManagedRulesManagedRuleSetRuleGroupOverride();
-            o.disabledRules = disabledRules;
-            o.ruleGroupName = ruleGroupName;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new PolicyManagedRulesManagedRuleSetRuleGroupOverride();
+            _resultValue.disabledRules = disabledRules;
+            _resultValue.ruleGroupName = ruleGroupName;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class GroupContainerGpu {
             return this;
         }
         public GroupContainerGpu build() {
-            final var o = new GroupContainerGpu();
-            o.count = count;
-            o.sku = sku;
-            return o;
+            final var _resultValue = new GroupContainerGpu();
+            _resultValue.count = count;
+            _resultValue.sku = sku;
+            return _resultValue;
         }
     }
 }

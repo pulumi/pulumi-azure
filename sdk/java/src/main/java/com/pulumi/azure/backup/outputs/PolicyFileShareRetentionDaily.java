@@ -46,9 +46,9 @@ public final class PolicyFileShareRetentionDaily {
             return this;
         }
         public PolicyFileShareRetentionDaily build() {
-            final var o = new PolicyFileShareRetentionDaily();
-            o.count = count;
-            return o;
+            final var _resultValue = new PolicyFileShareRetentionDaily();
+            _resultValue.count = count;
+            return _resultValue;
         }
     }
 }

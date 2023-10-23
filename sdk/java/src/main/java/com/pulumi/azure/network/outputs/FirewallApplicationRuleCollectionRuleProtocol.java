@@ -66,10 +66,10 @@ public final class FirewallApplicationRuleCollectionRuleProtocol {
             return this;
         }
         public FirewallApplicationRuleCollectionRuleProtocol build() {
-            final var o = new FirewallApplicationRuleCollectionRuleProtocol();
-            o.port = port;
-            o.type = type;
-            return o;
+            final var _resultValue = new FirewallApplicationRuleCollectionRuleProtocol();
+            _resultValue.port = port;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

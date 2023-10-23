@@ -41,7 +41,15 @@ class ServiceCustomDomainArgs:
              signalr_custom_certificate_id: pulumi.Input[str],
              signalr_service_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'signalrCustomCertificateId' in kwargs:
+            signalr_custom_certificate_id = kwargs['signalrCustomCertificateId']
+        if 'signalrServiceId' in kwargs:
+            signalr_service_id = kwargs['signalrServiceId']
+
         _setter("domain_name", domain_name)
         _setter("signalr_custom_certificate_id", signalr_custom_certificate_id)
         _setter("signalr_service_id", signalr_service_id)
@@ -129,7 +137,15 @@ class _ServiceCustomDomainState:
              name: Optional[pulumi.Input[str]] = None,
              signalr_custom_certificate_id: Optional[pulumi.Input[str]] = None,
              signalr_service_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'signalrCustomCertificateId' in kwargs:
+            signalr_custom_certificate_id = kwargs['signalrCustomCertificateId']
+        if 'signalrServiceId' in kwargs:
+            signalr_service_id = kwargs['signalrServiceId']
+
         if domain_name is not None:
             _setter("domain_name", domain_name)
         if name is not None:

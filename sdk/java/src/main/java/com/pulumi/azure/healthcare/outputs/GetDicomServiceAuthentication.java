@@ -61,10 +61,10 @@ public final class GetDicomServiceAuthentication {
             return this;
         }
         public GetDicomServiceAuthentication build() {
-            final var o = new GetDicomServiceAuthentication();
-            o.audiences = audiences;
-            o.authority = authority;
-            return o;
+            final var _resultValue = new GetDicomServiceAuthentication();
+            _resultValue.audiences = audiences;
+            _resultValue.authority = authority;
+            return _resultValue;
         }
     }
 }

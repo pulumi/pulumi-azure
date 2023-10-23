@@ -39,7 +39,15 @@ class PrivateLinkScopedServiceArgs:
              resource_group_name: pulumi.Input[str],
              scope_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedResourceId' in kwargs:
+            linked_resource_id = kwargs['linkedResourceId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scopeName' in kwargs:
+            scope_name = kwargs['scopeName']
+
         _setter("linked_resource_id", linked_resource_id)
         _setter("resource_group_name", resource_group_name)
         _setter("scope_name", scope_name)
@@ -123,7 +131,15 @@ class _PrivateLinkScopedServiceState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              scope_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedResourceId' in kwargs:
+            linked_resource_id = kwargs['linkedResourceId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scopeName' in kwargs:
+            scope_name = kwargs['scopeName']
+
         if linked_resource_id is not None:
             _setter("linked_resource_id", linked_resource_id)
         if name is not None:

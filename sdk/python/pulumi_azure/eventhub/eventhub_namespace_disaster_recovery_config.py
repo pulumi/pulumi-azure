@@ -39,7 +39,15 @@ class EventhubNamespaceDisasterRecoveryConfigArgs:
              partner_namespace_id: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'partnerNamespaceId' in kwargs:
+            partner_namespace_id = kwargs['partnerNamespaceId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("namespace_name", namespace_name)
         _setter("partner_namespace_id", partner_namespace_id)
         _setter("resource_group_name", resource_group_name)
@@ -123,7 +131,15 @@ class _EventhubNamespaceDisasterRecoveryConfigState:
              namespace_name: Optional[pulumi.Input[str]] = None,
              partner_namespace_id: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'partnerNamespaceId' in kwargs:
+            partner_namespace_id = kwargs['partnerNamespaceId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if name is not None:
             _setter("name", name)
         if namespace_name is not None:

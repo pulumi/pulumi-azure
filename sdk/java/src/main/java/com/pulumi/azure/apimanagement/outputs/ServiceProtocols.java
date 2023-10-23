@@ -48,9 +48,9 @@ public final class ServiceProtocols {
             return this;
         }
         public ServiceProtocols build() {
-            final var o = new ServiceProtocols();
-            o.enableHttp2 = enableHttp2;
-            return o;
+            final var _resultValue = new ServiceProtocols();
+            _resultValue.enableHttp2 = enableHttp2;
+            return _resultValue;
         }
     }
 }

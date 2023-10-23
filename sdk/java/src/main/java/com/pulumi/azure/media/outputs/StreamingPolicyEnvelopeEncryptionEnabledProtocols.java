@@ -105,12 +105,12 @@ public final class StreamingPolicyEnvelopeEncryptionEnabledProtocols {
             return this;
         }
         public StreamingPolicyEnvelopeEncryptionEnabledProtocols build() {
-            final var o = new StreamingPolicyEnvelopeEncryptionEnabledProtocols();
-            o.dash = dash;
-            o.download = download;
-            o.hls = hls;
-            o.smoothStreaming = smoothStreaming;
-            return o;
+            final var _resultValue = new StreamingPolicyEnvelopeEncryptionEnabledProtocols();
+            _resultValue.dash = dash;
+            _resultValue.download = download;
+            _resultValue.hls = hls;
+            _resultValue.smoothStreaming = smoothStreaming;
+            return _resultValue;
         }
     }
 }

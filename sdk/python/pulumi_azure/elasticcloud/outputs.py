@@ -67,7 +67,17 @@ class ElasticsearchLogs(dict):
              send_activity_logs: Optional[bool] = None,
              send_azuread_logs: Optional[bool] = None,
              send_subscription_logs: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filteringTags' in kwargs:
+            filtering_tags = kwargs['filteringTags']
+        if 'sendActivityLogs' in kwargs:
+            send_activity_logs = kwargs['sendActivityLogs']
+        if 'sendAzureadLogs' in kwargs:
+            send_azuread_logs = kwargs['sendAzureadLogs']
+        if 'sendSubscriptionLogs' in kwargs:
+            send_subscription_logs = kwargs['sendSubscriptionLogs']
+
         if filtering_tags is not None:
             _setter("filtering_tags", filtering_tags)
         if send_activity_logs is not None:
@@ -133,7 +143,9 @@ class ElasticsearchLogsFilteringTag(dict):
              action: str,
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         _setter("value", value)
@@ -190,7 +202,17 @@ class GetElasticsearchLogResult(dict):
              send_activity_logs: bool,
              send_azuread_logs: bool,
              send_subscription_logs: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filteringTags' in kwargs:
+            filtering_tags = kwargs['filteringTags']
+        if 'sendActivityLogs' in kwargs:
+            send_activity_logs = kwargs['sendActivityLogs']
+        if 'sendAzureadLogs' in kwargs:
+            send_azuread_logs = kwargs['sendAzureadLogs']
+        if 'sendSubscriptionLogs' in kwargs:
+            send_subscription_logs = kwargs['sendSubscriptionLogs']
+
         _setter("filtering_tags", filtering_tags)
         _setter("send_activity_logs", send_activity_logs)
         _setter("send_azuread_logs", send_azuread_logs)
@@ -252,7 +274,9 @@ class GetElasticsearchLogFilteringTagResult(dict):
              action: str,
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         _setter("value", value)

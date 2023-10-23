@@ -65,10 +65,10 @@ public final class DiagnosticBackendResponseDataMaskingQueryParam {
             return this;
         }
         public DiagnosticBackendResponseDataMaskingQueryParam build() {
-            final var o = new DiagnosticBackendResponseDataMaskingQueryParam();
-            o.mode = mode;
-            o.value = value;
-            return o;
+            final var _resultValue = new DiagnosticBackendResponseDataMaskingQueryParam();
+            _resultValue.mode = mode;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

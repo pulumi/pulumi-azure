@@ -281,22 +281,22 @@ public final class GetSoaRecordResult {
             return this;
         }
         public GetSoaRecordResult build() {
-            final var o = new GetSoaRecordResult();
-            o.email = email;
-            o.expireTime = expireTime;
-            o.fqdn = fqdn;
-            o.hostName = hostName;
-            o.id = id;
-            o.minimumTtl = minimumTtl;
-            o.name = name;
-            o.refreshTime = refreshTime;
-            o.resourceGroupName = resourceGroupName;
-            o.retryTime = retryTime;
-            o.serialNumber = serialNumber;
-            o.tags = tags;
-            o.ttl = ttl;
-            o.zoneName = zoneName;
-            return o;
+            final var _resultValue = new GetSoaRecordResult();
+            _resultValue.email = email;
+            _resultValue.expireTime = expireTime;
+            _resultValue.fqdn = fqdn;
+            _resultValue.hostName = hostName;
+            _resultValue.id = id;
+            _resultValue.minimumTtl = minimumTtl;
+            _resultValue.name = name;
+            _resultValue.refreshTime = refreshTime;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.retryTime = retryTime;
+            _resultValue.serialNumber = serialNumber;
+            _resultValue.tags = tags;
+            _resultValue.ttl = ttl;
+            _resultValue.zoneName = zoneName;
+            return _resultValue;
         }
     }
 }

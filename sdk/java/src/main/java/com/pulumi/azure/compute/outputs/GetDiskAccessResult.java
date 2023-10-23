@@ -80,12 +80,12 @@ public final class GetDiskAccessResult {
             return this;
         }
         public GetDiskAccessResult build() {
-            final var o = new GetDiskAccessResult();
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDiskAccessResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

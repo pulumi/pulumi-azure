@@ -138,15 +138,15 @@ public final class GetZoneVirtualNetworkLinkResult {
             return this;
         }
         public GetZoneVirtualNetworkLinkResult build() {
-            final var o = new GetZoneVirtualNetworkLinkResult();
-            o.id = id;
-            o.name = name;
-            o.privateDnsZoneName = privateDnsZoneName;
-            o.registrationEnabled = registrationEnabled;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.virtualNetworkId = virtualNetworkId;
-            return o;
+            final var _resultValue = new GetZoneVirtualNetworkLinkResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.privateDnsZoneName = privateDnsZoneName;
+            _resultValue.registrationEnabled = registrationEnabled;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.virtualNetworkId = virtualNetworkId;
+            return _resultValue;
         }
     }
 }

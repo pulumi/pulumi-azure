@@ -230,19 +230,19 @@ public final class GetConfigurationResult {
             return windows(List.of(windows));
         }
         public GetConfigurationResult build() {
-            final var o = new GetConfigurationResult();
-            o.id = id;
-            o.inGuestUserPatchMode = inGuestUserPatchMode;
-            o.installPatches = installPatches;
-            o.location = location;
-            o.name = name;
-            o.properties = properties;
-            o.resourceGroupName = resourceGroupName;
-            o.scope = scope;
-            o.tags = tags;
-            o.visibility = visibility;
-            o.windows = windows;
-            return o;
+            final var _resultValue = new GetConfigurationResult();
+            _resultValue.id = id;
+            _resultValue.inGuestUserPatchMode = inGuestUserPatchMode;
+            _resultValue.installPatches = installPatches;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.properties = properties;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.scope = scope;
+            _resultValue.tags = tags;
+            _resultValue.visibility = visibility;
+            _resultValue.windows = windows;
+            return _resultValue;
         }
     }
 }

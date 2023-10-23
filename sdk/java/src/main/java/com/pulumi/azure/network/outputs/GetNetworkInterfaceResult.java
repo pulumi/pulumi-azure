@@ -339,24 +339,24 @@ public final class GetNetworkInterfaceResult {
             return this;
         }
         public GetNetworkInterfaceResult build() {
-            final var o = new GetNetworkInterfaceResult();
-            o.appliedDnsServers = appliedDnsServers;
-            o.dnsServers = dnsServers;
-            o.enableAcceleratedNetworking = enableAcceleratedNetworking;
-            o.enableIpForwarding = enableIpForwarding;
-            o.id = id;
-            o.internalDnsNameLabel = internalDnsNameLabel;
-            o.ipConfigurations = ipConfigurations;
-            o.location = location;
-            o.macAddress = macAddress;
-            o.name = name;
-            o.networkSecurityGroupId = networkSecurityGroupId;
-            o.privateIpAddress = privateIpAddress;
-            o.privateIpAddresses = privateIpAddresses;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.virtualMachineId = virtualMachineId;
-            return o;
+            final var _resultValue = new GetNetworkInterfaceResult();
+            _resultValue.appliedDnsServers = appliedDnsServers;
+            _resultValue.dnsServers = dnsServers;
+            _resultValue.enableAcceleratedNetworking = enableAcceleratedNetworking;
+            _resultValue.enableIpForwarding = enableIpForwarding;
+            _resultValue.id = id;
+            _resultValue.internalDnsNameLabel = internalDnsNameLabel;
+            _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.location = location;
+            _resultValue.macAddress = macAddress;
+            _resultValue.name = name;
+            _resultValue.networkSecurityGroupId = networkSecurityGroupId;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.privateIpAddresses = privateIpAddresses;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.virtualMachineId = virtualMachineId;
+            return _resultValue;
         }
     }
 }

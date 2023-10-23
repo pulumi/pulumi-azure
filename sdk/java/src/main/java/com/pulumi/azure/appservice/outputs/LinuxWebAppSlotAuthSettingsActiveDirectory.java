@@ -113,12 +113,12 @@ public final class LinuxWebAppSlotAuthSettingsActiveDirectory {
             return this;
         }
         public LinuxWebAppSlotAuthSettingsActiveDirectory build() {
-            final var o = new LinuxWebAppSlotAuthSettingsActiveDirectory();
-            o.allowedAudiences = allowedAudiences;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.clientSecretSettingName = clientSecretSettingName;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotAuthSettingsActiveDirectory();
+            _resultValue.allowedAudiences = allowedAudiences;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            return _resultValue;
         }
     }
 }

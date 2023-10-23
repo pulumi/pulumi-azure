@@ -72,10 +72,10 @@ public final class RegistryTaskRegistryCredential {
             return this;
         }
         public RegistryTaskRegistryCredential build() {
-            final var o = new RegistryTaskRegistryCredential();
-            o.customs = customs;
-            o.source = source;
-            return o;
+            final var _resultValue = new RegistryTaskRegistryCredential();
+            _resultValue.customs = customs;
+            _resultValue.source = source;
+            return _resultValue;
         }
     }
 }

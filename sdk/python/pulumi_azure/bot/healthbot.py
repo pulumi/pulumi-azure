@@ -43,7 +43,13 @@ class HealthbotArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
         if location is not None:
@@ -150,7 +156,15 @@ class _HealthbotState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botManagementPortalUrl' in kwargs:
+            bot_management_portal_url = kwargs['botManagementPortalUrl']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if bot_management_portal_url is not None:
             _setter("bot_management_portal_url", bot_management_portal_url)
         if location is not None:

@@ -47,7 +47,17 @@ class ManagedStorageAccountSasTokenDefinitionArgs:
              validity_period: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedStorageAccountId' in kwargs:
+            managed_storage_account_id = kwargs['managedStorageAccountId']
+        if 'sasTemplateUri' in kwargs:
+            sas_template_uri = kwargs['sasTemplateUri']
+        if 'sasType' in kwargs:
+            sas_type = kwargs['sasType']
+        if 'validityPeriod' in kwargs:
+            validity_period = kwargs['validityPeriod']
+
         _setter("managed_storage_account_id", managed_storage_account_id)
         _setter("sas_template_uri", sas_template_uri)
         _setter("sas_type", sas_type)
@@ -170,7 +180,19 @@ class _ManagedStorageAccountSasTokenDefinitionState:
              secret_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              validity_period: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedStorageAccountId' in kwargs:
+            managed_storage_account_id = kwargs['managedStorageAccountId']
+        if 'sasTemplateUri' in kwargs:
+            sas_template_uri = kwargs['sasTemplateUri']
+        if 'sasType' in kwargs:
+            sas_type = kwargs['sasType']
+        if 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+        if 'validityPeriod' in kwargs:
+            validity_period = kwargs['validityPeriod']
+
         if managed_storage_account_id is not None:
             _setter("managed_storage_account_id", managed_storage_account_id)
         if name is not None:

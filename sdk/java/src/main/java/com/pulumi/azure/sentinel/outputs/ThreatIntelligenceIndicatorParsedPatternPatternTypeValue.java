@@ -67,10 +67,10 @@ public final class ThreatIntelligenceIndicatorParsedPatternPatternTypeValue {
             return this;
         }
         public ThreatIntelligenceIndicatorParsedPatternPatternTypeValue build() {
-            final var o = new ThreatIntelligenceIndicatorParsedPatternPatternTypeValue();
-            o.value = value;
-            o.valueType = valueType;
-            return o;
+            final var _resultValue = new ThreatIntelligenceIndicatorParsedPatternPatternTypeValue();
+            _resultValue.value = value;
+            _resultValue.valueType = valueType;
+            return _resultValue;
         }
     }
 }

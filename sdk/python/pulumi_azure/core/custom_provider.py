@@ -53,7 +53,13 @@ class CustomProviderArgs:
              resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['CustomProviderResourceTypeArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              validations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomProviderValidationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+
         _setter("resource_group_name", resource_group_name)
         if actions is not None:
             _setter("actions", actions)
@@ -193,7 +199,13 @@ class _CustomProviderState:
              resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['CustomProviderResourceTypeArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              validations: Optional[pulumi.Input[Sequence[pulumi.Input['CustomProviderValidationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+
         if actions is not None:
             _setter("actions", actions)
         if location is not None:

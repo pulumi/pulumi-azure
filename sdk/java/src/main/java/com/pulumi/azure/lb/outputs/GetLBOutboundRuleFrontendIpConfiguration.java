@@ -65,10 +65,10 @@ public final class GetLBOutboundRuleFrontendIpConfiguration {
             return this;
         }
         public GetLBOutboundRuleFrontendIpConfiguration build() {
-            final var o = new GetLBOutboundRuleFrontendIpConfiguration();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetLBOutboundRuleFrontendIpConfiguration();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

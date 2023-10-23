@@ -74,10 +74,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
             return this;
         }
         public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret build() {
-            final var o = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret();
-            o.certificates = certificates;
-            o.keyVaultId = keyVaultId;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret();
+            _resultValue.certificates = certificates;
+            _resultValue.keyVaultId = keyVaultId;
+            return _resultValue;
         }
     }
 }

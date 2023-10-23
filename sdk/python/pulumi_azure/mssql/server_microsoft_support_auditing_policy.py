@@ -49,7 +49,19 @@ class ServerMicrosoftSupportAuditingPolicyArgs:
              log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if 'blobStorageEndpoint' in kwargs:
+            blob_storage_endpoint = kwargs['blobStorageEndpoint']
+        if 'logMonitoringEnabled' in kwargs:
+            log_monitoring_enabled = kwargs['logMonitoringEnabled']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageAccountSubscriptionId' in kwargs:
+            storage_account_subscription_id = kwargs['storageAccountSubscriptionId']
+
         _setter("server_id", server_id)
         if blob_storage_endpoint is not None:
             _setter("blob_storage_endpoint", blob_storage_endpoint)
@@ -175,7 +187,19 @@ class _ServerMicrosoftSupportAuditingPolicyState:
              server_id: Optional[pulumi.Input[str]] = None,
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobStorageEndpoint' in kwargs:
+            blob_storage_endpoint = kwargs['blobStorageEndpoint']
+        if 'logMonitoringEnabled' in kwargs:
+            log_monitoring_enabled = kwargs['logMonitoringEnabled']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageAccountSubscriptionId' in kwargs:
+            storage_account_subscription_id = kwargs['storageAccountSubscriptionId']
+
         if blob_storage_endpoint is not None:
             _setter("blob_storage_endpoint", blob_storage_endpoint)
         if enabled is not None:

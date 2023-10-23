@@ -161,15 +161,15 @@ public final class GetActionGroupAutomationRunbookReceiver {
             return this;
         }
         public GetActionGroupAutomationRunbookReceiver build() {
-            final var o = new GetActionGroupAutomationRunbookReceiver();
-            o.automationAccountId = automationAccountId;
-            o.isGlobalRunbook = isGlobalRunbook;
-            o.name = name;
-            o.runbookName = runbookName;
-            o.serviceUri = serviceUri;
-            o.useCommonAlertSchema = useCommonAlertSchema;
-            o.webhookResourceId = webhookResourceId;
-            return o;
+            final var _resultValue = new GetActionGroupAutomationRunbookReceiver();
+            _resultValue.automationAccountId = automationAccountId;
+            _resultValue.isGlobalRunbook = isGlobalRunbook;
+            _resultValue.name = name;
+            _resultValue.runbookName = runbookName;
+            _resultValue.serviceUri = serviceUri;
+            _resultValue.useCommonAlertSchema = useCommonAlertSchema;
+            _resultValue.webhookResourceId = webhookResourceId;
+            return _resultValue;
         }
     }
 }

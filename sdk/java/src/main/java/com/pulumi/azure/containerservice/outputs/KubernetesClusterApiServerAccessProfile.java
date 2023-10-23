@@ -95,11 +95,11 @@ public final class KubernetesClusterApiServerAccessProfile {
             return this;
         }
         public KubernetesClusterApiServerAccessProfile build() {
-            final var o = new KubernetesClusterApiServerAccessProfile();
-            o.authorizedIpRanges = authorizedIpRanges;
-            o.subnetId = subnetId;
-            o.vnetIntegrationEnabled = vnetIntegrationEnabled;
-            return o;
+            final var _resultValue = new KubernetesClusterApiServerAccessProfile();
+            _resultValue.authorizedIpRanges = authorizedIpRanges;
+            _resultValue.subnetId = subnetId;
+            _resultValue.vnetIntegrationEnabled = vnetIntegrationEnabled;
+            return _resultValue;
         }
     }
 }

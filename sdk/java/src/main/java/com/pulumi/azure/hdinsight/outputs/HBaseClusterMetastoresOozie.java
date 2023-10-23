@@ -103,12 +103,12 @@ public final class HBaseClusterMetastoresOozie {
             return this;
         }
         public HBaseClusterMetastoresOozie build() {
-            final var o = new HBaseClusterMetastoresOozie();
-            o.databaseName = databaseName;
-            o.password = password;
-            o.server = server;
-            o.username = username;
-            return o;
+            final var _resultValue = new HBaseClusterMetastoresOozie();
+            _resultValue.databaseName = databaseName;
+            _resultValue.password = password;
+            _resultValue.server = server;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

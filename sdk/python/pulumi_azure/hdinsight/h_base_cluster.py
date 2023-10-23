@@ -103,7 +103,27 @@ class HBaseClusterArgs:
              storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterStorageAccountArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tls_min_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterVersion' in kwargs:
+            cluster_version = kwargs['clusterVersion']
+        if 'componentVersion' in kwargs:
+            component_version = kwargs['componentVersion']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'computeIsolation' in kwargs:
+            compute_isolation = kwargs['computeIsolation']
+        if 'diskEncryptions' in kwargs:
+            disk_encryptions = kwargs['diskEncryptions']
+        if 'securityProfile' in kwargs:
+            security_profile = kwargs['securityProfile']
+        if 'storageAccountGen2' in kwargs:
+            storage_account_gen2 = kwargs['storageAccountGen2']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if 'tlsMinVersion' in kwargs:
+            tls_min_version = kwargs['tlsMinVersion']
+
         _setter("cluster_version", cluster_version)
         _setter("component_version", component_version)
         _setter("gateway", gateway)
@@ -466,7 +486,31 @@ class _HBaseClusterState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tier: Optional[pulumi.Input[str]] = None,
              tls_min_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterVersion' in kwargs:
+            cluster_version = kwargs['clusterVersion']
+        if 'componentVersion' in kwargs:
+            component_version = kwargs['componentVersion']
+        if 'computeIsolation' in kwargs:
+            compute_isolation = kwargs['computeIsolation']
+        if 'diskEncryptions' in kwargs:
+            disk_encryptions = kwargs['diskEncryptions']
+        if 'httpsEndpoint' in kwargs:
+            https_endpoint = kwargs['httpsEndpoint']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'securityProfile' in kwargs:
+            security_profile = kwargs['securityProfile']
+        if 'sshEndpoint' in kwargs:
+            ssh_endpoint = kwargs['sshEndpoint']
+        if 'storageAccountGen2' in kwargs:
+            storage_account_gen2 = kwargs['storageAccountGen2']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if 'tlsMinVersion' in kwargs:
+            tls_min_version = kwargs['tlsMinVersion']
+
         if cluster_version is not None:
             _setter("cluster_version", cluster_version)
         if component_version is not None:

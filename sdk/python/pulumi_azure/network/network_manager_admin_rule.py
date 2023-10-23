@@ -69,7 +69,15 @@ class NetworkManagerAdminRuleArgs:
              name: Optional[pulumi.Input[str]] = None,
              source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleSourceArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminRuleCollectionId' in kwargs:
+            admin_rule_collection_id = kwargs['adminRuleCollectionId']
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
         _setter("action", action)
         _setter("admin_rule_collection_id", admin_rule_collection_id)
         _setter("direction", direction)
@@ -277,7 +285,15 @@ class _NetworkManagerAdminRuleState:
              protocol: Optional[pulumi.Input[str]] = None,
              source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerAdminRuleSourceArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminRuleCollectionId' in kwargs:
+            admin_rule_collection_id = kwargs['adminRuleCollectionId']
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
         if action is not None:
             _setter("action", action)
         if admin_rule_collection_id is not None:

@@ -70,10 +70,10 @@ public final class PolicyFileShareRetentionWeekly {
             return weekdays(List.of(weekdays));
         }
         public PolicyFileShareRetentionWeekly build() {
-            final var o = new PolicyFileShareRetentionWeekly();
-            o.count = count;
-            o.weekdays = weekdays;
-            return o;
+            final var _resultValue = new PolicyFileShareRetentionWeekly();
+            _resultValue.count = count;
+            _resultValue.weekdays = weekdays;
+            return _resultValue;
         }
     }
 }

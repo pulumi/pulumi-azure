@@ -49,7 +49,17 @@ class PolicyVMWorkloadArgs:
              settings: pulumi.Input['PolicyVMWorkloadSettingsArgs'],
              workload_type: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'protectionPolicies' in kwargs:
+            protection_policies = kwargs['protectionPolicies']
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workloadType' in kwargs:
+            workload_type = kwargs['workloadType']
+
         _setter("protection_policies", protection_policies)
         _setter("recovery_vault_name", recovery_vault_name)
         _setter("resource_group_name", resource_group_name)
@@ -167,7 +177,17 @@ class _PolicyVMWorkloadState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              settings: Optional[pulumi.Input['PolicyVMWorkloadSettingsArgs']] = None,
              workload_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'protectionPolicies' in kwargs:
+            protection_policies = kwargs['protectionPolicies']
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workloadType' in kwargs:
+            workload_type = kwargs['workloadType']
+
         if name is not None:
             _setter("name", name)
         if protection_policies is not None:

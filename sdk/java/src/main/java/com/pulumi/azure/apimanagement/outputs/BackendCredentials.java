@@ -111,12 +111,12 @@ public final class BackendCredentials {
             return this;
         }
         public BackendCredentials build() {
-            final var o = new BackendCredentials();
-            o.authorization = authorization;
-            o.certificates = certificates;
-            o.header = header;
-            o.query = query;
-            return o;
+            final var _resultValue = new BackendCredentials();
+            _resultValue.authorization = authorization;
+            _resultValue.certificates = certificates;
+            _resultValue.header = header;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

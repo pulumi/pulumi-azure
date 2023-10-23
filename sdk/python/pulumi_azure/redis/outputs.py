@@ -66,7 +66,15 @@ class CacheIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -150,7 +158,15 @@ class CachePatchSchedule(dict):
              day_of_week: str,
              maintenance_window: Optional[str] = None,
              start_hour_utc: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'startHourUtc' in kwargs:
+            start_hour_utc = kwargs['startHourUtc']
+
         _setter("day_of_week", day_of_week)
         if maintenance_window is not None:
             _setter("maintenance_window", maintenance_window)
@@ -310,7 +326,35 @@ class CacheRedisConfiguration(dict):
              rdb_backup_frequency: Optional[int] = None,
              rdb_backup_max_snapshot_count: Optional[int] = None,
              rdb_storage_connection_string: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aofBackupEnabled' in kwargs:
+            aof_backup_enabled = kwargs['aofBackupEnabled']
+        if 'aofStorageConnectionString0' in kwargs:
+            aof_storage_connection_string0 = kwargs['aofStorageConnectionString0']
+        if 'aofStorageConnectionString1' in kwargs:
+            aof_storage_connection_string1 = kwargs['aofStorageConnectionString1']
+        if 'enableAuthentication' in kwargs:
+            enable_authentication = kwargs['enableAuthentication']
+        if 'maxfragmentationmemoryReserved' in kwargs:
+            maxfragmentationmemory_reserved = kwargs['maxfragmentationmemoryReserved']
+        if 'maxmemoryDelta' in kwargs:
+            maxmemory_delta = kwargs['maxmemoryDelta']
+        if 'maxmemoryPolicy' in kwargs:
+            maxmemory_policy = kwargs['maxmemoryPolicy']
+        if 'maxmemoryReserved' in kwargs:
+            maxmemory_reserved = kwargs['maxmemoryReserved']
+        if 'notifyKeyspaceEvents' in kwargs:
+            notify_keyspace_events = kwargs['notifyKeyspaceEvents']
+        if 'rdbBackupEnabled' in kwargs:
+            rdb_backup_enabled = kwargs['rdbBackupEnabled']
+        if 'rdbBackupFrequency' in kwargs:
+            rdb_backup_frequency = kwargs['rdbBackupFrequency']
+        if 'rdbBackupMaxSnapshotCount' in kwargs:
+            rdb_backup_max_snapshot_count = kwargs['rdbBackupMaxSnapshotCount']
+        if 'rdbStorageConnectionString' in kwargs:
+            rdb_storage_connection_string = kwargs['rdbStorageConnectionString']
+
         if aof_backup_enabled is not None:
             _setter("aof_backup_enabled", aof_backup_enabled)
         if aof_storage_connection_string0 is not None:
@@ -493,7 +537,9 @@ class EnterpriseDatabaseModule(dict):
              name: str,
              args: Optional[str] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if args is not None:
             _setter("args", args)
@@ -545,7 +591,15 @@ class GetCachePatchScheduleResult(dict):
              day_of_week: str,
              maintenance_window: str,
              start_hour_utc: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'startHourUtc' in kwargs:
+            start_hour_utc = kwargs['startHourUtc']
+
         _setter("day_of_week", day_of_week)
         _setter("maintenance_window", maintenance_window)
         _setter("start_hour_utc", start_hour_utc)
@@ -637,7 +691,35 @@ class GetCacheRedisConfigurationResult(dict):
              rdb_backup_frequency: int,
              rdb_backup_max_snapshot_count: int,
              rdb_storage_connection_string: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aofBackupEnabled' in kwargs:
+            aof_backup_enabled = kwargs['aofBackupEnabled']
+        if 'aofStorageConnectionString0' in kwargs:
+            aof_storage_connection_string0 = kwargs['aofStorageConnectionString0']
+        if 'aofStorageConnectionString1' in kwargs:
+            aof_storage_connection_string1 = kwargs['aofStorageConnectionString1']
+        if 'enableAuthentication' in kwargs:
+            enable_authentication = kwargs['enableAuthentication']
+        if 'maxfragmentationmemoryReserved' in kwargs:
+            maxfragmentationmemory_reserved = kwargs['maxfragmentationmemoryReserved']
+        if 'maxmemoryDelta' in kwargs:
+            maxmemory_delta = kwargs['maxmemoryDelta']
+        if 'maxmemoryPolicy' in kwargs:
+            maxmemory_policy = kwargs['maxmemoryPolicy']
+        if 'maxmemoryReserved' in kwargs:
+            maxmemory_reserved = kwargs['maxmemoryReserved']
+        if 'notifyKeyspaceEvents' in kwargs:
+            notify_keyspace_events = kwargs['notifyKeyspaceEvents']
+        if 'rdbBackupEnabled' in kwargs:
+            rdb_backup_enabled = kwargs['rdbBackupEnabled']
+        if 'rdbBackupFrequency' in kwargs:
+            rdb_backup_frequency = kwargs['rdbBackupFrequency']
+        if 'rdbBackupMaxSnapshotCount' in kwargs:
+            rdb_backup_max_snapshot_count = kwargs['rdbBackupMaxSnapshotCount']
+        if 'rdbStorageConnectionString' in kwargs:
+            rdb_storage_connection_string = kwargs['rdbStorageConnectionString']
+
         _setter("aof_backup_enabled", aof_backup_enabled)
         _setter("aof_storage_connection_string0", aof_storage_connection_string0)
         _setter("aof_storage_connection_string1", aof_storage_connection_string1)

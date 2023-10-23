@@ -260,21 +260,21 @@ public final class GetEnvironmentResult {
             return this;
         }
         public GetEnvironmentResult build() {
-            final var o = new GetEnvironmentResult();
-            o.defaultDomain = defaultDomain;
-            o.dockerBridgeCidr = dockerBridgeCidr;
-            o.id = id;
-            o.infrastructureSubnetId = infrastructureSubnetId;
-            o.internalLoadBalancerEnabled = internalLoadBalancerEnabled;
-            o.location = location;
-            o.logAnalyticsWorkspaceName = logAnalyticsWorkspaceName;
-            o.name = name;
-            o.platformReservedCidr = platformReservedCidr;
-            o.platformReservedDnsIpAddress = platformReservedDnsIpAddress;
-            o.resourceGroupName = resourceGroupName;
-            o.staticIpAddress = staticIpAddress;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetEnvironmentResult();
+            _resultValue.defaultDomain = defaultDomain;
+            _resultValue.dockerBridgeCidr = dockerBridgeCidr;
+            _resultValue.id = id;
+            _resultValue.infrastructureSubnetId = infrastructureSubnetId;
+            _resultValue.internalLoadBalancerEnabled = internalLoadBalancerEnabled;
+            _resultValue.location = location;
+            _resultValue.logAnalyticsWorkspaceName = logAnalyticsWorkspaceName;
+            _resultValue.name = name;
+            _resultValue.platformReservedCidr = platformReservedCidr;
+            _resultValue.platformReservedDnsIpAddress = platformReservedDnsIpAddress;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.staticIpAddress = staticIpAddress;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

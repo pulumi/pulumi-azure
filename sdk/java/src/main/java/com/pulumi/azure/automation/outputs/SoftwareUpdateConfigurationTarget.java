@@ -74,10 +74,10 @@ public final class SoftwareUpdateConfigurationTarget {
             return nonAzureQueries(List.of(nonAzureQueries));
         }
         public SoftwareUpdateConfigurationTarget build() {
-            final var o = new SoftwareUpdateConfigurationTarget();
-            o.azureQueries = azureQueries;
-            o.nonAzureQueries = nonAzureQueries;
-            return o;
+            final var _resultValue = new SoftwareUpdateConfigurationTarget();
+            _resultValue.azureQueries = azureQueries;
+            _resultValue.nonAzureQueries = nonAzureQueries;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class ClusterFabricSetting {
             return this;
         }
         public ClusterFabricSetting build() {
-            final var o = new ClusterFabricSetting();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new ClusterFabricSetting();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

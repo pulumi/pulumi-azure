@@ -87,11 +87,11 @@ public final class LocalNetworkGatewayBgpSettings {
             return this;
         }
         public LocalNetworkGatewayBgpSettings build() {
-            final var o = new LocalNetworkGatewayBgpSettings();
-            o.asn = asn;
-            o.bgpPeeringAddress = bgpPeeringAddress;
-            o.peerWeight = peerWeight;
-            return o;
+            final var _resultValue = new LocalNetworkGatewayBgpSettings();
+            _resultValue.asn = asn;
+            _resultValue.bgpPeeringAddress = bgpPeeringAddress;
+            _resultValue.peerWeight = peerWeight;
+            return _resultValue;
         }
     }
 }

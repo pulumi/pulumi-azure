@@ -175,15 +175,15 @@ public final class PoolStartTask {
             return this;
         }
         public PoolStartTask build() {
-            final var o = new PoolStartTask();
-            o.commandLine = commandLine;
-            o.commonEnvironmentProperties = commonEnvironmentProperties;
-            o.containers = containers;
-            o.resourceFiles = resourceFiles;
-            o.taskRetryMaximum = taskRetryMaximum;
-            o.userIdentity = userIdentity;
-            o.waitForSuccess = waitForSuccess;
-            return o;
+            final var _resultValue = new PoolStartTask();
+            _resultValue.commandLine = commandLine;
+            _resultValue.commonEnvironmentProperties = commonEnvironmentProperties;
+            _resultValue.containers = containers;
+            _resultValue.resourceFiles = resourceFiles;
+            _resultValue.taskRetryMaximum = taskRetryMaximum;
+            _resultValue.userIdentity = userIdentity;
+            _resultValue.waitForSuccess = waitForSuccess;
+            return _resultValue;
         }
     }
 }

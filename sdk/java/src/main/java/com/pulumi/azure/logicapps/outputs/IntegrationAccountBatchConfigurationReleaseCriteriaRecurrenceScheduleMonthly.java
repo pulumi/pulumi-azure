@@ -66,10 +66,10 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
             return this;
         }
         public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly build() {
-            final var o = new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly();
-            o.week = week;
-            o.weekday = weekday;
-            return o;
+            final var _resultValue = new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly();
+            _resultValue.week = week;
+            _resultValue.weekday = weekday;
+            return _resultValue;
         }
     }
 }

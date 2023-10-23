@@ -48,9 +48,9 @@ public final class RegistryTrustPolicy {
             return this;
         }
         public RegistryTrustPolicy build() {
-            final var o = new RegistryTrustPolicy();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new RegistryTrustPolicy();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

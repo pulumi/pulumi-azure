@@ -86,11 +86,11 @@ public final class ApplicationGatewayHttpListenerCustomErrorConfiguration {
             return this;
         }
         public ApplicationGatewayHttpListenerCustomErrorConfiguration build() {
-            final var o = new ApplicationGatewayHttpListenerCustomErrorConfiguration();
-            o.customErrorPageUrl = customErrorPageUrl;
-            o.id = id;
-            o.statusCode = statusCode;
-            return o;
+            final var _resultValue = new ApplicationGatewayHttpListenerCustomErrorConfiguration();
+            _resultValue.customErrorPageUrl = customErrorPageUrl;
+            _resultValue.id = id;
+            _resultValue.statusCode = statusCode;
+            return _resultValue;
         }
     }
 }

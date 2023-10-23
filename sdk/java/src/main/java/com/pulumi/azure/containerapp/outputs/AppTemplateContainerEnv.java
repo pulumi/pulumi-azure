@@ -90,11 +90,11 @@ public final class AppTemplateContainerEnv {
             return this;
         }
         public AppTemplateContainerEnv build() {
-            final var o = new AppTemplateContainerEnv();
-            o.name = name;
-            o.secretName = secretName;
-            o.value = value;
-            return o;
+            final var _resultValue = new AppTemplateContainerEnv();
+            _resultValue.name = name;
+            _resultValue.secretName = secretName;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

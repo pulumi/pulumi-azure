@@ -147,7 +147,9 @@ class ConnectedRegistryNotificationArgs:
              name: pulumi.Input[str],
              digest: Optional[pulumi.Input[str]] = None,
              tag: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("name", name)
         if digest is not None:
@@ -249,7 +251,25 @@ class FluxConfigurationBlobStorageArgs:
              service_principal: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']] = None,
              sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerId' in kwargs:
+            container_id = kwargs['containerId']
+        if 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if 'localAuthReference' in kwargs:
+            local_auth_reference = kwargs['localAuthReference']
+        if 'managedIdentity' in kwargs:
+            managed_identity = kwargs['managedIdentity']
+        if 'sasToken' in kwargs:
+            sas_token = kwargs['sasToken']
+        if 'servicePrincipal' in kwargs:
+            service_principal = kwargs['servicePrincipal']
+        if 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         _setter("container_id", container_id)
         if account_key is not None:
             _setter("account_key", account_key)
@@ -378,7 +398,11 @@ class FluxConfigurationBlobStorageManagedIdentityArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+
         _setter("client_id", client_id)
 
     @property
@@ -429,7 +453,21 @@ class FluxConfigurationBlobStorageServicePrincipalArgs:
              client_certificate_password: Optional[pulumi.Input[str]] = None,
              client_certificate_send_chain: Optional[pulumi.Input[bool]] = None,
              client_secret: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'clientCertificateBase64' in kwargs:
+            client_certificate_base64 = kwargs['clientCertificateBase64']
+        if 'clientCertificatePassword' in kwargs:
+            client_certificate_password = kwargs['clientCertificatePassword']
+        if 'clientCertificateSendChain' in kwargs:
+            client_certificate_send_chain = kwargs['clientCertificateSendChain']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+
         _setter("client_id", client_id)
         _setter("tenant_id", tenant_id)
         if client_certificate_base64 is not None:
@@ -557,7 +595,23 @@ class FluxConfigurationBucketArgs:
              sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              tls_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'localAuthReference' in kwargs:
+            local_auth_reference = kwargs['localAuthReference']
+        if 'secretKeyBase64' in kwargs:
+            secret_key_base64 = kwargs['secretKeyBase64']
+        if 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if 'tlsEnabled' in kwargs:
+            tls_enabled = kwargs['tlsEnabled']
+
         _setter("bucket_name", bucket_name)
         _setter("url", url)
         if access_key is not None:
@@ -725,7 +779,29 @@ class FluxConfigurationGitRepositoryArgs:
              ssh_private_key_base64: Optional[pulumi.Input[str]] = None,
              sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'referenceType' in kwargs:
+            reference_type = kwargs['referenceType']
+        if 'referenceValue' in kwargs:
+            reference_value = kwargs['referenceValue']
+        if 'httpsCaCertBase64' in kwargs:
+            https_ca_cert_base64 = kwargs['httpsCaCertBase64']
+        if 'httpsKeyBase64' in kwargs:
+            https_key_base64 = kwargs['httpsKeyBase64']
+        if 'httpsUser' in kwargs:
+            https_user = kwargs['httpsUser']
+        if 'localAuthReference' in kwargs:
+            local_auth_reference = kwargs['localAuthReference']
+        if 'sshKnownHostsBase64' in kwargs:
+            ssh_known_hosts_base64 = kwargs['sshKnownHostsBase64']
+        if 'sshPrivateKeyBase64' in kwargs:
+            ssh_private_key_base64 = kwargs['sshPrivateKeyBase64']
+        if 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         _setter("reference_type", reference_type)
         _setter("reference_value", reference_value)
         _setter("url", url)
@@ -922,7 +998,21 @@ class FluxConfigurationKustomizationArgs:
              retry_interval_in_seconds: Optional[pulumi.Input[int]] = None,
              sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dependsOns' in kwargs:
+            depends_ons = kwargs['dependsOns']
+        if 'garbageCollectionEnabled' in kwargs:
+            garbage_collection_enabled = kwargs['garbageCollectionEnabled']
+        if 'recreatingEnabled' in kwargs:
+            recreating_enabled = kwargs['recreatingEnabled']
+        if 'retryIntervalInSeconds' in kwargs:
+            retry_interval_in_seconds = kwargs['retryIntervalInSeconds']
+        if 'syncIntervalInSeconds' in kwargs:
+            sync_interval_in_seconds = kwargs['syncIntervalInSeconds']
+        if 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         _setter("name", name)
         if depends_ons is not None:
             _setter("depends_ons", depends_ons)
@@ -1113,7 +1203,23 @@ class GroupContainerArgs:
              secure_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              securities: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerSecurityArgs']]]] = None,
              volumes: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cpuLimit' in kwargs:
+            cpu_limit = kwargs['cpuLimit']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'gpuLimit' in kwargs:
+            gpu_limit = kwargs['gpuLimit']
+        if 'livenessProbe' in kwargs:
+            liveness_probe = kwargs['livenessProbe']
+        if 'memoryLimit' in kwargs:
+            memory_limit = kwargs['memoryLimit']
+        if 'readinessProbe' in kwargs:
+            readiness_probe = kwargs['readinessProbe']
+        if 'secureEnvironmentVariables' in kwargs:
+            secure_environment_variables = kwargs['secureEnvironmentVariables']
+
         _setter("cpu", cpu)
         _setter("image", image)
         _setter("memory", memory)
@@ -1357,7 +1463,9 @@ class GroupContainerGpuArgs:
              _setter: Callable[[Any, Any], None],
              count: Optional[pulumi.Input[int]] = None,
              sku: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
         if sku is not None:
@@ -1407,7 +1515,9 @@ class GroupContainerGpuLimitArgs:
              _setter: Callable[[Any, Any], None],
              count: Optional[pulumi.Input[int]] = None,
              sku: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
         if sku is not None:
@@ -1477,7 +1587,21 @@ class GroupContainerLivenessProbeArgs:
              period_seconds: Optional[pulumi.Input[int]] = None,
              success_threshold: Optional[pulumi.Input[int]] = None,
              timeout_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+        if 'httpGets' in kwargs:
+            http_gets = kwargs['httpGets']
+        if 'initialDelaySeconds' in kwargs:
+            initial_delay_seconds = kwargs['initialDelaySeconds']
+        if 'periodSeconds' in kwargs:
+            period_seconds = kwargs['periodSeconds']
+        if 'successThreshold' in kwargs:
+            success_threshold = kwargs['successThreshold']
+        if 'timeoutSeconds' in kwargs:
+            timeout_seconds = kwargs['timeoutSeconds']
+
         if execs is not None:
             _setter("execs", execs)
         if failure_threshold is not None:
@@ -1605,7 +1729,11 @@ class GroupContainerLivenessProbeHttpGetArgs:
              path: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
              scheme: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpHeaders' in kwargs:
+            http_headers = kwargs['httpHeaders']
+
         if http_headers is not None:
             _setter("http_headers", http_headers)
         if path is not None:
@@ -1685,7 +1813,9 @@ class GroupContainerPortArgs:
              _setter: Callable[[Any, Any], None],
              port: Optional[pulumi.Input[int]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if port is not None:
             _setter("port", port)
         if protocol is not None:
@@ -1757,7 +1887,21 @@ class GroupContainerReadinessProbeArgs:
              period_seconds: Optional[pulumi.Input[int]] = None,
              success_threshold: Optional[pulumi.Input[int]] = None,
              timeout_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+        if 'httpGets' in kwargs:
+            http_gets = kwargs['httpGets']
+        if 'initialDelaySeconds' in kwargs:
+            initial_delay_seconds = kwargs['initialDelaySeconds']
+        if 'periodSeconds' in kwargs:
+            period_seconds = kwargs['periodSeconds']
+        if 'successThreshold' in kwargs:
+            success_threshold = kwargs['successThreshold']
+        if 'timeoutSeconds' in kwargs:
+            timeout_seconds = kwargs['timeoutSeconds']
+
         if execs is not None:
             _setter("execs", execs)
         if failure_threshold is not None:
@@ -1885,7 +2029,11 @@ class GroupContainerReadinessProbeHttpGetArgs:
              path: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
              scheme: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpHeaders' in kwargs:
+            http_headers = kwargs['httpHeaders']
+
         if http_headers is not None:
             _setter("http_headers", http_headers)
         if path is not None:
@@ -1961,7 +2109,11 @@ class GroupContainerSecurityArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              privilege_enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privilegeEnabled' in kwargs:
+            privilege_enabled = kwargs['privilegeEnabled']
+
         _setter("privilege_enabled", privilege_enabled)
 
     @property
@@ -2032,7 +2184,23 @@ class GroupContainerVolumeArgs:
              share_name: Optional[pulumi.Input[str]] = None,
              storage_account_key: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+        if 'emptyDir' in kwargs:
+            empty_dir = kwargs['emptyDir']
+        if 'gitRepo' in kwargs:
+            git_repo = kwargs['gitRepo']
+        if 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         _setter("mount_path", mount_path)
         _setter("name", name)
         if empty_dir is not None:
@@ -2188,7 +2356,9 @@ class GroupContainerVolumeGitRepoArgs:
              url: pulumi.Input[str],
              directory: Optional[pulumi.Input[str]] = None,
              revision: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("url", url)
         if directory is not None:
             _setter("directory", directory)
@@ -2247,7 +2417,11 @@ class GroupDiagnosticsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_analytics: pulumi.Input['GroupDiagnosticsLogAnalyticsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalytics' in kwargs:
+            log_analytics = kwargs['logAnalytics']
+
         _setter("log_analytics", log_analytics)
 
     @property
@@ -2290,7 +2464,15 @@ class GroupDiagnosticsLogAnalyticsArgs:
              workspace_key: pulumi.Input[str],
              log_type: Optional[pulumi.Input[str]] = None,
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'workspaceKey' in kwargs:
+            workspace_key = kwargs['workspaceKey']
+        if 'logType' in kwargs:
+            log_type = kwargs['logType']
+
         _setter("workspace_id", workspace_id)
         _setter("workspace_key", workspace_key)
         if log_type is not None:
@@ -2370,7 +2552,11 @@ class GroupDnsConfigArgs:
              nameservers: pulumi.Input[Sequence[pulumi.Input[str]]],
              options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              search_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'searchDomains' in kwargs:
+            search_domains = kwargs['searchDomains']
+
         _setter("nameservers", nameservers)
         if options is not None:
             _setter("options", options)
@@ -2435,7 +2621,9 @@ class GroupExposedPortArgs:
              _setter: Callable[[Any, Any], None],
              port: Optional[pulumi.Input[int]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if port is not None:
             _setter("port", port)
         if protocol is not None:
@@ -2501,7 +2689,15 @@ class GroupIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -2592,7 +2788,11 @@ class GroupImageRegistryCredentialArgs:
              password: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         _setter("server", server)
         if password is not None:
             _setter("password", password)
@@ -2689,7 +2889,13 @@ class GroupInitContainerArgs:
              secure_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              securities: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerSecurityArgs']]]] = None,
              volumes: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'secureEnvironmentVariables' in kwargs:
+            secure_environment_variables = kwargs['secureEnvironmentVariables']
+
         _setter("image", image)
         _setter("name", name)
         if commands is not None:
@@ -2805,7 +3011,11 @@ class GroupInitContainerSecurityArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              privilege_enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privilegeEnabled' in kwargs:
+            privilege_enabled = kwargs['privilegeEnabled']
+
         _setter("privilege_enabled", privilege_enabled)
 
     @property
@@ -2876,7 +3086,23 @@ class GroupInitContainerVolumeArgs:
              share_name: Optional[pulumi.Input[str]] = None,
              storage_account_key: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+        if 'emptyDir' in kwargs:
+            empty_dir = kwargs['emptyDir']
+        if 'gitRepo' in kwargs:
+            git_repo = kwargs['gitRepo']
+        if 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         _setter("mount_path", mount_path)
         _setter("name", name)
         if empty_dir is not None:
@@ -3032,7 +3258,9 @@ class GroupInitContainerVolumeGitRepoArgs:
              url: pulumi.Input[str],
              directory: Optional[pulumi.Input[str]] = None,
              revision: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("url", url)
         if directory is not None:
             _setter("directory", directory)
@@ -3112,7 +3340,13 @@ class KubernetesClusterAciConnectorLinuxArgs:
              _setter: Callable[[Any, Any], None],
              subnet_name: pulumi.Input[str],
              connector_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetName' in kwargs:
+            subnet_name = kwargs['subnetName']
+        if 'connectorIdentities' in kwargs:
+            connector_identities = kwargs['connectorIdentities']
+
         _setter("subnet_name", subnet_name)
         if connector_identities is not None:
             _setter("connector_identities", connector_identities)
@@ -3184,7 +3418,15 @@ class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs:
              client_id: Optional[pulumi.Input[str]] = None,
              object_id: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         if client_id is not None:
             _setter("client_id", client_id)
         if object_id is not None:
@@ -3256,7 +3498,15 @@ class KubernetesClusterApiServerAccessProfileArgs:
              authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              vnet_integration_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizedIpRanges' in kwargs:
+            authorized_ip_ranges = kwargs['authorizedIpRanges']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'vnetIntegrationEnabled' in kwargs:
+            vnet_integration_enabled = kwargs['vnetIntegrationEnabled']
+
         if authorized_ip_ranges is not None:
             _setter("authorized_ip_ranges", authorized_ip_ranges)
         if subnet_id is not None:
@@ -3382,7 +3632,41 @@ class KubernetesClusterAutoScalerProfileArgs:
              scan_interval: Optional[pulumi.Input[str]] = None,
              skip_nodes_with_local_storage: Optional[pulumi.Input[bool]] = None,
              skip_nodes_with_system_pods: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'balanceSimilarNodeGroups' in kwargs:
+            balance_similar_node_groups = kwargs['balanceSimilarNodeGroups']
+        if 'emptyBulkDeleteMax' in kwargs:
+            empty_bulk_delete_max = kwargs['emptyBulkDeleteMax']
+        if 'maxGracefulTerminationSec' in kwargs:
+            max_graceful_termination_sec = kwargs['maxGracefulTerminationSec']
+        if 'maxNodeProvisioningTime' in kwargs:
+            max_node_provisioning_time = kwargs['maxNodeProvisioningTime']
+        if 'maxUnreadyNodes' in kwargs:
+            max_unready_nodes = kwargs['maxUnreadyNodes']
+        if 'maxUnreadyPercentage' in kwargs:
+            max_unready_percentage = kwargs['maxUnreadyPercentage']
+        if 'newPodScaleUpDelay' in kwargs:
+            new_pod_scale_up_delay = kwargs['newPodScaleUpDelay']
+        if 'scaleDownDelayAfterAdd' in kwargs:
+            scale_down_delay_after_add = kwargs['scaleDownDelayAfterAdd']
+        if 'scaleDownDelayAfterDelete' in kwargs:
+            scale_down_delay_after_delete = kwargs['scaleDownDelayAfterDelete']
+        if 'scaleDownDelayAfterFailure' in kwargs:
+            scale_down_delay_after_failure = kwargs['scaleDownDelayAfterFailure']
+        if 'scaleDownUnneeded' in kwargs:
+            scale_down_unneeded = kwargs['scaleDownUnneeded']
+        if 'scaleDownUnready' in kwargs:
+            scale_down_unready = kwargs['scaleDownUnready']
+        if 'scaleDownUtilizationThreshold' in kwargs:
+            scale_down_utilization_threshold = kwargs['scaleDownUtilizationThreshold']
+        if 'scanInterval' in kwargs:
+            scan_interval = kwargs['scanInterval']
+        if 'skipNodesWithLocalStorage' in kwargs:
+            skip_nodes_with_local_storage = kwargs['skipNodesWithLocalStorage']
+        if 'skipNodesWithSystemPods' in kwargs:
+            skip_nodes_with_system_pods = kwargs['skipNodesWithSystemPods']
+
         if balance_similar_node_groups is not None:
             _setter("balance_similar_node_groups", balance_similar_node_groups)
         if empty_bulk_delete_max is not None:
@@ -3662,7 +3946,21 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
              server_app_id: Optional[pulumi.Input[str]] = None,
              server_app_secret: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminGroupObjectIds' in kwargs:
+            admin_group_object_ids = kwargs['adminGroupObjectIds']
+        if 'azureRbacEnabled' in kwargs:
+            azure_rbac_enabled = kwargs['azureRbacEnabled']
+        if 'clientAppId' in kwargs:
+            client_app_id = kwargs['clientAppId']
+        if 'serverAppId' in kwargs:
+            server_app_id = kwargs['serverAppId']
+        if 'serverAppSecret' in kwargs:
+            server_app_secret = kwargs['serverAppSecret']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if admin_group_object_ids is not None:
             _setter("admin_group_object_ids", admin_group_object_ids)
         if azure_rbac_enabled is not None:
@@ -3778,7 +4076,11 @@ class KubernetesClusterConfidentialComputingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sgx_quote_helper_enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sgxQuoteHelperEnabled' in kwargs:
+            sgx_quote_helper_enabled = kwargs['sgxQuoteHelperEnabled']
+
         _setter("sgx_quote_helper_enabled", sgx_quote_helper_enabled)
 
     @property
@@ -3977,7 +4279,77 @@ class KubernetesClusterDefaultNodePoolArgs:
              vnet_subnet_id: Optional[pulumi.Input[str]] = None,
              workload_runtime: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'capacityReservationGroupId' in kwargs:
+            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+        if 'customCaTrustEnabled' in kwargs:
+            custom_ca_trust_enabled = kwargs['customCaTrustEnabled']
+        if 'enableAutoScaling' in kwargs:
+            enable_auto_scaling = kwargs['enableAutoScaling']
+        if 'enableHostEncryption' in kwargs:
+            enable_host_encryption = kwargs['enableHostEncryption']
+        if 'enableNodePublicIp' in kwargs:
+            enable_node_public_ip = kwargs['enableNodePublicIp']
+        if 'fipsEnabled' in kwargs:
+            fips_enabled = kwargs['fipsEnabled']
+        if 'hostGroupId' in kwargs:
+            host_group_id = kwargs['hostGroupId']
+        if 'kubeletConfig' in kwargs:
+            kubelet_config = kwargs['kubeletConfig']
+        if 'kubeletDiskType' in kwargs:
+            kubelet_disk_type = kwargs['kubeletDiskType']
+        if 'linuxOsConfig' in kwargs:
+            linux_os_config = kwargs['linuxOsConfig']
+        if 'maxCount' in kwargs:
+            max_count = kwargs['maxCount']
+        if 'maxPods' in kwargs:
+            max_pods = kwargs['maxPods']
+        if 'messageOfTheDay' in kwargs:
+            message_of_the_day = kwargs['messageOfTheDay']
+        if 'minCount' in kwargs:
+            min_count = kwargs['minCount']
+        if 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if 'nodeLabels' in kwargs:
+            node_labels = kwargs['nodeLabels']
+        if 'nodeNetworkProfile' in kwargs:
+            node_network_profile = kwargs['nodeNetworkProfile']
+        if 'nodePublicIpPrefixId' in kwargs:
+            node_public_ip_prefix_id = kwargs['nodePublicIpPrefixId']
+        if 'nodeTaints' in kwargs:
+            node_taints = kwargs['nodeTaints']
+        if 'onlyCriticalAddonsEnabled' in kwargs:
+            only_critical_addons_enabled = kwargs['onlyCriticalAddonsEnabled']
+        if 'orchestratorVersion' in kwargs:
+            orchestrator_version = kwargs['orchestratorVersion']
+        if 'osDiskSizeGb' in kwargs:
+            os_disk_size_gb = kwargs['osDiskSizeGb']
+        if 'osDiskType' in kwargs:
+            os_disk_type = kwargs['osDiskType']
+        if 'osSku' in kwargs:
+            os_sku = kwargs['osSku']
+        if 'podSubnetId' in kwargs:
+            pod_subnet_id = kwargs['podSubnetId']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if 'scaleDownMode' in kwargs:
+            scale_down_mode = kwargs['scaleDownMode']
+        if 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if 'temporaryNameForRotation' in kwargs:
+            temporary_name_for_rotation = kwargs['temporaryNameForRotation']
+        if 'ultraSsdEnabled' in kwargs:
+            ultra_ssd_enabled = kwargs['ultraSsdEnabled']
+        if 'upgradeSettings' in kwargs:
+            upgrade_settings = kwargs['upgradeSettings']
+        if 'vnetSubnetId' in kwargs:
+            vnet_subnet_id = kwargs['vnetSubnetId']
+        if 'workloadRuntime' in kwargs:
+            workload_runtime = kwargs['workloadRuntime']
+
         _setter("name", name)
         _setter("vm_size", vm_size)
         if capacity_reservation_group_id is not None:
@@ -4581,7 +4953,29 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgs:
              image_gc_low_threshold: Optional[pulumi.Input[int]] = None,
              pod_max_pid: Optional[pulumi.Input[int]] = None,
              topology_manager_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedUnsafeSysctls' in kwargs:
+            allowed_unsafe_sysctls = kwargs['allowedUnsafeSysctls']
+        if 'containerLogMaxLine' in kwargs:
+            container_log_max_line = kwargs['containerLogMaxLine']
+        if 'containerLogMaxSizeMb' in kwargs:
+            container_log_max_size_mb = kwargs['containerLogMaxSizeMb']
+        if 'cpuCfsQuotaEnabled' in kwargs:
+            cpu_cfs_quota_enabled = kwargs['cpuCfsQuotaEnabled']
+        if 'cpuCfsQuotaPeriod' in kwargs:
+            cpu_cfs_quota_period = kwargs['cpuCfsQuotaPeriod']
+        if 'cpuManagerPolicy' in kwargs:
+            cpu_manager_policy = kwargs['cpuManagerPolicy']
+        if 'imageGcHighThreshold' in kwargs:
+            image_gc_high_threshold = kwargs['imageGcHighThreshold']
+        if 'imageGcLowThreshold' in kwargs:
+            image_gc_low_threshold = kwargs['imageGcLowThreshold']
+        if 'podMaxPid' in kwargs:
+            pod_max_pid = kwargs['podMaxPid']
+        if 'topologyManagerPolicy' in kwargs:
+            topology_manager_policy = kwargs['topologyManagerPolicy']
+
         if allowed_unsafe_sysctls is not None:
             _setter("allowed_unsafe_sysctls", allowed_unsafe_sysctls)
         if container_log_max_line is not None:
@@ -4751,7 +5145,17 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
              sysctl_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs']] = None,
              transparent_huge_page_defrag: Optional[pulumi.Input[str]] = None,
              transparent_huge_page_enabled: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'swapFileSizeMb' in kwargs:
+            swap_file_size_mb = kwargs['swapFileSizeMb']
+        if 'sysctlConfig' in kwargs:
+            sysctl_config = kwargs['sysctlConfig']
+        if 'transparentHugePageDefrag' in kwargs:
+            transparent_huge_page_defrag = kwargs['transparentHugePageDefrag']
+        if 'transparentHugePageEnabled' in kwargs:
+            transparent_huge_page_enabled = kwargs['transparentHugePageEnabled']
+
         if swap_file_size_mb is not None:
             _setter("swap_file_size_mb", swap_file_size_mb)
         if sysctl_config is not None:
@@ -4937,7 +5341,67 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs:
              vm_max_map_count: Optional[pulumi.Input[int]] = None,
              vm_swappiness: Optional[pulumi.Input[int]] = None,
              vm_vfs_cache_pressure: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fsAioMaxNr' in kwargs:
+            fs_aio_max_nr = kwargs['fsAioMaxNr']
+        if 'fsFileMax' in kwargs:
+            fs_file_max = kwargs['fsFileMax']
+        if 'fsInotifyMaxUserWatches' in kwargs:
+            fs_inotify_max_user_watches = kwargs['fsInotifyMaxUserWatches']
+        if 'fsNrOpen' in kwargs:
+            fs_nr_open = kwargs['fsNrOpen']
+        if 'kernelThreadsMax' in kwargs:
+            kernel_threads_max = kwargs['kernelThreadsMax']
+        if 'netCoreNetdevMaxBacklog' in kwargs:
+            net_core_netdev_max_backlog = kwargs['netCoreNetdevMaxBacklog']
+        if 'netCoreOptmemMax' in kwargs:
+            net_core_optmem_max = kwargs['netCoreOptmemMax']
+        if 'netCoreRmemDefault' in kwargs:
+            net_core_rmem_default = kwargs['netCoreRmemDefault']
+        if 'netCoreRmemMax' in kwargs:
+            net_core_rmem_max = kwargs['netCoreRmemMax']
+        if 'netCoreSomaxconn' in kwargs:
+            net_core_somaxconn = kwargs['netCoreSomaxconn']
+        if 'netCoreWmemDefault' in kwargs:
+            net_core_wmem_default = kwargs['netCoreWmemDefault']
+        if 'netCoreWmemMax' in kwargs:
+            net_core_wmem_max = kwargs['netCoreWmemMax']
+        if 'netIpv4IpLocalPortRangeMax' in kwargs:
+            net_ipv4_ip_local_port_range_max = kwargs['netIpv4IpLocalPortRangeMax']
+        if 'netIpv4IpLocalPortRangeMin' in kwargs:
+            net_ipv4_ip_local_port_range_min = kwargs['netIpv4IpLocalPortRangeMin']
+        if 'netIpv4NeighDefaultGcThresh1' in kwargs:
+            net_ipv4_neigh_default_gc_thresh1 = kwargs['netIpv4NeighDefaultGcThresh1']
+        if 'netIpv4NeighDefaultGcThresh2' in kwargs:
+            net_ipv4_neigh_default_gc_thresh2 = kwargs['netIpv4NeighDefaultGcThresh2']
+        if 'netIpv4NeighDefaultGcThresh3' in kwargs:
+            net_ipv4_neigh_default_gc_thresh3 = kwargs['netIpv4NeighDefaultGcThresh3']
+        if 'netIpv4TcpFinTimeout' in kwargs:
+            net_ipv4_tcp_fin_timeout = kwargs['netIpv4TcpFinTimeout']
+        if 'netIpv4TcpKeepaliveIntvl' in kwargs:
+            net_ipv4_tcp_keepalive_intvl = kwargs['netIpv4TcpKeepaliveIntvl']
+        if 'netIpv4TcpKeepaliveProbes' in kwargs:
+            net_ipv4_tcp_keepalive_probes = kwargs['netIpv4TcpKeepaliveProbes']
+        if 'netIpv4TcpKeepaliveTime' in kwargs:
+            net_ipv4_tcp_keepalive_time = kwargs['netIpv4TcpKeepaliveTime']
+        if 'netIpv4TcpMaxSynBacklog' in kwargs:
+            net_ipv4_tcp_max_syn_backlog = kwargs['netIpv4TcpMaxSynBacklog']
+        if 'netIpv4TcpMaxTwBuckets' in kwargs:
+            net_ipv4_tcp_max_tw_buckets = kwargs['netIpv4TcpMaxTwBuckets']
+        if 'netIpv4TcpTwReuse' in kwargs:
+            net_ipv4_tcp_tw_reuse = kwargs['netIpv4TcpTwReuse']
+        if 'netNetfilterNfConntrackBuckets' in kwargs:
+            net_netfilter_nf_conntrack_buckets = kwargs['netNetfilterNfConntrackBuckets']
+        if 'netNetfilterNfConntrackMax' in kwargs:
+            net_netfilter_nf_conntrack_max = kwargs['netNetfilterNfConntrackMax']
+        if 'vmMaxMapCount' in kwargs:
+            vm_max_map_count = kwargs['vmMaxMapCount']
+        if 'vmSwappiness' in kwargs:
+            vm_swappiness = kwargs['vmSwappiness']
+        if 'vmVfsCachePressure' in kwargs:
+            vm_vfs_cache_pressure = kwargs['vmVfsCachePressure']
+
         if fs_aio_max_nr is not None:
             _setter("fs_aio_max_nr", fs_aio_max_nr)
         if fs_file_max is not None:
@@ -5363,7 +5827,11 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              node_public_ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodePublicIpTags' in kwargs:
+            node_public_ip_tags = kwargs['nodePublicIpTags']
+
         if node_public_ip_tags is not None:
             _setter("node_public_ip_tags", node_public_ip_tags)
 
@@ -5399,7 +5867,11 @@ class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_surge: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxSurge' in kwargs:
+            max_surge = kwargs['maxSurge']
+
         _setter("max_surge", max_surge)
 
     @property
@@ -5440,7 +5912,13 @@ class KubernetesClusterExtensionAksAssignedIdentityArgs:
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if principal_id is not None:
             _setter("principal_id", principal_id)
         if tenant_id is not None:
@@ -5518,7 +5996,11 @@ class KubernetesClusterExtensionPlanArgs:
              publisher: pulumi.Input[str],
              promotion_code: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'promotionCode' in kwargs:
+            promotion_code = kwargs['promotionCode']
+
         _setter("name", name)
         _setter("product", product)
         _setter("publisher", publisher)
@@ -5616,7 +6098,17 @@ class KubernetesClusterHttpProxyConfigArgs:
              https_proxy: Optional[pulumi.Input[str]] = None,
              no_proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              trusted_ca: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'httpProxy' in kwargs:
+            http_proxy = kwargs['httpProxy']
+        if 'httpsProxy' in kwargs:
+            https_proxy = kwargs['httpsProxy']
+        if 'noProxies' in kwargs:
+            no_proxies = kwargs['noProxies']
+        if 'trustedCa' in kwargs:
+            trusted_ca = kwargs['trustedCa']
+
         if http_proxy is not None:
             _setter("http_proxy", http_proxy)
         if https_proxy is not None:
@@ -5701,7 +6193,15 @@ class KubernetesClusterIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -5800,7 +6300,21 @@ class KubernetesClusterIngressApplicationGatewayArgs:
              ingress_application_gateway_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs']]]] = None,
              subnet_cidr: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'effectiveGatewayId' in kwargs:
+            effective_gateway_id = kwargs['effectiveGatewayId']
+        if 'gatewayId' in kwargs:
+            gateway_id = kwargs['gatewayId']
+        if 'gatewayName' in kwargs:
+            gateway_name = kwargs['gatewayName']
+        if 'ingressApplicationGatewayIdentities' in kwargs:
+            ingress_application_gateway_identities = kwargs['ingressApplicationGatewayIdentities']
+        if 'subnetCidr' in kwargs:
+            subnet_cidr = kwargs['subnetCidr']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if effective_gateway_id is not None:
             _setter("effective_gateway_id", effective_gateway_id)
         if gateway_id is not None:
@@ -5916,7 +6430,15 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
              client_id: Optional[pulumi.Input[str]] = None,
              object_id: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         if client_id is not None:
             _setter("client_id", client_id)
         if object_id is not None:
@@ -5982,7 +6504,13 @@ class KubernetesClusterKeyManagementServiceArgs:
              _setter: Callable[[Any, Any], None],
              key_vault_key_id: pulumi.Input[str],
              key_vault_network_access: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'keyVaultNetworkAccess' in kwargs:
+            key_vault_network_access = kwargs['keyVaultNetworkAccess']
+
         _setter("key_vault_key_id", key_vault_key_id)
         if key_vault_network_access is not None:
             _setter("key_vault_network_access", key_vault_network_access)
@@ -6037,7 +6565,15 @@ class KubernetesClusterKeyVaultSecretsProviderArgs:
              secret_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs']]]] = None,
              secret_rotation_enabled: Optional[pulumi.Input[bool]] = None,
              secret_rotation_interval: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretIdentities' in kwargs:
+            secret_identities = kwargs['secretIdentities']
+        if 'secretRotationEnabled' in kwargs:
+            secret_rotation_enabled = kwargs['secretRotationEnabled']
+        if 'secretRotationInterval' in kwargs:
+            secret_rotation_interval = kwargs['secretRotationInterval']
+
         if secret_identities is not None:
             _setter("secret_identities", secret_identities)
         if secret_rotation_enabled is not None:
@@ -6109,7 +6645,15 @@ class KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs:
              client_id: Optional[pulumi.Input[str]] = None,
              object_id: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         if client_id is not None:
             _setter("client_id", client_id)
         if object_id is not None:
@@ -6191,7 +6735,15 @@ class KubernetesClusterKubeAdminConfigArgs:
              host: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientCertificate' in kwargs:
+            client_certificate = kwargs['clientCertificate']
+        if 'clientKey' in kwargs:
+            client_key = kwargs['clientKey']
+        if 'clusterCaCertificate' in kwargs:
+            cluster_ca_certificate = kwargs['clusterCaCertificate']
+
         if client_certificate is not None:
             _setter("client_certificate", client_certificate)
         if client_key is not None:
@@ -6313,7 +6865,15 @@ class KubernetesClusterKubeConfigArgs:
              host: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientCertificate' in kwargs:
+            client_certificate = kwargs['clientCertificate']
+        if 'clientKey' in kwargs:
+            client_key = kwargs['clientKey']
+        if 'clusterCaCertificate' in kwargs:
+            cluster_ca_certificate = kwargs['clusterCaCertificate']
+
         if client_certificate is not None:
             _setter("client_certificate", client_certificate)
         if client_key is not None:
@@ -6425,7 +6985,15 @@ class KubernetesClusterKubeletIdentityArgs:
              client_id: Optional[pulumi.Input[str]] = None,
              object_id: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         if client_id is not None:
             _setter("client_id", client_id)
         if object_id is not None:
@@ -6491,7 +7059,13 @@ class KubernetesClusterLinuxProfileArgs:
              _setter: Callable[[Any, Any], None],
              admin_username: pulumi.Input[str],
              ssh_key: pulumi.Input['KubernetesClusterLinuxProfileSshKeyArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+
         _setter("admin_username", admin_username)
         _setter("ssh_key", ssh_key)
 
@@ -6535,7 +7109,11 @@ class KubernetesClusterLinuxProfileSshKeyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              key_data: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyData' in kwargs:
+            key_data = kwargs['keyData']
+
         _setter("key_data", key_data)
 
     @property
@@ -6570,7 +7148,11 @@ class KubernetesClusterMaintenanceWindowArgs:
              _setter: Callable[[Any, Any], None],
              alloweds: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArgs']]]] = None,
              not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNotAllowedArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notAlloweds' in kwargs:
+            not_alloweds = kwargs['notAlloweds']
+
         if alloweds is not None:
             _setter("alloweds", alloweds)
         if not_alloweds is not None:
@@ -6620,7 +7202,9 @@ class KubernetesClusterMaintenanceWindowAllowedArgs:
              _setter: Callable[[Any, Any], None],
              day: pulumi.Input[str],
              hours: pulumi.Input[Sequence[pulumi.Input[int]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("day", day)
         _setter("hours", hours)
 
@@ -6700,7 +7284,23 @@ class KubernetesClusterMaintenanceWindowAutoUpgradeArgs:
              start_time: Optional[pulumi.Input[str]] = None,
              utc_offset: Optional[pulumi.Input[str]] = None,
              week_index: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfMonth' in kwargs:
+            day_of_month = kwargs['dayOfMonth']
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'notAlloweds' in kwargs:
+            not_alloweds = kwargs['notAlloweds']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'utcOffset' in kwargs:
+            utc_offset = kwargs['utcOffset']
+        if 'weekIndex' in kwargs:
+            week_index = kwargs['weekIndex']
+
         _setter("duration", duration)
         _setter("frequency", frequency)
         _setter("interval", interval)
@@ -6857,7 +7457,9 @@ class KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs:
              _setter: Callable[[Any, Any], None],
              end: pulumi.Input[str],
              start: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("end", end)
         _setter("start", start)
 
@@ -6936,7 +7538,23 @@ class KubernetesClusterMaintenanceWindowNodeOsArgs:
              start_time: Optional[pulumi.Input[str]] = None,
              utc_offset: Optional[pulumi.Input[str]] = None,
              week_index: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfMonth' in kwargs:
+            day_of_month = kwargs['dayOfMonth']
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'notAlloweds' in kwargs:
+            not_alloweds = kwargs['notAlloweds']
+        if 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'utcOffset' in kwargs:
+            utc_offset = kwargs['utcOffset']
+        if 'weekIndex' in kwargs:
+            week_index = kwargs['weekIndex']
+
         _setter("duration", duration)
         _setter("frequency", frequency)
         _setter("interval", interval)
@@ -7092,7 +7710,9 @@ class KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs:
              _setter: Callable[[Any, Any], None],
              end: pulumi.Input[str],
              start: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("end", end)
         _setter("start", start)
 
@@ -7140,7 +7760,9 @@ class KubernetesClusterMaintenanceWindowNotAllowedArgs:
              _setter: Callable[[Any, Any], None],
              end: pulumi.Input[str],
              start: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("end", end)
         _setter("start", start)
 
@@ -7184,7 +7806,11 @@ class KubernetesClusterMicrosoftDefenderArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_analytics_workspace_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
 
     @property
@@ -7219,7 +7845,13 @@ class KubernetesClusterMonitorMetricsArgs:
              _setter: Callable[[Any, Any], None],
              annotations_allowed: Optional[pulumi.Input[str]] = None,
              labels_allowed: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'annotationsAllowed' in kwargs:
+            annotations_allowed = kwargs['annotationsAllowed']
+        if 'labelsAllowed' in kwargs:
+            labels_allowed = kwargs['labelsAllowed']
+
         if annotations_allowed is not None:
             _setter("annotations_allowed", annotations_allowed)
         if labels_allowed is not None:
@@ -7303,6 +7935,8 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[str] network_policy: Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
                
                > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
+               
+               > **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
         :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
@@ -7349,7 +7983,41 @@ class KubernetesClusterNetworkProfileArgs:
              pod_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              service_cidr: Optional[pulumi.Input[str]] = None,
              service_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkPlugin' in kwargs:
+            network_plugin = kwargs['networkPlugin']
+        if 'dnsServiceIp' in kwargs:
+            dns_service_ip = kwargs['dnsServiceIp']
+        if 'dockerBridgeCidr' in kwargs:
+            docker_bridge_cidr = kwargs['dockerBridgeCidr']
+        if 'ebpfDataPlane' in kwargs:
+            ebpf_data_plane = kwargs['ebpfDataPlane']
+        if 'ipVersions' in kwargs:
+            ip_versions = kwargs['ipVersions']
+        if 'loadBalancerProfile' in kwargs:
+            load_balancer_profile = kwargs['loadBalancerProfile']
+        if 'loadBalancerSku' in kwargs:
+            load_balancer_sku = kwargs['loadBalancerSku']
+        if 'natGatewayProfile' in kwargs:
+            nat_gateway_profile = kwargs['natGatewayProfile']
+        if 'networkMode' in kwargs:
+            network_mode = kwargs['networkMode']
+        if 'networkPluginMode' in kwargs:
+            network_plugin_mode = kwargs['networkPluginMode']
+        if 'networkPolicy' in kwargs:
+            network_policy = kwargs['networkPolicy']
+        if 'outboundType' in kwargs:
+            outbound_type = kwargs['outboundType']
+        if 'podCidr' in kwargs:
+            pod_cidr = kwargs['podCidr']
+        if 'podCidrs' in kwargs:
+            pod_cidrs = kwargs['podCidrs']
+        if 'serviceCidr' in kwargs:
+            service_cidr = kwargs['serviceCidr']
+        if 'serviceCidrs' in kwargs:
+            service_cidrs = kwargs['serviceCidrs']
+
         _setter("network_plugin", network_plugin)
         if dns_service_ip is not None:
             _setter("dns_service_ip", dns_service_ip)
@@ -7535,6 +8203,8 @@ class KubernetesClusterNetworkProfileArgs:
         Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
 
         > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
+
+        > **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
         """
         return pulumi.get(self, "network_policy")
 
@@ -7650,7 +8320,23 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
              outbound_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              outbound_ip_prefix_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              outbound_ports_allocated: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'effectiveOutboundIps' in kwargs:
+            effective_outbound_ips = kwargs['effectiveOutboundIps']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'managedOutboundIpCount' in kwargs:
+            managed_outbound_ip_count = kwargs['managedOutboundIpCount']
+        if 'managedOutboundIpv6Count' in kwargs:
+            managed_outbound_ipv6_count = kwargs['managedOutboundIpv6Count']
+        if 'outboundIpAddressIds' in kwargs:
+            outbound_ip_address_ids = kwargs['outboundIpAddressIds']
+        if 'outboundIpPrefixIds' in kwargs:
+            outbound_ip_prefix_ids = kwargs['outboundIpPrefixIds']
+        if 'outboundPortsAllocated' in kwargs:
+            outbound_ports_allocated = kwargs['outboundPortsAllocated']
+
         if effective_outbound_ips is not None:
             _setter("effective_outbound_ips", effective_outbound_ips)
         if idle_timeout_in_minutes is not None:
@@ -7780,7 +8466,15 @@ class KubernetesClusterNetworkProfileNatGatewayProfileArgs:
              effective_outbound_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
              managed_outbound_ip_count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'effectiveOutboundIps' in kwargs:
+            effective_outbound_ips = kwargs['effectiveOutboundIps']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'managedOutboundIpCount' in kwargs:
+            managed_outbound_ip_count = kwargs['managedOutboundIpCount']
+
         if effective_outbound_ips is not None:
             _setter("effective_outbound_ips", effective_outbound_ips)
         if idle_timeout_in_minutes is not None:
@@ -7876,7 +8570,29 @@ class KubernetesClusterNodePoolKubeletConfigArgs:
              image_gc_low_threshold: Optional[pulumi.Input[int]] = None,
              pod_max_pid: Optional[pulumi.Input[int]] = None,
              topology_manager_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedUnsafeSysctls' in kwargs:
+            allowed_unsafe_sysctls = kwargs['allowedUnsafeSysctls']
+        if 'containerLogMaxLine' in kwargs:
+            container_log_max_line = kwargs['containerLogMaxLine']
+        if 'containerLogMaxSizeMb' in kwargs:
+            container_log_max_size_mb = kwargs['containerLogMaxSizeMb']
+        if 'cpuCfsQuotaEnabled' in kwargs:
+            cpu_cfs_quota_enabled = kwargs['cpuCfsQuotaEnabled']
+        if 'cpuCfsQuotaPeriod' in kwargs:
+            cpu_cfs_quota_period = kwargs['cpuCfsQuotaPeriod']
+        if 'cpuManagerPolicy' in kwargs:
+            cpu_manager_policy = kwargs['cpuManagerPolicy']
+        if 'imageGcHighThreshold' in kwargs:
+            image_gc_high_threshold = kwargs['imageGcHighThreshold']
+        if 'imageGcLowThreshold' in kwargs:
+            image_gc_low_threshold = kwargs['imageGcLowThreshold']
+        if 'podMaxPid' in kwargs:
+            pod_max_pid = kwargs['podMaxPid']
+        if 'topologyManagerPolicy' in kwargs:
+            topology_manager_policy = kwargs['topologyManagerPolicy']
+
         if allowed_unsafe_sysctls is not None:
             _setter("allowed_unsafe_sysctls", allowed_unsafe_sysctls)
         if container_log_max_line is not None:
@@ -8046,7 +8762,17 @@ class KubernetesClusterNodePoolLinuxOsConfigArgs:
              sysctl_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs']] = None,
              transparent_huge_page_defrag: Optional[pulumi.Input[str]] = None,
              transparent_huge_page_enabled: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'swapFileSizeMb' in kwargs:
+            swap_file_size_mb = kwargs['swapFileSizeMb']
+        if 'sysctlConfig' in kwargs:
+            sysctl_config = kwargs['sysctlConfig']
+        if 'transparentHugePageDefrag' in kwargs:
+            transparent_huge_page_defrag = kwargs['transparentHugePageDefrag']
+        if 'transparentHugePageEnabled' in kwargs:
+            transparent_huge_page_enabled = kwargs['transparentHugePageEnabled']
+
         if swap_file_size_mb is not None:
             _setter("swap_file_size_mb", swap_file_size_mb)
         if sysctl_config is not None:
@@ -8232,7 +8958,67 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs:
              vm_max_map_count: Optional[pulumi.Input[int]] = None,
              vm_swappiness: Optional[pulumi.Input[int]] = None,
              vm_vfs_cache_pressure: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fsAioMaxNr' in kwargs:
+            fs_aio_max_nr = kwargs['fsAioMaxNr']
+        if 'fsFileMax' in kwargs:
+            fs_file_max = kwargs['fsFileMax']
+        if 'fsInotifyMaxUserWatches' in kwargs:
+            fs_inotify_max_user_watches = kwargs['fsInotifyMaxUserWatches']
+        if 'fsNrOpen' in kwargs:
+            fs_nr_open = kwargs['fsNrOpen']
+        if 'kernelThreadsMax' in kwargs:
+            kernel_threads_max = kwargs['kernelThreadsMax']
+        if 'netCoreNetdevMaxBacklog' in kwargs:
+            net_core_netdev_max_backlog = kwargs['netCoreNetdevMaxBacklog']
+        if 'netCoreOptmemMax' in kwargs:
+            net_core_optmem_max = kwargs['netCoreOptmemMax']
+        if 'netCoreRmemDefault' in kwargs:
+            net_core_rmem_default = kwargs['netCoreRmemDefault']
+        if 'netCoreRmemMax' in kwargs:
+            net_core_rmem_max = kwargs['netCoreRmemMax']
+        if 'netCoreSomaxconn' in kwargs:
+            net_core_somaxconn = kwargs['netCoreSomaxconn']
+        if 'netCoreWmemDefault' in kwargs:
+            net_core_wmem_default = kwargs['netCoreWmemDefault']
+        if 'netCoreWmemMax' in kwargs:
+            net_core_wmem_max = kwargs['netCoreWmemMax']
+        if 'netIpv4IpLocalPortRangeMax' in kwargs:
+            net_ipv4_ip_local_port_range_max = kwargs['netIpv4IpLocalPortRangeMax']
+        if 'netIpv4IpLocalPortRangeMin' in kwargs:
+            net_ipv4_ip_local_port_range_min = kwargs['netIpv4IpLocalPortRangeMin']
+        if 'netIpv4NeighDefaultGcThresh1' in kwargs:
+            net_ipv4_neigh_default_gc_thresh1 = kwargs['netIpv4NeighDefaultGcThresh1']
+        if 'netIpv4NeighDefaultGcThresh2' in kwargs:
+            net_ipv4_neigh_default_gc_thresh2 = kwargs['netIpv4NeighDefaultGcThresh2']
+        if 'netIpv4NeighDefaultGcThresh3' in kwargs:
+            net_ipv4_neigh_default_gc_thresh3 = kwargs['netIpv4NeighDefaultGcThresh3']
+        if 'netIpv4TcpFinTimeout' in kwargs:
+            net_ipv4_tcp_fin_timeout = kwargs['netIpv4TcpFinTimeout']
+        if 'netIpv4TcpKeepaliveIntvl' in kwargs:
+            net_ipv4_tcp_keepalive_intvl = kwargs['netIpv4TcpKeepaliveIntvl']
+        if 'netIpv4TcpKeepaliveProbes' in kwargs:
+            net_ipv4_tcp_keepalive_probes = kwargs['netIpv4TcpKeepaliveProbes']
+        if 'netIpv4TcpKeepaliveTime' in kwargs:
+            net_ipv4_tcp_keepalive_time = kwargs['netIpv4TcpKeepaliveTime']
+        if 'netIpv4TcpMaxSynBacklog' in kwargs:
+            net_ipv4_tcp_max_syn_backlog = kwargs['netIpv4TcpMaxSynBacklog']
+        if 'netIpv4TcpMaxTwBuckets' in kwargs:
+            net_ipv4_tcp_max_tw_buckets = kwargs['netIpv4TcpMaxTwBuckets']
+        if 'netIpv4TcpTwReuse' in kwargs:
+            net_ipv4_tcp_tw_reuse = kwargs['netIpv4TcpTwReuse']
+        if 'netNetfilterNfConntrackBuckets' in kwargs:
+            net_netfilter_nf_conntrack_buckets = kwargs['netNetfilterNfConntrackBuckets']
+        if 'netNetfilterNfConntrackMax' in kwargs:
+            net_netfilter_nf_conntrack_max = kwargs['netNetfilterNfConntrackMax']
+        if 'vmMaxMapCount' in kwargs:
+            vm_max_map_count = kwargs['vmMaxMapCount']
+        if 'vmSwappiness' in kwargs:
+            vm_swappiness = kwargs['vmSwappiness']
+        if 'vmVfsCachePressure' in kwargs:
+            vm_vfs_cache_pressure = kwargs['vmVfsCachePressure']
+
         if fs_aio_max_nr is not None:
             _setter("fs_aio_max_nr", fs_aio_max_nr)
         if fs_file_max is not None:
@@ -8658,7 +9444,11 @@ class KubernetesClusterNodePoolNodeNetworkProfileArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              node_public_ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nodePublicIpTags' in kwargs:
+            node_public_ip_tags = kwargs['nodePublicIpTags']
+
         if node_public_ip_tags is not None:
             _setter("node_public_ip_tags", node_public_ip_tags)
 
@@ -8692,7 +9482,11 @@ class KubernetesClusterNodePoolUpgradeSettingsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_surge: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxSurge' in kwargs:
+            max_surge = kwargs['maxSurge']
+
         _setter("max_surge", max_surge)
 
     @property
@@ -8725,7 +9519,11 @@ class KubernetesClusterNodePoolWindowsProfileArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              outbound_nat_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'outboundNatEnabled' in kwargs:
+            outbound_nat_enabled = kwargs['outboundNatEnabled']
+
         if outbound_nat_enabled is not None:
             _setter("outbound_nat_enabled", outbound_nat_enabled)
 
@@ -8767,7 +9565,15 @@ class KubernetesClusterOmsAgentArgs:
              log_analytics_workspace_id: pulumi.Input[str],
              msi_auth_for_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
              oms_agent_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'msiAuthForMonitoringEnabled' in kwargs:
+            msi_auth_for_monitoring_enabled = kwargs['msiAuthForMonitoringEnabled']
+        if 'omsAgentIdentities' in kwargs:
+            oms_agent_identities = kwargs['omsAgentIdentities']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if msi_auth_for_monitoring_enabled is not None:
             _setter("msi_auth_for_monitoring_enabled", msi_auth_for_monitoring_enabled)
@@ -8836,7 +9642,15 @@ class KubernetesClusterOmsAgentOmsAgentIdentityArgs:
              client_id: Optional[pulumi.Input[str]] = None,
              object_id: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         if client_id is not None:
             _setter("client_id", client_id)
         if object_id is not None:
@@ -8910,7 +9724,13 @@ class KubernetesClusterServiceMeshProfileArgs:
              mode: pulumi.Input[str],
              external_ingress_gateway_enabled: Optional[pulumi.Input[bool]] = None,
              internal_ingress_gateway_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalIngressGatewayEnabled' in kwargs:
+            external_ingress_gateway_enabled = kwargs['externalIngressGatewayEnabled']
+        if 'internalIngressGatewayEnabled' in kwargs:
+            internal_ingress_gateway_enabled = kwargs['internalIngressGatewayEnabled']
+
         _setter("mode", mode)
         if external_ingress_gateway_enabled is not None:
             _setter("external_ingress_gateway_enabled", external_ingress_gateway_enabled)
@@ -8977,7 +9797,13 @@ class KubernetesClusterServicePrincipalArgs:
              _setter: Callable[[Any, Any], None],
              client_id: pulumi.Input[str],
              client_secret: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
 
@@ -9039,7 +9865,19 @@ class KubernetesClusterStorageProfileArgs:
              disk_driver_version: Optional[pulumi.Input[str]] = None,
              file_driver_enabled: Optional[pulumi.Input[bool]] = None,
              snapshot_controller_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobDriverEnabled' in kwargs:
+            blob_driver_enabled = kwargs['blobDriverEnabled']
+        if 'diskDriverEnabled' in kwargs:
+            disk_driver_enabled = kwargs['diskDriverEnabled']
+        if 'diskDriverVersion' in kwargs:
+            disk_driver_version = kwargs['diskDriverVersion']
+        if 'fileDriverEnabled' in kwargs:
+            file_driver_enabled = kwargs['fileDriverEnabled']
+        if 'snapshotControllerEnabled' in kwargs:
+            snapshot_controller_enabled = kwargs['snapshotControllerEnabled']
+
         if blob_driver_enabled is not None:
             _setter("blob_driver_enabled", blob_driver_enabled)
         if disk_driver_enabled is not None:
@@ -9133,7 +9971,13 @@ class KubernetesClusterWebAppRoutingArgs:
              _setter: Callable[[Any, Any], None],
              dns_zone_id: pulumi.Input[str],
              web_app_routing_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsZoneId' in kwargs:
+            dns_zone_id = kwargs['dnsZoneId']
+        if 'webAppRoutingIdentities' in kwargs:
+            web_app_routing_identities = kwargs['webAppRoutingIdentities']
+
         _setter("dns_zone_id", dns_zone_id)
         if web_app_routing_identities is not None:
             _setter("web_app_routing_identities", web_app_routing_identities)
@@ -9188,7 +10032,15 @@ class KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs:
              client_id: Optional[pulumi.Input[str]] = None,
              object_id: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         if client_id is not None:
             _setter("client_id", client_id)
         if object_id is not None:
@@ -9262,7 +10114,13 @@ class KubernetesClusterWindowsProfileArgs:
              admin_password: Optional[pulumi.Input[str]] = None,
              gmsa: Optional[pulumi.Input['KubernetesClusterWindowsProfileGmsaArgs']] = None,
              license: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+
         _setter("admin_username", admin_username)
         if admin_password is not None:
             _setter("admin_password", admin_password)
@@ -9341,7 +10199,13 @@ class KubernetesClusterWindowsProfileGmsaArgs:
              _setter: Callable[[Any, Any], None],
              dns_server: pulumi.Input[str],
              root_domain: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsServer' in kwargs:
+            dns_server = kwargs['dnsServer']
+        if 'rootDomain' in kwargs:
+            root_domain = kwargs['rootDomain']
+
         _setter("dns_server", dns_server)
         _setter("root_domain", root_domain)
 
@@ -9403,7 +10267,17 @@ class KubernetesClusterWorkloadAutoscalerProfileArgs:
              vertical_pod_autoscaler_controlled_values: Optional[pulumi.Input[str]] = None,
              vertical_pod_autoscaler_enabled: Optional[pulumi.Input[bool]] = None,
              vertical_pod_autoscaler_update_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kedaEnabled' in kwargs:
+            keda_enabled = kwargs['kedaEnabled']
+        if 'verticalPodAutoscalerControlledValues' in kwargs:
+            vertical_pod_autoscaler_controlled_values = kwargs['verticalPodAutoscalerControlledValues']
+        if 'verticalPodAutoscalerEnabled' in kwargs:
+            vertical_pod_autoscaler_enabled = kwargs['verticalPodAutoscalerEnabled']
+        if 'verticalPodAutoscalerUpdateMode' in kwargs:
+            vertical_pod_autoscaler_update_mode = kwargs['verticalPodAutoscalerUpdateMode']
+
         if keda_enabled is not None:
             _setter("keda_enabled", keda_enabled)
         if vertical_pod_autoscaler_controlled_values is not None:
@@ -9484,7 +10358,13 @@ class KubernetesFleetManagerHubProfileArgs:
              dns_prefix: pulumi.Input[str],
              fqdn: Optional[pulumi.Input[str]] = None,
              kubernetes_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsPrefix' in kwargs:
+            dns_prefix = kwargs['dnsPrefix']
+        if 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+
         _setter("dns_prefix", dns_prefix)
         if fqdn is not None:
             _setter("fqdn", fqdn)
@@ -9544,7 +10424,13 @@ class RegistryEncryptionArgs:
              identity_client_id: pulumi.Input[str],
              key_vault_key_id: pulumi.Input[str],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityClientId' in kwargs:
+            identity_client_id = kwargs['identityClientId']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+
         _setter("identity_client_id", identity_client_id)
         _setter("key_vault_key_id", key_vault_key_id)
         if enabled is not None:
@@ -9618,7 +10504,13 @@ class RegistryGeoreplicationArgs:
              regional_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'regionalEndpointEnabled' in kwargs:
+            regional_endpoint_enabled = kwargs['regionalEndpointEnabled']
+        if 'zoneRedundancyEnabled' in kwargs:
+            zone_redundancy_enabled = kwargs['zoneRedundancyEnabled']
+
         _setter("location", location)
         if regional_endpoint_enabled is not None:
             _setter("regional_endpoint_enabled", regional_endpoint_enabled)
@@ -9707,7 +10599,15 @@ class RegistryIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -9794,7 +10694,15 @@ class RegistryNetworkRuleSetArgs:
              default_action: Optional[pulumi.Input[str]] = None,
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]] = None,
              virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'virtualNetworks' in kwargs:
+            virtual_networks = kwargs['virtualNetworks']
+
         if default_action is not None:
             _setter("default_action", default_action)
         if ip_rules is not None:
@@ -9862,7 +10770,11 @@ class RegistryNetworkRuleSetIpRuleArgs:
              _setter: Callable[[Any, Any], None],
              action: pulumi.Input[str],
              ip_range: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipRange' in kwargs:
+            ip_range = kwargs['ipRange']
+
         _setter("action", action)
         _setter("ip_range", ip_range)
 
@@ -9910,7 +10822,11 @@ class RegistryNetworkRuleSetVirtualNetworkArgs:
              _setter: Callable[[Any, Any], None],
              action: pulumi.Input[str],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("action", action)
         _setter("subnet_id", subnet_id)
 
@@ -9958,7 +10874,9 @@ class RegistryRetentionPolicyArgs:
              _setter: Callable[[Any, Any], None],
              days: Optional[pulumi.Input[int]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if days is not None:
             _setter("days", days)
         if enabled is not None:
@@ -10004,7 +10922,9 @@ class RegistryTaskAgentSettingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cpu: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("cpu", cpu)
 
     @property
@@ -10051,7 +10971,13 @@ class RegistryTaskBaseImageTriggerArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              update_trigger_endpoint: Optional[pulumi.Input[str]] = None,
              update_trigger_payload_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'updateTriggerEndpoint' in kwargs:
+            update_trigger_endpoint = kwargs['updateTriggerEndpoint']
+        if 'updateTriggerPayloadType' in kwargs:
+            update_trigger_payload_type = kwargs['updateTriggerPayloadType']
+
         _setter("name", name)
         _setter("type", type)
         if enabled is not None:
@@ -10169,7 +11095,23 @@ class RegistryTaskDockerStepArgs:
              push_enabled: Optional[pulumi.Input[bool]] = None,
              secret_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contextAccessToken' in kwargs:
+            context_access_token = kwargs['contextAccessToken']
+        if 'contextPath' in kwargs:
+            context_path = kwargs['contextPath']
+        if 'dockerfilePath' in kwargs:
+            dockerfile_path = kwargs['dockerfilePath']
+        if 'cacheEnabled' in kwargs:
+            cache_enabled = kwargs['cacheEnabled']
+        if 'imageNames' in kwargs:
+            image_names = kwargs['imageNames']
+        if 'pushEnabled' in kwargs:
+            push_enabled = kwargs['pushEnabled']
+        if 'secretArguments' in kwargs:
+            secret_arguments = kwargs['secretArguments']
+
         _setter("context_access_token", context_access_token)
         _setter("context_path", context_path)
         _setter("dockerfile_path", dockerfile_path)
@@ -10330,7 +11272,19 @@ class RegistryTaskEncodedStepArgs:
              secret_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              value_content: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'taskContent' in kwargs:
+            task_content = kwargs['taskContent']
+        if 'contextAccessToken' in kwargs:
+            context_access_token = kwargs['contextAccessToken']
+        if 'contextPath' in kwargs:
+            context_path = kwargs['contextPath']
+        if 'secretValues' in kwargs:
+            secret_values = kwargs['secretValues']
+        if 'valueContent' in kwargs:
+            value_content = kwargs['valueContent']
+
         _setter("task_content", task_content)
         if context_access_token is not None:
             _setter("context_access_token", context_access_token)
@@ -10451,7 +11405,19 @@ class RegistryTaskFileStepArgs:
              secret_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              value_file_path: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'taskFilePath' in kwargs:
+            task_file_path = kwargs['taskFilePath']
+        if 'contextAccessToken' in kwargs:
+            context_access_token = kwargs['contextAccessToken']
+        if 'contextPath' in kwargs:
+            context_path = kwargs['contextPath']
+        if 'secretValues' in kwargs:
+            secret_values = kwargs['secretValues']
+        if 'valueFilePath' in kwargs:
+            value_file_path = kwargs['valueFilePath']
+
         _setter("task_file_path", task_file_path)
         if context_access_token is not None:
             _setter("context_access_token", context_access_token)
@@ -10566,7 +11532,15 @@ class RegistryTaskIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -10649,7 +11623,9 @@ class RegistryTaskPlatformArgs:
              os: pulumi.Input[str],
              architecture: Optional[pulumi.Input[str]] = None,
              variant: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("os", os)
         if architecture is not None:
             _setter("architecture", architecture)
@@ -10712,7 +11688,9 @@ class RegistryTaskRegistryCredentialArgs:
              _setter: Callable[[Any, Any], None],
              customs: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskRegistryCredentialCustomArgs']]]] = None,
              source: Optional[pulumi.Input['RegistryTaskRegistryCredentialSourceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if customs is not None:
             _setter("customs", customs)
         if source is not None:
@@ -10770,7 +11748,11 @@ class RegistryTaskRegistryCredentialCustomArgs:
              identity: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loginServer' in kwargs:
+            login_server = kwargs['loginServer']
+
         _setter("login_server", login_server)
         if identity is not None:
             _setter("identity", identity)
@@ -10843,7 +11825,11 @@ class RegistryTaskRegistryCredentialSourceArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              login_mode: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loginMode' in kwargs:
+            login_mode = kwargs['loginMode']
+
         _setter("login_mode", login_mode)
 
     @property
@@ -10898,7 +11884,13 @@ class RegistryTaskSourceTriggerArgs:
              authentication: Optional[pulumi.Input['RegistryTaskSourceTriggerAuthenticationArgs']] = None,
              branch: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+        if 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+
         _setter("events", events)
         _setter("name", name)
         _setter("repository_url", repository_url)
@@ -11026,7 +12018,15 @@ class RegistryTaskSourceTriggerAuthenticationArgs:
              expire_in_seconds: Optional[pulumi.Input[int]] = None,
              refresh_token: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'tokenType' in kwargs:
+            token_type = kwargs['tokenType']
+        if 'expireInSeconds' in kwargs:
+            expire_in_seconds = kwargs['expireInSeconds']
+        if 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+
         _setter("token", token)
         _setter("token_type", token_type)
         if expire_in_seconds is not None:
@@ -11120,7 +12120,9 @@ class RegistryTaskTimerTriggerArgs:
              name: pulumi.Input[str],
              schedule: pulumi.Input[str],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("schedule", schedule)
         if enabled is not None:
@@ -11178,7 +12180,9 @@ class RegistryTrustPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -11214,7 +12218,9 @@ class TokenPasswordPassword1Args:
              _setter: Callable[[Any, Any], None],
              expiry: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if expiry is not None:
             _setter("expiry", expiry)
         if value is not None:
@@ -11264,7 +12270,9 @@ class TokenPasswordPassword2Args:
              _setter: Callable[[Any, Any], None],
              expiry: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if expiry is not None:
             _setter("expiry", expiry)
         if value is not None:

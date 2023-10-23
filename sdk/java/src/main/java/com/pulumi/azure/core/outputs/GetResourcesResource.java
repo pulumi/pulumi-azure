@@ -142,14 +142,14 @@ public final class GetResourcesResource {
             return this;
         }
         public GetResourcesResource build() {
-            final var o = new GetResourcesResource();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetResourcesResource();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

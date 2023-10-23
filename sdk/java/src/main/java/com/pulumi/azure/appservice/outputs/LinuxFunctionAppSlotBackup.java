@@ -107,12 +107,12 @@ public final class LinuxFunctionAppSlotBackup {
             return this;
         }
         public LinuxFunctionAppSlotBackup build() {
-            final var o = new LinuxFunctionAppSlotBackup();
-            o.enabled = enabled;
-            o.name = name;
-            o.schedule = schedule;
-            o.storageAccountUrl = storageAccountUrl;
-            return o;
+            final var _resultValue = new LinuxFunctionAppSlotBackup();
+            _resultValue.enabled = enabled;
+            _resultValue.name = name;
+            _resultValue.schedule = schedule;
+            _resultValue.storageAccountUrl = storageAccountUrl;
+            return _resultValue;
         }
     }
 }

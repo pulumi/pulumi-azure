@@ -68,10 +68,10 @@ public final class SoftwareUpdateConfigurationPreTask {
             return this;
         }
         public SoftwareUpdateConfigurationPreTask build() {
-            final var o = new SoftwareUpdateConfigurationPreTask();
-            o.parameters = parameters;
-            o.source = source;
-            return o;
+            final var _resultValue = new SoftwareUpdateConfigurationPreTask();
+            _resultValue.parameters = parameters;
+            _resultValue.source = source;
+            return _resultValue;
         }
     }
 }

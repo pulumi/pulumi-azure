@@ -41,7 +41,15 @@ class CustomDomainArgs:
              web_pubsub_custom_certificate_id: pulumi.Input[str],
              web_pubsub_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'webPubsubCustomCertificateId' in kwargs:
+            web_pubsub_custom_certificate_id = kwargs['webPubsubCustomCertificateId']
+        if 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+
         _setter("domain_name", domain_name)
         _setter("web_pubsub_custom_certificate_id", web_pubsub_custom_certificate_id)
         _setter("web_pubsub_id", web_pubsub_id)
@@ -129,7 +137,15 @@ class _CustomDomainState:
              name: Optional[pulumi.Input[str]] = None,
              web_pubsub_custom_certificate_id: Optional[pulumi.Input[str]] = None,
              web_pubsub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'webPubsubCustomCertificateId' in kwargs:
+            web_pubsub_custom_certificate_id = kwargs['webPubsubCustomCertificateId']
+        if 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+
         if domain_name is not None:
             _setter("domain_name", domain_name)
         if name is not None:

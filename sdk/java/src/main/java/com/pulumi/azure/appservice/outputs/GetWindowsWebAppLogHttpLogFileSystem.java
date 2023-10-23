@@ -65,10 +65,10 @@ public final class GetWindowsWebAppLogHttpLogFileSystem {
             return this;
         }
         public GetWindowsWebAppLogHttpLogFileSystem build() {
-            final var o = new GetWindowsWebAppLogHttpLogFileSystem();
-            o.retentionInDays = retentionInDays;
-            o.retentionInMb = retentionInMb;
-            return o;
+            final var _resultValue = new GetWindowsWebAppLogHttpLogFileSystem();
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.retentionInMb = retentionInMb;
+            return _resultValue;
         }
     }
 }

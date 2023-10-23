@@ -97,7 +97,33 @@ class SharedImageVersionArgs:
              replication_mode: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'galleryName' in kwargs:
+            gallery_name = kwargs['galleryName']
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'targetRegions' in kwargs:
+            target_regions = kwargs['targetRegions']
+        if 'blobUri' in kwargs:
+            blob_uri = kwargs['blobUri']
+        if 'deletionOfReplicatedLocationsEnabled' in kwargs:
+            deletion_of_replicated_locations_enabled = kwargs['deletionOfReplicatedLocationsEnabled']
+        if 'endOfLifeDate' in kwargs:
+            end_of_life_date = kwargs['endOfLifeDate']
+        if 'excludeFromLatest' in kwargs:
+            exclude_from_latest = kwargs['excludeFromLatest']
+        if 'managedImageId' in kwargs:
+            managed_image_id = kwargs['managedImageId']
+        if 'osDiskSnapshotId' in kwargs:
+            os_disk_snapshot_id = kwargs['osDiskSnapshotId']
+        if 'replicationMode' in kwargs:
+            replication_mode = kwargs['replicationMode']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("gallery_name", gallery_name)
         _setter("image_name", image_name)
         _setter("resource_group_name", resource_group_name)
@@ -402,7 +428,33 @@ class _SharedImageVersionState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'blobUri' in kwargs:
+            blob_uri = kwargs['blobUri']
+        if 'deletionOfReplicatedLocationsEnabled' in kwargs:
+            deletion_of_replicated_locations_enabled = kwargs['deletionOfReplicatedLocationsEnabled']
+        if 'endOfLifeDate' in kwargs:
+            end_of_life_date = kwargs['endOfLifeDate']
+        if 'excludeFromLatest' in kwargs:
+            exclude_from_latest = kwargs['excludeFromLatest']
+        if 'galleryName' in kwargs:
+            gallery_name = kwargs['galleryName']
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if 'managedImageId' in kwargs:
+            managed_image_id = kwargs['managedImageId']
+        if 'osDiskSnapshotId' in kwargs:
+            os_disk_snapshot_id = kwargs['osDiskSnapshotId']
+        if 'replicationMode' in kwargs:
+            replication_mode = kwargs['replicationMode']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'targetRegions' in kwargs:
+            target_regions = kwargs['targetRegions']
+
         if blob_uri is not None:
             _setter("blob_uri", blob_uri)
         if deletion_of_replicated_locations_enabled is not None:

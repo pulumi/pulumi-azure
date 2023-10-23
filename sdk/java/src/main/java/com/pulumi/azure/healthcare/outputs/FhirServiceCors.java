@@ -136,13 +136,13 @@ public final class FhirServiceCors {
             return this;
         }
         public FhirServiceCors build() {
-            final var o = new FhirServiceCors();
-            o.allowedHeaders = allowedHeaders;
-            o.allowedMethods = allowedMethods;
-            o.allowedOrigins = allowedOrigins;
-            o.credentialsAllowed = credentialsAllowed;
-            o.maxAgeInSeconds = maxAgeInSeconds;
-            return o;
+            final var _resultValue = new FhirServiceCors();
+            _resultValue.allowedHeaders = allowedHeaders;
+            _resultValue.allowedMethods = allowedMethods;
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.credentialsAllowed = credentialsAllowed;
+            _resultValue.maxAgeInSeconds = maxAgeInSeconds;
+            return _resultValue;
         }
     }
 }

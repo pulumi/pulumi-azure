@@ -107,12 +107,12 @@ public final class SourceControlSlotGithubActionConfiguration {
             return this;
         }
         public SourceControlSlotGithubActionConfiguration build() {
-            final var o = new SourceControlSlotGithubActionConfiguration();
-            o.codeConfiguration = codeConfiguration;
-            o.containerConfiguration = containerConfiguration;
-            o.generateWorkflowFile = generateWorkflowFile;
-            o.linuxAction = linuxAction;
-            return o;
+            final var _resultValue = new SourceControlSlotGithubActionConfiguration();
+            _resultValue.codeConfiguration = codeConfiguration;
+            _resultValue.containerConfiguration = containerConfiguration;
+            _resultValue.generateWorkflowFile = generateWorkflowFile;
+            _resultValue.linuxAction = linuxAction;
+            return _resultValue;
         }
     }
 }

@@ -55,7 +55,19 @@ class ConnectionArgs:
              name: Optional[pulumi.Input[str]] = None,
              secret_store: Optional[pulumi.Input['ConnectionSecretStoreArgs']] = None,
              vnet_solution: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceId' in kwargs:
+            app_service_id = kwargs['appServiceId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'clientType' in kwargs:
+            client_type = kwargs['clientType']
+        if 'secretStore' in kwargs:
+            secret_store = kwargs['secretStore']
+        if 'vnetSolution' in kwargs:
+            vnet_solution = kwargs['vnetSolution']
+
         _setter("app_service_id", app_service_id)
         _setter("authentication", authentication)
         _setter("target_resource_id", target_resource_id)
@@ -197,7 +209,19 @@ class _ConnectionState:
              secret_store: Optional[pulumi.Input['ConnectionSecretStoreArgs']] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
              vnet_solution: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceId' in kwargs:
+            app_service_id = kwargs['appServiceId']
+        if 'clientType' in kwargs:
+            client_type = kwargs['clientType']
+        if 'secretStore' in kwargs:
+            secret_store = kwargs['secretStore']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'vnetSolution' in kwargs:
+            vnet_solution = kwargs['vnetSolution']
+
         if app_service_id is not None:
             _setter("app_service_id", app_service_id)
         if authentication is not None:

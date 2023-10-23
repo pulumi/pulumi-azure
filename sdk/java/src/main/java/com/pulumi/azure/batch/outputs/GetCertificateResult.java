@@ -155,16 +155,16 @@ public final class GetCertificateResult {
             return this;
         }
         public GetCertificateResult build() {
-            final var o = new GetCertificateResult();
-            o.accountName = accountName;
-            o.format = format;
-            o.id = id;
-            o.name = name;
-            o.publicData = publicData;
-            o.resourceGroupName = resourceGroupName;
-            o.thumbprint = thumbprint;
-            o.thumbprintAlgorithm = thumbprintAlgorithm;
-            return o;
+            final var _resultValue = new GetCertificateResult();
+            _resultValue.accountName = accountName;
+            _resultValue.format = format;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.publicData = publicData;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.thumbprint = thumbprint;
+            _resultValue.thumbprintAlgorithm = thumbprintAlgorithm;
+            return _resultValue;
         }
     }
 }

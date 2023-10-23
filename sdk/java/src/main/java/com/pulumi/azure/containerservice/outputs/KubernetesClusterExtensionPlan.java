@@ -128,13 +128,13 @@ public final class KubernetesClusterExtensionPlan {
             return this;
         }
         public KubernetesClusterExtensionPlan build() {
-            final var o = new KubernetesClusterExtensionPlan();
-            o.name = name;
-            o.product = product;
-            o.promotionCode = promotionCode;
-            o.publisher = publisher;
-            o.version = version;
-            return o;
+            final var _resultValue = new KubernetesClusterExtensionPlan();
+            _resultValue.name = name;
+            _resultValue.product = product;
+            _resultValue.promotionCode = promotionCode;
+            _resultValue.publisher = publisher;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

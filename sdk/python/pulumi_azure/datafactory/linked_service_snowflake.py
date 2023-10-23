@@ -61,7 +61,19 @@ class LinkedServiceSnowflakeArgs:
              key_vault_password: Optional[pulumi.Input['LinkedServiceSnowflakeKeyVaultPasswordArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+
         _setter("connection_string", connection_string)
         _setter("data_factory_id", data_factory_id)
         if additional_properties is not None:
@@ -236,7 +248,19 @@ class _LinkedServiceSnowflakeState:
              key_vault_password: Optional[pulumi.Input['LinkedServiceSnowflakeKeyVaultPasswordArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

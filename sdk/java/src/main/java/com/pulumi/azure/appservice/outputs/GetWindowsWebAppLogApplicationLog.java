@@ -70,10 +70,10 @@ public final class GetWindowsWebAppLogApplicationLog {
             return this;
         }
         public GetWindowsWebAppLogApplicationLog build() {
-            final var o = new GetWindowsWebAppLogApplicationLog();
-            o.azureBlobStorages = azureBlobStorages;
-            o.fileSystemLevel = fileSystemLevel;
-            return o;
+            final var _resultValue = new GetWindowsWebAppLogApplicationLog();
+            _resultValue.azureBlobStorages = azureBlobStorages;
+            _resultValue.fileSystemLevel = fileSystemLevel;
+            return _resultValue;
         }
     }
 }

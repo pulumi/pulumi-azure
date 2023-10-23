@@ -55,7 +55,19 @@ class ApiSchemaArgs:
              components: Optional[pulumi.Input[str]] = None,
              definitions: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'apiName' in kwargs:
+            api_name = kwargs['apiName']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+
         _setter("api_management_name", api_management_name)
         _setter("api_name", api_name)
         _setter("content_type", content_type)
@@ -209,7 +221,19 @@ class _ApiSchemaState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              schema_id: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'apiName' in kwargs:
+            api_name = kwargs['apiName']
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if api_name is not None:

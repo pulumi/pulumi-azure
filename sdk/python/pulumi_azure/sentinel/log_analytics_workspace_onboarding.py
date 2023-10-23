@@ -42,7 +42,17 @@ class LogAnalyticsWorkspaceOnboardingArgs:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
              workspace_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedKeyEnabled' in kwargs:
+            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+
         if customer_managed_key_enabled is not None:
             _setter("customer_managed_key_enabled", customer_managed_key_enabled)
         if resource_group_name is not None:
@@ -145,7 +155,17 @@ class _LogAnalyticsWorkspaceOnboardingState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
              workspace_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customerManagedKeyEnabled' in kwargs:
+            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+
         if customer_managed_key_enabled is not None:
             _setter("customer_managed_key_enabled", customer_managed_key_enabled)
         if resource_group_name is not None:

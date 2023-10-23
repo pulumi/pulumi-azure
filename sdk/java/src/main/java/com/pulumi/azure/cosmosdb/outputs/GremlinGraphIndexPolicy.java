@@ -159,14 +159,14 @@ public final class GremlinGraphIndexPolicy {
             return spatialIndices(List.of(spatialIndices));
         }
         public GremlinGraphIndexPolicy build() {
-            final var o = new GremlinGraphIndexPolicy();
-            o.automatic = automatic;
-            o.compositeIndices = compositeIndices;
-            o.excludedPaths = excludedPaths;
-            o.includedPaths = includedPaths;
-            o.indexingMode = indexingMode;
-            o.spatialIndices = spatialIndices;
-            return o;
+            final var _resultValue = new GremlinGraphIndexPolicy();
+            _resultValue.automatic = automatic;
+            _resultValue.compositeIndices = compositeIndices;
+            _resultValue.excludedPaths = excludedPaths;
+            _resultValue.includedPaths = includedPaths;
+            _resultValue.indexingMode = indexingMode;
+            _resultValue.spatialIndices = spatialIndices;
+            return _resultValue;
         }
     }
 }

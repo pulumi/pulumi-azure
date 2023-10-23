@@ -124,13 +124,13 @@ public final class ApiOperationResponseRepresentationFormParameterExample {
             return this;
         }
         public ApiOperationResponseRepresentationFormParameterExample build() {
-            final var o = new ApiOperationResponseRepresentationFormParameterExample();
-            o.description = description;
-            o.externalValue = externalValue;
-            o.name = name;
-            o.summary = summary;
-            o.value = value;
-            return o;
+            final var _resultValue = new ApiOperationResponseRepresentationFormParameterExample();
+            _resultValue.description = description;
+            _resultValue.externalValue = externalValue;
+            _resultValue.name = name;
+            _resultValue.summary = summary;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

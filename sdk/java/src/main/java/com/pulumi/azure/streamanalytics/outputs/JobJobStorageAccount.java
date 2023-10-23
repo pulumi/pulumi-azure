@@ -86,11 +86,11 @@ public final class JobJobStorageAccount {
             return this;
         }
         public JobJobStorageAccount build() {
-            final var o = new JobJobStorageAccount();
-            o.accountKey = accountKey;
-            o.accountName = accountName;
-            o.authenticationMode = authenticationMode;
-            return o;
+            final var _resultValue = new JobJobStorageAccount();
+            _resultValue.accountKey = accountKey;
+            _resultValue.accountName = accountName;
+            _resultValue.authenticationMode = authenticationMode;
+            return _resultValue;
         }
     }
 }

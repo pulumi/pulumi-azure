@@ -89,11 +89,11 @@ public final class AppServiceAuthSettingsMicrosoft {
             return oauthScopes(List.of(oauthScopes));
         }
         public AppServiceAuthSettingsMicrosoft build() {
-            final var o = new AppServiceAuthSettingsMicrosoft();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.oauthScopes = oauthScopes;
-            return o;
+            final var _resultValue = new AppServiceAuthSettingsMicrosoft();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.oauthScopes = oauthScopes;
+            return _resultValue;
         }
     }
 }

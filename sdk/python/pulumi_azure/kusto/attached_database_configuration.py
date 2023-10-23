@@ -57,7 +57,19 @@ class AttachedDatabaseConfigurationArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sharing: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'clusterResourceId' in kwargs:
+            cluster_resource_id = kwargs['clusterResourceId']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'defaultPrincipalModificationKind' in kwargs:
+            default_principal_modification_kind = kwargs['defaultPrincipalModificationKind']
+
         _setter("cluster_name", cluster_name)
         _setter("cluster_resource_id", cluster_resource_id)
         _setter("database_name", database_name)
@@ -216,7 +228,21 @@ class _AttachedDatabaseConfigurationState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sharing: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'attachedDatabaseNames' in kwargs:
+            attached_database_names = kwargs['attachedDatabaseNames']
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'clusterResourceId' in kwargs:
+            cluster_resource_id = kwargs['clusterResourceId']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'defaultPrincipalModificationKind' in kwargs:
+            default_principal_modification_kind = kwargs['defaultPrincipalModificationKind']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if attached_database_names is not None:
             _setter("attached_database_names", attached_database_names)
         if cluster_name is not None:

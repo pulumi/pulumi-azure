@@ -69,10 +69,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
             return this;
         }
         public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey build() {
-            final var o = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey();
-            o.publicKey = publicKey;
-            o.username = username;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey();
+            _resultValue.publicKey = publicKey;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

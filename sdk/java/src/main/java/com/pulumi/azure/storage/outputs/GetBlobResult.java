@@ -194,18 +194,18 @@ public final class GetBlobResult {
             return this;
         }
         public GetBlobResult build() {
-            final var o = new GetBlobResult();
-            o.accessTier = accessTier;
-            o.contentMd5 = contentMd5;
-            o.contentType = contentType;
-            o.id = id;
-            o.metadata = metadata;
-            o.name = name;
-            o.storageAccountName = storageAccountName;
-            o.storageContainerName = storageContainerName;
-            o.type = type;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetBlobResult();
+            _resultValue.accessTier = accessTier;
+            _resultValue.contentMd5 = contentMd5;
+            _resultValue.contentType = contentType;
+            _resultValue.id = id;
+            _resultValue.metadata = metadata;
+            _resultValue.name = name;
+            _resultValue.storageAccountName = storageAccountName;
+            _resultValue.storageContainerName = storageContainerName;
+            _resultValue.type = type;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

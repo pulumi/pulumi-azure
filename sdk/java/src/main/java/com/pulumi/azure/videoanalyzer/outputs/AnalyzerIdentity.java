@@ -69,10 +69,10 @@ public final class AnalyzerIdentity {
             return this;
         }
         public AnalyzerIdentity build() {
-            final var o = new AnalyzerIdentity();
-            o.identityIds = identityIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new AnalyzerIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

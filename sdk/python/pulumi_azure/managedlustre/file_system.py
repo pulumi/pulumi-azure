@@ -33,7 +33,7 @@ class FileSystemArgs:
         :param pulumi.Input['FileSystemMaintenanceWindowArgs'] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones for the Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input['FileSystemEncryptionKeyArgs'] encryption_key: An `encryption_key` block as defined below.
@@ -75,7 +75,23 @@ class FileSystemArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'storageCapacityInTb' in kwargs:
+            storage_capacity_in_tb = kwargs['storageCapacityInTb']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if 'hsmSetting' in kwargs:
+            hsm_setting = kwargs['hsmSetting']
+
         _setter("maintenance_window", maintenance_window)
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
@@ -135,7 +151,7 @@ class FileSystemArgs:
     @pulumi.getter(name="storageCapacityInTb")
     def storage_capacity_in_tb(self) -> pulumi.Input[int]:
         """
-        The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
+        The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_capacity_in_tb")
 
@@ -269,7 +285,7 @@ class _FileSystemState:
         :param pulumi.Input[str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Managed Lustre File System.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones for the Azure Managed Lustre File System. Changing this forces a new resource to be created.
@@ -304,7 +320,23 @@ class _FileSystemState:
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if 'hsmSetting' in kwargs:
+            hsm_setting = kwargs['hsmSetting']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'storageCapacityInTb' in kwargs:
+            storage_capacity_in_tb = kwargs['storageCapacityInTb']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if encryption_key is not None:
             _setter("encryption_key", encryption_key)
         if hsm_setting is not None:
@@ -432,7 +464,7 @@ class _FileSystemState:
     @pulumi.getter(name="storageCapacityInTb")
     def storage_capacity_in_tb(self) -> Optional[pulumi.Input[int]]:
         """
-        The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
+        The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_capacity_in_tb")
 
@@ -518,7 +550,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Managed Lustre File System.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones for the Azure Managed Lustre File System. Changing this forces a new resource to be created.
@@ -663,7 +695,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Managed Lustre File System.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones for the Azure Managed Lustre File System. Changing this forces a new resource to be created.
@@ -756,7 +788,7 @@ class FileSystem(pulumi.CustomResource):
     @pulumi.getter(name="storageCapacityInTb")
     def storage_capacity_in_tb(self) -> pulumi.Output[int]:
         """
-        The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
+        The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_capacity_in_tb")
 

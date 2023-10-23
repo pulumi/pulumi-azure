@@ -69,7 +69,17 @@ class LinkedServiceWebArgs:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              password: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+
         _setter("authentication_type", authentication_type)
         _setter("data_factory_id", data_factory_id)
         _setter("url", url)
@@ -283,7 +293,17 @@ class _LinkedServiceWebState:
              password: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

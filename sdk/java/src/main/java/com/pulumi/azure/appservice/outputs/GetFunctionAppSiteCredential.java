@@ -65,10 +65,10 @@ public final class GetFunctionAppSiteCredential {
             return this;
         }
         public GetFunctionAppSiteCredential build() {
-            final var o = new GetFunctionAppSiteCredential();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetFunctionAppSiteCredential();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

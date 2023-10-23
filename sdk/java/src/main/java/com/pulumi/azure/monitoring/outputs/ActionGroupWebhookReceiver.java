@@ -111,12 +111,12 @@ public final class ActionGroupWebhookReceiver {
             return this;
         }
         public ActionGroupWebhookReceiver build() {
-            final var o = new ActionGroupWebhookReceiver();
-            o.aadAuth = aadAuth;
-            o.name = name;
-            o.serviceUri = serviceUri;
-            o.useCommonAlertSchema = useCommonAlertSchema;
-            return o;
+            final var _resultValue = new ActionGroupWebhookReceiver();
+            _resultValue.aadAuth = aadAuth;
+            _resultValue.name = name;
+            _resultValue.serviceUri = serviceUri;
+            _resultValue.useCommonAlertSchema = useCommonAlertSchema;
+            return _resultValue;
         }
     }
 }

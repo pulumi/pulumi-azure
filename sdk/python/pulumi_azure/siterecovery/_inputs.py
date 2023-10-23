@@ -63,7 +63,13 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
              authentication_type: Optional[pulumi.Input[str]] = None,
              automation_account_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'automationAccountId' in kwargs:
+            automation_account_id = kwargs['automationAccountId']
+
         if authentication_type is not None:
             _setter("authentication_type", authentication_type)
         if automation_account_id is not None:
@@ -157,7 +163,23 @@ class ReplicatedVMManagedDiskArgs:
              target_resource_group_id: pulumi.Input[str],
              target_disk_encryption: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']] = None,
              target_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskId' in kwargs:
+            disk_id = kwargs['diskId']
+        if 'stagingStorageAccountId' in kwargs:
+            staging_storage_account_id = kwargs['stagingStorageAccountId']
+        if 'targetDiskType' in kwargs:
+            target_disk_type = kwargs['targetDiskType']
+        if 'targetReplicaDiskType' in kwargs:
+            target_replica_disk_type = kwargs['targetReplicaDiskType']
+        if 'targetResourceGroupId' in kwargs:
+            target_resource_group_id = kwargs['targetResourceGroupId']
+        if 'targetDiskEncryption' in kwargs:
+            target_disk_encryption = kwargs['targetDiskEncryption']
+        if 'targetDiskEncryptionSetId' in kwargs:
+            target_disk_encryption_set_id = kwargs['targetDiskEncryptionSetId']
+
         _setter("disk_id", disk_id)
         _setter("staging_storage_account_id", staging_storage_account_id)
         _setter("target_disk_type", target_disk_type)
@@ -274,7 +296,13 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionArgs:
              _setter: Callable[[Any, Any], None],
              disk_encryption_key: pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs'],
              key_encryption_key: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskEncryptionKey' in kwargs:
+            disk_encryption_key = kwargs['diskEncryptionKey']
+        if 'keyEncryptionKey' in kwargs:
+            key_encryption_key = kwargs['keyEncryptionKey']
+
         _setter("disk_encryption_key", disk_encryption_key)
         if key_encryption_key is not None:
             _setter("key_encryption_key", key_encryption_key)
@@ -323,7 +351,13 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs:
              _setter: Callable[[Any, Any], None],
              secret_url: pulumi.Input[str],
              vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretUrl' in kwargs:
+            secret_url = kwargs['secretUrl']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         _setter("secret_url", secret_url)
         _setter("vault_id", vault_id)
 
@@ -371,7 +405,13 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs:
              _setter: Callable[[Any, Any], None],
              key_url: pulumi.Input[str],
              vault_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUrl' in kwargs:
+            key_url = kwargs['keyUrl']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         _setter("key_url", key_url)
         _setter("vault_id", vault_id)
 
@@ -442,7 +482,25 @@ class ReplicatedVMNetworkInterfaceArgs:
              source_network_interface_id: Optional[pulumi.Input[str]] = None,
              target_static_ip: Optional[pulumi.Input[str]] = None,
              target_subnet_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failoverTestPublicIpAddressId' in kwargs:
+            failover_test_public_ip_address_id = kwargs['failoverTestPublicIpAddressId']
+        if 'failoverTestStaticIp' in kwargs:
+            failover_test_static_ip = kwargs['failoverTestStaticIp']
+        if 'failoverTestSubnetName' in kwargs:
+            failover_test_subnet_name = kwargs['failoverTestSubnetName']
+        if 'isPrimary' in kwargs:
+            is_primary = kwargs['isPrimary']
+        if 'recoveryPublicIpAddressId' in kwargs:
+            recovery_public_ip_address_id = kwargs['recoveryPublicIpAddressId']
+        if 'sourceNetworkInterfaceId' in kwargs:
+            source_network_interface_id = kwargs['sourceNetworkInterfaceId']
+        if 'targetStaticIp' in kwargs:
+            target_static_ip = kwargs['targetStaticIp']
+        if 'targetSubnetName' in kwargs:
+            target_subnet_name = kwargs['targetSubnetName']
+
         if failover_test_public_ip_address_id is not None:
             _setter("failover_test_public_ip_address_id", failover_test_public_ip_address_id)
         if failover_test_static_ip is not None:
@@ -583,7 +641,15 @@ class ReplicatedVMUnmanagedDiskArgs:
              disk_uri: pulumi.Input[str],
              staging_storage_account_id: pulumi.Input[str],
              target_storage_account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diskUri' in kwargs:
+            disk_uri = kwargs['diskUri']
+        if 'stagingStorageAccountId' in kwargs:
+            staging_storage_account_id = kwargs['stagingStorageAccountId']
+        if 'targetStorageAccountId' in kwargs:
+            target_storage_account_id = kwargs['targetStorageAccountId']
+
         _setter("disk_uri", disk_uri)
         _setter("staging_storage_account_id", staging_storage_account_id)
         _setter("target_storage_account_id", target_storage_account_id)
@@ -656,7 +722,17 @@ class ReplicationRecoveryPlanAzureToAzureSettingsArgs:
              primary_zone: Optional[pulumi.Input[str]] = None,
              recovery_edge_zone: Optional[pulumi.Input[str]] = None,
              recovery_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primaryEdgeZone' in kwargs:
+            primary_edge_zone = kwargs['primaryEdgeZone']
+        if 'primaryZone' in kwargs:
+            primary_zone = kwargs['primaryZone']
+        if 'recoveryEdgeZone' in kwargs:
+            recovery_edge_zone = kwargs['recoveryEdgeZone']
+        if 'recoveryZone' in kwargs:
+            recovery_zone = kwargs['recoveryZone']
+
         if primary_edge_zone is not None:
             _setter("primary_edge_zone", primary_edge_zone)
         if primary_zone is not None:
@@ -742,7 +818,15 @@ class ReplicationRecoveryPlanBootRecoveryGroupArgs:
              post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]] = None,
              pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]] = None,
              replicated_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'postActions' in kwargs:
+            post_actions = kwargs['postActions']
+        if 'preActions' in kwargs:
+            pre_actions = kwargs['preActions']
+        if 'replicatedProtectedItems' in kwargs:
+            replicated_protected_items = kwargs['replicatedProtectedItems']
+
         if post_actions is not None:
             _setter("post_actions", post_actions)
         if pre_actions is not None:
@@ -838,7 +922,21 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failOverDirections' in kwargs:
+            fail_over_directions = kwargs['failOverDirections']
+        if 'failOverTypes' in kwargs:
+            fail_over_types = kwargs['failOverTypes']
+        if 'fabricLocation' in kwargs:
+            fabric_location = kwargs['fabricLocation']
+        if 'manualActionInstruction' in kwargs:
+            manual_action_instruction = kwargs['manualActionInstruction']
+        if 'runbookId' in kwargs:
+            runbook_id = kwargs['runbookId']
+        if 'scriptPath' in kwargs:
+            script_path = kwargs['scriptPath']
+
         _setter("fail_over_directions", fail_over_directions)
         _setter("fail_over_types", fail_over_types)
         _setter("name", name)
@@ -1008,7 +1106,21 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failOverDirections' in kwargs:
+            fail_over_directions = kwargs['failOverDirections']
+        if 'failOverTypes' in kwargs:
+            fail_over_types = kwargs['failOverTypes']
+        if 'fabricLocation' in kwargs:
+            fabric_location = kwargs['fabricLocation']
+        if 'manualActionInstruction' in kwargs:
+            manual_action_instruction = kwargs['manualActionInstruction']
+        if 'runbookId' in kwargs:
+            runbook_id = kwargs['runbookId']
+        if 'scriptPath' in kwargs:
+            script_path = kwargs['scriptPath']
+
         _setter("fail_over_directions", fail_over_directions)
         _setter("fail_over_types", fail_over_types)
         _setter("name", name)
@@ -1146,7 +1258,13 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupArgs:
              _setter: Callable[[Any, Any], None],
              post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]] = None,
              pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'postActions' in kwargs:
+            post_actions = kwargs['postActions']
+        if 'preActions' in kwargs:
+            pre_actions = kwargs['preActions']
+
         if post_actions is not None:
             _setter("post_actions", post_actions)
         if pre_actions is not None:
@@ -1228,7 +1346,21 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failOverDirections' in kwargs:
+            fail_over_directions = kwargs['failOverDirections']
+        if 'failOverTypes' in kwargs:
+            fail_over_types = kwargs['failOverTypes']
+        if 'fabricLocation' in kwargs:
+            fabric_location = kwargs['fabricLocation']
+        if 'manualActionInstruction' in kwargs:
+            manual_action_instruction = kwargs['manualActionInstruction']
+        if 'runbookId' in kwargs:
+            runbook_id = kwargs['runbookId']
+        if 'scriptPath' in kwargs:
+            script_path = kwargs['scriptPath']
+
         _setter("fail_over_directions", fail_over_directions)
         _setter("fail_over_types", fail_over_types)
         _setter("name", name)
@@ -1398,7 +1530,21 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failOverDirections' in kwargs:
+            fail_over_directions = kwargs['failOverDirections']
+        if 'failOverTypes' in kwargs:
+            fail_over_types = kwargs['failOverTypes']
+        if 'fabricLocation' in kwargs:
+            fabric_location = kwargs['fabricLocation']
+        if 'manualActionInstruction' in kwargs:
+            manual_action_instruction = kwargs['manualActionInstruction']
+        if 'runbookId' in kwargs:
+            runbook_id = kwargs['runbookId']
+        if 'scriptPath' in kwargs:
+            script_path = kwargs['scriptPath']
+
         _setter("fail_over_directions", fail_over_directions)
         _setter("fail_over_types", fail_over_types)
         _setter("name", name)
@@ -1544,7 +1690,15 @@ class ReplicationRecoveryPlanRecoveryGroupArgs:
              post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPostActionArgs']]]] = None,
              pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPreActionArgs']]]] = None,
              replicated_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'postActions' in kwargs:
+            post_actions = kwargs['postActions']
+        if 'preActions' in kwargs:
+            pre_actions = kwargs['preActions']
+        if 'replicatedProtectedItems' in kwargs:
+            replicated_protected_items = kwargs['replicatedProtectedItems']
+
         _setter("type", type)
         if post_actions is not None:
             _setter("post_actions", post_actions)
@@ -1653,7 +1807,21 @@ class ReplicationRecoveryPlanRecoveryGroupPostActionArgs:
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failOverDirections' in kwargs:
+            fail_over_directions = kwargs['failOverDirections']
+        if 'failOverTypes' in kwargs:
+            fail_over_types = kwargs['failOverTypes']
+        if 'fabricLocation' in kwargs:
+            fabric_location = kwargs['fabricLocation']
+        if 'manualActionInstruction' in kwargs:
+            manual_action_instruction = kwargs['manualActionInstruction']
+        if 'runbookId' in kwargs:
+            runbook_id = kwargs['runbookId']
+        if 'scriptPath' in kwargs:
+            script_path = kwargs['scriptPath']
+
         _setter("fail_over_directions", fail_over_directions)
         _setter("fail_over_types", fail_over_types)
         _setter("name", name)
@@ -1823,7 +1991,21 @@ class ReplicationRecoveryPlanRecoveryGroupPreActionArgs:
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failOverDirections' in kwargs:
+            fail_over_directions = kwargs['failOverDirections']
+        if 'failOverTypes' in kwargs:
+            fail_over_types = kwargs['failOverTypes']
+        if 'fabricLocation' in kwargs:
+            fabric_location = kwargs['fabricLocation']
+        if 'manualActionInstruction' in kwargs:
+            manual_action_instruction = kwargs['manualActionInstruction']
+        if 'runbookId' in kwargs:
+            runbook_id = kwargs['runbookId']
+        if 'scriptPath' in kwargs:
+            script_path = kwargs['scriptPath']
+
         _setter("fail_over_directions", fail_over_directions)
         _setter("fail_over_types", fail_over_types)
         _setter("name", name)
@@ -1961,7 +2143,13 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupArgs:
              _setter: Callable[[Any, Any], None],
              post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]] = None,
              pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'postActions' in kwargs:
+            post_actions = kwargs['postActions']
+        if 'preActions' in kwargs:
+            pre_actions = kwargs['preActions']
+
         if post_actions is not None:
             _setter("post_actions", post_actions)
         if pre_actions is not None:
@@ -2043,7 +2231,21 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failOverDirections' in kwargs:
+            fail_over_directions = kwargs['failOverDirections']
+        if 'failOverTypes' in kwargs:
+            fail_over_types = kwargs['failOverTypes']
+        if 'fabricLocation' in kwargs:
+            fabric_location = kwargs['fabricLocation']
+        if 'manualActionInstruction' in kwargs:
+            manual_action_instruction = kwargs['manualActionInstruction']
+        if 'runbookId' in kwargs:
+            runbook_id = kwargs['runbookId']
+        if 'scriptPath' in kwargs:
+            script_path = kwargs['scriptPath']
+
         _setter("fail_over_directions", fail_over_directions)
         _setter("fail_over_types", fail_over_types)
         _setter("name", name)
@@ -2213,7 +2415,21 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
              manual_action_instruction: Optional[pulumi.Input[str]] = None,
              runbook_id: Optional[pulumi.Input[str]] = None,
              script_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failOverDirections' in kwargs:
+            fail_over_directions = kwargs['failOverDirections']
+        if 'failOverTypes' in kwargs:
+            fail_over_types = kwargs['failOverTypes']
+        if 'fabricLocation' in kwargs:
+            fabric_location = kwargs['fabricLocation']
+        if 'manualActionInstruction' in kwargs:
+            manual_action_instruction = kwargs['manualActionInstruction']
+        if 'runbookId' in kwargs:
+            runbook_id = kwargs['runbookId']
+        if 'scriptPath' in kwargs:
+            script_path = kwargs['scriptPath']
+
         _setter("fail_over_directions", fail_over_directions)
         _setter("fail_over_types", fail_over_types)
         _setter("name", name)

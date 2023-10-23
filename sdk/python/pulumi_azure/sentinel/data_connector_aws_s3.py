@@ -43,7 +43,17 @@ class DataConnectorAwsS3Args:
              log_analytics_workspace_id: pulumi.Input[str],
              sqs_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsRoleArn' in kwargs:
+            aws_role_arn = kwargs['awsRoleArn']
+        if 'destinationTable' in kwargs:
+            destination_table = kwargs['destinationTable']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'sqsUrls' in kwargs:
+            sqs_urls = kwargs['sqsUrls']
+
         _setter("aws_role_arn", aws_role_arn)
         _setter("destination_table", destination_table)
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
@@ -144,7 +154,17 @@ class _DataConnectorAwsS3State:
              log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sqs_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsRoleArn' in kwargs:
+            aws_role_arn = kwargs['awsRoleArn']
+        if 'destinationTable' in kwargs:
+            destination_table = kwargs['destinationTable']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'sqsUrls' in kwargs:
+            sqs_urls = kwargs['sqsUrls']
+
         if aws_role_arn is not None:
             _setter("aws_role_arn", aws_role_arn)
         if destination_table is not None:

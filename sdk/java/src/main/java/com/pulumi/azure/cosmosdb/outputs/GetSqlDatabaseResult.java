@@ -123,14 +123,14 @@ public final class GetSqlDatabaseResult {
             return this;
         }
         public GetSqlDatabaseResult build() {
-            final var o = new GetSqlDatabaseResult();
-            o.accountName = accountName;
-            o.autoscaleSettings = autoscaleSettings;
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.throughput = throughput;
-            return o;
+            final var _resultValue = new GetSqlDatabaseResult();
+            _resultValue.accountName = accountName;
+            _resultValue.autoscaleSettings = autoscaleSettings;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.throughput = throughput;
+            return _resultValue;
         }
     }
 }

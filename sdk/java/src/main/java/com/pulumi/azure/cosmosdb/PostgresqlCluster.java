@@ -89,14 +89,14 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
         return this.administratorLoginPassword;
     }
     /**
-     * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+     * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
      * 
      */
     @Export(name="citusVersion", refs={String.class}, tree="[0]")
     private Output<String> citusVersion;
 
     /**
-     * @return The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+     * @return The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
      * 
      */
     public Output<String> citusVersion() {
@@ -387,14 +387,14 @@ public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceResourceId);
     }
     /**
-     * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+     * The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
      * 
      */
     @Export(name="sqlVersion", refs={String.class}, tree="[0]")
     private Output<String> sqlVersion;
 
     /**
-     * @return The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+     * @return The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
      * 
      */
     public Output<String> sqlVersion() {

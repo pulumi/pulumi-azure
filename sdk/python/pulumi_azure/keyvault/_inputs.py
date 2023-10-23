@@ -70,7 +70,9 @@ class CertifiateCertificateArgs:
              _setter: Callable[[Any, Any], None],
              contents: pulumi.Input[str],
              password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("contents", contents)
         if password is not None:
             _setter("password", password)
@@ -144,7 +146,13 @@ class CertifiateCertificateAttributeArgs:
              not_before: Optional[pulumi.Input[str]] = None,
              recovery_level: Optional[pulumi.Input[str]] = None,
              updated: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notBefore' in kwargs:
+            not_before = kwargs['notBefore']
+        if 'recoveryLevel' in kwargs:
+            recovery_level = kwargs['recoveryLevel']
+
         if created is not None:
             _setter("created", created)
         if enabled is not None:
@@ -262,7 +270,19 @@ class CertifiateCertificatePolicyArgs:
              secret_properties: pulumi.Input['CertifiateCertificatePolicySecretPropertiesArgs'],
              lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]] = None,
              x509_certificate_properties: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'issuerParameters' in kwargs:
+            issuer_parameters = kwargs['issuerParameters']
+        if 'keyProperties' in kwargs:
+            key_properties = kwargs['keyProperties']
+        if 'secretProperties' in kwargs:
+            secret_properties = kwargs['secretProperties']
+        if 'lifetimeActions' in kwargs:
+            lifetime_actions = kwargs['lifetimeActions']
+        if 'x509CertificateProperties' in kwargs:
+            x509_certificate_properties = kwargs['x509CertificateProperties']
+
         _setter("issuer_parameters", issuer_parameters)
         _setter("key_properties", key_properties)
         _setter("secret_properties", secret_properties)
@@ -347,7 +367,9 @@ class CertifiateCertificatePolicyIssuerParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -394,7 +416,15 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
              reuse_key: pulumi.Input[bool],
              curve: Optional[pulumi.Input[str]] = None,
              key_size: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if 'reuseKey' in kwargs:
+            reuse_key = kwargs['reuseKey']
+        if 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+
         _setter("exportable", exportable)
         _setter("key_type", key_type)
         _setter("reuse_key", reuse_key)
@@ -483,7 +513,9 @@ class CertifiateCertificatePolicyLifetimeActionArgs:
              _setter: Callable[[Any, Any], None],
              action: pulumi.Input['CertifiateCertificatePolicyLifetimeActionActionArgs'],
              trigger: pulumi.Input['CertifiateCertificatePolicyLifetimeActionTriggerArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("trigger", trigger)
 
@@ -527,7 +559,11 @@ class CertifiateCertificatePolicyLifetimeActionActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              action_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+
         _setter("action_type", action_type)
 
     @property
@@ -562,7 +598,13 @@ class CertifiateCertificatePolicyLifetimeActionTriggerArgs:
              _setter: Callable[[Any, Any], None],
              days_before_expiry: Optional[pulumi.Input[int]] = None,
              lifetime_percentage: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysBeforeExpiry' in kwargs:
+            days_before_expiry = kwargs['daysBeforeExpiry']
+        if 'lifetimePercentage' in kwargs:
+            lifetime_percentage = kwargs['lifetimePercentage']
+
         if days_before_expiry is not None:
             _setter("days_before_expiry", days_before_expiry)
         if lifetime_percentage is not None:
@@ -608,7 +650,11 @@ class CertifiateCertificatePolicySecretPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              content_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         _setter("content_type", content_type)
 
     @property
@@ -655,7 +701,17 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
              validity_in_months: pulumi.Input[int],
              extended_key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subject_alternative_names: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUsages' in kwargs:
+            key_usages = kwargs['keyUsages']
+        if 'validityInMonths' in kwargs:
+            validity_in_months = kwargs['validityInMonths']
+        if 'extendedKeyUsages' in kwargs:
+            extended_key_usages = kwargs['extendedKeyUsages']
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+
         _setter("key_usages", key_usages)
         _setter("subject", subject)
         _setter("validity_in_months", validity_in_months)
@@ -748,7 +804,11 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
              dns_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              upns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsNames' in kwargs:
+            dns_names = kwargs['dnsNames']
+
         if dns_names is not None:
             _setter("dns_names", dns_names)
         if emails is not None:
@@ -821,7 +881,9 @@ class CertificateCertificateArgs:
              _setter: Callable[[Any, Any], None],
              contents: pulumi.Input[str],
              password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("contents", contents)
         if password is not None:
             _setter("password", password)
@@ -895,7 +957,13 @@ class CertificateCertificateAttributeArgs:
              not_before: Optional[pulumi.Input[str]] = None,
              recovery_level: Optional[pulumi.Input[str]] = None,
              updated: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notBefore' in kwargs:
+            not_before = kwargs['notBefore']
+        if 'recoveryLevel' in kwargs:
+            recovery_level = kwargs['recoveryLevel']
+
         if created is not None:
             _setter("created", created)
         if enabled is not None:
@@ -1013,7 +1081,19 @@ class CertificateCertificatePolicyArgs:
              secret_properties: pulumi.Input['CertificateCertificatePolicySecretPropertiesArgs'],
              lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]] = None,
              x509_certificate_properties: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'issuerParameters' in kwargs:
+            issuer_parameters = kwargs['issuerParameters']
+        if 'keyProperties' in kwargs:
+            key_properties = kwargs['keyProperties']
+        if 'secretProperties' in kwargs:
+            secret_properties = kwargs['secretProperties']
+        if 'lifetimeActions' in kwargs:
+            lifetime_actions = kwargs['lifetimeActions']
+        if 'x509CertificateProperties' in kwargs:
+            x509_certificate_properties = kwargs['x509CertificateProperties']
+
         _setter("issuer_parameters", issuer_parameters)
         _setter("key_properties", key_properties)
         _setter("secret_properties", secret_properties)
@@ -1098,7 +1178,9 @@ class CertificateCertificatePolicyIssuerParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -1145,7 +1227,15 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
              reuse_key: pulumi.Input[bool],
              curve: Optional[pulumi.Input[str]] = None,
              key_size: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if 'reuseKey' in kwargs:
+            reuse_key = kwargs['reuseKey']
+        if 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+
         _setter("exportable", exportable)
         _setter("key_type", key_type)
         _setter("reuse_key", reuse_key)
@@ -1234,7 +1324,9 @@ class CertificateCertificatePolicyLifetimeActionArgs:
              _setter: Callable[[Any, Any], None],
              action: pulumi.Input['CertificateCertificatePolicyLifetimeActionActionArgs'],
              trigger: pulumi.Input['CertificateCertificatePolicyLifetimeActionTriggerArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("action", action)
         _setter("trigger", trigger)
 
@@ -1278,7 +1370,11 @@ class CertificateCertificatePolicyLifetimeActionActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              action_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionType' in kwargs:
+            action_type = kwargs['actionType']
+
         _setter("action_type", action_type)
 
     @property
@@ -1313,7 +1409,13 @@ class CertificateCertificatePolicyLifetimeActionTriggerArgs:
              _setter: Callable[[Any, Any], None],
              days_before_expiry: Optional[pulumi.Input[int]] = None,
              lifetime_percentage: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'daysBeforeExpiry' in kwargs:
+            days_before_expiry = kwargs['daysBeforeExpiry']
+        if 'lifetimePercentage' in kwargs:
+            lifetime_percentage = kwargs['lifetimePercentage']
+
         if days_before_expiry is not None:
             _setter("days_before_expiry", days_before_expiry)
         if lifetime_percentage is not None:
@@ -1359,7 +1461,11 @@ class CertificateCertificatePolicySecretPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              content_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         _setter("content_type", content_type)
 
     @property
@@ -1406,7 +1512,17 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
              validity_in_months: pulumi.Input[int],
              extended_key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subject_alternative_names: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyUsages' in kwargs:
+            key_usages = kwargs['keyUsages']
+        if 'validityInMonths' in kwargs:
+            validity_in_months = kwargs['validityInMonths']
+        if 'extendedKeyUsages' in kwargs:
+            extended_key_usages = kwargs['extendedKeyUsages']
+        if 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+
         _setter("key_usages", key_usages)
         _setter("subject", subject)
         _setter("validity_in_months", validity_in_months)
@@ -1499,7 +1615,11 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
              dns_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              upns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsNames' in kwargs:
+            dns_names = kwargs['dnsNames']
+
         if dns_names is not None:
             _setter("dns_names", dns_names)
         if emails is not None:
@@ -1567,7 +1687,9 @@ class CertificateContactsContactArgs:
              email: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              phone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("email", email)
         if name is not None:
             _setter("name", name)
@@ -1638,7 +1760,15 @@ class CertificateIssuerAdminArgs:
              first_name: Optional[pulumi.Input[str]] = None,
              last_name: Optional[pulumi.Input[str]] = None,
              phone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+
         _setter("email_address", email_address)
         if first_name is not None:
             _setter("first_name", first_name)
@@ -1719,7 +1849,13 @@ class KeyRotationPolicyArgs:
              automatic: Optional[pulumi.Input['KeyRotationPolicyAutomaticArgs']] = None,
              expire_after: Optional[pulumi.Input[str]] = None,
              notify_before_expiry: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expireAfter' in kwargs:
+            expire_after = kwargs['expireAfter']
+        if 'notifyBeforeExpiry' in kwargs:
+            notify_before_expiry = kwargs['notifyBeforeExpiry']
+
         if automatic is not None:
             _setter("automatic", automatic)
         if expire_after is not None:
@@ -1783,7 +1919,13 @@ class KeyRotationPolicyAutomaticArgs:
              _setter: Callable[[Any, Any], None],
              time_after_creation: Optional[pulumi.Input[str]] = None,
              time_before_expiry: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeAfterCreation' in kwargs:
+            time_after_creation = kwargs['timeAfterCreation']
+        if 'timeBeforeExpiry' in kwargs:
+            time_before_expiry = kwargs['timeBeforeExpiry']
+
         if time_after_creation is not None:
             _setter("time_after_creation", time_after_creation)
         if time_before_expiry is not None:
@@ -1853,7 +1995,23 @@ class KeyVaultAccessPolicyArgs:
              key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'certificatePermissions' in kwargs:
+            certificate_permissions = kwargs['certificatePermissions']
+        if 'keyPermissions' in kwargs:
+            key_permissions = kwargs['keyPermissions']
+        if 'secretPermissions' in kwargs:
+            secret_permissions = kwargs['secretPermissions']
+        if 'storagePermissions' in kwargs:
+            storage_permissions = kwargs['storagePermissions']
+
         _setter("object_id", object_id)
         _setter("tenant_id", tenant_id)
         if application_id is not None:
@@ -1975,7 +2133,9 @@ class KeyVaultContactArgs:
              email: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              phone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("email", email)
         if name is not None:
             _setter("name", name)
@@ -2046,7 +2206,15 @@ class KeyVaultNetworkAclsArgs:
              default_action: pulumi.Input[str],
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'virtualNetworkSubnetIds' in kwargs:
+            virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
+
         _setter("bypass", bypass)
         _setter("default_action", default_action)
         if ip_rules is not None:
@@ -2122,7 +2290,11 @@ class ManagedHardwareSecurityModuleNetworkAclsArgs:
              _setter: Callable[[Any, Any], None],
              bypass: pulumi.Input[str],
              default_action: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+
         _setter("bypass", bypass)
         _setter("default_action", default_action)
 

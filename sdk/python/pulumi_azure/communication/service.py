@@ -39,7 +39,13 @@ class ServiceArgs:
              data_location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'dataLocation' in kwargs:
+            data_location = kwargs['dataLocation']
+
         _setter("resource_group_name", resource_group_name)
         if data_location is not None:
             _setter("data_location", data_location)
@@ -141,7 +147,21 @@ class _ServiceState:
              secondary_connection_string: Optional[pulumi.Input[str]] = None,
              secondary_key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataLocation' in kwargs:
+            data_location = kwargs['dataLocation']
+        if 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+
         if data_location is not None:
             _setter("data_location", data_location)
         if name is not None:

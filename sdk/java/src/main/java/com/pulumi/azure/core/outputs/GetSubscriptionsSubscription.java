@@ -199,17 +199,17 @@ public final class GetSubscriptionsSubscription {
             return this;
         }
         public GetSubscriptionsSubscription build() {
-            final var o = new GetSubscriptionsSubscription();
-            o.displayName = displayName;
-            o.id = id;
-            o.locationPlacementId = locationPlacementId;
-            o.quotaId = quotaId;
-            o.spendingLimit = spendingLimit;
-            o.state = state;
-            o.subscriptionId = subscriptionId;
-            o.tags = tags;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new GetSubscriptionsSubscription();
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.locationPlacementId = locationPlacementId;
+            _resultValue.quotaId = quotaId;
+            _resultValue.spendingLimit = spendingLimit;
+            _resultValue.state = state;
+            _resultValue.subscriptionId = subscriptionId;
+            _resultValue.tags = tags;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

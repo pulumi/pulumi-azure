@@ -69,7 +69,15 @@ class AppArgs:
              registries: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]] = None,
              secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerAppEnvironmentId' in kwargs:
+            container_app_environment_id = kwargs['containerAppEnvironmentId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'revisionMode' in kwargs:
+            revision_mode = kwargs['revisionMode']
+
         _setter("container_app_environment_id", container_app_environment_id)
         _setter("resource_group_name", resource_group_name)
         _setter("revision_mode", revision_mode)
@@ -298,7 +306,23 @@ class _AppState:
              secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template: Optional[pulumi.Input['AppTemplateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerAppEnvironmentId' in kwargs:
+            container_app_environment_id = kwargs['containerAppEnvironmentId']
+        if 'customDomainVerificationId' in kwargs:
+            custom_domain_verification_id = kwargs['customDomainVerificationId']
+        if 'latestRevisionFqdn' in kwargs:
+            latest_revision_fqdn = kwargs['latestRevisionFqdn']
+        if 'latestRevisionName' in kwargs:
+            latest_revision_name = kwargs['latestRevisionName']
+        if 'outboundIpAddresses' in kwargs:
+            outbound_ip_addresses = kwargs['outboundIpAddresses']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'revisionMode' in kwargs:
+            revision_mode = kwargs['revisionMode']
+
         if container_app_environment_id is not None:
             _setter("container_app_environment_id", container_app_environment_id)
         if custom_domain_verification_id is not None:

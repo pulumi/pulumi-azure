@@ -90,11 +90,11 @@ public final class ScheduledQueryRulesAlertAction {
             return this;
         }
         public ScheduledQueryRulesAlertAction build() {
-            final var o = new ScheduledQueryRulesAlertAction();
-            o.actionGroups = actionGroups;
-            o.customWebhookPayload = customWebhookPayload;
-            o.emailSubject = emailSubject;
-            return o;
+            final var _resultValue = new ScheduledQueryRulesAlertAction();
+            _resultValue.actionGroups = actionGroups;
+            _resultValue.customWebhookPayload = customWebhookPayload;
+            _resultValue.emailSubject = emailSubject;
+            return _resultValue;
         }
     }
 }

@@ -58,7 +58,13 @@ class ServiceIdentity(dict):
              type: str,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if principal_id is not None:
             _setter("principal_id", principal_id)
@@ -109,7 +115,9 @@ class ServiceQueryKey(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if name is not None:
@@ -155,7 +163,13 @@ class GetServiceIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
         _setter("type", type)
@@ -204,7 +218,9 @@ class GetServiceQueryKeyResult(dict):
              _setter: Callable[[Any, Any], None],
              key: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("name", name)
 

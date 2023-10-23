@@ -96,11 +96,11 @@ public final class GetBudgetSubscriptionFilter {
             return tags(List.of(tags));
         }
         public GetBudgetSubscriptionFilter build() {
-            final var o = new GetBudgetSubscriptionFilter();
-            o.dimensions = dimensions;
-            o.nots = nots;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetBudgetSubscriptionFilter();
+            _resultValue.dimensions = dimensions;
+            _resultValue.nots = nots;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

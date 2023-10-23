@@ -65,10 +65,10 @@ public final class IntegrationAccountAgreementHostIdentity {
             return this;
         }
         public IntegrationAccountAgreementHostIdentity build() {
-            final var o = new IntegrationAccountAgreementHostIdentity();
-            o.qualifier = qualifier;
-            o.value = value;
-            return o;
+            final var _resultValue = new IntegrationAccountAgreementHostIdentity();
+            _resultValue.qualifier = qualifier;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

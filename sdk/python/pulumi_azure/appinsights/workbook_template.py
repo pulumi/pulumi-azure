@@ -61,7 +61,13 @@ class WorkbookTemplateArgs:
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'templateData' in kwargs:
+            template_data = kwargs['templateData']
+
         _setter("galleries", galleries)
         _setter("resource_group_name", resource_group_name)
         _setter("template_data", template_data)
@@ -235,7 +241,13 @@ class _WorkbookTemplateState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'templateData' in kwargs:
+            template_data = kwargs['templateData']
+
         if author is not None:
             _setter("author", author)
         if galleries is not None:

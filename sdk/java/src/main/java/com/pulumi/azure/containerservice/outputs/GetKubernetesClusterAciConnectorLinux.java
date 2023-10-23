@@ -46,9 +46,9 @@ public final class GetKubernetesClusterAciConnectorLinux {
             return this;
         }
         public GetKubernetesClusterAciConnectorLinux build() {
-            final var o = new GetKubernetesClusterAciConnectorLinux();
-            o.subnetName = subnetName;
-            return o;
+            final var _resultValue = new GetKubernetesClusterAciConnectorLinux();
+            _resultValue.subnetName = subnetName;
+            return _resultValue;
         }
     }
 }

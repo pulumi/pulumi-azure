@@ -91,11 +91,11 @@ public final class PolicyManagedRulesExclusionExcludedRuleSet {
             return this;
         }
         public PolicyManagedRulesExclusionExcludedRuleSet build() {
-            final var o = new PolicyManagedRulesExclusionExcludedRuleSet();
-            o.ruleGroups = ruleGroups;
-            o.type = type;
-            o.version = version;
-            return o;
+            final var _resultValue = new PolicyManagedRulesExclusionExcludedRuleSet();
+            _resultValue.ruleGroups = ruleGroups;
+            _resultValue.type = type;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

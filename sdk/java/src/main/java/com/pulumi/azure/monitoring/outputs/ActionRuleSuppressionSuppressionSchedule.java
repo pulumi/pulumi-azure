@@ -112,12 +112,12 @@ public final class ActionRuleSuppressionSuppressionSchedule {
             return this;
         }
         public ActionRuleSuppressionSuppressionSchedule build() {
-            final var o = new ActionRuleSuppressionSuppressionSchedule();
-            o.endDateUtc = endDateUtc;
-            o.recurrenceMonthlies = recurrenceMonthlies;
-            o.recurrenceWeeklies = recurrenceWeeklies;
-            o.startDateUtc = startDateUtc;
-            return o;
+            final var _resultValue = new ActionRuleSuppressionSuppressionSchedule();
+            _resultValue.endDateUtc = endDateUtc;
+            _resultValue.recurrenceMonthlies = recurrenceMonthlies;
+            _resultValue.recurrenceWeeklies = recurrenceWeeklies;
+            _resultValue.startDateUtc = startDateUtc;
+            return _resultValue;
         }
     }
 }

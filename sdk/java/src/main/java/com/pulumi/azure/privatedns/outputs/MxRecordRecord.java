@@ -66,10 +66,10 @@ public final class MxRecordRecord {
             return this;
         }
         public MxRecordRecord build() {
-            final var o = new MxRecordRecord();
-            o.exchange = exchange;
-            o.preference = preference;
-            return o;
+            final var _resultValue = new MxRecordRecord();
+            _resultValue.exchange = exchange;
+            _resultValue.preference = preference;
+            return _resultValue;
         }
     }
 }

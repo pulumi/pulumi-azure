@@ -76,10 +76,10 @@ public final class MongoCollectionIndex {
             return this;
         }
         public MongoCollectionIndex build() {
-            final var o = new MongoCollectionIndex();
-            o.keys = keys;
-            o.unique = unique;
-            return o;
+            final var _resultValue = new MongoCollectionIndex();
+            _resultValue.keys = keys;
+            _resultValue.unique = unique;
+            return _resultValue;
         }
     }
 }

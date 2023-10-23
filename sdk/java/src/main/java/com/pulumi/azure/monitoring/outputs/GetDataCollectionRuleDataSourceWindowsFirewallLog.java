@@ -69,10 +69,10 @@ public final class GetDataCollectionRuleDataSourceWindowsFirewallLog {
             return streams(List.of(streams));
         }
         public GetDataCollectionRuleDataSourceWindowsFirewallLog build() {
-            final var o = new GetDataCollectionRuleDataSourceWindowsFirewallLog();
-            o.name = name;
-            o.streams = streams;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleDataSourceWindowsFirewallLog();
+            _resultValue.name = name;
+            _resultValue.streams = streams;
+            return _resultValue;
         }
     }
 }

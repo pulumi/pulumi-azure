@@ -31,7 +31,13 @@ class GatewayApiArgs:
              _setter: Callable[[Any, Any], None],
              api_id: pulumi.Input[str],
              gateway_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'gatewayId' in kwargs:
+            gateway_id = kwargs['gatewayId']
+
         _setter("api_id", api_id)
         _setter("gateway_id", gateway_id)
 
@@ -80,7 +86,13 @@ class _GatewayApiState:
              _setter: Callable[[Any, Any], None],
              api_id: Optional[pulumi.Input[str]] = None,
              gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if 'gatewayId' in kwargs:
+            gateway_id = kwargs['gatewayId']
+
         if api_id is not None:
             _setter("api_id", api_id)
         if gateway_id is not None:

@@ -69,10 +69,10 @@ public final class GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate
             return this;
         }
         public GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate build() {
-            final var o = new GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate();
-            o.name = name;
-            o.publicCertData = publicCertData;
-            return o;
+            final var _resultValue = new GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate();
+            _resultValue.name = name;
+            _resultValue.publicCertData = publicCertData;
+            return _resultValue;
         }
     }
 }

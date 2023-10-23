@@ -74,10 +74,10 @@ public final class PolicyManagedRules {
             return managedRuleSets(List.of(managedRuleSets));
         }
         public PolicyManagedRules build() {
-            final var o = new PolicyManagedRules();
-            o.exclusions = exclusions;
-            o.managedRuleSets = managedRuleSets;
-            return o;
+            final var _resultValue = new PolicyManagedRules();
+            _resultValue.exclusions = exclusions;
+            _resultValue.managedRuleSets = managedRuleSets;
+            return _resultValue;
         }
     }
 }

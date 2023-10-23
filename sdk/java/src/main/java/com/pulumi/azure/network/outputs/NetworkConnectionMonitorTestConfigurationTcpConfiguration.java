@@ -88,11 +88,11 @@ public final class NetworkConnectionMonitorTestConfigurationTcpConfiguration {
             return this;
         }
         public NetworkConnectionMonitorTestConfigurationTcpConfiguration build() {
-            final var o = new NetworkConnectionMonitorTestConfigurationTcpConfiguration();
-            o.destinationPortBehavior = destinationPortBehavior;
-            o.port = port;
-            o.traceRouteEnabled = traceRouteEnabled;
-            return o;
+            final var _resultValue = new NetworkConnectionMonitorTestConfigurationTcpConfiguration();
+            _resultValue.destinationPortBehavior = destinationPortBehavior;
+            _resultValue.port = port;
+            _resultValue.traceRouteEnabled = traceRouteEnabled;
+            return _resultValue;
         }
     }
 }

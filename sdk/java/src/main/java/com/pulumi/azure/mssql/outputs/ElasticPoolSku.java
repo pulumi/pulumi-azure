@@ -106,12 +106,12 @@ public final class ElasticPoolSku {
             return this;
         }
         public ElasticPoolSku build() {
-            final var o = new ElasticPoolSku();
-            o.capacity = capacity;
-            o.family = family;
-            o.name = name;
-            o.tier = tier;
-            return o;
+            final var _resultValue = new ElasticPoolSku();
+            _resultValue.capacity = capacity;
+            _resultValue.family = family;
+            _resultValue.name = name;
+            _resultValue.tier = tier;
+            return _resultValue;
         }
     }
 }

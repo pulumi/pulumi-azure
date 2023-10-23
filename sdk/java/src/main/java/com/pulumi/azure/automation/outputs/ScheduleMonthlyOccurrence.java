@@ -66,10 +66,10 @@ public final class ScheduleMonthlyOccurrence {
             return this;
         }
         public ScheduleMonthlyOccurrence build() {
-            final var o = new ScheduleMonthlyOccurrence();
-            o.day = day;
-            o.occurrence = occurrence;
-            return o;
+            final var _resultValue = new ScheduleMonthlyOccurrence();
+            _resultValue.day = day;
+            _resultValue.occurrence = occurrence;
+            return _resultValue;
         }
     }
 }

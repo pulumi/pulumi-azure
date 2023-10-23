@@ -55,7 +55,17 @@ class SqlRoleDefinitionArgs:
              name: Optional[pulumi.Input[str]] = None,
              role_definition_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'assignableScopes' in kwargs:
+            assignable_scopes = kwargs['assignableScopes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+
         _setter("account_name", account_name)
         _setter("assignable_scopes", assignable_scopes)
         _setter("permissions", permissions)
@@ -196,7 +206,17 @@ class _SqlRoleDefinitionState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              role_definition_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'assignableScopes' in kwargs:
+            assignable_scopes = kwargs['assignableScopes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+
         if account_name is not None:
             _setter("account_name", account_name)
         if assignable_scopes is not None:

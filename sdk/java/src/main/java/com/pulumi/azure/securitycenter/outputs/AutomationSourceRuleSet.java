@@ -54,9 +54,9 @@ public final class AutomationSourceRuleSet {
             return rules(List.of(rules));
         }
         public AutomationSourceRuleSet build() {
-            final var o = new AutomationSourceRuleSet();
-            o.rules = rules;
-            return o;
+            final var _resultValue = new AutomationSourceRuleSet();
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

@@ -35,7 +35,11 @@ class IntegrationRuntimeSelfHostedArgs:
              synapse_workspace_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+
         _setter("synapse_workspace_id", synapse_workspace_id)
         if description is not None:
             _setter("description", description)
@@ -111,7 +115,15 @@ class _IntegrationRuntimeSelfHostedState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authorizationKeyPrimary' in kwargs:
+            authorization_key_primary = kwargs['authorizationKeyPrimary']
+        if 'authorizationKeySecondary' in kwargs:
+            authorization_key_secondary = kwargs['authorizationKeySecondary']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+
         if authorization_key_primary is not None:
             _setter("authorization_key_primary", authorization_key_primary)
         if authorization_key_secondary is not None:

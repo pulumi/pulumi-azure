@@ -89,11 +89,11 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingAction {
             return this;
         }
         public GetWindowsWebAppSiteConfigAutoHealSettingAction build() {
-            final var o = new GetWindowsWebAppSiteConfigAutoHealSettingAction();
-            o.actionType = actionType;
-            o.customActions = customActions;
-            o.minimumProcessExecutionTime = minimumProcessExecutionTime;
-            return o;
+            final var _resultValue = new GetWindowsWebAppSiteConfigAutoHealSettingAction();
+            _resultValue.actionType = actionType;
+            _resultValue.customActions = customActions;
+            _resultValue.minimumProcessExecutionTime = minimumProcessExecutionTime;
+            return _resultValue;
         }
     }
 }

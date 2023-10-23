@@ -103,12 +103,12 @@ public final class GetSecretsResult {
             return secrets(List.of(secrets));
         }
         public GetSecretsResult build() {
-            final var o = new GetSecretsResult();
-            o.id = id;
-            o.keyVaultId = keyVaultId;
-            o.names = names;
-            o.secrets = secrets;
-            return o;
+            final var _resultValue = new GetSecretsResult();
+            _resultValue.id = id;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.names = names;
+            _resultValue.secrets = secrets;
+            return _resultValue;
         }
     }
 }

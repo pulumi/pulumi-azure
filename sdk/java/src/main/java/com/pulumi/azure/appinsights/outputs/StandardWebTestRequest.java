@@ -149,14 +149,14 @@ public final class StandardWebTestRequest {
             return this;
         }
         public StandardWebTestRequest build() {
-            final var o = new StandardWebTestRequest();
-            o.body = body;
-            o.followRedirectsEnabled = followRedirectsEnabled;
-            o.headers = headers;
-            o.httpVerb = httpVerb;
-            o.parseDependentRequestsEnabled = parseDependentRequestsEnabled;
-            o.url = url;
-            return o;
+            final var _resultValue = new StandardWebTestRequest();
+            _resultValue.body = body;
+            _resultValue.followRedirectsEnabled = followRedirectsEnabled;
+            _resultValue.headers = headers;
+            _resultValue.httpVerb = httpVerb;
+            _resultValue.parseDependentRequestsEnabled = parseDependentRequestsEnabled;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class AadDiagnosticSettingEnabledLogRetentionPolicy {
             return this;
         }
         public AadDiagnosticSettingEnabledLogRetentionPolicy build() {
-            final var o = new AadDiagnosticSettingEnabledLogRetentionPolicy();
-            o.days = days;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new AadDiagnosticSettingEnabledLogRetentionPolicy();
+            _resultValue.days = days;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

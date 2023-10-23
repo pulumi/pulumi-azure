@@ -147,13 +147,13 @@ public final class LocalRulestackRuleDestination {
             return localRulestackPrefixListIds(List.of(localRulestackPrefixListIds));
         }
         public LocalRulestackRuleDestination build() {
-            final var o = new LocalRulestackRuleDestination();
-            o.cidrs = cidrs;
-            o.countries = countries;
-            o.feeds = feeds;
-            o.localRulestackFqdnListIds = localRulestackFqdnListIds;
-            o.localRulestackPrefixListIds = localRulestackPrefixListIds;
-            return o;
+            final var _resultValue = new LocalRulestackRuleDestination();
+            _resultValue.cidrs = cidrs;
+            _resultValue.countries = countries;
+            _resultValue.feeds = feeds;
+            _resultValue.localRulestackFqdnListIds = localRulestackFqdnListIds;
+            _resultValue.localRulestackPrefixListIds = localRulestackPrefixListIds;
+            return _resultValue;
         }
     }
 }

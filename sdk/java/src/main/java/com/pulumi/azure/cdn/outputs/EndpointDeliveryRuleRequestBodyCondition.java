@@ -113,12 +113,12 @@ public final class EndpointDeliveryRuleRequestBodyCondition {
             return transforms(List.of(transforms));
         }
         public EndpointDeliveryRuleRequestBodyCondition build() {
-            final var o = new EndpointDeliveryRuleRequestBodyCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            o.transforms = transforms;
-            return o;
+            final var _resultValue = new EndpointDeliveryRuleRequestBodyCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            _resultValue.transforms = transforms;
+            return _resultValue;
         }
     }
 }

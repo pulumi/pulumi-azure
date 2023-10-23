@@ -143,14 +143,14 @@ public final class FrontdoorRoutingRuleRedirectConfiguration {
             return this;
         }
         public FrontdoorRoutingRuleRedirectConfiguration build() {
-            final var o = new FrontdoorRoutingRuleRedirectConfiguration();
-            o.customFragment = customFragment;
-            o.customHost = customHost;
-            o.customPath = customPath;
-            o.customQueryString = customQueryString;
-            o.redirectProtocol = redirectProtocol;
-            o.redirectType = redirectType;
-            return o;
+            final var _resultValue = new FrontdoorRoutingRuleRedirectConfiguration();
+            _resultValue.customFragment = customFragment;
+            _resultValue.customHost = customHost;
+            _resultValue.customPath = customPath;
+            _resultValue.customQueryString = customQueryString;
+            _resultValue.redirectProtocol = redirectProtocol;
+            _resultValue.redirectType = redirectType;
+            return _resultValue;
         }
     }
 }

@@ -87,12 +87,12 @@ public final class GetDomainTopicResult {
             return this;
         }
         public GetDomainTopicResult build() {
-            final var o = new GetDomainTopicResult();
-            o.domainName = domainName;
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetDomainTopicResult();
+            _resultValue.domainName = domainName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

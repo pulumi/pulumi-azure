@@ -347,26 +347,26 @@ public final class GetNetworkPacketCoreControlPlaneResult {
             return this;
         }
         public GetNetworkPacketCoreControlPlaneResult build() {
-            final var o = new GetNetworkPacketCoreControlPlaneResult();
-            o.controlPlaneAccessIpv4Address = controlPlaneAccessIpv4Address;
-            o.controlPlaneAccessIpv4Gateway = controlPlaneAccessIpv4Gateway;
-            o.controlPlaneAccessIpv4Subnet = controlPlaneAccessIpv4Subnet;
-            o.controlPlaneAccessName = controlPlaneAccessName;
-            o.coreNetworkTechnology = coreNetworkTechnology;
-            o.id = id;
-            o.identities = identities;
-            o.interoperabilitySettingsJson = interoperabilitySettingsJson;
-            o.localDiagnosticsAccesses = localDiagnosticsAccesses;
-            o.location = location;
-            o.name = name;
-            o.platforms = platforms;
-            o.resourceGroupName = resourceGroupName;
-            o.siteIds = siteIds;
-            o.sku = sku;
-            o.softwareVersion = softwareVersion;
-            o.tags = tags;
-            o.userEquipmentMtuInBytes = userEquipmentMtuInBytes;
-            return o;
+            final var _resultValue = new GetNetworkPacketCoreControlPlaneResult();
+            _resultValue.controlPlaneAccessIpv4Address = controlPlaneAccessIpv4Address;
+            _resultValue.controlPlaneAccessIpv4Gateway = controlPlaneAccessIpv4Gateway;
+            _resultValue.controlPlaneAccessIpv4Subnet = controlPlaneAccessIpv4Subnet;
+            _resultValue.controlPlaneAccessName = controlPlaneAccessName;
+            _resultValue.coreNetworkTechnology = coreNetworkTechnology;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.interoperabilitySettingsJson = interoperabilitySettingsJson;
+            _resultValue.localDiagnosticsAccesses = localDiagnosticsAccesses;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.platforms = platforms;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.siteIds = siteIds;
+            _resultValue.sku = sku;
+            _resultValue.softwareVersion = softwareVersion;
+            _resultValue.tags = tags;
+            _resultValue.userEquipmentMtuInBytes = userEquipmentMtuInBytes;
+            return _resultValue;
         }
     }
 }

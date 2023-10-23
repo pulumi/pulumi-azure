@@ -139,14 +139,14 @@ public final class GetNetworkSecurityGroupResult {
             return this;
         }
         public GetNetworkSecurityGroupResult build() {
-            final var o = new GetNetworkSecurityGroupResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.securityRules = securityRules;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetNetworkSecurityGroupResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.securityRules = securityRules;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

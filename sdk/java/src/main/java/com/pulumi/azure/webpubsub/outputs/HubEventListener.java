@@ -111,12 +111,12 @@ public final class HubEventListener {
             return userEventNameFilters(List.of(userEventNameFilters));
         }
         public HubEventListener build() {
-            final var o = new HubEventListener();
-            o.eventhubName = eventhubName;
-            o.eventhubNamespaceName = eventhubNamespaceName;
-            o.systemEventNameFilters = systemEventNameFilters;
-            o.userEventNameFilters = userEventNameFilters;
-            return o;
+            final var _resultValue = new HubEventListener();
+            _resultValue.eventhubName = eventhubName;
+            _resultValue.eventhubNamespaceName = eventhubNamespaceName;
+            _resultValue.systemEventNameFilters = systemEventNameFilters;
+            _resultValue.userEventNameFilters = userEventNameFilters;
+            return _resultValue;
         }
     }
 }

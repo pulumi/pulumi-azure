@@ -50,9 +50,9 @@ public final class GetOsProfileLinux {
             return patches(List.of(patches));
         }
         public GetOsProfileLinux build() {
-            final var o = new GetOsProfileLinux();
-            o.patches = patches;
-            return o;
+            final var _resultValue = new GetOsProfileLinux();
+            _resultValue.patches = patches;
+            return _resultValue;
         }
     }
 }

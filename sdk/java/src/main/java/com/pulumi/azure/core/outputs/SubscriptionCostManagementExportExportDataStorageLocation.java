@@ -69,10 +69,10 @@ public final class SubscriptionCostManagementExportExportDataStorageLocation {
             return this;
         }
         public SubscriptionCostManagementExportExportDataStorageLocation build() {
-            final var o = new SubscriptionCostManagementExportExportDataStorageLocation();
-            o.containerId = containerId;
-            o.rootFolderPath = rootFolderPath;
-            return o;
+            final var _resultValue = new SubscriptionCostManagementExportExportDataStorageLocation();
+            _resultValue.containerId = containerId;
+            _resultValue.rootFolderPath = rootFolderPath;
+            return _resultValue;
         }
     }
 }

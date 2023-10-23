@@ -61,7 +61,21 @@ class StreamInputIotHubArgs:
              shared_access_policy_name: pulumi.Input[str],
              stream_analytics_job_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if 'iothubNamespace' in kwargs:
+            iothub_namespace = kwargs['iothubNamespace']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+
         _setter("endpoint", endpoint)
         _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
         _setter("iothub_namespace", iothub_namespace)
@@ -230,7 +244,21 @@ class _StreamInputIotHubState:
              shared_access_policy_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if 'iothubNamespace' in kwargs:
+            iothub_namespace = kwargs['iothubNamespace']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+
         if endpoint is not None:
             _setter("endpoint", endpoint)
         if eventhub_consumer_group_name is not None:

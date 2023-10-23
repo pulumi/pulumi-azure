@@ -53,7 +53,15 @@ class NatGatewayArgs:
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         _setter("resource_group_name", resource_group_name)
         if idle_timeout_in_minutes is not None:
             _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
@@ -201,7 +209,17 @@ class _NatGatewayState:
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceGuid' in kwargs:
+            resource_guid = kwargs['resourceGuid']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if idle_timeout_in_minutes is not None:
             _setter("idle_timeout_in_minutes", idle_timeout_in_minutes)
         if location is not None:
@@ -332,7 +350,7 @@ class NatGateway(pulumi.CustomResource):
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a Azure NAT Gateway.
+        Manages an Azure NAT Gateway.
 
         ## Example Usage
 
@@ -341,17 +359,6 @@ class NatGateway(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard",
-            zones=["1"])
-        example_public_ip_prefix = azure.network.PublicIpPrefix("examplePublicIpPrefix",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            prefix_length=30,
-            zones=["1"])
         example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -359,6 +366,8 @@ class NatGateway(pulumi.CustomResource):
             idle_timeout_in_minutes=10,
             zones=["1"])
         ```
+
+        For more complete examples, please see the network.NatGatewayPublicIpAssociation and network.NatGatewayPublicIpPrefixAssociation resources.
 
         ## Import
 
@@ -387,7 +396,7 @@ class NatGateway(pulumi.CustomResource):
                  args: NatGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Azure NAT Gateway.
+        Manages an Azure NAT Gateway.
 
         ## Example Usage
 
@@ -396,17 +405,6 @@ class NatGateway(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            allocation_method="Static",
-            sku="Standard",
-            zones=["1"])
-        example_public_ip_prefix = azure.network.PublicIpPrefix("examplePublicIpPrefix",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            prefix_length=30,
-            zones=["1"])
         example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -414,6 +412,8 @@ class NatGateway(pulumi.CustomResource):
             idle_timeout_in_minutes=10,
             zones=["1"])
         ```
+
+        For more complete examples, please see the network.NatGatewayPublicIpAssociation and network.NatGatewayPublicIpPrefixAssociation resources.
 
         ## Import
 

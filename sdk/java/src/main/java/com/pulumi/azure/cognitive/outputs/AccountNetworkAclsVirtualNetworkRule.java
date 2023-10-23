@@ -68,10 +68,10 @@ public final class AccountNetworkAclsVirtualNetworkRule {
             return this;
         }
         public AccountNetworkAclsVirtualNetworkRule build() {
-            final var o = new AccountNetworkAclsVirtualNetworkRule();
-            o.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new AccountNetworkAclsVirtualNetworkRule();
+            _resultValue.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

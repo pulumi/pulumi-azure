@@ -105,12 +105,12 @@ public final class SourceControlGithubActionConfigurationContainerConfiguration 
             return this;
         }
         public SourceControlGithubActionConfigurationContainerConfiguration build() {
-            final var o = new SourceControlGithubActionConfigurationContainerConfiguration();
-            o.imageName = imageName;
-            o.registryPassword = registryPassword;
-            o.registryUrl = registryUrl;
-            o.registryUsername = registryUsername;
-            return o;
+            final var _resultValue = new SourceControlGithubActionConfigurationContainerConfiguration();
+            _resultValue.imageName = imageName;
+            _resultValue.registryPassword = registryPassword;
+            _resultValue.registryUrl = registryUrl;
+            _resultValue.registryUsername = registryUsername;
+            return _resultValue;
         }
     }
 }

@@ -47,7 +47,13 @@ class MoverSourceEndpointArgs:
              export: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              nfs_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageMoverId' in kwargs:
+            storage_mover_id = kwargs['storageMoverId']
+        if 'nfsVersion' in kwargs:
+            nfs_version = kwargs['nfsVersion']
+
         _setter("host", host)
         _setter("storage_mover_id", storage_mover_id)
         if description is not None:
@@ -168,7 +174,13 @@ class _MoverSourceEndpointState:
              name: Optional[pulumi.Input[str]] = None,
              nfs_version: Optional[pulumi.Input[str]] = None,
              storage_mover_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'nfsVersion' in kwargs:
+            nfs_version = kwargs['nfsVersion']
+        if 'storageMoverId' in kwargs:
+            storage_mover_id = kwargs['storageMoverId']
+
         if description is not None:
             _setter("description", description)
         if export is not None:

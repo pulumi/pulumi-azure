@@ -90,11 +90,11 @@ public final class AlertProcessingRuleSuppressionScheduleRecurrenceWeekly {
             return this;
         }
         public AlertProcessingRuleSuppressionScheduleRecurrenceWeekly build() {
-            final var o = new AlertProcessingRuleSuppressionScheduleRecurrenceWeekly();
-            o.daysOfWeeks = daysOfWeeks;
-            o.endTime = endTime;
-            o.startTime = startTime;
-            return o;
+            final var _resultValue = new AlertProcessingRuleSuppressionScheduleRecurrenceWeekly();
+            _resultValue.daysOfWeeks = daysOfWeeks;
+            _resultValue.endTime = endTime;
+            _resultValue.startTime = startTime;
+            return _resultValue;
         }
     }
 }

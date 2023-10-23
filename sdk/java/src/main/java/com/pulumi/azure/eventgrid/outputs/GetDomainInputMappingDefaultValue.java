@@ -84,11 +84,11 @@ public final class GetDomainInputMappingDefaultValue {
             return this;
         }
         public GetDomainInputMappingDefaultValue build() {
-            final var o = new GetDomainInputMappingDefaultValue();
-            o.dataVersion = dataVersion;
-            o.eventType = eventType;
-            o.subject = subject;
-            return o;
+            final var _resultValue = new GetDomainInputMappingDefaultValue();
+            _resultValue.dataVersion = dataVersion;
+            _resultValue.eventType = eventType;
+            _resultValue.subject = subject;
+            return _resultValue;
         }
     }
 }

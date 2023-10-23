@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<Inputs.SharedImageGallerySharingCommunityGalleryGetArgs>? CommunityGallery { get; set; }
 
         /// <summary>
-        /// The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+        /// The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
         /// </summary>

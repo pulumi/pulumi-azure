@@ -121,13 +121,13 @@ public final class GetPublicConfigurationsResult {
             return this;
         }
         public GetPublicConfigurationsResult build() {
-            final var o = new GetPublicConfigurationsResult();
-            o.configs = configs;
-            o.id = id;
-            o.location = location;
-            o.recurEvery = recurEvery;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new GetPublicConfigurationsResult();
+            _resultValue.configs = configs;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.recurEvery = recurEvery;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

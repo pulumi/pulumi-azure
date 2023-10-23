@@ -84,11 +84,11 @@ public final class VpnServerConfigurationAzureActiveDirectoryAuthentication {
             return this;
         }
         public VpnServerConfigurationAzureActiveDirectoryAuthentication build() {
-            final var o = new VpnServerConfigurationAzureActiveDirectoryAuthentication();
-            o.audience = audience;
-            o.issuer = issuer;
-            o.tenant = tenant;
-            return o;
+            final var _resultValue = new VpnServerConfigurationAzureActiveDirectoryAuthentication();
+            _resultValue.audience = audience;
+            _resultValue.issuer = issuer;
+            _resultValue.tenant = tenant;
+            return _resultValue;
         }
     }
 }

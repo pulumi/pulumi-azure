@@ -48,9 +48,9 @@ public final class TransformOutputCustomPresetCodecCopyAudio {
             return this;
         }
         public TransformOutputCustomPresetCodecCopyAudio build() {
-            final var o = new TransformOutputCustomPresetCodecCopyAudio();
-            o.label = label;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetCodecCopyAudio();
+            _resultValue.label = label;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class AlertRuleNrtIncident {
             return this;
         }
         public AlertRuleNrtIncident build() {
-            final var o = new AlertRuleNrtIncident();
-            o.createIncidentEnabled = createIncidentEnabled;
-            o.grouping = grouping;
-            return o;
+            final var _resultValue = new AlertRuleNrtIncident();
+            _resultValue.createIncidentEnabled = createIncidentEnabled;
+            _resultValue.grouping = grouping;
+            return _resultValue;
         }
     }
 }

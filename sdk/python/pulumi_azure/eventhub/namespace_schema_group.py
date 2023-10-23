@@ -39,7 +39,15 @@ class NamespaceSchemaGroupArgs:
              schema_compatibility: pulumi.Input[str],
              schema_type: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if 'schemaCompatibility' in kwargs:
+            schema_compatibility = kwargs['schemaCompatibility']
+        if 'schemaType' in kwargs:
+            schema_type = kwargs['schemaType']
+
         _setter("namespace_id", namespace_id)
         _setter("schema_compatibility", schema_compatibility)
         _setter("schema_type", schema_type)
@@ -123,7 +131,15 @@ class _NamespaceSchemaGroupState:
              namespace_id: Optional[pulumi.Input[str]] = None,
              schema_compatibility: Optional[pulumi.Input[str]] = None,
              schema_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if 'schemaCompatibility' in kwargs:
+            schema_compatibility = kwargs['schemaCompatibility']
+        if 'schemaType' in kwargs:
+            schema_type = kwargs['schemaType']
+
         if name is not None:
             _setter("name", name)
         if namespace_id is not None:

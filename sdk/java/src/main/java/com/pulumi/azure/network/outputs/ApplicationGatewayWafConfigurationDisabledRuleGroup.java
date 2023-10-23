@@ -71,10 +71,10 @@ public final class ApplicationGatewayWafConfigurationDisabledRuleGroup {
             return rules(List.of(rules));
         }
         public ApplicationGatewayWafConfigurationDisabledRuleGroup build() {
-            final var o = new ApplicationGatewayWafConfigurationDisabledRuleGroup();
-            o.ruleGroupName = ruleGroupName;
-            o.rules = rules;
-            return o;
+            final var _resultValue = new ApplicationGatewayWafConfigurationDisabledRuleGroup();
+            _resultValue.ruleGroupName = ruleGroupName;
+            _resultValue.rules = rules;
+            return _resultValue;
         }
     }
 }

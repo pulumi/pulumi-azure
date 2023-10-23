@@ -70,10 +70,10 @@ public final class AccountRestoreDatabase {
             return this;
         }
         public AccountRestoreDatabase build() {
-            final var o = new AccountRestoreDatabase();
-            o.collectionNames = collectionNames;
-            o.name = name;
-            return o;
+            final var _resultValue = new AccountRestoreDatabase();
+            _resultValue.collectionNames = collectionNames;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

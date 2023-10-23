@@ -137,14 +137,14 @@ public final class RunBookDraft {
             return parameters(List.of(parameters));
         }
         public RunBookDraft build() {
-            final var o = new RunBookDraft();
-            o.contentLink = contentLink;
-            o.creationTime = creationTime;
-            o.editModeEnabled = editModeEnabled;
-            o.lastModifiedTime = lastModifiedTime;
-            o.outputTypes = outputTypes;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new RunBookDraft();
+            _resultValue.contentLink = contentLink;
+            _resultValue.creationTime = creationTime;
+            _resultValue.editModeEnabled = editModeEnabled;
+            _resultValue.lastModifiedTime = lastModifiedTime;
+            _resultValue.outputTypes = outputTypes;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

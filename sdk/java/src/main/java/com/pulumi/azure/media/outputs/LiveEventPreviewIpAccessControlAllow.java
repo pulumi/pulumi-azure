@@ -87,11 +87,11 @@ public final class LiveEventPreviewIpAccessControlAllow {
             return this;
         }
         public LiveEventPreviewIpAccessControlAllow build() {
-            final var o = new LiveEventPreviewIpAccessControlAllow();
-            o.address = address;
-            o.name = name;
-            o.subnetPrefixLength = subnetPrefixLength;
-            return o;
+            final var _resultValue = new LiveEventPreviewIpAccessControlAllow();
+            _resultValue.address = address;
+            _resultValue.name = name;
+            _resultValue.subnetPrefixLength = subnetPrefixLength;
+            return _resultValue;
         }
     }
 }

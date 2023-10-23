@@ -67,10 +67,10 @@ public final class AccountNetworkProfileNodeManagementAccessIpRule {
             return this;
         }
         public AccountNetworkProfileNodeManagementAccessIpRule build() {
-            final var o = new AccountNetworkProfileNodeManagementAccessIpRule();
-            o.action = action;
-            o.ipRange = ipRange;
-            return o;
+            final var _resultValue = new AccountNetworkProfileNodeManagementAccessIpRule();
+            _resultValue.action = action;
+            _resultValue.ipRange = ipRange;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class ScheduleHourlyRecurrence {
             return this;
         }
         public ScheduleHourlyRecurrence build() {
-            final var o = new ScheduleHourlyRecurrence();
-            o.minute = minute;
-            return o;
+            final var _resultValue = new ScheduleHourlyRecurrence();
+            _resultValue.minute = minute;
+            return _resultValue;
         }
     }
 }

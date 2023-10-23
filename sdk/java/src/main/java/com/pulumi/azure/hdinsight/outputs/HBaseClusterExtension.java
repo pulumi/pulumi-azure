@@ -65,10 +65,10 @@ public final class HBaseClusterExtension {
             return this;
         }
         public HBaseClusterExtension build() {
-            final var o = new HBaseClusterExtension();
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.primaryKey = primaryKey;
-            return o;
+            final var _resultValue = new HBaseClusterExtension();
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.primaryKey = primaryKey;
+            return _resultValue;
         }
     }
 }

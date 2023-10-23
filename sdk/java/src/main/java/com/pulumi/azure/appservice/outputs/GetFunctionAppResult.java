@@ -380,27 +380,27 @@ public final class GetFunctionAppResult {
             return this;
         }
         public GetFunctionAppResult build() {
-            final var o = new GetFunctionAppResult();
-            o.appServicePlanId = appServicePlanId;
-            o.appSettings = appSettings;
-            o.clientCertMode = clientCertMode;
-            o.connectionStrings = connectionStrings;
-            o.customDomainVerificationId = customDomainVerificationId;
-            o.defaultHostname = defaultHostname;
-            o.enabled = enabled;
-            o.id = id;
-            o.identities = identities;
-            o.location = location;
-            o.name = name;
-            o.osType = osType;
-            o.outboundIpAddresses = outboundIpAddresses;
-            o.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
-            o.resourceGroupName = resourceGroupName;
-            o.siteConfigs = siteConfigs;
-            o.siteCredentials = siteCredentials;
-            o.sourceControls = sourceControls;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetFunctionAppResult();
+            _resultValue.appServicePlanId = appServicePlanId;
+            _resultValue.appSettings = appSettings;
+            _resultValue.clientCertMode = clientCertMode;
+            _resultValue.connectionStrings = connectionStrings;
+            _resultValue.customDomainVerificationId = customDomainVerificationId;
+            _resultValue.defaultHostname = defaultHostname;
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.osType = osType;
+            _resultValue.outboundIpAddresses = outboundIpAddresses;
+            _resultValue.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.siteConfigs = siteConfigs;
+            _resultValue.siteCredentials = siteCredentials;
+            _resultValue.sourceControls = sourceControls;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

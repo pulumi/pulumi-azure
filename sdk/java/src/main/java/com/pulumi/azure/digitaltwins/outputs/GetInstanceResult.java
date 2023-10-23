@@ -126,14 +126,14 @@ public final class GetInstanceResult {
             return this;
         }
         public GetInstanceResult build() {
-            final var o = new GetInstanceResult();
-            o.hostName = hostName;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetInstanceResult();
+            _resultValue.hostName = hostName;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

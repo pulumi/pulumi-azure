@@ -65,10 +65,10 @@ public final class IntegrationRuntimeManagedVnetIntegration {
             return this;
         }
         public IntegrationRuntimeManagedVnetIntegration build() {
-            final var o = new IntegrationRuntimeManagedVnetIntegration();
-            o.subnetName = subnetName;
-            o.vnetId = vnetId;
-            return o;
+            final var _resultValue = new IntegrationRuntimeManagedVnetIntegration();
+            _resultValue.subnetName = subnetName;
+            _resultValue.vnetId = vnetId;
+            return _resultValue;
         }
     }
 }

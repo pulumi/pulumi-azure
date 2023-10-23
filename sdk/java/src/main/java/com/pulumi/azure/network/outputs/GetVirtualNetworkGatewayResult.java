@@ -353,25 +353,25 @@ public final class GetVirtualNetworkGatewayResult {
             return this;
         }
         public GetVirtualNetworkGatewayResult build() {
-            final var o = new GetVirtualNetworkGatewayResult();
-            o.activeActive = activeActive;
-            o.bgpSettings = bgpSettings;
-            o.customRoutes = customRoutes;
-            o.defaultLocalNetworkGatewayId = defaultLocalNetworkGatewayId;
-            o.enableBgp = enableBgp;
-            o.generation = generation;
-            o.id = id;
-            o.ipConfigurations = ipConfigurations;
-            o.location = location;
-            o.name = name;
-            o.privateIpAddressEnabled = privateIpAddressEnabled;
-            o.resourceGroupName = resourceGroupName;
-            o.sku = sku;
-            o.tags = tags;
-            o.type = type;
-            o.vpnClientConfigurations = vpnClientConfigurations;
-            o.vpnType = vpnType;
-            return o;
+            final var _resultValue = new GetVirtualNetworkGatewayResult();
+            _resultValue.activeActive = activeActive;
+            _resultValue.bgpSettings = bgpSettings;
+            _resultValue.customRoutes = customRoutes;
+            _resultValue.defaultLocalNetworkGatewayId = defaultLocalNetworkGatewayId;
+            _resultValue.enableBgp = enableBgp;
+            _resultValue.generation = generation;
+            _resultValue.id = id;
+            _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.privateIpAddressEnabled = privateIpAddressEnabled;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sku = sku;
+            _resultValue.tags = tags;
+            _resultValue.type = type;
+            _resultValue.vpnClientConfigurations = vpnClientConfigurations;
+            _resultValue.vpnType = vpnType;
+            return _resultValue;
         }
     }
 }

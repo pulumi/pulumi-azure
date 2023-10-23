@@ -41,7 +41,11 @@ class ManangementLockArgs:
              scope: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              notes: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lockLevel' in kwargs:
+            lock_level = kwargs['lockLevel']
+
         _setter("lock_level", lock_level)
         _setter("scope", scope)
         if name is not None:
@@ -130,7 +134,11 @@ class _ManangementLockState:
              name: Optional[pulumi.Input[str]] = None,
              notes: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lockLevel' in kwargs:
+            lock_level = kwargs['lockLevel']
+
         if lock_level is not None:
             _setter("lock_level", lock_level)
         if name is not None:

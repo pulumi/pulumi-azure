@@ -126,14 +126,14 @@ public final class GetResolverOutboundEndpointResult {
             return this;
         }
         public GetResolverOutboundEndpointResult build() {
-            final var o = new GetResolverOutboundEndpointResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.privateDnsResolverId = privateDnsResolverId;
-            o.subnetId = subnetId;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetResolverOutboundEndpointResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.privateDnsResolverId = privateDnsResolverId;
+            _resultValue.subnetId = subnetId;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

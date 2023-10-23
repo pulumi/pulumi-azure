@@ -170,19 +170,19 @@ public final class GetAccountSASResult {
             return this;
         }
         public GetAccountSASResult build() {
-            final var o = new GetAccountSASResult();
-            o.connectionString = connectionString;
-            o.expiry = expiry;
-            o.httpsOnly = httpsOnly;
-            o.id = id;
-            o.ipAddresses = ipAddresses;
-            o.permissions = permissions;
-            o.resourceTypes = resourceTypes;
-            o.sas = sas;
-            o.services = services;
-            o.signedVersion = signedVersion;
-            o.start = start;
-            return o;
+            final var _resultValue = new GetAccountSASResult();
+            _resultValue.connectionString = connectionString;
+            _resultValue.expiry = expiry;
+            _resultValue.httpsOnly = httpsOnly;
+            _resultValue.id = id;
+            _resultValue.ipAddresses = ipAddresses;
+            _resultValue.permissions = permissions;
+            _resultValue.resourceTypes = resourceTypes;
+            _resultValue.sas = sas;
+            _resultValue.services = services;
+            _resultValue.signedVersion = signedVersion;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

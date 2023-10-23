@@ -74,10 +74,10 @@ public final class FrontdoorSecretSecretCustomerCertificate {
             return subjectAlternativeNames(List.of(subjectAlternativeNames));
         }
         public FrontdoorSecretSecretCustomerCertificate build() {
-            final var o = new FrontdoorSecretSecretCustomerCertificate();
-            o.keyVaultCertificateId = keyVaultCertificateId;
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            return o;
+            final var _resultValue = new FrontdoorSecretSecretCustomerCertificate();
+            _resultValue.keyVaultCertificateId = keyVaultCertificateId;
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            return _resultValue;
         }
     }
 }

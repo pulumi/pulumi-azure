@@ -84,11 +84,11 @@ public final class GetKubernetesClusterKubeletIdentity {
             return this;
         }
         public GetKubernetesClusterKubeletIdentity build() {
-            final var o = new GetKubernetesClusterKubeletIdentity();
-            o.clientId = clientId;
-            o.objectId = objectId;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new GetKubernetesClusterKubeletIdentity();
+            _resultValue.clientId = clientId;
+            _resultValue.objectId = objectId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRenta
             return this;
         }
         public ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration build() {
-            final var o = new ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration();
-            o.playbackDurationSeconds = playbackDurationSeconds;
-            o.storageDurationSeconds = storageDurationSeconds;
-            return o;
+            final var _resultValue = new ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration();
+            _resultValue.playbackDurationSeconds = playbackDurationSeconds;
+            _resultValue.storageDurationSeconds = storageDurationSeconds;
+            return _resultValue;
         }
     }
 }

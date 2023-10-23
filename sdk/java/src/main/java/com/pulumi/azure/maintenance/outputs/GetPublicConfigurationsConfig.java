@@ -179,16 +179,16 @@ public final class GetPublicConfigurationsConfig {
             return this;
         }
         public GetPublicConfigurationsConfig build() {
-            final var o = new GetPublicConfigurationsConfig();
-            o.description = description;
-            o.duration = duration;
-            o.id = id;
-            o.location = location;
-            o.maintenanceScope = maintenanceScope;
-            o.name = name;
-            o.recurEvery = recurEvery;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new GetPublicConfigurationsConfig();
+            _resultValue.description = description;
+            _resultValue.duration = duration;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.maintenanceScope = maintenanceScope;
+            _resultValue.name = name;
+            _resultValue.recurEvery = recurEvery;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

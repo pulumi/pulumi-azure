@@ -75,7 +75,25 @@ class ElasticPoolArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'perDatabaseSettings' in kwargs:
+            per_database_settings = kwargs['perDatabaseSettings']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'maintenanceConfigurationName' in kwargs:
+            maintenance_configuration_name = kwargs['maintenanceConfigurationName']
+        if 'maxSizeBytes' in kwargs:
+            max_size_bytes = kwargs['maxSizeBytes']
+        if 'maxSizeGb' in kwargs:
+            max_size_gb = kwargs['maxSizeGb']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         _setter("per_database_settings", per_database_settings)
         _setter("resource_group_name", resource_group_name)
         _setter("server_name", server_name)
@@ -306,7 +324,25 @@ class _ElasticPoolState:
              sku: Optional[pulumi.Input['ElasticPoolSkuArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone_redundant: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'maintenanceConfigurationName' in kwargs:
+            maintenance_configuration_name = kwargs['maintenanceConfigurationName']
+        if 'maxSizeBytes' in kwargs:
+            max_size_bytes = kwargs['maxSizeBytes']
+        if 'maxSizeGb' in kwargs:
+            max_size_gb = kwargs['maxSizeGb']
+        if 'perDatabaseSettings' in kwargs:
+            per_database_settings = kwargs['perDatabaseSettings']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         if license_type is not None:
             _setter("license_type", license_type)
         if location is not None:

@@ -70,10 +70,10 @@ public final class AlertRuleScheduledEntityMapping {
             return fieldMappings(List.of(fieldMappings));
         }
         public AlertRuleScheduledEntityMapping build() {
-            final var o = new AlertRuleScheduledEntityMapping();
-            o.entityType = entityType;
-            o.fieldMappings = fieldMappings;
-            return o;
+            final var _resultValue = new AlertRuleScheduledEntityMapping();
+            _resultValue.entityType = entityType;
+            _resultValue.fieldMappings = fieldMappings;
+            return _resultValue;
         }
     }
 }

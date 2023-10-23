@@ -86,11 +86,11 @@ public final class GalleryApplicationVersionManageAction {
             return this;
         }
         public GalleryApplicationVersionManageAction build() {
-            final var o = new GalleryApplicationVersionManageAction();
-            o.install = install;
-            o.remove = remove;
-            o.update = update;
-            return o;
+            final var _resultValue = new GalleryApplicationVersionManageAction();
+            _resultValue.install = install;
+            _resultValue.remove = remove;
+            _resultValue.update = update;
+            return _resultValue;
         }
     }
 }

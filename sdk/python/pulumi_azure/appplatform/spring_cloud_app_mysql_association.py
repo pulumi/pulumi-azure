@@ -47,7 +47,15 @@ class SpringCloudAppMysqlAssociationArgs:
              spring_cloud_app_id: pulumi.Input[str],
              username: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'mysqlServerId' in kwargs:
+            mysql_server_id = kwargs['mysqlServerId']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+
         _setter("database_name", database_name)
         _setter("mysql_server_id", mysql_server_id)
         _setter("password", password)
@@ -165,7 +173,15 @@ class _SpringCloudAppMysqlAssociationState:
              password: Optional[pulumi.Input[str]] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'mysqlServerId' in kwargs:
+            mysql_server_id = kwargs['mysqlServerId']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+
         if database_name is not None:
             _setter("database_name", database_name)
         if mysql_server_id is not None:

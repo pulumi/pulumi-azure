@@ -167,15 +167,15 @@ public final class FlowletDataFlowSource {
             return this;
         }
         public FlowletDataFlowSource build() {
-            final var o = new FlowletDataFlowSource();
-            o.dataset = dataset;
-            o.description = description;
-            o.flowlet = flowlet;
-            o.linkedService = linkedService;
-            o.name = name;
-            o.rejectedLinkedService = rejectedLinkedService;
-            o.schemaLinkedService = schemaLinkedService;
-            return o;
+            final var _resultValue = new FlowletDataFlowSource();
+            _resultValue.dataset = dataset;
+            _resultValue.description = description;
+            _resultValue.flowlet = flowlet;
+            _resultValue.linkedService = linkedService;
+            _resultValue.name = name;
+            _resultValue.rejectedLinkedService = rejectedLinkedService;
+            _resultValue.schemaLinkedService = schemaLinkedService;
+            return _resultValue;
         }
     }
 }

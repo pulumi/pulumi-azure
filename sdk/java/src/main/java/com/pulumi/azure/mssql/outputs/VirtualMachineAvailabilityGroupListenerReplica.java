@@ -122,13 +122,13 @@ public final class VirtualMachineAvailabilityGroupListenerReplica {
             return this;
         }
         public VirtualMachineAvailabilityGroupListenerReplica build() {
-            final var o = new VirtualMachineAvailabilityGroupListenerReplica();
-            o.commit = commit;
-            o.failoverMode = failoverMode;
-            o.readableSecondary = readableSecondary;
-            o.role = role;
-            o.sqlVirtualMachineId = sqlVirtualMachineId;
-            return o;
+            final var _resultValue = new VirtualMachineAvailabilityGroupListenerReplica();
+            _resultValue.commit = commit;
+            _resultValue.failoverMode = failoverMode;
+            _resultValue.readableSecondary = readableSecondary;
+            _resultValue.role = role;
+            _resultValue.sqlVirtualMachineId = sqlVirtualMachineId;
+            return _resultValue;
         }
     }
 }

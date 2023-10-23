@@ -68,10 +68,10 @@ public final class StreamingPolicyCommonEncryptionCbcsDrmFairplay {
             return this;
         }
         public StreamingPolicyCommonEncryptionCbcsDrmFairplay build() {
-            final var o = new StreamingPolicyCommonEncryptionCbcsDrmFairplay();
-            o.allowPersistentLicense = allowPersistentLicense;
-            o.customLicenseAcquisitionUrlTemplate = customLicenseAcquisitionUrlTemplate;
-            return o;
+            final var _resultValue = new StreamingPolicyCommonEncryptionCbcsDrmFairplay();
+            _resultValue.allowPersistentLicense = allowPersistentLicense;
+            _resultValue.customLicenseAcquisitionUrlTemplate = customLicenseAcquisitionUrlTemplate;
+            return _resultValue;
         }
     }
 }

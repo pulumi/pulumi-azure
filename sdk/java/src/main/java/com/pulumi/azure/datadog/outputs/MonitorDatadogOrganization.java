@@ -181,16 +181,16 @@ public final class MonitorDatadogOrganization {
             return this;
         }
         public MonitorDatadogOrganization build() {
-            final var o = new MonitorDatadogOrganization();
-            o.apiKey = apiKey;
-            o.applicationKey = applicationKey;
-            o.enterpriseAppId = enterpriseAppId;
-            o.id = id;
-            o.linkingAuthCode = linkingAuthCode;
-            o.linkingClientId = linkingClientId;
-            o.name = name;
-            o.redirectUri = redirectUri;
-            return o;
+            final var _resultValue = new MonitorDatadogOrganization();
+            _resultValue.apiKey = apiKey;
+            _resultValue.applicationKey = applicationKey;
+            _resultValue.enterpriseAppId = enterpriseAppId;
+            _resultValue.id = id;
+            _resultValue.linkingAuthCode = linkingAuthCode;
+            _resultValue.linkingClientId = linkingClientId;
+            _resultValue.name = name;
+            _resultValue.redirectUri = redirectUri;
+            return _resultValue;
         }
     }
 }

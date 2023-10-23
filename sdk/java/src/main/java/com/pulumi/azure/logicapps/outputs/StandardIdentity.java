@@ -117,12 +117,12 @@ public final class StandardIdentity {
             return this;
         }
         public StandardIdentity build() {
-            final var o = new StandardIdentity();
-            o.identityIds = identityIds;
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            o.type = type;
-            return o;
+            final var _resultValue = new StandardIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

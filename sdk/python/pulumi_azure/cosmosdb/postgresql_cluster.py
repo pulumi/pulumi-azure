@@ -48,7 +48,7 @@ class PostgresqlClusterArgs:
         :param pulumi.Input[int] coordinator_vcore_count: The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
         :param pulumi.Input[int] node_count: The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+        :param pulumi.Input[str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
         :param pulumi.Input[str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
         :param pulumi.Input[bool] ha_enabled: Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
@@ -64,7 +64,7 @@ class PostgresqlClusterArgs:
         :param pulumi.Input[bool] shards_on_coordinator_enabled: Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
         :param pulumi.Input[str] source_location: The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sql_version: The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+        :param pulumi.Input[str] sql_version: The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
         """
         PostgresqlClusterArgs._configure(
@@ -119,7 +119,49 @@ class PostgresqlClusterArgs:
              source_resource_id: Optional[pulumi.Input[str]] = None,
              sql_version: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'coordinatorStorageQuotaInMb' in kwargs:
+            coordinator_storage_quota_in_mb = kwargs['coordinatorStorageQuotaInMb']
+        if 'coordinatorVcoreCount' in kwargs:
+            coordinator_vcore_count = kwargs['coordinatorVcoreCount']
+        if 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'citusVersion' in kwargs:
+            citus_version = kwargs['citusVersion']
+        if 'coordinatorPublicIpAccessEnabled' in kwargs:
+            coordinator_public_ip_access_enabled = kwargs['coordinatorPublicIpAccessEnabled']
+        if 'coordinatorServerEdition' in kwargs:
+            coordinator_server_edition = kwargs['coordinatorServerEdition']
+        if 'haEnabled' in kwargs:
+            ha_enabled = kwargs['haEnabled']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'nodePublicIpAccessEnabled' in kwargs:
+            node_public_ip_access_enabled = kwargs['nodePublicIpAccessEnabled']
+        if 'nodeServerEdition' in kwargs:
+            node_server_edition = kwargs['nodeServerEdition']
+        if 'nodeStorageQuotaInMb' in kwargs:
+            node_storage_quota_in_mb = kwargs['nodeStorageQuotaInMb']
+        if 'nodeVcores' in kwargs:
+            node_vcores = kwargs['nodeVcores']
+        if 'pointInTimeInUtc' in kwargs:
+            point_in_time_in_utc = kwargs['pointInTimeInUtc']
+        if 'preferredPrimaryZone' in kwargs:
+            preferred_primary_zone = kwargs['preferredPrimaryZone']
+        if 'shardsOnCoordinatorEnabled' in kwargs:
+            shards_on_coordinator_enabled = kwargs['shardsOnCoordinatorEnabled']
+        if 'sourceLocation' in kwargs:
+            source_location = kwargs['sourceLocation']
+        if 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+        if 'sqlVersion' in kwargs:
+            sql_version = kwargs['sqlVersion']
+
         _setter("administrator_login_password", administrator_login_password)
         _setter("coordinator_storage_quota_in_mb", coordinator_storage_quota_in_mb)
         _setter("coordinator_vcore_count", coordinator_vcore_count)
@@ -228,7 +270,7 @@ class PostgresqlClusterArgs:
     @pulumi.getter(name="citusVersion")
     def citus_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+        The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         """
         return pulumi.get(self, "citus_version")
 
@@ -420,7 +462,7 @@ class PostgresqlClusterArgs:
     @pulumi.getter(name="sqlVersion")
     def sql_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+        The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
         """
         return pulumi.get(self, "sql_version")
 
@@ -471,7 +513,7 @@ class _PostgresqlClusterState:
         """
         Input properties used for looking up and filtering PostgresqlCluster resources.
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login.
-        :param pulumi.Input[str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+        :param pulumi.Input[str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
         :param pulumi.Input[str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
         :param pulumi.Input[int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
@@ -494,7 +536,7 @@ class _PostgresqlClusterState:
         :param pulumi.Input[bool] shards_on_coordinator_enabled: Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
         :param pulumi.Input[str] source_location: The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sql_version: The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+        :param pulumi.Input[str] sql_version: The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
         """
         _PostgresqlClusterState._configure(
@@ -551,7 +593,51 @@ class _PostgresqlClusterState:
              source_resource_id: Optional[pulumi.Input[str]] = None,
              sql_version: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'citusVersion' in kwargs:
+            citus_version = kwargs['citusVersion']
+        if 'coordinatorPublicIpAccessEnabled' in kwargs:
+            coordinator_public_ip_access_enabled = kwargs['coordinatorPublicIpAccessEnabled']
+        if 'coordinatorServerEdition' in kwargs:
+            coordinator_server_edition = kwargs['coordinatorServerEdition']
+        if 'coordinatorStorageQuotaInMb' in kwargs:
+            coordinator_storage_quota_in_mb = kwargs['coordinatorStorageQuotaInMb']
+        if 'coordinatorVcoreCount' in kwargs:
+            coordinator_vcore_count = kwargs['coordinatorVcoreCount']
+        if 'earliestRestoreTime' in kwargs:
+            earliest_restore_time = kwargs['earliestRestoreTime']
+        if 'haEnabled' in kwargs:
+            ha_enabled = kwargs['haEnabled']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if 'nodePublicIpAccessEnabled' in kwargs:
+            node_public_ip_access_enabled = kwargs['nodePublicIpAccessEnabled']
+        if 'nodeServerEdition' in kwargs:
+            node_server_edition = kwargs['nodeServerEdition']
+        if 'nodeStorageQuotaInMb' in kwargs:
+            node_storage_quota_in_mb = kwargs['nodeStorageQuotaInMb']
+        if 'nodeVcores' in kwargs:
+            node_vcores = kwargs['nodeVcores']
+        if 'pointInTimeInUtc' in kwargs:
+            point_in_time_in_utc = kwargs['pointInTimeInUtc']
+        if 'preferredPrimaryZone' in kwargs:
+            preferred_primary_zone = kwargs['preferredPrimaryZone']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'shardsOnCoordinatorEnabled' in kwargs:
+            shards_on_coordinator_enabled = kwargs['shardsOnCoordinatorEnabled']
+        if 'sourceLocation' in kwargs:
+            source_location = kwargs['sourceLocation']
+        if 'sourceResourceId' in kwargs:
+            source_resource_id = kwargs['sourceResourceId']
+        if 'sqlVersion' in kwargs:
+            sql_version = kwargs['sqlVersion']
+
         if administrator_login_password is not None:
             _setter("administrator_login_password", administrator_login_password)
         if citus_version is not None:
@@ -617,7 +703,7 @@ class _PostgresqlClusterState:
     @pulumi.getter(name="citusVersion")
     def citus_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+        The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         """
         return pulumi.get(self, "citus_version")
 
@@ -871,7 +957,7 @@ class _PostgresqlClusterState:
     @pulumi.getter(name="sqlVersion")
     def sql_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+        The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
         """
         return pulumi.get(self, "sql_version")
 
@@ -951,7 +1037,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login.
-        :param pulumi.Input[str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+        :param pulumi.Input[str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
         :param pulumi.Input[str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
         :param pulumi.Input[int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
@@ -973,7 +1059,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] shards_on_coordinator_enabled: Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
         :param pulumi.Input[str] source_location: The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sql_version: The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+        :param pulumi.Input[str] sql_version: The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
         """
         ...
@@ -1143,7 +1229,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login.
-        :param pulumi.Input[str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+        :param pulumi.Input[str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
         :param pulumi.Input[str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
         :param pulumi.Input[int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
@@ -1166,7 +1252,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] shards_on_coordinator_enabled: Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
         :param pulumi.Input[str] source_location: The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sql_version: The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+        :param pulumi.Input[str] sql_version: The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1211,7 +1297,7 @@ class PostgresqlCluster(pulumi.CustomResource):
     @pulumi.getter(name="citusVersion")
     def citus_version(self) -> pulumi.Output[str]:
         """
-        The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+        The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         """
         return pulumi.get(self, "citus_version")
 
@@ -1381,7 +1467,7 @@ class PostgresqlCluster(pulumi.CustomResource):
     @pulumi.getter(name="sqlVersion")
     def sql_version(self) -> pulumi.Output[str]:
         """
-        The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+        The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
         """
         return pulumi.get(self, "sql_version")
 

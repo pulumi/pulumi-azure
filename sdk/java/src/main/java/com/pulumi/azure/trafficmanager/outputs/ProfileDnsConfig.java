@@ -66,10 +66,10 @@ public final class ProfileDnsConfig {
             return this;
         }
         public ProfileDnsConfig build() {
-            final var o = new ProfileDnsConfig();
-            o.relativeName = relativeName;
-            o.ttl = ttl;
-            return o;
+            final var _resultValue = new ProfileDnsConfig();
+            _resultValue.relativeName = relativeName;
+            _resultValue.ttl = ttl;
+            return _resultValue;
         }
     }
 }

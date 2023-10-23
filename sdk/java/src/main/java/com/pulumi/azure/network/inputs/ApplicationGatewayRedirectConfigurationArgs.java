@@ -32,14 +32,14 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
     }
 
     /**
-     * Whether or not to include the path in the redirected Url. Defaults to `false`
+     * Whether to include the path in the redirected URL. Defaults to `false`
      * 
      */
     @Import(name="includePath")
     private @Nullable Output<Boolean> includePath;
 
     /**
-     * @return Whether or not to include the path in the redirected Url. Defaults to `false`
+     * @return Whether to include the path in the redirected URL. Defaults to `false`
      * 
      */
     public Optional<Output<Boolean>> includePath() {
@@ -47,14 +47,14 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
     }
 
     /**
-     * Whether or not to include the query string in the redirected Url. Default to `false`
+     * Whether to include the query string in the redirected URL. Default to `false`
      * 
      */
     @Import(name="includeQueryString")
     private @Nullable Output<Boolean> includeQueryString;
 
     /**
-     * @return Whether or not to include the query string in the redirected Url. Default to `false`
+     * @return Whether to include the query string in the redirected URL. Default to `false`
      * 
      */
     public Optional<Output<Boolean>> includeQueryString() {
@@ -114,14 +114,14 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
     }
 
     /**
-     * The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
+     * The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
      * 
      */
     @Import(name="targetUrl")
     private @Nullable Output<String> targetUrl;
 
     /**
-     * @return The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
+     * @return The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
      * 
      */
     public Optional<Output<String>> targetUrl() {
@@ -181,7 +181,7 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param includePath Whether or not to include the path in the redirected Url. Defaults to `false`
+         * @param includePath Whether to include the path in the redirected URL. Defaults to `false`
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param includePath Whether or not to include the path in the redirected Url. Defaults to `false`
+         * @param includePath Whether to include the path in the redirected URL. Defaults to `false`
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param includeQueryString Whether or not to include the query string in the redirected Url. Default to `false`
+         * @param includeQueryString Whether to include the query string in the redirected URL. Default to `false`
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param includeQueryString Whether or not to include the query string in the redirected Url. Default to `false`
+         * @param includeQueryString Whether to include the query string in the redirected URL. Default to `false`
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param targetUrl The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
+         * @param targetUrl The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class ApplicationGatewayRedirectConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param targetUrl The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
+         * @param targetUrl The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
          * 
          * @return builder
          * 

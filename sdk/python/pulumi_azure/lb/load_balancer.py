@@ -59,7 +59,17 @@ class LoadBalancerArgs:
              sku: Optional[pulumi.Input[str]] = None,
              sku_tier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'frontendIpConfigurations' in kwargs:
+            frontend_ip_configurations = kwargs['frontendIpConfigurations']
+        if 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+
         _setter("resource_group_name", resource_group_name)
         if edge_zone is not None:
             _setter("edge_zone", edge_zone)
@@ -229,7 +239,21 @@ class _LoadBalancerState:
              sku: Optional[pulumi.Input[str]] = None,
              sku_tier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'frontendIpConfigurations' in kwargs:
+            frontend_ip_configurations = kwargs['frontendIpConfigurations']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+
         if edge_zone is not None:
             _setter("edge_zone", edge_zone)
         if frontend_ip_configurations is not None:

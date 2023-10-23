@@ -106,12 +106,12 @@ public final class EndpointOrigin {
             return this;
         }
         public EndpointOrigin build() {
-            final var o = new EndpointOrigin();
-            o.hostName = hostName;
-            o.httpPort = httpPort;
-            o.httpsPort = httpsPort;
-            o.name = name;
-            return o;
+            final var _resultValue = new EndpointOrigin();
+            _resultValue.hostName = hostName;
+            _resultValue.httpPort = httpPort;
+            _resultValue.httpsPort = httpsPort;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

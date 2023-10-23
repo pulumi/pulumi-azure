@@ -1852,9 +1852,9 @@ type FrontdoorBackendPoolHealthProbe struct {
 	Name string `pulumi:"name"`
 	// The path to use for the Health Probe. Default is `/`.
 	Path *string `pulumi:"path"`
-	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
 	//
-	// > **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
+	// > **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
 	ProbeMethod *string `pulumi:"probeMethod"`
 	// Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
 	Protocol *string `pulumi:"protocol"`
@@ -1882,9 +1882,9 @@ type FrontdoorBackendPoolHealthProbeArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The path to use for the Health Probe. Default is `/`.
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
 	//
-	// > **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
+	// > **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
 	ProbeMethod pulumi.StringPtrInput `pulumi:"probeMethod"`
 	// Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -1984,9 +1984,9 @@ func (o FrontdoorBackendPoolHealthProbeOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
 //
-// > **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
+// > **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
 func (o FrontdoorBackendPoolHealthProbeOutput) ProbeMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.ProbeMethod }).(pulumi.StringPtrOutput)
 }

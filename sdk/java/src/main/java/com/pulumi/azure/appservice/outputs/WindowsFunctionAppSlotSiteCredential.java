@@ -67,10 +67,10 @@ public final class WindowsFunctionAppSlotSiteCredential {
             return this;
         }
         public WindowsFunctionAppSlotSiteCredential build() {
-            final var o = new WindowsFunctionAppSlotSiteCredential();
-            o.name = name;
-            o.password = password;
-            return o;
+            final var _resultValue = new WindowsFunctionAppSlotSiteCredential();
+            _resultValue.name = name;
+            _resultValue.password = password;
+            return _resultValue;
         }
     }
 }

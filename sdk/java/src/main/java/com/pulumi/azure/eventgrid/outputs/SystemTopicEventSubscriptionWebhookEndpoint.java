@@ -144,14 +144,14 @@ public final class SystemTopicEventSubscriptionWebhookEndpoint {
             return this;
         }
         public SystemTopicEventSubscriptionWebhookEndpoint build() {
-            final var o = new SystemTopicEventSubscriptionWebhookEndpoint();
-            o.activeDirectoryAppIdOrUri = activeDirectoryAppIdOrUri;
-            o.activeDirectoryTenantId = activeDirectoryTenantId;
-            o.baseUrl = baseUrl;
-            o.maxEventsPerBatch = maxEventsPerBatch;
-            o.preferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
-            o.url = url;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionWebhookEndpoint();
+            _resultValue.activeDirectoryAppIdOrUri = activeDirectoryAppIdOrUri;
+            _resultValue.activeDirectoryTenantId = activeDirectoryTenantId;
+            _resultValue.baseUrl = baseUrl;
+            _resultValue.maxEventsPerBatch = maxEventsPerBatch;
+            _resultValue.preferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

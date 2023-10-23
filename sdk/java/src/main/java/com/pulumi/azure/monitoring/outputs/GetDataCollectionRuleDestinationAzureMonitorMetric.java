@@ -46,9 +46,9 @@ public final class GetDataCollectionRuleDestinationAzureMonitorMetric {
             return this;
         }
         public GetDataCollectionRuleDestinationAzureMonitorMetric build() {
-            final var o = new GetDataCollectionRuleDestinationAzureMonitorMetric();
-            o.name = name;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleDestinationAzureMonitorMetric();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

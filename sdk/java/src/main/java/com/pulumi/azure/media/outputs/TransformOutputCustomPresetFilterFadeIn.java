@@ -86,11 +86,11 @@ public final class TransformOutputCustomPresetFilterFadeIn {
             return this;
         }
         public TransformOutputCustomPresetFilterFadeIn build() {
-            final var o = new TransformOutputCustomPresetFilterFadeIn();
-            o.duration = duration;
-            o.fadeColor = fadeColor;
-            o.start = start;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFilterFadeIn();
+            _resultValue.duration = duration;
+            _resultValue.fadeColor = fadeColor;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

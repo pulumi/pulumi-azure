@@ -61,7 +61,17 @@ class LinkedCustomServiceArgs:
              integration_runtime: Optional[pulumi.Input['LinkedCustomServiceIntegrationRuntimeArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'typePropertiesJson' in kwargs:
+            type_properties_json = kwargs['typePropertiesJson']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'integrationRuntime' in kwargs:
+            integration_runtime = kwargs['integrationRuntime']
+
         _setter("data_factory_id", data_factory_id)
         _setter("type", type)
         _setter("type_properties_json", type_properties_json)
@@ -235,7 +245,17 @@ class _LinkedCustomServiceState:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
              type_properties_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'integrationRuntime' in kwargs:
+            integration_runtime = kwargs['integrationRuntime']
+        if 'typePropertiesJson' in kwargs:
+            type_properties_json = kwargs['typePropertiesJson']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

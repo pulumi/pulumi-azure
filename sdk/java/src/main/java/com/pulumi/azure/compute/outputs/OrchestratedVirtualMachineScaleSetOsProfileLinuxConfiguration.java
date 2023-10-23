@@ -210,17 +210,17 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
             return secrets(List.of(secrets));
         }
         public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration build() {
-            final var o = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration();
-            o.adminPassword = adminPassword;
-            o.adminSshKeys = adminSshKeys;
-            o.adminUsername = adminUsername;
-            o.computerNamePrefix = computerNamePrefix;
-            o.disablePasswordAuthentication = disablePasswordAuthentication;
-            o.patchAssessmentMode = patchAssessmentMode;
-            o.patchMode = patchMode;
-            o.provisionVmAgent = provisionVmAgent;
-            o.secrets = secrets;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration();
+            _resultValue.adminPassword = adminPassword;
+            _resultValue.adminSshKeys = adminSshKeys;
+            _resultValue.adminUsername = adminUsername;
+            _resultValue.computerNamePrefix = computerNamePrefix;
+            _resultValue.disablePasswordAuthentication = disablePasswordAuthentication;
+            _resultValue.patchAssessmentMode = patchAssessmentMode;
+            _resultValue.patchMode = patchMode;
+            _resultValue.provisionVmAgent = provisionVmAgent;
+            _resultValue.secrets = secrets;
+            return _resultValue;
         }
     }
 }

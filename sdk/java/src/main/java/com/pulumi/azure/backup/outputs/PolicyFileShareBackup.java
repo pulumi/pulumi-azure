@@ -95,11 +95,11 @@ public final class PolicyFileShareBackup {
             return this;
         }
         public PolicyFileShareBackup build() {
-            final var o = new PolicyFileShareBackup();
-            o.frequency = frequency;
-            o.hourly = hourly;
-            o.time = time;
-            return o;
+            final var _resultValue = new PolicyFileShareBackup();
+            _resultValue.frequency = frequency;
+            _resultValue.hourly = hourly;
+            _resultValue.time = time;
+            return _resultValue;
         }
     }
 }

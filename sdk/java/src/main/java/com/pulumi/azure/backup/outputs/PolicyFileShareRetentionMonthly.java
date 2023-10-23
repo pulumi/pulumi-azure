@@ -140,13 +140,13 @@ public final class PolicyFileShareRetentionMonthly {
             return weeks(List.of(weeks));
         }
         public PolicyFileShareRetentionMonthly build() {
-            final var o = new PolicyFileShareRetentionMonthly();
-            o.count = count;
-            o.days = days;
-            o.includeLastDays = includeLastDays;
-            o.weekdays = weekdays;
-            o.weeks = weeks;
-            return o;
+            final var _resultValue = new PolicyFileShareRetentionMonthly();
+            _resultValue.count = count;
+            _resultValue.days = days;
+            _resultValue.includeLastDays = includeLastDays;
+            _resultValue.weekdays = weekdays;
+            _resultValue.weeks = weeks;
+            return _resultValue;
         }
     }
 }

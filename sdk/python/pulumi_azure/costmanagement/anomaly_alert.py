@@ -43,7 +43,15 @@ class AnomalyAlertArgs:
              email_subject: pulumi.Input[str],
              message: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+
         _setter("display_name", display_name)
         _setter("email_addresses", email_addresses)
         _setter("email_subject", email_subject)
@@ -145,7 +153,15 @@ class _AnomalyAlertState:
              email_subject: Optional[pulumi.Input[str]] = None,
              message: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+
         if display_name is not None:
             _setter("display_name", display_name)
         if email_addresses is not None:

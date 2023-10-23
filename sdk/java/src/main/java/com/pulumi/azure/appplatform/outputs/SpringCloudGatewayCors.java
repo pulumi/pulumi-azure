@@ -180,15 +180,15 @@ public final class SpringCloudGatewayCors {
             return this;
         }
         public SpringCloudGatewayCors build() {
-            final var o = new SpringCloudGatewayCors();
-            o.allowedHeaders = allowedHeaders;
-            o.allowedMethods = allowedMethods;
-            o.allowedOriginPatterns = allowedOriginPatterns;
-            o.allowedOrigins = allowedOrigins;
-            o.credentialsAllowed = credentialsAllowed;
-            o.exposedHeaders = exposedHeaders;
-            o.maxAgeSeconds = maxAgeSeconds;
-            return o;
+            final var _resultValue = new SpringCloudGatewayCors();
+            _resultValue.allowedHeaders = allowedHeaders;
+            _resultValue.allowedMethods = allowedMethods;
+            _resultValue.allowedOriginPatterns = allowedOriginPatterns;
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.credentialsAllowed = credentialsAllowed;
+            _resultValue.exposedHeaders = exposedHeaders;
+            _resultValue.maxAgeSeconds = maxAgeSeconds;
+            return _resultValue;
         }
     }
 }

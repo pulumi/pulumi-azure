@@ -313,7 +313,113 @@ class KubernetesClusterArgs:
              windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
              workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']] = None,
              workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultNodePool' in kwargs:
+            default_node_pool = kwargs['defaultNodePool']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'aciConnectorLinux' in kwargs:
+            aci_connector_linux = kwargs['aciConnectorLinux']
+        if 'apiServerAccessProfile' in kwargs:
+            api_server_access_profile = kwargs['apiServerAccessProfile']
+        if 'apiServerAuthorizedIpRanges' in kwargs:
+            api_server_authorized_ip_ranges = kwargs['apiServerAuthorizedIpRanges']
+        if 'autoScalerProfile' in kwargs:
+            auto_scaler_profile = kwargs['autoScalerProfile']
+        if 'automaticChannelUpgrade' in kwargs:
+            automatic_channel_upgrade = kwargs['automaticChannelUpgrade']
+        if 'azureActiveDirectoryRoleBasedAccessControl' in kwargs:
+            azure_active_directory_role_based_access_control = kwargs['azureActiveDirectoryRoleBasedAccessControl']
+        if 'azurePolicyEnabled' in kwargs:
+            azure_policy_enabled = kwargs['azurePolicyEnabled']
+        if 'confidentialComputing' in kwargs:
+            confidential_computing = kwargs['confidentialComputing']
+        if 'customCaTrustCertificatesBase64s' in kwargs:
+            custom_ca_trust_certificates_base64s = kwargs['customCaTrustCertificatesBase64s']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'dnsPrefix' in kwargs:
+            dns_prefix = kwargs['dnsPrefix']
+        if 'dnsPrefixPrivateCluster' in kwargs:
+            dns_prefix_private_cluster = kwargs['dnsPrefixPrivateCluster']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'enablePodSecurityPolicy' in kwargs:
+            enable_pod_security_policy = kwargs['enablePodSecurityPolicy']
+        if 'httpApplicationRoutingEnabled' in kwargs:
+            http_application_routing_enabled = kwargs['httpApplicationRoutingEnabled']
+        if 'httpProxyConfig' in kwargs:
+            http_proxy_config = kwargs['httpProxyConfig']
+        if 'imageCleanerEnabled' in kwargs:
+            image_cleaner_enabled = kwargs['imageCleanerEnabled']
+        if 'imageCleanerIntervalHours' in kwargs:
+            image_cleaner_interval_hours = kwargs['imageCleanerIntervalHours']
+        if 'ingressApplicationGateway' in kwargs:
+            ingress_application_gateway = kwargs['ingressApplicationGateway']
+        if 'keyManagementService' in kwargs:
+            key_management_service = kwargs['keyManagementService']
+        if 'keyVaultSecretsProvider' in kwargs:
+            key_vault_secrets_provider = kwargs['keyVaultSecretsProvider']
+        if 'kubeletIdentity' in kwargs:
+            kubelet_identity = kwargs['kubeletIdentity']
+        if 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+        if 'linuxProfile' in kwargs:
+            linux_profile = kwargs['linuxProfile']
+        if 'localAccountDisabled' in kwargs:
+            local_account_disabled = kwargs['localAccountDisabled']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'maintenanceWindowAutoUpgrade' in kwargs:
+            maintenance_window_auto_upgrade = kwargs['maintenanceWindowAutoUpgrade']
+        if 'maintenanceWindowNodeOs' in kwargs:
+            maintenance_window_node_os = kwargs['maintenanceWindowNodeOs']
+        if 'microsoftDefender' in kwargs:
+            microsoft_defender = kwargs['microsoftDefender']
+        if 'monitorMetrics' in kwargs:
+            monitor_metrics = kwargs['monitorMetrics']
+        if 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if 'nodeOsChannelUpgrade' in kwargs:
+            node_os_channel_upgrade = kwargs['nodeOsChannelUpgrade']
+        if 'nodeResourceGroup' in kwargs:
+            node_resource_group = kwargs['nodeResourceGroup']
+        if 'oidcIssuerEnabled' in kwargs:
+            oidc_issuer_enabled = kwargs['oidcIssuerEnabled']
+        if 'omsAgent' in kwargs:
+            oms_agent = kwargs['omsAgent']
+        if 'openServiceMeshEnabled' in kwargs:
+            open_service_mesh_enabled = kwargs['openServiceMeshEnabled']
+        if 'privateClusterEnabled' in kwargs:
+            private_cluster_enabled = kwargs['privateClusterEnabled']
+        if 'privateClusterPublicFqdnEnabled' in kwargs:
+            private_cluster_public_fqdn_enabled = kwargs['privateClusterPublicFqdnEnabled']
+        if 'privateDnsZoneId' in kwargs:
+            private_dns_zone_id = kwargs['privateDnsZoneId']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'roleBasedAccessControlEnabled' in kwargs:
+            role_based_access_control_enabled = kwargs['roleBasedAccessControlEnabled']
+        if 'runCommandEnabled' in kwargs:
+            run_command_enabled = kwargs['runCommandEnabled']
+        if 'serviceMeshProfile' in kwargs:
+            service_mesh_profile = kwargs['serviceMeshProfile']
+        if 'servicePrincipal' in kwargs:
+            service_principal = kwargs['servicePrincipal']
+        if 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+        if 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+        if 'webAppRouting' in kwargs:
+            web_app_routing = kwargs['webAppRouting']
+        if 'windowsProfile' in kwargs:
+            windows_profile = kwargs['windowsProfile']
+        if 'workloadAutoscalerProfile' in kwargs:
+            workload_autoscaler_profile = kwargs['workloadAutoscalerProfile']
+        if 'workloadIdentityEnabled' in kwargs:
+            workload_identity_enabled = kwargs['workloadIdentityEnabled']
+
         _setter("default_node_pool", default_node_pool)
         _setter("resource_group_name", resource_group_name)
         if aci_connector_linux is not None:
@@ -1516,7 +1622,131 @@ class _KubernetesClusterState:
              windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
              workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']] = None,
              workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aciConnectorLinux' in kwargs:
+            aci_connector_linux = kwargs['aciConnectorLinux']
+        if 'apiServerAccessProfile' in kwargs:
+            api_server_access_profile = kwargs['apiServerAccessProfile']
+        if 'apiServerAuthorizedIpRanges' in kwargs:
+            api_server_authorized_ip_ranges = kwargs['apiServerAuthorizedIpRanges']
+        if 'autoScalerProfile' in kwargs:
+            auto_scaler_profile = kwargs['autoScalerProfile']
+        if 'automaticChannelUpgrade' in kwargs:
+            automatic_channel_upgrade = kwargs['automaticChannelUpgrade']
+        if 'azureActiveDirectoryRoleBasedAccessControl' in kwargs:
+            azure_active_directory_role_based_access_control = kwargs['azureActiveDirectoryRoleBasedAccessControl']
+        if 'azurePolicyEnabled' in kwargs:
+            azure_policy_enabled = kwargs['azurePolicyEnabled']
+        if 'confidentialComputing' in kwargs:
+            confidential_computing = kwargs['confidentialComputing']
+        if 'customCaTrustCertificatesBase64s' in kwargs:
+            custom_ca_trust_certificates_base64s = kwargs['customCaTrustCertificatesBase64s']
+        if 'defaultNodePool' in kwargs:
+            default_node_pool = kwargs['defaultNodePool']
+        if 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if 'dnsPrefix' in kwargs:
+            dns_prefix = kwargs['dnsPrefix']
+        if 'dnsPrefixPrivateCluster' in kwargs:
+            dns_prefix_private_cluster = kwargs['dnsPrefixPrivateCluster']
+        if 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if 'enablePodSecurityPolicy' in kwargs:
+            enable_pod_security_policy = kwargs['enablePodSecurityPolicy']
+        if 'httpApplicationRoutingEnabled' in kwargs:
+            http_application_routing_enabled = kwargs['httpApplicationRoutingEnabled']
+        if 'httpApplicationRoutingZoneName' in kwargs:
+            http_application_routing_zone_name = kwargs['httpApplicationRoutingZoneName']
+        if 'httpProxyConfig' in kwargs:
+            http_proxy_config = kwargs['httpProxyConfig']
+        if 'imageCleanerEnabled' in kwargs:
+            image_cleaner_enabled = kwargs['imageCleanerEnabled']
+        if 'imageCleanerIntervalHours' in kwargs:
+            image_cleaner_interval_hours = kwargs['imageCleanerIntervalHours']
+        if 'ingressApplicationGateway' in kwargs:
+            ingress_application_gateway = kwargs['ingressApplicationGateway']
+        if 'keyManagementService' in kwargs:
+            key_management_service = kwargs['keyManagementService']
+        if 'keyVaultSecretsProvider' in kwargs:
+            key_vault_secrets_provider = kwargs['keyVaultSecretsProvider']
+        if 'kubeAdminConfigRaw' in kwargs:
+            kube_admin_config_raw = kwargs['kubeAdminConfigRaw']
+        if 'kubeAdminConfigs' in kwargs:
+            kube_admin_configs = kwargs['kubeAdminConfigs']
+        if 'kubeConfigRaw' in kwargs:
+            kube_config_raw = kwargs['kubeConfigRaw']
+        if 'kubeConfigs' in kwargs:
+            kube_configs = kwargs['kubeConfigs']
+        if 'kubeletIdentity' in kwargs:
+            kubelet_identity = kwargs['kubeletIdentity']
+        if 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+        if 'linuxProfile' in kwargs:
+            linux_profile = kwargs['linuxProfile']
+        if 'localAccountDisabled' in kwargs:
+            local_account_disabled = kwargs['localAccountDisabled']
+        if 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if 'maintenanceWindowAutoUpgrade' in kwargs:
+            maintenance_window_auto_upgrade = kwargs['maintenanceWindowAutoUpgrade']
+        if 'maintenanceWindowNodeOs' in kwargs:
+            maintenance_window_node_os = kwargs['maintenanceWindowNodeOs']
+        if 'microsoftDefender' in kwargs:
+            microsoft_defender = kwargs['microsoftDefender']
+        if 'monitorMetrics' in kwargs:
+            monitor_metrics = kwargs['monitorMetrics']
+        if 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if 'nodeOsChannelUpgrade' in kwargs:
+            node_os_channel_upgrade = kwargs['nodeOsChannelUpgrade']
+        if 'nodeResourceGroup' in kwargs:
+            node_resource_group = kwargs['nodeResourceGroup']
+        if 'nodeResourceGroupId' in kwargs:
+            node_resource_group_id = kwargs['nodeResourceGroupId']
+        if 'oidcIssuerEnabled' in kwargs:
+            oidc_issuer_enabled = kwargs['oidcIssuerEnabled']
+        if 'oidcIssuerUrl' in kwargs:
+            oidc_issuer_url = kwargs['oidcIssuerUrl']
+        if 'omsAgent' in kwargs:
+            oms_agent = kwargs['omsAgent']
+        if 'openServiceMeshEnabled' in kwargs:
+            open_service_mesh_enabled = kwargs['openServiceMeshEnabled']
+        if 'portalFqdn' in kwargs:
+            portal_fqdn = kwargs['portalFqdn']
+        if 'privateClusterEnabled' in kwargs:
+            private_cluster_enabled = kwargs['privateClusterEnabled']
+        if 'privateClusterPublicFqdnEnabled' in kwargs:
+            private_cluster_public_fqdn_enabled = kwargs['privateClusterPublicFqdnEnabled']
+        if 'privateDnsZoneId' in kwargs:
+            private_dns_zone_id = kwargs['privateDnsZoneId']
+        if 'privateFqdn' in kwargs:
+            private_fqdn = kwargs['privateFqdn']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'roleBasedAccessControlEnabled' in kwargs:
+            role_based_access_control_enabled = kwargs['roleBasedAccessControlEnabled']
+        if 'runCommandEnabled' in kwargs:
+            run_command_enabled = kwargs['runCommandEnabled']
+        if 'serviceMeshProfile' in kwargs:
+            service_mesh_profile = kwargs['serviceMeshProfile']
+        if 'servicePrincipal' in kwargs:
+            service_principal = kwargs['servicePrincipal']
+        if 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+        if 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+        if 'webAppRouting' in kwargs:
+            web_app_routing = kwargs['webAppRouting']
+        if 'windowsProfile' in kwargs:
+            windows_profile = kwargs['windowsProfile']
+        if 'workloadAutoscalerProfile' in kwargs:
+            workload_autoscaler_profile = kwargs['workloadAutoscalerProfile']
+        if 'workloadIdentityEnabled' in kwargs:
+            workload_identity_enabled = kwargs['workloadIdentityEnabled']
+
         if aci_connector_linux is not None:
             _setter("aci_connector_linux", aci_connector_linux)
         if api_server_access_profile is not None:

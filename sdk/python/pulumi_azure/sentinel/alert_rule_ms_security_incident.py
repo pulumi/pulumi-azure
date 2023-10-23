@@ -65,7 +65,23 @@ class AlertRuleMsSecurityIncidentArgs:
              display_name_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'productFilter' in kwargs:
+            product_filter = kwargs['productFilter']
+        if 'severityFilters' in kwargs:
+            severity_filters = kwargs['severityFilters']
+        if 'alertRuleTemplateGuid' in kwargs:
+            alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
+        if 'displayNameExcludeFilters' in kwargs:
+            display_name_exclude_filters = kwargs['displayNameExcludeFilters']
+        if 'displayNameFilters' in kwargs:
+            display_name_filters = kwargs['displayNameFilters']
+
         _setter("display_name", display_name)
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("product_filter", product_filter)
@@ -260,7 +276,23 @@ class _AlertRuleMsSecurityIncidentState:
              name: Optional[pulumi.Input[str]] = None,
              product_filter: Optional[pulumi.Input[str]] = None,
              severity_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertRuleTemplateGuid' in kwargs:
+            alert_rule_template_guid = kwargs['alertRuleTemplateGuid']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'displayNameExcludeFilters' in kwargs:
+            display_name_exclude_filters = kwargs['displayNameExcludeFilters']
+        if 'displayNameFilters' in kwargs:
+            display_name_filters = kwargs['displayNameFilters']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'productFilter' in kwargs:
+            product_filter = kwargs['productFilter']
+        if 'severityFilters' in kwargs:
+            severity_filters = kwargs['severityFilters']
+
         if alert_rule_template_guid is not None:
             _setter("alert_rule_template_guid", alert_rule_template_guid)
         if description is not None:

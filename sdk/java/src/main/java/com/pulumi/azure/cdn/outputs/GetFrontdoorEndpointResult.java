@@ -138,15 +138,15 @@ public final class GetFrontdoorEndpointResult {
             return this;
         }
         public GetFrontdoorEndpointResult build() {
-            final var o = new GetFrontdoorEndpointResult();
-            o.enabled = enabled;
-            o.hostName = hostName;
-            o.id = id;
-            o.name = name;
-            o.profileName = profileName;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetFrontdoorEndpointResult();
+            _resultValue.enabled = enabled;
+            _resultValue.hostName = hostName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.profileName = profileName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

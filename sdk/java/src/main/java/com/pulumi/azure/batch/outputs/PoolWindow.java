@@ -48,9 +48,9 @@ public final class PoolWindow {
             return this;
         }
         public PoolWindow build() {
-            final var o = new PoolWindow();
-            o.enableAutomaticUpdates = enableAutomaticUpdates;
-            return o;
+            final var _resultValue = new PoolWindow();
+            _resultValue.enableAutomaticUpdates = enableAutomaticUpdates;
+            return _resultValue;
         }
     }
 }

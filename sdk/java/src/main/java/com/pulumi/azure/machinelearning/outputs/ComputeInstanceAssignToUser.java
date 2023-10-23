@@ -67,10 +67,10 @@ public final class ComputeInstanceAssignToUser {
             return this;
         }
         public ComputeInstanceAssignToUser build() {
-            final var o = new ComputeInstanceAssignToUser();
-            o.objectId = objectId;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new ComputeInstanceAssignToUser();
+            _resultValue.objectId = objectId;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

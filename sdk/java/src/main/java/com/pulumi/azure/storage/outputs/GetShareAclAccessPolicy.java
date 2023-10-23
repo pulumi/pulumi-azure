@@ -84,11 +84,11 @@ public final class GetShareAclAccessPolicy {
             return this;
         }
         public GetShareAclAccessPolicy build() {
-            final var o = new GetShareAclAccessPolicy();
-            o.expiry = expiry;
-            o.permissions = permissions;
-            o.start = start;
-            return o;
+            final var _resultValue = new GetShareAclAccessPolicy();
+            _resultValue.expiry = expiry;
+            _resultValue.permissions = permissions;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

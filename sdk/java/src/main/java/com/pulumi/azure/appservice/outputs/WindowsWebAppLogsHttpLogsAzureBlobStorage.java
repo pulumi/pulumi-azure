@@ -68,10 +68,10 @@ public final class WindowsWebAppLogsHttpLogsAzureBlobStorage {
             return this;
         }
         public WindowsWebAppLogsHttpLogsAzureBlobStorage build() {
-            final var o = new WindowsWebAppLogsHttpLogsAzureBlobStorage();
-            o.retentionInDays = retentionInDays;
-            o.sasUrl = sasUrl;
-            return o;
+            final var _resultValue = new WindowsWebAppLogsHttpLogsAzureBlobStorage();
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.sasUrl = sasUrl;
+            return _resultValue;
         }
     }
 }

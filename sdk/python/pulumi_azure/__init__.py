@@ -100,6 +100,8 @@ if typing.TYPE_CHECKING:
     datashare = __datashare
     import pulumi_azure.desktopvirtualization as __desktopvirtualization
     desktopvirtualization = __desktopvirtualization
+    import pulumi_azure.devcenter as __devcenter
+    devcenter = __devcenter
     import pulumi_azure.devtest as __devtest
     devtest = __devtest
     import pulumi_azure.digitaltwins as __digitaltwins
@@ -310,6 +312,7 @@ else:
     dataprotection = _utilities.lazy_import('pulumi_azure.dataprotection')
     datashare = _utilities.lazy_import('pulumi_azure.datashare')
     desktopvirtualization = _utilities.lazy_import('pulumi_azure.desktopvirtualization')
+    devcenter = _utilities.lazy_import('pulumi_azure.devcenter')
     devtest = _utilities.lazy_import('pulumi_azure.devtest')
     digitaltwins = _utilities.lazy_import('pulumi_azure.digitaltwins')
     dns = _utilities.lazy_import('pulumi_azure.dns')
@@ -814,6 +817,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appconfiguration/licationLoadBalancerFrontend",
+  "fqn": "pulumi_azure.appconfiguration",
+  "classes": {
+   "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend": "LicationLoadBalancerFrontend"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appinsights/analyticsItem",
   "fqn": "pulumi_azure.appinsights",
   "classes": {
@@ -938,6 +949,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appplatform",
   "classes": {
    "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation": "SpringCloudAppRedisAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring": "SpringCloudApplicationInsightsApplicationPerformanceMonitoring"
   }
  },
  {
@@ -3698,6 +3717,22 @@ _utilities.register(
   "fqn": "pulumi_azure.desktopvirtualization",
   "classes": {
    "azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation": "WorkspaceApplicationGroupAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "devcenter/devCenter",
+  "fqn": "pulumi_azure.devcenter",
+  "classes": {
+   "azure:devcenter/devCenter:DevCenter": "DevCenter"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "devcenter/project",
+  "fqn": "pulumi_azure.devcenter",
+  "classes": {
+   "azure:devcenter/project:Project": "Project"
   }
  },
  {
@@ -7546,6 +7581,14 @@ _utilities.register(
   "fqn": "pulumi_azure.securitycenter",
   "classes": {
    "azure:securitycenter/setting:Setting": "Setting"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "securitycenter/storageDefender",
+  "fqn": "pulumi_azure.securitycenter",
+  "classes": {
+   "azure:securitycenter/storageDefender:StorageDefender": "StorageDefender"
   }
  },
  {

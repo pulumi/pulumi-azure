@@ -47,7 +47,21 @@ class SqlPoolExtendedAuditingPolicyArgs:
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sqlPoolId' in kwargs:
+            sql_pool_id = kwargs['sqlPoolId']
+        if 'logMonitoringEnabled' in kwargs:
+            log_monitoring_enabled = kwargs['logMonitoringEnabled']
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageAccountAccessKeyIsSecondary' in kwargs:
+            storage_account_access_key_is_secondary = kwargs['storageAccountAccessKeyIsSecondary']
+        if 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         _setter("sql_pool_id", sql_pool_id)
         if log_monitoring_enabled is not None:
             _setter("log_monitoring_enabled", log_monitoring_enabled)
@@ -169,7 +183,21 @@ class _SqlPoolExtendedAuditingPolicyState:
              storage_account_access_key: Optional[pulumi.Input[str]] = None,
              storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
              storage_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logMonitoringEnabled' in kwargs:
+            log_monitoring_enabled = kwargs['logMonitoringEnabled']
+        if 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if 'sqlPoolId' in kwargs:
+            sql_pool_id = kwargs['sqlPoolId']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageAccountAccessKeyIsSecondary' in kwargs:
+            storage_account_access_key_is_secondary = kwargs['storageAccountAccessKeyIsSecondary']
+        if 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         if log_monitoring_enabled is not None:
             _setter("log_monitoring_enabled", log_monitoring_enabled)
         if retention_in_days is not None:

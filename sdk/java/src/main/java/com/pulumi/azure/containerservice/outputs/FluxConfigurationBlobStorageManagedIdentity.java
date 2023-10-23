@@ -46,9 +46,9 @@ public final class FluxConfigurationBlobStorageManagedIdentity {
             return this;
         }
         public FluxConfigurationBlobStorageManagedIdentity build() {
-            final var o = new FluxConfigurationBlobStorageManagedIdentity();
-            o.clientId = clientId;
-            return o;
+            final var _resultValue = new FluxConfigurationBlobStorageManagedIdentity();
+            _resultValue.clientId = clientId;
+            return _resultValue;
         }
     }
 }

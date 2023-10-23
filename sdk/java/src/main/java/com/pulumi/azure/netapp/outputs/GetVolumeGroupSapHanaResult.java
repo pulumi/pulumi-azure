@@ -168,16 +168,16 @@ public final class GetVolumeGroupSapHanaResult {
             return volumes(List.of(volumes));
         }
         public GetVolumeGroupSapHanaResult build() {
-            final var o = new GetVolumeGroupSapHanaResult();
-            o.accountName = accountName;
-            o.applicationIdentifier = applicationIdentifier;
-            o.groupDescription = groupDescription;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.volumes = volumes;
-            return o;
+            final var _resultValue = new GetVolumeGroupSapHanaResult();
+            _resultValue.accountName = accountName;
+            _resultValue.applicationIdentifier = applicationIdentifier;
+            _resultValue.groupDescription = groupDescription;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.volumes = volumes;
+            return _resultValue;
         }
     }
 }

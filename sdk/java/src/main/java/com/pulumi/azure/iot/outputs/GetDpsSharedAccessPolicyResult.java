@@ -155,16 +155,16 @@ public final class GetDpsSharedAccessPolicyResult {
             return this;
         }
         public GetDpsSharedAccessPolicyResult build() {
-            final var o = new GetDpsSharedAccessPolicyResult();
-            o.id = id;
-            o.iothubDpsName = iothubDpsName;
-            o.name = name;
-            o.primaryConnectionString = primaryConnectionString;
-            o.primaryKey = primaryKey;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryConnectionString = secondaryConnectionString;
-            o.secondaryKey = secondaryKey;
-            return o;
+            final var _resultValue = new GetDpsSharedAccessPolicyResult();
+            _resultValue.id = id;
+            _resultValue.iothubDpsName = iothubDpsName;
+            _resultValue.name = name;
+            _resultValue.primaryConnectionString = primaryConnectionString;
+            _resultValue.primaryKey = primaryKey;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryConnectionString = secondaryConnectionString;
+            _resultValue.secondaryKey = secondaryKey;
+            return _resultValue;
         }
     }
 }

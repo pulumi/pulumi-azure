@@ -104,12 +104,12 @@ public final class GetElasticPoolSkus {
             return this;
         }
         public GetElasticPoolSkus build() {
-            final var o = new GetElasticPoolSkus();
-            o.capacity = capacity;
-            o.family = family;
-            o.name = name;
-            o.tier = tier;
-            return o;
+            final var _resultValue = new GetElasticPoolSkus();
+            _resultValue.capacity = capacity;
+            _resultValue.family = family;
+            _resultValue.name = name;
+            _resultValue.tier = tier;
+            return _resultValue;
         }
     }
 }

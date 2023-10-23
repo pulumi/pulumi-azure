@@ -104,12 +104,12 @@ public final class GetServiceTenantAccess {
             return this;
         }
         public GetServiceTenantAccess build() {
-            final var o = new GetServiceTenantAccess();
-            o.enabled = enabled;
-            o.primaryKey = primaryKey;
-            o.secondaryKey = secondaryKey;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new GetServiceTenantAccess();
+            _resultValue.enabled = enabled;
+            _resultValue.primaryKey = primaryKey;
+            _resultValue.secondaryKey = secondaryKey;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

@@ -83,7 +83,29 @@ class FirewallArgs:
              threat_intel_mode: Optional[pulumi.Input[str]] = None,
              virtual_hub: Optional[pulumi.Input['FirewallVirtualHubArgs']] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'firewallPolicyId' in kwargs:
+            firewall_policy_id = kwargs['firewallPolicyId']
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'managementIpConfiguration' in kwargs:
+            management_ip_configuration = kwargs['managementIpConfiguration']
+        if 'privateIpRanges' in kwargs:
+            private_ip_ranges = kwargs['privateIpRanges']
+        if 'threatIntelMode' in kwargs:
+            threat_intel_mode = kwargs['threatIntelMode']
+        if 'virtualHub' in kwargs:
+            virtual_hub = kwargs['virtualHub']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
         _setter("sku_tier", sku_tier)
@@ -351,7 +373,29 @@ class _FirewallState:
              threat_intel_mode: Optional[pulumi.Input[str]] = None,
              virtual_hub: Optional[pulumi.Input['FirewallVirtualHubArgs']] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if 'firewallPolicyId' in kwargs:
+            firewall_policy_id = kwargs['firewallPolicyId']
+        if 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if 'managementIpConfiguration' in kwargs:
+            management_ip_configuration = kwargs['managementIpConfiguration']
+        if 'privateIpRanges' in kwargs:
+            private_ip_ranges = kwargs['privateIpRanges']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+        if 'threatIntelMode' in kwargs:
+            threat_intel_mode = kwargs['threatIntelMode']
+        if 'virtualHub' in kwargs:
+            virtual_hub = kwargs['virtualHub']
+
         if dns_servers is not None:
             _setter("dns_servers", dns_servers)
         if firewall_policy_id is not None:

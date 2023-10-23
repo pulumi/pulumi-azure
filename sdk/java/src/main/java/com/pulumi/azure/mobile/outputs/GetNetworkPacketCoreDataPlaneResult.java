@@ -183,17 +183,17 @@ public final class GetNetworkPacketCoreDataPlaneResult {
             return this;
         }
         public GetNetworkPacketCoreDataPlaneResult build() {
-            final var o = new GetNetworkPacketCoreDataPlaneResult();
-            o.id = id;
-            o.location = location;
-            o.mobileNetworkPacketCoreControlPlaneId = mobileNetworkPacketCoreControlPlaneId;
-            o.name = name;
-            o.tags = tags;
-            o.userPlaneAccessIpv4Address = userPlaneAccessIpv4Address;
-            o.userPlaneAccessIpv4Gateway = userPlaneAccessIpv4Gateway;
-            o.userPlaneAccessIpv4Subnet = userPlaneAccessIpv4Subnet;
-            o.userPlaneAccessName = userPlaneAccessName;
-            return o;
+            final var _resultValue = new GetNetworkPacketCoreDataPlaneResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.mobileNetworkPacketCoreControlPlaneId = mobileNetworkPacketCoreControlPlaneId;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.userPlaneAccessIpv4Address = userPlaneAccessIpv4Address;
+            _resultValue.userPlaneAccessIpv4Gateway = userPlaneAccessIpv4Gateway;
+            _resultValue.userPlaneAccessIpv4Subnet = userPlaneAccessIpv4Subnet;
+            _resultValue.userPlaneAccessName = userPlaneAccessName;
+            return _resultValue;
         }
     }
 }

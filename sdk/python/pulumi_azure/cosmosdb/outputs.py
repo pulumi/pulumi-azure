@@ -98,7 +98,11 @@ class AccountAnalyticalStorage(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              schema_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'schemaType' in kwargs:
+            schema_type = kwargs['schemaType']
+
         _setter("schema_type", schema_type)
 
     @property
@@ -158,7 +162,15 @@ class AccountBackup(dict):
              interval_in_minutes: Optional[int] = None,
              retention_in_hours: Optional[int] = None,
              storage_redundancy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'intervalInMinutes' in kwargs:
+            interval_in_minutes = kwargs['intervalInMinutes']
+        if 'retentionInHours' in kwargs:
+            retention_in_hours = kwargs['retentionInHours']
+        if 'storageRedundancy' in kwargs:
+            storage_redundancy = kwargs['storageRedundancy']
+
         _setter("type", type)
         if interval_in_minutes is not None:
             _setter("interval_in_minutes", interval_in_minutes)
@@ -215,7 +227,9 @@ class AccountCapability(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -259,7 +273,11 @@ class AccountCapacity(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              total_throughput_limit: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'totalThroughputLimit' in kwargs:
+            total_throughput_limit = kwargs['totalThroughputLimit']
+
         _setter("total_throughput_limit", total_throughput_limit)
 
     @property
@@ -317,7 +335,15 @@ class AccountConsistencyPolicy(dict):
              consistency_level: str,
              max_interval_in_seconds: Optional[int] = None,
              max_staleness_prefix: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consistencyLevel' in kwargs:
+            consistency_level = kwargs['consistencyLevel']
+        if 'maxIntervalInSeconds' in kwargs:
+            max_interval_in_seconds = kwargs['maxIntervalInSeconds']
+        if 'maxStalenessPrefix' in kwargs:
+            max_staleness_prefix = kwargs['maxStalenessPrefix']
+
         _setter("consistency_level", consistency_level)
         if max_interval_in_seconds is not None:
             _setter("max_interval_in_seconds", max_interval_in_seconds)
@@ -407,7 +433,19 @@ class AccountCorsRule(dict):
              allowed_origins: Sequence[str],
              exposed_headers: Sequence[str],
              max_age_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'exposedHeaders' in kwargs:
+            exposed_headers = kwargs['exposedHeaders']
+        if 'maxAgeInSeconds' in kwargs:
+            max_age_in_seconds = kwargs['maxAgeInSeconds']
+
         _setter("allowed_headers", allowed_headers)
         _setter("allowed_methods", allowed_methods)
         _setter("allowed_origins", allowed_origins)
@@ -502,7 +540,13 @@ class AccountGeoLocation(dict):
              location: str,
              id: Optional[str] = None,
              zone_redundant: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failoverPriority' in kwargs:
+            failover_priority = kwargs['failoverPriority']
+        if 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         _setter("failover_priority", failover_priority)
         _setter("location", location)
         if id is not None:
@@ -591,7 +635,15 @@ class AccountIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -677,7 +729,13 @@ class AccountRestore(dict):
              restore_timestamp_in_utc: str,
              source_cosmosdb_account_id: str,
              databases: Optional[Sequence['outputs.AccountRestoreDatabase']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'restoreTimestampInUtc' in kwargs:
+            restore_timestamp_in_utc = kwargs['restoreTimestampInUtc']
+        if 'sourceCosmosdbAccountId' in kwargs:
+            source_cosmosdb_account_id = kwargs['sourceCosmosdbAccountId']
+
         _setter("restore_timestamp_in_utc", restore_timestamp_in_utc)
         _setter("source_cosmosdb_account_id", source_cosmosdb_account_id)
         if databases is not None:
@@ -746,7 +804,11 @@ class AccountRestoreDatabase(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              collection_names: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'collectionNames' in kwargs:
+            collection_names = kwargs['collectionNames']
+
         _setter("name", name)
         if collection_names is not None:
             _setter("collection_names", collection_names)
@@ -804,7 +866,11 @@ class AccountVirtualNetworkRule(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              ignore_missing_vnet_service_endpoint: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
+
         _setter("id", id)
         if ignore_missing_vnet_service_endpoint is not None:
             _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
@@ -866,7 +932,13 @@ class CassandraClusterIdentity(dict):
              type: str,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if principal_id is not None:
             _setter("principal_id", principal_id)
@@ -924,7 +996,11 @@ class CassandraKeyspaceAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxThroughput' in kwargs:
+            max_throughput = kwargs['maxThroughput']
+
         if max_throughput is not None:
             _setter("max_throughput", max_throughput)
 
@@ -969,7 +1045,11 @@ class CassandraTableAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxThroughput' in kwargs:
+            max_throughput = kwargs['maxThroughput']
+
         if max_throughput is not None:
             _setter("max_throughput", max_throughput)
 
@@ -1024,7 +1104,13 @@ class CassandraTableSchema(dict):
              columns: Sequence['outputs.CassandraTableSchemaColumn'],
              partition_keys: Sequence['outputs.CassandraTableSchemaPartitionKey'],
              cluster_keys: Optional[Sequence['outputs.CassandraTableSchemaClusterKey']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partitionKeys' in kwargs:
+            partition_keys = kwargs['partitionKeys']
+        if 'clusterKeys' in kwargs:
+            cluster_keys = kwargs['clusterKeys']
+
         _setter("columns", columns)
         _setter("partition_keys", partition_keys)
         if cluster_keys is not None:
@@ -1091,7 +1177,11 @@ class CassandraTableSchemaClusterKey(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              order_by: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'orderBy' in kwargs:
+            order_by = kwargs['orderBy']
+
         _setter("name", name)
         _setter("order_by", order_by)
 
@@ -1131,7 +1221,9 @@ class CassandraTableSchemaColumn(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -1167,7 +1259,9 @@ class CassandraTableSchemaPartitionKey(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -1211,7 +1305,11 @@ class GremlinDatabaseAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxThroughput' in kwargs:
+            max_throughput = kwargs['maxThroughput']
+
         if max_throughput is not None:
             _setter("max_throughput", max_throughput)
 
@@ -1256,7 +1354,11 @@ class GremlinGraphAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxThroughput' in kwargs:
+            max_throughput = kwargs['maxThroughput']
+
         if max_throughput is not None:
             _setter("max_throughput", max_throughput)
 
@@ -1311,7 +1413,13 @@ class GremlinGraphConflictResolutionPolicy(dict):
              mode: str,
              conflict_resolution_path: Optional[str] = None,
              conflict_resolution_procedure: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conflictResolutionPath' in kwargs:
+            conflict_resolution_path = kwargs['conflictResolutionPath']
+        if 'conflictResolutionProcedure' in kwargs:
+            conflict_resolution_procedure = kwargs['conflictResolutionProcedure']
+
         _setter("mode", mode)
         if conflict_resolution_path is not None:
             _setter("conflict_resolution_path", conflict_resolution_path)
@@ -1403,7 +1511,19 @@ class GremlinGraphIndexPolicy(dict):
              excluded_paths: Optional[Sequence[str]] = None,
              included_paths: Optional[Sequence[str]] = None,
              spatial_indices: Optional[Sequence['outputs.GremlinGraphIndexPolicySpatialIndex']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'indexingMode' in kwargs:
+            indexing_mode = kwargs['indexingMode']
+        if 'compositeIndices' in kwargs:
+            composite_indices = kwargs['compositeIndices']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'includedPaths' in kwargs:
+            included_paths = kwargs['includedPaths']
+        if 'spatialIndices' in kwargs:
+            spatial_indices = kwargs['spatialIndices']
+
         _setter("indexing_mode", indexing_mode)
         if automatic is not None:
             _setter("automatic", automatic)
@@ -1480,7 +1600,9 @@ class GremlinGraphIndexPolicyCompositeIndex(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              indices: Sequence['outputs.GremlinGraphIndexPolicyCompositeIndexIndex'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("indices", indices)
 
     @property
@@ -1511,7 +1633,9 @@ class GremlinGraphIndexPolicyCompositeIndexIndex(dict):
              _setter: Callable[[Any, Any], None],
              order: str,
              path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("order", order)
         _setter("path", path)
 
@@ -1550,7 +1674,9 @@ class GremlinGraphIndexPolicySpatialIndex(dict):
              _setter: Callable[[Any, Any], None],
              path: str,
              types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("path", path)
         if types is not None:
             _setter("types", types)
@@ -1584,7 +1710,9 @@ class GremlinGraphUniqueKey(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              paths: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("paths", paths)
 
     @property
@@ -1628,7 +1756,11 @@ class MongoCollectionAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxThroughput' in kwargs:
+            max_throughput = kwargs['maxThroughput']
+
         if max_throughput is not None:
             _setter("max_throughput", max_throughput)
 
@@ -1662,7 +1794,9 @@ class MongoCollectionIndex(dict):
              _setter: Callable[[Any, Any], None],
              keys: Sequence[str],
              unique: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("keys", keys)
         if unique is not None:
             _setter("unique", unique)
@@ -1707,7 +1841,9 @@ class MongoCollectionSystemIndex(dict):
              _setter: Callable[[Any, Any], None],
              keys: Optional[Sequence[str]] = None,
              unique: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if keys is not None:
             _setter("keys", keys)
         if unique is not None:
@@ -1764,7 +1900,11 @@ class MongoDatabaseAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxThroughput' in kwargs:
+            max_throughput = kwargs['maxThroughput']
+
         if max_throughput is not None:
             _setter("max_throughput", max_throughput)
 
@@ -1796,7 +1936,9 @@ class MongoRoleDefinitionPrivilege(dict):
              _setter: Callable[[Any, Any], None],
              actions: Sequence[str],
              resource: 'outputs.MongoRoleDefinitionPrivilegeResource',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("actions", actions)
         _setter("resource", resource)
 
@@ -1855,7 +1997,13 @@ class MongoRoleDefinitionPrivilegeResource(dict):
              _setter: Callable[[Any, Any], None],
              collection_name: Optional[str] = None,
              db_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'collectionName' in kwargs:
+            collection_name = kwargs['collectionName']
+        if 'dbName' in kwargs:
+            db_name = kwargs['dbName']
+
         if collection_name is not None:
             _setter("collection_name", collection_name)
         if db_name is not None:
@@ -1922,7 +2070,15 @@ class PostgresqlClusterMaintenanceWindow(dict):
              day_of_week: Optional[int] = None,
              start_hour: Optional[int] = None,
              start_minute: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if 'startHour' in kwargs:
+            start_hour = kwargs['startHour']
+        if 'startMinute' in kwargs:
+            start_minute = kwargs['startMinute']
+
         if day_of_week is not None:
             _setter("day_of_week", day_of_week)
         if start_hour is not None:
@@ -1987,7 +2143,11 @@ class SqlContainerAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxThroughput' in kwargs:
+            max_throughput = kwargs['maxThroughput']
+
         if max_throughput is not None:
             _setter("max_throughput", max_throughput)
 
@@ -2042,7 +2202,13 @@ class SqlContainerConflictResolutionPolicy(dict):
              mode: str,
              conflict_resolution_path: Optional[str] = None,
              conflict_resolution_procedure: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'conflictResolutionPath' in kwargs:
+            conflict_resolution_path = kwargs['conflictResolutionPath']
+        if 'conflictResolutionProcedure' in kwargs:
+            conflict_resolution_procedure = kwargs['conflictResolutionProcedure']
+
         _setter("mode", mode)
         if conflict_resolution_path is not None:
             _setter("conflict_resolution_path", conflict_resolution_path)
@@ -2130,7 +2296,19 @@ class SqlContainerIndexingPolicy(dict):
              included_paths: Optional[Sequence['outputs.SqlContainerIndexingPolicyIncludedPath']] = None,
              indexing_mode: Optional[str] = None,
              spatial_indices: Optional[Sequence['outputs.SqlContainerIndexingPolicySpatialIndex']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'compositeIndices' in kwargs:
+            composite_indices = kwargs['compositeIndices']
+        if 'excludedPaths' in kwargs:
+            excluded_paths = kwargs['excludedPaths']
+        if 'includedPaths' in kwargs:
+            included_paths = kwargs['includedPaths']
+        if 'indexingMode' in kwargs:
+            indexing_mode = kwargs['indexingMode']
+        if 'spatialIndices' in kwargs:
+            spatial_indices = kwargs['spatialIndices']
+
         if composite_indices is not None:
             _setter("composite_indices", composite_indices)
         if excluded_paths is not None:
@@ -2198,7 +2376,9 @@ class SqlContainerIndexingPolicyCompositeIndex(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              indices: Sequence['outputs.SqlContainerIndexingPolicyCompositeIndexIndex'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("indices", indices)
 
     @property
@@ -2229,7 +2409,9 @@ class SqlContainerIndexingPolicyCompositeIndexIndex(dict):
              _setter: Callable[[Any, Any], None],
              order: str,
              path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("order", order)
         _setter("path", path)
 
@@ -2265,7 +2447,9 @@ class SqlContainerIndexingPolicyExcludedPath(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("path", path)
 
     @property
@@ -2292,7 +2476,9 @@ class SqlContainerIndexingPolicyIncludedPath(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("path", path)
 
     @property
@@ -2323,7 +2509,9 @@ class SqlContainerIndexingPolicySpatialIndex(dict):
              _setter: Callable[[Any, Any], None],
              path: str,
              types: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("path", path)
         if types is not None:
             _setter("types", types)
@@ -2360,7 +2548,9 @@ class SqlContainerUniqueKey(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              paths: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("paths", paths)
 
     @property
@@ -2404,7 +2594,11 @@ class SqlDatabaseAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxThroughput' in kwargs:
+            max_throughput = kwargs['maxThroughput']
+
         if max_throughput is not None:
             _setter("max_throughput", max_throughput)
 
@@ -2449,7 +2643,11 @@ class SqlRoleDefinitionPermission(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              data_actions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataActions' in kwargs:
+            data_actions = kwargs['dataActions']
+
         _setter("data_actions", data_actions)
 
     @property
@@ -2493,7 +2691,11 @@ class TableAutoscaleSettings(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxThroughput' in kwargs:
+            max_throughput = kwargs['maxThroughput']
+
         if max_throughput is not None:
             _setter("max_throughput", max_throughput)
 
@@ -2521,7 +2723,9 @@ class GetAccountCapabilityResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
 
     @property
@@ -2556,7 +2760,15 @@ class GetAccountConsistencyPolicyResult(dict):
              consistency_level: str,
              max_interval_in_seconds: int,
              max_staleness_prefix: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'consistencyLevel' in kwargs:
+            consistency_level = kwargs['consistencyLevel']
+        if 'maxIntervalInSeconds' in kwargs:
+            max_interval_in_seconds = kwargs['maxIntervalInSeconds']
+        if 'maxStalenessPrefix' in kwargs:
+            max_staleness_prefix = kwargs['maxStalenessPrefix']
+
         _setter("consistency_level", consistency_level)
         _setter("max_interval_in_seconds", max_interval_in_seconds)
         _setter("max_staleness_prefix", max_staleness_prefix)
@@ -2608,7 +2820,11 @@ class GetAccountGeoLocationResult(dict):
              failover_priority: int,
              id: str,
              location: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failoverPriority' in kwargs:
+            failover_priority = kwargs['failoverPriority']
+
         _setter("failover_priority", failover_priority)
         _setter("id", id)
         _setter("location", location)
@@ -2650,7 +2866,9 @@ class GetAccountVirtualNetworkRuleResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
 
     @property
@@ -2693,7 +2911,17 @@ class GetRestorableDatabaseAccountsAccountResult(dict):
              deletion_time: str,
              id: str,
              restorable_locations: Sequence['outputs.GetRestorableDatabaseAccountsAccountRestorableLocationResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiType' in kwargs:
+            api_type = kwargs['apiType']
+        if 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if 'deletionTime' in kwargs:
+            deletion_time = kwargs['deletionTime']
+        if 'restorableLocations' in kwargs:
+            restorable_locations = kwargs['restorableLocations']
+
         _setter("api_type", api_type)
         _setter("creation_time", creation_time)
         _setter("deletion_time", deletion_time)
@@ -2768,7 +2996,15 @@ class GetRestorableDatabaseAccountsAccountRestorableLocationResult(dict):
              deletion_time: str,
              location: str,
              regional_database_account_instance_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if 'deletionTime' in kwargs:
+            deletion_time = kwargs['deletionTime']
+        if 'regionalDatabaseAccountInstanceId' in kwargs:
+            regional_database_account_instance_id = kwargs['regionalDatabaseAccountInstanceId']
+
         _setter("creation_time", creation_time)
         _setter("deletion_time", deletion_time)
         _setter("location", location)
@@ -2822,7 +3058,11 @@ class GetSqlDatabaseAutoscaleSettingResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_throughput: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxThroughput' in kwargs:
+            max_throughput = kwargs['maxThroughput']
+
         _setter("max_throughput", max_throughput)
 
     @property
@@ -2849,7 +3089,11 @@ class GetSqlRoleDefinitionPermissionResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              data_actions: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataActions' in kwargs:
+            data_actions = kwargs['dataActions']
+
         _setter("data_actions", data_actions)
 
     @property

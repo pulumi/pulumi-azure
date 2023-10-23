@@ -90,13 +90,13 @@ public final class GetProtectionContainerResult {
             return this;
         }
         public GetProtectionContainerResult build() {
-            final var o = new GetProtectionContainerResult();
-            o.id = id;
-            o.name = name;
-            o.recoveryFabricName = recoveryFabricName;
-            o.recoveryVaultName = recoveryVaultName;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetProtectionContainerResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.recoveryFabricName = recoveryFabricName;
+            _resultValue.recoveryVaultName = recoveryVaultName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

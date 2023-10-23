@@ -65,10 +65,10 @@ public final class GetLinuxFunctionAppSiteCredential {
             return this;
         }
         public GetLinuxFunctionAppSiteCredential build() {
-            final var o = new GetLinuxFunctionAppSiteCredential();
-            o.name = name;
-            o.password = password;
-            return o;
+            final var _resultValue = new GetLinuxFunctionAppSiteCredential();
+            _resultValue.name = name;
+            _resultValue.password = password;
+            return _resultValue;
         }
     }
 }

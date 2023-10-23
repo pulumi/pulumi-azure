@@ -69,10 +69,10 @@ public final class PoolIdentity {
             return this;
         }
         public PoolIdentity build() {
-            final var o = new PoolIdentity();
-            o.identityIds = identityIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new PoolIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

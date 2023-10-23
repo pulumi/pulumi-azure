@@ -66,10 +66,10 @@ public final class SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
             return this;
         }
         public SoftwareUpdateConfigurationScheduleMonthlyOccurrence build() {
-            final var o = new SoftwareUpdateConfigurationScheduleMonthlyOccurrence();
-            o.day = day;
-            o.occurrence = occurrence;
-            return o;
+            final var _resultValue = new SoftwareUpdateConfigurationScheduleMonthlyOccurrence();
+            _resultValue.day = day;
+            _resultValue.occurrence = occurrence;
+            return _resultValue;
         }
     }
 }

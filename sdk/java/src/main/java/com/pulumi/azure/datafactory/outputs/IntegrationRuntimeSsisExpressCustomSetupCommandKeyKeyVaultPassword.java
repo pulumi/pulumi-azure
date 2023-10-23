@@ -106,12 +106,12 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPas
             return this;
         }
         public IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword build() {
-            final var o = new IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword();
-            o.linkedServiceName = linkedServiceName;
-            o.parameters = parameters;
-            o.secretName = secretName;
-            o.secretVersion = secretVersion;
-            return o;
+            final var _resultValue = new IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword();
+            _resultValue.linkedServiceName = linkedServiceName;
+            _resultValue.parameters = parameters;
+            _resultValue.secretName = secretName;
+            _resultValue.secretVersion = secretVersion;
+            return _resultValue;
         }
     }
 }

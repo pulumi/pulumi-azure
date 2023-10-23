@@ -89,11 +89,11 @@ public final class WindowsWebAppAuthSettingsV2AppleV2 {
             return loginScopes(List.of(loginScopes));
         }
         public WindowsWebAppAuthSettingsV2AppleV2 build() {
-            final var o = new WindowsWebAppAuthSettingsV2AppleV2();
-            o.clientId = clientId;
-            o.clientSecretSettingName = clientSecretSettingName;
-            o.loginScopes = loginScopes;
-            return o;
+            final var _resultValue = new WindowsWebAppAuthSettingsV2AppleV2();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            _resultValue.loginScopes = loginScopes;
+            return _resultValue;
         }
     }
 }

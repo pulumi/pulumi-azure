@@ -57,7 +57,19 @@ class JobArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputAsset' in kwargs:
+            input_asset = kwargs['inputAsset']
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'outputAssets' in kwargs:
+            output_assets = kwargs['outputAssets']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'transformName' in kwargs:
+            transform_name = kwargs['transformName']
+
         _setter("input_asset", input_asset)
         _setter("media_services_account_name", media_services_account_name)
         _setter("output_assets", output_assets)
@@ -211,7 +223,19 @@ class _JobState:
              priority: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              transform_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inputAsset' in kwargs:
+            input_asset = kwargs['inputAsset']
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'outputAssets' in kwargs:
+            output_assets = kwargs['outputAssets']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'transformName' in kwargs:
+            transform_name = kwargs['transformName']
+
         if description is not None:
             _setter("description", description)
         if input_asset is not None:

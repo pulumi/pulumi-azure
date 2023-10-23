@@ -217,17 +217,17 @@ public final class ServiceAdditionalLocation {
             return zones(List.of(zones));
         }
         public ServiceAdditionalLocation build() {
-            final var o = new ServiceAdditionalLocation();
-            o.capacity = capacity;
-            o.gatewayDisabled = gatewayDisabled;
-            o.gatewayRegionalUrl = gatewayRegionalUrl;
-            o.location = location;
-            o.privateIpAddresses = privateIpAddresses;
-            o.publicIpAddressId = publicIpAddressId;
-            o.publicIpAddresses = publicIpAddresses;
-            o.virtualNetworkConfiguration = virtualNetworkConfiguration;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new ServiceAdditionalLocation();
+            _resultValue.capacity = capacity;
+            _resultValue.gatewayDisabled = gatewayDisabled;
+            _resultValue.gatewayRegionalUrl = gatewayRegionalUrl;
+            _resultValue.location = location;
+            _resultValue.privateIpAddresses = privateIpAddresses;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.publicIpAddresses = publicIpAddresses;
+            _resultValue.virtualNetworkConfiguration = virtualNetworkConfiguration;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

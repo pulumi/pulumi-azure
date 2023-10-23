@@ -121,12 +121,12 @@ public final class ServicePlanDefaultConnection {
             return this;
         }
         public ServicePlanDefaultConnection build() {
-            final var o = new ServicePlanDefaultConnection();
-            o.clientRdpAccess = clientRdpAccess;
-            o.clientSshAccess = clientSshAccess;
-            o.webRdpAccess = webRdpAccess;
-            o.webSshAccess = webSshAccess;
-            return o;
+            final var _resultValue = new ServicePlanDefaultConnection();
+            _resultValue.clientRdpAccess = clientRdpAccess;
+            _resultValue.clientSshAccess = clientSshAccess;
+            _resultValue.webRdpAccess = webRdpAccess;
+            _resultValue.webSshAccess = webSshAccess;
+            return _resultValue;
         }
     }
 }

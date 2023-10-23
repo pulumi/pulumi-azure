@@ -132,13 +132,13 @@ public final class GetNetworkServicePccRuleServiceDataFlowTemplate {
             return remoteIpLists(List.of(remoteIpLists));
         }
         public GetNetworkServicePccRuleServiceDataFlowTemplate build() {
-            final var o = new GetNetworkServicePccRuleServiceDataFlowTemplate();
-            o.direction = direction;
-            o.name = name;
-            o.ports = ports;
-            o.protocols = protocols;
-            o.remoteIpLists = remoteIpLists;
-            return o;
+            final var _resultValue = new GetNetworkServicePccRuleServiceDataFlowTemplate();
+            _resultValue.direction = direction;
+            _resultValue.name = name;
+            _resultValue.ports = ports;
+            _resultValue.protocols = protocols;
+            _resultValue.remoteIpLists = remoteIpLists;
+            return _resultValue;
         }
     }
 }

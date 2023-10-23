@@ -87,11 +87,11 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteria {
             return this;
         }
         public IntegrationAccountBatchConfigurationReleaseCriteria build() {
-            final var o = new IntegrationAccountBatchConfigurationReleaseCriteria();
-            o.batchSize = batchSize;
-            o.messageCount = messageCount;
-            o.recurrence = recurrence;
-            return o;
+            final var _resultValue = new IntegrationAccountBatchConfigurationReleaseCriteria();
+            _resultValue.batchSize = batchSize;
+            _resultValue.messageCount = messageCount;
+            _resultValue.recurrence = recurrence;
+            return _resultValue;
         }
     }
 }

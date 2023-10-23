@@ -65,10 +65,10 @@ public final class GetBudgetSubscriptionTimePeriod {
             return this;
         }
         public GetBudgetSubscriptionTimePeriod build() {
-            final var o = new GetBudgetSubscriptionTimePeriod();
-            o.endDate = endDate;
-            o.startDate = startDate;
-            return o;
+            final var _resultValue = new GetBudgetSubscriptionTimePeriod();
+            _resultValue.endDate = endDate;
+            _resultValue.startDate = startDate;
+            return _resultValue;
         }
     }
 }

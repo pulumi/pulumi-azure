@@ -118,7 +118,53 @@ class ReplicatedVMArgs:
              target_zone: Optional[pulumi.Input[str]] = None,
              test_network_id: Optional[pulumi.Input[str]] = None,
              unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recoveryReplicationPolicyId' in kwargs:
+            recovery_replication_policy_id = kwargs['recoveryReplicationPolicyId']
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceRecoveryFabricName' in kwargs:
+            source_recovery_fabric_name = kwargs['sourceRecoveryFabricName']
+        if 'sourceRecoveryProtectionContainerName' in kwargs:
+            source_recovery_protection_container_name = kwargs['sourceRecoveryProtectionContainerName']
+        if 'sourceVmId' in kwargs:
+            source_vm_id = kwargs['sourceVmId']
+        if 'targetRecoveryFabricId' in kwargs:
+            target_recovery_fabric_id = kwargs['targetRecoveryFabricId']
+        if 'targetRecoveryProtectionContainerId' in kwargs:
+            target_recovery_protection_container_id = kwargs['targetRecoveryProtectionContainerId']
+        if 'targetResourceGroupId' in kwargs:
+            target_resource_group_id = kwargs['targetResourceGroupId']
+        if 'managedDisks' in kwargs:
+            managed_disks = kwargs['managedDisks']
+        if 'multiVmGroupName' in kwargs:
+            multi_vm_group_name = kwargs['multiVmGroupName']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'targetAvailabilitySetId' in kwargs:
+            target_availability_set_id = kwargs['targetAvailabilitySetId']
+        if 'targetBootDiagnosticStorageAccountId' in kwargs:
+            target_boot_diagnostic_storage_account_id = kwargs['targetBootDiagnosticStorageAccountId']
+        if 'targetCapacityReservationGroupId' in kwargs:
+            target_capacity_reservation_group_id = kwargs['targetCapacityReservationGroupId']
+        if 'targetEdgeZone' in kwargs:
+            target_edge_zone = kwargs['targetEdgeZone']
+        if 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if 'targetProximityPlacementGroupId' in kwargs:
+            target_proximity_placement_group_id = kwargs['targetProximityPlacementGroupId']
+        if 'targetVirtualMachineScaleSetId' in kwargs:
+            target_virtual_machine_scale_set_id = kwargs['targetVirtualMachineScaleSetId']
+        if 'targetZone' in kwargs:
+            target_zone = kwargs['targetZone']
+        if 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+        if 'unmanagedDisks' in kwargs:
+            unmanaged_disks = kwargs['unmanagedDisks']
+
         _setter("recovery_replication_policy_id", recovery_replication_policy_id)
         _setter("recovery_vault_name", recovery_vault_name)
         _setter("resource_group_name", resource_group_name)
@@ -540,7 +586,53 @@ class _ReplicatedVMState:
              target_zone: Optional[pulumi.Input[str]] = None,
              test_network_id: Optional[pulumi.Input[str]] = None,
              unmanaged_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatedVMUnmanagedDiskArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedDisks' in kwargs:
+            managed_disks = kwargs['managedDisks']
+        if 'multiVmGroupName' in kwargs:
+            multi_vm_group_name = kwargs['multiVmGroupName']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'recoveryReplicationPolicyId' in kwargs:
+            recovery_replication_policy_id = kwargs['recoveryReplicationPolicyId']
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceRecoveryFabricName' in kwargs:
+            source_recovery_fabric_name = kwargs['sourceRecoveryFabricName']
+        if 'sourceRecoveryProtectionContainerName' in kwargs:
+            source_recovery_protection_container_name = kwargs['sourceRecoveryProtectionContainerName']
+        if 'sourceVmId' in kwargs:
+            source_vm_id = kwargs['sourceVmId']
+        if 'targetAvailabilitySetId' in kwargs:
+            target_availability_set_id = kwargs['targetAvailabilitySetId']
+        if 'targetBootDiagnosticStorageAccountId' in kwargs:
+            target_boot_diagnostic_storage_account_id = kwargs['targetBootDiagnosticStorageAccountId']
+        if 'targetCapacityReservationGroupId' in kwargs:
+            target_capacity_reservation_group_id = kwargs['targetCapacityReservationGroupId']
+        if 'targetEdgeZone' in kwargs:
+            target_edge_zone = kwargs['targetEdgeZone']
+        if 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+        if 'targetProximityPlacementGroupId' in kwargs:
+            target_proximity_placement_group_id = kwargs['targetProximityPlacementGroupId']
+        if 'targetRecoveryFabricId' in kwargs:
+            target_recovery_fabric_id = kwargs['targetRecoveryFabricId']
+        if 'targetRecoveryProtectionContainerId' in kwargs:
+            target_recovery_protection_container_id = kwargs['targetRecoveryProtectionContainerId']
+        if 'targetResourceGroupId' in kwargs:
+            target_resource_group_id = kwargs['targetResourceGroupId']
+        if 'targetVirtualMachineScaleSetId' in kwargs:
+            target_virtual_machine_scale_set_id = kwargs['targetVirtualMachineScaleSetId']
+        if 'targetZone' in kwargs:
+            target_zone = kwargs['targetZone']
+        if 'testNetworkId' in kwargs:
+            test_network_id = kwargs['testNetworkId']
+        if 'unmanagedDisks' in kwargs:
+            unmanaged_disks = kwargs['unmanagedDisks']
+
         if managed_disks is not None:
             _setter("managed_disks", managed_disks)
         if multi_vm_group_name is not None:

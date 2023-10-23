@@ -38,7 +38,11 @@ class ConfigurationConfigFileArgs:
              _setter: Callable[[Any, Any], None],
              content: pulumi.Input[str],
              virtual_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualPath' in kwargs:
+            virtual_path = kwargs['virtualPath']
+
         _setter("content", content)
         _setter("virtual_path", virtual_path)
 
@@ -86,7 +90,11 @@ class ConfigurationProtectedFileArgs:
              _setter: Callable[[Any, Any], None],
              content: pulumi.Input[str],
              virtual_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualPath' in kwargs:
+            virtual_path = kwargs['virtualPath']
+
         _setter("content", content)
         _setter("virtual_path", virtual_path)
 
@@ -138,7 +146,15 @@ class DeploymentFrontendPrivateArgs:
              allocation_method: pulumi.Input[str],
              ip_address: pulumi.Input[str],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allocationMethod' in kwargs:
+            allocation_method = kwargs['allocationMethod']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("allocation_method", allocation_method)
         _setter("ip_address", ip_address)
         _setter("subnet_id", subnet_id)
@@ -195,7 +211,11 @@ class DeploymentFrontendPublicArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if ip_addresses is not None:
             _setter("ip_addresses", ip_addresses)
 
@@ -237,7 +257,15 @@ class DeploymentIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -308,7 +336,11 @@ class DeploymentLoggingStorageAccountArgs:
              _setter: Callable[[Any, Any], None],
              container_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+
         if container_name is not None:
             _setter("container_name", container_name)
         if name is not None:
@@ -354,7 +386,11 @@ class DeploymentNetworkInterfaceArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("subnet_id", subnet_id)
 
     @property

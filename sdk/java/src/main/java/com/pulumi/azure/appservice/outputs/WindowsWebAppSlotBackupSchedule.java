@@ -141,14 +141,14 @@ public final class WindowsWebAppSlotBackupSchedule {
             return this;
         }
         public WindowsWebAppSlotBackupSchedule build() {
-            final var o = new WindowsWebAppSlotBackupSchedule();
-            o.frequencyInterval = frequencyInterval;
-            o.frequencyUnit = frequencyUnit;
-            o.keepAtLeastOneBackup = keepAtLeastOneBackup;
-            o.lastExecutionTime = lastExecutionTime;
-            o.retentionPeriodDays = retentionPeriodDays;
-            o.startTime = startTime;
-            return o;
+            final var _resultValue = new WindowsWebAppSlotBackupSchedule();
+            _resultValue.frequencyInterval = frequencyInterval;
+            _resultValue.frequencyUnit = frequencyUnit;
+            _resultValue.keepAtLeastOneBackup = keepAtLeastOneBackup;
+            _resultValue.lastExecutionTime = lastExecutionTime;
+            _resultValue.retentionPeriodDays = retentionPeriodDays;
+            _resultValue.startTime = startTime;
+            return _resultValue;
         }
     }
 }

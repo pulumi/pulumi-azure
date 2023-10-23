@@ -113,12 +113,12 @@ public final class FrontdoorRuleConditionsHostNameCondition {
             return transforms(List.of(transforms));
         }
         public FrontdoorRuleConditionsHostNameCondition build() {
-            final var o = new FrontdoorRuleConditionsHostNameCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            o.transforms = transforms;
-            return o;
+            final var _resultValue = new FrontdoorRuleConditionsHostNameCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            _resultValue.transforms = transforms;
+            return _resultValue;
         }
     }
 }

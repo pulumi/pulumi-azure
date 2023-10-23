@@ -109,12 +109,12 @@ public final class SpringCloudDevToolPortalSso {
             return scopes(List.of(scopes));
         }
         public SpringCloudDevToolPortalSso build() {
-            final var o = new SpringCloudDevToolPortalSso();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.metadataUrl = metadataUrl;
-            o.scopes = scopes;
-            return o;
+            final var _resultValue = new SpringCloudDevToolPortalSso();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.metadataUrl = metadataUrl;
+            _resultValue.scopes = scopes;
+            return _resultValue;
         }
     }
 }

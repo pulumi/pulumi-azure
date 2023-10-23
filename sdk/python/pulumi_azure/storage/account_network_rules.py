@@ -59,7 +59,19 @@ class AccountNetworkRulesInitArgs:
              ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
              virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'privateLinkAccessRules' in kwargs:
+            private_link_access_rules = kwargs['privateLinkAccessRules']
+        if 'virtualNetworkSubnetIds' in kwargs:
+            virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
+
         _setter("default_action", default_action)
         _setter("storage_account_id", storage_account_id)
         if bypasses is not None:
@@ -200,7 +212,19 @@ class _AccountNetworkRulesState:
              private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'privateLinkAccessRules' in kwargs:
+            private_link_access_rules = kwargs['privateLinkAccessRules']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'virtualNetworkSubnetIds' in kwargs:
+            virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
+
         if bypasses is not None:
             _setter("bypasses", bypasses)
         if default_action is not None:

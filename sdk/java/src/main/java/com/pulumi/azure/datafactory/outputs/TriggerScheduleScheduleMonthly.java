@@ -68,10 +68,10 @@ public final class TriggerScheduleScheduleMonthly {
             return this;
         }
         public TriggerScheduleScheduleMonthly build() {
-            final var o = new TriggerScheduleScheduleMonthly();
-            o.week = week;
-            o.weekday = weekday;
-            return o;
+            final var _resultValue = new TriggerScheduleScheduleMonthly();
+            _resultValue.week = week;
+            _resultValue.weekday = weekday;
+            return _resultValue;
         }
     }
 }

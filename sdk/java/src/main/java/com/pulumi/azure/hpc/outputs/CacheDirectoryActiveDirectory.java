@@ -162,15 +162,15 @@ public final class CacheDirectoryActiveDirectory {
             return this;
         }
         public CacheDirectoryActiveDirectory build() {
-            final var o = new CacheDirectoryActiveDirectory();
-            o.cacheNetbiosName = cacheNetbiosName;
-            o.dnsPrimaryIp = dnsPrimaryIp;
-            o.dnsSecondaryIp = dnsSecondaryIp;
-            o.domainName = domainName;
-            o.domainNetbiosName = domainNetbiosName;
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new CacheDirectoryActiveDirectory();
+            _resultValue.cacheNetbiosName = cacheNetbiosName;
+            _resultValue.dnsPrimaryIp = dnsPrimaryIp;
+            _resultValue.dnsSecondaryIp = dnsSecondaryIp;
+            _resultValue.domainName = domainName;
+            _resultValue.domainNetbiosName = domainNetbiosName;
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

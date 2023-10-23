@@ -65,10 +65,10 @@ public final class ApiSubscriptionKeyParameterNames {
             return this;
         }
         public ApiSubscriptionKeyParameterNames build() {
-            final var o = new ApiSubscriptionKeyParameterNames();
-            o.header = header;
-            o.query = query;
-            return o;
+            final var _resultValue = new ApiSubscriptionKeyParameterNames();
+            _resultValue.header = header;
+            _resultValue.query = query;
+            return _resultValue;
         }
     }
 }

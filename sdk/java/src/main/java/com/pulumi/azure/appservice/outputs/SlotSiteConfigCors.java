@@ -72,10 +72,10 @@ public final class SlotSiteConfigCors {
             return this;
         }
         public SlotSiteConfigCors build() {
-            final var o = new SlotSiteConfigCors();
-            o.allowedOrigins = allowedOrigins;
-            o.supportCredentials = supportCredentials;
-            return o;
+            final var _resultValue = new SlotSiteConfigCors();
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.supportCredentials = supportCredentials;
+            return _resultValue;
         }
     }
 }

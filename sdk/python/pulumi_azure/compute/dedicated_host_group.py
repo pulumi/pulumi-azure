@@ -51,7 +51,15 @@ class DedicatedHostGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'platformFaultDomainCount' in kwargs:
+            platform_fault_domain_count = kwargs['platformFaultDomainCount']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'automaticPlacementEnabled' in kwargs:
+            automatic_placement_enabled = kwargs['automaticPlacementEnabled']
+
         _setter("platform_fault_domain_count", platform_fault_domain_count)
         _setter("resource_group_name", resource_group_name)
         if automatic_placement_enabled is not None:
@@ -190,7 +198,15 @@ class _DedicatedHostGroupState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automaticPlacementEnabled' in kwargs:
+            automatic_placement_enabled = kwargs['automaticPlacementEnabled']
+        if 'platformFaultDomainCount' in kwargs:
+            platform_fault_domain_count = kwargs['platformFaultDomainCount']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if automatic_placement_enabled is not None:
             _setter("automatic_placement_enabled", automatic_placement_enabled)
         if location is not None:

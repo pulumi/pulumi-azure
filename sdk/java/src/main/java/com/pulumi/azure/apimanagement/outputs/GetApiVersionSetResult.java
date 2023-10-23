@@ -166,17 +166,17 @@ public final class GetApiVersionSetResult {
             return this;
         }
         public GetApiVersionSetResult build() {
-            final var o = new GetApiVersionSetResult();
-            o.apiManagementName = apiManagementName;
-            o.description = description;
-            o.displayName = displayName;
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.versionHeaderName = versionHeaderName;
-            o.versionQueryName = versionQueryName;
-            o.versioningScheme = versioningScheme;
-            return o;
+            final var _resultValue = new GetApiVersionSetResult();
+            _resultValue.apiManagementName = apiManagementName;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.versionHeaderName = versionHeaderName;
+            _resultValue.versionQueryName = versionQueryName;
+            _resultValue.versioningScheme = versioningScheme;
+            return _resultValue;
         }
     }
 }

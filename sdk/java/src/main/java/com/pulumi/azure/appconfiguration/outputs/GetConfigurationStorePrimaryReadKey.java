@@ -84,11 +84,11 @@ public final class GetConfigurationStorePrimaryReadKey {
             return this;
         }
         public GetConfigurationStorePrimaryReadKey build() {
-            final var o = new GetConfigurationStorePrimaryReadKey();
-            o.connectionString = connectionString;
-            o.id = id;
-            o.secret = secret;
-            return o;
+            final var _resultValue = new GetConfigurationStorePrimaryReadKey();
+            _resultValue.connectionString = connectionString;
+            _resultValue.id = id;
+            _resultValue.secret = secret;
+            return _resultValue;
         }
     }
 }

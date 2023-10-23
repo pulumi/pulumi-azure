@@ -80,11 +80,11 @@ public final class GetExtendedLocationsResult {
             return this;
         }
         public GetExtendedLocationsResult build() {
-            final var o = new GetExtendedLocationsResult();
-            o.extendedLocations = extendedLocations;
-            o.id = id;
-            o.location = location;
-            return o;
+            final var _resultValue = new GetExtendedLocationsResult();
+            _resultValue.extendedLocations = extendedLocations;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            return _resultValue;
         }
     }
 }

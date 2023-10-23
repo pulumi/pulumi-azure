@@ -143,14 +143,14 @@ public final class EndpointDeliveryRuleUrlRedirectAction {
             return this;
         }
         public EndpointDeliveryRuleUrlRedirectAction build() {
-            final var o = new EndpointDeliveryRuleUrlRedirectAction();
-            o.fragment = fragment;
-            o.hostname = hostname;
-            o.path = path;
-            o.protocol = protocol;
-            o.queryString = queryString;
-            o.redirectType = redirectType;
-            return o;
+            final var _resultValue = new EndpointDeliveryRuleUrlRedirectAction();
+            _resultValue.fragment = fragment;
+            _resultValue.hostname = hostname;
+            _resultValue.path = path;
+            _resultValue.protocol = protocol;
+            _resultValue.queryString = queryString;
+            _resultValue.redirectType = redirectType;
+            return _resultValue;
         }
     }
 }

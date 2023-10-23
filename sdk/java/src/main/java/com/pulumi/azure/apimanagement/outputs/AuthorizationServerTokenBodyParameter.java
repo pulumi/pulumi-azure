@@ -65,10 +65,10 @@ public final class AuthorizationServerTokenBodyParameter {
             return this;
         }
         public AuthorizationServerTokenBodyParameter build() {
-            final var o = new AuthorizationServerTokenBodyParameter();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new AuthorizationServerTokenBodyParameter();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

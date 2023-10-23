@@ -109,14 +109,14 @@ public final class GetConsumeGroupResult {
             return this;
         }
         public GetConsumeGroupResult build() {
-            final var o = new GetConsumeGroupResult();
-            o.eventhubName = eventhubName;
-            o.id = id;
-            o.name = name;
-            o.namespaceName = namespaceName;
-            o.resourceGroupName = resourceGroupName;
-            o.userMetadata = userMetadata;
-            return o;
+            final var _resultValue = new GetConsumeGroupResult();
+            _resultValue.eventhubName = eventhubName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.namespaceName = namespaceName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.userMetadata = userMetadata;
+            return _resultValue;
         }
     }
 }

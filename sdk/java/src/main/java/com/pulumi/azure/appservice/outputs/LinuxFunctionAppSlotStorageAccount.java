@@ -143,14 +143,14 @@ public final class LinuxFunctionAppSlotStorageAccount {
             return this;
         }
         public LinuxFunctionAppSlotStorageAccount build() {
-            final var o = new LinuxFunctionAppSlotStorageAccount();
-            o.accessKey = accessKey;
-            o.accountName = accountName;
-            o.mountPath = mountPath;
-            o.name = name;
-            o.shareName = shareName;
-            o.type = type;
-            return o;
+            final var _resultValue = new LinuxFunctionAppSlotStorageAccount();
+            _resultValue.accessKey = accessKey;
+            _resultValue.accountName = accountName;
+            _resultValue.mountPath = mountPath;
+            _resultValue.name = name;
+            _resultValue.shareName = shareName;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

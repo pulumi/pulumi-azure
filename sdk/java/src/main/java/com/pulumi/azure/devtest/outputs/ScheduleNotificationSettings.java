@@ -87,11 +87,11 @@ public final class ScheduleNotificationSettings {
             return this;
         }
         public ScheduleNotificationSettings build() {
-            final var o = new ScheduleNotificationSettings();
-            o.status = status;
-            o.timeInMinutes = timeInMinutes;
-            o.webhookUrl = webhookUrl;
-            return o;
+            final var _resultValue = new ScheduleNotificationSettings();
+            _resultValue.status = status;
+            _resultValue.timeInMinutes = timeInMinutes;
+            _resultValue.webhookUrl = webhookUrl;
+            return _resultValue;
         }
     }
 }

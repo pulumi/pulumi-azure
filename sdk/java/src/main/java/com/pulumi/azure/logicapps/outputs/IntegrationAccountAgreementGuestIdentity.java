@@ -65,10 +65,10 @@ public final class IntegrationAccountAgreementGuestIdentity {
             return this;
         }
         public IntegrationAccountAgreementGuestIdentity build() {
-            final var o = new IntegrationAccountAgreementGuestIdentity();
-            o.qualifier = qualifier;
-            o.value = value;
-            return o;
+            final var _resultValue = new IntegrationAccountAgreementGuestIdentity();
+            _resultValue.qualifier = qualifier;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

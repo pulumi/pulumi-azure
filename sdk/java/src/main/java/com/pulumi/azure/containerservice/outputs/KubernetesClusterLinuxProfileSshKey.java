@@ -46,9 +46,9 @@ public final class KubernetesClusterLinuxProfileSshKey {
             return this;
         }
         public KubernetesClusterLinuxProfileSshKey build() {
-            final var o = new KubernetesClusterLinuxProfileSshKey();
-            o.keyData = keyData;
-            return o;
+            final var _resultValue = new KubernetesClusterLinuxProfileSshKey();
+            _resultValue.keyData = keyData;
+            return _resultValue;
         }
     }
 }

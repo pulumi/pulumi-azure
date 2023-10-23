@@ -71,7 +71,11 @@ class ConfigurationFeatureTargetingFilter(dict):
              default_rollout_percentage: int,
              groups: Optional[Sequence['outputs.ConfigurationFeatureTargetingFilterGroup']] = None,
              users: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultRolloutPercentage' in kwargs:
+            default_rollout_percentage = kwargs['defaultRolloutPercentage']
+
         _setter("default_rollout_percentage", default_rollout_percentage)
         if groups is not None:
             _setter("groups", groups)
@@ -139,7 +143,11 @@ class ConfigurationFeatureTargetingFilterGroup(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              rollout_percentage: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rolloutPercentage' in kwargs:
+            rollout_percentage = kwargs['rolloutPercentage']
+
         _setter("name", name)
         _setter("rollout_percentage", rollout_percentage)
 
@@ -179,7 +187,9 @@ class ConfigurationFeatureTimewindowFilter(dict):
              _setter: Callable[[Any, Any], None],
              end: Optional[str] = None,
              start: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if end is not None:
             _setter("end", end)
         if start is not None:
@@ -240,7 +250,13 @@ class ConfigurationStoreEncryption(dict):
              _setter: Callable[[Any, Any], None],
              identity_client_id: Optional[str] = None,
              key_vault_key_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityClientId' in kwargs:
+            identity_client_id = kwargs['identityClientId']
+        if 'keyVaultKeyIdentifier' in kwargs:
+            key_vault_key_identifier = kwargs['keyVaultKeyIdentifier']
+
         if identity_client_id is not None:
             _setter("identity_client_id", identity_client_id)
         if key_vault_key_identifier is not None:
@@ -313,7 +329,15 @@ class ConfigurationStoreIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -397,7 +421,11 @@ class ConfigurationStorePrimaryReadKey(dict):
              connection_string: Optional[str] = None,
              id: Optional[str] = None,
              secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         if connection_string is not None:
             _setter("connection_string", connection_string)
         if id is not None:
@@ -470,7 +498,11 @@ class ConfigurationStorePrimaryWriteKey(dict):
              connection_string: Optional[str] = None,
              id: Optional[str] = None,
              secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         if connection_string is not None:
             _setter("connection_string", connection_string)
         if id is not None:
@@ -530,7 +562,9 @@ class ConfigurationStoreReplica(dict):
              name: str,
              endpoint: Optional[str] = None,
              id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("location", location)
         _setter("name", name)
         if endpoint is not None:
@@ -611,7 +645,11 @@ class ConfigurationStoreSecondaryReadKey(dict):
              connection_string: Optional[str] = None,
              id: Optional[str] = None,
              secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         if connection_string is not None:
             _setter("connection_string", connection_string)
         if id is not None:
@@ -684,7 +722,11 @@ class ConfigurationStoreSecondaryWriteKey(dict):
              connection_string: Optional[str] = None,
              id: Optional[str] = None,
              secret: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         if connection_string is not None:
             _setter("connection_string", connection_string)
         if id is not None:
@@ -764,7 +806,13 @@ class GetConfigurationKeysItemResult(dict):
              type: str,
              value: str,
              vault_key_reference: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'vaultKeyReference' in kwargs:
+            vault_key_reference = kwargs['vaultKeyReference']
+
         _setter("content_type", content_type)
         _setter("etag", etag)
         _setter("key", key)
@@ -863,7 +911,13 @@ class GetConfigurationStoreEncryptionResult(dict):
              _setter: Callable[[Any, Any], None],
              identity_client_id: str,
              key_vault_key_identifier: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityClientId' in kwargs:
+            identity_client_id = kwargs['identityClientId']
+        if 'keyVaultKeyIdentifier' in kwargs:
+            key_vault_key_identifier = kwargs['keyVaultKeyIdentifier']
+
         _setter("identity_client_id", identity_client_id)
         _setter("key_vault_key_identifier", key_vault_key_identifier)
 
@@ -899,7 +953,15 @@ class GetConfigurationStoreIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -949,7 +1011,11 @@ class GetConfigurationStorePrimaryReadKeyResult(dict):
              connection_string: str,
              id: str,
              secret: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         _setter("connection_string", connection_string)
         _setter("id", id)
         _setter("secret", secret)
@@ -1002,7 +1068,11 @@ class GetConfigurationStorePrimaryWriteKeyResult(dict):
              connection_string: str,
              id: str,
              secret: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         _setter("connection_string", connection_string)
         _setter("id", id)
         _setter("secret", secret)
@@ -1059,7 +1129,9 @@ class GetConfigurationStoreReplicaResult(dict):
              id: str,
              location: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("endpoint", endpoint)
         _setter("id", id)
         _setter("location", location)
@@ -1121,7 +1193,11 @@ class GetConfigurationStoreSecondaryReadKeyResult(dict):
              connection_string: str,
              id: str,
              secret: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         _setter("connection_string", connection_string)
         _setter("id", id)
         _setter("secret", secret)
@@ -1174,7 +1250,11 @@ class GetConfigurationStoreSecondaryWriteKeyResult(dict):
              connection_string: str,
              id: str,
              secret: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+
         _setter("connection_string", connection_string)
         _setter("id", id)
         _setter("secret", secret)

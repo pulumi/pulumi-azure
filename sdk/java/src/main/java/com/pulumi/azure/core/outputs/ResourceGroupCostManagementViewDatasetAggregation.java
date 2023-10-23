@@ -65,10 +65,10 @@ public final class ResourceGroupCostManagementViewDatasetAggregation {
             return this;
         }
         public ResourceGroupCostManagementViewDatasetAggregation build() {
-            final var o = new ResourceGroupCostManagementViewDatasetAggregation();
-            o.columnName = columnName;
-            o.name = name;
-            return o;
+            final var _resultValue = new ResourceGroupCostManagementViewDatasetAggregation();
+            _resultValue.columnName = columnName;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

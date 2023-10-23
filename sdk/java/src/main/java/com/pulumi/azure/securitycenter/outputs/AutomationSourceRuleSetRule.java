@@ -107,12 +107,12 @@ public final class AutomationSourceRuleSetRule {
             return this;
         }
         public AutomationSourceRuleSetRule build() {
-            final var o = new AutomationSourceRuleSetRule();
-            o.expectedValue = expectedValue;
-            o.operator = operator;
-            o.propertyPath = propertyPath;
-            o.propertyType = propertyType;
-            return o;
+            final var _resultValue = new AutomationSourceRuleSetRule();
+            _resultValue.expectedValue = expectedValue;
+            _resultValue.operator = operator;
+            _resultValue.propertyPath = propertyPath;
+            _resultValue.propertyType = propertyType;
+            return _resultValue;
         }
     }
 }

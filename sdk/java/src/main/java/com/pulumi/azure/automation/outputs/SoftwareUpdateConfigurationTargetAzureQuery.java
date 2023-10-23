@@ -116,12 +116,12 @@ public final class SoftwareUpdateConfigurationTargetAzureQuery {
             return tags(List.of(tags));
         }
         public SoftwareUpdateConfigurationTargetAzureQuery build() {
-            final var o = new SoftwareUpdateConfigurationTargetAzureQuery();
-            o.locations = locations;
-            o.scopes = scopes;
-            o.tagFilter = tagFilter;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new SoftwareUpdateConfigurationTargetAzureQuery();
+            _resultValue.locations = locations;
+            _resultValue.scopes = scopes;
+            _resultValue.tagFilter = tagFilter;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

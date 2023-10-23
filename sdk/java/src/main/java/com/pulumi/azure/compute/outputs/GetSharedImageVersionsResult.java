@@ -116,14 +116,14 @@ public final class GetSharedImageVersionsResult {
             return this;
         }
         public GetSharedImageVersionsResult build() {
-            final var o = new GetSharedImageVersionsResult();
-            o.galleryName = galleryName;
-            o.id = id;
-            o.imageName = imageName;
-            o.images = images;
-            o.resourceGroupName = resourceGroupName;
-            o.tagsFilter = tagsFilter;
-            return o;
+            final var _resultValue = new GetSharedImageVersionsResult();
+            _resultValue.galleryName = galleryName;
+            _resultValue.id = id;
+            _resultValue.imageName = imageName;
+            _resultValue.images = images;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tagsFilter = tagsFilter;
+            return _resultValue;
         }
     }
 }

@@ -178,21 +178,21 @@ public final class GetLocalRulestackResult {
             return this;
         }
         public GetLocalRulestackResult build() {
-            final var o = new GetLocalRulestackResult();
-            o.antiSpywareProfile = antiSpywareProfile;
-            o.antiVirusProfile = antiVirusProfile;
-            o.description = description;
-            o.dnsSubscription = dnsSubscription;
-            o.fileBlockingProfile = fileBlockingProfile;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.outboundTrustCertificate = outboundTrustCertificate;
-            o.outboundUntrustCertificate = outboundUntrustCertificate;
-            o.resourceGroupName = resourceGroupName;
-            o.urlFilteringProfile = urlFilteringProfile;
-            o.vulnerabilityProfile = vulnerabilityProfile;
-            return o;
+            final var _resultValue = new GetLocalRulestackResult();
+            _resultValue.antiSpywareProfile = antiSpywareProfile;
+            _resultValue.antiVirusProfile = antiVirusProfile;
+            _resultValue.description = description;
+            _resultValue.dnsSubscription = dnsSubscription;
+            _resultValue.fileBlockingProfile = fileBlockingProfile;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.outboundTrustCertificate = outboundTrustCertificate;
+            _resultValue.outboundUntrustCertificate = outboundUntrustCertificate;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.urlFilteringProfile = urlFilteringProfile;
+            _resultValue.vulnerabilityProfile = vulnerabilityProfile;
+            return _resultValue;
         }
     }
 }

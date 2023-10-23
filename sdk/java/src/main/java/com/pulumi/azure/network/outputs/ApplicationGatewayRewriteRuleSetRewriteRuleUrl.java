@@ -15,7 +15,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
     /**
      * @return The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
      * 
-     * &gt; **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
+     * &gt; **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
      * 
      */
     private @Nullable String components;
@@ -30,7 +30,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
      */
     private @Nullable String queryString;
     /**
-     * @return Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+     * @return Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
      * 
      */
     private @Nullable Boolean reroute;
@@ -39,7 +39,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
     /**
      * @return The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
      * 
-     * &gt; **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
+     * &gt; **Note:** One or both of `path` and `query_string` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `query_string`, use `components`.
      * 
      */
     public Optional<String> components() {
@@ -60,7 +60,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
         return Optional.ofNullable(this.queryString);
     }
     /**
-     * @return Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+     * @return Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
      * 
      */
     public Optional<Boolean> reroute() {
@@ -110,12 +110,12 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
             return this;
         }
         public ApplicationGatewayRewriteRuleSetRewriteRuleUrl build() {
-            final var o = new ApplicationGatewayRewriteRuleSetRewriteRuleUrl();
-            o.components = components;
-            o.path = path;
-            o.queryString = queryString;
-            o.reroute = reroute;
-            return o;
+            final var _resultValue = new ApplicationGatewayRewriteRuleSetRewriteRuleUrl();
+            _resultValue.components = components;
+            _resultValue.path = path;
+            _resultValue.queryString = queryString;
+            _resultValue.reroute = reroute;
+            return _resultValue;
         }
     }
 }

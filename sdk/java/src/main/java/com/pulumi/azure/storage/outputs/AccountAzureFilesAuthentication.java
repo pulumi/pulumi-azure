@@ -68,10 +68,10 @@ public final class AccountAzureFilesAuthentication {
             return this;
         }
         public AccountAzureFilesAuthentication build() {
-            final var o = new AccountAzureFilesAuthentication();
-            o.activeDirectory = activeDirectory;
-            o.directoryType = directoryType;
-            return o;
+            final var _resultValue = new AccountAzureFilesAuthentication();
+            _resultValue.activeDirectory = activeDirectory;
+            _resultValue.directoryType = directoryType;
+            return _resultValue;
         }
     }
 }

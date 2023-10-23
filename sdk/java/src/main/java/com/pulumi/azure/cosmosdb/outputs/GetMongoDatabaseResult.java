@@ -99,13 +99,13 @@ public final class GetMongoDatabaseResult {
             return this;
         }
         public GetMongoDatabaseResult build() {
-            final var o = new GetMongoDatabaseResult();
-            o.accountName = accountName;
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetMongoDatabaseResult();
+            _resultValue.accountName = accountName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

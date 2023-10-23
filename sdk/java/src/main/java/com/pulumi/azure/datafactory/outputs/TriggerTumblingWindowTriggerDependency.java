@@ -86,11 +86,11 @@ public final class TriggerTumblingWindowTriggerDependency {
             return this;
         }
         public TriggerTumblingWindowTriggerDependency build() {
-            final var o = new TriggerTumblingWindowTriggerDependency();
-            o.offset = offset;
-            o.size = size;
-            o.triggerName = triggerName;
-            return o;
+            final var _resultValue = new TriggerTumblingWindowTriggerDependency();
+            _resultValue.offset = offset;
+            _resultValue.size = size;
+            _resultValue.triggerName = triggerName;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class HadoopClusterRolesWorkerNodeAutoscale {
             return this;
         }
         public HadoopClusterRolesWorkerNodeAutoscale build() {
-            final var o = new HadoopClusterRolesWorkerNodeAutoscale();
-            o.capacity = capacity;
-            o.recurrence = recurrence;
-            return o;
+            final var _resultValue = new HadoopClusterRolesWorkerNodeAutoscale();
+            _resultValue.capacity = capacity;
+            _resultValue.recurrence = recurrence;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class BackendAddressPoolAddressInboundNatRulePortMapping {
             return this;
         }
         public BackendAddressPoolAddressInboundNatRulePortMapping build() {
-            final var o = new BackendAddressPoolAddressInboundNatRulePortMapping();
-            o.backendPort = backendPort;
-            o.frontendPort = frontendPort;
-            o.inboundNatRuleName = inboundNatRuleName;
-            return o;
+            final var _resultValue = new BackendAddressPoolAddressInboundNatRulePortMapping();
+            _resultValue.backendPort = backendPort;
+            _resultValue.frontendPort = frontendPort;
+            _resultValue.inboundNatRuleName = inboundNatRuleName;
+            return _resultValue;
         }
     }
 }

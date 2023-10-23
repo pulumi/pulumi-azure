@@ -45,7 +45,13 @@ class DeploymentArgs:
              scale: pulumi.Input['DeploymentScaleArgs'],
              name: Optional[pulumi.Input[str]] = None,
              rai_policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cognitiveAccountId' in kwargs:
+            cognitive_account_id = kwargs['cognitiveAccountId']
+        if 'raiPolicyName' in kwargs:
+            rai_policy_name = kwargs['raiPolicyName']
+
         _setter("cognitive_account_id", cognitive_account_id)
         _setter("model", model)
         _setter("scale", scale)
@@ -147,7 +153,13 @@ class _DeploymentState:
              name: Optional[pulumi.Input[str]] = None,
              rai_policy_name: Optional[pulumi.Input[str]] = None,
              scale: Optional[pulumi.Input['DeploymentScaleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cognitiveAccountId' in kwargs:
+            cognitive_account_id = kwargs['cognitiveAccountId']
+        if 'raiPolicyName' in kwargs:
+            rai_policy_name = kwargs['raiPolicyName']
+
         if cognitive_account_id is not None:
             _setter("cognitive_account_id", cognitive_account_id)
         if model is not None:

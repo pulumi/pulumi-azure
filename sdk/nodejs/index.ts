@@ -59,6 +59,7 @@ import * as datafactory from "./datafactory";
 import * as dataprotection from "./dataprotection";
 import * as datashare from "./datashare";
 import * as desktopvirtualization from "./desktopvirtualization";
+import * as devcenter from "./devcenter";
 import * as devtest from "./devtest";
 import * as digitaltwins from "./digitaltwins";
 import * as dns from "./dns";
@@ -189,6 +190,7 @@ export {
     dataprotection,
     datashare,
     desktopvirtualization,
+    devcenter,
     devtest,
     digitaltwins,
     dns,

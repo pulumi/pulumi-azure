@@ -107,12 +107,12 @@ public final class GetWindowsFunctionAppAuthSettingGoogle {
             return oauthScopes(List.of(oauthScopes));
         }
         public GetWindowsFunctionAppAuthSettingGoogle build() {
-            final var o = new GetWindowsFunctionAppAuthSettingGoogle();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.clientSecretSettingName = clientSecretSettingName;
-            o.oauthScopes = oauthScopes;
-            return o;
+            final var _resultValue = new GetWindowsFunctionAppAuthSettingGoogle();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            _resultValue.oauthScopes = oauthScopes;
+            return _resultValue;
         }
     }
 }

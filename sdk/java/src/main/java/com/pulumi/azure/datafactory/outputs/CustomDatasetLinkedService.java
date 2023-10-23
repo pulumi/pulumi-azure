@@ -67,10 +67,10 @@ public final class CustomDatasetLinkedService {
             return this;
         }
         public CustomDatasetLinkedService build() {
-            final var o = new CustomDatasetLinkedService();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new CustomDatasetLinkedService();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

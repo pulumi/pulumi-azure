@@ -106,12 +106,12 @@ public final class ServerAzureadAdministrator {
             return this;
         }
         public ServerAzureadAdministrator build() {
-            final var o = new ServerAzureadAdministrator();
-            o.azureadAuthenticationOnly = azureadAuthenticationOnly;
-            o.loginUsername = loginUsername;
-            o.objectId = objectId;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new ServerAzureadAdministrator();
+            _resultValue.azureadAuthenticationOnly = azureadAuthenticationOnly;
+            _resultValue.loginUsername = loginUsername;
+            _resultValue.objectId = objectId;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

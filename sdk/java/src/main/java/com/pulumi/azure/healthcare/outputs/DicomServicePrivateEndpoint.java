@@ -67,10 +67,10 @@ public final class DicomServicePrivateEndpoint {
             return this;
         }
         public DicomServicePrivateEndpoint build() {
-            final var o = new DicomServicePrivateEndpoint();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new DicomServicePrivateEndpoint();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -69,11 +69,11 @@ public final class GetSnapshotEncryptionSetting {
             return keyEncryptionKeys(List.of(keyEncryptionKeys));
         }
         public GetSnapshotEncryptionSetting build() {
-            final var o = new GetSnapshotEncryptionSetting();
-            o.diskEncryptionKeys = diskEncryptionKeys;
-            o.enabled = enabled;
-            o.keyEncryptionKeys = keyEncryptionKeys;
-            return o;
+            final var _resultValue = new GetSnapshotEncryptionSetting();
+            _resultValue.diskEncryptionKeys = diskEncryptionKeys;
+            _resultValue.enabled = enabled;
+            _resultValue.keyEncryptionKeys = keyEncryptionKeys;
+            return _resultValue;
         }
     }
 }

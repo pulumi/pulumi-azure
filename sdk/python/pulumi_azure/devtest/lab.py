@@ -45,7 +45,13 @@ class LabArgs:
              name: Optional[pulumi.Input[str]] = None,
              storage_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+
         _setter("resource_group_name", resource_group_name)
         if location is not None:
             _setter("location", location)
@@ -183,7 +189,25 @@ class _LabState:
              storage_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              unique_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'artifactsStorageAccountId' in kwargs:
+            artifacts_storage_account_id = kwargs['artifactsStorageAccountId']
+        if 'defaultPremiumStorageAccountId' in kwargs:
+            default_premium_storage_account_id = kwargs['defaultPremiumStorageAccountId']
+        if 'defaultStorageAccountId' in kwargs:
+            default_storage_account_id = kwargs['defaultStorageAccountId']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'premiumDataDiskStorageAccountId' in kwargs:
+            premium_data_disk_storage_account_id = kwargs['premiumDataDiskStorageAccountId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if 'uniqueIdentifier' in kwargs:
+            unique_identifier = kwargs['uniqueIdentifier']
+
         if artifacts_storage_account_id is not None:
             _setter("artifacts_storage_account_id", artifacts_storage_account_id)
         if default_premium_storage_account_id is not None:

@@ -103,12 +103,12 @@ public final class LinuxVirtualMachineSourceImageReference {
             return this;
         }
         public LinuxVirtualMachineSourceImageReference build() {
-            final var o = new LinuxVirtualMachineSourceImageReference();
-            o.offer = offer;
-            o.publisher = publisher;
-            o.sku = sku;
-            o.version = version;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineSourceImageReference();
+            _resultValue.offer = offer;
+            _resultValue.publisher = publisher;
+            _resultValue.sku = sku;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

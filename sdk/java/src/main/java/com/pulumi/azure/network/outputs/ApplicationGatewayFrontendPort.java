@@ -87,11 +87,11 @@ public final class ApplicationGatewayFrontendPort {
             return this;
         }
         public ApplicationGatewayFrontendPort build() {
-            final var o = new ApplicationGatewayFrontendPort();
-            o.id = id;
-            o.name = name;
-            o.port = port;
-            return o;
+            final var _resultValue = new ApplicationGatewayFrontendPort();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

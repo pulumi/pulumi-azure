@@ -90,11 +90,11 @@ public final class AppTemplateHttpScaleRule {
             return this;
         }
         public AppTemplateHttpScaleRule build() {
-            final var o = new AppTemplateHttpScaleRule();
-            o.authentications = authentications;
-            o.concurrentRequests = concurrentRequests;
-            o.name = name;
-            return o;
+            final var _resultValue = new AppTemplateHttpScaleRule();
+            _resultValue.authentications = authentications;
+            _resultValue.concurrentRequests = concurrentRequests;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

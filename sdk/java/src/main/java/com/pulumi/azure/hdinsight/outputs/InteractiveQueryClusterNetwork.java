@@ -72,10 +72,10 @@ public final class InteractiveQueryClusterNetwork {
             return this;
         }
         public InteractiveQueryClusterNetwork build() {
-            final var o = new InteractiveQueryClusterNetwork();
-            o.connectionDirection = connectionDirection;
-            o.privateLinkEnabled = privateLinkEnabled;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterNetwork();
+            _resultValue.connectionDirection = connectionDirection;
+            _resultValue.privateLinkEnabled = privateLinkEnabled;
+            return _resultValue;
         }
     }
 }

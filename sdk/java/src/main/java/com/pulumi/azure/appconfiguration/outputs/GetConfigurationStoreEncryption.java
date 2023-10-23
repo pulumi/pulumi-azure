@@ -49,10 +49,10 @@ public final class GetConfigurationStoreEncryption {
             return this;
         }
         public GetConfigurationStoreEncryption build() {
-            final var o = new GetConfigurationStoreEncryption();
-            o.identityClientId = identityClientId;
-            o.keyVaultKeyIdentifier = keyVaultKeyIdentifier;
-            return o;
+            final var _resultValue = new GetConfigurationStoreEncryption();
+            _resultValue.identityClientId = identityClientId;
+            _resultValue.keyVaultKeyIdentifier = keyVaultKeyIdentifier;
+            return _resultValue;
         }
     }
 }

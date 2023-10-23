@@ -75,12 +75,12 @@ public final class GetDicomServiceIdentity {
             return this;
         }
         public GetDicomServiceIdentity build() {
-            final var o = new GetDicomServiceIdentity();
-            o.identityIds = identityIds;
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetDicomServiceIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

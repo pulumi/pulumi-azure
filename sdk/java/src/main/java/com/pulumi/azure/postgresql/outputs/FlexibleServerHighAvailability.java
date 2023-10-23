@@ -59,10 +59,10 @@ public final class FlexibleServerHighAvailability {
             return this;
         }
         public FlexibleServerHighAvailability build() {
-            final var o = new FlexibleServerHighAvailability();
-            o.mode = mode;
-            o.standbyAvailabilityZone = standbyAvailabilityZone;
-            return o;
+            final var _resultValue = new FlexibleServerHighAvailability();
+            _resultValue.mode = mode;
+            _resultValue.standbyAvailabilityZone = standbyAvailabilityZone;
+            return _resultValue;
         }
     }
 }

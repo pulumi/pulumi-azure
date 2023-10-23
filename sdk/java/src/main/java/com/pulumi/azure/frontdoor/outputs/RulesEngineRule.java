@@ -112,12 +112,12 @@ public final class RulesEngineRule {
             return this;
         }
         public RulesEngineRule build() {
-            final var o = new RulesEngineRule();
-            o.action = action;
-            o.matchConditions = matchConditions;
-            o.name = name;
-            o.priority = priority;
-            return o;
+            final var _resultValue = new RulesEngineRule();
+            _resultValue.action = action;
+            _resultValue.matchConditions = matchConditions;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            return _resultValue;
         }
     }
 }

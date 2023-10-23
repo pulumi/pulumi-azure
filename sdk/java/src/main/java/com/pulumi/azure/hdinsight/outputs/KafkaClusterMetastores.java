@@ -88,11 +88,11 @@ public final class KafkaClusterMetastores {
             return this;
         }
         public KafkaClusterMetastores build() {
-            final var o = new KafkaClusterMetastores();
-            o.ambari = ambari;
-            o.hive = hive;
-            o.oozie = oozie;
-            return o;
+            final var _resultValue = new KafkaClusterMetastores();
+            _resultValue.ambari = ambari;
+            _resultValue.hive = hive;
+            _resultValue.oozie = oozie;
+            return _resultValue;
         }
     }
 }

@@ -97,11 +97,11 @@ public final class ReplicationRecoveryPlanBootRecoveryGroup {
             return replicatedProtectedItems(List.of(replicatedProtectedItems));
         }
         public ReplicationRecoveryPlanBootRecoveryGroup build() {
-            final var o = new ReplicationRecoveryPlanBootRecoveryGroup();
-            o.postActions = postActions;
-            o.preActions = preActions;
-            o.replicatedProtectedItems = replicatedProtectedItems;
-            return o;
+            final var _resultValue = new ReplicationRecoveryPlanBootRecoveryGroup();
+            _resultValue.postActions = postActions;
+            _resultValue.preActions = preActions;
+            _resultValue.replicatedProtectedItems = replicatedProtectedItems;
+            return _resultValue;
         }
     }
 }

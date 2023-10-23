@@ -43,7 +43,17 @@ class BgpConnectionArgs:
              virtual_hub_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              virtual_network_connection_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+        if 'peerIp' in kwargs:
+            peer_ip = kwargs['peerIp']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if 'virtualNetworkConnectionId' in kwargs:
+            virtual_network_connection_id = kwargs['virtualNetworkConnectionId']
+
         _setter("peer_asn", peer_asn)
         _setter("peer_ip", peer_ip)
         _setter("virtual_hub_id", virtual_hub_id)
@@ -145,7 +155,17 @@ class _BgpConnectionState:
              peer_ip: Optional[pulumi.Input[str]] = None,
              virtual_hub_id: Optional[pulumi.Input[str]] = None,
              virtual_network_connection_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+        if 'peerIp' in kwargs:
+            peer_ip = kwargs['peerIp']
+        if 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if 'virtualNetworkConnectionId' in kwargs:
+            virtual_network_connection_id = kwargs['virtualNetworkConnectionId']
+
         if name is not None:
             _setter("name", name)
         if peer_asn is not None:

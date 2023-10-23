@@ -67,10 +67,10 @@ public final class EventSubscriptionDeliveryIdentity {
             return this;
         }
         public EventSubscriptionDeliveryIdentity build() {
-            final var o = new EventSubscriptionDeliveryIdentity();
-            o.type = type;
-            o.userAssignedIdentity = userAssignedIdentity;
-            return o;
+            final var _resultValue = new EventSubscriptionDeliveryIdentity();
+            _resultValue.type = type;
+            _resultValue.userAssignedIdentity = userAssignedIdentity;
+            return _resultValue;
         }
     }
 }

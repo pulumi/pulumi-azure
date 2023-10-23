@@ -105,12 +105,12 @@ public final class CacheNfsTargetNamespaceJunction {
             return this;
         }
         public CacheNfsTargetNamespaceJunction build() {
-            final var o = new CacheNfsTargetNamespaceJunction();
-            o.accessPolicyName = accessPolicyName;
-            o.namespacePath = namespacePath;
-            o.nfsExport = nfsExport;
-            o.targetPath = targetPath;
-            return o;
+            final var _resultValue = new CacheNfsTargetNamespaceJunction();
+            _resultValue.accessPolicyName = accessPolicyName;
+            _resultValue.namespacePath = namespacePath;
+            _resultValue.nfsExport = nfsExport;
+            _resultValue.targetPath = targetPath;
+            return _resultValue;
         }
     }
 }

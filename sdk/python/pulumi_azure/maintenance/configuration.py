@@ -67,7 +67,15 @@ class ConfigurationArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              visibility: Optional[pulumi.Input[str]] = None,
              window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'inGuestUserPatchMode' in kwargs:
+            in_guest_user_patch_mode = kwargs['inGuestUserPatchMode']
+        if 'installPatches' in kwargs:
+            install_patches = kwargs['installPatches']
+
         _setter("resource_group_name", resource_group_name)
         _setter("scope", scope)
         if in_guest_user_patch_mode is not None:
@@ -264,7 +272,15 @@ class _ConfigurationState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              visibility: Optional[pulumi.Input[str]] = None,
              window: Optional[pulumi.Input['ConfigurationWindowArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'inGuestUserPatchMode' in kwargs:
+            in_guest_user_patch_mode = kwargs['inGuestUserPatchMode']
+        if 'installPatches' in kwargs:
+            install_patches = kwargs['installPatches']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if in_guest_user_patch_mode is not None:
             _setter("in_guest_user_patch_mode", in_guest_user_patch_mode)
         if install_patches is not None:

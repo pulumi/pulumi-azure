@@ -65,10 +65,10 @@ public final class WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKe
             return this;
         }
         public WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault build() {
-            final var o = new WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault();
-            o.secretUrl = secretUrl;
-            o.sourceVaultId = sourceVaultId;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault();
+            _resultValue.secretUrl = secretUrl;
+            _resultValue.sourceVaultId = sourceVaultId;
+            return _resultValue;
         }
     }
 }

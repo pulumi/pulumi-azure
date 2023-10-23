@@ -87,11 +87,11 @@ public final class ApiImport {
             return this;
         }
         public ApiImport build() {
-            final var o = new ApiImport();
-            o.contentFormat = contentFormat;
-            o.contentValue = contentValue;
-            o.wsdlSelector = wsdlSelector;
-            return o;
+            final var _resultValue = new ApiImport();
+            _resultValue.contentFormat = contentFormat;
+            _resultValue.contentValue = contentValue;
+            _resultValue.wsdlSelector = wsdlSelector;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class VirtualNetworkSubnet {
             return this;
         }
         public VirtualNetworkSubnet build() {
-            final var o = new VirtualNetworkSubnet();
-            o.name = name;
-            o.useInVirtualMachineCreation = useInVirtualMachineCreation;
-            o.usePublicIpAddress = usePublicIpAddress;
-            return o;
+            final var _resultValue = new VirtualNetworkSubnet();
+            _resultValue.name = name;
+            _resultValue.useInVirtualMachineCreation = useInVirtualMachineCreation;
+            _resultValue.usePublicIpAddress = usePublicIpAddress;
+            return _resultValue;
         }
     }
 }

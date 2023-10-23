@@ -49,7 +49,13 @@ class ServerArgs:
              name: Optional[pulumi.Input[str]] = None,
              storage_sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageSku' in kwargs:
+            storage_sku = kwargs['storageSku']
+
         _setter("resource_group_name", resource_group_name)
         if identity is not None:
             _setter("identity", identity)
@@ -195,7 +201,25 @@ class _ServerState:
              storage_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              storage_sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frsTenantId' in kwargs:
+            frs_tenant_id = kwargs['frsTenantId']
+        if 'ordererEndpoints' in kwargs:
+            orderer_endpoints = kwargs['ordererEndpoints']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+        if 'serviceEndpoints' in kwargs:
+            service_endpoints = kwargs['serviceEndpoints']
+        if 'storageEndpoints' in kwargs:
+            storage_endpoints = kwargs['storageEndpoints']
+        if 'storageSku' in kwargs:
+            storage_sku = kwargs['storageSku']
+
         if frs_tenant_id is not None:
             _setter("frs_tenant_id", frs_tenant_id)
         if identity is not None:

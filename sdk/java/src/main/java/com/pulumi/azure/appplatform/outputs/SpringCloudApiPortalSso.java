@@ -109,12 +109,12 @@ public final class SpringCloudApiPortalSso {
             return scopes(List.of(scopes));
         }
         public SpringCloudApiPortalSso build() {
-            final var o = new SpringCloudApiPortalSso();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.issuerUri = issuerUri;
-            o.scopes = scopes;
-            return o;
+            final var _resultValue = new SpringCloudApiPortalSso();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.issuerUri = issuerUri;
+            _resultValue.scopes = scopes;
+            return _resultValue;
         }
     }
 }

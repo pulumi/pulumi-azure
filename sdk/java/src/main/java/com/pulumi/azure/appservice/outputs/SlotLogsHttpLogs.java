@@ -68,10 +68,10 @@ public final class SlotLogsHttpLogs {
             return this;
         }
         public SlotLogsHttpLogs build() {
-            final var o = new SlotLogsHttpLogs();
-            o.azureBlobStorage = azureBlobStorage;
-            o.fileSystem = fileSystem;
-            return o;
+            final var _resultValue = new SlotLogsHttpLogs();
+            _resultValue.azureBlobStorage = azureBlobStorage;
+            _resultValue.fileSystem = fileSystem;
+            return _resultValue;
         }
     }
 }

@@ -194,18 +194,18 @@ public final class GetGatewayHostNameConfigurationResult {
             return this;
         }
         public GetGatewayHostNameConfigurationResult build() {
-            final var o = new GetGatewayHostNameConfigurationResult();
-            o.apiManagementId = apiManagementId;
-            o.certificateId = certificateId;
-            o.gatewayName = gatewayName;
-            o.hostName = hostName;
-            o.http2Enabled = http2Enabled;
-            o.id = id;
-            o.name = name;
-            o.requestClientCertificateEnabled = requestClientCertificateEnabled;
-            o.tls10Enabled = tls10Enabled;
-            o.tls11Enabled = tls11Enabled;
-            return o;
+            final var _resultValue = new GetGatewayHostNameConfigurationResult();
+            _resultValue.apiManagementId = apiManagementId;
+            _resultValue.certificateId = certificateId;
+            _resultValue.gatewayName = gatewayName;
+            _resultValue.hostName = hostName;
+            _resultValue.http2Enabled = http2Enabled;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.requestClientCertificateEnabled = requestClientCertificateEnabled;
+            _resultValue.tls10Enabled = tls10Enabled;
+            _resultValue.tls11Enabled = tls11Enabled;
+            return _resultValue;
         }
     }
 }

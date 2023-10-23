@@ -78,7 +78,15 @@ class LinkServiceNatIpConfiguration(dict):
              subnet_id: str,
              private_ip_address: Optional[str] = None,
              private_ip_address_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAddressVersion' in kwargs:
+            private_ip_address_version = kwargs['privateIpAddressVersion']
+
         _setter("name", name)
         _setter("primary", primary)
         _setter("subnet_id", subnet_id)
@@ -149,7 +157,9 @@ class MxRecordRecord(dict):
              _setter: Callable[[Any, Any], None],
              exchange: str,
              preference: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("exchange", exchange)
         _setter("preference", preference)
 
@@ -206,7 +216,11 @@ class ResolverForwardingRuleTargetDnsServer(dict):
              _setter: Callable[[Any, Any], None],
              ip_address: str,
              port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         _setter("ip_address", ip_address)
         if port is not None:
             _setter("port", port)
@@ -272,7 +286,15 @@ class ResolverInboundEndpointIpConfiguration(dict):
              subnet_id: str,
              private_ip_address: Optional[str] = None,
              private_ip_allocation_method: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAllocationMethod' in kwargs:
+            private_ip_allocation_method = kwargs['privateIpAllocationMethod']
+
         _setter("subnet_id", subnet_id)
         if private_ip_address is not None:
             _setter("private_ip_address", private_ip_address)
@@ -331,7 +353,9 @@ class SRVRecordRecord(dict):
              priority: int,
              target: str,
              weight: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("port", port)
         _setter("priority", priority)
         _setter("target", target)
@@ -385,7 +409,9 @@ class TxtRecordRecord(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
 
     @property
@@ -475,7 +501,21 @@ class ZoneSoaRecord(dict):
              serial_number: Optional[int] = None,
              tags: Optional[Mapping[str, str]] = None,
              ttl: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expireTime' in kwargs:
+            expire_time = kwargs['expireTime']
+        if 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if 'minimumTtl' in kwargs:
+            minimum_ttl = kwargs['minimumTtl']
+        if 'refreshTime' in kwargs:
+            refresh_time = kwargs['refreshTime']
+        if 'retryTime' in kwargs:
+            retry_time = kwargs['retryTime']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+
         _setter("email", email)
         if expire_time is not None:
             _setter("expire_time", expire_time)
@@ -596,7 +636,9 @@ class GetMxRecordRecordResult(dict):
              _setter: Callable[[Any, Any], None],
              exchange: str,
              preference: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("exchange", exchange)
         _setter("preference", preference)
 
@@ -636,7 +678,11 @@ class GetResolverForwardingRuleTargetDnsServerResult(dict):
              _setter: Callable[[Any, Any], None],
              ip_address: str,
              port: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         _setter("ip_address", ip_address)
         _setter("port", port)
 
@@ -680,7 +726,15 @@ class GetResolverInboundEndpointIpConfigurationResult(dict):
              private_ip_address: str,
              private_ip_allocation_method: str,
              subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'privateIpAllocationMethod' in kwargs:
+            private_ip_allocation_method = kwargs['privateIpAllocationMethod']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("private_ip_address", private_ip_address)
         _setter("private_ip_allocation_method", private_ip_allocation_method)
         _setter("subnet_id", subnet_id)
@@ -737,7 +791,9 @@ class GetSrvRecordRecordResult(dict):
              priority: int,
              target: str,
              weight: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("port", port)
         _setter("priority", priority)
         _setter("target", target)
@@ -791,7 +847,9 @@ class GetTxtRecordRecordResult(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
 
     @property

@@ -65,10 +65,10 @@ public final class VpnServerConfigurationClientRevokedCertificate {
             return this;
         }
         public VpnServerConfigurationClientRevokedCertificate build() {
-            final var o = new VpnServerConfigurationClientRevokedCertificate();
-            o.name = name;
-            o.thumbprint = thumbprint;
-            return o;
+            final var _resultValue = new VpnServerConfigurationClientRevokedCertificate();
+            _resultValue.name = name;
+            _resultValue.thumbprint = thumbprint;
+            return _resultValue;
         }
     }
 }

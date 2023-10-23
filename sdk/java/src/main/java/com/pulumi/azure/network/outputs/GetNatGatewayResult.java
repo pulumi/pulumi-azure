@@ -232,19 +232,19 @@ public final class GetNatGatewayResult {
             return zones(List.of(zones));
         }
         public GetNatGatewayResult build() {
-            final var o = new GetNatGatewayResult();
-            o.id = id;
-            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
-            o.location = location;
-            o.name = name;
-            o.publicIpAddressIds = publicIpAddressIds;
-            o.publicIpPrefixIds = publicIpPrefixIds;
-            o.resourceGroupName = resourceGroupName;
-            o.resourceGuid = resourceGuid;
-            o.skuName = skuName;
-            o.tags = tags;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new GetNatGatewayResult();
+            _resultValue.id = id;
+            _resultValue.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.publicIpAddressIds = publicIpAddressIds;
+            _resultValue.publicIpPrefixIds = publicIpPrefixIds;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.resourceGuid = resourceGuid;
+            _resultValue.skuName = skuName;
+            _resultValue.tags = tags;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

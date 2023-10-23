@@ -98,13 +98,13 @@ public final class GetFabricResult {
             return this;
         }
         public GetFabricResult build() {
-            final var o = new GetFabricResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.recoveryVaultName = recoveryVaultName;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetFabricResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.recoveryVaultName = recoveryVaultName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

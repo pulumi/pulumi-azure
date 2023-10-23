@@ -96,11 +96,11 @@ public final class GetBudgetResourceGroupFilter {
             return tags(List.of(tags));
         }
         public GetBudgetResourceGroupFilter build() {
-            final var o = new GetBudgetResourceGroupFilter();
-            o.dimensions = dimensions;
-            o.nots = nots;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetBudgetResourceGroupFilter();
+            _resultValue.dimensions = dimensions;
+            _resultValue.nots = nots;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

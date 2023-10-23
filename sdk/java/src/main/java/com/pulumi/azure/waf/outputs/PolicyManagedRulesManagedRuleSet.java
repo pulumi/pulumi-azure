@@ -91,11 +91,11 @@ public final class PolicyManagedRulesManagedRuleSet {
             return this;
         }
         public PolicyManagedRulesManagedRuleSet build() {
-            final var o = new PolicyManagedRulesManagedRuleSet();
-            o.ruleGroupOverrides = ruleGroupOverrides;
-            o.type = type;
-            o.version = version;
-            return o;
+            final var _resultValue = new PolicyManagedRulesManagedRuleSet();
+            _resultValue.ruleGroupOverrides = ruleGroupOverrides;
+            _resultValue.type = type;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

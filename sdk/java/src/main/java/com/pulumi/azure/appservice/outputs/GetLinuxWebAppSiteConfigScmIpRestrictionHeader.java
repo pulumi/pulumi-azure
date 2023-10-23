@@ -84,12 +84,12 @@ public final class GetLinuxWebAppSiteConfigScmIpRestrictionHeader {
             return xForwardedHosts(List.of(xForwardedHosts));
         }
         public GetLinuxWebAppSiteConfigScmIpRestrictionHeader build() {
-            final var o = new GetLinuxWebAppSiteConfigScmIpRestrictionHeader();
-            o.xAzureFdids = xAzureFdids;
-            o.xFdHealthProbes = xFdHealthProbes;
-            o.xForwardedFors = xForwardedFors;
-            o.xForwardedHosts = xForwardedHosts;
-            return o;
+            final var _resultValue = new GetLinuxWebAppSiteConfigScmIpRestrictionHeader();
+            _resultValue.xAzureFdids = xAzureFdids;
+            _resultValue.xFdHealthProbes = xFdHealthProbes;
+            _resultValue.xForwardedFors = xForwardedFors;
+            _resultValue.xForwardedHosts = xForwardedHosts;
+            return _resultValue;
         }
     }
 }

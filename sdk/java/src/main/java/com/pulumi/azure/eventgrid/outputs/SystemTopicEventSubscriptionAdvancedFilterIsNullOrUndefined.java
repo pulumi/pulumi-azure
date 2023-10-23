@@ -46,9 +46,9 @@ public final class SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined {
             return this;
         }
         public SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined build() {
-            final var o = new SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined();
-            o.key = key;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined();
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

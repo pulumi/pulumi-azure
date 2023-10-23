@@ -69,10 +69,10 @@ public final class OrchestratedVirtualMachineScaleSetIdentity {
             return this;
         }
         public OrchestratedVirtualMachineScaleSetIdentity build() {
-            final var o = new OrchestratedVirtualMachineScaleSetIdentity();
-            o.identityIds = identityIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

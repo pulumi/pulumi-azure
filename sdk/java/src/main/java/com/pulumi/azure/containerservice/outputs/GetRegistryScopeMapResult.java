@@ -113,14 +113,14 @@ public final class GetRegistryScopeMapResult {
             return this;
         }
         public GetRegistryScopeMapResult build() {
-            final var o = new GetRegistryScopeMapResult();
-            o.actions = actions;
-            o.containerRegistryName = containerRegistryName;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetRegistryScopeMapResult();
+            _resultValue.actions = actions;
+            _resultValue.containerRegistryName = containerRegistryName;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

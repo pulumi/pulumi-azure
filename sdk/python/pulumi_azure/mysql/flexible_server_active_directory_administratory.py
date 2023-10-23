@@ -38,7 +38,17 @@ class FlexibleServerActiveDirectoryAdministratoryArgs:
              object_id: pulumi.Input[str],
              server_id: pulumi.Input[str],
              tenant_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_id", identity_id)
         _setter("login", login)
         _setter("object_id", object_id)
@@ -118,7 +128,17 @@ class _FlexibleServerActiveDirectoryAdministratoryState:
              object_id: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if identity_id is not None:
             _setter("identity_id", identity_id)
         if login is not None:

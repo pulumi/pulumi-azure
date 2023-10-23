@@ -98,14 +98,14 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+     * The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
      * 
      */
     @Import(name="recommendationCategory")
     private @Nullable Output<String> recommendationCategory;
 
     /**
-     * @return The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+     * @return The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
      * 
      */
     public Optional<Output<String>> recommendationCategory() {
@@ -543,7 +543,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recommendationCategory The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+         * @param recommendationCategory The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class ActivityLogAlertCriteriaArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param recommendationCategory The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+         * @param recommendationCategory The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
          * 
          * @return builder
          * 

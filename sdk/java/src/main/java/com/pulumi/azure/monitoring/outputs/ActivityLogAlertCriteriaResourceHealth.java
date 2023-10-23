@@ -95,11 +95,11 @@ public final class ActivityLogAlertCriteriaResourceHealth {
             return reasons(List.of(reasons));
         }
         public ActivityLogAlertCriteriaResourceHealth build() {
-            final var o = new ActivityLogAlertCriteriaResourceHealth();
-            o.currents = currents;
-            o.previouses = previouses;
-            o.reasons = reasons;
-            return o;
+            final var _resultValue = new ActivityLogAlertCriteriaResourceHealth();
+            _resultValue.currents = currents;
+            _resultValue.previouses = previouses;
+            _resultValue.reasons = reasons;
+            return _resultValue;
         }
     }
 }

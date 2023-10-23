@@ -125,13 +125,13 @@ public final class FunctionAppSourceControl {
             return this;
         }
         public FunctionAppSourceControl build() {
-            final var o = new FunctionAppSourceControl();
-            o.branch = branch;
-            o.manualIntegration = manualIntegration;
-            o.repoUrl = repoUrl;
-            o.rollbackEnabled = rollbackEnabled;
-            o.useMercurial = useMercurial;
-            return o;
+            final var _resultValue = new FunctionAppSourceControl();
+            _resultValue.branch = branch;
+            _resultValue.manualIntegration = manualIntegration;
+            _resultValue.repoUrl = repoUrl;
+            _resultValue.rollbackEnabled = rollbackEnabled;
+            _resultValue.useMercurial = useMercurial;
+            return _resultValue;
         }
     }
 }

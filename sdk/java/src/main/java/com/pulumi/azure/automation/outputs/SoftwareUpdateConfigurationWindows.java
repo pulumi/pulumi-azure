@@ -138,13 +138,13 @@ public final class SoftwareUpdateConfigurationWindows {
             return this;
         }
         public SoftwareUpdateConfigurationWindows build() {
-            final var o = new SoftwareUpdateConfigurationWindows();
-            o.classificationIncluded = classificationIncluded;
-            o.classificationsIncludeds = classificationsIncludeds;
-            o.excludedKnowledgeBaseNumbers = excludedKnowledgeBaseNumbers;
-            o.includedKnowledgeBaseNumbers = includedKnowledgeBaseNumbers;
-            o.reboot = reboot;
-            return o;
+            final var _resultValue = new SoftwareUpdateConfigurationWindows();
+            _resultValue.classificationIncluded = classificationIncluded;
+            _resultValue.classificationsIncludeds = classificationsIncludeds;
+            _resultValue.excludedKnowledgeBaseNumbers = excludedKnowledgeBaseNumbers;
+            _resultValue.includedKnowledgeBaseNumbers = includedKnowledgeBaseNumbers;
+            _resultValue.reboot = reboot;
+            return _resultValue;
         }
     }
 }

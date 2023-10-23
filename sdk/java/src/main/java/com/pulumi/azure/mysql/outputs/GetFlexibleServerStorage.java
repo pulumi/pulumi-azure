@@ -104,12 +104,12 @@ public final class GetFlexibleServerStorage {
             return this;
         }
         public GetFlexibleServerStorage build() {
-            final var o = new GetFlexibleServerStorage();
-            o.autoGrowEnabled = autoGrowEnabled;
-            o.ioScalingEnabled = ioScalingEnabled;
-            o.iops = iops;
-            o.sizeGb = sizeGb;
-            return o;
+            final var _resultValue = new GetFlexibleServerStorage();
+            _resultValue.autoGrowEnabled = autoGrowEnabled;
+            _resultValue.ioScalingEnabled = ioScalingEnabled;
+            _resultValue.iops = iops;
+            _resultValue.sizeGb = sizeGb;
+            return _resultValue;
         }
     }
 }

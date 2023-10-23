@@ -65,10 +65,10 @@ public final class GetComputeMachineOsProfileWindowsConfigurationPatchSetting {
             return this;
         }
         public GetComputeMachineOsProfileWindowsConfigurationPatchSetting build() {
-            final var o = new GetComputeMachineOsProfileWindowsConfigurationPatchSetting();
-            o.assessmentMode = assessmentMode;
-            o.patchMode = patchMode;
-            return o;
+            final var _resultValue = new GetComputeMachineOsProfileWindowsConfigurationPatchSetting();
+            _resultValue.assessmentMode = assessmentMode;
+            _resultValue.patchMode = patchMode;
+            return _resultValue;
         }
     }
 }

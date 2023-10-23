@@ -87,11 +87,11 @@ public final class SystemTopicEventSubscriptionAzureFunctionEndpoint {
             return this;
         }
         public SystemTopicEventSubscriptionAzureFunctionEndpoint build() {
-            final var o = new SystemTopicEventSubscriptionAzureFunctionEndpoint();
-            o.functionId = functionId;
-            o.maxEventsPerBatch = maxEventsPerBatch;
-            o.preferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionAzureFunctionEndpoint();
+            _resultValue.functionId = functionId;
+            _resultValue.maxEventsPerBatch = maxEventsPerBatch;
+            _resultValue.preferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
+            return _resultValue;
         }
     }
 }

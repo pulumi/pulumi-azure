@@ -186,16 +186,16 @@ public final class ReplicatedVMNetworkInterface {
             return this;
         }
         public ReplicatedVMNetworkInterface build() {
-            final var o = new ReplicatedVMNetworkInterface();
-            o.failoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
-            o.failoverTestStaticIp = failoverTestStaticIp;
-            o.failoverTestSubnetName = failoverTestSubnetName;
-            o.isPrimary = isPrimary;
-            o.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
-            o.sourceNetworkInterfaceId = sourceNetworkInterfaceId;
-            o.targetStaticIp = targetStaticIp;
-            o.targetSubnetName = targetSubnetName;
-            return o;
+            final var _resultValue = new ReplicatedVMNetworkInterface();
+            _resultValue.failoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
+            _resultValue.failoverTestStaticIp = failoverTestStaticIp;
+            _resultValue.failoverTestSubnetName = failoverTestSubnetName;
+            _resultValue.isPrimary = isPrimary;
+            _resultValue.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
+            _resultValue.sourceNetworkInterfaceId = sourceNetworkInterfaceId;
+            _resultValue.targetStaticIp = targetStaticIp;
+            _resultValue.targetSubnetName = targetSubnetName;
+            return _resultValue;
         }
     }
 }

@@ -84,11 +84,11 @@ public final class DeploymentFrontendPrivate {
             return this;
         }
         public DeploymentFrontendPrivate build() {
-            final var o = new DeploymentFrontendPrivate();
-            o.allocationMethod = allocationMethod;
-            o.ipAddress = ipAddress;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new DeploymentFrontendPrivate();
+            _resultValue.allocationMethod = allocationMethod;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

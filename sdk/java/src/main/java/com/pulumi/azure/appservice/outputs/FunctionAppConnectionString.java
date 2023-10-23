@@ -84,11 +84,11 @@ public final class FunctionAppConnectionString {
             return this;
         }
         public FunctionAppConnectionString build() {
-            final var o = new FunctionAppConnectionString();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new FunctionAppConnectionString();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

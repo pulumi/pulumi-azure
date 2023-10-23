@@ -47,7 +47,19 @@ class EnvironmentStorageArgs:
              container_app_environment_id: pulumi.Input[str],
              share_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accessMode' in kwargs:
+            access_mode = kwargs['accessMode']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'containerAppEnvironmentId' in kwargs:
+            container_app_environment_id = kwargs['containerAppEnvironmentId']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+
         _setter("access_key", access_key)
         _setter("access_mode", access_mode)
         _setter("account_name", account_name)
@@ -165,7 +177,19 @@ class _EnvironmentStorageState:
              container_app_environment_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              share_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if 'accessMode' in kwargs:
+            access_mode = kwargs['accessMode']
+        if 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if 'containerAppEnvironmentId' in kwargs:
+            container_app_environment_id = kwargs['containerAppEnvironmentId']
+        if 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+
         if access_key is not None:
             _setter("access_key", access_key)
         if access_mode is not None:

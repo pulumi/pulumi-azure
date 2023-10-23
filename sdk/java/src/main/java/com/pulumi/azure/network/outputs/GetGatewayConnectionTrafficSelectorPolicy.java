@@ -72,10 +72,10 @@ public final class GetGatewayConnectionTrafficSelectorPolicy {
             return remoteAddressCidrs(List.of(remoteAddressCidrs));
         }
         public GetGatewayConnectionTrafficSelectorPolicy build() {
-            final var o = new GetGatewayConnectionTrafficSelectorPolicy();
-            o.localAddressCidrs = localAddressCidrs;
-            o.remoteAddressCidrs = remoteAddressCidrs;
-            return o;
+            final var _resultValue = new GetGatewayConnectionTrafficSelectorPolicy();
+            _resultValue.localAddressCidrs = localAddressCidrs;
+            _resultValue.remoteAddressCidrs = remoteAddressCidrs;
+            return _resultValue;
         }
     }
 }

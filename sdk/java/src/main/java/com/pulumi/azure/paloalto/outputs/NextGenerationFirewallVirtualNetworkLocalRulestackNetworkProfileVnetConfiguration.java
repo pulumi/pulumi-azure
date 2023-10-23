@@ -97,12 +97,12 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProf
             return this;
         }
         public NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration build() {
-            final var o = new NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration();
-            o.ipOfTrustForUserDefinedRoutes = ipOfTrustForUserDefinedRoutes;
-            o.trustedSubnetId = trustedSubnetId;
-            o.untrustedSubnetId = untrustedSubnetId;
-            o.virtualNetworkId = virtualNetworkId;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration();
+            _resultValue.ipOfTrustForUserDefinedRoutes = ipOfTrustForUserDefinedRoutes;
+            _resultValue.trustedSubnetId = trustedSubnetId;
+            _resultValue.untrustedSubnetId = untrustedSubnetId;
+            _resultValue.virtualNetworkId = virtualNetworkId;
+            return _resultValue;
         }
     }
 }

@@ -68,7 +68,17 @@ class DefinitionAuthorization(dict):
              role_definition_id: str,
              delegated_role_definition_ids: Optional[Sequence[str]] = None,
              principal_display_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if 'delegatedRoleDefinitionIds' in kwargs:
+            delegated_role_definition_ids = kwargs['delegatedRoleDefinitionIds']
+        if 'principalDisplayName' in kwargs:
+            principal_display_name = kwargs['principalDisplayName']
+
         _setter("principal_id", principal_id)
         _setter("role_definition_id", role_definition_id)
         if delegated_role_definition_ids is not None:
@@ -159,7 +169,17 @@ class DefinitionEligibleAuthorization(dict):
              role_definition_id: str,
              just_in_time_access_policy: Optional['outputs.DefinitionEligibleAuthorizationJustInTimeAccessPolicy'] = None,
              principal_display_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+        if 'justInTimeAccessPolicy' in kwargs:
+            just_in_time_access_policy = kwargs['justInTimeAccessPolicy']
+        if 'principalDisplayName' in kwargs:
+            principal_display_name = kwargs['principalDisplayName']
+
         _setter("principal_id", principal_id)
         _setter("role_definition_id", role_definition_id)
         if just_in_time_access_policy is not None:
@@ -244,7 +264,13 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicy(dict):
              approvers: Optional[Sequence['outputs.DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover']] = None,
              maximum_activation_duration: Optional[str] = None,
              multi_factor_auth_provider: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maximumActivationDuration' in kwargs:
+            maximum_activation_duration = kwargs['maximumActivationDuration']
+        if 'multiFactorAuthProvider' in kwargs:
+            multi_factor_auth_provider = kwargs['multiFactorAuthProvider']
+
         if approvers is not None:
             _setter("approvers", approvers)
         if maximum_activation_duration is not None:
@@ -317,7 +343,13 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover(dict):
              _setter: Callable[[Any, Any], None],
              principal_id: str,
              principal_display_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'principalDisplayName' in kwargs:
+            principal_display_name = kwargs['principalDisplayName']
+
         _setter("principal_id", principal_id)
         if principal_display_name is not None:
             _setter("principal_display_name", principal_display_name)
@@ -366,7 +398,9 @@ class DefinitionPlan(dict):
              product: str,
              publisher: str,
              version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("product", product)
         _setter("publisher", publisher)

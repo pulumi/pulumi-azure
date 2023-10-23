@@ -141,13 +141,13 @@ public final class SqlContainerIndexingPolicy {
             return spatialIndices(List.of(spatialIndices));
         }
         public SqlContainerIndexingPolicy build() {
-            final var o = new SqlContainerIndexingPolicy();
-            o.compositeIndices = compositeIndices;
-            o.excludedPaths = excludedPaths;
-            o.includedPaths = includedPaths;
-            o.indexingMode = indexingMode;
-            o.spatialIndices = spatialIndices;
-            return o;
+            final var _resultValue = new SqlContainerIndexingPolicy();
+            _resultValue.compositeIndices = compositeIndices;
+            _resultValue.excludedPaths = excludedPaths;
+            _resultValue.includedPaths = includedPaths;
+            _resultValue.indexingMode = indexingMode;
+            _resultValue.spatialIndices = spatialIndices;
+            return _resultValue;
         }
     }
 }

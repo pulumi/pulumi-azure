@@ -18,12 +18,12 @@ public final class ApplicationGatewayRedirectConfiguration {
      */
     private @Nullable String id;
     /**
-     * @return Whether or not to include the path in the redirected Url. Defaults to `false`
+     * @return Whether to include the path in the redirected URL. Defaults to `false`
      * 
      */
     private @Nullable Boolean includePath;
     /**
-     * @return Whether or not to include the query string in the redirected Url. Default to `false`
+     * @return Whether to include the query string in the redirected URL. Default to `false`
      * 
      */
     private @Nullable Boolean includeQueryString;
@@ -44,7 +44,7 @@ public final class ApplicationGatewayRedirectConfiguration {
      */
     private @Nullable String targetListenerName;
     /**
-     * @return The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
+     * @return The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
      * 
      */
     private @Nullable String targetUrl;
@@ -58,14 +58,14 @@ public final class ApplicationGatewayRedirectConfiguration {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return Whether or not to include the path in the redirected Url. Defaults to `false`
+     * @return Whether to include the path in the redirected URL. Defaults to `false`
      * 
      */
     public Optional<Boolean> includePath() {
         return Optional.ofNullable(this.includePath);
     }
     /**
-     * @return Whether or not to include the query string in the redirected Url. Default to `false`
+     * @return Whether to include the query string in the redirected URL. Default to `false`
      * 
      */
     public Optional<Boolean> includeQueryString() {
@@ -96,7 +96,7 @@ public final class ApplicationGatewayRedirectConfiguration {
         return Optional.ofNullable(this.targetListenerName);
     }
     /**
-     * @return The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
+     * @return The URL to redirect the request to. Cannot be set if `target_listener_name` is set.
      * 
      */
     public Optional<String> targetUrl() {
@@ -174,16 +174,16 @@ public final class ApplicationGatewayRedirectConfiguration {
             return this;
         }
         public ApplicationGatewayRedirectConfiguration build() {
-            final var o = new ApplicationGatewayRedirectConfiguration();
-            o.id = id;
-            o.includePath = includePath;
-            o.includeQueryString = includeQueryString;
-            o.name = name;
-            o.redirectType = redirectType;
-            o.targetListenerId = targetListenerId;
-            o.targetListenerName = targetListenerName;
-            o.targetUrl = targetUrl;
-            return o;
+            final var _resultValue = new ApplicationGatewayRedirectConfiguration();
+            _resultValue.id = id;
+            _resultValue.includePath = includePath;
+            _resultValue.includeQueryString = includeQueryString;
+            _resultValue.name = name;
+            _resultValue.redirectType = redirectType;
+            _resultValue.targetListenerId = targetListenerId;
+            _resultValue.targetListenerName = targetListenerName;
+            _resultValue.targetUrl = targetUrl;
+            return _resultValue;
         }
     }
 }

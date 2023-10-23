@@ -86,11 +86,11 @@ public final class PostgresqlClusterMaintenanceWindow {
             return this;
         }
         public PostgresqlClusterMaintenanceWindow build() {
-            final var o = new PostgresqlClusterMaintenanceWindow();
-            o.dayOfWeek = dayOfWeek;
-            o.startHour = startHour;
-            o.startMinute = startMinute;
-            return o;
+            final var _resultValue = new PostgresqlClusterMaintenanceWindow();
+            _resultValue.dayOfWeek = dayOfWeek;
+            _resultValue.startHour = startHour;
+            _resultValue.startMinute = startMinute;
+            return _resultValue;
         }
     }
 }

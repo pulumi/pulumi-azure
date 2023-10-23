@@ -109,12 +109,12 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey {
             return this;
         }
         public ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey build() {
-            final var o = new ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey();
-            o.rsaTokenKeyExponent = rsaTokenKeyExponent;
-            o.rsaTokenKeyModulus = rsaTokenKeyModulus;
-            o.symmetricTokenKey = symmetricTokenKey;
-            o.x509TokenKeyRaw = x509TokenKeyRaw;
-            return o;
+            final var _resultValue = new ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKey();
+            _resultValue.rsaTokenKeyExponent = rsaTokenKeyExponent;
+            _resultValue.rsaTokenKeyModulus = rsaTokenKeyModulus;
+            _resultValue.symmetricTokenKey = symmetricTokenKey;
+            _resultValue.x509TokenKeyRaw = x509TokenKeyRaw;
+            return _resultValue;
         }
     }
 }

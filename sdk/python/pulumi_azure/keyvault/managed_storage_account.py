@@ -53,7 +53,19 @@ class ManagedStorageAccountArgs:
              regenerate_key_automatically: Optional[pulumi.Input[bool]] = None,
              regeneration_period: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'regenerateKeyAutomatically' in kwargs:
+            regenerate_key_automatically = kwargs['regenerateKeyAutomatically']
+        if 'regenerationPeriod' in kwargs:
+            regeneration_period = kwargs['regenerationPeriod']
+
         _setter("key_vault_id", key_vault_id)
         _setter("storage_account_id", storage_account_id)
         _setter("storage_account_key", storage_account_key)
@@ -195,7 +207,19 @@ class _ManagedStorageAccountState:
              storage_account_id: Optional[pulumi.Input[str]] = None,
              storage_account_key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'regenerateKeyAutomatically' in kwargs:
+            regenerate_key_automatically = kwargs['regenerateKeyAutomatically']
+        if 'regenerationPeriod' in kwargs:
+            regeneration_period = kwargs['regenerationPeriod']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+
         if key_vault_id is not None:
             _setter("key_vault_id", key_vault_id)
         if name is not None:

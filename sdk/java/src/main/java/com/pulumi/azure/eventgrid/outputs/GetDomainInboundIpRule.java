@@ -65,10 +65,10 @@ public final class GetDomainInboundIpRule {
             return this;
         }
         public GetDomainInboundIpRule build() {
-            final var o = new GetDomainInboundIpRule();
-            o.action = action;
-            o.ipMask = ipMask;
-            return o;
+            final var _resultValue = new GetDomainInboundIpRule();
+            _resultValue.action = action;
+            _resultValue.ipMask = ipMask;
+            return _resultValue;
         }
     }
 }

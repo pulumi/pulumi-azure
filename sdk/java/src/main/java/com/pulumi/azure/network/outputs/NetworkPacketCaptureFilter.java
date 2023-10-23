@@ -124,13 +124,13 @@ public final class NetworkPacketCaptureFilter {
             return this;
         }
         public NetworkPacketCaptureFilter build() {
-            final var o = new NetworkPacketCaptureFilter();
-            o.localIpAddress = localIpAddress;
-            o.localPort = localPort;
-            o.protocol = protocol;
-            o.remoteIpAddress = remoteIpAddress;
-            o.remotePort = remotePort;
-            return o;
+            final var _resultValue = new NetworkPacketCaptureFilter();
+            _resultValue.localIpAddress = localIpAddress;
+            _resultValue.localPort = localPort;
+            _resultValue.protocol = protocol;
+            _resultValue.remoteIpAddress = remoteIpAddress;
+            _resultValue.remotePort = remotePort;
+            return _resultValue;
         }
     }
 }

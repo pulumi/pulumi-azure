@@ -65,7 +65,19 @@ class DatasetPostgresqlArgs:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArgs']]]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'schemaColumns' in kwargs:
+            schema_columns = kwargs['schemaColumns']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("data_factory_id", data_factory_id)
         _setter("linked_service_name", linked_service_name)
         if additional_properties is not None:
@@ -258,7 +270,19 @@ class _DatasetPostgresqlState:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPostgresqlSchemaColumnArgs']]]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if 'schemaColumns' in kwargs:
+            schema_columns = kwargs['schemaColumns']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

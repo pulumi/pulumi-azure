@@ -346,24 +346,24 @@ public final class ApplicationGatewayHttpListener {
             return this;
         }
         public ApplicationGatewayHttpListener build() {
-            final var o = new ApplicationGatewayHttpListener();
-            o.customErrorConfigurations = customErrorConfigurations;
-            o.firewallPolicyId = firewallPolicyId;
-            o.frontendIpConfigurationId = frontendIpConfigurationId;
-            o.frontendIpConfigurationName = frontendIpConfigurationName;
-            o.frontendPortId = frontendPortId;
-            o.frontendPortName = frontendPortName;
-            o.hostName = hostName;
-            o.hostNames = hostNames;
-            o.id = id;
-            o.name = name;
-            o.protocol = protocol;
-            o.requireSni = requireSni;
-            o.sslCertificateId = sslCertificateId;
-            o.sslCertificateName = sslCertificateName;
-            o.sslProfileId = sslProfileId;
-            o.sslProfileName = sslProfileName;
-            return o;
+            final var _resultValue = new ApplicationGatewayHttpListener();
+            _resultValue.customErrorConfigurations = customErrorConfigurations;
+            _resultValue.firewallPolicyId = firewallPolicyId;
+            _resultValue.frontendIpConfigurationId = frontendIpConfigurationId;
+            _resultValue.frontendIpConfigurationName = frontendIpConfigurationName;
+            _resultValue.frontendPortId = frontendPortId;
+            _resultValue.frontendPortName = frontendPortName;
+            _resultValue.hostName = hostName;
+            _resultValue.hostNames = hostNames;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.protocol = protocol;
+            _resultValue.requireSni = requireSni;
+            _resultValue.sslCertificateId = sslCertificateId;
+            _resultValue.sslCertificateName = sslCertificateName;
+            _resultValue.sslProfileId = sslProfileId;
+            _resultValue.sslProfileName = sslProfileName;
+            return _resultValue;
         }
     }
 }

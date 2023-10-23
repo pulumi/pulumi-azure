@@ -40,9 +40,9 @@ public final class FeaturesLogAnalyticsWorkspace {
             return this;
         }
         public FeaturesLogAnalyticsWorkspace build() {
-            final var o = new FeaturesLogAnalyticsWorkspace();
-            o.permanentlyDeleteOnDestroy = permanentlyDeleteOnDestroy;
-            return o;
+            final var _resultValue = new FeaturesLogAnalyticsWorkspace();
+            _resultValue.permanentlyDeleteOnDestroy = permanentlyDeleteOnDestroy;
+            return _resultValue;
         }
     }
 }

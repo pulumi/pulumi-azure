@@ -65,10 +65,10 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
             return this;
         }
         public GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag build() {
-            final var o = new GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag();
-            o.tag = tag;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag();
+            _resultValue.tag = tag;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

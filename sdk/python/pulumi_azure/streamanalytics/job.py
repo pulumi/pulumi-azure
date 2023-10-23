@@ -99,7 +99,33 @@ class JobArgs:
              streaming_units: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'transformationQuery' in kwargs:
+            transformation_query = kwargs['transformationQuery']
+        if 'compatibilityLevel' in kwargs:
+            compatibility_level = kwargs['compatibilityLevel']
+        if 'contentStoragePolicy' in kwargs:
+            content_storage_policy = kwargs['contentStoragePolicy']
+        if 'dataLocale' in kwargs:
+            data_locale = kwargs['dataLocale']
+        if 'eventsLateArrivalMaxDelayInSeconds' in kwargs:
+            events_late_arrival_max_delay_in_seconds = kwargs['eventsLateArrivalMaxDelayInSeconds']
+        if 'eventsOutOfOrderMaxDelayInSeconds' in kwargs:
+            events_out_of_order_max_delay_in_seconds = kwargs['eventsOutOfOrderMaxDelayInSeconds']
+        if 'eventsOutOfOrderPolicy' in kwargs:
+            events_out_of_order_policy = kwargs['eventsOutOfOrderPolicy']
+        if 'jobStorageAccounts' in kwargs:
+            job_storage_accounts = kwargs['jobStorageAccounts']
+        if 'outputErrorPolicy' in kwargs:
+            output_error_policy = kwargs['outputErrorPolicy']
+        if 'streamAnalyticsClusterId' in kwargs:
+            stream_analytics_cluster_id = kwargs['streamAnalyticsClusterId']
+        if 'streamingUnits' in kwargs:
+            streaming_units = kwargs['streamingUnits']
+
         _setter("resource_group_name", resource_group_name)
         _setter("transformation_query", transformation_query)
         if compatibility_level is not None:
@@ -434,7 +460,35 @@ class _JobState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              transformation_query: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'compatibilityLevel' in kwargs:
+            compatibility_level = kwargs['compatibilityLevel']
+        if 'contentStoragePolicy' in kwargs:
+            content_storage_policy = kwargs['contentStoragePolicy']
+        if 'dataLocale' in kwargs:
+            data_locale = kwargs['dataLocale']
+        if 'eventsLateArrivalMaxDelayInSeconds' in kwargs:
+            events_late_arrival_max_delay_in_seconds = kwargs['eventsLateArrivalMaxDelayInSeconds']
+        if 'eventsOutOfOrderMaxDelayInSeconds' in kwargs:
+            events_out_of_order_max_delay_in_seconds = kwargs['eventsOutOfOrderMaxDelayInSeconds']
+        if 'eventsOutOfOrderPolicy' in kwargs:
+            events_out_of_order_policy = kwargs['eventsOutOfOrderPolicy']
+        if 'jobId' in kwargs:
+            job_id = kwargs['jobId']
+        if 'jobStorageAccounts' in kwargs:
+            job_storage_accounts = kwargs['jobStorageAccounts']
+        if 'outputErrorPolicy' in kwargs:
+            output_error_policy = kwargs['outputErrorPolicy']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamAnalyticsClusterId' in kwargs:
+            stream_analytics_cluster_id = kwargs['streamAnalyticsClusterId']
+        if 'streamingUnits' in kwargs:
+            streaming_units = kwargs['streamingUnits']
+        if 'transformationQuery' in kwargs:
+            transformation_query = kwargs['transformationQuery']
+
         if compatibility_level is not None:
             _setter("compatibility_level", compatibility_level)
         if content_storage_policy is not None:

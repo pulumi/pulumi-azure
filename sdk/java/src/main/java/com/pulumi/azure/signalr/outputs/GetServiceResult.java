@@ -348,26 +348,26 @@ public final class GetServiceResult {
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.aadAuthEnabled = aadAuthEnabled;
-            o.hostname = hostname;
-            o.id = id;
-            o.ipAddress = ipAddress;
-            o.localAuthEnabled = localAuthEnabled;
-            o.location = location;
-            o.name = name;
-            o.primaryAccessKey = primaryAccessKey;
-            o.primaryConnectionString = primaryConnectionString;
-            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            o.publicPort = publicPort;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryAccessKey = secondaryAccessKey;
-            o.secondaryConnectionString = secondaryConnectionString;
-            o.serverPort = serverPort;
-            o.serverlessConnectionTimeoutInSeconds = serverlessConnectionTimeoutInSeconds;
-            o.tags = tags;
-            o.tlsClientCertEnabled = tlsClientCertEnabled;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.aadAuthEnabled = aadAuthEnabled;
+            _resultValue.hostname = hostname;
+            _resultValue.id = id;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.localAuthEnabled = localAuthEnabled;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.primaryAccessKey = primaryAccessKey;
+            _resultValue.primaryConnectionString = primaryConnectionString;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            _resultValue.publicPort = publicPort;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryAccessKey = secondaryAccessKey;
+            _resultValue.secondaryConnectionString = secondaryConnectionString;
+            _resultValue.serverPort = serverPort;
+            _resultValue.serverlessConnectionTimeoutInSeconds = serverlessConnectionTimeoutInSeconds;
+            _resultValue.tags = tags;
+            _resultValue.tlsClientCertEnabled = tlsClientCertEnabled;
+            return _resultValue;
         }
     }
 }

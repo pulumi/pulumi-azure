@@ -265,19 +265,19 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
             return webCategories(List.of(webCategories));
         }
         public FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule build() {
-            final var o = new FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule();
-            o.description = description;
-            o.destinationAddresses = destinationAddresses;
-            o.destinationFqdnTags = destinationFqdnTags;
-            o.destinationFqdns = destinationFqdns;
-            o.destinationUrls = destinationUrls;
-            o.name = name;
-            o.protocols = protocols;
-            o.sourceAddresses = sourceAddresses;
-            o.sourceIpGroups = sourceIpGroups;
-            o.terminateTls = terminateTls;
-            o.webCategories = webCategories;
-            return o;
+            final var _resultValue = new FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule();
+            _resultValue.description = description;
+            _resultValue.destinationAddresses = destinationAddresses;
+            _resultValue.destinationFqdnTags = destinationFqdnTags;
+            _resultValue.destinationFqdns = destinationFqdns;
+            _resultValue.destinationUrls = destinationUrls;
+            _resultValue.name = name;
+            _resultValue.protocols = protocols;
+            _resultValue.sourceAddresses = sourceAddresses;
+            _resultValue.sourceIpGroups = sourceIpGroups;
+            _resultValue.terminateTls = terminateTls;
+            _resultValue.webCategories = webCategories;
+            return _resultValue;
         }
     }
 }

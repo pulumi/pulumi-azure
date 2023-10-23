@@ -571,35 +571,35 @@ public final class GetPoolResult {
             return windows(List.of(windows));
         }
         public GetPoolResult build() {
-            final var o = new GetPoolResult();
-            o.accountName = accountName;
-            o.autoScales = autoScales;
-            o.certificates = certificates;
-            o.containerConfigurations = containerConfigurations;
-            o.dataDisks = dataDisks;
-            o.diskEncryptions = diskEncryptions;
-            o.displayName = displayName;
-            o.extensions = extensions;
-            o.fixedScales = fixedScales;
-            o.id = id;
-            o.interNodeCommunication = interNodeCommunication;
-            o.licenseType = licenseType;
-            o.maxTasksPerNode = maxTasksPerNode;
-            o.metadata = metadata;
-            o.mounts = mounts;
-            o.name = name;
-            o.networkConfigurations = networkConfigurations;
-            o.nodeAgentSkuId = nodeAgentSkuId;
-            o.nodePlacements = nodePlacements;
-            o.osDiskPlacement = osDiskPlacement;
-            o.resourceGroupName = resourceGroupName;
-            o.startTasks = startTasks;
-            o.storageImageReferences = storageImageReferences;
-            o.taskSchedulingPolicies = taskSchedulingPolicies;
-            o.userAccounts = userAccounts;
-            o.vmSize = vmSize;
-            o.windows = windows;
-            return o;
+            final var _resultValue = new GetPoolResult();
+            _resultValue.accountName = accountName;
+            _resultValue.autoScales = autoScales;
+            _resultValue.certificates = certificates;
+            _resultValue.containerConfigurations = containerConfigurations;
+            _resultValue.dataDisks = dataDisks;
+            _resultValue.diskEncryptions = diskEncryptions;
+            _resultValue.displayName = displayName;
+            _resultValue.extensions = extensions;
+            _resultValue.fixedScales = fixedScales;
+            _resultValue.id = id;
+            _resultValue.interNodeCommunication = interNodeCommunication;
+            _resultValue.licenseType = licenseType;
+            _resultValue.maxTasksPerNode = maxTasksPerNode;
+            _resultValue.metadata = metadata;
+            _resultValue.mounts = mounts;
+            _resultValue.name = name;
+            _resultValue.networkConfigurations = networkConfigurations;
+            _resultValue.nodeAgentSkuId = nodeAgentSkuId;
+            _resultValue.nodePlacements = nodePlacements;
+            _resultValue.osDiskPlacement = osDiskPlacement;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.startTasks = startTasks;
+            _resultValue.storageImageReferences = storageImageReferences;
+            _resultValue.taskSchedulingPolicies = taskSchedulingPolicies;
+            _resultValue.userAccounts = userAccounts;
+            _resultValue.vmSize = vmSize;
+            _resultValue.windows = windows;
+            return _resultValue;
         }
     }
 }

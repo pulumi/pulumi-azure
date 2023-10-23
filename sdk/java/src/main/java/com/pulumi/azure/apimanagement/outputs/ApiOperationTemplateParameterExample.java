@@ -124,13 +124,13 @@ public final class ApiOperationTemplateParameterExample {
             return this;
         }
         public ApiOperationTemplateParameterExample build() {
-            final var o = new ApiOperationTemplateParameterExample();
-            o.description = description;
-            o.externalValue = externalValue;
-            o.name = name;
-            o.summary = summary;
-            o.value = value;
-            return o;
+            final var _resultValue = new ApiOperationTemplateParameterExample();
+            _resultValue.description = description;
+            _resultValue.externalValue = externalValue;
+            _resultValue.name = name;
+            _resultValue.summary = summary;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -43,7 +43,17 @@ class SpringCloudAppRedisAssociationArgs:
              spring_cloud_app_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              ssl_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'redisAccessKey' in kwargs:
+            redis_access_key = kwargs['redisAccessKey']
+        if 'redisCacheId' in kwargs:
+            redis_cache_id = kwargs['redisCacheId']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+        if 'sslEnabled' in kwargs:
+            ssl_enabled = kwargs['sslEnabled']
+
         _setter("redis_access_key", redis_access_key)
         _setter("redis_cache_id", redis_cache_id)
         _setter("spring_cloud_app_id", spring_cloud_app_id)
@@ -145,7 +155,17 @@ class _SpringCloudAppRedisAssociationState:
              redis_cache_id: Optional[pulumi.Input[str]] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              ssl_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'redisAccessKey' in kwargs:
+            redis_access_key = kwargs['redisAccessKey']
+        if 'redisCacheId' in kwargs:
+            redis_cache_id = kwargs['redisCacheId']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+        if 'sslEnabled' in kwargs:
+            ssl_enabled = kwargs['sslEnabled']
+
         if name is not None:
             _setter("name", name)
         if redis_access_key is not None:

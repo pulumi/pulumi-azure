@@ -116,13 +116,13 @@ public final class GetVariablesInt {
             return this;
         }
         public GetVariablesInt build() {
-            final var o = new GetVariablesInt();
-            o.description = description;
-            o.encrypted = encrypted;
-            o.id = id;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetVariablesInt();
+            _resultValue.description = description;
+            _resultValue.encrypted = encrypted;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

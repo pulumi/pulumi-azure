@@ -65,10 +65,10 @@ public final class GetAppServiceEnvironmentClusterSetting {
             return this;
         }
         public GetAppServiceEnvironmentClusterSetting build() {
-            final var o = new GetAppServiceEnvironmentClusterSetting();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetAppServiceEnvironmentClusterSetting();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

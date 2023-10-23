@@ -107,13 +107,13 @@ public final class GetNetworkWatcherResult {
             return this;
         }
         public GetNetworkWatcherResult build() {
-            final var o = new GetNetworkWatcherResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetNetworkWatcherResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

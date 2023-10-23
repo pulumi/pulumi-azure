@@ -63,7 +63,23 @@ class ProfileArgs:
              profile_status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              traffic_view_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsConfig' in kwargs:
+            dns_config = kwargs['dnsConfig']
+        if 'monitorConfig' in kwargs:
+            monitor_config = kwargs['monitorConfig']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'trafficRoutingMethod' in kwargs:
+            traffic_routing_method = kwargs['trafficRoutingMethod']
+        if 'maxReturn' in kwargs:
+            max_return = kwargs['maxReturn']
+        if 'profileStatus' in kwargs:
+            profile_status = kwargs['profileStatus']
+        if 'trafficViewEnabled' in kwargs:
+            traffic_view_enabled = kwargs['trafficViewEnabled']
+
         _setter("dns_config", dns_config)
         _setter("monitor_config", monitor_config)
         _setter("resource_group_name", resource_group_name)
@@ -244,7 +260,23 @@ class _ProfileState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              traffic_routing_method: Optional[pulumi.Input[str]] = None,
              traffic_view_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsConfig' in kwargs:
+            dns_config = kwargs['dnsConfig']
+        if 'maxReturn' in kwargs:
+            max_return = kwargs['maxReturn']
+        if 'monitorConfig' in kwargs:
+            monitor_config = kwargs['monitorConfig']
+        if 'profileStatus' in kwargs:
+            profile_status = kwargs['profileStatus']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'trafficRoutingMethod' in kwargs:
+            traffic_routing_method = kwargs['trafficRoutingMethod']
+        if 'trafficViewEnabled' in kwargs:
+            traffic_view_enabled = kwargs['trafficViewEnabled']
+
         if dns_config is not None:
             _setter("dns_config", dns_config)
         if fqdn is not None:

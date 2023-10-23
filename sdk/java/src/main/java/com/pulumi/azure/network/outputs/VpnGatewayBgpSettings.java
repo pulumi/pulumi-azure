@@ -127,13 +127,13 @@ public final class VpnGatewayBgpSettings {
             return this;
         }
         public VpnGatewayBgpSettings build() {
-            final var o = new VpnGatewayBgpSettings();
-            o.asn = asn;
-            o.bgpPeeringAddress = bgpPeeringAddress;
-            o.instance0BgpPeeringAddress = instance0BgpPeeringAddress;
-            o.instance1BgpPeeringAddress = instance1BgpPeeringAddress;
-            o.peerWeight = peerWeight;
-            return o;
+            final var _resultValue = new VpnGatewayBgpSettings();
+            _resultValue.asn = asn;
+            _resultValue.bgpPeeringAddress = bgpPeeringAddress;
+            _resultValue.instance0BgpPeeringAddress = instance0BgpPeeringAddress;
+            _resultValue.instance1BgpPeeringAddress = instance1BgpPeeringAddress;
+            _resultValue.peerWeight = peerWeight;
+            return _resultValue;
         }
     }
 }

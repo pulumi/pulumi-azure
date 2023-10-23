@@ -65,10 +65,10 @@ public final class SubscriptionCostManagementViewDatasetGrouping {
             return this;
         }
         public SubscriptionCostManagementViewDatasetGrouping build() {
-            final var o = new SubscriptionCostManagementViewDatasetGrouping();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new SubscriptionCostManagementViewDatasetGrouping();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

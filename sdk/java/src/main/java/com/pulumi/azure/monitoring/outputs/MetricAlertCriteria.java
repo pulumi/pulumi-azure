@@ -169,15 +169,15 @@ public final class MetricAlertCriteria {
             return this;
         }
         public MetricAlertCriteria build() {
-            final var o = new MetricAlertCriteria();
-            o.aggregation = aggregation;
-            o.dimensions = dimensions;
-            o.metricName = metricName;
-            o.metricNamespace = metricNamespace;
-            o.operator = operator;
-            o.skipMetricValidation = skipMetricValidation;
-            o.threshold = threshold;
-            return o;
+            final var _resultValue = new MetricAlertCriteria();
+            _resultValue.aggregation = aggregation;
+            _resultValue.dimensions = dimensions;
+            _resultValue.metricName = metricName;
+            _resultValue.metricNamespace = metricNamespace;
+            _resultValue.operator = operator;
+            _resultValue.skipMetricValidation = skipMetricValidation;
+            _resultValue.threshold = threshold;
+            return _resultValue;
         }
     }
 }

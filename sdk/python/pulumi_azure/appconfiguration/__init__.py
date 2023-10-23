@@ -12,5 +12,6 @@ from .get_configuration_key import *
 from .get_configuration_keys import *
 from .get_configuration_store import *
 from .lication_load_balancer import *
+from .lication_load_balancer_frontend import *
 from ._inputs import *
 from . import outputs

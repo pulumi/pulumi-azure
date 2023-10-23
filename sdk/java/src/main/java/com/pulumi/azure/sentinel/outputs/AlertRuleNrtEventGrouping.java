@@ -46,9 +46,9 @@ public final class AlertRuleNrtEventGrouping {
             return this;
         }
         public AlertRuleNrtEventGrouping build() {
-            final var o = new AlertRuleNrtEventGrouping();
-            o.aggregationMethod = aggregationMethod;
-            return o;
+            final var _resultValue = new AlertRuleNrtEventGrouping();
+            _resultValue.aggregationMethod = aggregationMethod;
+            return _resultValue;
         }
     }
 }

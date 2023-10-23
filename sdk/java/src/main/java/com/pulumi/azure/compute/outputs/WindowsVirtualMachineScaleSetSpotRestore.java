@@ -68,10 +68,10 @@ public final class WindowsVirtualMachineScaleSetSpotRestore {
             return this;
         }
         public WindowsVirtualMachineScaleSetSpotRestore build() {
-            final var o = new WindowsVirtualMachineScaleSetSpotRestore();
-            o.enabled = enabled;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetSpotRestore();
+            _resultValue.enabled = enabled;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

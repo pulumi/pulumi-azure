@@ -51,7 +51,17 @@ class AssetArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'alternateId' in kwargs:
+            alternate_id = kwargs['alternateId']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         _setter("media_services_account_name", media_services_account_name)
         _setter("resource_group_name", resource_group_name)
         if alternate_id is not None:
@@ -190,7 +200,17 @@ class _AssetState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              storage_account_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alternateId' in kwargs:
+            alternate_id = kwargs['alternateId']
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         if alternate_id is not None:
             _setter("alternate_id", alternate_id)
         if container is not None:

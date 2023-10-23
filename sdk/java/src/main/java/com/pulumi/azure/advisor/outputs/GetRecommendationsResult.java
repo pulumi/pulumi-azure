@@ -99,12 +99,12 @@ public final class GetRecommendationsResult {
             return recommendations(List.of(recommendations));
         }
         public GetRecommendationsResult build() {
-            final var o = new GetRecommendationsResult();
-            o.filterByCategories = filterByCategories;
-            o.filterByResourceGroups = filterByResourceGroups;
-            o.id = id;
-            o.recommendations = recommendations;
-            return o;
+            final var _resultValue = new GetRecommendationsResult();
+            _resultValue.filterByCategories = filterByCategories;
+            _resultValue.filterByResourceGroups = filterByResourceGroups;
+            _resultValue.id = id;
+            _resultValue.recommendations = recommendations;
+            return _resultValue;
         }
     }
 }

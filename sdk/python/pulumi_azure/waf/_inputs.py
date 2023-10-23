@@ -72,7 +72,19 @@ class PolicyCustomRuleArgs:
              name: Optional[pulumi.Input[str]] = None,
              rate_limit_duration: Optional[pulumi.Input[str]] = None,
              rate_limit_threshold: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchConditions' in kwargs:
+            match_conditions = kwargs['matchConditions']
+        if 'ruleType' in kwargs:
+            rule_type = kwargs['ruleType']
+        if 'groupRateLimitBy' in kwargs:
+            group_rate_limit_by = kwargs['groupRateLimitBy']
+        if 'rateLimitDuration' in kwargs:
+            rate_limit_duration = kwargs['rateLimitDuration']
+        if 'rateLimitThreshold' in kwargs:
+            rate_limit_threshold = kwargs['rateLimitThreshold']
+
         _setter("action", action)
         _setter("match_conditions", match_conditions)
         _setter("priority", priority)
@@ -228,7 +240,15 @@ class PolicyCustomRuleMatchConditionArgs:
              match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              negation_condition: Optional[pulumi.Input[bool]] = None,
              transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchVariables' in kwargs:
+            match_variables = kwargs['matchVariables']
+        if 'matchValues' in kwargs:
+            match_values = kwargs['matchValues']
+        if 'negationCondition' in kwargs:
+            negation_condition = kwargs['negationCondition']
+
         _setter("match_variables", match_variables)
         _setter("operator", operator)
         if match_values is not None:
@@ -318,7 +338,11 @@ class PolicyCustomRuleMatchConditionMatchVariableArgs:
              _setter: Callable[[Any, Any], None],
              variable_name: pulumi.Input[str],
              selector: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'variableName' in kwargs:
+            variable_name = kwargs['variableName']
+
         _setter("variable_name", variable_name)
         if selector is not None:
             _setter("selector", selector)
@@ -367,7 +391,11 @@ class PolicyManagedRulesArgs:
              _setter: Callable[[Any, Any], None],
              managed_rule_sets: pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArgs']]],
              exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedRuleSets' in kwargs:
+            managed_rule_sets = kwargs['managedRuleSets']
+
         _setter("managed_rule_sets", managed_rule_sets)
         if exclusions is not None:
             _setter("exclusions", exclusions)
@@ -424,7 +452,15 @@ class PolicyManagedRulesExclusionArgs:
              selector: pulumi.Input[str],
              selector_match_operator: pulumi.Input[str],
              excluded_rule_set: Optional[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchVariable' in kwargs:
+            match_variable = kwargs['matchVariable']
+        if 'selectorMatchOperator' in kwargs:
+            selector_match_operator = kwargs['selectorMatchOperator']
+        if 'excludedRuleSet' in kwargs:
+            excluded_rule_set = kwargs['excludedRuleSet']
+
         _setter("match_variable", match_variable)
         _setter("selector", selector)
         _setter("selector_match_operator", selector_match_operator)
@@ -503,7 +539,11 @@ class PolicyManagedRulesExclusionExcludedRuleSetArgs:
              rule_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleGroups' in kwargs:
+            rule_groups = kwargs['ruleGroups']
+
         if rule_groups is not None:
             _setter("rule_groups", rule_groups)
         if type is not None:
@@ -567,7 +607,13 @@ class PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs:
              _setter: Callable[[Any, Any], None],
              rule_group_name: pulumi.Input[str],
              excluded_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleGroupName' in kwargs:
+            rule_group_name = kwargs['ruleGroupName']
+        if 'excludedRules' in kwargs:
+            excluded_rules = kwargs['excludedRules']
+
         _setter("rule_group_name", rule_group_name)
         if excluded_rules is not None:
             _setter("excluded_rules", excluded_rules)
@@ -620,7 +666,11 @@ class PolicyManagedRulesManagedRuleSetArgs:
              version: pulumi.Input[str],
              rule_group_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleGroupOverrides' in kwargs:
+            rule_group_overrides = kwargs['ruleGroupOverrides']
+
         _setter("version", version)
         if rule_group_overrides is not None:
             _setter("rule_group_overrides", rule_group_overrides)
@@ -686,7 +736,13 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs:
              rule_group_name: pulumi.Input[str],
              disabled_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ruleGroupName' in kwargs:
+            rule_group_name = kwargs['ruleGroupName']
+        if 'disabledRules' in kwargs:
+            disabled_rules = kwargs['disabledRules']
+
         _setter("rule_group_name", rule_group_name)
         if disabled_rules is not None:
             warnings.warn("""`disabled_rules` will be removed in favour of the `rule` property in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
@@ -756,7 +812,9 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs:
              id: pulumi.Input[str],
              action: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if action is not None:
             _setter("action", action)
@@ -839,7 +897,19 @@ class PolicyPolicySettingsArgs:
              mode: Optional[pulumi.Input[str]] = None,
              request_body_check: Optional[pulumi.Input[bool]] = None,
              request_body_inspect_limit_in_kb: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fileUploadLimitInMb' in kwargs:
+            file_upload_limit_in_mb = kwargs['fileUploadLimitInMb']
+        if 'logScrubbing' in kwargs:
+            log_scrubbing = kwargs['logScrubbing']
+        if 'maxRequestBodySizeInKb' in kwargs:
+            max_request_body_size_in_kb = kwargs['maxRequestBodySizeInKb']
+        if 'requestBodyCheck' in kwargs:
+            request_body_check = kwargs['requestBodyCheck']
+        if 'requestBodyInspectLimitInKb' in kwargs:
+            request_body_inspect_limit_in_kb = kwargs['requestBodyInspectLimitInKb']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if file_upload_limit_in_mb is not None:
@@ -959,7 +1029,9 @@ class PolicyPolicySettingsLogScrubbingArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
         if rules is not None:
@@ -1017,7 +1089,13 @@ class PolicyPolicySettingsLogScrubbingRuleArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              selector: Optional[pulumi.Input[str]] = None,
              selector_match_operator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'matchVariable' in kwargs:
+            match_variable = kwargs['matchVariable']
+        if 'selectorMatchOperator' in kwargs:
+            selector_match_operator = kwargs['selectorMatchOperator']
+
         _setter("match_variable", match_variable)
         if enabled is not None:
             _setter("enabled", enabled)

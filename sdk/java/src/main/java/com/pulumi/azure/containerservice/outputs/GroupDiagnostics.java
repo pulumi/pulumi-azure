@@ -46,9 +46,9 @@ public final class GroupDiagnostics {
             return this;
         }
         public GroupDiagnostics build() {
-            final var o = new GroupDiagnostics();
-            o.logAnalytics = logAnalytics;
-            return o;
+            final var _resultValue = new GroupDiagnostics();
+            _resultValue.logAnalytics = logAnalytics;
+            return _resultValue;
         }
     }
 }

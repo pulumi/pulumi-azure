@@ -215,17 +215,17 @@ public final class GroupContainerVolume {
             return this;
         }
         public GroupContainerVolume build() {
-            final var o = new GroupContainerVolume();
-            o.emptyDir = emptyDir;
-            o.gitRepo = gitRepo;
-            o.mountPath = mountPath;
-            o.name = name;
-            o.readOnly = readOnly;
-            o.secret = secret;
-            o.shareName = shareName;
-            o.storageAccountKey = storageAccountKey;
-            o.storageAccountName = storageAccountName;
-            return o;
+            final var _resultValue = new GroupContainerVolume();
+            _resultValue.emptyDir = emptyDir;
+            _resultValue.gitRepo = gitRepo;
+            _resultValue.mountPath = mountPath;
+            _resultValue.name = name;
+            _resultValue.readOnly = readOnly;
+            _resultValue.secret = secret;
+            _resultValue.shareName = shareName;
+            _resultValue.storageAccountKey = storageAccountKey;
+            _resultValue.storageAccountName = storageAccountName;
+            return _resultValue;
         }
     }
 }

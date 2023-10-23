@@ -87,11 +87,11 @@ public final class ScaleSetSku {
             return this;
         }
         public ScaleSetSku build() {
-            final var o = new ScaleSetSku();
-            o.capacity = capacity;
-            o.name = name;
-            o.tier = tier;
-            return o;
+            final var _resultValue = new ScaleSetSku();
+            _resultValue.capacity = capacity;
+            _resultValue.name = name;
+            _resultValue.tier = tier;
+            return _resultValue;
         }
     }
 }

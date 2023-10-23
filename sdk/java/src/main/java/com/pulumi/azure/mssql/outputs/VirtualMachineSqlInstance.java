@@ -168,15 +168,15 @@ public final class VirtualMachineSqlInstance {
             return this;
         }
         public VirtualMachineSqlInstance build() {
-            final var o = new VirtualMachineSqlInstance();
-            o.adhocWorkloadsOptimizationEnabled = adhocWorkloadsOptimizationEnabled;
-            o.collation = collation;
-            o.instantFileInitializationEnabled = instantFileInitializationEnabled;
-            o.lockPagesInMemoryEnabled = lockPagesInMemoryEnabled;
-            o.maxDop = maxDop;
-            o.maxServerMemoryMb = maxServerMemoryMb;
-            o.minServerMemoryMb = minServerMemoryMb;
-            return o;
+            final var _resultValue = new VirtualMachineSqlInstance();
+            _resultValue.adhocWorkloadsOptimizationEnabled = adhocWorkloadsOptimizationEnabled;
+            _resultValue.collation = collation;
+            _resultValue.instantFileInitializationEnabled = instantFileInitializationEnabled;
+            _resultValue.lockPagesInMemoryEnabled = lockPagesInMemoryEnabled;
+            _resultValue.maxDop = maxDop;
+            _resultValue.maxServerMemoryMb = maxServerMemoryMb;
+            _resultValue.minServerMemoryMb = minServerMemoryMb;
+            return _resultValue;
         }
     }
 }

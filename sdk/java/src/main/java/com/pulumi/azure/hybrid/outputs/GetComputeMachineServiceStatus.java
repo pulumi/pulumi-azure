@@ -73,10 +73,10 @@ public final class GetComputeMachineServiceStatus {
             return guestConfigurationServices(List.of(guestConfigurationServices));
         }
         public GetComputeMachineServiceStatus build() {
-            final var o = new GetComputeMachineServiceStatus();
-            o.extensionServices = extensionServices;
-            o.guestConfigurationServices = guestConfigurationServices;
-            return o;
+            final var _resultValue = new GetComputeMachineServiceStatus();
+            _resultValue.extensionServices = extensionServices;
+            _resultValue.guestConfigurationServices = guestConfigurationServices;
+            return _resultValue;
         }
     }
 }

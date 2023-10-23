@@ -176,15 +176,15 @@ public final class GetAgent {
             return this;
         }
         public GetAgent build() {
-            final var o = new GetAgent();
-            o.extensionsAllowLists = extensionsAllowLists;
-            o.extensionsBlockLists = extensionsBlockLists;
-            o.extensionsEnabled = extensionsEnabled;
-            o.guestConfigurationEnabled = guestConfigurationEnabled;
-            o.incomingConnectionsPorts = incomingConnectionsPorts;
-            o.proxyBypasses = proxyBypasses;
-            o.proxyUrl = proxyUrl;
-            return o;
+            final var _resultValue = new GetAgent();
+            _resultValue.extensionsAllowLists = extensionsAllowLists;
+            _resultValue.extensionsBlockLists = extensionsBlockLists;
+            _resultValue.extensionsEnabled = extensionsEnabled;
+            _resultValue.guestConfigurationEnabled = guestConfigurationEnabled;
+            _resultValue.incomingConnectionsPorts = incomingConnectionsPorts;
+            _resultValue.proxyBypasses = proxyBypasses;
+            _resultValue.proxyUrl = proxyUrl;
+            return _resultValue;
         }
     }
 }

@@ -96,11 +96,11 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
             return this;
         }
         public KubernetesClusterKeyVaultSecretsProvider build() {
-            final var o = new KubernetesClusterKeyVaultSecretsProvider();
-            o.secretIdentities = secretIdentities;
-            o.secretRotationEnabled = secretRotationEnabled;
-            o.secretRotationInterval = secretRotationInterval;
-            return o;
+            final var _resultValue = new KubernetesClusterKeyVaultSecretsProvider();
+            _resultValue.secretIdentities = secretIdentities;
+            _resultValue.secretRotationEnabled = secretRotationEnabled;
+            _resultValue.secretRotationInterval = secretRotationInterval;
+            return _resultValue;
         }
     }
 }

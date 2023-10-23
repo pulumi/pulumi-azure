@@ -50,7 +50,23 @@ class CustomerManagedKeyArgs:
              key_vault_uri: Optional[pulumi.Input[str]] = None,
              key_version: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'federatedIdentityClientId' in kwargs:
+            federated_identity_client_id = kwargs['federatedIdentityClientId']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         _setter("key_name", key_name)
         _setter("storage_account_id", storage_account_id)
         if federated_identity_client_id is not None:
@@ -185,7 +201,23 @@ class _CustomerManagedKeyState:
              key_version: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
              user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'federatedIdentityClientId' in kwargs:
+            federated_identity_client_id = kwargs['federatedIdentityClientId']
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'keyVaultUri' in kwargs:
+            key_vault_uri = kwargs['keyVaultUri']
+        if 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         if federated_identity_client_id is not None:
             _setter("federated_identity_client_id", federated_identity_client_id)
         if key_name is not None:

@@ -311,23 +311,23 @@ public final class GetElasticsearchResult {
             return this;
         }
         public GetElasticsearchResult build() {
-            final var o = new GetElasticsearchResult();
-            o.elasticCloudDeploymentId = elasticCloudDeploymentId;
-            o.elasticCloudEmailAddress = elasticCloudEmailAddress;
-            o.elasticCloudSsoDefaultUrl = elasticCloudSsoDefaultUrl;
-            o.elasticCloudUserId = elasticCloudUserId;
-            o.elasticsearchServiceUrl = elasticsearchServiceUrl;
-            o.id = id;
-            o.kibanaServiceUrl = kibanaServiceUrl;
-            o.kibanaSsoUri = kibanaSsoUri;
-            o.location = location;
-            o.logs = logs;
-            o.monitoringEnabled = monitoringEnabled;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.skuName = skuName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetElasticsearchResult();
+            _resultValue.elasticCloudDeploymentId = elasticCloudDeploymentId;
+            _resultValue.elasticCloudEmailAddress = elasticCloudEmailAddress;
+            _resultValue.elasticCloudSsoDefaultUrl = elasticCloudSsoDefaultUrl;
+            _resultValue.elasticCloudUserId = elasticCloudUserId;
+            _resultValue.elasticsearchServiceUrl = elasticsearchServiceUrl;
+            _resultValue.id = id;
+            _resultValue.kibanaServiceUrl = kibanaServiceUrl;
+            _resultValue.kibanaSsoUri = kibanaSsoUri;
+            _resultValue.location = location;
+            _resultValue.logs = logs;
+            _resultValue.monitoringEnabled = monitoringEnabled;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.skuName = skuName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

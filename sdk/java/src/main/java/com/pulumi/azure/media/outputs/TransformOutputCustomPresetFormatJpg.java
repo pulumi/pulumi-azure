@@ -46,9 +46,9 @@ public final class TransformOutputCustomPresetFormatJpg {
             return this;
         }
         public TransformOutputCustomPresetFormatJpg build() {
-            final var o = new TransformOutputCustomPresetFormatJpg();
-            o.filenamePattern = filenamePattern;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFormatJpg();
+            _resultValue.filenamePattern = filenamePattern;
+            return _resultValue;
         }
     }
 }

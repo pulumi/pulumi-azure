@@ -105,7 +105,7 @@ type StandardWebTest struct {
 	// Seconds until this WebTest will timeout and fail. Default is `30`.
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// A `validationRules` block as defined below.
-	ValidationRules StandardWebTestValidationRulesOutput `pulumi:"validationRules"`
+	ValidationRules StandardWebTestValidationRulesPtrOutput `pulumi:"validationRules"`
 }
 
 // NewStandardWebTest registers a new resource with the given unique name, arguments, and options.
@@ -461,8 +461,8 @@ func (o StandardWebTestOutput) Timeout() pulumi.IntPtrOutput {
 }
 
 // A `validationRules` block as defined below.
-func (o StandardWebTestOutput) ValidationRules() StandardWebTestValidationRulesOutput {
-	return o.ApplyT(func(v *StandardWebTest) StandardWebTestValidationRulesOutput { return v.ValidationRules }).(StandardWebTestValidationRulesOutput)
+func (o StandardWebTestOutput) ValidationRules() StandardWebTestValidationRulesPtrOutput {
+	return o.ApplyT(func(v *StandardWebTest) StandardWebTestValidationRulesPtrOutput { return v.ValidationRules }).(StandardWebTestValidationRulesPtrOutput)
 }
 
 type StandardWebTestArrayOutput struct{ *pulumi.OutputState }

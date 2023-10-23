@@ -74,10 +74,10 @@ public final class DiagnosticFrontendResponseDataMasking {
             return queryParams(List.of(queryParams));
         }
         public DiagnosticFrontendResponseDataMasking build() {
-            final var o = new DiagnosticFrontendResponseDataMasking();
-            o.headers = headers;
-            o.queryParams = queryParams;
-            return o;
+            final var _resultValue = new DiagnosticFrontendResponseDataMasking();
+            _resultValue.headers = headers;
+            _resultValue.queryParams = queryParams;
+            return _resultValue;
         }
     }
 }

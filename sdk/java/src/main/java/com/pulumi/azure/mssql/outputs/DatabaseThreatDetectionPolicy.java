@@ -170,15 +170,15 @@ public final class DatabaseThreatDetectionPolicy {
             return this;
         }
         public DatabaseThreatDetectionPolicy build() {
-            final var o = new DatabaseThreatDetectionPolicy();
-            o.disabledAlerts = disabledAlerts;
-            o.emailAccountAdmins = emailAccountAdmins;
-            o.emailAddresses = emailAddresses;
-            o.retentionDays = retentionDays;
-            o.state = state;
-            o.storageAccountAccessKey = storageAccountAccessKey;
-            o.storageEndpoint = storageEndpoint;
-            return o;
+            final var _resultValue = new DatabaseThreatDetectionPolicy();
+            _resultValue.disabledAlerts = disabledAlerts;
+            _resultValue.emailAccountAdmins = emailAccountAdmins;
+            _resultValue.emailAddresses = emailAddresses;
+            _resultValue.retentionDays = retentionDays;
+            _resultValue.state = state;
+            _resultValue.storageAccountAccessKey = storageAccountAccessKey;
+            _resultValue.storageEndpoint = storageEndpoint;
+            return _resultValue;
         }
     }
 }

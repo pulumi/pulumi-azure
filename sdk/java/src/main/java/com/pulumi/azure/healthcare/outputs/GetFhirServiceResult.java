@@ -260,20 +260,20 @@ public final class GetFhirServiceResult {
             return this;
         }
         public GetFhirServiceResult build() {
-            final var o = new GetFhirServiceResult();
-            o.accessPolicyObjectIds = accessPolicyObjectIds;
-            o.authentications = authentications;
-            o.configurationExportStorageAccountName = configurationExportStorageAccountName;
-            o.containerRegistryLoginServerUrls = containerRegistryLoginServerUrls;
-            o.cors = cors;
-            o.id = id;
-            o.identities = identities;
-            o.kind = kind;
-            o.location = location;
-            o.name = name;
-            o.tags = tags;
-            o.workspaceId = workspaceId;
-            return o;
+            final var _resultValue = new GetFhirServiceResult();
+            _resultValue.accessPolicyObjectIds = accessPolicyObjectIds;
+            _resultValue.authentications = authentications;
+            _resultValue.configurationExportStorageAccountName = configurationExportStorageAccountName;
+            _resultValue.containerRegistryLoginServerUrls = containerRegistryLoginServerUrls;
+            _resultValue.cors = cors;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.kind = kind;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            _resultValue.workspaceId = workspaceId;
+            return _resultValue;
         }
     }
 }

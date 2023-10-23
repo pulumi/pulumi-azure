@@ -65,10 +65,10 @@ public final class NetworkManagerAdminRuleDestination {
             return this;
         }
         public NetworkManagerAdminRuleDestination build() {
-            final var o = new NetworkManagerAdminRuleDestination();
-            o.addressPrefix = addressPrefix;
-            o.addressPrefixType = addressPrefixType;
-            return o;
+            final var _resultValue = new NetworkManagerAdminRuleDestination();
+            _resultValue.addressPrefix = addressPrefix;
+            _resultValue.addressPrefixType = addressPrefixType;
+            return _resultValue;
         }
     }
 }

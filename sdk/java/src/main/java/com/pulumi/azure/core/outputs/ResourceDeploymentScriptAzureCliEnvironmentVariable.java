@@ -86,11 +86,11 @@ public final class ResourceDeploymentScriptAzureCliEnvironmentVariable {
             return this;
         }
         public ResourceDeploymentScriptAzureCliEnvironmentVariable build() {
-            final var o = new ResourceDeploymentScriptAzureCliEnvironmentVariable();
-            o.name = name;
-            o.secureValue = secureValue;
-            o.value = value;
-            return o;
+            final var _resultValue = new ResourceDeploymentScriptAzureCliEnvironmentVariable();
+            _resultValue.name = name;
+            _resultValue.secureValue = secureValue;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -163,15 +163,15 @@ public final class ServiceSecureLdap {
             return this;
         }
         public ServiceSecureLdap build() {
-            final var o = new ServiceSecureLdap();
-            o.certificateExpiry = certificateExpiry;
-            o.certificateThumbprint = certificateThumbprint;
-            o.enabled = enabled;
-            o.externalAccessEnabled = externalAccessEnabled;
-            o.pfxCertificate = pfxCertificate;
-            o.pfxCertificatePassword = pfxCertificatePassword;
-            o.publicCertificate = publicCertificate;
-            return o;
+            final var _resultValue = new ServiceSecureLdap();
+            _resultValue.certificateExpiry = certificateExpiry;
+            _resultValue.certificateThumbprint = certificateThumbprint;
+            _resultValue.enabled = enabled;
+            _resultValue.externalAccessEnabled = externalAccessEnabled;
+            _resultValue.pfxCertificate = pfxCertificate;
+            _resultValue.pfxCertificatePassword = pfxCertificatePassword;
+            _resultValue.publicCertificate = publicCertificate;
+            return _resultValue;
         }
     }
 }

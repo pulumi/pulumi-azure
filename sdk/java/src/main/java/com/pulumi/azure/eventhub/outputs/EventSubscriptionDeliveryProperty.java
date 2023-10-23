@@ -125,13 +125,13 @@ public final class EventSubscriptionDeliveryProperty {
             return this;
         }
         public EventSubscriptionDeliveryProperty build() {
-            final var o = new EventSubscriptionDeliveryProperty();
-            o.headerName = headerName;
-            o.secret = secret;
-            o.sourceField = sourceField;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventSubscriptionDeliveryProperty();
+            _resultValue.headerName = headerName;
+            _resultValue.secret = secret;
+            _resultValue.sourceField = sourceField;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

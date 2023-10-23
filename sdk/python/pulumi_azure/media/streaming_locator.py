@@ -73,7 +73,31 @@ class StreamingLocatorArgs:
              name: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              streaming_locator_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamingPolicyName' in kwargs:
+            streaming_policy_name = kwargs['streamingPolicyName']
+        if 'alternativeMediaId' in kwargs:
+            alternative_media_id = kwargs['alternativeMediaId']
+        if 'contentKeys' in kwargs:
+            content_keys = kwargs['contentKeys']
+        if 'defaultContentKeyPolicyName' in kwargs:
+            default_content_key_policy_name = kwargs['defaultContentKeyPolicyName']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'filterNames' in kwargs:
+            filter_names = kwargs['filterNames']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'streamingLocatorId' in kwargs:
+            streaming_locator_id = kwargs['streamingLocatorId']
+
         _setter("asset_name", asset_name)
         _setter("media_services_account_name", media_services_account_name)
         _setter("resource_group_name", resource_group_name)
@@ -300,7 +324,31 @@ class _StreamingLocatorState:
              start_time: Optional[pulumi.Input[str]] = None,
              streaming_locator_id: Optional[pulumi.Input[str]] = None,
              streaming_policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alternativeMediaId' in kwargs:
+            alternative_media_id = kwargs['alternativeMediaId']
+        if 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if 'contentKeys' in kwargs:
+            content_keys = kwargs['contentKeys']
+        if 'defaultContentKeyPolicyName' in kwargs:
+            default_content_key_policy_name = kwargs['defaultContentKeyPolicyName']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'filterNames' in kwargs:
+            filter_names = kwargs['filterNames']
+        if 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'streamingLocatorId' in kwargs:
+            streaming_locator_id = kwargs['streamingLocatorId']
+        if 'streamingPolicyName' in kwargs:
+            streaming_policy_name = kwargs['streamingPolicyName']
+
         if alternative_media_id is not None:
             _setter("alternative_media_id", alternative_media_id)
         if asset_name is not None:

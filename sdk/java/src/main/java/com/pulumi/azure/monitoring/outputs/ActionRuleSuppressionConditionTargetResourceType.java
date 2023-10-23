@@ -69,10 +69,10 @@ public final class ActionRuleSuppressionConditionTargetResourceType {
             return values(List.of(values));
         }
         public ActionRuleSuppressionConditionTargetResourceType build() {
-            final var o = new ActionRuleSuppressionConditionTargetResourceType();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new ActionRuleSuppressionConditionTargetResourceType();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

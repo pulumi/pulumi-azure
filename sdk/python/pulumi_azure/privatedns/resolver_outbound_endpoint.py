@@ -43,7 +43,13 @@ class ResolverOutboundEndpointArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateDnsResolverId' in kwargs:
+            private_dns_resolver_id = kwargs['privateDnsResolverId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("private_dns_resolver_id", private_dns_resolver_id)
         _setter("subnet_id", subnet_id)
         if location is not None:
@@ -146,7 +152,13 @@ class _ResolverOutboundEndpointState:
              private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateDnsResolverId' in kwargs:
+            private_dns_resolver_id = kwargs['privateDnsResolverId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if location is not None:
             _setter("location", location)
         if name is not None:

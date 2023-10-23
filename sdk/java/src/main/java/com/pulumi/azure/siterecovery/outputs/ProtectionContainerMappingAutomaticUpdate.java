@@ -103,11 +103,11 @@ public final class ProtectionContainerMappingAutomaticUpdate {
             return this;
         }
         public ProtectionContainerMappingAutomaticUpdate build() {
-            final var o = new ProtectionContainerMappingAutomaticUpdate();
-            o.authenticationType = authenticationType;
-            o.automationAccountId = automationAccountId;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ProtectionContainerMappingAutomaticUpdate();
+            _resultValue.authenticationType = authenticationType;
+            _resultValue.automationAccountId = automationAccountId;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

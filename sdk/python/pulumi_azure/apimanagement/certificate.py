@@ -57,7 +57,17 @@ class CertificateArgs:
              key_vault_secret_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'keyVaultIdentityClientId' in kwargs:
+            key_vault_identity_client_id = kwargs['keyVaultIdentityClientId']
+        if 'keyVaultSecretId' in kwargs:
+            key_vault_secret_id = kwargs['keyVaultSecretId']
+
         _setter("api_management_name", api_management_name)
         _setter("resource_group_name", resource_group_name)
         if data is not None:
@@ -220,7 +230,17 @@ class _CertificateState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              subject: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'keyVaultIdentityClientId' in kwargs:
+            key_vault_identity_client_id = kwargs['keyVaultIdentityClientId']
+        if 'keyVaultSecretId' in kwargs:
+            key_vault_secret_id = kwargs['keyVaultSecretId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if data is not None:

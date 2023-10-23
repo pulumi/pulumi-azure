@@ -71,10 +71,10 @@ public final class WindowsVirtualMachineScaleSetWinrmListener {
             return this;
         }
         public WindowsVirtualMachineScaleSetWinrmListener build() {
-            final var o = new WindowsVirtualMachineScaleSetWinrmListener();
-            o.certificateUrl = certificateUrl;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetWinrmListener();
+            _resultValue.certificateUrl = certificateUrl;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

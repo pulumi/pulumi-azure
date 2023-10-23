@@ -103,12 +103,12 @@ public final class GetFirewallIpConfiguration {
             return this;
         }
         public GetFirewallIpConfiguration build() {
-            final var o = new GetFirewallIpConfiguration();
-            o.name = name;
-            o.privateIpAddress = privateIpAddress;
-            o.publicIpAddressId = publicIpAddressId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetFirewallIpConfiguration();
+            _resultValue.name = name;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

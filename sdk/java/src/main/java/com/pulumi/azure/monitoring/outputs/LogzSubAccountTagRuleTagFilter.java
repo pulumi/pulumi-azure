@@ -86,11 +86,11 @@ public final class LogzSubAccountTagRuleTagFilter {
             return this;
         }
         public LogzSubAccountTagRuleTagFilter build() {
-            final var o = new LogzSubAccountTagRuleTagFilter();
-            o.action = action;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new LogzSubAccountTagRuleTagFilter();
+            _resultValue.action = action;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -99,11 +99,11 @@ public final class FrontdoorRuleConditionsSocketAddressCondition {
             return this;
         }
         public FrontdoorRuleConditionsSocketAddressCondition build() {
-            final var o = new FrontdoorRuleConditionsSocketAddressCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new FrontdoorRuleConditionsSocketAddressCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

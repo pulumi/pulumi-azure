@@ -70,10 +70,10 @@ public final class VirtualMachineBootDiagnostics {
             return this;
         }
         public VirtualMachineBootDiagnostics build() {
-            final var o = new VirtualMachineBootDiagnostics();
-            o.enabled = enabled;
-            o.storageUri = storageUri;
-            return o;
+            final var _resultValue = new VirtualMachineBootDiagnostics();
+            _resultValue.enabled = enabled;
+            _resultValue.storageUri = storageUri;
+            return _resultValue;
         }
     }
 }

@@ -43,7 +43,15 @@ class RegistryTokenArgs:
              scope_map_id: pulumi.Input[str],
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerRegistryName' in kwargs:
+            container_registry_name = kwargs['containerRegistryName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scopeMapId' in kwargs:
+            scope_map_id = kwargs['scopeMapId']
+
         _setter("container_registry_name", container_registry_name)
         _setter("resource_group_name", resource_group_name)
         _setter("scope_map_id", scope_map_id)
@@ -145,7 +153,15 @@ class _RegistryTokenState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              scope_map_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerRegistryName' in kwargs:
+            container_registry_name = kwargs['containerRegistryName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'scopeMapId' in kwargs:
+            scope_map_id = kwargs['scopeMapId']
+
         if container_registry_name is not None:
             _setter("container_registry_name", container_registry_name)
         if enabled is not None:

@@ -65,7 +65,21 @@ class GalleryApplicationVersionArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'galleryApplicationId' in kwargs:
+            gallery_application_id = kwargs['galleryApplicationId']
+        if 'manageAction' in kwargs:
+            manage_action = kwargs['manageAction']
+        if 'targetRegions' in kwargs:
+            target_regions = kwargs['targetRegions']
+        if 'enableHealthCheck' in kwargs:
+            enable_health_check = kwargs['enableHealthCheck']
+        if 'endOfLifeDate' in kwargs:
+            end_of_life_date = kwargs['endOfLifeDate']
+        if 'excludeFromLatest' in kwargs:
+            exclude_from_latest = kwargs['excludeFromLatest']
+
         _setter("gallery_application_id", gallery_application_id)
         _setter("manage_action", manage_action)
         _setter("source", source)
@@ -256,7 +270,21 @@ class _GalleryApplicationVersionState:
              source: Optional[pulumi.Input['GalleryApplicationVersionSourceArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationVersionTargetRegionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'enableHealthCheck' in kwargs:
+            enable_health_check = kwargs['enableHealthCheck']
+        if 'endOfLifeDate' in kwargs:
+            end_of_life_date = kwargs['endOfLifeDate']
+        if 'excludeFromLatest' in kwargs:
+            exclude_from_latest = kwargs['excludeFromLatest']
+        if 'galleryApplicationId' in kwargs:
+            gallery_application_id = kwargs['galleryApplicationId']
+        if 'manageAction' in kwargs:
+            manage_action = kwargs['manageAction']
+        if 'targetRegions' in kwargs:
+            target_regions = kwargs['targetRegions']
+
         if enable_health_check is not None:
             _setter("enable_health_check", enable_health_check)
         if end_of_life_date is not None:

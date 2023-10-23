@@ -103,12 +103,12 @@ public final class KafkaClusterMetastoresOozie {
             return this;
         }
         public KafkaClusterMetastoresOozie build() {
-            final var o = new KafkaClusterMetastoresOozie();
-            o.databaseName = databaseName;
-            o.password = password;
-            o.server = server;
-            o.username = username;
-            return o;
+            final var _resultValue = new KafkaClusterMetastoresOozie();
+            _resultValue.databaseName = databaseName;
+            _resultValue.password = password;
+            _resultValue.server = server;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

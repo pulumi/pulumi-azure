@@ -70,10 +70,10 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetRuleGroup {
             return this;
         }
         public PolicyManagedRulesExclusionExcludedRuleSetRuleGroup build() {
-            final var o = new PolicyManagedRulesExclusionExcludedRuleSetRuleGroup();
-            o.excludedRules = excludedRules;
-            o.ruleGroupName = ruleGroupName;
-            return o;
+            final var _resultValue = new PolicyManagedRulesExclusionExcludedRuleSetRuleGroup();
+            _resultValue.excludedRules = excludedRules;
+            _resultValue.ruleGroupName = ruleGroupName;
+            return _resultValue;
         }
     }
 }

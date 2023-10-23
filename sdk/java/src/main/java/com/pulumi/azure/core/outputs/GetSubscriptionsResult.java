@@ -94,12 +94,12 @@ public final class GetSubscriptionsResult {
             return subscriptions(List.of(subscriptions));
         }
         public GetSubscriptionsResult build() {
-            final var o = new GetSubscriptionsResult();
-            o.displayNameContains = displayNameContains;
-            o.displayNamePrefix = displayNamePrefix;
-            o.id = id;
-            o.subscriptions = subscriptions;
-            return o;
+            final var _resultValue = new GetSubscriptionsResult();
+            _resultValue.displayNameContains = displayNameContains;
+            _resultValue.displayNamePrefix = displayNamePrefix;
+            _resultValue.id = id;
+            _resultValue.subscriptions = subscriptions;
+            return _resultValue;
         }
     }
 }

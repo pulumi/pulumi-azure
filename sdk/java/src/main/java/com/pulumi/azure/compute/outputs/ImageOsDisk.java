@@ -163,15 +163,15 @@ public final class ImageOsDisk {
             return this;
         }
         public ImageOsDisk build() {
-            final var o = new ImageOsDisk();
-            o.blobUri = blobUri;
-            o.caching = caching;
-            o.diskEncryptionSetId = diskEncryptionSetId;
-            o.managedDiskId = managedDiskId;
-            o.osState = osState;
-            o.osType = osType;
-            o.sizeGb = sizeGb;
-            return o;
+            final var _resultValue = new ImageOsDisk();
+            _resultValue.blobUri = blobUri;
+            _resultValue.caching = caching;
+            _resultValue.diskEncryptionSetId = diskEncryptionSetId;
+            _resultValue.managedDiskId = managedDiskId;
+            _resultValue.osState = osState;
+            _resultValue.osType = osType;
+            _resultValue.sizeGb = sizeGb;
+            return _resultValue;
         }
     }
 }

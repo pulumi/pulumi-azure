@@ -87,11 +87,11 @@ public final class FrontdoorRuleActionsUrlRewriteAction {
             return this;
         }
         public FrontdoorRuleActionsUrlRewriteAction build() {
-            final var o = new FrontdoorRuleActionsUrlRewriteAction();
-            o.destination = destination;
-            o.preserveUnmatchedPath = preserveUnmatchedPath;
-            o.sourcePattern = sourcePattern;
-            return o;
+            final var _resultValue = new FrontdoorRuleActionsUrlRewriteAction();
+            _resultValue.destination = destination;
+            _resultValue.preserveUnmatchedPath = preserveUnmatchedPath;
+            _resultValue.sourcePattern = sourcePattern;
+            return _resultValue;
         }
     }
 }

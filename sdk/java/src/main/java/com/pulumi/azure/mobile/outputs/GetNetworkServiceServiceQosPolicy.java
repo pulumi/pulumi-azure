@@ -128,13 +128,13 @@ public final class GetNetworkServiceServiceQosPolicy {
             return this;
         }
         public GetNetworkServiceServiceQosPolicy build() {
-            final var o = new GetNetworkServiceServiceQosPolicy();
-            o.allocationAndRetentionPriorityLevel = allocationAndRetentionPriorityLevel;
-            o.maximumBitRates = maximumBitRates;
-            o.preemptionCapability = preemptionCapability;
-            o.preemptionVulnerability = preemptionVulnerability;
-            o.qosIndicator = qosIndicator;
-            return o;
+            final var _resultValue = new GetNetworkServiceServiceQosPolicy();
+            _resultValue.allocationAndRetentionPriorityLevel = allocationAndRetentionPriorityLevel;
+            _resultValue.maximumBitRates = maximumBitRates;
+            _resultValue.preemptionCapability = preemptionCapability;
+            _resultValue.preemptionVulnerability = preemptionVulnerability;
+            _resultValue.qosIndicator = qosIndicator;
+            return _resultValue;
         }
     }
 }

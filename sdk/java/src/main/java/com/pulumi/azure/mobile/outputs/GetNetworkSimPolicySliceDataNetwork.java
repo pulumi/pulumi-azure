@@ -229,18 +229,18 @@ public final class GetNetworkSimPolicySliceDataNetwork {
             return sessionAggregateMaximumBitRates(List.of(sessionAggregateMaximumBitRates));
         }
         public GetNetworkSimPolicySliceDataNetwork build() {
-            final var o = new GetNetworkSimPolicySliceDataNetwork();
-            o.additionalAllowedSessionTypes = additionalAllowedSessionTypes;
-            o.allocationAndRetentionPriorityLevel = allocationAndRetentionPriorityLevel;
-            o.allowedServicesIds = allowedServicesIds;
-            o.dataNetworkId = dataNetworkId;
-            o.defaultSessionType = defaultSessionType;
-            o.maxBufferedPackets = maxBufferedPackets;
-            o.preemptionCapability = preemptionCapability;
-            o.preemptionVulnerability = preemptionVulnerability;
-            o.qosIndicator = qosIndicator;
-            o.sessionAggregateMaximumBitRates = sessionAggregateMaximumBitRates;
-            return o;
+            final var _resultValue = new GetNetworkSimPolicySliceDataNetwork();
+            _resultValue.additionalAllowedSessionTypes = additionalAllowedSessionTypes;
+            _resultValue.allocationAndRetentionPriorityLevel = allocationAndRetentionPriorityLevel;
+            _resultValue.allowedServicesIds = allowedServicesIds;
+            _resultValue.dataNetworkId = dataNetworkId;
+            _resultValue.defaultSessionType = defaultSessionType;
+            _resultValue.maxBufferedPackets = maxBufferedPackets;
+            _resultValue.preemptionCapability = preemptionCapability;
+            _resultValue.preemptionVulnerability = preemptionVulnerability;
+            _resultValue.qosIndicator = qosIndicator;
+            _resultValue.sessionAggregateMaximumBitRates = sessionAggregateMaximumBitRates;
+            return _resultValue;
         }
     }
 }

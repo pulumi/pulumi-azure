@@ -50,10 +50,10 @@ public final class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackend
             return this;
         }
         public NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig build() {
-            final var o = new NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig();
-            o.port = port;
-            o.publicIpAddress = publicIpAddress;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig();
+            _resultValue.port = port;
+            _resultValue.publicIpAddress = publicIpAddress;
+            return _resultValue;
         }
     }
 }

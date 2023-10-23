@@ -71,7 +71,29 @@ class NetworkAttachedDataNetworkArgs:
              user_plane_access_ipv4_gateway: Optional[pulumi.Input[str]] = None,
              user_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
              user_plane_access_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsAddresses' in kwargs:
+            dns_addresses = kwargs['dnsAddresses']
+        if 'mobileNetworkDataNetworkName' in kwargs:
+            mobile_network_data_network_name = kwargs['mobileNetworkDataNetworkName']
+        if 'mobileNetworkPacketCoreDataPlaneId' in kwargs:
+            mobile_network_packet_core_data_plane_id = kwargs['mobileNetworkPacketCoreDataPlaneId']
+        if 'networkAddressPortTranslation' in kwargs:
+            network_address_port_translation = kwargs['networkAddressPortTranslation']
+        if 'userEquipmentAddressPoolPrefixes' in kwargs:
+            user_equipment_address_pool_prefixes = kwargs['userEquipmentAddressPoolPrefixes']
+        if 'userEquipmentStaticAddressPoolPrefixes' in kwargs:
+            user_equipment_static_address_pool_prefixes = kwargs['userEquipmentStaticAddressPoolPrefixes']
+        if 'userPlaneAccessIpv4Address' in kwargs:
+            user_plane_access_ipv4_address = kwargs['userPlaneAccessIpv4Address']
+        if 'userPlaneAccessIpv4Gateway' in kwargs:
+            user_plane_access_ipv4_gateway = kwargs['userPlaneAccessIpv4Gateway']
+        if 'userPlaneAccessIpv4Subnet' in kwargs:
+            user_plane_access_ipv4_subnet = kwargs['userPlaneAccessIpv4Subnet']
+        if 'userPlaneAccessName' in kwargs:
+            user_plane_access_name = kwargs['userPlaneAccessName']
+
         _setter("dns_addresses", dns_addresses)
         _setter("mobile_network_data_network_name", mobile_network_data_network_name)
         _setter("mobile_network_packet_core_data_plane_id", mobile_network_packet_core_data_plane_id)
@@ -291,7 +313,29 @@ class _NetworkAttachedDataNetworkState:
              user_plane_access_ipv4_gateway: Optional[pulumi.Input[str]] = None,
              user_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
              user_plane_access_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsAddresses' in kwargs:
+            dns_addresses = kwargs['dnsAddresses']
+        if 'mobileNetworkDataNetworkName' in kwargs:
+            mobile_network_data_network_name = kwargs['mobileNetworkDataNetworkName']
+        if 'mobileNetworkPacketCoreDataPlaneId' in kwargs:
+            mobile_network_packet_core_data_plane_id = kwargs['mobileNetworkPacketCoreDataPlaneId']
+        if 'networkAddressPortTranslation' in kwargs:
+            network_address_port_translation = kwargs['networkAddressPortTranslation']
+        if 'userEquipmentAddressPoolPrefixes' in kwargs:
+            user_equipment_address_pool_prefixes = kwargs['userEquipmentAddressPoolPrefixes']
+        if 'userEquipmentStaticAddressPoolPrefixes' in kwargs:
+            user_equipment_static_address_pool_prefixes = kwargs['userEquipmentStaticAddressPoolPrefixes']
+        if 'userPlaneAccessIpv4Address' in kwargs:
+            user_plane_access_ipv4_address = kwargs['userPlaneAccessIpv4Address']
+        if 'userPlaneAccessIpv4Gateway' in kwargs:
+            user_plane_access_ipv4_gateway = kwargs['userPlaneAccessIpv4Gateway']
+        if 'userPlaneAccessIpv4Subnet' in kwargs:
+            user_plane_access_ipv4_subnet = kwargs['userPlaneAccessIpv4Subnet']
+        if 'userPlaneAccessName' in kwargs:
+            user_plane_access_name = kwargs['userPlaneAccessName']
+
         if dns_addresses is not None:
             _setter("dns_addresses", dns_addresses)
         if location is not None:

@@ -145,14 +145,14 @@ public final class FirewallPolicyExplicitProxy {
             return this;
         }
         public FirewallPolicyExplicitProxy build() {
-            final var o = new FirewallPolicyExplicitProxy();
-            o.enablePacFile = enablePacFile;
-            o.enabled = enabled;
-            o.httpPort = httpPort;
-            o.httpsPort = httpsPort;
-            o.pacFile = pacFile;
-            o.pacFilePort = pacFilePort;
-            return o;
+            final var _resultValue = new FirewallPolicyExplicitProxy();
+            _resultValue.enablePacFile = enablePacFile;
+            _resultValue.enabled = enabled;
+            _resultValue.httpPort = httpPort;
+            _resultValue.httpsPort = httpsPort;
+            _resultValue.pacFile = pacFile;
+            _resultValue.pacFilePort = pacFilePort;
+            return _resultValue;
         }
     }
 }

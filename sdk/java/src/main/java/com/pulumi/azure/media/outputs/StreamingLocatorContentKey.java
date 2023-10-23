@@ -124,13 +124,13 @@ public final class StreamingLocatorContentKey {
             return this;
         }
         public StreamingLocatorContentKey build() {
-            final var o = new StreamingLocatorContentKey();
-            o.contentKeyId = contentKeyId;
-            o.labelReferenceInStreamingPolicy = labelReferenceInStreamingPolicy;
-            o.policyName = policyName;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new StreamingLocatorContentKey();
+            _resultValue.contentKeyId = contentKeyId;
+            _resultValue.labelReferenceInStreamingPolicy = labelReferenceInStreamingPolicy;
+            _resultValue.policyName = policyName;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

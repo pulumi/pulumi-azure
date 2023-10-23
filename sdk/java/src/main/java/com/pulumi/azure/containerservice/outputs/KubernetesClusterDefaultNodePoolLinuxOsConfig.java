@@ -107,12 +107,12 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfig {
             return this;
         }
         public KubernetesClusterDefaultNodePoolLinuxOsConfig build() {
-            final var o = new KubernetesClusterDefaultNodePoolLinuxOsConfig();
-            o.swapFileSizeMb = swapFileSizeMb;
-            o.sysctlConfig = sysctlConfig;
-            o.transparentHugePageDefrag = transparentHugePageDefrag;
-            o.transparentHugePageEnabled = transparentHugePageEnabled;
-            return o;
+            final var _resultValue = new KubernetesClusterDefaultNodePoolLinuxOsConfig();
+            _resultValue.swapFileSizeMb = swapFileSizeMb;
+            _resultValue.sysctlConfig = sysctlConfig;
+            _resultValue.transparentHugePageDefrag = transparentHugePageDefrag;
+            _resultValue.transparentHugePageEnabled = transparentHugePageEnabled;
+            return _resultValue;
         }
     }
 }

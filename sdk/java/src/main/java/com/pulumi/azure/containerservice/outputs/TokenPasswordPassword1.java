@@ -67,10 +67,10 @@ public final class TokenPasswordPassword1 {
             return this;
         }
         public TokenPasswordPassword1 build() {
-            final var o = new TokenPasswordPassword1();
-            o.expiry = expiry;
-            o.value = value;
-            return o;
+            final var _resultValue = new TokenPasswordPassword1();
+            _resultValue.expiry = expiry;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

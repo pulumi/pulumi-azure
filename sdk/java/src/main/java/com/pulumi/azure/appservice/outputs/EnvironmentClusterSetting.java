@@ -65,10 +65,10 @@ public final class EnvironmentClusterSetting {
             return this;
         }
         public EnvironmentClusterSetting build() {
-            final var o = new EnvironmentClusterSetting();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new EnvironmentClusterSetting();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

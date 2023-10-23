@@ -65,10 +65,10 @@ public final class EnvironmentDaprComponentSecret {
             return this;
         }
         public EnvironmentDaprComponentSecret build() {
-            final var o = new EnvironmentDaprComponentSecret();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new EnvironmentDaprComponentSecret();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

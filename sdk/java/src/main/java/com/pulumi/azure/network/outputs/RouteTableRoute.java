@@ -105,12 +105,12 @@ public final class RouteTableRoute {
             return this;
         }
         public RouteTableRoute build() {
-            final var o = new RouteTableRoute();
-            o.addressPrefix = addressPrefix;
-            o.name = name;
-            o.nextHopInIpAddress = nextHopInIpAddress;
-            o.nextHopType = nextHopType;
-            return o;
+            final var _resultValue = new RouteTableRoute();
+            _resultValue.addressPrefix = addressPrefix;
+            _resultValue.name = name;
+            _resultValue.nextHopInIpAddress = nextHopInIpAddress;
+            _resultValue.nextHopType = nextHopType;
+            return _resultValue;
         }
     }
 }

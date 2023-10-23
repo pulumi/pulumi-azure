@@ -39,9 +39,9 @@ public final class FrontdoorBackendPoolHealthProbe {
      */
     private @Nullable String path;
     /**
-     * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+     * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
      * 
-     * &gt; **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
+     * &gt; **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
      * 
      */
     private @Nullable String probeMethod;
@@ -88,9 +88,9 @@ public final class FrontdoorBackendPoolHealthProbe {
         return Optional.ofNullable(this.path);
     }
     /**
-     * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+     * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
      * 
-     * &gt; **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
+     * &gt; **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
      * 
      */
     public Optional<String> probeMethod() {
@@ -168,15 +168,15 @@ public final class FrontdoorBackendPoolHealthProbe {
             return this;
         }
         public FrontdoorBackendPoolHealthProbe build() {
-            final var o = new FrontdoorBackendPoolHealthProbe();
-            o.enabled = enabled;
-            o.id = id;
-            o.intervalInSeconds = intervalInSeconds;
-            o.name = name;
-            o.path = path;
-            o.probeMethod = probeMethod;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new FrontdoorBackendPoolHealthProbe();
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.intervalInSeconds = intervalInSeconds;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.probeMethod = probeMethod;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

@@ -190,18 +190,18 @@ public final class GetFrontdoorCustomDomainResult {
             return this;
         }
         public GetFrontdoorCustomDomainResult build() {
-            final var o = new GetFrontdoorCustomDomainResult();
-            o.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
-            o.dnsZoneId = dnsZoneId;
-            o.expirationDate = expirationDate;
-            o.hostName = hostName;
-            o.id = id;
-            o.name = name;
-            o.profileName = profileName;
-            o.resourceGroupName = resourceGroupName;
-            o.tls = tls;
-            o.validationToken = validationToken;
-            return o;
+            final var _resultValue = new GetFrontdoorCustomDomainResult();
+            _resultValue.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
+            _resultValue.dnsZoneId = dnsZoneId;
+            _resultValue.expirationDate = expirationDate;
+            _resultValue.hostName = hostName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.profileName = profileName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tls = tls;
+            _resultValue.validationToken = validationToken;
+            return _resultValue;
         }
     }
 }

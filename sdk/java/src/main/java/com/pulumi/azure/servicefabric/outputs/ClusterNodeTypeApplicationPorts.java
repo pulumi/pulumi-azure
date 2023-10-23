@@ -65,10 +65,10 @@ public final class ClusterNodeTypeApplicationPorts {
             return this;
         }
         public ClusterNodeTypeApplicationPorts build() {
-            final var o = new ClusterNodeTypeApplicationPorts();
-            o.endPort = endPort;
-            o.startPort = startPort;
-            return o;
+            final var _resultValue = new ClusterNodeTypeApplicationPorts();
+            _resultValue.endPort = endPort;
+            _resultValue.startPort = startPort;
+            return _resultValue;
         }
     }
 }

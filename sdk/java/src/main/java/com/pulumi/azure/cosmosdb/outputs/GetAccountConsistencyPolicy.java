@@ -85,11 +85,11 @@ public final class GetAccountConsistencyPolicy {
             return this;
         }
         public GetAccountConsistencyPolicy build() {
-            final var o = new GetAccountConsistencyPolicy();
-            o.consistencyLevel = consistencyLevel;
-            o.maxIntervalInSeconds = maxIntervalInSeconds;
-            o.maxStalenessPrefix = maxStalenessPrefix;
-            return o;
+            final var _resultValue = new GetAccountConsistencyPolicy();
+            _resultValue.consistencyLevel = consistencyLevel;
+            _resultValue.maxIntervalInSeconds = maxIntervalInSeconds;
+            _resultValue.maxStalenessPrefix = maxStalenessPrefix;
+            return _resultValue;
         }
     }
 }

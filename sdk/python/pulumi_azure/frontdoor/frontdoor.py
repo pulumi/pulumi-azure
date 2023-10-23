@@ -71,7 +71,27 @@ class FrontdoorArgs:
              load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPoolHealthProbes' in kwargs:
+            backend_pool_health_probes = kwargs['backendPoolHealthProbes']
+        if 'backendPoolLoadBalancings' in kwargs:
+            backend_pool_load_balancings = kwargs['backendPoolLoadBalancings']
+        if 'backendPools' in kwargs:
+            backend_pools = kwargs['backendPools']
+        if 'frontendEndpoints' in kwargs:
+            frontend_endpoints = kwargs['frontendEndpoints']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'routingRules' in kwargs:
+            routing_rules = kwargs['routingRules']
+        if 'backendPoolSettings' in kwargs:
+            backend_pool_settings = kwargs['backendPoolSettings']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'loadBalancerEnabled' in kwargs:
+            load_balancer_enabled = kwargs['loadBalancerEnabled']
+
         _setter("backend_pool_health_probes", backend_pool_health_probes)
         _setter("backend_pool_load_balancings", backend_pool_load_balancings)
         _setter("backend_pools", backend_pools)
@@ -313,7 +333,41 @@ class _FrontdoorState:
              routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]]] = None,
              routing_rules_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPoolHealthProbes' in kwargs:
+            backend_pool_health_probes = kwargs['backendPoolHealthProbes']
+        if 'backendPoolHealthProbesMap' in kwargs:
+            backend_pool_health_probes_map = kwargs['backendPoolHealthProbesMap']
+        if 'backendPoolLoadBalancingSettingsMap' in kwargs:
+            backend_pool_load_balancing_settings_map = kwargs['backendPoolLoadBalancingSettingsMap']
+        if 'backendPoolLoadBalancings' in kwargs:
+            backend_pool_load_balancings = kwargs['backendPoolLoadBalancings']
+        if 'backendPoolSettings' in kwargs:
+            backend_pool_settings = kwargs['backendPoolSettings']
+        if 'backendPools' in kwargs:
+            backend_pools = kwargs['backendPools']
+        if 'backendPoolsMap' in kwargs:
+            backend_pools_map = kwargs['backendPoolsMap']
+        if 'explicitResourceOrders' in kwargs:
+            explicit_resource_orders = kwargs['explicitResourceOrders']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'frontendEndpoints' in kwargs:
+            frontend_endpoints = kwargs['frontendEndpoints']
+        if 'frontendEndpointsMap' in kwargs:
+            frontend_endpoints_map = kwargs['frontendEndpointsMap']
+        if 'headerFrontdoorId' in kwargs:
+            header_frontdoor_id = kwargs['headerFrontdoorId']
+        if 'loadBalancerEnabled' in kwargs:
+            load_balancer_enabled = kwargs['loadBalancerEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'routingRules' in kwargs:
+            routing_rules = kwargs['routingRules']
+        if 'routingRulesMap' in kwargs:
+            routing_rules_map = kwargs['routingRulesMap']
+
         if backend_pool_health_probes is not None:
             _setter("backend_pool_health_probes", backend_pool_health_probes)
         if backend_pool_health_probes_map is not None:

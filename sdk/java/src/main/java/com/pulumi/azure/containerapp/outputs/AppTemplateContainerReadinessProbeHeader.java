@@ -65,10 +65,10 @@ public final class AppTemplateContainerReadinessProbeHeader {
             return this;
         }
         public AppTemplateContainerReadinessProbeHeader build() {
-            final var o = new AppTemplateContainerReadinessProbeHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new AppTemplateContainerReadinessProbeHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

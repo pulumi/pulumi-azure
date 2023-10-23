@@ -61,7 +61,19 @@ class MedtechServiceArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceMappingJson' in kwargs:
+            device_mapping_json = kwargs['deviceMappingJson']
+        if 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'eventhubNamespaceName' in kwargs:
+            eventhub_namespace_name = kwargs['eventhubNamespaceName']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         _setter("device_mapping_json", device_mapping_json)
         _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
         _setter("eventhub_name", eventhub_name)
@@ -233,7 +245,19 @@ class _MedtechServiceState:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deviceMappingJson' in kwargs:
+            device_mapping_json = kwargs['deviceMappingJson']
+        if 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'eventhubNamespaceName' in kwargs:
+            eventhub_namespace_name = kwargs['eventhubNamespaceName']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if device_mapping_json is not None:
             _setter("device_mapping_json", device_mapping_json)
         if eventhub_consumer_group_name is not None:

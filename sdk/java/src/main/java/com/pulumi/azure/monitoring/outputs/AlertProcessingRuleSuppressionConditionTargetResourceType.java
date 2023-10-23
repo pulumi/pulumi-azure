@@ -69,10 +69,10 @@ public final class AlertProcessingRuleSuppressionConditionTargetResourceType {
             return values(List.of(values));
         }
         public AlertProcessingRuleSuppressionConditionTargetResourceType build() {
-            final var o = new AlertProcessingRuleSuppressionConditionTargetResourceType();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new AlertProcessingRuleSuppressionConditionTargetResourceType();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

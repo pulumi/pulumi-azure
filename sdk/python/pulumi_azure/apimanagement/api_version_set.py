@@ -59,7 +59,21 @@ class ApiVersionSetArgs:
              name: Optional[pulumi.Input[str]] = None,
              version_header_name: Optional[pulumi.Input[str]] = None,
              version_query_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'versioningScheme' in kwargs:
+            versioning_scheme = kwargs['versioningScheme']
+        if 'versionHeaderName' in kwargs:
+            version_header_name = kwargs['versionHeaderName']
+        if 'versionQueryName' in kwargs:
+            version_query_name = kwargs['versionQueryName']
+
         _setter("api_management_name", api_management_name)
         _setter("display_name", display_name)
         _setter("resource_group_name", resource_group_name)
@@ -222,7 +236,21 @@ class _ApiVersionSetState:
              version_header_name: Optional[pulumi.Input[str]] = None,
              version_query_name: Optional[pulumi.Input[str]] = None,
              versioning_scheme: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'versionHeaderName' in kwargs:
+            version_header_name = kwargs['versionHeaderName']
+        if 'versionQueryName' in kwargs:
+            version_query_name = kwargs['versionQueryName']
+        if 'versioningScheme' in kwargs:
+            versioning_scheme = kwargs['versioningScheme']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if description is not None:

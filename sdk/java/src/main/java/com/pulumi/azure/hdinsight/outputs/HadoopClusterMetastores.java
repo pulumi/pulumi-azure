@@ -88,11 +88,11 @@ public final class HadoopClusterMetastores {
             return this;
         }
         public HadoopClusterMetastores build() {
-            final var o = new HadoopClusterMetastores();
-            o.ambari = ambari;
-            o.hive = hive;
-            o.oozie = oozie;
-            return o;
+            final var _resultValue = new HadoopClusterMetastores();
+            _resultValue.ambari = ambari;
+            _resultValue.hive = hive;
+            _resultValue.oozie = oozie;
+            return _resultValue;
         }
     }
 }

@@ -18,6 +18,21 @@ public final class StaticSiteArgs extends com.pulumi.resources.ResourceArgs {
     public static final StaticSiteArgs Empty = new StaticSiteArgs();
 
     /**
+     * A key-value pair of App Settings.
+     * 
+     */
+    @Import(name="appSettings")
+    private @Nullable Output<Map<String,String>> appSettings;
+
+    /**
+     * @return A key-value pair of App Settings.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> appSettings() {
+        return Optional.ofNullable(this.appSettings);
+    }
+
+    /**
      * An `identity` block as defined below.
      * 
      */
@@ -125,6 +140,7 @@ public final class StaticSiteArgs extends com.pulumi.resources.ResourceArgs {
     private StaticSiteArgs() {}
 
     private StaticSiteArgs(StaticSiteArgs $) {
+        this.appSettings = $.appSettings;
         this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
@@ -150,6 +166,27 @@ public final class StaticSiteArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(StaticSiteArgs defaults) {
             $ = new StaticSiteArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param appSettings A key-value pair of App Settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appSettings(@Nullable Output<Map<String,String>> appSettings) {
+            $.appSettings = appSettings;
+            return this;
+        }
+
+        /**
+         * @param appSettings A key-value pair of App Settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appSettings(Map<String,String> appSettings) {
+            return appSettings(Output.of(appSettings));
         }
 
         /**

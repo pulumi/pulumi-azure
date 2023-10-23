@@ -65,10 +65,10 @@ public final class ResourceGroupCostManagementExportExportDataOptions {
             return this;
         }
         public ResourceGroupCostManagementExportExportDataOptions build() {
-            final var o = new ResourceGroupCostManagementExportExportDataOptions();
-            o.timeFrame = timeFrame;
-            o.type = type;
-            return o;
+            final var _resultValue = new ResourceGroupCostManagementExportExportDataOptions();
+            _resultValue.timeFrame = timeFrame;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

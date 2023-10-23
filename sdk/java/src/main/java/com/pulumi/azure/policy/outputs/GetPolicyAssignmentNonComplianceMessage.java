@@ -65,10 +65,10 @@ public final class GetPolicyAssignmentNonComplianceMessage {
             return this;
         }
         public GetPolicyAssignmentNonComplianceMessage build() {
-            final var o = new GetPolicyAssignmentNonComplianceMessage();
-            o.content = content;
-            o.policyDefinitionReferenceId = policyDefinitionReferenceId;
-            return o;
+            final var _resultValue = new GetPolicyAssignmentNonComplianceMessage();
+            _resultValue.content = content;
+            _resultValue.policyDefinitionReferenceId = policyDefinitionReferenceId;
+            return _resultValue;
         }
     }
 }

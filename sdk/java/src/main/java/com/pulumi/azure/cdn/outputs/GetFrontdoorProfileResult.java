@@ -146,15 +146,15 @@ public final class GetFrontdoorProfileResult {
             return this;
         }
         public GetFrontdoorProfileResult build() {
-            final var o = new GetFrontdoorProfileResult();
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.resourceGuid = resourceGuid;
-            o.responseTimeoutSeconds = responseTimeoutSeconds;
-            o.skuName = skuName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetFrontdoorProfileResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.resourceGuid = resourceGuid;
+            _resultValue.responseTimeoutSeconds = responseTimeoutSeconds;
+            _resultValue.skuName = skuName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

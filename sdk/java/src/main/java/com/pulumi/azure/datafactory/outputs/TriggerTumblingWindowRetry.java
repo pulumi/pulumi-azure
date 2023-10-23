@@ -67,10 +67,10 @@ public final class TriggerTumblingWindowRetry {
             return this;
         }
         public TriggerTumblingWindowRetry build() {
-            final var o = new TriggerTumblingWindowRetry();
-            o.count = count;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new TriggerTumblingWindowRetry();
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

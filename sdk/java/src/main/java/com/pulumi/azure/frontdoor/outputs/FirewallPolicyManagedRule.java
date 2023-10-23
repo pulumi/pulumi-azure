@@ -113,12 +113,12 @@ public final class FirewallPolicyManagedRule {
             return this;
         }
         public FirewallPolicyManagedRule build() {
-            final var o = new FirewallPolicyManagedRule();
-            o.exclusions = exclusions;
-            o.overrides = overrides;
-            o.type = type;
-            o.version = version;
-            return o;
+            final var _resultValue = new FirewallPolicyManagedRule();
+            _resultValue.exclusions = exclusions;
+            _resultValue.overrides = overrides;
+            _resultValue.type = type;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

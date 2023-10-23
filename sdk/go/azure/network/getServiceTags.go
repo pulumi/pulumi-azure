@@ -75,7 +75,9 @@ type GetServiceTagsResult struct {
 	Ipv6Cidrs      []string `pulumi:"ipv6Cidrs"`
 	Location       string   `pulumi:"location"`
 	LocationFilter *string  `pulumi:"locationFilter"`
-	Service        string   `pulumi:"service"`
+	// The name of this Service Tags block.
+	Name    string `pulumi:"name"`
+	Service string `pulumi:"service"`
 }
 
 func GetServiceTagsOutput(ctx *pulumi.Context, args GetServiceTagsOutputArgs, opts ...pulumi.InvokeOption) GetServiceTagsResultOutput {
@@ -152,6 +154,11 @@ func (o GetServiceTagsResultOutput) Location() pulumi.StringOutput {
 
 func (o GetServiceTagsResultOutput) LocationFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetServiceTagsResult) *string { return v.LocationFilter }).(pulumi.StringPtrOutput)
+}
+
+// The name of this Service Tags block.
+func (o GetServiceTagsResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceTagsResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o GetServiceTagsResultOutput) Service() pulumi.StringOutput {

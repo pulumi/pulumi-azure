@@ -113,12 +113,12 @@ public final class FrontdoorRuleConditionsUrlFileExtensionCondition {
             return transforms(List.of(transforms));
         }
         public FrontdoorRuleConditionsUrlFileExtensionCondition build() {
-            final var o = new FrontdoorRuleConditionsUrlFileExtensionCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            o.transforms = transforms;
-            return o;
+            final var _resultValue = new FrontdoorRuleConditionsUrlFileExtensionCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            _resultValue.transforms = transforms;
+            return _resultValue;
         }
     }
 }

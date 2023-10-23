@@ -70,10 +70,10 @@ public final class EventSubscriptionAdvancedFilterNumberGreaterThan {
             return this;
         }
         public EventSubscriptionAdvancedFilterNumberGreaterThan build() {
-            final var o = new EventSubscriptionAdvancedFilterNumberGreaterThan();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventSubscriptionAdvancedFilterNumberGreaterThan();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

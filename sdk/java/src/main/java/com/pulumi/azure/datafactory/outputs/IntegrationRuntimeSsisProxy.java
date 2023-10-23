@@ -86,11 +86,11 @@ public final class IntegrationRuntimeSsisProxy {
             return this;
         }
         public IntegrationRuntimeSsisProxy build() {
-            final var o = new IntegrationRuntimeSsisProxy();
-            o.path = path;
-            o.selfHostedIntegrationRuntimeName = selfHostedIntegrationRuntimeName;
-            o.stagingStorageLinkedServiceName = stagingStorageLinkedServiceName;
-            return o;
+            final var _resultValue = new IntegrationRuntimeSsisProxy();
+            _resultValue.path = path;
+            _resultValue.selfHostedIntegrationRuntimeName = selfHostedIntegrationRuntimeName;
+            _resultValue.stagingStorageLinkedServiceName = stagingStorageLinkedServiceName;
+            return _resultValue;
         }
     }
 }

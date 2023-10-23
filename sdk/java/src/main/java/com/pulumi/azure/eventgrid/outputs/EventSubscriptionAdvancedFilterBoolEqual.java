@@ -70,10 +70,10 @@ public final class EventSubscriptionAdvancedFilterBoolEqual {
             return this;
         }
         public EventSubscriptionAdvancedFilterBoolEqual build() {
-            final var o = new EventSubscriptionAdvancedFilterBoolEqual();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new EventSubscriptionAdvancedFilterBoolEqual();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

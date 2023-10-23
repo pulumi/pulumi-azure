@@ -147,7 +147,7 @@ namespace Pulumi.Azure.AppInsights
         /// A `validation_rules` block as defined below.
         /// </summary>
         [Output("validationRules")]
-        public Output<Outputs.StandardWebTestValidationRules> ValidationRules { get; private set; } = null!;
+        public Output<Outputs.StandardWebTestValidationRules?> ValidationRules { get; private set; } = null!;
 
 
         /// <summary>

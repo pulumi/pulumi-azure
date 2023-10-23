@@ -33,6 +33,21 @@ public final class StaticSiteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A key-value pair of App Settings.
+     * 
+     */
+    @Import(name="appSettings")
+    private @Nullable Output<Map<String,String>> appSettings;
+
+    /**
+     * @return A key-value pair of App Settings.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> appSettings() {
+        return Optional.ofNullable(this.appSettings);
+    }
+
+    /**
      * The default host name of the Static Web App.
      * 
      */
@@ -156,6 +171,7 @@ public final class StaticSiteState extends com.pulumi.resources.ResourceArgs {
 
     private StaticSiteState(StaticSiteState $) {
         this.apiKey = $.apiKey;
+        this.appSettings = $.appSettings;
         this.defaultHostName = $.defaultHostName;
         this.identity = $.identity;
         this.location = $.location;
@@ -203,6 +219,27 @@ public final class StaticSiteState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
+        }
+
+        /**
+         * @param appSettings A key-value pair of App Settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appSettings(@Nullable Output<Map<String,String>> appSettings) {
+            $.appSettings = appSettings;
+            return this;
+        }
+
+        /**
+         * @param appSettings A key-value pair of App Settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appSettings(Map<String,String> appSettings) {
+            return appSettings(Output.of(appSettings));
         }
 
         /**

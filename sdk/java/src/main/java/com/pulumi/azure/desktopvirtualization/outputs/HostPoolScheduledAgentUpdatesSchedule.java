@@ -66,10 +66,10 @@ public final class HostPoolScheduledAgentUpdatesSchedule {
             return this;
         }
         public HostPoolScheduledAgentUpdatesSchedule build() {
-            final var o = new HostPoolScheduledAgentUpdatesSchedule();
-            o.dayOfWeek = dayOfWeek;
-            o.hourOfDay = hourOfDay;
-            return o;
+            final var _resultValue = new HostPoolScheduledAgentUpdatesSchedule();
+            _resultValue.dayOfWeek = dayOfWeek;
+            _resultValue.hourOfDay = hourOfDay;
+            return _resultValue;
         }
     }
 }

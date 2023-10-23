@@ -69,10 +69,10 @@ public final class FileSystemIdentity {
             return this;
         }
         public FileSystemIdentity build() {
-            final var o = new FileSystemIdentity();
-            o.identityIds = identityIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new FileSystemIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

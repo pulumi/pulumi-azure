@@ -65,10 +65,10 @@ public final class ActionHttpRunAfter {
             return this;
         }
         public ActionHttpRunAfter build() {
-            final var o = new ActionHttpRunAfter();
-            o.actionName = actionName;
-            o.actionResult = actionResult;
-            return o;
+            final var _resultValue = new ActionHttpRunAfter();
+            _resultValue.actionName = actionName;
+            _resultValue.actionResult = actionResult;
+            return _resultValue;
         }
     }
 }

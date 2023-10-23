@@ -59,7 +59,21 @@ class ResourceGroupTemplateDeploymentArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template_content: Optional[pulumi.Input[str]] = None,
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentMode' in kwargs:
+            deployment_mode = kwargs['deploymentMode']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'debugLevel' in kwargs:
+            debug_level = kwargs['debugLevel']
+        if 'parametersContent' in kwargs:
+            parameters_content = kwargs['parametersContent']
+        if 'templateContent' in kwargs:
+            template_content = kwargs['templateContent']
+        if 'templateSpecVersionId' in kwargs:
+            template_spec_version_id = kwargs['templateSpecVersionId']
+
         _setter("deployment_mode", deployment_mode)
         _setter("resource_group_name", resource_group_name)
         if debug_level is not None:
@@ -228,7 +242,23 @@ class _ResourceGroupTemplateDeploymentState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template_content: Optional[pulumi.Input[str]] = None,
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'debugLevel' in kwargs:
+            debug_level = kwargs['debugLevel']
+        if 'deploymentMode' in kwargs:
+            deployment_mode = kwargs['deploymentMode']
+        if 'outputContent' in kwargs:
+            output_content = kwargs['outputContent']
+        if 'parametersContent' in kwargs:
+            parameters_content = kwargs['parametersContent']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'templateContent' in kwargs:
+            template_content = kwargs['templateContent']
+        if 'templateSpecVersionId' in kwargs:
+            template_spec_version_id = kwargs['templateSpecVersionId']
+
         if debug_level is not None:
             _setter("debug_level", debug_level)
         if deployment_mode is not None:

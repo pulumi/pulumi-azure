@@ -142,14 +142,14 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode {
             return this;
         }
         public GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode build() {
-            final var o = new GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode();
-            o.count = count;
-            o.interval = interval;
-            o.path = path;
-            o.statusCodeRange = statusCodeRange;
-            o.subStatus = subStatus;
-            o.win32StatusCode = win32StatusCode;
-            return o;
+            final var _resultValue = new GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode();
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            _resultValue.path = path;
+            _resultValue.statusCodeRange = statusCodeRange;
+            _resultValue.subStatus = subStatus;
+            _resultValue.win32StatusCode = win32StatusCode;
+            return _resultValue;
         }
     }
 }

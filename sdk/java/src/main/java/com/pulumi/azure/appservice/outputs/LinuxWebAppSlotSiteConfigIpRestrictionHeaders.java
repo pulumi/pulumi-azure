@@ -115,12 +115,12 @@ public final class LinuxWebAppSlotSiteConfigIpRestrictionHeaders {
             return xForwardedHosts(List.of(xForwardedHosts));
         }
         public LinuxWebAppSlotSiteConfigIpRestrictionHeaders build() {
-            final var o = new LinuxWebAppSlotSiteConfigIpRestrictionHeaders();
-            o.xAzureFdids = xAzureFdids;
-            o.xFdHealthProbe = xFdHealthProbe;
-            o.xForwardedFors = xForwardedFors;
-            o.xForwardedHosts = xForwardedHosts;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotSiteConfigIpRestrictionHeaders();
+            _resultValue.xAzureFdids = xAzureFdids;
+            _resultValue.xFdHealthProbe = xFdHealthProbe;
+            _resultValue.xForwardedFors = xForwardedFors;
+            _resultValue.xForwardedHosts = xForwardedHosts;
+            return _resultValue;
         }
     }
 }

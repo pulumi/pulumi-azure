@@ -105,12 +105,12 @@ public final class PoolStartTaskContainerRegistry {
             return this;
         }
         public PoolStartTaskContainerRegistry build() {
-            final var o = new PoolStartTaskContainerRegistry();
-            o.password = password;
-            o.registryServer = registryServer;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            o.userName = userName;
-            return o;
+            final var _resultValue = new PoolStartTaskContainerRegistry();
+            _resultValue.password = password;
+            _resultValue.registryServer = registryServer;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            _resultValue.userName = userName;
+            return _resultValue;
         }
     }
 }

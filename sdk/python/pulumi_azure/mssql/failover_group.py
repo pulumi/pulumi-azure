@@ -53,7 +53,17 @@ class FailoverGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partnerServers' in kwargs:
+            partner_servers = kwargs['partnerServers']
+        if 'readWriteEndpointFailoverPolicy' in kwargs:
+            read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if 'readonlyEndpointFailoverPolicyEnabled' in kwargs:
+            readonly_endpoint_failover_policy_enabled = kwargs['readonlyEndpointFailoverPolicyEnabled']
+
         _setter("partner_servers", partner_servers)
         _setter("read_write_endpoint_failover_policy", read_write_endpoint_failover_policy)
         _setter("server_id", server_id)
@@ -191,7 +201,17 @@ class _FailoverGroupState:
              readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
              server_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partnerServers' in kwargs:
+            partner_servers = kwargs['partnerServers']
+        if 'readWriteEndpointFailoverPolicy' in kwargs:
+            read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
+        if 'readonlyEndpointFailoverPolicyEnabled' in kwargs:
+            readonly_endpoint_failover_policy_enabled = kwargs['readonlyEndpointFailoverPolicyEnabled']
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         if databases is not None:
             _setter("databases", databases)
         if name is not None:

@@ -79,7 +79,25 @@ class TrafficManagerNestedEndpointArgs:
              priority: Optional[pulumi.Input[int]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'minimumChildEndpoints' in kwargs:
+            minimum_child_endpoints = kwargs['minimumChildEndpoints']
+        if 'profileId' in kwargs:
+            profile_id = kwargs['profileId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'endpointLocation' in kwargs:
+            endpoint_location = kwargs['endpointLocation']
+        if 'geoMappings' in kwargs:
+            geo_mappings = kwargs['geoMappings']
+        if 'minimumRequiredChildEndpointsIpv4' in kwargs:
+            minimum_required_child_endpoints_ipv4 = kwargs['minimumRequiredChildEndpointsIpv4']
+        if 'minimumRequiredChildEndpointsIpv6' in kwargs:
+            minimum_required_child_endpoints_ipv6 = kwargs['minimumRequiredChildEndpointsIpv6']
+
         _setter("minimum_child_endpoints", minimum_child_endpoints)
         _setter("profile_id", profile_id)
         _setter("target_resource_id", target_resource_id)
@@ -329,7 +347,25 @@ class _TrafficManagerNestedEndpointState:
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'endpointLocation' in kwargs:
+            endpoint_location = kwargs['endpointLocation']
+        if 'geoMappings' in kwargs:
+            geo_mappings = kwargs['geoMappings']
+        if 'minimumChildEndpoints' in kwargs:
+            minimum_child_endpoints = kwargs['minimumChildEndpoints']
+        if 'minimumRequiredChildEndpointsIpv4' in kwargs:
+            minimum_required_child_endpoints_ipv4 = kwargs['minimumRequiredChildEndpointsIpv4']
+        if 'minimumRequiredChildEndpointsIpv6' in kwargs:
+            minimum_required_child_endpoints_ipv6 = kwargs['minimumRequiredChildEndpointsIpv6']
+        if 'profileId' in kwargs:
+            profile_id = kwargs['profileId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if custom_headers is not None:
             _setter("custom_headers", custom_headers)
         if enabled is not None:

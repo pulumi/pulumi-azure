@@ -3290,9 +3290,9 @@ func (o ApplicationGatewayProbeMatchPtrOutput) StatusCodes() pulumi.StringArrayO
 type ApplicationGatewayRedirectConfiguration struct {
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
-	// Whether or not to include the path in the redirected Url. Defaults to `false`
+	// Whether to include the path in the redirected URL. Defaults to `false`
 	IncludePath *bool `pulumi:"includePath"`
-	// Whether or not to include the query string in the redirected Url. Default to `false`
+	// Whether to include the query string in the redirected URL. Default to `false`
 	IncludeQueryString *bool `pulumi:"includeQueryString"`
 	// Unique name of the redirect configuration block
 	Name string `pulumi:"name"`
@@ -3301,7 +3301,7 @@ type ApplicationGatewayRedirectConfiguration struct {
 	TargetListenerId *string `pulumi:"targetListenerId"`
 	// The name of the listener to redirect to. Cannot be set if `targetUrl` is set.
 	TargetListenerName *string `pulumi:"targetListenerName"`
-	// The Url to redirect the request to. Cannot be set if `targetListenerName` is set.
+	// The URL to redirect the request to. Cannot be set if `targetListenerName` is set.
 	TargetUrl *string `pulumi:"targetUrl"`
 }
 
@@ -3319,9 +3319,9 @@ type ApplicationGatewayRedirectConfigurationInput interface {
 type ApplicationGatewayRedirectConfigurationArgs struct {
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Whether or not to include the path in the redirected Url. Defaults to `false`
+	// Whether to include the path in the redirected URL. Defaults to `false`
 	IncludePath pulumi.BoolPtrInput `pulumi:"includePath"`
-	// Whether or not to include the query string in the redirected Url. Default to `false`
+	// Whether to include the query string in the redirected URL. Default to `false`
 	IncludeQueryString pulumi.BoolPtrInput `pulumi:"includeQueryString"`
 	// Unique name of the redirect configuration block
 	Name pulumi.StringInput `pulumi:"name"`
@@ -3330,7 +3330,7 @@ type ApplicationGatewayRedirectConfigurationArgs struct {
 	TargetListenerId pulumi.StringPtrInput `pulumi:"targetListenerId"`
 	// The name of the listener to redirect to. Cannot be set if `targetUrl` is set.
 	TargetListenerName pulumi.StringPtrInput `pulumi:"targetListenerName"`
-	// The Url to redirect the request to. Cannot be set if `targetListenerName` is set.
+	// The URL to redirect the request to. Cannot be set if `targetListenerName` is set.
 	TargetUrl pulumi.StringPtrInput `pulumi:"targetUrl"`
 }
 
@@ -3408,12 +3408,12 @@ func (o ApplicationGatewayRedirectConfigurationOutput) Id() pulumi.StringPtrOutp
 	return o.ApplyT(func(v ApplicationGatewayRedirectConfiguration) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Whether or not to include the path in the redirected Url. Defaults to `false`
+// Whether to include the path in the redirected URL. Defaults to `false`
 func (o ApplicationGatewayRedirectConfigurationOutput) IncludePath() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRedirectConfiguration) *bool { return v.IncludePath }).(pulumi.BoolPtrOutput)
 }
 
-// Whether or not to include the query string in the redirected Url. Default to `false`
+// Whether to include the query string in the redirected URL. Default to `false`
 func (o ApplicationGatewayRedirectConfigurationOutput) IncludeQueryString() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRedirectConfiguration) *bool { return v.IncludeQueryString }).(pulumi.BoolPtrOutput)
 }
@@ -3437,7 +3437,7 @@ func (o ApplicationGatewayRedirectConfigurationOutput) TargetListenerName() pulu
 	return o.ApplyT(func(v ApplicationGatewayRedirectConfiguration) *string { return v.TargetListenerName }).(pulumi.StringPtrOutput)
 }
 
-// The Url to redirect the request to. Cannot be set if `targetListenerName` is set.
+// The URL to redirect the request to. Cannot be set if `targetListenerName` is set.
 func (o ApplicationGatewayRedirectConfigurationOutput) TargetUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRedirectConfiguration) *string { return v.TargetUrl }).(pulumi.StringPtrOutput)
 }
@@ -3741,7 +3741,7 @@ type ApplicationGatewayRewriteRuleSet struct {
 	Id *string `pulumi:"id"`
 	// Unique name of the rewrite rule set block
 	Name string `pulumi:"name"`
-	// One or more `rewriteRule` blocks as defined above.
+	// One or more `rewriteRule` blocks as defined below.
 	RewriteRules []ApplicationGatewayRewriteRuleSetRewriteRule `pulumi:"rewriteRules"`
 }
 
@@ -3761,7 +3761,7 @@ type ApplicationGatewayRewriteRuleSetArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Unique name of the rewrite rule set block
 	Name pulumi.StringInput `pulumi:"name"`
-	// One or more `rewriteRule` blocks as defined above.
+	// One or more `rewriteRule` blocks as defined below.
 	RewriteRules ApplicationGatewayRewriteRuleSetRewriteRuleArrayInput `pulumi:"rewriteRules"`
 }
 
@@ -3844,7 +3844,7 @@ func (o ApplicationGatewayRewriteRuleSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSet) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// One or more `rewriteRule` blocks as defined above.
+// One or more `rewriteRule` blocks as defined below.
 func (o ApplicationGatewayRewriteRuleSetOutput) RewriteRules() ApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSet) []ApplicationGatewayRewriteRuleSetRewriteRule {
 		return v.RewriteRules
@@ -4470,13 +4470,13 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationAr
 type ApplicationGatewayRewriteRuleSetRewriteRuleUrl struct {
 	// The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
 	//
-	// > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
+	// > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
 	Components *string `pulumi:"components"`
 	// The URL path to rewrite.
 	Path *string `pulumi:"path"`
 	// The query string to rewrite.
 	QueryString *string `pulumi:"queryString"`
-	// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+	// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
 	Reroute *bool `pulumi:"reroute"`
 }
 
@@ -4494,13 +4494,13 @@ type ApplicationGatewayRewriteRuleSetRewriteRuleUrlInput interface {
 type ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs struct {
 	// The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
 	//
-	// > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
+	// > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
 	Components pulumi.StringPtrInput `pulumi:"components"`
 	// The URL path to rewrite.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The query string to rewrite.
 	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
-	// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+	// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
 	Reroute pulumi.BoolPtrInput `pulumi:"reroute"`
 }
 
@@ -4601,7 +4601,7 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ToOutput(ctx conte
 
 // The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
 //
-// > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
+// > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) Components() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *string { return v.Components }).(pulumi.StringPtrOutput)
 }
@@ -4616,7 +4616,7 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) QueryString() pulu
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *string { return v.QueryString }).(pulumi.StringPtrOutput)
 }
 
-// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) Reroute() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *bool { return v.Reroute }).(pulumi.BoolPtrOutput)
 }
@@ -4653,7 +4653,7 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Elem() Applicat
 
 // The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
 //
-// > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
+// > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Components() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *string {
 		if v == nil {
@@ -4683,7 +4683,7 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) QueryString() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+// Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Reroute() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *bool {
 		if v == nil {
@@ -4694,7 +4694,7 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Reroute() pulum
 }
 
 type ApplicationGatewaySku struct {
-	// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
+	// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
 	Capacity *int `pulumi:"capacity"`
 	// The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
 	Name string `pulumi:"name"`
@@ -4716,7 +4716,7 @@ type ApplicationGatewaySkuInput interface {
 }
 
 type ApplicationGatewaySkuArgs struct {
-	// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
+	// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -4821,7 +4821,7 @@ func (o ApplicationGatewaySkuOutput) ToOutput(ctx context.Context) pulumix.Outpu
 	}
 }
 
-// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
+// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
 func (o ApplicationGatewaySkuOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
 }
@@ -4868,7 +4868,7 @@ func (o ApplicationGatewaySkuPtrOutput) Elem() ApplicationGatewaySkuOutput {
 	}).(ApplicationGatewaySkuOutput)
 }
 
-// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
+// The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
 func (o ApplicationGatewaySkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySku) *int {
 		if v == nil {
@@ -4907,7 +4907,7 @@ type ApplicationGatewaySslCertificate struct {
 	Data *string `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
-	// Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+	// The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 	//
 	// > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 	//
@@ -4939,7 +4939,7 @@ type ApplicationGatewaySslCertificateArgs struct {
 	Data pulumi.StringPtrInput `pulumi:"data"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+	// The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 	//
 	// > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 	//
@@ -5034,7 +5034,7 @@ func (o ApplicationGatewaySslCertificateOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+// The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 //
 // > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 //
@@ -5093,7 +5093,7 @@ type ApplicationGatewaySslPolicy struct {
 	DisabledProtocols []string `pulumi:"disabledProtocols"`
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 	MinProtocolVersion *string `pulumi:"minProtocolVersion"`
-	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+	// The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 	PolicyName *string `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 	//
@@ -5121,7 +5121,7 @@ type ApplicationGatewaySslPolicyArgs struct {
 	DisabledProtocols pulumi.StringArrayInput `pulumi:"disabledProtocols"`
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 	MinProtocolVersion pulumi.StringPtrInput `pulumi:"minProtocolVersion"`
-	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+	// The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 	//
@@ -5241,7 +5241,7 @@ func (o ApplicationGatewaySslPolicyOutput) MinProtocolVersion() pulumi.StringPtr
 	return o.ApplyT(func(v ApplicationGatewaySslPolicy) *string { return v.MinProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
-// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+// The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 func (o ApplicationGatewaySslPolicyOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslPolicy) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
@@ -5315,7 +5315,7 @@ func (o ApplicationGatewaySslPolicyPtrOutput) MinProtocolVersion() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+// The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 func (o ApplicationGatewaySslPolicyPtrOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySslPolicy) *string {
 		if v == nil {
@@ -5512,7 +5512,7 @@ type ApplicationGatewaySslProfileSslPolicy struct {
 	DisabledProtocols []string `pulumi:"disabledProtocols"`
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 	MinProtocolVersion *string `pulumi:"minProtocolVersion"`
-	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+	// The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 	PolicyName *string `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 	//
@@ -5540,7 +5540,7 @@ type ApplicationGatewaySslProfileSslPolicyArgs struct {
 	DisabledProtocols pulumi.StringArrayInput `pulumi:"disabledProtocols"`
 	// The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 	MinProtocolVersion pulumi.StringPtrInput `pulumi:"minProtocolVersion"`
-	// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+	// The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 	PolicyName pulumi.StringPtrInput `pulumi:"policyName"`
 	// The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 	//
@@ -5660,7 +5660,7 @@ func (o ApplicationGatewaySslProfileSslPolicyOutput) MinProtocolVersion() pulumi
 	return o.ApplyT(func(v ApplicationGatewaySslProfileSslPolicy) *string { return v.MinProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
-// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+// The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 func (o ApplicationGatewaySslProfileSslPolicyOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfileSslPolicy) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
@@ -5734,7 +5734,7 @@ func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) MinProtocolVersion() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+// The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
 func (o ApplicationGatewaySslProfileSslPolicyPtrOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewaySslProfileSslPolicy) *string {
 		if v == nil {
@@ -6278,7 +6278,7 @@ type ApplicationGatewayUrlPathMapPathRule struct {
 	BackendHttpSettingsId *string `pulumi:"backendHttpSettingsId"`
 	// The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirectConfigurationName` is set.
 	BackendHttpSettingsName *string `pulumi:"backendHttpSettingsName"`
-	// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+	// The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
 	FirewallPolicyId *string `pulumi:"firewallPolicyId"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
@@ -6316,7 +6316,7 @@ type ApplicationGatewayUrlPathMapPathRuleArgs struct {
 	BackendHttpSettingsId pulumi.StringPtrInput `pulumi:"backendHttpSettingsId"`
 	// The Name of the Backend HTTP Settings Collection to use for this Path Rule. Cannot be set if `redirectConfigurationName` is set.
 	BackendHttpSettingsName pulumi.StringPtrInput `pulumi:"backendHttpSettingsName"`
-	// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+	// The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
 	FirewallPolicyId pulumi.StringPtrInput `pulumi:"firewallPolicyId"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -6423,7 +6423,7 @@ func (o ApplicationGatewayUrlPathMapPathRuleOutput) BackendHttpSettingsName() pu
 	return o.ApplyT(func(v ApplicationGatewayUrlPathMapPathRule) *string { return v.BackendHttpSettingsName }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+// The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
 func (o ApplicationGatewayUrlPathMapPathRuleOutput) FirewallPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayUrlPathMapPathRule) *string { return v.FirewallPolicyId }).(pulumi.StringPtrOutput)
 }
@@ -6490,11 +6490,11 @@ func (o ApplicationGatewayUrlPathMapPathRuleArrayOutput) Index(i pulumi.IntInput
 }
 
 type ApplicationGatewayWafConfiguration struct {
-	// one or more `disabledRuleGroup` blocks as defined below.
+	// One or more `disabledRuleGroup` blocks as defined below.
 	DisabledRuleGroups []ApplicationGatewayWafConfigurationDisabledRuleGroup `pulumi:"disabledRuleGroups"`
 	// Is the Web Application Firewall enabled?
 	Enabled bool `pulumi:"enabled"`
-	// one or more `exclusion` blocks as defined below.
+	// One or more `exclusion` blocks as defined below.
 	Exclusions []ApplicationGatewayWafConfigurationExclusion `pulumi:"exclusions"`
 	// The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
 	FileUploadLimitMb *int `pulumi:"fileUploadLimitMb"`
@@ -6522,11 +6522,11 @@ type ApplicationGatewayWafConfigurationInput interface {
 }
 
 type ApplicationGatewayWafConfigurationArgs struct {
-	// one or more `disabledRuleGroup` blocks as defined below.
+	// One or more `disabledRuleGroup` blocks as defined below.
 	DisabledRuleGroups ApplicationGatewayWafConfigurationDisabledRuleGroupArrayInput `pulumi:"disabledRuleGroups"`
 	// Is the Web Application Firewall enabled?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// one or more `exclusion` blocks as defined below.
+	// One or more `exclusion` blocks as defined below.
 	Exclusions ApplicationGatewayWafConfigurationExclusionArrayInput `pulumi:"exclusions"`
 	// The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
 	FileUploadLimitMb pulumi.IntPtrInput `pulumi:"fileUploadLimitMb"`
@@ -6637,7 +6637,7 @@ func (o ApplicationGatewayWafConfigurationOutput) ToOutput(ctx context.Context) 
 	}
 }
 
-// one or more `disabledRuleGroup` blocks as defined below.
+// One or more `disabledRuleGroup` blocks as defined below.
 func (o ApplicationGatewayWafConfigurationOutput) DisabledRuleGroups() ApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) []ApplicationGatewayWafConfigurationDisabledRuleGroup {
 		return v.DisabledRuleGroups
@@ -6649,7 +6649,7 @@ func (o ApplicationGatewayWafConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// one or more `exclusion` blocks as defined below.
+// One or more `exclusion` blocks as defined below.
 func (o ApplicationGatewayWafConfigurationOutput) Exclusions() ApplicationGatewayWafConfigurationExclusionArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) []ApplicationGatewayWafConfigurationExclusion {
 		return v.Exclusions
@@ -6716,7 +6716,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) Elem() ApplicationGatewayWa
 	}).(ApplicationGatewayWafConfigurationOutput)
 }
 
-// one or more `disabledRuleGroup` blocks as defined below.
+// One or more `disabledRuleGroup` blocks as defined below.
 func (o ApplicationGatewayWafConfigurationPtrOutput) DisabledRuleGroups() ApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput {
 	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) []ApplicationGatewayWafConfigurationDisabledRuleGroup {
 		if v == nil {
@@ -6736,7 +6736,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) Enabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// one or more `exclusion` blocks as defined below.
+// One or more `exclusion` blocks as defined below.
 func (o ApplicationGatewayWafConfigurationPtrOutput) Exclusions() ApplicationGatewayWafConfigurationExclusionArrayOutput {
 	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) []ApplicationGatewayWafConfigurationExclusion {
 		if v == nil {
@@ -29543,12 +29543,272 @@ func (o VpnSiteO365PolicyTrafficCategoryPtrOutput) OptimizeEndpointEnabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-type GetApplicationGatewayBackendAddressPool struct {
-	// A list of FQDN's that are included in the Backend Address Pool.
-	Fqdns []string `pulumi:"fqdns"`
-	// The ID of the Backend Address Pool.
+type GetApplicationGatewayAuthenticationCertificate struct {
+	// The ID of the Rewrite Rule Set
 	Id string `pulumi:"id"`
-	// A list of IP Addresses that are included in the Backend Address Pool.
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+}
+
+// GetApplicationGatewayAuthenticationCertificateInput is an input type that accepts GetApplicationGatewayAuthenticationCertificateArgs and GetApplicationGatewayAuthenticationCertificateOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayAuthenticationCertificateInput` via:
+//
+//	GetApplicationGatewayAuthenticationCertificateArgs{...}
+type GetApplicationGatewayAuthenticationCertificateInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayAuthenticationCertificateOutput() GetApplicationGatewayAuthenticationCertificateOutput
+	ToGetApplicationGatewayAuthenticationCertificateOutputWithContext(context.Context) GetApplicationGatewayAuthenticationCertificateOutput
+}
+
+type GetApplicationGatewayAuthenticationCertificateArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetApplicationGatewayAuthenticationCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayAuthenticationCertificate)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayAuthenticationCertificateArgs) ToGetApplicationGatewayAuthenticationCertificateOutput() GetApplicationGatewayAuthenticationCertificateOutput {
+	return i.ToGetApplicationGatewayAuthenticationCertificateOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayAuthenticationCertificateArgs) ToGetApplicationGatewayAuthenticationCertificateOutputWithContext(ctx context.Context) GetApplicationGatewayAuthenticationCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayAuthenticationCertificateOutput)
+}
+
+func (i GetApplicationGatewayAuthenticationCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayAuthenticationCertificate] {
+	return pulumix.Output[GetApplicationGatewayAuthenticationCertificate]{
+		OutputState: i.ToGetApplicationGatewayAuthenticationCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayAuthenticationCertificateArrayInput is an input type that accepts GetApplicationGatewayAuthenticationCertificateArray and GetApplicationGatewayAuthenticationCertificateArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayAuthenticationCertificateArrayInput` via:
+//
+//	GetApplicationGatewayAuthenticationCertificateArray{ GetApplicationGatewayAuthenticationCertificateArgs{...} }
+type GetApplicationGatewayAuthenticationCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayAuthenticationCertificateArrayOutput() GetApplicationGatewayAuthenticationCertificateArrayOutput
+	ToGetApplicationGatewayAuthenticationCertificateArrayOutputWithContext(context.Context) GetApplicationGatewayAuthenticationCertificateArrayOutput
+}
+
+type GetApplicationGatewayAuthenticationCertificateArray []GetApplicationGatewayAuthenticationCertificateInput
+
+func (GetApplicationGatewayAuthenticationCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayAuthenticationCertificate)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayAuthenticationCertificateArray) ToGetApplicationGatewayAuthenticationCertificateArrayOutput() GetApplicationGatewayAuthenticationCertificateArrayOutput {
+	return i.ToGetApplicationGatewayAuthenticationCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayAuthenticationCertificateArray) ToGetApplicationGatewayAuthenticationCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewayAuthenticationCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayAuthenticationCertificateArrayOutput)
+}
+
+func (i GetApplicationGatewayAuthenticationCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayAuthenticationCertificate] {
+	return pulumix.Output[[]GetApplicationGatewayAuthenticationCertificate]{
+		OutputState: i.ToGetApplicationGatewayAuthenticationCertificateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayAuthenticationCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayAuthenticationCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayAuthenticationCertificate)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayAuthenticationCertificateOutput) ToGetApplicationGatewayAuthenticationCertificateOutput() GetApplicationGatewayAuthenticationCertificateOutput {
+	return o
+}
+
+func (o GetApplicationGatewayAuthenticationCertificateOutput) ToGetApplicationGatewayAuthenticationCertificateOutputWithContext(ctx context.Context) GetApplicationGatewayAuthenticationCertificateOutput {
+	return o
+}
+
+func (o GetApplicationGatewayAuthenticationCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayAuthenticationCertificate] {
+	return pulumix.Output[GetApplicationGatewayAuthenticationCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayAuthenticationCertificateOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayAuthenticationCertificate) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayAuthenticationCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayAuthenticationCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayAuthenticationCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayAuthenticationCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayAuthenticationCertificate)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayAuthenticationCertificateArrayOutput) ToGetApplicationGatewayAuthenticationCertificateArrayOutput() GetApplicationGatewayAuthenticationCertificateArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayAuthenticationCertificateArrayOutput) ToGetApplicationGatewayAuthenticationCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewayAuthenticationCertificateArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayAuthenticationCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayAuthenticationCertificate] {
+	return pulumix.Output[[]GetApplicationGatewayAuthenticationCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayAuthenticationCertificateArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayAuthenticationCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayAuthenticationCertificate {
+		return vs[0].([]GetApplicationGatewayAuthenticationCertificate)[vs[1].(int)]
+	}).(GetApplicationGatewayAuthenticationCertificateOutput)
+}
+
+type GetApplicationGatewayAutoscaleConfiguration struct {
+	// Maximum capacity for autoscaling.
+	MaxCapacity int `pulumi:"maxCapacity"`
+	// Minimum capacity for autoscaling.
+	MinCapacity int `pulumi:"minCapacity"`
+}
+
+// GetApplicationGatewayAutoscaleConfigurationInput is an input type that accepts GetApplicationGatewayAutoscaleConfigurationArgs and GetApplicationGatewayAutoscaleConfigurationOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayAutoscaleConfigurationInput` via:
+//
+//	GetApplicationGatewayAutoscaleConfigurationArgs{...}
+type GetApplicationGatewayAutoscaleConfigurationInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayAutoscaleConfigurationOutput() GetApplicationGatewayAutoscaleConfigurationOutput
+	ToGetApplicationGatewayAutoscaleConfigurationOutputWithContext(context.Context) GetApplicationGatewayAutoscaleConfigurationOutput
+}
+
+type GetApplicationGatewayAutoscaleConfigurationArgs struct {
+	// Maximum capacity for autoscaling.
+	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
+	// Minimum capacity for autoscaling.
+	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
+}
+
+func (GetApplicationGatewayAutoscaleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayAutoscaleConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayAutoscaleConfigurationArgs) ToGetApplicationGatewayAutoscaleConfigurationOutput() GetApplicationGatewayAutoscaleConfigurationOutput {
+	return i.ToGetApplicationGatewayAutoscaleConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayAutoscaleConfigurationArgs) ToGetApplicationGatewayAutoscaleConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayAutoscaleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayAutoscaleConfigurationOutput)
+}
+
+func (i GetApplicationGatewayAutoscaleConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayAutoscaleConfiguration] {
+	return pulumix.Output[GetApplicationGatewayAutoscaleConfiguration]{
+		OutputState: i.ToGetApplicationGatewayAutoscaleConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayAutoscaleConfigurationArrayInput is an input type that accepts GetApplicationGatewayAutoscaleConfigurationArray and GetApplicationGatewayAutoscaleConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayAutoscaleConfigurationArrayInput` via:
+//
+//	GetApplicationGatewayAutoscaleConfigurationArray{ GetApplicationGatewayAutoscaleConfigurationArgs{...} }
+type GetApplicationGatewayAutoscaleConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayAutoscaleConfigurationArrayOutput() GetApplicationGatewayAutoscaleConfigurationArrayOutput
+	ToGetApplicationGatewayAutoscaleConfigurationArrayOutputWithContext(context.Context) GetApplicationGatewayAutoscaleConfigurationArrayOutput
+}
+
+type GetApplicationGatewayAutoscaleConfigurationArray []GetApplicationGatewayAutoscaleConfigurationInput
+
+func (GetApplicationGatewayAutoscaleConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayAutoscaleConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayAutoscaleConfigurationArray) ToGetApplicationGatewayAutoscaleConfigurationArrayOutput() GetApplicationGatewayAutoscaleConfigurationArrayOutput {
+	return i.ToGetApplicationGatewayAutoscaleConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayAutoscaleConfigurationArray) ToGetApplicationGatewayAutoscaleConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayAutoscaleConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayAutoscaleConfigurationArrayOutput)
+}
+
+func (i GetApplicationGatewayAutoscaleConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayAutoscaleConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayAutoscaleConfiguration]{
+		OutputState: i.ToGetApplicationGatewayAutoscaleConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayAutoscaleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayAutoscaleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayAutoscaleConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayAutoscaleConfigurationOutput) ToGetApplicationGatewayAutoscaleConfigurationOutput() GetApplicationGatewayAutoscaleConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayAutoscaleConfigurationOutput) ToGetApplicationGatewayAutoscaleConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayAutoscaleConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayAutoscaleConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayAutoscaleConfiguration] {
+	return pulumix.Output[GetApplicationGatewayAutoscaleConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Maximum capacity for autoscaling.
+func (o GetApplicationGatewayAutoscaleConfigurationOutput) MaxCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayAutoscaleConfiguration) int { return v.MaxCapacity }).(pulumi.IntOutput)
+}
+
+// Minimum capacity for autoscaling.
+func (o GetApplicationGatewayAutoscaleConfigurationOutput) MinCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayAutoscaleConfiguration) int { return v.MinCapacity }).(pulumi.IntOutput)
+}
+
+type GetApplicationGatewayAutoscaleConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayAutoscaleConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayAutoscaleConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayAutoscaleConfigurationArrayOutput) ToGetApplicationGatewayAutoscaleConfigurationArrayOutput() GetApplicationGatewayAutoscaleConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayAutoscaleConfigurationArrayOutput) ToGetApplicationGatewayAutoscaleConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayAutoscaleConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayAutoscaleConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayAutoscaleConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayAutoscaleConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayAutoscaleConfigurationArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayAutoscaleConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayAutoscaleConfiguration {
+		return vs[0].([]GetApplicationGatewayAutoscaleConfiguration)[vs[1].(int)]
+	}).(GetApplicationGatewayAutoscaleConfigurationOutput)
+}
+
+type GetApplicationGatewayBackendAddressPool struct {
+	// A list of FQDNs which are part of the Backend Address Pool.
+	Fqdns []string `pulumi:"fqdns"`
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// A list of IP Addresses which are part of the Backend Address Pool.
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// The name of this Application Gateway.
 	Name string `pulumi:"name"`
@@ -29566,11 +29826,11 @@ type GetApplicationGatewayBackendAddressPoolInput interface {
 }
 
 type GetApplicationGatewayBackendAddressPoolArgs struct {
-	// A list of FQDN's that are included in the Backend Address Pool.
+	// A list of FQDNs which are part of the Backend Address Pool.
 	Fqdns pulumi.StringArrayInput `pulumi:"fqdns"`
-	// The ID of the Backend Address Pool.
+	// The ID of the Rewrite Rule Set
 	Id pulumi.StringInput `pulumi:"id"`
-	// A list of IP Addresses that are included in the Backend Address Pool.
+	// A list of IP Addresses which are part of the Backend Address Pool.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 	// The name of this Application Gateway.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -29645,17 +29905,17 @@ func (o GetApplicationGatewayBackendAddressPoolOutput) ToOutput(ctx context.Cont
 	}
 }
 
-// A list of FQDN's that are included in the Backend Address Pool.
+// A list of FQDNs which are part of the Backend Address Pool.
 func (o GetApplicationGatewayBackendAddressPoolOutput) Fqdns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetApplicationGatewayBackendAddressPool) []string { return v.Fqdns }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the Backend Address Pool.
+// The ID of the Rewrite Rule Set
 func (o GetApplicationGatewayBackendAddressPoolOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewayBackendAddressPool) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of IP Addresses that are included in the Backend Address Pool.
+// A list of IP Addresses which are part of the Backend Address Pool.
 func (o GetApplicationGatewayBackendAddressPoolOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetApplicationGatewayBackendAddressPool) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
@@ -29691,10 +29951,1649 @@ func (o GetApplicationGatewayBackendAddressPoolArrayOutput) Index(i pulumi.IntIn
 	}).(GetApplicationGatewayBackendAddressPoolOutput)
 }
 
+type GetApplicationGatewayBackendHttpSetting struct {
+	// The name of the affinity cookie.
+	AffinityCookieName string `pulumi:"affinityCookieName"`
+	// One or more `authenticationCertificate` blocks as defined below.
+	AuthenticationCertificates []GetApplicationGatewayBackendHttpSettingAuthenticationCertificate `pulumi:"authenticationCertificates"`
+	// A `connectionDraining` block as defined below.
+	ConnectionDrainings []GetApplicationGatewayBackendHttpSettingConnectionDraining `pulumi:"connectionDrainings"`
+	// Is Cookie-Based Affinity enabled?
+	CookieBasedAffinity string `pulumi:"cookieBasedAffinity"`
+	// The Hostname which is used for this HTTP Listener.
+	HostName string `pulumi:"hostName"`
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// The URL path to rewrite.
+	Path string `pulumi:"path"`
+	// Whether host header will be picked from the host name of the backend server.
+	PickHostNameFromBackendAddress bool `pulumi:"pickHostNameFromBackendAddress"`
+	// Custom port which is used for probing the backend servers.
+	Port int `pulumi:"port"`
+	// The ID of the associated Probe.
+	ProbeId string `pulumi:"probeId"`
+	// The name of the associated HTTP Probe.
+	ProbeName string `pulumi:"probeName"`
+	// The Protocol used for this Probe.
+	Protocol string `pulumi:"protocol"`
+	// The request timeout in seconds.
+	RequestTimeout int `pulumi:"requestTimeout"`
+	// A list of `trustedRootCertificate` names.
+	TrustedRootCertificateNames []string `pulumi:"trustedRootCertificateNames"`
+}
+
+// GetApplicationGatewayBackendHttpSettingInput is an input type that accepts GetApplicationGatewayBackendHttpSettingArgs and GetApplicationGatewayBackendHttpSettingOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayBackendHttpSettingInput` via:
+//
+//	GetApplicationGatewayBackendHttpSettingArgs{...}
+type GetApplicationGatewayBackendHttpSettingInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayBackendHttpSettingOutput() GetApplicationGatewayBackendHttpSettingOutput
+	ToGetApplicationGatewayBackendHttpSettingOutputWithContext(context.Context) GetApplicationGatewayBackendHttpSettingOutput
+}
+
+type GetApplicationGatewayBackendHttpSettingArgs struct {
+	// The name of the affinity cookie.
+	AffinityCookieName pulumi.StringInput `pulumi:"affinityCookieName"`
+	// One or more `authenticationCertificate` blocks as defined below.
+	AuthenticationCertificates GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput `pulumi:"authenticationCertificates"`
+	// A `connectionDraining` block as defined below.
+	ConnectionDrainings GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayInput `pulumi:"connectionDrainings"`
+	// Is Cookie-Based Affinity enabled?
+	CookieBasedAffinity pulumi.StringInput `pulumi:"cookieBasedAffinity"`
+	// The Hostname which is used for this HTTP Listener.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The URL path to rewrite.
+	Path pulumi.StringInput `pulumi:"path"`
+	// Whether host header will be picked from the host name of the backend server.
+	PickHostNameFromBackendAddress pulumi.BoolInput `pulumi:"pickHostNameFromBackendAddress"`
+	// Custom port which is used for probing the backend servers.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The ID of the associated Probe.
+	ProbeId pulumi.StringInput `pulumi:"probeId"`
+	// The name of the associated HTTP Probe.
+	ProbeName pulumi.StringInput `pulumi:"probeName"`
+	// The Protocol used for this Probe.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The request timeout in seconds.
+	RequestTimeout pulumi.IntInput `pulumi:"requestTimeout"`
+	// A list of `trustedRootCertificate` names.
+	TrustedRootCertificateNames pulumi.StringArrayInput `pulumi:"trustedRootCertificateNames"`
+}
+
+func (GetApplicationGatewayBackendHttpSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayBackendHttpSetting)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayBackendHttpSettingArgs) ToGetApplicationGatewayBackendHttpSettingOutput() GetApplicationGatewayBackendHttpSettingOutput {
+	return i.ToGetApplicationGatewayBackendHttpSettingOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayBackendHttpSettingArgs) ToGetApplicationGatewayBackendHttpSettingOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayBackendHttpSettingOutput)
+}
+
+func (i GetApplicationGatewayBackendHttpSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayBackendHttpSetting] {
+	return pulumix.Output[GetApplicationGatewayBackendHttpSetting]{
+		OutputState: i.ToGetApplicationGatewayBackendHttpSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayBackendHttpSettingArrayInput is an input type that accepts GetApplicationGatewayBackendHttpSettingArray and GetApplicationGatewayBackendHttpSettingArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayBackendHttpSettingArrayInput` via:
+//
+//	GetApplicationGatewayBackendHttpSettingArray{ GetApplicationGatewayBackendHttpSettingArgs{...} }
+type GetApplicationGatewayBackendHttpSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayBackendHttpSettingArrayOutput() GetApplicationGatewayBackendHttpSettingArrayOutput
+	ToGetApplicationGatewayBackendHttpSettingArrayOutputWithContext(context.Context) GetApplicationGatewayBackendHttpSettingArrayOutput
+}
+
+type GetApplicationGatewayBackendHttpSettingArray []GetApplicationGatewayBackendHttpSettingInput
+
+func (GetApplicationGatewayBackendHttpSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayBackendHttpSetting)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayBackendHttpSettingArray) ToGetApplicationGatewayBackendHttpSettingArrayOutput() GetApplicationGatewayBackendHttpSettingArrayOutput {
+	return i.ToGetApplicationGatewayBackendHttpSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayBackendHttpSettingArray) ToGetApplicationGatewayBackendHttpSettingArrayOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayBackendHttpSettingArrayOutput)
+}
+
+func (i GetApplicationGatewayBackendHttpSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayBackendHttpSetting] {
+	return pulumix.Output[[]GetApplicationGatewayBackendHttpSetting]{
+		OutputState: i.ToGetApplicationGatewayBackendHttpSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayBackendHttpSettingOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayBackendHttpSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayBackendHttpSetting)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayBackendHttpSettingOutput) ToGetApplicationGatewayBackendHttpSettingOutput() GetApplicationGatewayBackendHttpSettingOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendHttpSettingOutput) ToGetApplicationGatewayBackendHttpSettingOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendHttpSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayBackendHttpSetting] {
+	return pulumix.Output[GetApplicationGatewayBackendHttpSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the affinity cookie.
+func (o GetApplicationGatewayBackendHttpSettingOutput) AffinityCookieName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.AffinityCookieName }).(pulumi.StringOutput)
+}
+
+// One or more `authenticationCertificate` blocks as defined below.
+func (o GetApplicationGatewayBackendHttpSettingOutput) AuthenticationCertificates() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) []GetApplicationGatewayBackendHttpSettingAuthenticationCertificate {
+		return v.AuthenticationCertificates
+	}).(GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput)
+}
+
+// A `connectionDraining` block as defined below.
+func (o GetApplicationGatewayBackendHttpSettingOutput) ConnectionDrainings() GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) []GetApplicationGatewayBackendHttpSettingConnectionDraining {
+		return v.ConnectionDrainings
+	}).(GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput)
+}
+
+// Is Cookie-Based Affinity enabled?
+func (o GetApplicationGatewayBackendHttpSettingOutput) CookieBasedAffinity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.CookieBasedAffinity }).(pulumi.StringOutput)
+}
+
+// The Hostname which is used for this HTTP Listener.
+func (o GetApplicationGatewayBackendHttpSettingOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayBackendHttpSettingOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayBackendHttpSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The URL path to rewrite.
+func (o GetApplicationGatewayBackendHttpSettingOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Whether host header will be picked from the host name of the backend server.
+func (o GetApplicationGatewayBackendHttpSettingOutput) PickHostNameFromBackendAddress() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) bool { return v.PickHostNameFromBackendAddress }).(pulumi.BoolOutput)
+}
+
+// Custom port which is used for probing the backend servers.
+func (o GetApplicationGatewayBackendHttpSettingOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The ID of the associated Probe.
+func (o GetApplicationGatewayBackendHttpSettingOutput) ProbeId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.ProbeId }).(pulumi.StringOutput)
+}
+
+// The name of the associated HTTP Probe.
+func (o GetApplicationGatewayBackendHttpSettingOutput) ProbeName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.ProbeName }).(pulumi.StringOutput)
+}
+
+// The Protocol used for this Probe.
+func (o GetApplicationGatewayBackendHttpSettingOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The request timeout in seconds.
+func (o GetApplicationGatewayBackendHttpSettingOutput) RequestTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) int { return v.RequestTimeout }).(pulumi.IntOutput)
+}
+
+// A list of `trustedRootCertificate` names.
+func (o GetApplicationGatewayBackendHttpSettingOutput) TrustedRootCertificateNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) []string { return v.TrustedRootCertificateNames }).(pulumi.StringArrayOutput)
+}
+
+type GetApplicationGatewayBackendHttpSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayBackendHttpSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayBackendHttpSetting)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayBackendHttpSettingArrayOutput) ToGetApplicationGatewayBackendHttpSettingArrayOutput() GetApplicationGatewayBackendHttpSettingArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendHttpSettingArrayOutput) ToGetApplicationGatewayBackendHttpSettingArrayOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendHttpSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayBackendHttpSetting] {
+	return pulumix.Output[[]GetApplicationGatewayBackendHttpSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayBackendHttpSettingArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayBackendHttpSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayBackendHttpSetting {
+		return vs[0].([]GetApplicationGatewayBackendHttpSetting)[vs[1].(int)]
+	}).(GetApplicationGatewayBackendHttpSettingOutput)
+}
+
+type GetApplicationGatewayBackendHttpSettingAuthenticationCertificate struct {
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+}
+
+// GetApplicationGatewayBackendHttpSettingAuthenticationCertificateInput is an input type that accepts GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs and GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayBackendHttpSettingAuthenticationCertificateInput` via:
+//
+//	GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs{...}
+type GetApplicationGatewayBackendHttpSettingAuthenticationCertificateInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput
+	ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutputWithContext(context.Context) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput
+}
+
+type GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingAuthenticationCertificate)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
+	return i.ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput)
+}
+
+func (i GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayBackendHttpSettingAuthenticationCertificate] {
+	return pulumix.Output[GetApplicationGatewayBackendHttpSettingAuthenticationCertificate]{
+		OutputState: i.ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput is an input type that accepts GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray and GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput` via:
+//
+//	GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray{ GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs{...} }
+type GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput
+	ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutputWithContext(context.Context) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput
+}
+
+type GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray []GetApplicationGatewayBackendHttpSettingAuthenticationCertificateInput
+
+func (GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayBackendHttpSettingAuthenticationCertificate)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
+	return i.ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput)
+}
+
+func (i GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayBackendHttpSettingAuthenticationCertificate] {
+	return pulumix.Output[[]GetApplicationGatewayBackendHttpSettingAuthenticationCertificate]{
+		OutputState: i.ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingAuthenticationCertificate)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayBackendHttpSettingAuthenticationCertificate] {
+	return pulumix.Output[GetApplicationGatewayBackendHttpSettingAuthenticationCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSettingAuthenticationCertificate) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSettingAuthenticationCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayBackendHttpSettingAuthenticationCertificate)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayBackendHttpSettingAuthenticationCertificate] {
+	return pulumix.Output[[]GetApplicationGatewayBackendHttpSettingAuthenticationCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayBackendHttpSettingAuthenticationCertificate {
+		return vs[0].([]GetApplicationGatewayBackendHttpSettingAuthenticationCertificate)[vs[1].(int)]
+	}).(GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput)
+}
+
+type GetApplicationGatewayBackendHttpSettingConnectionDraining struct {
+	// The number of seconds connection draining is active.
+	DrainTimeoutSec int `pulumi:"drainTimeoutSec"`
+	// Is the Web Application Firewall enabled?
+	Enabled bool `pulumi:"enabled"`
+}
+
+// GetApplicationGatewayBackendHttpSettingConnectionDrainingInput is an input type that accepts GetApplicationGatewayBackendHttpSettingConnectionDrainingArgs and GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayBackendHttpSettingConnectionDrainingInput` via:
+//
+//	GetApplicationGatewayBackendHttpSettingConnectionDrainingArgs{...}
+type GetApplicationGatewayBackendHttpSettingConnectionDrainingInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayBackendHttpSettingConnectionDrainingOutput() GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput
+	ToGetApplicationGatewayBackendHttpSettingConnectionDrainingOutputWithContext(context.Context) GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput
+}
+
+type GetApplicationGatewayBackendHttpSettingConnectionDrainingArgs struct {
+	// The number of seconds connection draining is active.
+	DrainTimeoutSec pulumi.IntInput `pulumi:"drainTimeoutSec"`
+	// Is the Web Application Firewall enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (GetApplicationGatewayBackendHttpSettingConnectionDrainingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingConnectionDraining)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayBackendHttpSettingConnectionDrainingArgs) ToGetApplicationGatewayBackendHttpSettingConnectionDrainingOutput() GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput {
+	return i.ToGetApplicationGatewayBackendHttpSettingConnectionDrainingOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayBackendHttpSettingConnectionDrainingArgs) ToGetApplicationGatewayBackendHttpSettingConnectionDrainingOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput)
+}
+
+func (i GetApplicationGatewayBackendHttpSettingConnectionDrainingArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayBackendHttpSettingConnectionDraining] {
+	return pulumix.Output[GetApplicationGatewayBackendHttpSettingConnectionDraining]{
+		OutputState: i.ToGetApplicationGatewayBackendHttpSettingConnectionDrainingOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayInput is an input type that accepts GetApplicationGatewayBackendHttpSettingConnectionDrainingArray and GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayInput` via:
+//
+//	GetApplicationGatewayBackendHttpSettingConnectionDrainingArray{ GetApplicationGatewayBackendHttpSettingConnectionDrainingArgs{...} }
+type GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput() GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput
+	ToGetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutputWithContext(context.Context) GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput
+}
+
+type GetApplicationGatewayBackendHttpSettingConnectionDrainingArray []GetApplicationGatewayBackendHttpSettingConnectionDrainingInput
+
+func (GetApplicationGatewayBackendHttpSettingConnectionDrainingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayBackendHttpSettingConnectionDraining)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayBackendHttpSettingConnectionDrainingArray) ToGetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput() GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput {
+	return i.ToGetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayBackendHttpSettingConnectionDrainingArray) ToGetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput)
+}
+
+func (i GetApplicationGatewayBackendHttpSettingConnectionDrainingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayBackendHttpSettingConnectionDraining] {
+	return pulumix.Output[[]GetApplicationGatewayBackendHttpSettingConnectionDraining]{
+		OutputState: i.ToGetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingConnectionDraining)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput) ToGetApplicationGatewayBackendHttpSettingConnectionDrainingOutput() GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput) ToGetApplicationGatewayBackendHttpSettingConnectionDrainingOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayBackendHttpSettingConnectionDraining] {
+	return pulumix.Output[GetApplicationGatewayBackendHttpSettingConnectionDraining]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The number of seconds connection draining is active.
+func (o GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput) DrainTimeoutSec() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSettingConnectionDraining) int { return v.DrainTimeoutSec }).(pulumi.IntOutput)
+}
+
+// Is the Web Application Firewall enabled?
+func (o GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSettingConnectionDraining) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayBackendHttpSettingConnectionDraining)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput) ToGetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput() GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput) ToGetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayBackendHttpSettingConnectionDraining] {
+	return pulumix.Output[[]GetApplicationGatewayBackendHttpSettingConnectionDraining]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayBackendHttpSettingConnectionDraining {
+		return vs[0].([]GetApplicationGatewayBackendHttpSettingConnectionDraining)[vs[1].(int)]
+	}).(GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput)
+}
+
+type GetApplicationGatewayCustomErrorConfiguration struct {
+	// Error page URL of the application gateway custom error.
+	CustomErrorPageUrl string `pulumi:"customErrorPageUrl"`
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// Status code of the application gateway custom error.
+	StatusCode string `pulumi:"statusCode"`
+}
+
+// GetApplicationGatewayCustomErrorConfigurationInput is an input type that accepts GetApplicationGatewayCustomErrorConfigurationArgs and GetApplicationGatewayCustomErrorConfigurationOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayCustomErrorConfigurationInput` via:
+//
+//	GetApplicationGatewayCustomErrorConfigurationArgs{...}
+type GetApplicationGatewayCustomErrorConfigurationInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayCustomErrorConfigurationOutput() GetApplicationGatewayCustomErrorConfigurationOutput
+	ToGetApplicationGatewayCustomErrorConfigurationOutputWithContext(context.Context) GetApplicationGatewayCustomErrorConfigurationOutput
+}
+
+type GetApplicationGatewayCustomErrorConfigurationArgs struct {
+	// Error page URL of the application gateway custom error.
+	CustomErrorPageUrl pulumi.StringInput `pulumi:"customErrorPageUrl"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// Status code of the application gateway custom error.
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+}
+
+func (GetApplicationGatewayCustomErrorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayCustomErrorConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayCustomErrorConfigurationArgs) ToGetApplicationGatewayCustomErrorConfigurationOutput() GetApplicationGatewayCustomErrorConfigurationOutput {
+	return i.ToGetApplicationGatewayCustomErrorConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayCustomErrorConfigurationArgs) ToGetApplicationGatewayCustomErrorConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayCustomErrorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayCustomErrorConfigurationOutput)
+}
+
+func (i GetApplicationGatewayCustomErrorConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayCustomErrorConfiguration] {
+	return pulumix.Output[GetApplicationGatewayCustomErrorConfiguration]{
+		OutputState: i.ToGetApplicationGatewayCustomErrorConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayCustomErrorConfigurationArrayInput is an input type that accepts GetApplicationGatewayCustomErrorConfigurationArray and GetApplicationGatewayCustomErrorConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayCustomErrorConfigurationArrayInput` via:
+//
+//	GetApplicationGatewayCustomErrorConfigurationArray{ GetApplicationGatewayCustomErrorConfigurationArgs{...} }
+type GetApplicationGatewayCustomErrorConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayCustomErrorConfigurationArrayOutput() GetApplicationGatewayCustomErrorConfigurationArrayOutput
+	ToGetApplicationGatewayCustomErrorConfigurationArrayOutputWithContext(context.Context) GetApplicationGatewayCustomErrorConfigurationArrayOutput
+}
+
+type GetApplicationGatewayCustomErrorConfigurationArray []GetApplicationGatewayCustomErrorConfigurationInput
+
+func (GetApplicationGatewayCustomErrorConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayCustomErrorConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayCustomErrorConfigurationArray) ToGetApplicationGatewayCustomErrorConfigurationArrayOutput() GetApplicationGatewayCustomErrorConfigurationArrayOutput {
+	return i.ToGetApplicationGatewayCustomErrorConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayCustomErrorConfigurationArray) ToGetApplicationGatewayCustomErrorConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayCustomErrorConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayCustomErrorConfigurationArrayOutput)
+}
+
+func (i GetApplicationGatewayCustomErrorConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayCustomErrorConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayCustomErrorConfiguration]{
+		OutputState: i.ToGetApplicationGatewayCustomErrorConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayCustomErrorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayCustomErrorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayCustomErrorConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayCustomErrorConfigurationOutput) ToGetApplicationGatewayCustomErrorConfigurationOutput() GetApplicationGatewayCustomErrorConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayCustomErrorConfigurationOutput) ToGetApplicationGatewayCustomErrorConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayCustomErrorConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayCustomErrorConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayCustomErrorConfiguration] {
+	return pulumix.Output[GetApplicationGatewayCustomErrorConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Error page URL of the application gateway custom error.
+func (o GetApplicationGatewayCustomErrorConfigurationOutput) CustomErrorPageUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayCustomErrorConfiguration) string { return v.CustomErrorPageUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayCustomErrorConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayCustomErrorConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Status code of the application gateway custom error.
+func (o GetApplicationGatewayCustomErrorConfigurationOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayCustomErrorConfiguration) string { return v.StatusCode }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayCustomErrorConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayCustomErrorConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayCustomErrorConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayCustomErrorConfigurationArrayOutput) ToGetApplicationGatewayCustomErrorConfigurationArrayOutput() GetApplicationGatewayCustomErrorConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayCustomErrorConfigurationArrayOutput) ToGetApplicationGatewayCustomErrorConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayCustomErrorConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayCustomErrorConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayCustomErrorConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayCustomErrorConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayCustomErrorConfigurationArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayCustomErrorConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayCustomErrorConfiguration {
+		return vs[0].([]GetApplicationGatewayCustomErrorConfiguration)[vs[1].(int)]
+	}).(GetApplicationGatewayCustomErrorConfigurationOutput)
+}
+
+type GetApplicationGatewayFrontendIpConfiguration struct {
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// The Static IP Address which is used.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// The allocation method used for the Private IP Address.
+	PrivateIpAddressAllocation string `pulumi:"privateIpAddressAllocation"`
+	// The ID of the associated Private Link configuration.
+	PrivateLinkConfigurationId string `pulumi:"privateLinkConfigurationId"`
+	// The name of the Private Link configuration in use by this Frontend IP Configuration.
+	PrivateLinkConfigurationName string `pulumi:"privateLinkConfigurationName"`
+	// The ID of the Public IP Address which the Application Gateway will use.
+	PublicIpAddressId string `pulumi:"publicIpAddressId"`
+	// The ID of the subnet the private link configuration is connected to.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetApplicationGatewayFrontendIpConfigurationInput is an input type that accepts GetApplicationGatewayFrontendIpConfigurationArgs and GetApplicationGatewayFrontendIpConfigurationOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayFrontendIpConfigurationInput` via:
+//
+//	GetApplicationGatewayFrontendIpConfigurationArgs{...}
+type GetApplicationGatewayFrontendIpConfigurationInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayFrontendIpConfigurationOutput() GetApplicationGatewayFrontendIpConfigurationOutput
+	ToGetApplicationGatewayFrontendIpConfigurationOutputWithContext(context.Context) GetApplicationGatewayFrontendIpConfigurationOutput
+}
+
+type GetApplicationGatewayFrontendIpConfigurationArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Static IP Address which is used.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// The allocation method used for the Private IP Address.
+	PrivateIpAddressAllocation pulumi.StringInput `pulumi:"privateIpAddressAllocation"`
+	// The ID of the associated Private Link configuration.
+	PrivateLinkConfigurationId pulumi.StringInput `pulumi:"privateLinkConfigurationId"`
+	// The name of the Private Link configuration in use by this Frontend IP Configuration.
+	PrivateLinkConfigurationName pulumi.StringInput `pulumi:"privateLinkConfigurationName"`
+	// The ID of the Public IP Address which the Application Gateway will use.
+	PublicIpAddressId pulumi.StringInput `pulumi:"publicIpAddressId"`
+	// The ID of the subnet the private link configuration is connected to.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetApplicationGatewayFrontendIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayFrontendIpConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayFrontendIpConfigurationArgs) ToGetApplicationGatewayFrontendIpConfigurationOutput() GetApplicationGatewayFrontendIpConfigurationOutput {
+	return i.ToGetApplicationGatewayFrontendIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayFrontendIpConfigurationArgs) ToGetApplicationGatewayFrontendIpConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayFrontendIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayFrontendIpConfigurationOutput)
+}
+
+func (i GetApplicationGatewayFrontendIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayFrontendIpConfiguration] {
+	return pulumix.Output[GetApplicationGatewayFrontendIpConfiguration]{
+		OutputState: i.ToGetApplicationGatewayFrontendIpConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayFrontendIpConfigurationArrayInput is an input type that accepts GetApplicationGatewayFrontendIpConfigurationArray and GetApplicationGatewayFrontendIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayFrontendIpConfigurationArrayInput` via:
+//
+//	GetApplicationGatewayFrontendIpConfigurationArray{ GetApplicationGatewayFrontendIpConfigurationArgs{...} }
+type GetApplicationGatewayFrontendIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayFrontendIpConfigurationArrayOutput() GetApplicationGatewayFrontendIpConfigurationArrayOutput
+	ToGetApplicationGatewayFrontendIpConfigurationArrayOutputWithContext(context.Context) GetApplicationGatewayFrontendIpConfigurationArrayOutput
+}
+
+type GetApplicationGatewayFrontendIpConfigurationArray []GetApplicationGatewayFrontendIpConfigurationInput
+
+func (GetApplicationGatewayFrontendIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayFrontendIpConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayFrontendIpConfigurationArray) ToGetApplicationGatewayFrontendIpConfigurationArrayOutput() GetApplicationGatewayFrontendIpConfigurationArrayOutput {
+	return i.ToGetApplicationGatewayFrontendIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayFrontendIpConfigurationArray) ToGetApplicationGatewayFrontendIpConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayFrontendIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayFrontendIpConfigurationArrayOutput)
+}
+
+func (i GetApplicationGatewayFrontendIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayFrontendIpConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayFrontendIpConfiguration]{
+		OutputState: i.ToGetApplicationGatewayFrontendIpConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayFrontendIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayFrontendIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayFrontendIpConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayFrontendIpConfigurationOutput) ToGetApplicationGatewayFrontendIpConfigurationOutput() GetApplicationGatewayFrontendIpConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayFrontendIpConfigurationOutput) ToGetApplicationGatewayFrontendIpConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayFrontendIpConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayFrontendIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayFrontendIpConfiguration] {
+	return pulumix.Output[GetApplicationGatewayFrontendIpConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayFrontendIpConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayFrontendIpConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayFrontendIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayFrontendIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Static IP Address which is used.
+func (o GetApplicationGatewayFrontendIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayFrontendIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// The allocation method used for the Private IP Address.
+func (o GetApplicationGatewayFrontendIpConfigurationOutput) PrivateIpAddressAllocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayFrontendIpConfiguration) string { return v.PrivateIpAddressAllocation }).(pulumi.StringOutput)
+}
+
+// The ID of the associated Private Link configuration.
+func (o GetApplicationGatewayFrontendIpConfigurationOutput) PrivateLinkConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayFrontendIpConfiguration) string { return v.PrivateLinkConfigurationId }).(pulumi.StringOutput)
+}
+
+// The name of the Private Link configuration in use by this Frontend IP Configuration.
+func (o GetApplicationGatewayFrontendIpConfigurationOutput) PrivateLinkConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayFrontendIpConfiguration) string { return v.PrivateLinkConfigurationName }).(pulumi.StringOutput)
+}
+
+// The ID of the Public IP Address which the Application Gateway will use.
+func (o GetApplicationGatewayFrontendIpConfigurationOutput) PublicIpAddressId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayFrontendIpConfiguration) string { return v.PublicIpAddressId }).(pulumi.StringOutput)
+}
+
+// The ID of the subnet the private link configuration is connected to.
+func (o GetApplicationGatewayFrontendIpConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayFrontendIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayFrontendIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayFrontendIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayFrontendIpConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayFrontendIpConfigurationArrayOutput) ToGetApplicationGatewayFrontendIpConfigurationArrayOutput() GetApplicationGatewayFrontendIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayFrontendIpConfigurationArrayOutput) ToGetApplicationGatewayFrontendIpConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayFrontendIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayFrontendIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayFrontendIpConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayFrontendIpConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayFrontendIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayFrontendIpConfiguration {
+		return vs[0].([]GetApplicationGatewayFrontendIpConfiguration)[vs[1].(int)]
+	}).(GetApplicationGatewayFrontendIpConfigurationOutput)
+}
+
+type GetApplicationGatewayFrontendPort struct {
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// Custom port which is used for probing the backend servers.
+	Port int `pulumi:"port"`
+}
+
+// GetApplicationGatewayFrontendPortInput is an input type that accepts GetApplicationGatewayFrontendPortArgs and GetApplicationGatewayFrontendPortOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayFrontendPortInput` via:
+//
+//	GetApplicationGatewayFrontendPortArgs{...}
+type GetApplicationGatewayFrontendPortInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayFrontendPortOutput() GetApplicationGatewayFrontendPortOutput
+	ToGetApplicationGatewayFrontendPortOutputWithContext(context.Context) GetApplicationGatewayFrontendPortOutput
+}
+
+type GetApplicationGatewayFrontendPortArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Custom port which is used for probing the backend servers.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (GetApplicationGatewayFrontendPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayFrontendPort)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayFrontendPortArgs) ToGetApplicationGatewayFrontendPortOutput() GetApplicationGatewayFrontendPortOutput {
+	return i.ToGetApplicationGatewayFrontendPortOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayFrontendPortArgs) ToGetApplicationGatewayFrontendPortOutputWithContext(ctx context.Context) GetApplicationGatewayFrontendPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayFrontendPortOutput)
+}
+
+func (i GetApplicationGatewayFrontendPortArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayFrontendPort] {
+	return pulumix.Output[GetApplicationGatewayFrontendPort]{
+		OutputState: i.ToGetApplicationGatewayFrontendPortOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayFrontendPortArrayInput is an input type that accepts GetApplicationGatewayFrontendPortArray and GetApplicationGatewayFrontendPortArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayFrontendPortArrayInput` via:
+//
+//	GetApplicationGatewayFrontendPortArray{ GetApplicationGatewayFrontendPortArgs{...} }
+type GetApplicationGatewayFrontendPortArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayFrontendPortArrayOutput() GetApplicationGatewayFrontendPortArrayOutput
+	ToGetApplicationGatewayFrontendPortArrayOutputWithContext(context.Context) GetApplicationGatewayFrontendPortArrayOutput
+}
+
+type GetApplicationGatewayFrontendPortArray []GetApplicationGatewayFrontendPortInput
+
+func (GetApplicationGatewayFrontendPortArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayFrontendPort)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayFrontendPortArray) ToGetApplicationGatewayFrontendPortArrayOutput() GetApplicationGatewayFrontendPortArrayOutput {
+	return i.ToGetApplicationGatewayFrontendPortArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayFrontendPortArray) ToGetApplicationGatewayFrontendPortArrayOutputWithContext(ctx context.Context) GetApplicationGatewayFrontendPortArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayFrontendPortArrayOutput)
+}
+
+func (i GetApplicationGatewayFrontendPortArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayFrontendPort] {
+	return pulumix.Output[[]GetApplicationGatewayFrontendPort]{
+		OutputState: i.ToGetApplicationGatewayFrontendPortArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayFrontendPortOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayFrontendPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayFrontendPort)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayFrontendPortOutput) ToGetApplicationGatewayFrontendPortOutput() GetApplicationGatewayFrontendPortOutput {
+	return o
+}
+
+func (o GetApplicationGatewayFrontendPortOutput) ToGetApplicationGatewayFrontendPortOutputWithContext(ctx context.Context) GetApplicationGatewayFrontendPortOutput {
+	return o
+}
+
+func (o GetApplicationGatewayFrontendPortOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayFrontendPort] {
+	return pulumix.Output[GetApplicationGatewayFrontendPort]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayFrontendPortOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayFrontendPort) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayFrontendPortOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayFrontendPort) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Custom port which is used for probing the backend servers.
+func (o GetApplicationGatewayFrontendPortOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayFrontendPort) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type GetApplicationGatewayFrontendPortArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayFrontendPortArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayFrontendPort)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayFrontendPortArrayOutput) ToGetApplicationGatewayFrontendPortArrayOutput() GetApplicationGatewayFrontendPortArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayFrontendPortArrayOutput) ToGetApplicationGatewayFrontendPortArrayOutputWithContext(ctx context.Context) GetApplicationGatewayFrontendPortArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayFrontendPortArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayFrontendPort] {
+	return pulumix.Output[[]GetApplicationGatewayFrontendPort]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayFrontendPortArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayFrontendPortOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayFrontendPort {
+		return vs[0].([]GetApplicationGatewayFrontendPort)[vs[1].(int)]
+	}).(GetApplicationGatewayFrontendPortOutput)
+}
+
+type GetApplicationGatewayGatewayIpConfiguration struct {
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// The ID of the subnet the private link configuration is connected to.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetApplicationGatewayGatewayIpConfigurationInput is an input type that accepts GetApplicationGatewayGatewayIpConfigurationArgs and GetApplicationGatewayGatewayIpConfigurationOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayGatewayIpConfigurationInput` via:
+//
+//	GetApplicationGatewayGatewayIpConfigurationArgs{...}
+type GetApplicationGatewayGatewayIpConfigurationInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayGatewayIpConfigurationOutput() GetApplicationGatewayGatewayIpConfigurationOutput
+	ToGetApplicationGatewayGatewayIpConfigurationOutputWithContext(context.Context) GetApplicationGatewayGatewayIpConfigurationOutput
+}
+
+type GetApplicationGatewayGatewayIpConfigurationArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the subnet the private link configuration is connected to.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetApplicationGatewayGatewayIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayGatewayIpConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayGatewayIpConfigurationArgs) ToGetApplicationGatewayGatewayIpConfigurationOutput() GetApplicationGatewayGatewayIpConfigurationOutput {
+	return i.ToGetApplicationGatewayGatewayIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayGatewayIpConfigurationArgs) ToGetApplicationGatewayGatewayIpConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayGatewayIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayGatewayIpConfigurationOutput)
+}
+
+func (i GetApplicationGatewayGatewayIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayGatewayIpConfiguration] {
+	return pulumix.Output[GetApplicationGatewayGatewayIpConfiguration]{
+		OutputState: i.ToGetApplicationGatewayGatewayIpConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayGatewayIpConfigurationArrayInput is an input type that accepts GetApplicationGatewayGatewayIpConfigurationArray and GetApplicationGatewayGatewayIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayGatewayIpConfigurationArrayInput` via:
+//
+//	GetApplicationGatewayGatewayIpConfigurationArray{ GetApplicationGatewayGatewayIpConfigurationArgs{...} }
+type GetApplicationGatewayGatewayIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayGatewayIpConfigurationArrayOutput() GetApplicationGatewayGatewayIpConfigurationArrayOutput
+	ToGetApplicationGatewayGatewayIpConfigurationArrayOutputWithContext(context.Context) GetApplicationGatewayGatewayIpConfigurationArrayOutput
+}
+
+type GetApplicationGatewayGatewayIpConfigurationArray []GetApplicationGatewayGatewayIpConfigurationInput
+
+func (GetApplicationGatewayGatewayIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayGatewayIpConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayGatewayIpConfigurationArray) ToGetApplicationGatewayGatewayIpConfigurationArrayOutput() GetApplicationGatewayGatewayIpConfigurationArrayOutput {
+	return i.ToGetApplicationGatewayGatewayIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayGatewayIpConfigurationArray) ToGetApplicationGatewayGatewayIpConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayGatewayIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayGatewayIpConfigurationArrayOutput)
+}
+
+func (i GetApplicationGatewayGatewayIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayGatewayIpConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayGatewayIpConfiguration]{
+		OutputState: i.ToGetApplicationGatewayGatewayIpConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayGatewayIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayGatewayIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayGatewayIpConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayGatewayIpConfigurationOutput) ToGetApplicationGatewayGatewayIpConfigurationOutput() GetApplicationGatewayGatewayIpConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayGatewayIpConfigurationOutput) ToGetApplicationGatewayGatewayIpConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayGatewayIpConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayGatewayIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayGatewayIpConfiguration] {
+	return pulumix.Output[GetApplicationGatewayGatewayIpConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayGatewayIpConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayGatewayIpConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayGatewayIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayGatewayIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the subnet the private link configuration is connected to.
+func (o GetApplicationGatewayGatewayIpConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayGatewayIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayGatewayIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayGatewayIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayGatewayIpConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayGatewayIpConfigurationArrayOutput) ToGetApplicationGatewayGatewayIpConfigurationArrayOutput() GetApplicationGatewayGatewayIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayGatewayIpConfigurationArrayOutput) ToGetApplicationGatewayGatewayIpConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayGatewayIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayGatewayIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayGatewayIpConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayGatewayIpConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayGatewayIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayGatewayIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayGatewayIpConfiguration {
+		return vs[0].([]GetApplicationGatewayGatewayIpConfiguration)[vs[1].(int)]
+	}).(GetApplicationGatewayGatewayIpConfigurationOutput)
+}
+
+type GetApplicationGatewayGlobal struct {
+	// Whether Application Gateway's Request buffer is enabled.
+	RequestBufferingEnabled bool `pulumi:"requestBufferingEnabled"`
+	// Whether Application Gateway's Response buffer is enabled.
+	ResponseBufferingEnabled bool `pulumi:"responseBufferingEnabled"`
+}
+
+// GetApplicationGatewayGlobalInput is an input type that accepts GetApplicationGatewayGlobalArgs and GetApplicationGatewayGlobalOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayGlobalInput` via:
+//
+//	GetApplicationGatewayGlobalArgs{...}
+type GetApplicationGatewayGlobalInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayGlobalOutput() GetApplicationGatewayGlobalOutput
+	ToGetApplicationGatewayGlobalOutputWithContext(context.Context) GetApplicationGatewayGlobalOutput
+}
+
+type GetApplicationGatewayGlobalArgs struct {
+	// Whether Application Gateway's Request buffer is enabled.
+	RequestBufferingEnabled pulumi.BoolInput `pulumi:"requestBufferingEnabled"`
+	// Whether Application Gateway's Response buffer is enabled.
+	ResponseBufferingEnabled pulumi.BoolInput `pulumi:"responseBufferingEnabled"`
+}
+
+func (GetApplicationGatewayGlobalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayGlobal)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayGlobalArgs) ToGetApplicationGatewayGlobalOutput() GetApplicationGatewayGlobalOutput {
+	return i.ToGetApplicationGatewayGlobalOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayGlobalArgs) ToGetApplicationGatewayGlobalOutputWithContext(ctx context.Context) GetApplicationGatewayGlobalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayGlobalOutput)
+}
+
+func (i GetApplicationGatewayGlobalArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayGlobal] {
+	return pulumix.Output[GetApplicationGatewayGlobal]{
+		OutputState: i.ToGetApplicationGatewayGlobalOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayGlobalArrayInput is an input type that accepts GetApplicationGatewayGlobalArray and GetApplicationGatewayGlobalArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayGlobalArrayInput` via:
+//
+//	GetApplicationGatewayGlobalArray{ GetApplicationGatewayGlobalArgs{...} }
+type GetApplicationGatewayGlobalArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayGlobalArrayOutput() GetApplicationGatewayGlobalArrayOutput
+	ToGetApplicationGatewayGlobalArrayOutputWithContext(context.Context) GetApplicationGatewayGlobalArrayOutput
+}
+
+type GetApplicationGatewayGlobalArray []GetApplicationGatewayGlobalInput
+
+func (GetApplicationGatewayGlobalArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayGlobal)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayGlobalArray) ToGetApplicationGatewayGlobalArrayOutput() GetApplicationGatewayGlobalArrayOutput {
+	return i.ToGetApplicationGatewayGlobalArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayGlobalArray) ToGetApplicationGatewayGlobalArrayOutputWithContext(ctx context.Context) GetApplicationGatewayGlobalArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayGlobalArrayOutput)
+}
+
+func (i GetApplicationGatewayGlobalArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayGlobal] {
+	return pulumix.Output[[]GetApplicationGatewayGlobal]{
+		OutputState: i.ToGetApplicationGatewayGlobalArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayGlobalOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayGlobalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayGlobal)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayGlobalOutput) ToGetApplicationGatewayGlobalOutput() GetApplicationGatewayGlobalOutput {
+	return o
+}
+
+func (o GetApplicationGatewayGlobalOutput) ToGetApplicationGatewayGlobalOutputWithContext(ctx context.Context) GetApplicationGatewayGlobalOutput {
+	return o
+}
+
+func (o GetApplicationGatewayGlobalOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayGlobal] {
+	return pulumix.Output[GetApplicationGatewayGlobal]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Whether Application Gateway's Request buffer is enabled.
+func (o GetApplicationGatewayGlobalOutput) RequestBufferingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayGlobal) bool { return v.RequestBufferingEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether Application Gateway's Response buffer is enabled.
+func (o GetApplicationGatewayGlobalOutput) ResponseBufferingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayGlobal) bool { return v.ResponseBufferingEnabled }).(pulumi.BoolOutput)
+}
+
+type GetApplicationGatewayGlobalArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayGlobalArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayGlobal)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayGlobalArrayOutput) ToGetApplicationGatewayGlobalArrayOutput() GetApplicationGatewayGlobalArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayGlobalArrayOutput) ToGetApplicationGatewayGlobalArrayOutputWithContext(ctx context.Context) GetApplicationGatewayGlobalArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayGlobalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayGlobal] {
+	return pulumix.Output[[]GetApplicationGatewayGlobal]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayGlobalArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayGlobalOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayGlobal {
+		return vs[0].([]GetApplicationGatewayGlobal)[vs[1].(int)]
+	}).(GetApplicationGatewayGlobalOutput)
+}
+
+type GetApplicationGatewayHttpListener struct {
+	// One or more `customErrorConfiguration` blocks as defined below.
+	CustomErrorConfigurations []GetApplicationGatewayHttpListenerCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
+	// The ID of the Web Application Firewall Policy which is used as an HTTP Listener for this Path Rule.
+	FirewallPolicyId string `pulumi:"firewallPolicyId"`
+	// The ID of the associated Frontend Configuration.
+	FrontendIpConfigurationId string `pulumi:"frontendIpConfigurationId"`
+	// The Name of the Frontend IP Configuration used for this HTTP Listener.
+	FrontendIpConfigurationName string `pulumi:"frontendIpConfigurationName"`
+	// The ID of the associated Frontend Port.
+	FrontendPortId string `pulumi:"frontendPortId"`
+	// The Name of the Frontend Port used for this HTTP Listener.
+	FrontendPortName string `pulumi:"frontendPortName"`
+	// The Hostname which is used for this HTTP Listener.
+	HostName string `pulumi:"hostName"`
+	// A list of Hostname(s) used for this HTTP Listener. It allows special wildcard characters.
+	HostNames []string `pulumi:"hostNames"`
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// The Protocol used for this Probe.
+	Protocol string `pulumi:"protocol"`
+	// Is Server Name Indication required?
+	RequireSni bool `pulumi:"requireSni"`
+	// The ID of the associated SSL Certificate.
+	SslCertificateId string `pulumi:"sslCertificateId"`
+	// The name of the associated SSL Certificate which is used for this HTTP Listener.
+	SslCertificateName string `pulumi:"sslCertificateName"`
+	// The ID of the associated SSL Profile.
+	SslProfileId string `pulumi:"sslProfileId"`
+	// The name of the associated SSL Profile which is used for this HTTP Listener.
+	SslProfileName string `pulumi:"sslProfileName"`
+}
+
+// GetApplicationGatewayHttpListenerInput is an input type that accepts GetApplicationGatewayHttpListenerArgs and GetApplicationGatewayHttpListenerOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayHttpListenerInput` via:
+//
+//	GetApplicationGatewayHttpListenerArgs{...}
+type GetApplicationGatewayHttpListenerInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayHttpListenerOutput() GetApplicationGatewayHttpListenerOutput
+	ToGetApplicationGatewayHttpListenerOutputWithContext(context.Context) GetApplicationGatewayHttpListenerOutput
+}
+
+type GetApplicationGatewayHttpListenerArgs struct {
+	// One or more `customErrorConfiguration` blocks as defined below.
+	CustomErrorConfigurations GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayInput `pulumi:"customErrorConfigurations"`
+	// The ID of the Web Application Firewall Policy which is used as an HTTP Listener for this Path Rule.
+	FirewallPolicyId pulumi.StringInput `pulumi:"firewallPolicyId"`
+	// The ID of the associated Frontend Configuration.
+	FrontendIpConfigurationId pulumi.StringInput `pulumi:"frontendIpConfigurationId"`
+	// The Name of the Frontend IP Configuration used for this HTTP Listener.
+	FrontendIpConfigurationName pulumi.StringInput `pulumi:"frontendIpConfigurationName"`
+	// The ID of the associated Frontend Port.
+	FrontendPortId pulumi.StringInput `pulumi:"frontendPortId"`
+	// The Name of the Frontend Port used for this HTTP Listener.
+	FrontendPortName pulumi.StringInput `pulumi:"frontendPortName"`
+	// The Hostname which is used for this HTTP Listener.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// A list of Hostname(s) used for this HTTP Listener. It allows special wildcard characters.
+	HostNames pulumi.StringArrayInput `pulumi:"hostNames"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Protocol used for this Probe.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// Is Server Name Indication required?
+	RequireSni pulumi.BoolInput `pulumi:"requireSni"`
+	// The ID of the associated SSL Certificate.
+	SslCertificateId pulumi.StringInput `pulumi:"sslCertificateId"`
+	// The name of the associated SSL Certificate which is used for this HTTP Listener.
+	SslCertificateName pulumi.StringInput `pulumi:"sslCertificateName"`
+	// The ID of the associated SSL Profile.
+	SslProfileId pulumi.StringInput `pulumi:"sslProfileId"`
+	// The name of the associated SSL Profile which is used for this HTTP Listener.
+	SslProfileName pulumi.StringInput `pulumi:"sslProfileName"`
+}
+
+func (GetApplicationGatewayHttpListenerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayHttpListener)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayHttpListenerArgs) ToGetApplicationGatewayHttpListenerOutput() GetApplicationGatewayHttpListenerOutput {
+	return i.ToGetApplicationGatewayHttpListenerOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayHttpListenerArgs) ToGetApplicationGatewayHttpListenerOutputWithContext(ctx context.Context) GetApplicationGatewayHttpListenerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayHttpListenerOutput)
+}
+
+func (i GetApplicationGatewayHttpListenerArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayHttpListener] {
+	return pulumix.Output[GetApplicationGatewayHttpListener]{
+		OutputState: i.ToGetApplicationGatewayHttpListenerOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayHttpListenerArrayInput is an input type that accepts GetApplicationGatewayHttpListenerArray and GetApplicationGatewayHttpListenerArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayHttpListenerArrayInput` via:
+//
+//	GetApplicationGatewayHttpListenerArray{ GetApplicationGatewayHttpListenerArgs{...} }
+type GetApplicationGatewayHttpListenerArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayHttpListenerArrayOutput() GetApplicationGatewayHttpListenerArrayOutput
+	ToGetApplicationGatewayHttpListenerArrayOutputWithContext(context.Context) GetApplicationGatewayHttpListenerArrayOutput
+}
+
+type GetApplicationGatewayHttpListenerArray []GetApplicationGatewayHttpListenerInput
+
+func (GetApplicationGatewayHttpListenerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayHttpListener)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayHttpListenerArray) ToGetApplicationGatewayHttpListenerArrayOutput() GetApplicationGatewayHttpListenerArrayOutput {
+	return i.ToGetApplicationGatewayHttpListenerArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayHttpListenerArray) ToGetApplicationGatewayHttpListenerArrayOutputWithContext(ctx context.Context) GetApplicationGatewayHttpListenerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayHttpListenerArrayOutput)
+}
+
+func (i GetApplicationGatewayHttpListenerArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayHttpListener] {
+	return pulumix.Output[[]GetApplicationGatewayHttpListener]{
+		OutputState: i.ToGetApplicationGatewayHttpListenerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayHttpListenerOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayHttpListenerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayHttpListener)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayHttpListenerOutput) ToGetApplicationGatewayHttpListenerOutput() GetApplicationGatewayHttpListenerOutput {
+	return o
+}
+
+func (o GetApplicationGatewayHttpListenerOutput) ToGetApplicationGatewayHttpListenerOutputWithContext(ctx context.Context) GetApplicationGatewayHttpListenerOutput {
+	return o
+}
+
+func (o GetApplicationGatewayHttpListenerOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayHttpListener] {
+	return pulumix.Output[GetApplicationGatewayHttpListener]{
+		OutputState: o.OutputState,
+	}
+}
+
+// One or more `customErrorConfiguration` blocks as defined below.
+func (o GetApplicationGatewayHttpListenerOutput) CustomErrorConfigurations() GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) []GetApplicationGatewayHttpListenerCustomErrorConfiguration {
+		return v.CustomErrorConfigurations
+	}).(GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput)
+}
+
+// The ID of the Web Application Firewall Policy which is used as an HTTP Listener for this Path Rule.
+func (o GetApplicationGatewayHttpListenerOutput) FirewallPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.FirewallPolicyId }).(pulumi.StringOutput)
+}
+
+// The ID of the associated Frontend Configuration.
+func (o GetApplicationGatewayHttpListenerOutput) FrontendIpConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.FrontendIpConfigurationId }).(pulumi.StringOutput)
+}
+
+// The Name of the Frontend IP Configuration used for this HTTP Listener.
+func (o GetApplicationGatewayHttpListenerOutput) FrontendIpConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.FrontendIpConfigurationName }).(pulumi.StringOutput)
+}
+
+// The ID of the associated Frontend Port.
+func (o GetApplicationGatewayHttpListenerOutput) FrontendPortId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.FrontendPortId }).(pulumi.StringOutput)
+}
+
+// The Name of the Frontend Port used for this HTTP Listener.
+func (o GetApplicationGatewayHttpListenerOutput) FrontendPortName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.FrontendPortName }).(pulumi.StringOutput)
+}
+
+// The Hostname which is used for this HTTP Listener.
+func (o GetApplicationGatewayHttpListenerOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// A list of Hostname(s) used for this HTTP Listener. It allows special wildcard characters.
+func (o GetApplicationGatewayHttpListenerOutput) HostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) []string { return v.HostNames }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayHttpListenerOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayHttpListenerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Protocol used for this Probe.
+func (o GetApplicationGatewayHttpListenerOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// Is Server Name Indication required?
+func (o GetApplicationGatewayHttpListenerOutput) RequireSni() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) bool { return v.RequireSni }).(pulumi.BoolOutput)
+}
+
+// The ID of the associated SSL Certificate.
+func (o GetApplicationGatewayHttpListenerOutput) SslCertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.SslCertificateId }).(pulumi.StringOutput)
+}
+
+// The name of the associated SSL Certificate which is used for this HTTP Listener.
+func (o GetApplicationGatewayHttpListenerOutput) SslCertificateName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.SslCertificateName }).(pulumi.StringOutput)
+}
+
+// The ID of the associated SSL Profile.
+func (o GetApplicationGatewayHttpListenerOutput) SslProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.SslProfileId }).(pulumi.StringOutput)
+}
+
+// The name of the associated SSL Profile which is used for this HTTP Listener.
+func (o GetApplicationGatewayHttpListenerOutput) SslProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListener) string { return v.SslProfileName }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayHttpListenerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayHttpListenerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayHttpListener)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayHttpListenerArrayOutput) ToGetApplicationGatewayHttpListenerArrayOutput() GetApplicationGatewayHttpListenerArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayHttpListenerArrayOutput) ToGetApplicationGatewayHttpListenerArrayOutputWithContext(ctx context.Context) GetApplicationGatewayHttpListenerArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayHttpListenerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayHttpListener] {
+	return pulumix.Output[[]GetApplicationGatewayHttpListener]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayHttpListenerArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayHttpListenerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayHttpListener {
+		return vs[0].([]GetApplicationGatewayHttpListener)[vs[1].(int)]
+	}).(GetApplicationGatewayHttpListenerOutput)
+}
+
+type GetApplicationGatewayHttpListenerCustomErrorConfiguration struct {
+	// Error page URL of the application gateway custom error.
+	CustomErrorPageUrl string `pulumi:"customErrorPageUrl"`
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// Status code of the application gateway custom error.
+	StatusCode string `pulumi:"statusCode"`
+}
+
+// GetApplicationGatewayHttpListenerCustomErrorConfigurationInput is an input type that accepts GetApplicationGatewayHttpListenerCustomErrorConfigurationArgs and GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayHttpListenerCustomErrorConfigurationInput` via:
+//
+//	GetApplicationGatewayHttpListenerCustomErrorConfigurationArgs{...}
+type GetApplicationGatewayHttpListenerCustomErrorConfigurationInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayHttpListenerCustomErrorConfigurationOutput() GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput
+	ToGetApplicationGatewayHttpListenerCustomErrorConfigurationOutputWithContext(context.Context) GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput
+}
+
+type GetApplicationGatewayHttpListenerCustomErrorConfigurationArgs struct {
+	// Error page URL of the application gateway custom error.
+	CustomErrorPageUrl pulumi.StringInput `pulumi:"customErrorPageUrl"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// Status code of the application gateway custom error.
+	StatusCode pulumi.StringInput `pulumi:"statusCode"`
+}
+
+func (GetApplicationGatewayHttpListenerCustomErrorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayHttpListenerCustomErrorConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayHttpListenerCustomErrorConfigurationArgs) ToGetApplicationGatewayHttpListenerCustomErrorConfigurationOutput() GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput {
+	return i.ToGetApplicationGatewayHttpListenerCustomErrorConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayHttpListenerCustomErrorConfigurationArgs) ToGetApplicationGatewayHttpListenerCustomErrorConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput)
+}
+
+func (i GetApplicationGatewayHttpListenerCustomErrorConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayHttpListenerCustomErrorConfiguration] {
+	return pulumix.Output[GetApplicationGatewayHttpListenerCustomErrorConfiguration]{
+		OutputState: i.ToGetApplicationGatewayHttpListenerCustomErrorConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayInput is an input type that accepts GetApplicationGatewayHttpListenerCustomErrorConfigurationArray and GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayInput` via:
+//
+//	GetApplicationGatewayHttpListenerCustomErrorConfigurationArray{ GetApplicationGatewayHttpListenerCustomErrorConfigurationArgs{...} }
+type GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput() GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput
+	ToGetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutputWithContext(context.Context) GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput
+}
+
+type GetApplicationGatewayHttpListenerCustomErrorConfigurationArray []GetApplicationGatewayHttpListenerCustomErrorConfigurationInput
+
+func (GetApplicationGatewayHttpListenerCustomErrorConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayHttpListenerCustomErrorConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayHttpListenerCustomErrorConfigurationArray) ToGetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput() GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput {
+	return i.ToGetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayHttpListenerCustomErrorConfigurationArray) ToGetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput)
+}
+
+func (i GetApplicationGatewayHttpListenerCustomErrorConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayHttpListenerCustomErrorConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayHttpListenerCustomErrorConfiguration]{
+		OutputState: i.ToGetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayHttpListenerCustomErrorConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput) ToGetApplicationGatewayHttpListenerCustomErrorConfigurationOutput() GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput) ToGetApplicationGatewayHttpListenerCustomErrorConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayHttpListenerCustomErrorConfiguration] {
+	return pulumix.Output[GetApplicationGatewayHttpListenerCustomErrorConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Error page URL of the application gateway custom error.
+func (o GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput) CustomErrorPageUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListenerCustomErrorConfiguration) string { return v.CustomErrorPageUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListenerCustomErrorConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Status code of the application gateway custom error.
+func (o GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput) StatusCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayHttpListenerCustomErrorConfiguration) string { return v.StatusCode }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayHttpListenerCustomErrorConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput) ToGetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput() GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput) ToGetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayHttpListenerCustomErrorConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayHttpListenerCustomErrorConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayHttpListenerCustomErrorConfiguration {
+		return vs[0].([]GetApplicationGatewayHttpListenerCustomErrorConfiguration)[vs[1].(int)]
+	}).(GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput)
+}
+
 type GetApplicationGatewayIdentity struct {
-	// A list of Managed Identity IDs assigned to this Application Gateway.
+	// The list of User Assigned Managed Identity IDs assigned to this Application Gateway.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The type of Managed Identity assigned to this Application Gateway.
+	// The type of Managed Service Identity that is configured on this Application Gateway.
 	Type string `pulumi:"type"`
 }
 
@@ -29710,9 +31609,9 @@ type GetApplicationGatewayIdentityInput interface {
 }
 
 type GetApplicationGatewayIdentityArgs struct {
-	// A list of Managed Identity IDs assigned to this Application Gateway.
+	// The list of User Assigned Managed Identity IDs assigned to this Application Gateway.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The type of Managed Identity assigned to this Application Gateway.
+	// The type of Managed Service Identity that is configured on this Application Gateway.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -29785,12 +31684,12 @@ func (o GetApplicationGatewayIdentityOutput) ToOutput(ctx context.Context) pulum
 	}
 }
 
-// A list of Managed Identity IDs assigned to this Application Gateway.
+// The list of User Assigned Managed Identity IDs assigned to this Application Gateway.
 func (o GetApplicationGatewayIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetApplicationGatewayIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The type of Managed Identity assigned to this Application Gateway.
+// The type of Managed Service Identity that is configured on this Application Gateway.
 func (o GetApplicationGatewayIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewayIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -29819,6 +31718,4031 @@ func (o GetApplicationGatewayIdentityArrayOutput) Index(i pulumi.IntInput) GetAp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayIdentity {
 		return vs[0].([]GetApplicationGatewayIdentity)[vs[1].(int)]
 	}).(GetApplicationGatewayIdentityOutput)
+}
+
+type GetApplicationGatewayPrivateEndpointConnection struct {
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+}
+
+// GetApplicationGatewayPrivateEndpointConnectionInput is an input type that accepts GetApplicationGatewayPrivateEndpointConnectionArgs and GetApplicationGatewayPrivateEndpointConnectionOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayPrivateEndpointConnectionInput` via:
+//
+//	GetApplicationGatewayPrivateEndpointConnectionArgs{...}
+type GetApplicationGatewayPrivateEndpointConnectionInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayPrivateEndpointConnectionOutput() GetApplicationGatewayPrivateEndpointConnectionOutput
+	ToGetApplicationGatewayPrivateEndpointConnectionOutputWithContext(context.Context) GetApplicationGatewayPrivateEndpointConnectionOutput
+}
+
+type GetApplicationGatewayPrivateEndpointConnectionArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetApplicationGatewayPrivateEndpointConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayPrivateEndpointConnectionArgs) ToGetApplicationGatewayPrivateEndpointConnectionOutput() GetApplicationGatewayPrivateEndpointConnectionOutput {
+	return i.ToGetApplicationGatewayPrivateEndpointConnectionOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayPrivateEndpointConnectionArgs) ToGetApplicationGatewayPrivateEndpointConnectionOutputWithContext(ctx context.Context) GetApplicationGatewayPrivateEndpointConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayPrivateEndpointConnectionOutput)
+}
+
+func (i GetApplicationGatewayPrivateEndpointConnectionArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayPrivateEndpointConnection] {
+	return pulumix.Output[GetApplicationGatewayPrivateEndpointConnection]{
+		OutputState: i.ToGetApplicationGatewayPrivateEndpointConnectionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayPrivateEndpointConnectionArrayInput is an input type that accepts GetApplicationGatewayPrivateEndpointConnectionArray and GetApplicationGatewayPrivateEndpointConnectionArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayPrivateEndpointConnectionArrayInput` via:
+//
+//	GetApplicationGatewayPrivateEndpointConnectionArray{ GetApplicationGatewayPrivateEndpointConnectionArgs{...} }
+type GetApplicationGatewayPrivateEndpointConnectionArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayPrivateEndpointConnectionArrayOutput() GetApplicationGatewayPrivateEndpointConnectionArrayOutput
+	ToGetApplicationGatewayPrivateEndpointConnectionArrayOutputWithContext(context.Context) GetApplicationGatewayPrivateEndpointConnectionArrayOutput
+}
+
+type GetApplicationGatewayPrivateEndpointConnectionArray []GetApplicationGatewayPrivateEndpointConnectionInput
+
+func (GetApplicationGatewayPrivateEndpointConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayPrivateEndpointConnectionArray) ToGetApplicationGatewayPrivateEndpointConnectionArrayOutput() GetApplicationGatewayPrivateEndpointConnectionArrayOutput {
+	return i.ToGetApplicationGatewayPrivateEndpointConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayPrivateEndpointConnectionArray) ToGetApplicationGatewayPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) GetApplicationGatewayPrivateEndpointConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayPrivateEndpointConnectionArrayOutput)
+}
+
+func (i GetApplicationGatewayPrivateEndpointConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayPrivateEndpointConnection] {
+	return pulumix.Output[[]GetApplicationGatewayPrivateEndpointConnection]{
+		OutputState: i.ToGetApplicationGatewayPrivateEndpointConnectionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayPrivateEndpointConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayPrivateEndpointConnectionOutput) ToGetApplicationGatewayPrivateEndpointConnectionOutput() GetApplicationGatewayPrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o GetApplicationGatewayPrivateEndpointConnectionOutput) ToGetApplicationGatewayPrivateEndpointConnectionOutputWithContext(ctx context.Context) GetApplicationGatewayPrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o GetApplicationGatewayPrivateEndpointConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayPrivateEndpointConnection] {
+	return pulumix.Output[GetApplicationGatewayPrivateEndpointConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayPrivateEndpointConnectionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayPrivateEndpointConnection) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayPrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayPrivateEndpointConnection) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayPrivateEndpointConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayPrivateEndpointConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayPrivateEndpointConnectionArrayOutput) ToGetApplicationGatewayPrivateEndpointConnectionArrayOutput() GetApplicationGatewayPrivateEndpointConnectionArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayPrivateEndpointConnectionArrayOutput) ToGetApplicationGatewayPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) GetApplicationGatewayPrivateEndpointConnectionArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayPrivateEndpointConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayPrivateEndpointConnection] {
+	return pulumix.Output[[]GetApplicationGatewayPrivateEndpointConnection]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayPrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayPrivateEndpointConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayPrivateEndpointConnection {
+		return vs[0].([]GetApplicationGatewayPrivateEndpointConnection)[vs[1].(int)]
+	}).(GetApplicationGatewayPrivateEndpointConnectionOutput)
+}
+
+type GetApplicationGatewayPrivateLinkConfiguration struct {
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// One or more `ipConfiguration` blocks as defined below.
+	IpConfigurations []GetApplicationGatewayPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfigurations"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+}
+
+// GetApplicationGatewayPrivateLinkConfigurationInput is an input type that accepts GetApplicationGatewayPrivateLinkConfigurationArgs and GetApplicationGatewayPrivateLinkConfigurationOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayPrivateLinkConfigurationInput` via:
+//
+//	GetApplicationGatewayPrivateLinkConfigurationArgs{...}
+type GetApplicationGatewayPrivateLinkConfigurationInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayPrivateLinkConfigurationOutput() GetApplicationGatewayPrivateLinkConfigurationOutput
+	ToGetApplicationGatewayPrivateLinkConfigurationOutputWithContext(context.Context) GetApplicationGatewayPrivateLinkConfigurationOutput
+}
+
+type GetApplicationGatewayPrivateLinkConfigurationArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// One or more `ipConfiguration` blocks as defined below.
+	IpConfigurations GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayInput `pulumi:"ipConfigurations"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetApplicationGatewayPrivateLinkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayPrivateLinkConfigurationArgs) ToGetApplicationGatewayPrivateLinkConfigurationOutput() GetApplicationGatewayPrivateLinkConfigurationOutput {
+	return i.ToGetApplicationGatewayPrivateLinkConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayPrivateLinkConfigurationArgs) ToGetApplicationGatewayPrivateLinkConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayPrivateLinkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayPrivateLinkConfigurationOutput)
+}
+
+func (i GetApplicationGatewayPrivateLinkConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayPrivateLinkConfiguration] {
+	return pulumix.Output[GetApplicationGatewayPrivateLinkConfiguration]{
+		OutputState: i.ToGetApplicationGatewayPrivateLinkConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayPrivateLinkConfigurationArrayInput is an input type that accepts GetApplicationGatewayPrivateLinkConfigurationArray and GetApplicationGatewayPrivateLinkConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayPrivateLinkConfigurationArrayInput` via:
+//
+//	GetApplicationGatewayPrivateLinkConfigurationArray{ GetApplicationGatewayPrivateLinkConfigurationArgs{...} }
+type GetApplicationGatewayPrivateLinkConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayPrivateLinkConfigurationArrayOutput() GetApplicationGatewayPrivateLinkConfigurationArrayOutput
+	ToGetApplicationGatewayPrivateLinkConfigurationArrayOutputWithContext(context.Context) GetApplicationGatewayPrivateLinkConfigurationArrayOutput
+}
+
+type GetApplicationGatewayPrivateLinkConfigurationArray []GetApplicationGatewayPrivateLinkConfigurationInput
+
+func (GetApplicationGatewayPrivateLinkConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayPrivateLinkConfigurationArray) ToGetApplicationGatewayPrivateLinkConfigurationArrayOutput() GetApplicationGatewayPrivateLinkConfigurationArrayOutput {
+	return i.ToGetApplicationGatewayPrivateLinkConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayPrivateLinkConfigurationArray) ToGetApplicationGatewayPrivateLinkConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayPrivateLinkConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayPrivateLinkConfigurationArrayOutput)
+}
+
+func (i GetApplicationGatewayPrivateLinkConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayPrivateLinkConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayPrivateLinkConfiguration]{
+		OutputState: i.ToGetApplicationGatewayPrivateLinkConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayPrivateLinkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayPrivateLinkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationOutput) ToGetApplicationGatewayPrivateLinkConfigurationOutput() GetApplicationGatewayPrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationOutput) ToGetApplicationGatewayPrivateLinkConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayPrivateLinkConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayPrivateLinkConfiguration] {
+	return pulumix.Output[GetApplicationGatewayPrivateLinkConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayPrivateLinkConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayPrivateLinkConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// One or more `ipConfiguration` blocks as defined below.
+func (o GetApplicationGatewayPrivateLinkConfigurationOutput) IpConfigurations() GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayPrivateLinkConfiguration) []GetApplicationGatewayPrivateLinkConfigurationIpConfiguration {
+		return v.IpConfigurations
+	}).(GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayPrivateLinkConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayPrivateLinkConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayPrivateLinkConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayPrivateLinkConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayPrivateLinkConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationArrayOutput) ToGetApplicationGatewayPrivateLinkConfigurationArrayOutput() GetApplicationGatewayPrivateLinkConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationArrayOutput) ToGetApplicationGatewayPrivateLinkConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayPrivateLinkConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayPrivateLinkConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayPrivateLinkConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayPrivateLinkConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayPrivateLinkConfiguration {
+		return vs[0].([]GetApplicationGatewayPrivateLinkConfiguration)[vs[1].(int)]
+	}).(GetApplicationGatewayPrivateLinkConfigurationOutput)
+}
+
+type GetApplicationGatewayPrivateLinkConfigurationIpConfiguration struct {
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// Is this the Primary IP Configuration?
+	Primary bool `pulumi:"primary"`
+	// The Static IP Address which is used.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// The allocation method used for the Private IP Address.
+	PrivateIpAddressAllocation string `pulumi:"privateIpAddressAllocation"`
+	// The ID of the subnet the private link configuration is connected to.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetApplicationGatewayPrivateLinkConfigurationIpConfigurationInput is an input type that accepts GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs and GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayPrivateLinkConfigurationIpConfigurationInput` via:
+//
+//	GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs{...}
+type GetApplicationGatewayPrivateLinkConfigurationIpConfigurationInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput() GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput
+	ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Context) GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput
+}
+
+type GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs struct {
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Is this the Primary IP Configuration?
+	Primary pulumi.BoolInput `pulumi:"primary"`
+	// The Static IP Address which is used.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// The allocation method used for the Private IP Address.
+	PrivateIpAddressAllocation pulumi.StringInput `pulumi:"privateIpAddressAllocation"`
+	// The ID of the subnet the private link configuration is connected to.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs) ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput() GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput {
+	return i.ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs) ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+func (i GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayPrivateLinkConfigurationIpConfiguration] {
+	return pulumix.Output[GetApplicationGatewayPrivateLinkConfigurationIpConfiguration]{
+		OutputState: i.ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayInput is an input type that accepts GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArray and GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayInput` via:
+//
+//	GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArray{ GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs{...} }
+type GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput() GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput
+	ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutputWithContext(context.Context) GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput
+}
+
+type GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArray []GetApplicationGatewayPrivateLinkConfigurationIpConfigurationInput
+
+func (GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArray) ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput() GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput {
+	return i.ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArray) ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput)
+}
+
+func (i GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayPrivateLinkConfigurationIpConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayPrivateLinkConfigurationIpConfiguration]{
+		OutputState: i.ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput() GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayPrivateLinkConfigurationIpConfiguration] {
+	return pulumix.Output[GetApplicationGatewayPrivateLinkConfigurationIpConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Is this the Primary IP Configuration?
+func (o GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayPrivateLinkConfigurationIpConfiguration) bool { return v.Primary }).(pulumi.BoolOutput)
+}
+
+// The Static IP Address which is used.
+func (o GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayPrivateLinkConfigurationIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// The allocation method used for the Private IP Address.
+func (o GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddressAllocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayPrivateLinkConfigurationIpConfiguration) string {
+		return v.PrivateIpAddressAllocation
+	}).(pulumi.StringOutput)
+}
+
+// The ID of the subnet the private link configuration is connected to.
+func (o GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayPrivateLinkConfigurationIpConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayPrivateLinkConfigurationIpConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput) ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput() GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput) ToGetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayPrivateLinkConfigurationIpConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayPrivateLinkConfigurationIpConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayPrivateLinkConfigurationIpConfiguration {
+		return vs[0].([]GetApplicationGatewayPrivateLinkConfigurationIpConfiguration)[vs[1].(int)]
+	}).(GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput)
+}
+
+type GetApplicationGatewayProbe struct {
+	// The Hostname used for this Probe.
+	Host string `pulumi:"host"`
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The Interval between two consecutive probes in seconds.
+	Interval int `pulumi:"interval"`
+	// A `match` block as defined above.
+	Matches []GetApplicationGatewayProbeMatch `pulumi:"matches"`
+	// The minimum number of servers that are always marked as healthy.
+	MinimumServers int `pulumi:"minimumServers"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// The URL path to rewrite.
+	Path string `pulumi:"path"`
+	// Whether the host header is picked from the backend HTTP settings.
+	PickHostNameFromBackendHttpSettings bool `pulumi:"pickHostNameFromBackendHttpSettings"`
+	// Custom port which is used for probing the backend servers.
+	Port int `pulumi:"port"`
+	// The Protocol used for this Probe.
+	Protocol string `pulumi:"protocol"`
+	// The Timeout used for this Probe, indicating when a probe becomes unhealthy.
+	Timeout int `pulumi:"timeout"`
+	// The Unhealthy Threshold for this Probe, which indicates the amount of retries which will be attempted before a node is deemed unhealthy.
+	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
+}
+
+// GetApplicationGatewayProbeInput is an input type that accepts GetApplicationGatewayProbeArgs and GetApplicationGatewayProbeOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayProbeInput` via:
+//
+//	GetApplicationGatewayProbeArgs{...}
+type GetApplicationGatewayProbeInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayProbeOutput() GetApplicationGatewayProbeOutput
+	ToGetApplicationGatewayProbeOutputWithContext(context.Context) GetApplicationGatewayProbeOutput
+}
+
+type GetApplicationGatewayProbeArgs struct {
+	// The Hostname used for this Probe.
+	Host pulumi.StringInput `pulumi:"host"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Interval between two consecutive probes in seconds.
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// A `match` block as defined above.
+	Matches GetApplicationGatewayProbeMatchArrayInput `pulumi:"matches"`
+	// The minimum number of servers that are always marked as healthy.
+	MinimumServers pulumi.IntInput `pulumi:"minimumServers"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The URL path to rewrite.
+	Path pulumi.StringInput `pulumi:"path"`
+	// Whether the host header is picked from the backend HTTP settings.
+	PickHostNameFromBackendHttpSettings pulumi.BoolInput `pulumi:"pickHostNameFromBackendHttpSettings"`
+	// Custom port which is used for probing the backend servers.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The Protocol used for this Probe.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The Timeout used for this Probe, indicating when a probe becomes unhealthy.
+	Timeout pulumi.IntInput `pulumi:"timeout"`
+	// The Unhealthy Threshold for this Probe, which indicates the amount of retries which will be attempted before a node is deemed unhealthy.
+	UnhealthyThreshold pulumi.IntInput `pulumi:"unhealthyThreshold"`
+}
+
+func (GetApplicationGatewayProbeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayProbe)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayProbeArgs) ToGetApplicationGatewayProbeOutput() GetApplicationGatewayProbeOutput {
+	return i.ToGetApplicationGatewayProbeOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayProbeArgs) ToGetApplicationGatewayProbeOutputWithContext(ctx context.Context) GetApplicationGatewayProbeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayProbeOutput)
+}
+
+func (i GetApplicationGatewayProbeArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayProbe] {
+	return pulumix.Output[GetApplicationGatewayProbe]{
+		OutputState: i.ToGetApplicationGatewayProbeOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayProbeArrayInput is an input type that accepts GetApplicationGatewayProbeArray and GetApplicationGatewayProbeArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayProbeArrayInput` via:
+//
+//	GetApplicationGatewayProbeArray{ GetApplicationGatewayProbeArgs{...} }
+type GetApplicationGatewayProbeArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayProbeArrayOutput() GetApplicationGatewayProbeArrayOutput
+	ToGetApplicationGatewayProbeArrayOutputWithContext(context.Context) GetApplicationGatewayProbeArrayOutput
+}
+
+type GetApplicationGatewayProbeArray []GetApplicationGatewayProbeInput
+
+func (GetApplicationGatewayProbeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayProbe)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayProbeArray) ToGetApplicationGatewayProbeArrayOutput() GetApplicationGatewayProbeArrayOutput {
+	return i.ToGetApplicationGatewayProbeArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayProbeArray) ToGetApplicationGatewayProbeArrayOutputWithContext(ctx context.Context) GetApplicationGatewayProbeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayProbeArrayOutput)
+}
+
+func (i GetApplicationGatewayProbeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayProbe] {
+	return pulumix.Output[[]GetApplicationGatewayProbe]{
+		OutputState: i.ToGetApplicationGatewayProbeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayProbeOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayProbeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayProbe)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayProbeOutput) ToGetApplicationGatewayProbeOutput() GetApplicationGatewayProbeOutput {
+	return o
+}
+
+func (o GetApplicationGatewayProbeOutput) ToGetApplicationGatewayProbeOutputWithContext(ctx context.Context) GetApplicationGatewayProbeOutput {
+	return o
+}
+
+func (o GetApplicationGatewayProbeOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayProbe] {
+	return pulumix.Output[GetApplicationGatewayProbe]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The Hostname used for this Probe.
+func (o GetApplicationGatewayProbeOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbe) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayProbeOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbe) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Interval between two consecutive probes in seconds.
+func (o GetApplicationGatewayProbeOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbe) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+// A `match` block as defined above.
+func (o GetApplicationGatewayProbeOutput) Matches() GetApplicationGatewayProbeMatchArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbe) []GetApplicationGatewayProbeMatch { return v.Matches }).(GetApplicationGatewayProbeMatchArrayOutput)
+}
+
+// The minimum number of servers that are always marked as healthy.
+func (o GetApplicationGatewayProbeOutput) MinimumServers() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbe) int { return v.MinimumServers }).(pulumi.IntOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayProbeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbe) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The URL path to rewrite.
+func (o GetApplicationGatewayProbeOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbe) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Whether the host header is picked from the backend HTTP settings.
+func (o GetApplicationGatewayProbeOutput) PickHostNameFromBackendHttpSettings() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbe) bool { return v.PickHostNameFromBackendHttpSettings }).(pulumi.BoolOutput)
+}
+
+// Custom port which is used for probing the backend servers.
+func (o GetApplicationGatewayProbeOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbe) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The Protocol used for this Probe.
+func (o GetApplicationGatewayProbeOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbe) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The Timeout used for this Probe, indicating when a probe becomes unhealthy.
+func (o GetApplicationGatewayProbeOutput) Timeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbe) int { return v.Timeout }).(pulumi.IntOutput)
+}
+
+// The Unhealthy Threshold for this Probe, which indicates the amount of retries which will be attempted before a node is deemed unhealthy.
+func (o GetApplicationGatewayProbeOutput) UnhealthyThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbe) int { return v.UnhealthyThreshold }).(pulumi.IntOutput)
+}
+
+type GetApplicationGatewayProbeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayProbeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayProbe)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayProbeArrayOutput) ToGetApplicationGatewayProbeArrayOutput() GetApplicationGatewayProbeArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayProbeArrayOutput) ToGetApplicationGatewayProbeArrayOutputWithContext(ctx context.Context) GetApplicationGatewayProbeArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayProbeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayProbe] {
+	return pulumix.Output[[]GetApplicationGatewayProbe]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayProbeArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayProbeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayProbe {
+		return vs[0].([]GetApplicationGatewayProbe)[vs[1].(int)]
+	}).(GetApplicationGatewayProbeOutput)
+}
+
+type GetApplicationGatewayProbeMatch struct {
+	// A snippet from the Response Body which must be present in the Response.
+	Body string `pulumi:"body"`
+	// Status code of the application gateway custom error.
+	StatusCodes []string `pulumi:"statusCodes"`
+}
+
+// GetApplicationGatewayProbeMatchInput is an input type that accepts GetApplicationGatewayProbeMatchArgs and GetApplicationGatewayProbeMatchOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayProbeMatchInput` via:
+//
+//	GetApplicationGatewayProbeMatchArgs{...}
+type GetApplicationGatewayProbeMatchInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayProbeMatchOutput() GetApplicationGatewayProbeMatchOutput
+	ToGetApplicationGatewayProbeMatchOutputWithContext(context.Context) GetApplicationGatewayProbeMatchOutput
+}
+
+type GetApplicationGatewayProbeMatchArgs struct {
+	// A snippet from the Response Body which must be present in the Response.
+	Body pulumi.StringInput `pulumi:"body"`
+	// Status code of the application gateway custom error.
+	StatusCodes pulumi.StringArrayInput `pulumi:"statusCodes"`
+}
+
+func (GetApplicationGatewayProbeMatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayProbeMatch)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayProbeMatchArgs) ToGetApplicationGatewayProbeMatchOutput() GetApplicationGatewayProbeMatchOutput {
+	return i.ToGetApplicationGatewayProbeMatchOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayProbeMatchArgs) ToGetApplicationGatewayProbeMatchOutputWithContext(ctx context.Context) GetApplicationGatewayProbeMatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayProbeMatchOutput)
+}
+
+func (i GetApplicationGatewayProbeMatchArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayProbeMatch] {
+	return pulumix.Output[GetApplicationGatewayProbeMatch]{
+		OutputState: i.ToGetApplicationGatewayProbeMatchOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayProbeMatchArrayInput is an input type that accepts GetApplicationGatewayProbeMatchArray and GetApplicationGatewayProbeMatchArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayProbeMatchArrayInput` via:
+//
+//	GetApplicationGatewayProbeMatchArray{ GetApplicationGatewayProbeMatchArgs{...} }
+type GetApplicationGatewayProbeMatchArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayProbeMatchArrayOutput() GetApplicationGatewayProbeMatchArrayOutput
+	ToGetApplicationGatewayProbeMatchArrayOutputWithContext(context.Context) GetApplicationGatewayProbeMatchArrayOutput
+}
+
+type GetApplicationGatewayProbeMatchArray []GetApplicationGatewayProbeMatchInput
+
+func (GetApplicationGatewayProbeMatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayProbeMatch)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayProbeMatchArray) ToGetApplicationGatewayProbeMatchArrayOutput() GetApplicationGatewayProbeMatchArrayOutput {
+	return i.ToGetApplicationGatewayProbeMatchArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayProbeMatchArray) ToGetApplicationGatewayProbeMatchArrayOutputWithContext(ctx context.Context) GetApplicationGatewayProbeMatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayProbeMatchArrayOutput)
+}
+
+func (i GetApplicationGatewayProbeMatchArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayProbeMatch] {
+	return pulumix.Output[[]GetApplicationGatewayProbeMatch]{
+		OutputState: i.ToGetApplicationGatewayProbeMatchArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayProbeMatchOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayProbeMatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayProbeMatch)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayProbeMatchOutput) ToGetApplicationGatewayProbeMatchOutput() GetApplicationGatewayProbeMatchOutput {
+	return o
+}
+
+func (o GetApplicationGatewayProbeMatchOutput) ToGetApplicationGatewayProbeMatchOutputWithContext(ctx context.Context) GetApplicationGatewayProbeMatchOutput {
+	return o
+}
+
+func (o GetApplicationGatewayProbeMatchOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayProbeMatch] {
+	return pulumix.Output[GetApplicationGatewayProbeMatch]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A snippet from the Response Body which must be present in the Response.
+func (o GetApplicationGatewayProbeMatchOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbeMatch) string { return v.Body }).(pulumi.StringOutput)
+}
+
+// Status code of the application gateway custom error.
+func (o GetApplicationGatewayProbeMatchOutput) StatusCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayProbeMatch) []string { return v.StatusCodes }).(pulumi.StringArrayOutput)
+}
+
+type GetApplicationGatewayProbeMatchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayProbeMatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayProbeMatch)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayProbeMatchArrayOutput) ToGetApplicationGatewayProbeMatchArrayOutput() GetApplicationGatewayProbeMatchArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayProbeMatchArrayOutput) ToGetApplicationGatewayProbeMatchArrayOutputWithContext(ctx context.Context) GetApplicationGatewayProbeMatchArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayProbeMatchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayProbeMatch] {
+	return pulumix.Output[[]GetApplicationGatewayProbeMatch]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayProbeMatchArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayProbeMatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayProbeMatch {
+		return vs[0].([]GetApplicationGatewayProbeMatch)[vs[1].(int)]
+	}).(GetApplicationGatewayProbeMatchOutput)
+}
+
+type GetApplicationGatewayRedirectConfiguration struct {
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// Whether the path is included in the redirected URL.
+	IncludePath bool `pulumi:"includePath"`
+	// Whether to include the query string in the redirected URL.
+	IncludeQueryString bool `pulumi:"includeQueryString"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// The type of redirect.
+	RedirectType     string `pulumi:"redirectType"`
+	TargetListenerId string `pulumi:"targetListenerId"`
+	// The name of the listener to redirect to.
+	TargetListenerName string `pulumi:"targetListenerName"`
+	// The URL to redirect the request to.
+	TargetUrl string `pulumi:"targetUrl"`
+}
+
+// GetApplicationGatewayRedirectConfigurationInput is an input type that accepts GetApplicationGatewayRedirectConfigurationArgs and GetApplicationGatewayRedirectConfigurationOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRedirectConfigurationInput` via:
+//
+//	GetApplicationGatewayRedirectConfigurationArgs{...}
+type GetApplicationGatewayRedirectConfigurationInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRedirectConfigurationOutput() GetApplicationGatewayRedirectConfigurationOutput
+	ToGetApplicationGatewayRedirectConfigurationOutputWithContext(context.Context) GetApplicationGatewayRedirectConfigurationOutput
+}
+
+type GetApplicationGatewayRedirectConfigurationArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// Whether the path is included in the redirected URL.
+	IncludePath pulumi.BoolInput `pulumi:"includePath"`
+	// Whether to include the query string in the redirected URL.
+	IncludeQueryString pulumi.BoolInput `pulumi:"includeQueryString"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of redirect.
+	RedirectType     pulumi.StringInput `pulumi:"redirectType"`
+	TargetListenerId pulumi.StringInput `pulumi:"targetListenerId"`
+	// The name of the listener to redirect to.
+	TargetListenerName pulumi.StringInput `pulumi:"targetListenerName"`
+	// The URL to redirect the request to.
+	TargetUrl pulumi.StringInput `pulumi:"targetUrl"`
+}
+
+func (GetApplicationGatewayRedirectConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRedirectConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRedirectConfigurationArgs) ToGetApplicationGatewayRedirectConfigurationOutput() GetApplicationGatewayRedirectConfigurationOutput {
+	return i.ToGetApplicationGatewayRedirectConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRedirectConfigurationArgs) ToGetApplicationGatewayRedirectConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayRedirectConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRedirectConfigurationOutput)
+}
+
+func (i GetApplicationGatewayRedirectConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRedirectConfiguration] {
+	return pulumix.Output[GetApplicationGatewayRedirectConfiguration]{
+		OutputState: i.ToGetApplicationGatewayRedirectConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayRedirectConfigurationArrayInput is an input type that accepts GetApplicationGatewayRedirectConfigurationArray and GetApplicationGatewayRedirectConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRedirectConfigurationArrayInput` via:
+//
+//	GetApplicationGatewayRedirectConfigurationArray{ GetApplicationGatewayRedirectConfigurationArgs{...} }
+type GetApplicationGatewayRedirectConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRedirectConfigurationArrayOutput() GetApplicationGatewayRedirectConfigurationArrayOutput
+	ToGetApplicationGatewayRedirectConfigurationArrayOutputWithContext(context.Context) GetApplicationGatewayRedirectConfigurationArrayOutput
+}
+
+type GetApplicationGatewayRedirectConfigurationArray []GetApplicationGatewayRedirectConfigurationInput
+
+func (GetApplicationGatewayRedirectConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRedirectConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRedirectConfigurationArray) ToGetApplicationGatewayRedirectConfigurationArrayOutput() GetApplicationGatewayRedirectConfigurationArrayOutput {
+	return i.ToGetApplicationGatewayRedirectConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRedirectConfigurationArray) ToGetApplicationGatewayRedirectConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRedirectConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRedirectConfigurationArrayOutput)
+}
+
+func (i GetApplicationGatewayRedirectConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRedirectConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayRedirectConfiguration]{
+		OutputState: i.ToGetApplicationGatewayRedirectConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayRedirectConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRedirectConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRedirectConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRedirectConfigurationOutput) ToGetApplicationGatewayRedirectConfigurationOutput() GetApplicationGatewayRedirectConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRedirectConfigurationOutput) ToGetApplicationGatewayRedirectConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayRedirectConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRedirectConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRedirectConfiguration] {
+	return pulumix.Output[GetApplicationGatewayRedirectConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayRedirectConfigurationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRedirectConfiguration) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Whether the path is included in the redirected URL.
+func (o GetApplicationGatewayRedirectConfigurationOutput) IncludePath() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRedirectConfiguration) bool { return v.IncludePath }).(pulumi.BoolOutput)
+}
+
+// Whether to include the query string in the redirected URL.
+func (o GetApplicationGatewayRedirectConfigurationOutput) IncludeQueryString() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRedirectConfiguration) bool { return v.IncludeQueryString }).(pulumi.BoolOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayRedirectConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRedirectConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of redirect.
+func (o GetApplicationGatewayRedirectConfigurationOutput) RedirectType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRedirectConfiguration) string { return v.RedirectType }).(pulumi.StringOutput)
+}
+
+func (o GetApplicationGatewayRedirectConfigurationOutput) TargetListenerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRedirectConfiguration) string { return v.TargetListenerId }).(pulumi.StringOutput)
+}
+
+// The name of the listener to redirect to.
+func (o GetApplicationGatewayRedirectConfigurationOutput) TargetListenerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRedirectConfiguration) string { return v.TargetListenerName }).(pulumi.StringOutput)
+}
+
+// The URL to redirect the request to.
+func (o GetApplicationGatewayRedirectConfigurationOutput) TargetUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRedirectConfiguration) string { return v.TargetUrl }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayRedirectConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRedirectConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRedirectConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRedirectConfigurationArrayOutput) ToGetApplicationGatewayRedirectConfigurationArrayOutput() GetApplicationGatewayRedirectConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRedirectConfigurationArrayOutput) ToGetApplicationGatewayRedirectConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRedirectConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRedirectConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRedirectConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayRedirectConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayRedirectConfigurationArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayRedirectConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayRedirectConfiguration {
+		return vs[0].([]GetApplicationGatewayRedirectConfiguration)[vs[1].(int)]
+	}).(GetApplicationGatewayRedirectConfigurationOutput)
+}
+
+type GetApplicationGatewayRequestRoutingRule struct {
+	// The ID of the associated Backend Address Pool.
+	BackendAddressPoolId string `pulumi:"backendAddressPoolId"`
+	// The Name of the Backend Address Pool which is used for this Routing Rule.
+	BackendAddressPoolName string `pulumi:"backendAddressPoolName"`
+	// The ID of the associated Backend HTTP Settings Configuration.
+	BackendHttpSettingsId string `pulumi:"backendHttpSettingsId"`
+	// The Name of the Backend HTTP Settings Collection which is used for this Routing Rule.
+	BackendHttpSettingsName string `pulumi:"backendHttpSettingsName"`
+	// The ID of the associated HTTP Listener.
+	HttpListenerId string `pulumi:"httpListenerId"`
+	// The Name of the HTTP Listener which is used for this Routing Rule.
+	HttpListenerName string `pulumi:"httpListenerName"`
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// The Priority of this Routing Rule.
+	Priority int `pulumi:"priority"`
+	// The ID of the associated Redirect Configuration.
+	RedirectConfigurationId string `pulumi:"redirectConfigurationId"`
+	// The Name of the Redirect Configuration which is used for this Routing Rule.
+	RedirectConfigurationName string `pulumi:"redirectConfigurationName"`
+	// The ID of the associated Rewrite Rule Set.
+	RewriteRuleSetId string `pulumi:"rewriteRuleSetId"`
+	// The Name of the Rewrite Rule Set which is used for this Routing Rule.
+	RewriteRuleSetName string `pulumi:"rewriteRuleSetName"`
+	// The Type of Routing that is used for this Rule.
+	RuleType string `pulumi:"ruleType"`
+	// The ID of the associated URL Path Map.
+	UrlPathMapId string `pulumi:"urlPathMapId"`
+	// The Name of the URL Path Map which is associated with this Routing Rule.
+	UrlPathMapName string `pulumi:"urlPathMapName"`
+}
+
+// GetApplicationGatewayRequestRoutingRuleInput is an input type that accepts GetApplicationGatewayRequestRoutingRuleArgs and GetApplicationGatewayRequestRoutingRuleOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRequestRoutingRuleInput` via:
+//
+//	GetApplicationGatewayRequestRoutingRuleArgs{...}
+type GetApplicationGatewayRequestRoutingRuleInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRequestRoutingRuleOutput() GetApplicationGatewayRequestRoutingRuleOutput
+	ToGetApplicationGatewayRequestRoutingRuleOutputWithContext(context.Context) GetApplicationGatewayRequestRoutingRuleOutput
+}
+
+type GetApplicationGatewayRequestRoutingRuleArgs struct {
+	// The ID of the associated Backend Address Pool.
+	BackendAddressPoolId pulumi.StringInput `pulumi:"backendAddressPoolId"`
+	// The Name of the Backend Address Pool which is used for this Routing Rule.
+	BackendAddressPoolName pulumi.StringInput `pulumi:"backendAddressPoolName"`
+	// The ID of the associated Backend HTTP Settings Configuration.
+	BackendHttpSettingsId pulumi.StringInput `pulumi:"backendHttpSettingsId"`
+	// The Name of the Backend HTTP Settings Collection which is used for this Routing Rule.
+	BackendHttpSettingsName pulumi.StringInput `pulumi:"backendHttpSettingsName"`
+	// The ID of the associated HTTP Listener.
+	HttpListenerId pulumi.StringInput `pulumi:"httpListenerId"`
+	// The Name of the HTTP Listener which is used for this Routing Rule.
+	HttpListenerName pulumi.StringInput `pulumi:"httpListenerName"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Priority of this Routing Rule.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// The ID of the associated Redirect Configuration.
+	RedirectConfigurationId pulumi.StringInput `pulumi:"redirectConfigurationId"`
+	// The Name of the Redirect Configuration which is used for this Routing Rule.
+	RedirectConfigurationName pulumi.StringInput `pulumi:"redirectConfigurationName"`
+	// The ID of the associated Rewrite Rule Set.
+	RewriteRuleSetId pulumi.StringInput `pulumi:"rewriteRuleSetId"`
+	// The Name of the Rewrite Rule Set which is used for this Routing Rule.
+	RewriteRuleSetName pulumi.StringInput `pulumi:"rewriteRuleSetName"`
+	// The Type of Routing that is used for this Rule.
+	RuleType pulumi.StringInput `pulumi:"ruleType"`
+	// The ID of the associated URL Path Map.
+	UrlPathMapId pulumi.StringInput `pulumi:"urlPathMapId"`
+	// The Name of the URL Path Map which is associated with this Routing Rule.
+	UrlPathMapName pulumi.StringInput `pulumi:"urlPathMapName"`
+}
+
+func (GetApplicationGatewayRequestRoutingRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRequestRoutingRule)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRequestRoutingRuleArgs) ToGetApplicationGatewayRequestRoutingRuleOutput() GetApplicationGatewayRequestRoutingRuleOutput {
+	return i.ToGetApplicationGatewayRequestRoutingRuleOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRequestRoutingRuleArgs) ToGetApplicationGatewayRequestRoutingRuleOutputWithContext(ctx context.Context) GetApplicationGatewayRequestRoutingRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRequestRoutingRuleOutput)
+}
+
+func (i GetApplicationGatewayRequestRoutingRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRequestRoutingRule] {
+	return pulumix.Output[GetApplicationGatewayRequestRoutingRule]{
+		OutputState: i.ToGetApplicationGatewayRequestRoutingRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayRequestRoutingRuleArrayInput is an input type that accepts GetApplicationGatewayRequestRoutingRuleArray and GetApplicationGatewayRequestRoutingRuleArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRequestRoutingRuleArrayInput` via:
+//
+//	GetApplicationGatewayRequestRoutingRuleArray{ GetApplicationGatewayRequestRoutingRuleArgs{...} }
+type GetApplicationGatewayRequestRoutingRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRequestRoutingRuleArrayOutput() GetApplicationGatewayRequestRoutingRuleArrayOutput
+	ToGetApplicationGatewayRequestRoutingRuleArrayOutputWithContext(context.Context) GetApplicationGatewayRequestRoutingRuleArrayOutput
+}
+
+type GetApplicationGatewayRequestRoutingRuleArray []GetApplicationGatewayRequestRoutingRuleInput
+
+func (GetApplicationGatewayRequestRoutingRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRequestRoutingRule)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRequestRoutingRuleArray) ToGetApplicationGatewayRequestRoutingRuleArrayOutput() GetApplicationGatewayRequestRoutingRuleArrayOutput {
+	return i.ToGetApplicationGatewayRequestRoutingRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRequestRoutingRuleArray) ToGetApplicationGatewayRequestRoutingRuleArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRequestRoutingRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRequestRoutingRuleArrayOutput)
+}
+
+func (i GetApplicationGatewayRequestRoutingRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRequestRoutingRule] {
+	return pulumix.Output[[]GetApplicationGatewayRequestRoutingRule]{
+		OutputState: i.ToGetApplicationGatewayRequestRoutingRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayRequestRoutingRuleOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRequestRoutingRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRequestRoutingRule)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRequestRoutingRuleOutput) ToGetApplicationGatewayRequestRoutingRuleOutput() GetApplicationGatewayRequestRoutingRuleOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRequestRoutingRuleOutput) ToGetApplicationGatewayRequestRoutingRuleOutputWithContext(ctx context.Context) GetApplicationGatewayRequestRoutingRuleOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRequestRoutingRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRequestRoutingRule] {
+	return pulumix.Output[GetApplicationGatewayRequestRoutingRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the associated Backend Address Pool.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) BackendAddressPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.BackendAddressPoolId }).(pulumi.StringOutput)
+}
+
+// The Name of the Backend Address Pool which is used for this Routing Rule.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) BackendAddressPoolName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.BackendAddressPoolName }).(pulumi.StringOutput)
+}
+
+// The ID of the associated Backend HTTP Settings Configuration.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) BackendHttpSettingsId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.BackendHttpSettingsId }).(pulumi.StringOutput)
+}
+
+// The Name of the Backend HTTP Settings Collection which is used for this Routing Rule.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) BackendHttpSettingsName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.BackendHttpSettingsName }).(pulumi.StringOutput)
+}
+
+// The ID of the associated HTTP Listener.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) HttpListenerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.HttpListenerId }).(pulumi.StringOutput)
+}
+
+// The Name of the HTTP Listener which is used for this Routing Rule.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) HttpListenerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.HttpListenerName }).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayRequestRoutingRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Priority of this Routing Rule.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// The ID of the associated Redirect Configuration.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) RedirectConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.RedirectConfigurationId }).(pulumi.StringOutput)
+}
+
+// The Name of the Redirect Configuration which is used for this Routing Rule.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) RedirectConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.RedirectConfigurationName }).(pulumi.StringOutput)
+}
+
+// The ID of the associated Rewrite Rule Set.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) RewriteRuleSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.RewriteRuleSetId }).(pulumi.StringOutput)
+}
+
+// The Name of the Rewrite Rule Set which is used for this Routing Rule.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) RewriteRuleSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.RewriteRuleSetName }).(pulumi.StringOutput)
+}
+
+// The Type of Routing that is used for this Rule.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) RuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.RuleType }).(pulumi.StringOutput)
+}
+
+// The ID of the associated URL Path Map.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) UrlPathMapId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.UrlPathMapId }).(pulumi.StringOutput)
+}
+
+// The Name of the URL Path Map which is associated with this Routing Rule.
+func (o GetApplicationGatewayRequestRoutingRuleOutput) UrlPathMapName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRequestRoutingRule) string { return v.UrlPathMapName }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayRequestRoutingRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRequestRoutingRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRequestRoutingRule)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRequestRoutingRuleArrayOutput) ToGetApplicationGatewayRequestRoutingRuleArrayOutput() GetApplicationGatewayRequestRoutingRuleArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRequestRoutingRuleArrayOutput) ToGetApplicationGatewayRequestRoutingRuleArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRequestRoutingRuleArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRequestRoutingRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRequestRoutingRule] {
+	return pulumix.Output[[]GetApplicationGatewayRequestRoutingRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayRequestRoutingRuleArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayRequestRoutingRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayRequestRoutingRule {
+		return vs[0].([]GetApplicationGatewayRequestRoutingRule)[vs[1].(int)]
+	}).(GetApplicationGatewayRequestRoutingRuleOutput)
+}
+
+type GetApplicationGatewayRewriteRuleSet struct {
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// One or more `rewriteRule` blocks as defined below.
+	RewriteRules []GetApplicationGatewayRewriteRuleSetRewriteRule `pulumi:"rewriteRules"`
+}
+
+// GetApplicationGatewayRewriteRuleSetInput is an input type that accepts GetApplicationGatewayRewriteRuleSetArgs and GetApplicationGatewayRewriteRuleSetOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRewriteRuleSetInput` via:
+//
+//	GetApplicationGatewayRewriteRuleSetArgs{...}
+type GetApplicationGatewayRewriteRuleSetInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRewriteRuleSetOutput() GetApplicationGatewayRewriteRuleSetOutput
+	ToGetApplicationGatewayRewriteRuleSetOutputWithContext(context.Context) GetApplicationGatewayRewriteRuleSetOutput
+}
+
+type GetApplicationGatewayRewriteRuleSetArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// One or more `rewriteRule` blocks as defined below.
+	RewriteRules GetApplicationGatewayRewriteRuleSetRewriteRuleArrayInput `pulumi:"rewriteRules"`
+}
+
+func (GetApplicationGatewayRewriteRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRewriteRuleSet)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRewriteRuleSetArgs) ToGetApplicationGatewayRewriteRuleSetOutput() GetApplicationGatewayRewriteRuleSetOutput {
+	return i.ToGetApplicationGatewayRewriteRuleSetOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRewriteRuleSetArgs) ToGetApplicationGatewayRewriteRuleSetOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRewriteRuleSetOutput)
+}
+
+func (i GetApplicationGatewayRewriteRuleSetArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRewriteRuleSet] {
+	return pulumix.Output[GetApplicationGatewayRewriteRuleSet]{
+		OutputState: i.ToGetApplicationGatewayRewriteRuleSetOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayRewriteRuleSetArrayInput is an input type that accepts GetApplicationGatewayRewriteRuleSetArray and GetApplicationGatewayRewriteRuleSetArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRewriteRuleSetArrayInput` via:
+//
+//	GetApplicationGatewayRewriteRuleSetArray{ GetApplicationGatewayRewriteRuleSetArgs{...} }
+type GetApplicationGatewayRewriteRuleSetArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRewriteRuleSetArrayOutput() GetApplicationGatewayRewriteRuleSetArrayOutput
+	ToGetApplicationGatewayRewriteRuleSetArrayOutputWithContext(context.Context) GetApplicationGatewayRewriteRuleSetArrayOutput
+}
+
+type GetApplicationGatewayRewriteRuleSetArray []GetApplicationGatewayRewriteRuleSetInput
+
+func (GetApplicationGatewayRewriteRuleSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRewriteRuleSet)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRewriteRuleSetArray) ToGetApplicationGatewayRewriteRuleSetArrayOutput() GetApplicationGatewayRewriteRuleSetArrayOutput {
+	return i.ToGetApplicationGatewayRewriteRuleSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRewriteRuleSetArray) ToGetApplicationGatewayRewriteRuleSetArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRewriteRuleSetArrayOutput)
+}
+
+func (i GetApplicationGatewayRewriteRuleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRewriteRuleSet] {
+	return pulumix.Output[[]GetApplicationGatewayRewriteRuleSet]{
+		OutputState: i.ToGetApplicationGatewayRewriteRuleSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayRewriteRuleSetOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRewriteRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRewriteRuleSet)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRewriteRuleSetOutput) ToGetApplicationGatewayRewriteRuleSetOutput() GetApplicationGatewayRewriteRuleSetOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetOutput) ToGetApplicationGatewayRewriteRuleSetOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRewriteRuleSet] {
+	return pulumix.Output[GetApplicationGatewayRewriteRuleSet]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayRewriteRuleSetOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSet) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayRewriteRuleSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSet) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// One or more `rewriteRule` blocks as defined below.
+func (o GetApplicationGatewayRewriteRuleSetOutput) RewriteRules() GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSet) []GetApplicationGatewayRewriteRuleSetRewriteRule {
+		return v.RewriteRules
+	}).(GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput)
+}
+
+type GetApplicationGatewayRewriteRuleSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRewriteRuleSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRewriteRuleSet)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRewriteRuleSetArrayOutput) ToGetApplicationGatewayRewriteRuleSetArrayOutput() GetApplicationGatewayRewriteRuleSetArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetArrayOutput) ToGetApplicationGatewayRewriteRuleSetArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRewriteRuleSet] {
+	return pulumix.Output[[]GetApplicationGatewayRewriteRuleSet]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayRewriteRuleSetArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayRewriteRuleSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayRewriteRuleSet {
+		return vs[0].([]GetApplicationGatewayRewriteRuleSet)[vs[1].(int)]
+	}).(GetApplicationGatewayRewriteRuleSetOutput)
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRule struct {
+	// One or more `condition` blocks as defined above.
+	Conditions []GetApplicationGatewayRewriteRuleSetRewriteRuleCondition `pulumi:"conditions"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// One or more `requestHeaderConfiguration` blocks as defined above.
+	RequestHeaderConfigurations []GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration `pulumi:"requestHeaderConfigurations"`
+	// One or more `responseHeaderConfiguration` blocks as defined above.
+	ResponseHeaderConfigurations []GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration `pulumi:"responseHeaderConfigurations"`
+	// Rule sequence of the Rewrite Rule that determines the order of execution in a set.
+	RuleSequence int `pulumi:"ruleSequence"`
+	// One `url` block as defined below
+	Urls []GetApplicationGatewayRewriteRuleSetRewriteRuleUrl `pulumi:"urls"`
+}
+
+// GetApplicationGatewayRewriteRuleSetRewriteRuleInput is an input type that accepts GetApplicationGatewayRewriteRuleSetRewriteRuleArgs and GetApplicationGatewayRewriteRuleSetRewriteRuleOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRewriteRuleSetRewriteRuleInput` via:
+//
+//	GetApplicationGatewayRewriteRuleSetRewriteRuleArgs{...}
+type GetApplicationGatewayRewriteRuleSetRewriteRuleInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleOutput
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleOutputWithContext(context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleOutput
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleArgs struct {
+	// One or more `condition` blocks as defined above.
+	Conditions GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayInput `pulumi:"conditions"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// One or more `requestHeaderConfiguration` blocks as defined above.
+	RequestHeaderConfigurations GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayInput `pulumi:"requestHeaderConfigurations"`
+	// One or more `responseHeaderConfiguration` blocks as defined above.
+	ResponseHeaderConfigurations GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayInput `pulumi:"responseHeaderConfigurations"`
+	// Rule sequence of the Rewrite Rule that determines the order of execution in a set.
+	RuleSequence pulumi.IntInput `pulumi:"ruleSequence"`
+	// One `url` block as defined below
+	Urls GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayInput `pulumi:"urls"`
+}
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRule)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleArgs) ToGetApplicationGatewayRewriteRuleSetRewriteRuleOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleOutput {
+	return i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleArgs) ToGetApplicationGatewayRewriteRuleSetRewriteRuleOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRewriteRuleSetRewriteRuleOutput)
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRule] {
+	return pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRule]{
+		OutputState: i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayRewriteRuleSetRewriteRuleArrayInput is an input type that accepts GetApplicationGatewayRewriteRuleSetRewriteRuleArray and GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRewriteRuleSetRewriteRuleArrayInput` via:
+//
+//	GetApplicationGatewayRewriteRuleSetRewriteRuleArray{ GetApplicationGatewayRewriteRuleSetRewriteRuleArgs{...} }
+type GetApplicationGatewayRewriteRuleSetRewriteRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutputWithContext(context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleArray []GetApplicationGatewayRewriteRuleSetRewriteRuleInput
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRewriteRuleSetRewriteRule)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleArray) ToGetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput {
+	return i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleArray) ToGetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput)
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRule] {
+	return pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRule]{
+		OutputState: i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRule)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRule] {
+	return pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// One or more `condition` blocks as defined above.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleOutput) Conditions() GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRule) []GetApplicationGatewayRewriteRuleSetRewriteRuleCondition {
+		return v.Conditions
+	}).(GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// One or more `requestHeaderConfiguration` blocks as defined above.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleOutput) RequestHeaderConfigurations() GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRule) []GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration {
+		return v.RequestHeaderConfigurations
+	}).(GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput)
+}
+
+// One or more `responseHeaderConfiguration` blocks as defined above.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleOutput) ResponseHeaderConfigurations() GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRule) []GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration {
+		return v.ResponseHeaderConfigurations
+	}).(GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput)
+}
+
+// Rule sequence of the Rewrite Rule that determines the order of execution in a set.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleOutput) RuleSequence() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRule) int { return v.RuleSequence }).(pulumi.IntOutput)
+}
+
+// One `url` block as defined below
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleOutput) Urls() GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRule) []GetApplicationGatewayRewriteRuleSetRewriteRuleUrl {
+		return v.Urls
+	}).(GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput)
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRewriteRuleSetRewriteRule)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRule] {
+	return pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayRewriteRuleSetRewriteRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayRewriteRuleSetRewriteRule {
+		return vs[0].([]GetApplicationGatewayRewriteRuleSetRewriteRule)[vs[1].(int)]
+	}).(GetApplicationGatewayRewriteRuleSetRewriteRuleOutput)
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleCondition struct {
+	// Whether a case insensitive comparison is performed.
+	IgnoreCase bool `pulumi:"ignoreCase"`
+	// Whether the result of the condition evaluation is negated.
+	Negate bool `pulumi:"negate"`
+	// The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+	Pattern string `pulumi:"pattern"`
+	// The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+	Variable string `pulumi:"variable"`
+}
+
+// GetApplicationGatewayRewriteRuleSetRewriteRuleConditionInput is an input type that accepts GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs and GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRewriteRuleSetRewriteRuleConditionInput` via:
+//
+//	GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs{...}
+type GetApplicationGatewayRewriteRuleSetRewriteRuleConditionInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutputWithContext(context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs struct {
+	// Whether a case insensitive comparison is performed.
+	IgnoreCase pulumi.BoolInput `pulumi:"ignoreCase"`
+	// Whether the result of the condition evaluation is negated.
+	Negate pulumi.BoolInput `pulumi:"negate"`
+	// The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+	// The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+	Variable pulumi.StringInput `pulumi:"variable"`
+}
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleCondition)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs) ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput {
+	return i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs) ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput)
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleCondition] {
+	return pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleCondition]{
+		OutputState: i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayInput is an input type that accepts GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArray and GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayInput` via:
+//
+//	GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArray{ GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs{...} }
+type GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutputWithContext(context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArray []GetApplicationGatewayRewriteRuleSetRewriteRuleConditionInput
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRewriteRuleSetRewriteRuleCondition)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArray) ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput {
+	return i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArray) ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput)
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleCondition] {
+	return pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleCondition]{
+		OutputState: i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleCondition)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleCondition] {
+	return pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleCondition]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Whether a case insensitive comparison is performed.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput) IgnoreCase() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRuleCondition) bool { return v.IgnoreCase }).(pulumi.BoolOutput)
+}
+
+// Whether the result of the condition evaluation is negated.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput) Negate() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRuleCondition) bool { return v.Negate }).(pulumi.BoolOutput)
+}
+
+// The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRuleCondition) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+// The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput) Variable() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRuleCondition) string { return v.Variable }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRewriteRuleSetRewriteRuleCondition)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleCondition] {
+	return pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleCondition]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayRewriteRuleSetRewriteRuleCondition {
+		return vs[0].([]GetApplicationGatewayRewriteRuleSetRewriteRuleCondition)[vs[1].(int)]
+	}).(GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput)
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration struct {
+	// Header name of the header configuration.
+	HeaderName string `pulumi:"headerName"`
+	// Header value of the header configuration.
+	HeaderValue string `pulumi:"headerValue"`
+}
+
+// GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationInput is an input type that accepts GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs and GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationInput` via:
+//
+//	GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs{...}
+type GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutputWithContext(context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs struct {
+	// Header name of the header configuration.
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// Header value of the header configuration.
+	HeaderValue pulumi.StringInput `pulumi:"headerValue"`
+}
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs) ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput {
+	return i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs) ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput)
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration] {
+	return pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration]{
+		OutputState: i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayInput is an input type that accepts GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArray and GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayInput` via:
+//
+//	GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArray{ GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs{...} }
+type GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutputWithContext(context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArray []GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationInput
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArray) ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput {
+	return i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArray) ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput)
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration]{
+		OutputState: i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration] {
+	return pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Header name of the header configuration.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration) string {
+		return v.HeaderName
+	}).(pulumi.StringOutput)
+}
+
+// Header value of the header configuration.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput) HeaderValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration) string {
+		return v.HeaderValue
+	}).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration {
+		return vs[0].([]GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration)[vs[1].(int)]
+	}).(GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput)
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration struct {
+	// Header name of the header configuration.
+	HeaderName string `pulumi:"headerName"`
+	// Header value of the header configuration.
+	HeaderValue string `pulumi:"headerValue"`
+}
+
+// GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationInput is an input type that accepts GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs and GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationInput` via:
+//
+//	GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs{...}
+type GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutputWithContext(context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs struct {
+	// Header name of the header configuration.
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// Header value of the header configuration.
+	HeaderValue pulumi.StringInput `pulumi:"headerValue"`
+}
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs) ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput {
+	return i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs) ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput)
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration] {
+	return pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration]{
+		OutputState: i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayInput is an input type that accepts GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArray and GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayInput` via:
+//
+//	GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArray{ GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs{...} }
+type GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutputWithContext(context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArray []GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationInput
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArray) ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput {
+	return i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArray) ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput)
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration]{
+		OutputState: i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration] {
+	return pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Header name of the header configuration.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration) string {
+		return v.HeaderName
+	}).(pulumi.StringOutput)
+}
+
+// Header value of the header configuration.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput) HeaderValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration) string {
+		return v.HeaderValue
+	}).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration {
+		return vs[0].([]GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration)[vs[1].(int)]
+	}).(GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput)
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleUrl struct {
+	// The components used to rewrite the URL.
+	Components string `pulumi:"components"`
+	// The URL path to rewrite.
+	Path string `pulumi:"path"`
+	// The query string to rewrite.
+	QueryString string `pulumi:"queryString"`
+	// Whether the URL path map is reevaluated after this rewrite has been applied.
+	Reroute bool `pulumi:"reroute"`
+}
+
+// GetApplicationGatewayRewriteRuleSetRewriteRuleUrlInput is an input type that accepts GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs and GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRewriteRuleSetRewriteRuleUrlInput` via:
+//
+//	GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs{...}
+type GetApplicationGatewayRewriteRuleSetRewriteRuleUrlInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutputWithContext(context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs struct {
+	// The components used to rewrite the URL.
+	Components pulumi.StringInput `pulumi:"components"`
+	// The URL path to rewrite.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The query string to rewrite.
+	QueryString pulumi.StringInput `pulumi:"queryString"`
+	// Whether the URL path map is reevaluated after this rewrite has been applied.
+	Reroute pulumi.BoolInput `pulumi:"reroute"`
+}
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleUrl)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs) ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput {
+	return i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs) ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput)
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleUrl] {
+	return pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleUrl]{
+		OutputState: i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayInput is an input type that accepts GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArray and GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayInput` via:
+//
+//	GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArray{ GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs{...} }
+type GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput
+	ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutputWithContext(context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArray []GetApplicationGatewayRewriteRuleSetRewriteRuleUrlInput
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRewriteRuleSetRewriteRuleUrl)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArray) ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput {
+	return i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArray) ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput)
+}
+
+func (i GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleUrl] {
+	return pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleUrl]{
+		OutputState: i.ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleUrl)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleUrl] {
+	return pulumix.Output[GetApplicationGatewayRewriteRuleSetRewriteRuleUrl]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The components used to rewrite the URL.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) Components() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRuleUrl) string { return v.Components }).(pulumi.StringOutput)
+}
+
+// The URL path to rewrite.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRuleUrl) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The query string to rewrite.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) QueryString() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRuleUrl) string { return v.QueryString }).(pulumi.StringOutput)
+}
+
+// Whether the URL path map is reevaluated after this rewrite has been applied.
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) Reroute() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayRewriteRuleSetRewriteRuleUrl) bool { return v.Reroute }).(pulumi.BoolOutput)
+}
+
+type GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayRewriteRuleSetRewriteRuleUrl)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput() GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput) ToGetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutputWithContext(ctx context.Context) GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleUrl] {
+	return pulumix.Output[[]GetApplicationGatewayRewriteRuleSetRewriteRuleUrl]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayRewriteRuleSetRewriteRuleUrl {
+		return vs[0].([]GetApplicationGatewayRewriteRuleSetRewriteRuleUrl)[vs[1].(int)]
+	}).(GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput)
+}
+
+type GetApplicationGatewaySkus struct {
+	// The Capacity of the SKU in use for this Application Gateway.
+	Capacity int `pulumi:"capacity"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// The Tier of the SKU in use for this Application Gateway.
+	Tier string `pulumi:"tier"`
+}
+
+// GetApplicationGatewaySkusInput is an input type that accepts GetApplicationGatewaySkusArgs and GetApplicationGatewaySkusOutput values.
+// You can construct a concrete instance of `GetApplicationGatewaySkusInput` via:
+//
+//	GetApplicationGatewaySkusArgs{...}
+type GetApplicationGatewaySkusInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewaySkusOutput() GetApplicationGatewaySkusOutput
+	ToGetApplicationGatewaySkusOutputWithContext(context.Context) GetApplicationGatewaySkusOutput
+}
+
+type GetApplicationGatewaySkusArgs struct {
+	// The Capacity of the SKU in use for this Application Gateway.
+	Capacity pulumi.IntInput `pulumi:"capacity"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Tier of the SKU in use for this Application Gateway.
+	Tier pulumi.StringInput `pulumi:"tier"`
+}
+
+func (GetApplicationGatewaySkusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewaySkus)(nil)).Elem()
+}
+
+func (i GetApplicationGatewaySkusArgs) ToGetApplicationGatewaySkusOutput() GetApplicationGatewaySkusOutput {
+	return i.ToGetApplicationGatewaySkusOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewaySkusArgs) ToGetApplicationGatewaySkusOutputWithContext(ctx context.Context) GetApplicationGatewaySkusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewaySkusOutput)
+}
+
+func (i GetApplicationGatewaySkusArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewaySkus] {
+	return pulumix.Output[GetApplicationGatewaySkus]{
+		OutputState: i.ToGetApplicationGatewaySkusOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewaySkusArrayInput is an input type that accepts GetApplicationGatewaySkusArray and GetApplicationGatewaySkusArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewaySkusArrayInput` via:
+//
+//	GetApplicationGatewaySkusArray{ GetApplicationGatewaySkusArgs{...} }
+type GetApplicationGatewaySkusArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewaySkusArrayOutput() GetApplicationGatewaySkusArrayOutput
+	ToGetApplicationGatewaySkusArrayOutputWithContext(context.Context) GetApplicationGatewaySkusArrayOutput
+}
+
+type GetApplicationGatewaySkusArray []GetApplicationGatewaySkusInput
+
+func (GetApplicationGatewaySkusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewaySkus)(nil)).Elem()
+}
+
+func (i GetApplicationGatewaySkusArray) ToGetApplicationGatewaySkusArrayOutput() GetApplicationGatewaySkusArrayOutput {
+	return i.ToGetApplicationGatewaySkusArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewaySkusArray) ToGetApplicationGatewaySkusArrayOutputWithContext(ctx context.Context) GetApplicationGatewaySkusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewaySkusArrayOutput)
+}
+
+func (i GetApplicationGatewaySkusArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewaySkus] {
+	return pulumix.Output[[]GetApplicationGatewaySkus]{
+		OutputState: i.ToGetApplicationGatewaySkusArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewaySkusOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewaySkusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewaySkus)(nil)).Elem()
+}
+
+func (o GetApplicationGatewaySkusOutput) ToGetApplicationGatewaySkusOutput() GetApplicationGatewaySkusOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySkusOutput) ToGetApplicationGatewaySkusOutputWithContext(ctx context.Context) GetApplicationGatewaySkusOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySkusOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewaySkus] {
+	return pulumix.Output[GetApplicationGatewaySkus]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The Capacity of the SKU in use for this Application Gateway.
+func (o GetApplicationGatewaySkusOutput) Capacity() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySkus) int { return v.Capacity }).(pulumi.IntOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewaySkusOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySkus) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Tier of the SKU in use for this Application Gateway.
+func (o GetApplicationGatewaySkusOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySkus) string { return v.Tier }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewaySkusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewaySkusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewaySkus)(nil)).Elem()
+}
+
+func (o GetApplicationGatewaySkusArrayOutput) ToGetApplicationGatewaySkusArrayOutput() GetApplicationGatewaySkusArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySkusArrayOutput) ToGetApplicationGatewaySkusArrayOutputWithContext(ctx context.Context) GetApplicationGatewaySkusArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySkusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewaySkus] {
+	return pulumix.Output[[]GetApplicationGatewaySkus]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewaySkusArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewaySkusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewaySkus {
+		return vs[0].([]GetApplicationGatewaySkus)[vs[1].(int)]
+	}).(GetApplicationGatewaySkusOutput)
+}
+
+type GetApplicationGatewaySslCertificate struct {
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault.
+	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// The Public Certificate Data associated with the SSL Certificate.
+	PublicCertData string `pulumi:"publicCertData"`
+}
+
+// GetApplicationGatewaySslCertificateInput is an input type that accepts GetApplicationGatewaySslCertificateArgs and GetApplicationGatewaySslCertificateOutput values.
+// You can construct a concrete instance of `GetApplicationGatewaySslCertificateInput` via:
+//
+//	GetApplicationGatewaySslCertificateArgs{...}
+type GetApplicationGatewaySslCertificateInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewaySslCertificateOutput() GetApplicationGatewaySslCertificateOutput
+	ToGetApplicationGatewaySslCertificateOutputWithContext(context.Context) GetApplicationGatewaySslCertificateOutput
+}
+
+type GetApplicationGatewaySslCertificateArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault.
+	KeyVaultSecretId pulumi.StringInput `pulumi:"keyVaultSecretId"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Public Certificate Data associated with the SSL Certificate.
+	PublicCertData pulumi.StringInput `pulumi:"publicCertData"`
+}
+
+func (GetApplicationGatewaySslCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewaySslCertificate)(nil)).Elem()
+}
+
+func (i GetApplicationGatewaySslCertificateArgs) ToGetApplicationGatewaySslCertificateOutput() GetApplicationGatewaySslCertificateOutput {
+	return i.ToGetApplicationGatewaySslCertificateOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewaySslCertificateArgs) ToGetApplicationGatewaySslCertificateOutputWithContext(ctx context.Context) GetApplicationGatewaySslCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewaySslCertificateOutput)
+}
+
+func (i GetApplicationGatewaySslCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewaySslCertificate] {
+	return pulumix.Output[GetApplicationGatewaySslCertificate]{
+		OutputState: i.ToGetApplicationGatewaySslCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewaySslCertificateArrayInput is an input type that accepts GetApplicationGatewaySslCertificateArray and GetApplicationGatewaySslCertificateArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewaySslCertificateArrayInput` via:
+//
+//	GetApplicationGatewaySslCertificateArray{ GetApplicationGatewaySslCertificateArgs{...} }
+type GetApplicationGatewaySslCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewaySslCertificateArrayOutput() GetApplicationGatewaySslCertificateArrayOutput
+	ToGetApplicationGatewaySslCertificateArrayOutputWithContext(context.Context) GetApplicationGatewaySslCertificateArrayOutput
+}
+
+type GetApplicationGatewaySslCertificateArray []GetApplicationGatewaySslCertificateInput
+
+func (GetApplicationGatewaySslCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewaySslCertificate)(nil)).Elem()
+}
+
+func (i GetApplicationGatewaySslCertificateArray) ToGetApplicationGatewaySslCertificateArrayOutput() GetApplicationGatewaySslCertificateArrayOutput {
+	return i.ToGetApplicationGatewaySslCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewaySslCertificateArray) ToGetApplicationGatewaySslCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewaySslCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewaySslCertificateArrayOutput)
+}
+
+func (i GetApplicationGatewaySslCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewaySslCertificate] {
+	return pulumix.Output[[]GetApplicationGatewaySslCertificate]{
+		OutputState: i.ToGetApplicationGatewaySslCertificateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewaySslCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewaySslCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewaySslCertificate)(nil)).Elem()
+}
+
+func (o GetApplicationGatewaySslCertificateOutput) ToGetApplicationGatewaySslCertificateOutput() GetApplicationGatewaySslCertificateOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslCertificateOutput) ToGetApplicationGatewaySslCertificateOutputWithContext(ctx context.Context) GetApplicationGatewaySslCertificateOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewaySslCertificate] {
+	return pulumix.Output[GetApplicationGatewaySslCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewaySslCertificateOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslCertificate) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault.
+func (o GetApplicationGatewaySslCertificateOutput) KeyVaultSecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslCertificate) string { return v.KeyVaultSecretId }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewaySslCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Public Certificate Data associated with the SSL Certificate.
+func (o GetApplicationGatewaySslCertificateOutput) PublicCertData() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslCertificate) string { return v.PublicCertData }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewaySslCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewaySslCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewaySslCertificate)(nil)).Elem()
+}
+
+func (o GetApplicationGatewaySslCertificateArrayOutput) ToGetApplicationGatewaySslCertificateArrayOutput() GetApplicationGatewaySslCertificateArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslCertificateArrayOutput) ToGetApplicationGatewaySslCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewaySslCertificateArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewaySslCertificate] {
+	return pulumix.Output[[]GetApplicationGatewaySslCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewaySslCertificateArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewaySslCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewaySslCertificate {
+		return vs[0].([]GetApplicationGatewaySslCertificate)[vs[1].(int)]
+	}).(GetApplicationGatewaySslCertificateOutput)
+}
+
+type GetApplicationGatewaySslPolicy struct {
+	// A List of accepted cipher suites.
+	CipherSuites []string `pulumi:"cipherSuites"`
+	// A list of SSL Protocols which are disabled on this Application Gateway.
+	DisabledProtocols []string `pulumi:"disabledProtocols"`
+	// The minimum TLS version.
+	MinProtocolVersion string `pulumi:"minProtocolVersion"`
+	// The Name of the Policy.
+	PolicyName string `pulumi:"policyName"`
+	// The Type of the Policy.
+	PolicyType string `pulumi:"policyType"`
+}
+
+// GetApplicationGatewaySslPolicyInput is an input type that accepts GetApplicationGatewaySslPolicyArgs and GetApplicationGatewaySslPolicyOutput values.
+// You can construct a concrete instance of `GetApplicationGatewaySslPolicyInput` via:
+//
+//	GetApplicationGatewaySslPolicyArgs{...}
+type GetApplicationGatewaySslPolicyInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewaySslPolicyOutput() GetApplicationGatewaySslPolicyOutput
+	ToGetApplicationGatewaySslPolicyOutputWithContext(context.Context) GetApplicationGatewaySslPolicyOutput
+}
+
+type GetApplicationGatewaySslPolicyArgs struct {
+	// A List of accepted cipher suites.
+	CipherSuites pulumi.StringArrayInput `pulumi:"cipherSuites"`
+	// A list of SSL Protocols which are disabled on this Application Gateway.
+	DisabledProtocols pulumi.StringArrayInput `pulumi:"disabledProtocols"`
+	// The minimum TLS version.
+	MinProtocolVersion pulumi.StringInput `pulumi:"minProtocolVersion"`
+	// The Name of the Policy.
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
+	// The Type of the Policy.
+	PolicyType pulumi.StringInput `pulumi:"policyType"`
+}
+
+func (GetApplicationGatewaySslPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewaySslPolicy)(nil)).Elem()
+}
+
+func (i GetApplicationGatewaySslPolicyArgs) ToGetApplicationGatewaySslPolicyOutput() GetApplicationGatewaySslPolicyOutput {
+	return i.ToGetApplicationGatewaySslPolicyOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewaySslPolicyArgs) ToGetApplicationGatewaySslPolicyOutputWithContext(ctx context.Context) GetApplicationGatewaySslPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewaySslPolicyOutput)
+}
+
+func (i GetApplicationGatewaySslPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewaySslPolicy] {
+	return pulumix.Output[GetApplicationGatewaySslPolicy]{
+		OutputState: i.ToGetApplicationGatewaySslPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewaySslPolicyArrayInput is an input type that accepts GetApplicationGatewaySslPolicyArray and GetApplicationGatewaySslPolicyArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewaySslPolicyArrayInput` via:
+//
+//	GetApplicationGatewaySslPolicyArray{ GetApplicationGatewaySslPolicyArgs{...} }
+type GetApplicationGatewaySslPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewaySslPolicyArrayOutput() GetApplicationGatewaySslPolicyArrayOutput
+	ToGetApplicationGatewaySslPolicyArrayOutputWithContext(context.Context) GetApplicationGatewaySslPolicyArrayOutput
+}
+
+type GetApplicationGatewaySslPolicyArray []GetApplicationGatewaySslPolicyInput
+
+func (GetApplicationGatewaySslPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewaySslPolicy)(nil)).Elem()
+}
+
+func (i GetApplicationGatewaySslPolicyArray) ToGetApplicationGatewaySslPolicyArrayOutput() GetApplicationGatewaySslPolicyArrayOutput {
+	return i.ToGetApplicationGatewaySslPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewaySslPolicyArray) ToGetApplicationGatewaySslPolicyArrayOutputWithContext(ctx context.Context) GetApplicationGatewaySslPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewaySslPolicyArrayOutput)
+}
+
+func (i GetApplicationGatewaySslPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewaySslPolicy] {
+	return pulumix.Output[[]GetApplicationGatewaySslPolicy]{
+		OutputState: i.ToGetApplicationGatewaySslPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewaySslPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewaySslPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewaySslPolicy)(nil)).Elem()
+}
+
+func (o GetApplicationGatewaySslPolicyOutput) ToGetApplicationGatewaySslPolicyOutput() GetApplicationGatewaySslPolicyOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslPolicyOutput) ToGetApplicationGatewaySslPolicyOutputWithContext(ctx context.Context) GetApplicationGatewaySslPolicyOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewaySslPolicy] {
+	return pulumix.Output[GetApplicationGatewaySslPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A List of accepted cipher suites.
+func (o GetApplicationGatewaySslPolicyOutput) CipherSuites() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslPolicy) []string { return v.CipherSuites }).(pulumi.StringArrayOutput)
+}
+
+// A list of SSL Protocols which are disabled on this Application Gateway.
+func (o GetApplicationGatewaySslPolicyOutput) DisabledProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslPolicy) []string { return v.DisabledProtocols }).(pulumi.StringArrayOutput)
+}
+
+// The minimum TLS version.
+func (o GetApplicationGatewaySslPolicyOutput) MinProtocolVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslPolicy) string { return v.MinProtocolVersion }).(pulumi.StringOutput)
+}
+
+// The Name of the Policy.
+func (o GetApplicationGatewaySslPolicyOutput) PolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslPolicy) string { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+// The Type of the Policy.
+func (o GetApplicationGatewaySslPolicyOutput) PolicyType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslPolicy) string { return v.PolicyType }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewaySslPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewaySslPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewaySslPolicy)(nil)).Elem()
+}
+
+func (o GetApplicationGatewaySslPolicyArrayOutput) ToGetApplicationGatewaySslPolicyArrayOutput() GetApplicationGatewaySslPolicyArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslPolicyArrayOutput) ToGetApplicationGatewaySslPolicyArrayOutputWithContext(ctx context.Context) GetApplicationGatewaySslPolicyArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewaySslPolicy] {
+	return pulumix.Output[[]GetApplicationGatewaySslPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewaySslPolicyArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewaySslPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewaySslPolicy {
+		return vs[0].([]GetApplicationGatewaySslPolicy)[vs[1].(int)]
+	}).(GetApplicationGatewaySslPolicyOutput)
+}
+
+type GetApplicationGatewaySslProfile struct {
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// a `sslPolicy` block as defined below.
+	SslPolicies []GetApplicationGatewaySslProfileSslPolicy `pulumi:"sslPolicies"`
+	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+	TrustedClientCertificateNames   []string `pulumi:"trustedClientCertificateNames"`
+	VerifyClientCertificateIssuerDn bool     `pulumi:"verifyClientCertificateIssuerDn"`
+	// The method used to check client certificate revocation status.
+	VerifyClientCertificateRevocation string `pulumi:"verifyClientCertificateRevocation"`
+}
+
+// GetApplicationGatewaySslProfileInput is an input type that accepts GetApplicationGatewaySslProfileArgs and GetApplicationGatewaySslProfileOutput values.
+// You can construct a concrete instance of `GetApplicationGatewaySslProfileInput` via:
+//
+//	GetApplicationGatewaySslProfileArgs{...}
+type GetApplicationGatewaySslProfileInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewaySslProfileOutput() GetApplicationGatewaySslProfileOutput
+	ToGetApplicationGatewaySslProfileOutputWithContext(context.Context) GetApplicationGatewaySslProfileOutput
+}
+
+type GetApplicationGatewaySslProfileArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// a `sslPolicy` block as defined below.
+	SslPolicies GetApplicationGatewaySslProfileSslPolicyArrayInput `pulumi:"sslPolicies"`
+	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+	TrustedClientCertificateNames   pulumi.StringArrayInput `pulumi:"trustedClientCertificateNames"`
+	VerifyClientCertificateIssuerDn pulumi.BoolInput        `pulumi:"verifyClientCertificateIssuerDn"`
+	// The method used to check client certificate revocation status.
+	VerifyClientCertificateRevocation pulumi.StringInput `pulumi:"verifyClientCertificateRevocation"`
+}
+
+func (GetApplicationGatewaySslProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewaySslProfile)(nil)).Elem()
+}
+
+func (i GetApplicationGatewaySslProfileArgs) ToGetApplicationGatewaySslProfileOutput() GetApplicationGatewaySslProfileOutput {
+	return i.ToGetApplicationGatewaySslProfileOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewaySslProfileArgs) ToGetApplicationGatewaySslProfileOutputWithContext(ctx context.Context) GetApplicationGatewaySslProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewaySslProfileOutput)
+}
+
+func (i GetApplicationGatewaySslProfileArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewaySslProfile] {
+	return pulumix.Output[GetApplicationGatewaySslProfile]{
+		OutputState: i.ToGetApplicationGatewaySslProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewaySslProfileArrayInput is an input type that accepts GetApplicationGatewaySslProfileArray and GetApplicationGatewaySslProfileArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewaySslProfileArrayInput` via:
+//
+//	GetApplicationGatewaySslProfileArray{ GetApplicationGatewaySslProfileArgs{...} }
+type GetApplicationGatewaySslProfileArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewaySslProfileArrayOutput() GetApplicationGatewaySslProfileArrayOutput
+	ToGetApplicationGatewaySslProfileArrayOutputWithContext(context.Context) GetApplicationGatewaySslProfileArrayOutput
+}
+
+type GetApplicationGatewaySslProfileArray []GetApplicationGatewaySslProfileInput
+
+func (GetApplicationGatewaySslProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewaySslProfile)(nil)).Elem()
+}
+
+func (i GetApplicationGatewaySslProfileArray) ToGetApplicationGatewaySslProfileArrayOutput() GetApplicationGatewaySslProfileArrayOutput {
+	return i.ToGetApplicationGatewaySslProfileArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewaySslProfileArray) ToGetApplicationGatewaySslProfileArrayOutputWithContext(ctx context.Context) GetApplicationGatewaySslProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewaySslProfileArrayOutput)
+}
+
+func (i GetApplicationGatewaySslProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewaySslProfile] {
+	return pulumix.Output[[]GetApplicationGatewaySslProfile]{
+		OutputState: i.ToGetApplicationGatewaySslProfileArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewaySslProfileOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewaySslProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewaySslProfile)(nil)).Elem()
+}
+
+func (o GetApplicationGatewaySslProfileOutput) ToGetApplicationGatewaySslProfileOutput() GetApplicationGatewaySslProfileOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslProfileOutput) ToGetApplicationGatewaySslProfileOutputWithContext(ctx context.Context) GetApplicationGatewaySslProfileOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslProfileOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewaySslProfile] {
+	return pulumix.Output[GetApplicationGatewaySslProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewaySslProfileOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslProfile) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewaySslProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslProfile) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// a `sslPolicy` block as defined below.
+func (o GetApplicationGatewaySslProfileOutput) SslPolicies() GetApplicationGatewaySslProfileSslPolicyArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslProfile) []GetApplicationGatewaySslProfileSslPolicy {
+		return v.SslPolicies
+	}).(GetApplicationGatewaySslProfileSslPolicyArrayOutput)
+}
+
+// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
+func (o GetApplicationGatewaySslProfileOutput) TrustedClientCertificateNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslProfile) []string { return v.TrustedClientCertificateNames }).(pulumi.StringArrayOutput)
+}
+
+func (o GetApplicationGatewaySslProfileOutput) VerifyClientCertificateIssuerDn() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslProfile) bool { return v.VerifyClientCertificateIssuerDn }).(pulumi.BoolOutput)
+}
+
+// The method used to check client certificate revocation status.
+func (o GetApplicationGatewaySslProfileOutput) VerifyClientCertificateRevocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslProfile) string { return v.VerifyClientCertificateRevocation }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewaySslProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewaySslProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewaySslProfile)(nil)).Elem()
+}
+
+func (o GetApplicationGatewaySslProfileArrayOutput) ToGetApplicationGatewaySslProfileArrayOutput() GetApplicationGatewaySslProfileArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslProfileArrayOutput) ToGetApplicationGatewaySslProfileArrayOutputWithContext(ctx context.Context) GetApplicationGatewaySslProfileArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewaySslProfile] {
+	return pulumix.Output[[]GetApplicationGatewaySslProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewaySslProfileArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewaySslProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewaySslProfile {
+		return vs[0].([]GetApplicationGatewaySslProfile)[vs[1].(int)]
+	}).(GetApplicationGatewaySslProfileOutput)
+}
+
+type GetApplicationGatewaySslProfileSslPolicy struct {
+	// A List of accepted cipher suites.
+	CipherSuites []string `pulumi:"cipherSuites"`
+	// A list of SSL Protocols which are disabled on this Application Gateway.
+	DisabledProtocols []string `pulumi:"disabledProtocols"`
+	// The minimum TLS version.
+	MinProtocolVersion string `pulumi:"minProtocolVersion"`
+	// The Name of the Policy.
+	PolicyName string `pulumi:"policyName"`
+	// The Type of the Policy.
+	PolicyType string `pulumi:"policyType"`
+}
+
+// GetApplicationGatewaySslProfileSslPolicyInput is an input type that accepts GetApplicationGatewaySslProfileSslPolicyArgs and GetApplicationGatewaySslProfileSslPolicyOutput values.
+// You can construct a concrete instance of `GetApplicationGatewaySslProfileSslPolicyInput` via:
+//
+//	GetApplicationGatewaySslProfileSslPolicyArgs{...}
+type GetApplicationGatewaySslProfileSslPolicyInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewaySslProfileSslPolicyOutput() GetApplicationGatewaySslProfileSslPolicyOutput
+	ToGetApplicationGatewaySslProfileSslPolicyOutputWithContext(context.Context) GetApplicationGatewaySslProfileSslPolicyOutput
+}
+
+type GetApplicationGatewaySslProfileSslPolicyArgs struct {
+	// A List of accepted cipher suites.
+	CipherSuites pulumi.StringArrayInput `pulumi:"cipherSuites"`
+	// A list of SSL Protocols which are disabled on this Application Gateway.
+	DisabledProtocols pulumi.StringArrayInput `pulumi:"disabledProtocols"`
+	// The minimum TLS version.
+	MinProtocolVersion pulumi.StringInput `pulumi:"minProtocolVersion"`
+	// The Name of the Policy.
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
+	// The Type of the Policy.
+	PolicyType pulumi.StringInput `pulumi:"policyType"`
+}
+
+func (GetApplicationGatewaySslProfileSslPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewaySslProfileSslPolicy)(nil)).Elem()
+}
+
+func (i GetApplicationGatewaySslProfileSslPolicyArgs) ToGetApplicationGatewaySslProfileSslPolicyOutput() GetApplicationGatewaySslProfileSslPolicyOutput {
+	return i.ToGetApplicationGatewaySslProfileSslPolicyOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewaySslProfileSslPolicyArgs) ToGetApplicationGatewaySslProfileSslPolicyOutputWithContext(ctx context.Context) GetApplicationGatewaySslProfileSslPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewaySslProfileSslPolicyOutput)
+}
+
+func (i GetApplicationGatewaySslProfileSslPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewaySslProfileSslPolicy] {
+	return pulumix.Output[GetApplicationGatewaySslProfileSslPolicy]{
+		OutputState: i.ToGetApplicationGatewaySslProfileSslPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewaySslProfileSslPolicyArrayInput is an input type that accepts GetApplicationGatewaySslProfileSslPolicyArray and GetApplicationGatewaySslProfileSslPolicyArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewaySslProfileSslPolicyArrayInput` via:
+//
+//	GetApplicationGatewaySslProfileSslPolicyArray{ GetApplicationGatewaySslProfileSslPolicyArgs{...} }
+type GetApplicationGatewaySslProfileSslPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewaySslProfileSslPolicyArrayOutput() GetApplicationGatewaySslProfileSslPolicyArrayOutput
+	ToGetApplicationGatewaySslProfileSslPolicyArrayOutputWithContext(context.Context) GetApplicationGatewaySslProfileSslPolicyArrayOutput
+}
+
+type GetApplicationGatewaySslProfileSslPolicyArray []GetApplicationGatewaySslProfileSslPolicyInput
+
+func (GetApplicationGatewaySslProfileSslPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewaySslProfileSslPolicy)(nil)).Elem()
+}
+
+func (i GetApplicationGatewaySslProfileSslPolicyArray) ToGetApplicationGatewaySslProfileSslPolicyArrayOutput() GetApplicationGatewaySslProfileSslPolicyArrayOutput {
+	return i.ToGetApplicationGatewaySslProfileSslPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewaySslProfileSslPolicyArray) ToGetApplicationGatewaySslProfileSslPolicyArrayOutputWithContext(ctx context.Context) GetApplicationGatewaySslProfileSslPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewaySslProfileSslPolicyArrayOutput)
+}
+
+func (i GetApplicationGatewaySslProfileSslPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewaySslProfileSslPolicy] {
+	return pulumix.Output[[]GetApplicationGatewaySslProfileSslPolicy]{
+		OutputState: i.ToGetApplicationGatewaySslProfileSslPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewaySslProfileSslPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewaySslProfileSslPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewaySslProfileSslPolicy)(nil)).Elem()
+}
+
+func (o GetApplicationGatewaySslProfileSslPolicyOutput) ToGetApplicationGatewaySslProfileSslPolicyOutput() GetApplicationGatewaySslProfileSslPolicyOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslProfileSslPolicyOutput) ToGetApplicationGatewaySslProfileSslPolicyOutputWithContext(ctx context.Context) GetApplicationGatewaySslProfileSslPolicyOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslProfileSslPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewaySslProfileSslPolicy] {
+	return pulumix.Output[GetApplicationGatewaySslProfileSslPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A List of accepted cipher suites.
+func (o GetApplicationGatewaySslProfileSslPolicyOutput) CipherSuites() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslProfileSslPolicy) []string { return v.CipherSuites }).(pulumi.StringArrayOutput)
+}
+
+// A list of SSL Protocols which are disabled on this Application Gateway.
+func (o GetApplicationGatewaySslProfileSslPolicyOutput) DisabledProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslProfileSslPolicy) []string { return v.DisabledProtocols }).(pulumi.StringArrayOutput)
+}
+
+// The minimum TLS version.
+func (o GetApplicationGatewaySslProfileSslPolicyOutput) MinProtocolVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslProfileSslPolicy) string { return v.MinProtocolVersion }).(pulumi.StringOutput)
+}
+
+// The Name of the Policy.
+func (o GetApplicationGatewaySslProfileSslPolicyOutput) PolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslProfileSslPolicy) string { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+// The Type of the Policy.
+func (o GetApplicationGatewaySslProfileSslPolicyOutput) PolicyType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewaySslProfileSslPolicy) string { return v.PolicyType }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewaySslProfileSslPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewaySslProfileSslPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewaySslProfileSslPolicy)(nil)).Elem()
+}
+
+func (o GetApplicationGatewaySslProfileSslPolicyArrayOutput) ToGetApplicationGatewaySslProfileSslPolicyArrayOutput() GetApplicationGatewaySslProfileSslPolicyArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslProfileSslPolicyArrayOutput) ToGetApplicationGatewaySslProfileSslPolicyArrayOutputWithContext(ctx context.Context) GetApplicationGatewaySslProfileSslPolicyArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewaySslProfileSslPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewaySslProfileSslPolicy] {
+	return pulumix.Output[[]GetApplicationGatewaySslProfileSslPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewaySslProfileSslPolicyArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewaySslProfileSslPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewaySslProfileSslPolicy {
+		return vs[0].([]GetApplicationGatewaySslProfileSslPolicy)[vs[1].(int)]
+	}).(GetApplicationGatewaySslProfileSslPolicyOutput)
+}
+
+type GetApplicationGatewayTrustedClientCertificate struct {
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+}
+
+// GetApplicationGatewayTrustedClientCertificateInput is an input type that accepts GetApplicationGatewayTrustedClientCertificateArgs and GetApplicationGatewayTrustedClientCertificateOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayTrustedClientCertificateInput` via:
+//
+//	GetApplicationGatewayTrustedClientCertificateArgs{...}
+type GetApplicationGatewayTrustedClientCertificateInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayTrustedClientCertificateOutput() GetApplicationGatewayTrustedClientCertificateOutput
+	ToGetApplicationGatewayTrustedClientCertificateOutputWithContext(context.Context) GetApplicationGatewayTrustedClientCertificateOutput
+}
+
+type GetApplicationGatewayTrustedClientCertificateArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetApplicationGatewayTrustedClientCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayTrustedClientCertificate)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayTrustedClientCertificateArgs) ToGetApplicationGatewayTrustedClientCertificateOutput() GetApplicationGatewayTrustedClientCertificateOutput {
+	return i.ToGetApplicationGatewayTrustedClientCertificateOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayTrustedClientCertificateArgs) ToGetApplicationGatewayTrustedClientCertificateOutputWithContext(ctx context.Context) GetApplicationGatewayTrustedClientCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayTrustedClientCertificateOutput)
+}
+
+func (i GetApplicationGatewayTrustedClientCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayTrustedClientCertificate] {
+	return pulumix.Output[GetApplicationGatewayTrustedClientCertificate]{
+		OutputState: i.ToGetApplicationGatewayTrustedClientCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayTrustedClientCertificateArrayInput is an input type that accepts GetApplicationGatewayTrustedClientCertificateArray and GetApplicationGatewayTrustedClientCertificateArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayTrustedClientCertificateArrayInput` via:
+//
+//	GetApplicationGatewayTrustedClientCertificateArray{ GetApplicationGatewayTrustedClientCertificateArgs{...} }
+type GetApplicationGatewayTrustedClientCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayTrustedClientCertificateArrayOutput() GetApplicationGatewayTrustedClientCertificateArrayOutput
+	ToGetApplicationGatewayTrustedClientCertificateArrayOutputWithContext(context.Context) GetApplicationGatewayTrustedClientCertificateArrayOutput
+}
+
+type GetApplicationGatewayTrustedClientCertificateArray []GetApplicationGatewayTrustedClientCertificateInput
+
+func (GetApplicationGatewayTrustedClientCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayTrustedClientCertificate)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayTrustedClientCertificateArray) ToGetApplicationGatewayTrustedClientCertificateArrayOutput() GetApplicationGatewayTrustedClientCertificateArrayOutput {
+	return i.ToGetApplicationGatewayTrustedClientCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayTrustedClientCertificateArray) ToGetApplicationGatewayTrustedClientCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewayTrustedClientCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayTrustedClientCertificateArrayOutput)
+}
+
+func (i GetApplicationGatewayTrustedClientCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayTrustedClientCertificate] {
+	return pulumix.Output[[]GetApplicationGatewayTrustedClientCertificate]{
+		OutputState: i.ToGetApplicationGatewayTrustedClientCertificateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayTrustedClientCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayTrustedClientCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayTrustedClientCertificate)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayTrustedClientCertificateOutput) ToGetApplicationGatewayTrustedClientCertificateOutput() GetApplicationGatewayTrustedClientCertificateOutput {
+	return o
+}
+
+func (o GetApplicationGatewayTrustedClientCertificateOutput) ToGetApplicationGatewayTrustedClientCertificateOutputWithContext(ctx context.Context) GetApplicationGatewayTrustedClientCertificateOutput {
+	return o
+}
+
+func (o GetApplicationGatewayTrustedClientCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayTrustedClientCertificate] {
+	return pulumix.Output[GetApplicationGatewayTrustedClientCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayTrustedClientCertificateOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayTrustedClientCertificate) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayTrustedClientCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayTrustedClientCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayTrustedClientCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayTrustedClientCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayTrustedClientCertificate)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayTrustedClientCertificateArrayOutput) ToGetApplicationGatewayTrustedClientCertificateArrayOutput() GetApplicationGatewayTrustedClientCertificateArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayTrustedClientCertificateArrayOutput) ToGetApplicationGatewayTrustedClientCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewayTrustedClientCertificateArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayTrustedClientCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayTrustedClientCertificate] {
+	return pulumix.Output[[]GetApplicationGatewayTrustedClientCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayTrustedClientCertificateArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayTrustedClientCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayTrustedClientCertificate {
+		return vs[0].([]GetApplicationGatewayTrustedClientCertificate)[vs[1].(int)]
+	}).(GetApplicationGatewayTrustedClientCertificateOutput)
+}
+
+type GetApplicationGatewayTrustedRootCertificate struct {
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault.
+	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+}
+
+// GetApplicationGatewayTrustedRootCertificateInput is an input type that accepts GetApplicationGatewayTrustedRootCertificateArgs and GetApplicationGatewayTrustedRootCertificateOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayTrustedRootCertificateInput` via:
+//
+//	GetApplicationGatewayTrustedRootCertificateArgs{...}
+type GetApplicationGatewayTrustedRootCertificateInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayTrustedRootCertificateOutput() GetApplicationGatewayTrustedRootCertificateOutput
+	ToGetApplicationGatewayTrustedRootCertificateOutputWithContext(context.Context) GetApplicationGatewayTrustedRootCertificateOutput
+}
+
+type GetApplicationGatewayTrustedRootCertificateArgs struct {
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault.
+	KeyVaultSecretId pulumi.StringInput `pulumi:"keyVaultSecretId"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetApplicationGatewayTrustedRootCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayTrustedRootCertificate)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayTrustedRootCertificateArgs) ToGetApplicationGatewayTrustedRootCertificateOutput() GetApplicationGatewayTrustedRootCertificateOutput {
+	return i.ToGetApplicationGatewayTrustedRootCertificateOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayTrustedRootCertificateArgs) ToGetApplicationGatewayTrustedRootCertificateOutputWithContext(ctx context.Context) GetApplicationGatewayTrustedRootCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayTrustedRootCertificateOutput)
+}
+
+func (i GetApplicationGatewayTrustedRootCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayTrustedRootCertificate] {
+	return pulumix.Output[GetApplicationGatewayTrustedRootCertificate]{
+		OutputState: i.ToGetApplicationGatewayTrustedRootCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayTrustedRootCertificateArrayInput is an input type that accepts GetApplicationGatewayTrustedRootCertificateArray and GetApplicationGatewayTrustedRootCertificateArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayTrustedRootCertificateArrayInput` via:
+//
+//	GetApplicationGatewayTrustedRootCertificateArray{ GetApplicationGatewayTrustedRootCertificateArgs{...} }
+type GetApplicationGatewayTrustedRootCertificateArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayTrustedRootCertificateArrayOutput() GetApplicationGatewayTrustedRootCertificateArrayOutput
+	ToGetApplicationGatewayTrustedRootCertificateArrayOutputWithContext(context.Context) GetApplicationGatewayTrustedRootCertificateArrayOutput
+}
+
+type GetApplicationGatewayTrustedRootCertificateArray []GetApplicationGatewayTrustedRootCertificateInput
+
+func (GetApplicationGatewayTrustedRootCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayTrustedRootCertificate)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayTrustedRootCertificateArray) ToGetApplicationGatewayTrustedRootCertificateArrayOutput() GetApplicationGatewayTrustedRootCertificateArrayOutput {
+	return i.ToGetApplicationGatewayTrustedRootCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayTrustedRootCertificateArray) ToGetApplicationGatewayTrustedRootCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewayTrustedRootCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayTrustedRootCertificateArrayOutput)
+}
+
+func (i GetApplicationGatewayTrustedRootCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayTrustedRootCertificate] {
+	return pulumix.Output[[]GetApplicationGatewayTrustedRootCertificate]{
+		OutputState: i.ToGetApplicationGatewayTrustedRootCertificateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayTrustedRootCertificateOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayTrustedRootCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayTrustedRootCertificate)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayTrustedRootCertificateOutput) ToGetApplicationGatewayTrustedRootCertificateOutput() GetApplicationGatewayTrustedRootCertificateOutput {
+	return o
+}
+
+func (o GetApplicationGatewayTrustedRootCertificateOutput) ToGetApplicationGatewayTrustedRootCertificateOutputWithContext(ctx context.Context) GetApplicationGatewayTrustedRootCertificateOutput {
+	return o
+}
+
+func (o GetApplicationGatewayTrustedRootCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayTrustedRootCertificate] {
+	return pulumix.Output[GetApplicationGatewayTrustedRootCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayTrustedRootCertificateOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayTrustedRootCertificate) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault.
+func (o GetApplicationGatewayTrustedRootCertificateOutput) KeyVaultSecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayTrustedRootCertificate) string { return v.KeyVaultSecretId }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayTrustedRootCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayTrustedRootCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayTrustedRootCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayTrustedRootCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayTrustedRootCertificate)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayTrustedRootCertificateArrayOutput) ToGetApplicationGatewayTrustedRootCertificateArrayOutput() GetApplicationGatewayTrustedRootCertificateArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayTrustedRootCertificateArrayOutput) ToGetApplicationGatewayTrustedRootCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewayTrustedRootCertificateArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayTrustedRootCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayTrustedRootCertificate] {
+	return pulumix.Output[[]GetApplicationGatewayTrustedRootCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayTrustedRootCertificateArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayTrustedRootCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayTrustedRootCertificate {
+		return vs[0].([]GetApplicationGatewayTrustedRootCertificate)[vs[1].(int)]
+	}).(GetApplicationGatewayTrustedRootCertificateOutput)
+}
+
+type GetApplicationGatewayUrlPathMap struct {
+	// The ID of the Default Backend Address Pool.
+	DefaultBackendAddressPoolId string `pulumi:"defaultBackendAddressPoolId"`
+	// The Name of the Default Backend Address Pool which is used for this URL Path Map.
+	DefaultBackendAddressPoolName string `pulumi:"defaultBackendAddressPoolName"`
+	// The ID of the Default Backend HTTP Settings Collection.
+	DefaultBackendHttpSettingsId string `pulumi:"defaultBackendHttpSettingsId"`
+	// The Name of the Default Backend HTTP Settings Collection which is used for this URL Path Map.
+	DefaultBackendHttpSettingsName string `pulumi:"defaultBackendHttpSettingsName"`
+	// The ID of the Default Redirect Configuration.
+	DefaultRedirectConfigurationId string `pulumi:"defaultRedirectConfigurationId"`
+	// The Name of the Default Redirect Configuration which is used for this URL Path Map.
+	DefaultRedirectConfigurationName string `pulumi:"defaultRedirectConfigurationName"`
+	DefaultRewriteRuleSetId          string `pulumi:"defaultRewriteRuleSetId"`
+	// The Name of the Default Rewrite Rule Set which is used for this URL Path Map.
+	DefaultRewriteRuleSetName string `pulumi:"defaultRewriteRuleSetName"`
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// One or more `pathRule` blocks as defined above.
+	PathRules []GetApplicationGatewayUrlPathMapPathRule `pulumi:"pathRules"`
+}
+
+// GetApplicationGatewayUrlPathMapInput is an input type that accepts GetApplicationGatewayUrlPathMap and GetApplicationGatewayUrlPathMapOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayUrlPathMapInput` via:
+//
+//	GetApplicationGatewayUrlPathMap{ "key": GetApplicationGatewayUrlPathArgs{...} }
+type GetApplicationGatewayUrlPathMapInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayUrlPathMapOutput() GetApplicationGatewayUrlPathMapOutput
+	ToGetApplicationGatewayUrlPathMapOutputWithContext(context.Context) GetApplicationGatewayUrlPathMapOutput
+}
+
+type GetApplicationGatewayUrlPathMapArgs struct {
+	// The ID of the Default Backend Address Pool.
+	DefaultBackendAddressPoolId pulumi.StringInput `pulumi:"defaultBackendAddressPoolId"`
+	// The Name of the Default Backend Address Pool which is used for this URL Path Map.
+	DefaultBackendAddressPoolName pulumi.StringInput `pulumi:"defaultBackendAddressPoolName"`
+	// The ID of the Default Backend HTTP Settings Collection.
+	DefaultBackendHttpSettingsId pulumi.StringInput `pulumi:"defaultBackendHttpSettingsId"`
+	// The Name of the Default Backend HTTP Settings Collection which is used for this URL Path Map.
+	DefaultBackendHttpSettingsName pulumi.StringInput `pulumi:"defaultBackendHttpSettingsName"`
+	// The ID of the Default Redirect Configuration.
+	DefaultRedirectConfigurationId pulumi.StringInput `pulumi:"defaultRedirectConfigurationId"`
+	// The Name of the Default Redirect Configuration which is used for this URL Path Map.
+	DefaultRedirectConfigurationName pulumi.StringInput `pulumi:"defaultRedirectConfigurationName"`
+	DefaultRewriteRuleSetId          pulumi.StringInput `pulumi:"defaultRewriteRuleSetId"`
+	// The Name of the Default Rewrite Rule Set which is used for this URL Path Map.
+	DefaultRewriteRuleSetName pulumi.StringInput `pulumi:"defaultRewriteRuleSetName"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// One or more `pathRule` blocks as defined above.
+	PathRules GetApplicationGatewayUrlPathMapPathRuleArrayInput `pulumi:"pathRules"`
+}
+
+func (GetApplicationGatewayUrlPathMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayUrlPathMap)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayUrlPathMapArgs) ToGetApplicationGatewayUrlPathMapOutput() GetApplicationGatewayUrlPathMapOutput {
+	return i.ToGetApplicationGatewayUrlPathMapOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayUrlPathMapArgs) ToGetApplicationGatewayUrlPathMapOutputWithContext(ctx context.Context) GetApplicationGatewayUrlPathMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayUrlPathMapOutput)
+}
+
+func (i GetApplicationGatewayUrlPathMapArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayUrlPathMap] {
+	return pulumix.Output[GetApplicationGatewayUrlPathMap]{
+		OutputState: i.ToGetApplicationGatewayUrlPathMapOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayUrlPathMapArrayInput is an input type that accepts GetApplicationGatewayUrlPathMapArray and GetApplicationGatewayUrlPathMapArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayUrlPathMapArrayInput` via:
+//
+//	GetApplicationGatewayUrlPathMapArray{ GetApplicationGatewayUrlPathMapArgs{...} }
+type GetApplicationGatewayUrlPathMapArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayUrlPathMapArrayOutput() GetApplicationGatewayUrlPathMapArrayOutput
+	ToGetApplicationGatewayUrlPathMapArrayOutputWithContext(context.Context) GetApplicationGatewayUrlPathMapArrayOutput
+}
+
+type GetApplicationGatewayUrlPathMapArray []GetApplicationGatewayUrlPathMapInput
+
+func (GetApplicationGatewayUrlPathMapArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayUrlPathMap)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayUrlPathMapArray) ToGetApplicationGatewayUrlPathMapArrayOutput() GetApplicationGatewayUrlPathMapArrayOutput {
+	return i.ToGetApplicationGatewayUrlPathMapArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayUrlPathMapArray) ToGetApplicationGatewayUrlPathMapArrayOutputWithContext(ctx context.Context) GetApplicationGatewayUrlPathMapArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayUrlPathMapArrayOutput)
+}
+
+func (i GetApplicationGatewayUrlPathMapArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayUrlPathMap] {
+	return pulumix.Output[[]GetApplicationGatewayUrlPathMap]{
+		OutputState: i.ToGetApplicationGatewayUrlPathMapArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayUrlPathMapOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayUrlPathMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayUrlPathMap)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayUrlPathMapOutput) ToGetApplicationGatewayUrlPathMapOutput() GetApplicationGatewayUrlPathMapOutput {
+	return o
+}
+
+func (o GetApplicationGatewayUrlPathMapOutput) ToGetApplicationGatewayUrlPathMapOutputWithContext(ctx context.Context) GetApplicationGatewayUrlPathMapOutput {
+	return o
+}
+
+func (o GetApplicationGatewayUrlPathMapOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayUrlPathMap] {
+	return pulumix.Output[GetApplicationGatewayUrlPathMap]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the Default Backend Address Pool.
+func (o GetApplicationGatewayUrlPathMapOutput) DefaultBackendAddressPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMap) string { return v.DefaultBackendAddressPoolId }).(pulumi.StringOutput)
+}
+
+// The Name of the Default Backend Address Pool which is used for this URL Path Map.
+func (o GetApplicationGatewayUrlPathMapOutput) DefaultBackendAddressPoolName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMap) string { return v.DefaultBackendAddressPoolName }).(pulumi.StringOutput)
+}
+
+// The ID of the Default Backend HTTP Settings Collection.
+func (o GetApplicationGatewayUrlPathMapOutput) DefaultBackendHttpSettingsId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMap) string { return v.DefaultBackendHttpSettingsId }).(pulumi.StringOutput)
+}
+
+// The Name of the Default Backend HTTP Settings Collection which is used for this URL Path Map.
+func (o GetApplicationGatewayUrlPathMapOutput) DefaultBackendHttpSettingsName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMap) string { return v.DefaultBackendHttpSettingsName }).(pulumi.StringOutput)
+}
+
+// The ID of the Default Redirect Configuration.
+func (o GetApplicationGatewayUrlPathMapOutput) DefaultRedirectConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMap) string { return v.DefaultRedirectConfigurationId }).(pulumi.StringOutput)
+}
+
+// The Name of the Default Redirect Configuration which is used for this URL Path Map.
+func (o GetApplicationGatewayUrlPathMapOutput) DefaultRedirectConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMap) string { return v.DefaultRedirectConfigurationName }).(pulumi.StringOutput)
+}
+
+func (o GetApplicationGatewayUrlPathMapOutput) DefaultRewriteRuleSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMap) string { return v.DefaultRewriteRuleSetId }).(pulumi.StringOutput)
+}
+
+// The Name of the Default Rewrite Rule Set which is used for this URL Path Map.
+func (o GetApplicationGatewayUrlPathMapOutput) DefaultRewriteRuleSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMap) string { return v.DefaultRewriteRuleSetName }).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayUrlPathMapOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMap) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayUrlPathMapOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMap) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// One or more `pathRule` blocks as defined above.
+func (o GetApplicationGatewayUrlPathMapOutput) PathRules() GetApplicationGatewayUrlPathMapPathRuleArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMap) []GetApplicationGatewayUrlPathMapPathRule { return v.PathRules }).(GetApplicationGatewayUrlPathMapPathRuleArrayOutput)
+}
+
+type GetApplicationGatewayUrlPathMapArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayUrlPathMapArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayUrlPathMap)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayUrlPathMapArrayOutput) ToGetApplicationGatewayUrlPathMapArrayOutput() GetApplicationGatewayUrlPathMapArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayUrlPathMapArrayOutput) ToGetApplicationGatewayUrlPathMapArrayOutputWithContext(ctx context.Context) GetApplicationGatewayUrlPathMapArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayUrlPathMapArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayUrlPathMap] {
+	return pulumix.Output[[]GetApplicationGatewayUrlPathMap]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayUrlPathMapArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayUrlPathMapOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayUrlPathMap {
+		return vs[0].([]GetApplicationGatewayUrlPathMap)[vs[1].(int)]
+	}).(GetApplicationGatewayUrlPathMapOutput)
+}
+
+type GetApplicationGatewayUrlPathMapPathRule struct {
+	// The ID of the associated Backend Address Pool.
+	BackendAddressPoolId string `pulumi:"backendAddressPoolId"`
+	// The Name of the Backend Address Pool which is used for this Routing Rule.
+	BackendAddressPoolName string `pulumi:"backendAddressPoolName"`
+	// The ID of the associated Backend HTTP Settings Configuration.
+	BackendHttpSettingsId string `pulumi:"backendHttpSettingsId"`
+	// The Name of the Backend HTTP Settings Collection which is used for this Routing Rule.
+	BackendHttpSettingsName string `pulumi:"backendHttpSettingsName"`
+	// The ID of the Web Application Firewall Policy which is used as an HTTP Listener for this Path Rule.
+	FirewallPolicyId string `pulumi:"firewallPolicyId"`
+	// The ID of the Rewrite Rule Set
+	Id string `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name string `pulumi:"name"`
+	// A list of Paths used in this Path Rule.
+	Paths []string `pulumi:"paths"`
+	// The ID of the associated Redirect Configuration.
+	RedirectConfigurationId string `pulumi:"redirectConfigurationId"`
+	// The Name of the Redirect Configuration which is used for this Routing Rule.
+	RedirectConfigurationName string `pulumi:"redirectConfigurationName"`
+	// The ID of the associated Rewrite Rule Set.
+	RewriteRuleSetId string `pulumi:"rewriteRuleSetId"`
+	// The Name of the Rewrite Rule Set which is used for this Routing Rule.
+	RewriteRuleSetName string `pulumi:"rewriteRuleSetName"`
+}
+
+// GetApplicationGatewayUrlPathMapPathRuleInput is an input type that accepts GetApplicationGatewayUrlPathMapPathRuleArgs and GetApplicationGatewayUrlPathMapPathRuleOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayUrlPathMapPathRuleInput` via:
+//
+//	GetApplicationGatewayUrlPathMapPathRuleArgs{...}
+type GetApplicationGatewayUrlPathMapPathRuleInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayUrlPathMapPathRuleOutput() GetApplicationGatewayUrlPathMapPathRuleOutput
+	ToGetApplicationGatewayUrlPathMapPathRuleOutputWithContext(context.Context) GetApplicationGatewayUrlPathMapPathRuleOutput
+}
+
+type GetApplicationGatewayUrlPathMapPathRuleArgs struct {
+	// The ID of the associated Backend Address Pool.
+	BackendAddressPoolId pulumi.StringInput `pulumi:"backendAddressPoolId"`
+	// The Name of the Backend Address Pool which is used for this Routing Rule.
+	BackendAddressPoolName pulumi.StringInput `pulumi:"backendAddressPoolName"`
+	// The ID of the associated Backend HTTP Settings Configuration.
+	BackendHttpSettingsId pulumi.StringInput `pulumi:"backendHttpSettingsId"`
+	// The Name of the Backend HTTP Settings Collection which is used for this Routing Rule.
+	BackendHttpSettingsName pulumi.StringInput `pulumi:"backendHttpSettingsName"`
+	// The ID of the Web Application Firewall Policy which is used as an HTTP Listener for this Path Rule.
+	FirewallPolicyId pulumi.StringInput `pulumi:"firewallPolicyId"`
+	// The ID of the Rewrite Rule Set
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of this Application Gateway.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A list of Paths used in this Path Rule.
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+	// The ID of the associated Redirect Configuration.
+	RedirectConfigurationId pulumi.StringInput `pulumi:"redirectConfigurationId"`
+	// The Name of the Redirect Configuration which is used for this Routing Rule.
+	RedirectConfigurationName pulumi.StringInput `pulumi:"redirectConfigurationName"`
+	// The ID of the associated Rewrite Rule Set.
+	RewriteRuleSetId pulumi.StringInput `pulumi:"rewriteRuleSetId"`
+	// The Name of the Rewrite Rule Set which is used for this Routing Rule.
+	RewriteRuleSetName pulumi.StringInput `pulumi:"rewriteRuleSetName"`
+}
+
+func (GetApplicationGatewayUrlPathMapPathRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayUrlPathMapPathRule)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayUrlPathMapPathRuleArgs) ToGetApplicationGatewayUrlPathMapPathRuleOutput() GetApplicationGatewayUrlPathMapPathRuleOutput {
+	return i.ToGetApplicationGatewayUrlPathMapPathRuleOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayUrlPathMapPathRuleArgs) ToGetApplicationGatewayUrlPathMapPathRuleOutputWithContext(ctx context.Context) GetApplicationGatewayUrlPathMapPathRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayUrlPathMapPathRuleOutput)
+}
+
+func (i GetApplicationGatewayUrlPathMapPathRuleArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayUrlPathMapPathRule] {
+	return pulumix.Output[GetApplicationGatewayUrlPathMapPathRule]{
+		OutputState: i.ToGetApplicationGatewayUrlPathMapPathRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayUrlPathMapPathRuleArrayInput is an input type that accepts GetApplicationGatewayUrlPathMapPathRuleArray and GetApplicationGatewayUrlPathMapPathRuleArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayUrlPathMapPathRuleArrayInput` via:
+//
+//	GetApplicationGatewayUrlPathMapPathRuleArray{ GetApplicationGatewayUrlPathMapPathRuleArgs{...} }
+type GetApplicationGatewayUrlPathMapPathRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayUrlPathMapPathRuleArrayOutput() GetApplicationGatewayUrlPathMapPathRuleArrayOutput
+	ToGetApplicationGatewayUrlPathMapPathRuleArrayOutputWithContext(context.Context) GetApplicationGatewayUrlPathMapPathRuleArrayOutput
+}
+
+type GetApplicationGatewayUrlPathMapPathRuleArray []GetApplicationGatewayUrlPathMapPathRuleInput
+
+func (GetApplicationGatewayUrlPathMapPathRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayUrlPathMapPathRule)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayUrlPathMapPathRuleArray) ToGetApplicationGatewayUrlPathMapPathRuleArrayOutput() GetApplicationGatewayUrlPathMapPathRuleArrayOutput {
+	return i.ToGetApplicationGatewayUrlPathMapPathRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayUrlPathMapPathRuleArray) ToGetApplicationGatewayUrlPathMapPathRuleArrayOutputWithContext(ctx context.Context) GetApplicationGatewayUrlPathMapPathRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayUrlPathMapPathRuleArrayOutput)
+}
+
+func (i GetApplicationGatewayUrlPathMapPathRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayUrlPathMapPathRule] {
+	return pulumix.Output[[]GetApplicationGatewayUrlPathMapPathRule]{
+		OutputState: i.ToGetApplicationGatewayUrlPathMapPathRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayUrlPathMapPathRuleOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayUrlPathMapPathRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayUrlPathMapPathRule)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) ToGetApplicationGatewayUrlPathMapPathRuleOutput() GetApplicationGatewayUrlPathMapPathRuleOutput {
+	return o
+}
+
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) ToGetApplicationGatewayUrlPathMapPathRuleOutputWithContext(ctx context.Context) GetApplicationGatewayUrlPathMapPathRuleOutput {
+	return o
+}
+
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayUrlPathMapPathRule] {
+	return pulumix.Output[GetApplicationGatewayUrlPathMapPathRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ID of the associated Backend Address Pool.
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) BackendAddressPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMapPathRule) string { return v.BackendAddressPoolId }).(pulumi.StringOutput)
+}
+
+// The Name of the Backend Address Pool which is used for this Routing Rule.
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) BackendAddressPoolName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMapPathRule) string { return v.BackendAddressPoolName }).(pulumi.StringOutput)
+}
+
+// The ID of the associated Backend HTTP Settings Configuration.
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) BackendHttpSettingsId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMapPathRule) string { return v.BackendHttpSettingsId }).(pulumi.StringOutput)
+}
+
+// The Name of the Backend HTTP Settings Collection which is used for this Routing Rule.
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) BackendHttpSettingsName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMapPathRule) string { return v.BackendHttpSettingsName }).(pulumi.StringOutput)
+}
+
+// The ID of the Web Application Firewall Policy which is used as an HTTP Listener for this Path Rule.
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) FirewallPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMapPathRule) string { return v.FirewallPolicyId }).(pulumi.StringOutput)
+}
+
+// The ID of the Rewrite Rule Set
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMapPathRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of this Application Gateway.
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMapPathRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of Paths used in this Path Rule.
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMapPathRule) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the associated Redirect Configuration.
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) RedirectConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMapPathRule) string { return v.RedirectConfigurationId }).(pulumi.StringOutput)
+}
+
+// The Name of the Redirect Configuration which is used for this Routing Rule.
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) RedirectConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMapPathRule) string { return v.RedirectConfigurationName }).(pulumi.StringOutput)
+}
+
+// The ID of the associated Rewrite Rule Set.
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) RewriteRuleSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMapPathRule) string { return v.RewriteRuleSetId }).(pulumi.StringOutput)
+}
+
+// The Name of the Rewrite Rule Set which is used for this Routing Rule.
+func (o GetApplicationGatewayUrlPathMapPathRuleOutput) RewriteRuleSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayUrlPathMapPathRule) string { return v.RewriteRuleSetName }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayUrlPathMapPathRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayUrlPathMapPathRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayUrlPathMapPathRule)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayUrlPathMapPathRuleArrayOutput) ToGetApplicationGatewayUrlPathMapPathRuleArrayOutput() GetApplicationGatewayUrlPathMapPathRuleArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayUrlPathMapPathRuleArrayOutput) ToGetApplicationGatewayUrlPathMapPathRuleArrayOutputWithContext(ctx context.Context) GetApplicationGatewayUrlPathMapPathRuleArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayUrlPathMapPathRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayUrlPathMapPathRule] {
+	return pulumix.Output[[]GetApplicationGatewayUrlPathMapPathRule]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayUrlPathMapPathRuleArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayUrlPathMapPathRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayUrlPathMapPathRule {
+		return vs[0].([]GetApplicationGatewayUrlPathMapPathRule)[vs[1].(int)]
+	}).(GetApplicationGatewayUrlPathMapPathRuleOutput)
+}
+
+type GetApplicationGatewayWafConfiguration struct {
+	// One or more `disabledRuleGroup` blocks as defined below.
+	DisabledRuleGroups []GetApplicationGatewayWafConfigurationDisabledRuleGroup `pulumi:"disabledRuleGroups"`
+	// Is the Web Application Firewall enabled?
+	Enabled bool `pulumi:"enabled"`
+	// One or more `exclusion` blocks as defined below.
+	Exclusions []GetApplicationGatewayWafConfigurationExclusion `pulumi:"exclusions"`
+	// The File Upload Limit in MB.
+	FileUploadLimitMb int `pulumi:"fileUploadLimitMb"`
+	// The Web Application Firewall Mode.
+	FirewallMode string `pulumi:"firewallMode"`
+	// The Maximum Request Body Size in KB.
+	MaxRequestBodySizeKb int `pulumi:"maxRequestBodySizeKb"`
+	// Is Request Body Inspection enabled?
+	RequestBodyCheck bool `pulumi:"requestBodyCheck"`
+	// The Type of the Rule Set used for this Web Application Firewall.
+	RuleSetType string `pulumi:"ruleSetType"`
+	// The Version of the Rule Set used for this Web Application Firewall.
+	RuleSetVersion string `pulumi:"ruleSetVersion"`
+}
+
+// GetApplicationGatewayWafConfigurationInput is an input type that accepts GetApplicationGatewayWafConfigurationArgs and GetApplicationGatewayWafConfigurationOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayWafConfigurationInput` via:
+//
+//	GetApplicationGatewayWafConfigurationArgs{...}
+type GetApplicationGatewayWafConfigurationInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayWafConfigurationOutput() GetApplicationGatewayWafConfigurationOutput
+	ToGetApplicationGatewayWafConfigurationOutputWithContext(context.Context) GetApplicationGatewayWafConfigurationOutput
+}
+
+type GetApplicationGatewayWafConfigurationArgs struct {
+	// One or more `disabledRuleGroup` blocks as defined below.
+	DisabledRuleGroups GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayInput `pulumi:"disabledRuleGroups"`
+	// Is the Web Application Firewall enabled?
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// One or more `exclusion` blocks as defined below.
+	Exclusions GetApplicationGatewayWafConfigurationExclusionArrayInput `pulumi:"exclusions"`
+	// The File Upload Limit in MB.
+	FileUploadLimitMb pulumi.IntInput `pulumi:"fileUploadLimitMb"`
+	// The Web Application Firewall Mode.
+	FirewallMode pulumi.StringInput `pulumi:"firewallMode"`
+	// The Maximum Request Body Size in KB.
+	MaxRequestBodySizeKb pulumi.IntInput `pulumi:"maxRequestBodySizeKb"`
+	// Is Request Body Inspection enabled?
+	RequestBodyCheck pulumi.BoolInput `pulumi:"requestBodyCheck"`
+	// The Type of the Rule Set used for this Web Application Firewall.
+	RuleSetType pulumi.StringInput `pulumi:"ruleSetType"`
+	// The Version of the Rule Set used for this Web Application Firewall.
+	RuleSetVersion pulumi.StringInput `pulumi:"ruleSetVersion"`
+}
+
+func (GetApplicationGatewayWafConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayWafConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayWafConfigurationArgs) ToGetApplicationGatewayWafConfigurationOutput() GetApplicationGatewayWafConfigurationOutput {
+	return i.ToGetApplicationGatewayWafConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayWafConfigurationArgs) ToGetApplicationGatewayWafConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayWafConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayWafConfigurationOutput)
+}
+
+func (i GetApplicationGatewayWafConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayWafConfiguration] {
+	return pulumix.Output[GetApplicationGatewayWafConfiguration]{
+		OutputState: i.ToGetApplicationGatewayWafConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayWafConfigurationArrayInput is an input type that accepts GetApplicationGatewayWafConfigurationArray and GetApplicationGatewayWafConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayWafConfigurationArrayInput` via:
+//
+//	GetApplicationGatewayWafConfigurationArray{ GetApplicationGatewayWafConfigurationArgs{...} }
+type GetApplicationGatewayWafConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayWafConfigurationArrayOutput() GetApplicationGatewayWafConfigurationArrayOutput
+	ToGetApplicationGatewayWafConfigurationArrayOutputWithContext(context.Context) GetApplicationGatewayWafConfigurationArrayOutput
+}
+
+type GetApplicationGatewayWafConfigurationArray []GetApplicationGatewayWafConfigurationInput
+
+func (GetApplicationGatewayWafConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayWafConfiguration)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayWafConfigurationArray) ToGetApplicationGatewayWafConfigurationArrayOutput() GetApplicationGatewayWafConfigurationArrayOutput {
+	return i.ToGetApplicationGatewayWafConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayWafConfigurationArray) ToGetApplicationGatewayWafConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayWafConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayWafConfigurationArrayOutput)
+}
+
+func (i GetApplicationGatewayWafConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayWafConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayWafConfiguration]{
+		OutputState: i.ToGetApplicationGatewayWafConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayWafConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayWafConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayWafConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayWafConfigurationOutput) ToGetApplicationGatewayWafConfigurationOutput() GetApplicationGatewayWafConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayWafConfigurationOutput) ToGetApplicationGatewayWafConfigurationOutputWithContext(ctx context.Context) GetApplicationGatewayWafConfigurationOutput {
+	return o
+}
+
+func (o GetApplicationGatewayWafConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayWafConfiguration] {
+	return pulumix.Output[GetApplicationGatewayWafConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// One or more `disabledRuleGroup` blocks as defined below.
+func (o GetApplicationGatewayWafConfigurationOutput) DisabledRuleGroups() GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfiguration) []GetApplicationGatewayWafConfigurationDisabledRuleGroup {
+		return v.DisabledRuleGroups
+	}).(GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput)
+}
+
+// Is the Web Application Firewall enabled?
+func (o GetApplicationGatewayWafConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// One or more `exclusion` blocks as defined below.
+func (o GetApplicationGatewayWafConfigurationOutput) Exclusions() GetApplicationGatewayWafConfigurationExclusionArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfiguration) []GetApplicationGatewayWafConfigurationExclusion {
+		return v.Exclusions
+	}).(GetApplicationGatewayWafConfigurationExclusionArrayOutput)
+}
+
+// The File Upload Limit in MB.
+func (o GetApplicationGatewayWafConfigurationOutput) FileUploadLimitMb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfiguration) int { return v.FileUploadLimitMb }).(pulumi.IntOutput)
+}
+
+// The Web Application Firewall Mode.
+func (o GetApplicationGatewayWafConfigurationOutput) FirewallMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfiguration) string { return v.FirewallMode }).(pulumi.StringOutput)
+}
+
+// The Maximum Request Body Size in KB.
+func (o GetApplicationGatewayWafConfigurationOutput) MaxRequestBodySizeKb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfiguration) int { return v.MaxRequestBodySizeKb }).(pulumi.IntOutput)
+}
+
+// Is Request Body Inspection enabled?
+func (o GetApplicationGatewayWafConfigurationOutput) RequestBodyCheck() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfiguration) bool { return v.RequestBodyCheck }).(pulumi.BoolOutput)
+}
+
+// The Type of the Rule Set used for this Web Application Firewall.
+func (o GetApplicationGatewayWafConfigurationOutput) RuleSetType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfiguration) string { return v.RuleSetType }).(pulumi.StringOutput)
+}
+
+// The Version of the Rule Set used for this Web Application Firewall.
+func (o GetApplicationGatewayWafConfigurationOutput) RuleSetVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfiguration) string { return v.RuleSetVersion }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayWafConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayWafConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayWafConfiguration)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayWafConfigurationArrayOutput) ToGetApplicationGatewayWafConfigurationArrayOutput() GetApplicationGatewayWafConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayWafConfigurationArrayOutput) ToGetApplicationGatewayWafConfigurationArrayOutputWithContext(ctx context.Context) GetApplicationGatewayWafConfigurationArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayWafConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayWafConfiguration] {
+	return pulumix.Output[[]GetApplicationGatewayWafConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayWafConfigurationArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayWafConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayWafConfiguration {
+		return vs[0].([]GetApplicationGatewayWafConfiguration)[vs[1].(int)]
+	}).(GetApplicationGatewayWafConfigurationOutput)
+}
+
+type GetApplicationGatewayWafConfigurationDisabledRuleGroup struct {
+	// The rule group where specific rules are disabled.
+	RuleGroupName string `pulumi:"ruleGroupName"`
+	// A list of rules which will be disabled in that group.
+	Rules []int `pulumi:"rules"`
+}
+
+// GetApplicationGatewayWafConfigurationDisabledRuleGroupInput is an input type that accepts GetApplicationGatewayWafConfigurationDisabledRuleGroupArgs and GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayWafConfigurationDisabledRuleGroupInput` via:
+//
+//	GetApplicationGatewayWafConfigurationDisabledRuleGroupArgs{...}
+type GetApplicationGatewayWafConfigurationDisabledRuleGroupInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayWafConfigurationDisabledRuleGroupOutput() GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput
+	ToGetApplicationGatewayWafConfigurationDisabledRuleGroupOutputWithContext(context.Context) GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput
+}
+
+type GetApplicationGatewayWafConfigurationDisabledRuleGroupArgs struct {
+	// The rule group where specific rules are disabled.
+	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
+	// A list of rules which will be disabled in that group.
+	Rules pulumi.IntArrayInput `pulumi:"rules"`
+}
+
+func (GetApplicationGatewayWafConfigurationDisabledRuleGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayWafConfigurationDisabledRuleGroup)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayWafConfigurationDisabledRuleGroupArgs) ToGetApplicationGatewayWafConfigurationDisabledRuleGroupOutput() GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput {
+	return i.ToGetApplicationGatewayWafConfigurationDisabledRuleGroupOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayWafConfigurationDisabledRuleGroupArgs) ToGetApplicationGatewayWafConfigurationDisabledRuleGroupOutputWithContext(ctx context.Context) GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput)
+}
+
+func (i GetApplicationGatewayWafConfigurationDisabledRuleGroupArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayWafConfigurationDisabledRuleGroup] {
+	return pulumix.Output[GetApplicationGatewayWafConfigurationDisabledRuleGroup]{
+		OutputState: i.ToGetApplicationGatewayWafConfigurationDisabledRuleGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayInput is an input type that accepts GetApplicationGatewayWafConfigurationDisabledRuleGroupArray and GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayInput` via:
+//
+//	GetApplicationGatewayWafConfigurationDisabledRuleGroupArray{ GetApplicationGatewayWafConfigurationDisabledRuleGroupArgs{...} }
+type GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput() GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput
+	ToGetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutputWithContext(context.Context) GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput
+}
+
+type GetApplicationGatewayWafConfigurationDisabledRuleGroupArray []GetApplicationGatewayWafConfigurationDisabledRuleGroupInput
+
+func (GetApplicationGatewayWafConfigurationDisabledRuleGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayWafConfigurationDisabledRuleGroup)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayWafConfigurationDisabledRuleGroupArray) ToGetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput() GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput {
+	return i.ToGetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayWafConfigurationDisabledRuleGroupArray) ToGetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutputWithContext(ctx context.Context) GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput)
+}
+
+func (i GetApplicationGatewayWafConfigurationDisabledRuleGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayWafConfigurationDisabledRuleGroup] {
+	return pulumix.Output[[]GetApplicationGatewayWafConfigurationDisabledRuleGroup]{
+		OutputState: i.ToGetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayWafConfigurationDisabledRuleGroup)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput) ToGetApplicationGatewayWafConfigurationDisabledRuleGroupOutput() GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput {
+	return o
+}
+
+func (o GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput) ToGetApplicationGatewayWafConfigurationDisabledRuleGroupOutputWithContext(ctx context.Context) GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput {
+	return o
+}
+
+func (o GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayWafConfigurationDisabledRuleGroup] {
+	return pulumix.Output[GetApplicationGatewayWafConfigurationDisabledRuleGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The rule group where specific rules are disabled.
+func (o GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput) RuleGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfigurationDisabledRuleGroup) string { return v.RuleGroupName }).(pulumi.StringOutput)
+}
+
+// A list of rules which will be disabled in that group.
+func (o GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput) Rules() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfigurationDisabledRuleGroup) []int { return v.Rules }).(pulumi.IntArrayOutput)
+}
+
+type GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayWafConfigurationDisabledRuleGroup)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput) ToGetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput() GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput) ToGetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutputWithContext(ctx context.Context) GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayWafConfigurationDisabledRuleGroup] {
+	return pulumix.Output[[]GetApplicationGatewayWafConfigurationDisabledRuleGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayWafConfigurationDisabledRuleGroup {
+		return vs[0].([]GetApplicationGatewayWafConfigurationDisabledRuleGroup)[vs[1].(int)]
+	}).(GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput)
+}
+
+type GetApplicationGatewayWafConfigurationExclusion struct {
+	// Match variable of the exclusion rule.
+	MatchVariable string `pulumi:"matchVariable"`
+	// String value which will be used for the filter operation.
+	Selector string `pulumi:"selector"`
+	// Operator which will be used to search in the variable content.
+	SelectorMatchOperator string `pulumi:"selectorMatchOperator"`
+}
+
+// GetApplicationGatewayWafConfigurationExclusionInput is an input type that accepts GetApplicationGatewayWafConfigurationExclusionArgs and GetApplicationGatewayWafConfigurationExclusionOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayWafConfigurationExclusionInput` via:
+//
+//	GetApplicationGatewayWafConfigurationExclusionArgs{...}
+type GetApplicationGatewayWafConfigurationExclusionInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayWafConfigurationExclusionOutput() GetApplicationGatewayWafConfigurationExclusionOutput
+	ToGetApplicationGatewayWafConfigurationExclusionOutputWithContext(context.Context) GetApplicationGatewayWafConfigurationExclusionOutput
+}
+
+type GetApplicationGatewayWafConfigurationExclusionArgs struct {
+	// Match variable of the exclusion rule.
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// String value which will be used for the filter operation.
+	Selector pulumi.StringInput `pulumi:"selector"`
+	// Operator which will be used to search in the variable content.
+	SelectorMatchOperator pulumi.StringInput `pulumi:"selectorMatchOperator"`
+}
+
+func (GetApplicationGatewayWafConfigurationExclusionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayWafConfigurationExclusion)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayWafConfigurationExclusionArgs) ToGetApplicationGatewayWafConfigurationExclusionOutput() GetApplicationGatewayWafConfigurationExclusionOutput {
+	return i.ToGetApplicationGatewayWafConfigurationExclusionOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayWafConfigurationExclusionArgs) ToGetApplicationGatewayWafConfigurationExclusionOutputWithContext(ctx context.Context) GetApplicationGatewayWafConfigurationExclusionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayWafConfigurationExclusionOutput)
+}
+
+func (i GetApplicationGatewayWafConfigurationExclusionArgs) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayWafConfigurationExclusion] {
+	return pulumix.Output[GetApplicationGatewayWafConfigurationExclusion]{
+		OutputState: i.ToGetApplicationGatewayWafConfigurationExclusionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetApplicationGatewayWafConfigurationExclusionArrayInput is an input type that accepts GetApplicationGatewayWafConfigurationExclusionArray and GetApplicationGatewayWafConfigurationExclusionArrayOutput values.
+// You can construct a concrete instance of `GetApplicationGatewayWafConfigurationExclusionArrayInput` via:
+//
+//	GetApplicationGatewayWafConfigurationExclusionArray{ GetApplicationGatewayWafConfigurationExclusionArgs{...} }
+type GetApplicationGatewayWafConfigurationExclusionArrayInput interface {
+	pulumi.Input
+
+	ToGetApplicationGatewayWafConfigurationExclusionArrayOutput() GetApplicationGatewayWafConfigurationExclusionArrayOutput
+	ToGetApplicationGatewayWafConfigurationExclusionArrayOutputWithContext(context.Context) GetApplicationGatewayWafConfigurationExclusionArrayOutput
+}
+
+type GetApplicationGatewayWafConfigurationExclusionArray []GetApplicationGatewayWafConfigurationExclusionInput
+
+func (GetApplicationGatewayWafConfigurationExclusionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayWafConfigurationExclusion)(nil)).Elem()
+}
+
+func (i GetApplicationGatewayWafConfigurationExclusionArray) ToGetApplicationGatewayWafConfigurationExclusionArrayOutput() GetApplicationGatewayWafConfigurationExclusionArrayOutput {
+	return i.ToGetApplicationGatewayWafConfigurationExclusionArrayOutputWithContext(context.Background())
+}
+
+func (i GetApplicationGatewayWafConfigurationExclusionArray) ToGetApplicationGatewayWafConfigurationExclusionArrayOutputWithContext(ctx context.Context) GetApplicationGatewayWafConfigurationExclusionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayWafConfigurationExclusionArrayOutput)
+}
+
+func (i GetApplicationGatewayWafConfigurationExclusionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayWafConfigurationExclusion] {
+	return pulumix.Output[[]GetApplicationGatewayWafConfigurationExclusion]{
+		OutputState: i.ToGetApplicationGatewayWafConfigurationExclusionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetApplicationGatewayWafConfigurationExclusionOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayWafConfigurationExclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetApplicationGatewayWafConfigurationExclusion)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayWafConfigurationExclusionOutput) ToGetApplicationGatewayWafConfigurationExclusionOutput() GetApplicationGatewayWafConfigurationExclusionOutput {
+	return o
+}
+
+func (o GetApplicationGatewayWafConfigurationExclusionOutput) ToGetApplicationGatewayWafConfigurationExclusionOutputWithContext(ctx context.Context) GetApplicationGatewayWafConfigurationExclusionOutput {
+	return o
+}
+
+func (o GetApplicationGatewayWafConfigurationExclusionOutput) ToOutput(ctx context.Context) pulumix.Output[GetApplicationGatewayWafConfigurationExclusion] {
+	return pulumix.Output[GetApplicationGatewayWafConfigurationExclusion]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Match variable of the exclusion rule.
+func (o GetApplicationGatewayWafConfigurationExclusionOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfigurationExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
+}
+
+// String value which will be used for the filter operation.
+func (o GetApplicationGatewayWafConfigurationExclusionOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfigurationExclusion) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+// Operator which will be used to search in the variable content.
+func (o GetApplicationGatewayWafConfigurationExclusionOutput) SelectorMatchOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayWafConfigurationExclusion) string { return v.SelectorMatchOperator }).(pulumi.StringOutput)
+}
+
+type GetApplicationGatewayWafConfigurationExclusionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetApplicationGatewayWafConfigurationExclusionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetApplicationGatewayWafConfigurationExclusion)(nil)).Elem()
+}
+
+func (o GetApplicationGatewayWafConfigurationExclusionArrayOutput) ToGetApplicationGatewayWafConfigurationExclusionArrayOutput() GetApplicationGatewayWafConfigurationExclusionArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayWafConfigurationExclusionArrayOutput) ToGetApplicationGatewayWafConfigurationExclusionArrayOutputWithContext(ctx context.Context) GetApplicationGatewayWafConfigurationExclusionArrayOutput {
+	return o
+}
+
+func (o GetApplicationGatewayWafConfigurationExclusionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetApplicationGatewayWafConfigurationExclusion] {
+	return pulumix.Output[[]GetApplicationGatewayWafConfigurationExclusion]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetApplicationGatewayWafConfigurationExclusionArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayWafConfigurationExclusionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayWafConfigurationExclusion {
+		return vs[0].([]GetApplicationGatewayWafConfigurationExclusion)[vs[1].(int)]
+	}).(GetApplicationGatewayWafConfigurationExclusionOutput)
 }
 
 type GetExpressRouteCircuitPeeringType struct {
@@ -32757,8 +38681,14 @@ func (o GetTrafficManagerProfileMonitorConfigCustomHeaderArrayOutput) Index(i pu
 type GetVirtualHubConnectionRouting struct {
 	// The ID of the route table associated with this Virtual Hub connection.
 	AssociatedRouteTableId string `pulumi:"associatedRouteTableId"`
+	// The ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+	InboundRouteMapId string `pulumi:"inboundRouteMapId"`
+	// The ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+	OutboundRouteMapId string `pulumi:"outboundRouteMapId"`
 	// A `propagatedRouteTable` block as defined below.
 	PropagatedRouteTables []GetVirtualHubConnectionRoutingPropagatedRouteTable `pulumi:"propagatedRouteTables"`
+	// The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet.
+	StaticVnetLocalRouteOverrideCriteria string `pulumi:"staticVnetLocalRouteOverrideCriteria"`
 	// A `staticVnetRoute` block as defined below.
 	StaticVnetRoutes []GetVirtualHubConnectionRoutingStaticVnetRoute `pulumi:"staticVnetRoutes"`
 }
@@ -32777,8 +38707,14 @@ type GetVirtualHubConnectionRoutingInput interface {
 type GetVirtualHubConnectionRoutingArgs struct {
 	// The ID of the route table associated with this Virtual Hub connection.
 	AssociatedRouteTableId pulumi.StringInput `pulumi:"associatedRouteTableId"`
+	// The ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+	InboundRouteMapId pulumi.StringInput `pulumi:"inboundRouteMapId"`
+	// The ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+	OutboundRouteMapId pulumi.StringInput `pulumi:"outboundRouteMapId"`
 	// A `propagatedRouteTable` block as defined below.
 	PropagatedRouteTables GetVirtualHubConnectionRoutingPropagatedRouteTableArrayInput `pulumi:"propagatedRouteTables"`
+	// The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet.
+	StaticVnetLocalRouteOverrideCriteria pulumi.StringInput `pulumi:"staticVnetLocalRouteOverrideCriteria"`
 	// A `staticVnetRoute` block as defined below.
 	StaticVnetRoutes GetVirtualHubConnectionRoutingStaticVnetRouteArrayInput `pulumi:"staticVnetRoutes"`
 }
@@ -32857,11 +38793,26 @@ func (o GetVirtualHubConnectionRoutingOutput) AssociatedRouteTableId() pulumi.St
 	return o.ApplyT(func(v GetVirtualHubConnectionRouting) string { return v.AssociatedRouteTableId }).(pulumi.StringOutput)
 }
 
+// The ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+func (o GetVirtualHubConnectionRoutingOutput) InboundRouteMapId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualHubConnectionRouting) string { return v.InboundRouteMapId }).(pulumi.StringOutput)
+}
+
+// The ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+func (o GetVirtualHubConnectionRoutingOutput) OutboundRouteMapId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualHubConnectionRouting) string { return v.OutboundRouteMapId }).(pulumi.StringOutput)
+}
+
 // A `propagatedRouteTable` block as defined below.
 func (o GetVirtualHubConnectionRoutingOutput) PropagatedRouteTables() GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput {
 	return o.ApplyT(func(v GetVirtualHubConnectionRouting) []GetVirtualHubConnectionRoutingPropagatedRouteTable {
 		return v.PropagatedRouteTables
 	}).(GetVirtualHubConnectionRoutingPropagatedRouteTableArrayOutput)
+}
+
+// The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet.
+func (o GetVirtualHubConnectionRoutingOutput) StaticVnetLocalRouteOverrideCriteria() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualHubConnectionRouting) string { return v.StaticVnetLocalRouteOverrideCriteria }).(pulumi.StringOutput)
 }
 
 // A `staticVnetRoute` block as defined below.
@@ -35081,10 +41032,84 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteO365PolicyPtrInput)(nil)).Elem(), VpnSiteO365PolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteO365PolicyTrafficCategoryInput)(nil)).Elem(), VpnSiteO365PolicyTrafficCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteO365PolicyTrafficCategoryPtrInput)(nil)).Elem(), VpnSiteO365PolicyTrafficCategoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayAuthenticationCertificateInput)(nil)).Elem(), GetApplicationGatewayAuthenticationCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayAuthenticationCertificateArrayInput)(nil)).Elem(), GetApplicationGatewayAuthenticationCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayAutoscaleConfigurationInput)(nil)).Elem(), GetApplicationGatewayAutoscaleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayAutoscaleConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayAutoscaleConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendAddressPoolInput)(nil)).Elem(), GetApplicationGatewayBackendAddressPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendAddressPoolArrayInput)(nil)).Elem(), GetApplicationGatewayBackendAddressPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingInput)(nil)).Elem(), GetApplicationGatewayBackendHttpSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingArrayInput)(nil)).Elem(), GetApplicationGatewayBackendHttpSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingAuthenticationCertificateInput)(nil)).Elem(), GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput)(nil)).Elem(), GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingConnectionDrainingInput)(nil)).Elem(), GetApplicationGatewayBackendHttpSettingConnectionDrainingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayInput)(nil)).Elem(), GetApplicationGatewayBackendHttpSettingConnectionDrainingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayCustomErrorConfigurationInput)(nil)).Elem(), GetApplicationGatewayCustomErrorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayCustomErrorConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayCustomErrorConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayFrontendIpConfigurationInput)(nil)).Elem(), GetApplicationGatewayFrontendIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayFrontendIpConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayFrontendIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayFrontendPortInput)(nil)).Elem(), GetApplicationGatewayFrontendPortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayFrontendPortArrayInput)(nil)).Elem(), GetApplicationGatewayFrontendPortArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayGatewayIpConfigurationInput)(nil)).Elem(), GetApplicationGatewayGatewayIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayGatewayIpConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayGatewayIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayGlobalInput)(nil)).Elem(), GetApplicationGatewayGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayGlobalArrayInput)(nil)).Elem(), GetApplicationGatewayGlobalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayHttpListenerInput)(nil)).Elem(), GetApplicationGatewayHttpListenerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayHttpListenerArrayInput)(nil)).Elem(), GetApplicationGatewayHttpListenerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayHttpListenerCustomErrorConfigurationInput)(nil)).Elem(), GetApplicationGatewayHttpListenerCustomErrorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayHttpListenerCustomErrorConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayIdentityInput)(nil)).Elem(), GetApplicationGatewayIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayIdentityArrayInput)(nil)).Elem(), GetApplicationGatewayIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayPrivateEndpointConnectionInput)(nil)).Elem(), GetApplicationGatewayPrivateEndpointConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayPrivateEndpointConnectionArrayInput)(nil)).Elem(), GetApplicationGatewayPrivateEndpointConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayPrivateLinkConfigurationInput)(nil)).Elem(), GetApplicationGatewayPrivateLinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayPrivateLinkConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayPrivateLinkConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayPrivateLinkConfigurationIpConfigurationInput)(nil)).Elem(), GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayProbeInput)(nil)).Elem(), GetApplicationGatewayProbeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayProbeArrayInput)(nil)).Elem(), GetApplicationGatewayProbeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayProbeMatchInput)(nil)).Elem(), GetApplicationGatewayProbeMatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayProbeMatchArrayInput)(nil)).Elem(), GetApplicationGatewayProbeMatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRedirectConfigurationInput)(nil)).Elem(), GetApplicationGatewayRedirectConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRedirectConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayRedirectConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRequestRoutingRuleInput)(nil)).Elem(), GetApplicationGatewayRequestRoutingRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRequestRoutingRuleArrayInput)(nil)).Elem(), GetApplicationGatewayRequestRoutingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetArrayInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetRewriteRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleArrayInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetRewriteRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleConditionInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleUrlInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayInput)(nil)).Elem(), GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewaySkusInput)(nil)).Elem(), GetApplicationGatewaySkusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewaySkusArrayInput)(nil)).Elem(), GetApplicationGatewaySkusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewaySslCertificateInput)(nil)).Elem(), GetApplicationGatewaySslCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewaySslCertificateArrayInput)(nil)).Elem(), GetApplicationGatewaySslCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewaySslPolicyInput)(nil)).Elem(), GetApplicationGatewaySslPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewaySslPolicyArrayInput)(nil)).Elem(), GetApplicationGatewaySslPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewaySslProfileInput)(nil)).Elem(), GetApplicationGatewaySslProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewaySslProfileArrayInput)(nil)).Elem(), GetApplicationGatewaySslProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewaySslProfileSslPolicyInput)(nil)).Elem(), GetApplicationGatewaySslProfileSslPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewaySslProfileSslPolicyArrayInput)(nil)).Elem(), GetApplicationGatewaySslProfileSslPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayTrustedClientCertificateInput)(nil)).Elem(), GetApplicationGatewayTrustedClientCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayTrustedClientCertificateArrayInput)(nil)).Elem(), GetApplicationGatewayTrustedClientCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayTrustedRootCertificateInput)(nil)).Elem(), GetApplicationGatewayTrustedRootCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayTrustedRootCertificateArrayInput)(nil)).Elem(), GetApplicationGatewayTrustedRootCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayUrlPathMapInput)(nil)).Elem(), GetApplicationGatewayUrlPathMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayUrlPathMapArrayInput)(nil)).Elem(), GetApplicationGatewayUrlPathMapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayUrlPathMapPathRuleInput)(nil)).Elem(), GetApplicationGatewayUrlPathMapPathRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayUrlPathMapPathRuleArrayInput)(nil)).Elem(), GetApplicationGatewayUrlPathMapPathRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayWafConfigurationInput)(nil)).Elem(), GetApplicationGatewayWafConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayWafConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayWafConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayWafConfigurationDisabledRuleGroupInput)(nil)).Elem(), GetApplicationGatewayWafConfigurationDisabledRuleGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayInput)(nil)).Elem(), GetApplicationGatewayWafConfigurationDisabledRuleGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayWafConfigurationExclusionInput)(nil)).Elem(), GetApplicationGatewayWafConfigurationExclusionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayWafConfigurationExclusionArrayInput)(nil)).Elem(), GetApplicationGatewayWafConfigurationExclusionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExpressRouteCircuitPeeringTypeInput)(nil)).Elem(), GetExpressRouteCircuitPeeringTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExpressRouteCircuitPeeringTypeArrayInput)(nil)).Elem(), GetExpressRouteCircuitPeeringTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExpressRouteCircuitServiceProviderPropertyInput)(nil)).Elem(), GetExpressRouteCircuitServiceProviderPropertyArgs{})
@@ -35475,10 +41500,84 @@ func init() {
 	pulumi.RegisterOutputType(VpnSiteO365PolicyPtrOutput{})
 	pulumi.RegisterOutputType(VpnSiteO365PolicyTrafficCategoryOutput{})
 	pulumi.RegisterOutputType(VpnSiteO365PolicyTrafficCategoryPtrOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayAuthenticationCertificateOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayAuthenticationCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayAutoscaleConfigurationOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayAutoscaleConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayBackendAddressPoolOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayBackendAddressPoolArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayBackendHttpSettingOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayBackendHttpSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayCustomErrorConfigurationOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayCustomErrorConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayFrontendIpConfigurationOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayFrontendIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayFrontendPortOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayFrontendPortArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayGatewayIpConfigurationOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayGatewayIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayGlobalOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayGlobalArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayHttpListenerOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayHttpListenerArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayHttpListenerCustomErrorConfigurationOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayHttpListenerCustomErrorConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayIdentityOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayPrivateEndpointConnectionOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayPrivateEndpointConnectionArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayPrivateLinkConfigurationOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayPrivateLinkConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayPrivateLinkConfigurationIpConfigurationOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayProbeOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayProbeArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayProbeMatchOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayProbeMatchArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRedirectConfigurationOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRedirectConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRequestRoutingRuleOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRequestRoutingRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetRewriteRuleOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetRewriteRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetRewriteRuleConditionOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetRewriteRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayRewriteRuleSetRewriteRuleUrlArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewaySkusOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewaySkusArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewaySslCertificateOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewaySslCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewaySslPolicyOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewaySslPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewaySslProfileOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewaySslProfileArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewaySslProfileSslPolicyOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewaySslProfileSslPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayTrustedClientCertificateOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayTrustedClientCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayTrustedRootCertificateOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayTrustedRootCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayUrlPathMapOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayUrlPathMapArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayUrlPathMapPathRuleOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayUrlPathMapPathRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayWafConfigurationOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayWafConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayWafConfigurationDisabledRuleGroupOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayWafConfigurationExclusionOutput{})
+	pulumi.RegisterOutputType(GetApplicationGatewayWafConfigurationExclusionArrayOutput{})
 	pulumi.RegisterOutputType(GetExpressRouteCircuitPeeringTypeOutput{})
 	pulumi.RegisterOutputType(GetExpressRouteCircuitPeeringTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetExpressRouteCircuitServiceProviderPropertyOutput{})

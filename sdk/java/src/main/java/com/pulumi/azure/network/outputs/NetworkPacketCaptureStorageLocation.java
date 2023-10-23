@@ -90,11 +90,11 @@ public final class NetworkPacketCaptureStorageLocation {
             return this;
         }
         public NetworkPacketCaptureStorageLocation build() {
-            final var o = new NetworkPacketCaptureStorageLocation();
-            o.filePath = filePath;
-            o.storageAccountId = storageAccountId;
-            o.storagePath = storagePath;
-            return o;
+            final var _resultValue = new NetworkPacketCaptureStorageLocation();
+            _resultValue.filePath = filePath;
+            _resultValue.storageAccountId = storageAccountId;
+            _resultValue.storagePath = storagePath;
+            return _resultValue;
         }
     }
 }

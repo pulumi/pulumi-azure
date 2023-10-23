@@ -39,7 +39,13 @@ class SpringCloudCustomDomainArgs:
              certificate_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+        if 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+
         _setter("spring_cloud_app_id", spring_cloud_app_id)
         if certificate_name is not None:
             _setter("certificate_name", certificate_name)
@@ -125,7 +131,13 @@ class _SpringCloudCustomDomainState:
              name: Optional[pulumi.Input[str]] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+
         if certificate_name is not None:
             _setter("certificate_name", certificate_name)
         if name is not None:

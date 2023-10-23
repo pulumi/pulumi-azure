@@ -70,10 +70,10 @@ public final class SparkClusterRolesWorkerNodeAutoscaleRecurrence {
             return this;
         }
         public SparkClusterRolesWorkerNodeAutoscaleRecurrence build() {
-            final var o = new SparkClusterRolesWorkerNodeAutoscaleRecurrence();
-            o.schedules = schedules;
-            o.timezone = timezone;
-            return o;
+            final var _resultValue = new SparkClusterRolesWorkerNodeAutoscaleRecurrence();
+            _resultValue.schedules = schedules;
+            _resultValue.timezone = timezone;
+            return _resultValue;
         }
     }
 }

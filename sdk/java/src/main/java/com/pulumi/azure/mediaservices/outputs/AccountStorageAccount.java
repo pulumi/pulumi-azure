@@ -92,11 +92,11 @@ public final class AccountStorageAccount {
             return this;
         }
         public AccountStorageAccount build() {
-            final var o = new AccountStorageAccount();
-            o.id = id;
-            o.isPrimary = isPrimary;
-            o.managedIdentity = managedIdentity;
-            return o;
+            final var _resultValue = new AccountStorageAccount();
+            _resultValue.id = id;
+            _resultValue.isPrimary = isPrimary;
+            _resultValue.managedIdentity = managedIdentity;
+            return _resultValue;
         }
     }
 }

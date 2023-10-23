@@ -146,14 +146,14 @@ public final class EventHubCaptureDescription {
             return this;
         }
         public EventHubCaptureDescription build() {
-            final var o = new EventHubCaptureDescription();
-            o.destination = destination;
-            o.enabled = enabled;
-            o.encoding = encoding;
-            o.intervalInSeconds = intervalInSeconds;
-            o.sizeLimitInBytes = sizeLimitInBytes;
-            o.skipEmptyArchives = skipEmptyArchives;
-            return o;
+            final var _resultValue = new EventHubCaptureDescription();
+            _resultValue.destination = destination;
+            _resultValue.enabled = enabled;
+            _resultValue.encoding = encoding;
+            _resultValue.intervalInSeconds = intervalInSeconds;
+            _resultValue.sizeLimitInBytes = sizeLimitInBytes;
+            _resultValue.skipEmptyArchives = skipEmptyArchives;
+            return _resultValue;
         }
     }
 }

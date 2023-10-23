@@ -67,7 +67,21 @@ class LinkServiceArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loadBalancerFrontendIpConfigurationIds' in kwargs:
+            load_balancer_frontend_ip_configuration_ids = kwargs['loadBalancerFrontendIpConfigurationIds']
+        if 'natIpConfigurations' in kwargs:
+            nat_ip_configurations = kwargs['natIpConfigurations']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'autoApprovalSubscriptionIds' in kwargs:
+            auto_approval_subscription_ids = kwargs['autoApprovalSubscriptionIds']
+        if 'enableProxyProtocol' in kwargs:
+            enable_proxy_protocol = kwargs['enableProxyProtocol']
+        if 'visibilitySubscriptionIds' in kwargs:
+            visibility_subscription_ids = kwargs['visibilitySubscriptionIds']
+
         _setter("load_balancer_frontend_ip_configuration_ids", load_balancer_frontend_ip_configuration_ids)
         _setter("nat_ip_configurations", nat_ip_configurations)
         _setter("resource_group_name", resource_group_name)
@@ -267,7 +281,21 @@ class _LinkServiceState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoApprovalSubscriptionIds' in kwargs:
+            auto_approval_subscription_ids = kwargs['autoApprovalSubscriptionIds']
+        if 'enableProxyProtocol' in kwargs:
+            enable_proxy_protocol = kwargs['enableProxyProtocol']
+        if 'loadBalancerFrontendIpConfigurationIds' in kwargs:
+            load_balancer_frontend_ip_configuration_ids = kwargs['loadBalancerFrontendIpConfigurationIds']
+        if 'natIpConfigurations' in kwargs:
+            nat_ip_configurations = kwargs['natIpConfigurations']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'visibilitySubscriptionIds' in kwargs:
+            visibility_subscription_ids = kwargs['visibilitySubscriptionIds']
+
         if alias is not None:
             _setter("alias", alias)
         if auto_approval_subscription_ids is not None:

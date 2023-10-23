@@ -67,10 +67,10 @@ public final class ApplicationGatewayPrivateEndpointConnection {
             return this;
         }
         public ApplicationGatewayPrivateEndpointConnection build() {
-            final var o = new ApplicationGatewayPrivateEndpointConnection();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new ApplicationGatewayPrivateEndpointConnection();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

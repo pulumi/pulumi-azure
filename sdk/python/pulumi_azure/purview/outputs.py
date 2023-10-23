@@ -64,7 +64,15 @@ class AccountIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -152,7 +160,15 @@ class AccountManagedResource(dict):
              event_hub_namespace_id: Optional[str] = None,
              resource_group_id: Optional[str] = None,
              storage_account_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventHubNamespaceId' in kwargs:
+            event_hub_namespace_id = kwargs['eventHubNamespaceId']
+        if 'resourceGroupId' in kwargs:
+            resource_group_id = kwargs['resourceGroupId']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if event_hub_namespace_id is not None:
             _setter("event_hub_namespace_id", event_hub_namespace_id)
         if resource_group_id is not None:

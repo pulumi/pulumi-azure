@@ -144,14 +144,14 @@ public final class CertificateCertificateAttribute {
             return this;
         }
         public CertificateCertificateAttribute build() {
-            final var o = new CertificateCertificateAttribute();
-            o.created = created;
-            o.enabled = enabled;
-            o.expires = expires;
-            o.notBefore = notBefore;
-            o.recoveryLevel = recoveryLevel;
-            o.updated = updated;
-            return o;
+            final var _resultValue = new CertificateCertificateAttribute();
+            _resultValue.created = created;
+            _resultValue.enabled = enabled;
+            _resultValue.expires = expires;
+            _resultValue.notBefore = notBefore;
+            _resultValue.recoveryLevel = recoveryLevel;
+            _resultValue.updated = updated;
+            return _resultValue;
         }
     }
 }

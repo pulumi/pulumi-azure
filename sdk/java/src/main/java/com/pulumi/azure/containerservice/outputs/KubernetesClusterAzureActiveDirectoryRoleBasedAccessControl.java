@@ -167,15 +167,15 @@ public final class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl {
             return this;
         }
         public KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl build() {
-            final var o = new KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl();
-            o.adminGroupObjectIds = adminGroupObjectIds;
-            o.azureRbacEnabled = azureRbacEnabled;
-            o.clientAppId = clientAppId;
-            o.managed = managed;
-            o.serverAppId = serverAppId;
-            o.serverAppSecret = serverAppSecret;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl();
+            _resultValue.adminGroupObjectIds = adminGroupObjectIds;
+            _resultValue.azureRbacEnabled = azureRbacEnabled;
+            _resultValue.clientAppId = clientAppId;
+            _resultValue.managed = managed;
+            _resultValue.serverAppId = serverAppId;
+            _resultValue.serverAppSecret = serverAppSecret;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

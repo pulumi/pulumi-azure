@@ -75,7 +75,27 @@ class ConnectedRegistryArgs:
              sync_message_ttl: Optional[pulumi.Input[str]] = None,
              sync_schedule: Optional[pulumi.Input[str]] = None,
              sync_window: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerRegistryId' in kwargs:
+            container_registry_id = kwargs['containerRegistryId']
+        if 'syncTokenId' in kwargs:
+            sync_token_id = kwargs['syncTokenId']
+        if 'auditLogEnabled' in kwargs:
+            audit_log_enabled = kwargs['auditLogEnabled']
+        if 'clientTokenIds' in kwargs:
+            client_token_ids = kwargs['clientTokenIds']
+        if 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if 'parentRegistryId' in kwargs:
+            parent_registry_id = kwargs['parentRegistryId']
+        if 'syncMessageTtl' in kwargs:
+            sync_message_ttl = kwargs['syncMessageTtl']
+        if 'syncSchedule' in kwargs:
+            sync_schedule = kwargs['syncSchedule']
+        if 'syncWindow' in kwargs:
+            sync_window = kwargs['syncWindow']
+
         _setter("container_registry_id", container_registry_id)
         _setter("sync_token_id", sync_token_id)
         if audit_log_enabled is not None:
@@ -308,7 +328,27 @@ class _ConnectedRegistryState:
              sync_schedule: Optional[pulumi.Input[str]] = None,
              sync_token_id: Optional[pulumi.Input[str]] = None,
              sync_window: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'auditLogEnabled' in kwargs:
+            audit_log_enabled = kwargs['auditLogEnabled']
+        if 'clientTokenIds' in kwargs:
+            client_token_ids = kwargs['clientTokenIds']
+        if 'containerRegistryId' in kwargs:
+            container_registry_id = kwargs['containerRegistryId']
+        if 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if 'parentRegistryId' in kwargs:
+            parent_registry_id = kwargs['parentRegistryId']
+        if 'syncMessageTtl' in kwargs:
+            sync_message_ttl = kwargs['syncMessageTtl']
+        if 'syncSchedule' in kwargs:
+            sync_schedule = kwargs['syncSchedule']
+        if 'syncTokenId' in kwargs:
+            sync_token_id = kwargs['syncTokenId']
+        if 'syncWindow' in kwargs:
+            sync_window = kwargs['syncWindow']
+
         if audit_log_enabled is not None:
             _setter("audit_log_enabled", audit_log_enabled)
         if client_token_ids is not None:

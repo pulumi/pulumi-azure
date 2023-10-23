@@ -84,11 +84,11 @@ public final class LinuxVirtualMachineScaleSetPlan {
             return this;
         }
         public LinuxVirtualMachineScaleSetPlan build() {
-            final var o = new LinuxVirtualMachineScaleSetPlan();
-            o.name = name;
-            o.product = product;
-            o.publisher = publisher;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetPlan();
+            _resultValue.name = name;
+            _resultValue.product = product;
+            _resultValue.publisher = publisher;
+            return _resultValue;
         }
     }
 }

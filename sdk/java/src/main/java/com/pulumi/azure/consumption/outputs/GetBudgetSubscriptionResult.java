@@ -185,16 +185,16 @@ public final class GetBudgetSubscriptionResult {
             return timePeriods(List.of(timePeriods));
         }
         public GetBudgetSubscriptionResult build() {
-            final var o = new GetBudgetSubscriptionResult();
-            o.amount = amount;
-            o.filters = filters;
-            o.id = id;
-            o.name = name;
-            o.notifications = notifications;
-            o.subscriptionId = subscriptionId;
-            o.timeGrain = timeGrain;
-            o.timePeriods = timePeriods;
-            return o;
+            final var _resultValue = new GetBudgetSubscriptionResult();
+            _resultValue.amount = amount;
+            _resultValue.filters = filters;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.notifications = notifications;
+            _resultValue.subscriptionId = subscriptionId;
+            _resultValue.timeGrain = timeGrain;
+            _resultValue.timePeriods = timePeriods;
+            return _resultValue;
         }
     }
 }

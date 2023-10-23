@@ -11,6 +11,7 @@ import com.pulumi.azure.nginx.inputs.DeploymentNetworkInterfaceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +23,25 @@ import javax.annotation.Nullable;
 public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
 
     public static final DeploymentState Empty = new DeploymentState();
+
+    /**
+     * Specify the number of NGINX capacity units for this NGINX deployment.
+     * 
+     * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     * 
+     */
+    @Import(name="capacity")
+    private @Nullable Output<Integer> capacity;
+
+    /**
+     * @return Specify the number of NGINX capacity units for this NGINX deployment.
+     * 
+     * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     * 
+     */
+    public Optional<Output<Integer>> capacity() {
+        return Optional.ofNullable(this.capacity);
+    }
 
     /**
      * Should the diagnosis support be enabled?
@@ -36,6 +56,21 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> diagnoseSupportEnabled() {
         return Optional.ofNullable(this.diagnoseSupportEnabled);
+    }
+
+    /**
+     * Specify the preferred support contact email address of the user used for sending alerts and notification.
+     * 
+     */
+    @Import(name="email")
+    private @Nullable Output<String> email;
+
+    /**
+     * @return Specify the preferred support contact email address of the user used for sending alerts and notification.
+     * 
+     */
+    public Optional<Output<String>> email() {
+        return Optional.ofNullable(this.email);
     }
 
     /**
@@ -236,7 +271,9 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
     private DeploymentState() {}
 
     private DeploymentState(DeploymentState $) {
+        this.capacity = $.capacity;
         this.diagnoseSupportEnabled = $.diagnoseSupportEnabled;
+        this.email = $.email;
         this.frontendPrivates = $.frontendPrivates;
         this.frontendPublic = $.frontendPublic;
         this.identity = $.identity;
@@ -271,6 +308,31 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param capacity Specify the number of NGINX capacity units for this NGINX deployment.
+         * 
+         * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacity(@Nullable Output<Integer> capacity) {
+            $.capacity = capacity;
+            return this;
+        }
+
+        /**
+         * @param capacity Specify the number of NGINX capacity units for this NGINX deployment.
+         * 
+         * &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacity(Integer capacity) {
+            return capacity(Output.of(capacity));
+        }
+
+        /**
          * @param diagnoseSupportEnabled Should the diagnosis support be enabled?
          * 
          * @return builder
@@ -289,6 +351,27 @@ public final class DeploymentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder diagnoseSupportEnabled(Boolean diagnoseSupportEnabled) {
             return diagnoseSupportEnabled(Output.of(diagnoseSupportEnabled));
+        }
+
+        /**
+         * @param email Specify the preferred support contact email address of the user used for sending alerts and notification.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder email(@Nullable Output<String> email) {
+            $.email = email;
+            return this;
+        }
+
+        /**
+         * @param email Specify the preferred support contact email address of the user used for sending alerts and notification.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder email(String email) {
+            return email(Output.of(email));
         }
 
         /**

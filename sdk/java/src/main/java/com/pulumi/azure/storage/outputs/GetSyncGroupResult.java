@@ -68,11 +68,11 @@ public final class GetSyncGroupResult {
             return this;
         }
         public GetSyncGroupResult build() {
-            final var o = new GetSyncGroupResult();
-            o.id = id;
-            o.name = name;
-            o.storageSyncId = storageSyncId;
-            return o;
+            final var _resultValue = new GetSyncGroupResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.storageSyncId = storageSyncId;
+            return _resultValue;
         }
     }
 }

@@ -144,14 +144,14 @@ public final class RegistryTaskEncodedStep {
             return this;
         }
         public RegistryTaskEncodedStep build() {
-            final var o = new RegistryTaskEncodedStep();
-            o.contextAccessToken = contextAccessToken;
-            o.contextPath = contextPath;
-            o.secretValues = secretValues;
-            o.taskContent = taskContent;
-            o.valueContent = valueContent;
-            o.values = values;
-            return o;
+            final var _resultValue = new RegistryTaskEncodedStep();
+            _resultValue.contextAccessToken = contextAccessToken;
+            _resultValue.contextPath = contextPath;
+            _resultValue.secretValues = secretValues;
+            _resultValue.taskContent = taskContent;
+            _resultValue.valueContent = valueContent;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

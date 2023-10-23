@@ -93,11 +93,11 @@ public final class EnvironmentV3InboundNetworkDependency {
             return ports(List.of(ports));
         }
         public EnvironmentV3InboundNetworkDependency build() {
-            final var o = new EnvironmentV3InboundNetworkDependency();
-            o.description = description;
-            o.ipAddresses = ipAddresses;
-            o.ports = ports;
-            return o;
+            final var _resultValue = new EnvironmentV3InboundNetworkDependency();
+            _resultValue.description = description;
+            _resultValue.ipAddresses = ipAddresses;
+            _resultValue.ports = ports;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
             return this;
         }
         public LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag build() {
-            final var o = new LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag();
-            o.tag = tag;
-            o.type = type;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag();
+            _resultValue.tag = tag;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -128,17 +128,17 @@ public final class FeaturesKeyVault {
             return this;
         }
         public FeaturesKeyVault build() {
-            final var o = new FeaturesKeyVault();
-            o.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
-            o.purgeSoftDeletedCertificatesOnDestroy = purgeSoftDeletedCertificatesOnDestroy;
-            o.purgeSoftDeletedHardwareSecurityModulesOnDestroy = purgeSoftDeletedHardwareSecurityModulesOnDestroy;
-            o.purgeSoftDeletedKeysOnDestroy = purgeSoftDeletedKeysOnDestroy;
-            o.purgeSoftDeletedSecretsOnDestroy = purgeSoftDeletedSecretsOnDestroy;
-            o.recoverSoftDeletedCertificates = recoverSoftDeletedCertificates;
-            o.recoverSoftDeletedKeyVaults = recoverSoftDeletedKeyVaults;
-            o.recoverSoftDeletedKeys = recoverSoftDeletedKeys;
-            o.recoverSoftDeletedSecrets = recoverSoftDeletedSecrets;
-            return o;
+            final var _resultValue = new FeaturesKeyVault();
+            _resultValue.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
+            _resultValue.purgeSoftDeletedCertificatesOnDestroy = purgeSoftDeletedCertificatesOnDestroy;
+            _resultValue.purgeSoftDeletedHardwareSecurityModulesOnDestroy = purgeSoftDeletedHardwareSecurityModulesOnDestroy;
+            _resultValue.purgeSoftDeletedKeysOnDestroy = purgeSoftDeletedKeysOnDestroy;
+            _resultValue.purgeSoftDeletedSecretsOnDestroy = purgeSoftDeletedSecretsOnDestroy;
+            _resultValue.recoverSoftDeletedCertificates = recoverSoftDeletedCertificates;
+            _resultValue.recoverSoftDeletedKeyVaults = recoverSoftDeletedKeyVaults;
+            _resultValue.recoverSoftDeletedKeys = recoverSoftDeletedKeys;
+            _resultValue.recoverSoftDeletedSecrets = recoverSoftDeletedSecrets;
+            return _resultValue;
         }
     }
 }

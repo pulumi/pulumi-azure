@@ -110,12 +110,12 @@ public final class HubEventHandler {
             return this;
         }
         public HubEventHandler build() {
-            final var o = new HubEventHandler();
-            o.auth = auth;
-            o.systemEvents = systemEvents;
-            o.urlTemplate = urlTemplate;
-            o.userEventPattern = userEventPattern;
-            return o;
+            final var _resultValue = new HubEventHandler();
+            _resultValue.auth = auth;
+            _resultValue.systemEvents = systemEvents;
+            _resultValue.urlTemplate = urlTemplate;
+            _resultValue.userEventPattern = userEventPattern;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
             return this;
         }
         public OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair build() {
-            final var o = new OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair();
-            o.enabled = enabled;
-            o.gracePeriod = gracePeriod;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair();
+            _resultValue.enabled = enabled;
+            _resultValue.gracePeriod = gracePeriod;
+            return _resultValue;
         }
     }
 }

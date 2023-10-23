@@ -53,7 +53,19 @@ class SpringCloudJavaDeploymentArgs:
              name: Optional[pulumi.Input[str]] = None,
              quota: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']] = None,
              runtime_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'jvmOptions' in kwargs:
+            jvm_options = kwargs['jvmOptions']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+
         _setter("spring_cloud_app_id", spring_cloud_app_id)
         if environment_variables is not None:
             _setter("environment_variables", environment_variables)
@@ -193,7 +205,19 @@ class _SpringCloudJavaDeploymentState:
              quota: Optional[pulumi.Input['SpringCloudJavaDeploymentQuotaArgs']] = None,
              runtime_version: Optional[pulumi.Input[str]] = None,
              spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'jvmOptions' in kwargs:
+            jvm_options = kwargs['jvmOptions']
+        if 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+
         if environment_variables is not None:
             _setter("environment_variables", environment_variables)
         if instance_count is not None:

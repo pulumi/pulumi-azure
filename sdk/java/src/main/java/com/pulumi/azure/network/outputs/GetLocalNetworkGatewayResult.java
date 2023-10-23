@@ -191,17 +191,17 @@ public final class GetLocalNetworkGatewayResult {
             return this;
         }
         public GetLocalNetworkGatewayResult build() {
-            final var o = new GetLocalNetworkGatewayResult();
-            o.addressSpaces = addressSpaces;
-            o.bgpSettings = bgpSettings;
-            o.gatewayAddress = gatewayAddress;
-            o.gatewayFqdn = gatewayFqdn;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetLocalNetworkGatewayResult();
+            _resultValue.addressSpaces = addressSpaces;
+            _resultValue.bgpSettings = bgpSettings;
+            _resultValue.gatewayAddress = gatewayAddress;
+            _resultValue.gatewayFqdn = gatewayFqdn;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

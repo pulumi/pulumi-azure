@@ -65,10 +65,10 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
             return this;
         }
         public WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag build() {
-            final var o = new WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag();
-            o.tag = tag;
-            o.type = type;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag();
+            _resultValue.tag = tag;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

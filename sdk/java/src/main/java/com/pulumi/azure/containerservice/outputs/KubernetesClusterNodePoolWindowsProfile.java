@@ -52,9 +52,9 @@ public final class KubernetesClusterNodePoolWindowsProfile {
             return this;
         }
         public KubernetesClusterNodePoolWindowsProfile build() {
-            final var o = new KubernetesClusterNodePoolWindowsProfile();
-            o.outboundNatEnabled = outboundNatEnabled;
-            return o;
+            final var _resultValue = new KubernetesClusterNodePoolWindowsProfile();
+            _resultValue.outboundNatEnabled = outboundNatEnabled;
+            return _resultValue;
         }
     }
 }

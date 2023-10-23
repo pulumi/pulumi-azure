@@ -112,12 +112,12 @@ public final class TransformOutputCustomPresetFormat {
             return this;
         }
         public TransformOutputCustomPresetFormat build() {
-            final var o = new TransformOutputCustomPresetFormat();
-            o.jpg = jpg;
-            o.mp4 = mp4;
-            o.png = png;
-            o.transportStream = transportStream;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFormat();
+            _resultValue.jpg = jpg;
+            _resultValue.mp4 = mp4;
+            _resultValue.png = png;
+            _resultValue.transportStream = transportStream;
+            return _resultValue;
         }
     }
 }

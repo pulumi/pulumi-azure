@@ -157,14 +157,14 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
             return this;
         }
         public GetSpringCloudServiceConfigServerGitSetting build() {
-            final var o = new GetSpringCloudServiceConfigServerGitSetting();
-            o.httpBasicAuths = httpBasicAuths;
-            o.label = label;
-            o.repositories = repositories;
-            o.searchPaths = searchPaths;
-            o.sshAuths = sshAuths;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new GetSpringCloudServiceConfigServerGitSetting();
+            _resultValue.httpBasicAuths = httpBasicAuths;
+            _resultValue.label = label;
+            _resultValue.repositories = repositories;
+            _resultValue.searchPaths = searchPaths;
+            _resultValue.sshAuths = sshAuths;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

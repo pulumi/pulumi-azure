@@ -53,7 +53,17 @@ class InterationServiceEnvironmentArgs:
              name: Optional[pulumi.Input[str]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessEndpointType' in kwargs:
+            access_endpoint_type = kwargs['accessEndpointType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualNetworkSubnetIds' in kwargs:
+            virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         _setter("access_endpoint_type", access_endpoint_type)
         _setter("resource_group_name", resource_group_name)
         _setter("virtual_network_subnet_ids", virtual_network_subnet_ids)
@@ -211,7 +221,25 @@ class _InterationServiceEnvironmentState:
              virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              workflow_endpoint_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              workflow_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessEndpointType' in kwargs:
+            access_endpoint_type = kwargs['accessEndpointType']
+        if 'connectorEndpointIpAddresses' in kwargs:
+            connector_endpoint_ip_addresses = kwargs['connectorEndpointIpAddresses']
+        if 'connectorOutboundIpAddresses' in kwargs:
+            connector_outbound_ip_addresses = kwargs['connectorOutboundIpAddresses']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'virtualNetworkSubnetIds' in kwargs:
+            virtual_network_subnet_ids = kwargs['virtualNetworkSubnetIds']
+        if 'workflowEndpointIpAddresses' in kwargs:
+            workflow_endpoint_ip_addresses = kwargs['workflowEndpointIpAddresses']
+        if 'workflowOutboundIpAddresses' in kwargs:
+            workflow_outbound_ip_addresses = kwargs['workflowOutboundIpAddresses']
+
         if access_endpoint_type is not None:
             _setter("access_endpoint_type", access_endpoint_type)
         if connector_endpoint_ip_addresses is not None:

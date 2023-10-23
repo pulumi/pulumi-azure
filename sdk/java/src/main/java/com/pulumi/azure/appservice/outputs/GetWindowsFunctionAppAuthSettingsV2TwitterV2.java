@@ -65,10 +65,10 @@ public final class GetWindowsFunctionAppAuthSettingsV2TwitterV2 {
             return this;
         }
         public GetWindowsFunctionAppAuthSettingsV2TwitterV2 build() {
-            final var o = new GetWindowsFunctionAppAuthSettingsV2TwitterV2();
-            o.consumerKey = consumerKey;
-            o.consumerSecretSettingName = consumerSecretSettingName;
-            return o;
+            final var _resultValue = new GetWindowsFunctionAppAuthSettingsV2TwitterV2();
+            _resultValue.consumerKey = consumerKey;
+            _resultValue.consumerSecretSettingName = consumerSecretSettingName;
+            return _resultValue;
         }
     }
 }

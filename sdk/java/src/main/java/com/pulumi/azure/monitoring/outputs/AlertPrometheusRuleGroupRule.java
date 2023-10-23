@@ -228,18 +228,18 @@ public final class AlertPrometheusRuleGroupRule {
             return this;
         }
         public AlertPrometheusRuleGroupRule build() {
-            final var o = new AlertPrometheusRuleGroupRule();
-            o.actions = actions;
-            o.alert = alert;
-            o.alertResolution = alertResolution;
-            o.annotations = annotations;
-            o.enabled = enabled;
-            o.expression = expression;
-            o.for_ = for_;
-            o.labels = labels;
-            o.record = record;
-            o.severity = severity;
-            return o;
+            final var _resultValue = new AlertPrometheusRuleGroupRule();
+            _resultValue.actions = actions;
+            _resultValue.alert = alert;
+            _resultValue.alertResolution = alertResolution;
+            _resultValue.annotations = annotations;
+            _resultValue.enabled = enabled;
+            _resultValue.expression = expression;
+            _resultValue.for_ = for_;
+            _resultValue.labels = labels;
+            _resultValue.record = record;
+            _resultValue.severity = severity;
+            return _resultValue;
         }
     }
 }

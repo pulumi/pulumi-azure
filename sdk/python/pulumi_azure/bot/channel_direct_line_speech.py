@@ -55,7 +55,23 @@ class ChannelDirectLineSpeechArgs:
              custom_speech_model_id: Optional[pulumi.Input[str]] = None,
              custom_voice_deployment_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'cognitiveServiceAccessKey' in kwargs:
+            cognitive_service_access_key = kwargs['cognitiveServiceAccessKey']
+        if 'cognitiveServiceLocation' in kwargs:
+            cognitive_service_location = kwargs['cognitiveServiceLocation']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'cognitiveAccountId' in kwargs:
+            cognitive_account_id = kwargs['cognitiveAccountId']
+        if 'customSpeechModelId' in kwargs:
+            custom_speech_model_id = kwargs['customSpeechModelId']
+        if 'customVoiceDeploymentId' in kwargs:
+            custom_voice_deployment_id = kwargs['customVoiceDeploymentId']
+
         _setter("bot_name", bot_name)
         _setter("cognitive_service_access_key", cognitive_service_access_key)
         _setter("cognitive_service_location", cognitive_service_location)
@@ -210,7 +226,23 @@ class _ChannelDirectLineSpeechState:
              custom_voice_deployment_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'cognitiveAccountId' in kwargs:
+            cognitive_account_id = kwargs['cognitiveAccountId']
+        if 'cognitiveServiceAccessKey' in kwargs:
+            cognitive_service_access_key = kwargs['cognitiveServiceAccessKey']
+        if 'cognitiveServiceLocation' in kwargs:
+            cognitive_service_location = kwargs['cognitiveServiceLocation']
+        if 'customSpeechModelId' in kwargs:
+            custom_speech_model_id = kwargs['customSpeechModelId']
+        if 'customVoiceDeploymentId' in kwargs:
+            custom_voice_deployment_id = kwargs['customVoiceDeploymentId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if bot_name is not None:
             _setter("bot_name", bot_name)
         if cognitive_account_id is not None:

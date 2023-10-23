@@ -66,10 +66,10 @@ public final class VirtualNetworkDdosProtectionPlan {
             return this;
         }
         public VirtualNetworkDdosProtectionPlan build() {
-            final var o = new VirtualNetworkDdosProtectionPlan();
-            o.enable = enable;
-            o.id = id;
-            return o;
+            final var _resultValue = new VirtualNetworkDdosProtectionPlan();
+            _resultValue.enable = enable;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

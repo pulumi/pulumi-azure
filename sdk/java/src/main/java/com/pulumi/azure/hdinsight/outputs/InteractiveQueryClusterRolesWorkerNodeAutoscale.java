@@ -72,10 +72,10 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscale {
             return this;
         }
         public InteractiveQueryClusterRolesWorkerNodeAutoscale build() {
-            final var o = new InteractiveQueryClusterRolesWorkerNodeAutoscale();
-            o.capacity = capacity;
-            o.recurrence = recurrence;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterRolesWorkerNodeAutoscale();
+            _resultValue.capacity = capacity;
+            _resultValue.recurrence = recurrence;
+            return _resultValue;
         }
     }
 }

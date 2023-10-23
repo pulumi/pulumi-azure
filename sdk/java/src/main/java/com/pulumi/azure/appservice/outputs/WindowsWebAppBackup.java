@@ -107,12 +107,12 @@ public final class WindowsWebAppBackup {
             return this;
         }
         public WindowsWebAppBackup build() {
-            final var o = new WindowsWebAppBackup();
-            o.enabled = enabled;
-            o.name = name;
-            o.schedule = schedule;
-            o.storageAccountUrl = storageAccountUrl;
-            return o;
+            final var _resultValue = new WindowsWebAppBackup();
+            _resultValue.enabled = enabled;
+            _resultValue.name = name;
+            _resultValue.schedule = schedule;
+            _resultValue.storageAccountUrl = storageAccountUrl;
+            return _resultValue;
         }
     }
 }

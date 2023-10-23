@@ -109,12 +109,12 @@ public final class SpringCloudGatewaySso {
             return scopes(List.of(scopes));
         }
         public SpringCloudGatewaySso build() {
-            final var o = new SpringCloudGatewaySso();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.issuerUri = issuerUri;
-            o.scopes = scopes;
-            return o;
+            final var _resultValue = new SpringCloudGatewaySso();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.issuerUri = issuerUri;
+            _resultValue.scopes = scopes;
+            return _resultValue;
         }
     }
 }

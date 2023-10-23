@@ -130,13 +130,13 @@ public final class BudgetManagementGroupNotification {
             return this;
         }
         public BudgetManagementGroupNotification build() {
-            final var o = new BudgetManagementGroupNotification();
-            o.contactEmails = contactEmails;
-            o.enabled = enabled;
-            o.operator = operator;
-            o.threshold = threshold;
-            o.thresholdType = thresholdType;
-            return o;
+            final var _resultValue = new BudgetManagementGroupNotification();
+            _resultValue.contactEmails = contactEmails;
+            _resultValue.enabled = enabled;
+            _resultValue.operator = operator;
+            _resultValue.threshold = threshold;
+            _resultValue.thresholdType = thresholdType;
+            return _resultValue;
         }
     }
 }

@@ -39,7 +39,13 @@ class NetworkManagerSecurityAdminConfigurationArgs:
              apply_on_network_intent_policy_based_services: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkManagerId' in kwargs:
+            network_manager_id = kwargs['networkManagerId']
+        if 'applyOnNetworkIntentPolicyBasedServices' in kwargs:
+            apply_on_network_intent_policy_based_services = kwargs['applyOnNetworkIntentPolicyBasedServices']
+
         _setter("network_manager_id", network_manager_id)
         if apply_on_network_intent_policy_based_services is not None:
             _setter("apply_on_network_intent_policy_based_services", apply_on_network_intent_policy_based_services)
@@ -125,7 +131,13 @@ class _NetworkManagerSecurityAdminConfigurationState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              network_manager_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applyOnNetworkIntentPolicyBasedServices' in kwargs:
+            apply_on_network_intent_policy_based_services = kwargs['applyOnNetworkIntentPolicyBasedServices']
+        if 'networkManagerId' in kwargs:
+            network_manager_id = kwargs['networkManagerId']
+
         if apply_on_network_intent_policy_based_services is not None:
             _setter("apply_on_network_intent_policy_based_services", apply_on_network_intent_policy_based_services)
         if description is not None:

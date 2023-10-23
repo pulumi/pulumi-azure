@@ -43,7 +43,15 @@ class FirewallRuleArgs:
              start_ip_address: pulumi.Input[str],
              synapse_workspace_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+
         _setter("end_ip_address", end_ip_address)
         _setter("start_ip_address", start_ip_address)
         _setter("synapse_workspace_id", synapse_workspace_id)
@@ -135,7 +143,15 @@ class _FirewallRuleState:
              name: Optional[pulumi.Input[str]] = None,
              start_ip_address: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+
         if end_ip_address is not None:
             _setter("end_ip_address", end_ip_address)
         if name is not None:

@@ -106,13 +106,13 @@ public final class GetEncryptionScopeResult {
             return this;
         }
         public GetEncryptionScopeResult build() {
-            final var o = new GetEncryptionScopeResult();
-            o.id = id;
-            o.keyVaultKeyId = keyVaultKeyId;
-            o.name = name;
-            o.source = source;
-            o.storageAccountId = storageAccountId;
-            return o;
+            final var _resultValue = new GetEncryptionScopeResult();
+            _resultValue.id = id;
+            _resultValue.keyVaultKeyId = keyVaultKeyId;
+            _resultValue.name = name;
+            _resultValue.source = source;
+            _resultValue.storageAccountId = storageAccountId;
+            return _resultValue;
         }
     }
 }

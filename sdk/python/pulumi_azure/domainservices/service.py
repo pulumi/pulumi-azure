@@ -73,7 +73,21 @@ class ServiceArgs:
              secure_ldap: Optional[pulumi.Input['ServiceSecureLdapArgs']] = None,
              security: Optional[pulumi.Input['ServiceSecurityArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'initialReplicaSet' in kwargs:
+            initial_replica_set = kwargs['initialReplicaSet']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'domainConfigurationType' in kwargs:
+            domain_configuration_type = kwargs['domainConfigurationType']
+        if 'filteredSyncEnabled' in kwargs:
+            filtered_sync_enabled = kwargs['filteredSyncEnabled']
+        if 'secureLdap' in kwargs:
+            secure_ldap = kwargs['secureLdap']
+
         _setter("domain_name", domain_name)
         _setter("initial_replica_set", initial_replica_set)
         _setter("resource_group_name", resource_group_name)
@@ -317,7 +331,29 @@ class _ServiceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentId' in kwargs:
+            deployment_id = kwargs['deploymentId']
+        if 'domainConfigurationType' in kwargs:
+            domain_configuration_type = kwargs['domainConfigurationType']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'filteredSyncEnabled' in kwargs:
+            filtered_sync_enabled = kwargs['filteredSyncEnabled']
+        if 'initialReplicaSet' in kwargs:
+            initial_replica_set = kwargs['initialReplicaSet']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'secureLdap' in kwargs:
+            secure_ldap = kwargs['secureLdap']
+        if 'syncOwner' in kwargs:
+            sync_owner = kwargs['syncOwner']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if deployment_id is not None:
             _setter("deployment_id", deployment_id)
         if domain_configuration_type is not None:

@@ -87,11 +87,11 @@ public final class TrafficManagerAzureEndpointSubnet {
             return this;
         }
         public TrafficManagerAzureEndpointSubnet build() {
-            final var o = new TrafficManagerAzureEndpointSubnet();
-            o.first = first;
-            o.last = last;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new TrafficManagerAzureEndpointSubnet();
+            _resultValue.first = first;
+            _resultValue.last = last;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

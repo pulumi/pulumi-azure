@@ -72,10 +72,10 @@ public final class AutoscaleSettingNotification {
             return webhooks(List.of(webhooks));
         }
         public AutoscaleSettingNotification build() {
-            final var o = new AutoscaleSettingNotification();
-            o.email = email;
-            o.webhooks = webhooks;
-            return o;
+            final var _resultValue = new AutoscaleSettingNotification();
+            _resultValue.email = email;
+            _resultValue.webhooks = webhooks;
+            return _resultValue;
         }
     }
 }

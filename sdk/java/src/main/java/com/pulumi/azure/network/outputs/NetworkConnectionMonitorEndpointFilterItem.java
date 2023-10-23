@@ -67,10 +67,10 @@ public final class NetworkConnectionMonitorEndpointFilterItem {
             return this;
         }
         public NetworkConnectionMonitorEndpointFilterItem build() {
-            final var o = new NetworkConnectionMonitorEndpointFilterItem();
-            o.address = address;
-            o.type = type;
-            return o;
+            final var _resultValue = new NetworkConnectionMonitorEndpointFilterItem();
+            _resultValue.address = address;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

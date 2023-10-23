@@ -145,14 +145,14 @@ public final class FrontdoorFrontendEndpoint {
             return this;
         }
         public FrontdoorFrontendEndpoint build() {
-            final var o = new FrontdoorFrontendEndpoint();
-            o.hostName = hostName;
-            o.id = id;
-            o.name = name;
-            o.sessionAffinityEnabled = sessionAffinityEnabled;
-            o.sessionAffinityTtlSeconds = sessionAffinityTtlSeconds;
-            o.webApplicationFirewallPolicyLinkId = webApplicationFirewallPolicyLinkId;
-            return o;
+            final var _resultValue = new FrontdoorFrontendEndpoint();
+            _resultValue.hostName = hostName;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.sessionAffinityEnabled = sessionAffinityEnabled;
+            _resultValue.sessionAffinityTtlSeconds = sessionAffinityTtlSeconds;
+            _resultValue.webApplicationFirewallPolicyLinkId = webApplicationFirewallPolicyLinkId;
+            return _resultValue;
         }
     }
 }

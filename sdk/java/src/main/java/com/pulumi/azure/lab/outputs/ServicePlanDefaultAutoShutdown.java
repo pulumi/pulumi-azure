@@ -109,12 +109,12 @@ public final class ServicePlanDefaultAutoShutdown {
             return this;
         }
         public ServicePlanDefaultAutoShutdown build() {
-            final var o = new ServicePlanDefaultAutoShutdown();
-            o.disconnectDelay = disconnectDelay;
-            o.idleDelay = idleDelay;
-            o.noConnectDelay = noConnectDelay;
-            o.shutdownOnIdle = shutdownOnIdle;
-            return o;
+            final var _resultValue = new ServicePlanDefaultAutoShutdown();
+            _resultValue.disconnectDelay = disconnectDelay;
+            _resultValue.idleDelay = idleDelay;
+            _resultValue.noConnectDelay = noConnectDelay;
+            _resultValue.shutdownOnIdle = shutdownOnIdle;
+            return _resultValue;
         }
     }
 }

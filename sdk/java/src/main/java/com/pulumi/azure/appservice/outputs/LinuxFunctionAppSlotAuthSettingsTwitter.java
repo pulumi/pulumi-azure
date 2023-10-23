@@ -86,11 +86,11 @@ public final class LinuxFunctionAppSlotAuthSettingsTwitter {
             return this;
         }
         public LinuxFunctionAppSlotAuthSettingsTwitter build() {
-            final var o = new LinuxFunctionAppSlotAuthSettingsTwitter();
-            o.consumerKey = consumerKey;
-            o.consumerSecret = consumerSecret;
-            o.consumerSecretSettingName = consumerSecretSettingName;
-            return o;
+            final var _resultValue = new LinuxFunctionAppSlotAuthSettingsTwitter();
+            _resultValue.consumerKey = consumerKey;
+            _resultValue.consumerSecret = consumerSecret;
+            _resultValue.consumerSecretSettingName = consumerSecretSettingName;
+            return _resultValue;
         }
     }
 }

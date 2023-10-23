@@ -89,11 +89,11 @@ public final class SlotAuthSettingsMicrosoft {
             return oauthScopes(List.of(oauthScopes));
         }
         public SlotAuthSettingsMicrosoft build() {
-            final var o = new SlotAuthSettingsMicrosoft();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.oauthScopes = oauthScopes;
-            return o;
+            final var _resultValue = new SlotAuthSettingsMicrosoft();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.oauthScopes = oauthScopes;
+            return _resultValue;
         }
     }
 }

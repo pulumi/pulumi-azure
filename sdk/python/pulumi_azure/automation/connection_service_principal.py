@@ -55,7 +55,21 @@ class ConnectionServicePrincipalArgs:
              tenant_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'certificateThumbprint' in kwargs:
+            certificate_thumbprint = kwargs['certificateThumbprint']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("application_id", application_id)
         _setter("automation_account_name", automation_account_name)
         _setter("certificate_thumbprint", certificate_thumbprint)
@@ -208,7 +222,21 @@ class _ConnectionServicePrincipalState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              subscription_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'certificateThumbprint' in kwargs:
+            certificate_thumbprint = kwargs['certificateThumbprint']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if application_id is not None:
             _setter("application_id", application_id)
         if automation_account_name is not None:

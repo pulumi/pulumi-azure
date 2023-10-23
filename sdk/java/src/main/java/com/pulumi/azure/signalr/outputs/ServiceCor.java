@@ -50,9 +50,9 @@ public final class ServiceCor {
             return allowedOrigins(List.of(allowedOrigins));
         }
         public ServiceCor build() {
-            final var o = new ServiceCor();
-            o.allowedOrigins = allowedOrigins;
-            return o;
+            final var _resultValue = new ServiceCor();
+            _resultValue.allowedOrigins = allowedOrigins;
+            return _resultValue;
         }
     }
 }

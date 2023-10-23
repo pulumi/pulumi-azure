@@ -67,10 +67,10 @@ public final class ApiLicense {
             return this;
         }
         public ApiLicense build() {
-            final var o = new ApiLicense();
-            o.name = name;
-            o.url = url;
-            return o;
+            final var _resultValue = new ApiLicense();
+            _resultValue.name = name;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

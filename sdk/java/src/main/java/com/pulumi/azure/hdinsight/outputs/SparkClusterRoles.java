@@ -86,11 +86,11 @@ public final class SparkClusterRoles {
             return this;
         }
         public SparkClusterRoles build() {
-            final var o = new SparkClusterRoles();
-            o.headNode = headNode;
-            o.workerNode = workerNode;
-            o.zookeeperNode = zookeeperNode;
-            return o;
+            final var _resultValue = new SparkClusterRoles();
+            _resultValue.headNode = headNode;
+            _resultValue.workerNode = workerNode;
+            _resultValue.zookeeperNode = zookeeperNode;
+            return _resultValue;
         }
     }
 }

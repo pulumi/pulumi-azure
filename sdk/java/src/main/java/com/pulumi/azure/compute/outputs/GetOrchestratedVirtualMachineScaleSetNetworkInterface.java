@@ -169,15 +169,15 @@ public final class GetOrchestratedVirtualMachineScaleSetNetworkInterface {
             return this;
         }
         public GetOrchestratedVirtualMachineScaleSetNetworkInterface build() {
-            final var o = new GetOrchestratedVirtualMachineScaleSetNetworkInterface();
-            o.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
-            o.dnsServers = dnsServers;
-            o.ipConfigurations = ipConfigurations;
-            o.ipForwardingEnabled = ipForwardingEnabled;
-            o.name = name;
-            o.networkSecurityGroupId = networkSecurityGroupId;
-            o.primary = primary;
-            return o;
+            final var _resultValue = new GetOrchestratedVirtualMachineScaleSetNetworkInterface();
+            _resultValue.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
+            _resultValue.dnsServers = dnsServers;
+            _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.ipForwardingEnabled = ipForwardingEnabled;
+            _resultValue.name = name;
+            _resultValue.networkSecurityGroupId = networkSecurityGroupId;
+            _resultValue.primary = primary;
+            return _resultValue;
         }
     }
 }

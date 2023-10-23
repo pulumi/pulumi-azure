@@ -247,19 +247,19 @@ public final class GetSnapshotPolicyResult {
             return weeklySchedules(List.of(weeklySchedules));
         }
         public GetSnapshotPolicyResult build() {
-            final var o = new GetSnapshotPolicyResult();
-            o.accountName = accountName;
-            o.dailySchedules = dailySchedules;
-            o.enabled = enabled;
-            o.hourlySchedules = hourlySchedules;
-            o.id = id;
-            o.location = location;
-            o.monthlySchedules = monthlySchedules;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.weeklySchedules = weeklySchedules;
-            return o;
+            final var _resultValue = new GetSnapshotPolicyResult();
+            _resultValue.accountName = accountName;
+            _resultValue.dailySchedules = dailySchedules;
+            _resultValue.enabled = enabled;
+            _resultValue.hourlySchedules = hourlySchedules;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.monthlySchedules = monthlySchedules;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.weeklySchedules = weeklySchedules;
+            return _resultValue;
         }
     }
 }

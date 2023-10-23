@@ -103,12 +103,12 @@ public final class VirtualMachineKeyVaultCredential {
             return this;
         }
         public VirtualMachineKeyVaultCredential build() {
-            final var o = new VirtualMachineKeyVaultCredential();
-            o.keyVaultUrl = keyVaultUrl;
-            o.name = name;
-            o.servicePrincipalName = servicePrincipalName;
-            o.servicePrincipalSecret = servicePrincipalSecret;
-            return o;
+            final var _resultValue = new VirtualMachineKeyVaultCredential();
+            _resultValue.keyVaultUrl = keyVaultUrl;
+            _resultValue.name = name;
+            _resultValue.servicePrincipalName = servicePrincipalName;
+            _resultValue.servicePrincipalSecret = servicePrincipalSecret;
+            return _resultValue;
         }
     }
 }

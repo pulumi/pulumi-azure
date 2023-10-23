@@ -41,7 +41,9 @@ class DicomServiceAuthenticationArgs:
              _setter: Callable[[Any, Any], None],
              audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              authority: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if audiences is not None:
             _setter("audiences", audiences)
         if authority is not None:
@@ -94,7 +96,15 @@ class DicomServiceIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -165,7 +175,9 @@ class DicomServicePrivateEndpointArgs:
              _setter: Callable[[Any, Any], None],
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if name is not None:
@@ -218,7 +230,11 @@ class FhirServiceAuthenticationArgs:
              audience: pulumi.Input[str],
              authority: pulumi.Input[str],
              smart_proxy_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'smartProxyEnabled' in kwargs:
+            smart_proxy_enabled = kwargs['smartProxyEnabled']
+
         _setter("audience", audience)
         _setter("authority", authority)
         if smart_proxy_enabled is not None:
@@ -289,7 +305,19 @@ class FhirServiceCorsArgs:
              allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
              credentials_allowed: Optional[pulumi.Input[bool]] = None,
              max_age_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'credentialsAllowed' in kwargs:
+            credentials_allowed = kwargs['credentialsAllowed']
+        if 'maxAgeInSeconds' in kwargs:
+            max_age_in_seconds = kwargs['maxAgeInSeconds']
+
         _setter("allowed_headers", allowed_headers)
         _setter("allowed_methods", allowed_methods)
         _setter("allowed_origins", allowed_origins)
@@ -384,7 +412,15 @@ class FhirServiceIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -459,7 +495,13 @@ class FhirServiceOciArtifactArgs:
              login_server: pulumi.Input[str],
              digest: Optional[pulumi.Input[str]] = None,
              image_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'loginServer' in kwargs:
+            login_server = kwargs['loginServer']
+        if 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+
         _setter("login_server", login_server)
         if digest is not None:
             _setter("digest", digest)
@@ -529,7 +571,15 @@ class MedtechServiceIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -608,7 +658,11 @@ class ServiceAuthenticationConfigurationArgs:
              audience: Optional[pulumi.Input[str]] = None,
              authority: Optional[pulumi.Input[str]] = None,
              smart_proxy_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'smartProxyEnabled' in kwargs:
+            smart_proxy_enabled = kwargs['smartProxyEnabled']
+
         if audience is not None:
             _setter("audience", audience)
         if authority is not None:
@@ -685,7 +739,19 @@ class ServiceCorsConfigurationArgs:
              allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              max_age_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowCredentials' in kwargs:
+            allow_credentials = kwargs['allowCredentials']
+        if 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'maxAgeInSeconds' in kwargs:
+            max_age_in_seconds = kwargs['maxAgeInSeconds']
+
         if allow_credentials is not None:
             _setter("allow_credentials", allow_credentials)
         if allowed_headers is not None:
@@ -777,7 +843,9 @@ class WorkspacePrivateEndpointConnectionArgs:
              _setter: Callable[[Any, Any], None],
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if name is not None:

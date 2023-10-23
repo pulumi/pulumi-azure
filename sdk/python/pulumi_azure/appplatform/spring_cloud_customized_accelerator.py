@@ -53,7 +53,19 @@ class SpringCloudCustomizedAcceleratorArgs:
              display_name: Optional[pulumi.Input[str]] = None,
              icon_url: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'gitRepository' in kwargs:
+            git_repository = kwargs['gitRepository']
+        if 'springCloudAcceleratorId' in kwargs:
+            spring_cloud_accelerator_id = kwargs['springCloudAcceleratorId']
+        if 'acceleratorTags' in kwargs:
+            accelerator_tags = kwargs['acceleratorTags']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'iconUrl' in kwargs:
+            icon_url = kwargs['iconUrl']
+
         _setter("git_repository", git_repository)
         _setter("spring_cloud_accelerator_id", spring_cloud_accelerator_id)
         if accelerator_tags is not None:
@@ -192,7 +204,19 @@ class _SpringCloudCustomizedAcceleratorState:
              icon_url: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              spring_cloud_accelerator_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'acceleratorTags' in kwargs:
+            accelerator_tags = kwargs['acceleratorTags']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'gitRepository' in kwargs:
+            git_repository = kwargs['gitRepository']
+        if 'iconUrl' in kwargs:
+            icon_url = kwargs['iconUrl']
+        if 'springCloudAcceleratorId' in kwargs:
+            spring_cloud_accelerator_id = kwargs['springCloudAcceleratorId']
+
         if accelerator_tags is not None:
             _setter("accelerator_tags", accelerator_tags)
         if description is not None:

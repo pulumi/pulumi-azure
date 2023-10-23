@@ -65,10 +65,10 @@ public final class LinkedServiceAzureBlobStorageKeyVaultSasToken {
             return this;
         }
         public LinkedServiceAzureBlobStorageKeyVaultSasToken build() {
-            final var o = new LinkedServiceAzureBlobStorageKeyVaultSasToken();
-            o.linkedServiceName = linkedServiceName;
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new LinkedServiceAzureBlobStorageKeyVaultSasToken();
+            _resultValue.linkedServiceName = linkedServiceName;
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

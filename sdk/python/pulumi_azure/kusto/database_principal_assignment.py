@@ -55,7 +55,21 @@ class DatabasePrincipalAssignmentArgs:
              role: pulumi.Input[str],
              tenant_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("cluster_name", cluster_name)
         _setter("database_name", database_name)
         _setter("principal_id", principal_id)
@@ -215,7 +229,25 @@ class _DatabasePrincipalAssignmentState:
              role: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
              tenant_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'principalName' in kwargs:
+            principal_name = kwargs['principalName']
+        if 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'tenantName' in kwargs:
+            tenant_name = kwargs['tenantName']
+
         if cluster_name is not None:
             _setter("cluster_name", cluster_name)
         if database_name is not None:

@@ -171,15 +171,15 @@ public final class GetServiceAdditionalLocation {
             return zones(List.of(zones));
         }
         public GetServiceAdditionalLocation build() {
-            final var o = new GetServiceAdditionalLocation();
-            o.capacity = capacity;
-            o.gatewayRegionalUrl = gatewayRegionalUrl;
-            o.location = location;
-            o.privateIpAddresses = privateIpAddresses;
-            o.publicIpAddressId = publicIpAddressId;
-            o.publicIpAddresses = publicIpAddresses;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new GetServiceAdditionalLocation();
+            _resultValue.capacity = capacity;
+            _resultValue.gatewayRegionalUrl = gatewayRegionalUrl;
+            _resultValue.location = location;
+            _resultValue.privateIpAddresses = privateIpAddresses;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.publicIpAddresses = publicIpAddresses;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

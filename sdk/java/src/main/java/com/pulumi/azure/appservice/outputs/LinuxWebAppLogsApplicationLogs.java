@@ -68,10 +68,10 @@ public final class LinuxWebAppLogsApplicationLogs {
             return this;
         }
         public LinuxWebAppLogsApplicationLogs build() {
-            final var o = new LinuxWebAppLogsApplicationLogs();
-            o.azureBlobStorage = azureBlobStorage;
-            o.fileSystemLevel = fileSystemLevel;
-            return o;
+            final var _resultValue = new LinuxWebAppLogsApplicationLogs();
+            _resultValue.azureBlobStorage = azureBlobStorage;
+            _resultValue.fileSystemLevel = fileSystemLevel;
+            return _resultValue;
         }
     }
 }

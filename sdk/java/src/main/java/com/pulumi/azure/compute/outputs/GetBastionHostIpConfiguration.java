@@ -84,11 +84,11 @@ public final class GetBastionHostIpConfiguration {
             return this;
         }
         public GetBastionHostIpConfiguration build() {
-            final var o = new GetBastionHostIpConfiguration();
-            o.name = name;
-            o.publicIpAddressId = publicIpAddressId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetBastionHostIpConfiguration();
+            _resultValue.name = name;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

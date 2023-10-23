@@ -105,12 +105,12 @@ public final class GetAppIngressTrafficWeight {
             return this;
         }
         public GetAppIngressTrafficWeight build() {
-            final var o = new GetAppIngressTrafficWeight();
-            o.label = label;
-            o.latestRevision = latestRevision;
-            o.percentage = percentage;
-            o.revisionSuffix = revisionSuffix;
-            return o;
+            final var _resultValue = new GetAppIngressTrafficWeight();
+            _resultValue.label = label;
+            _resultValue.latestRevision = latestRevision;
+            _resultValue.percentage = percentage;
+            _resultValue.revisionSuffix = revisionSuffix;
+            return _resultValue;
         }
     }
 }

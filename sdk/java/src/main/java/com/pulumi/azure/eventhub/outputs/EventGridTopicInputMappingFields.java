@@ -143,14 +143,14 @@ public final class EventGridTopicInputMappingFields {
             return this;
         }
         public EventGridTopicInputMappingFields build() {
-            final var o = new EventGridTopicInputMappingFields();
-            o.dataVersion = dataVersion;
-            o.eventTime = eventTime;
-            o.eventType = eventType;
-            o.id = id;
-            o.subject = subject;
-            o.topic = topic;
-            return o;
+            final var _resultValue = new EventGridTopicInputMappingFields();
+            _resultValue.dataVersion = dataVersion;
+            _resultValue.eventTime = eventTime;
+            _resultValue.eventType = eventType;
+            _resultValue.id = id;
+            _resultValue.subject = subject;
+            _resultValue.topic = topic;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class KubernetesClusterExtensionAksAssignedIdentity {
             return this;
         }
         public KubernetesClusterExtensionAksAssignedIdentity build() {
-            final var o = new KubernetesClusterExtensionAksAssignedIdentity();
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            o.type = type;
-            return o;
+            final var _resultValue = new KubernetesClusterExtensionAksAssignedIdentity();
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

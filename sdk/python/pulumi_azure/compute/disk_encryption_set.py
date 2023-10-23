@@ -65,7 +65,19 @@ class DiskEncryptionSetArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'autoKeyRotationEnabled' in kwargs:
+            auto_key_rotation_enabled = kwargs['autoKeyRotationEnabled']
+        if 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if 'federatedClientId' in kwargs:
+            federated_client_id = kwargs['federatedClientId']
+
         _setter("identity", identity)
         _setter("key_vault_key_id", key_vault_key_id)
         _setter("resource_group_name", resource_group_name)
@@ -249,7 +261,21 @@ class _DiskEncryptionSetState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoKeyRotationEnabled' in kwargs:
+            auto_key_rotation_enabled = kwargs['autoKeyRotationEnabled']
+        if 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if 'federatedClientId' in kwargs:
+            federated_client_id = kwargs['federatedClientId']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'keyVaultKeyUrl' in kwargs:
+            key_vault_key_url = kwargs['keyVaultKeyUrl']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if auto_key_rotation_enabled is not None:
             _setter("auto_key_rotation_enabled", auto_key_rotation_enabled)
         if encryption_type is not None:

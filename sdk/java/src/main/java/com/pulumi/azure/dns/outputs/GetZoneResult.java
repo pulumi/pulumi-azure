@@ -150,15 +150,15 @@ public final class GetZoneResult {
             return this;
         }
         public GetZoneResult build() {
-            final var o = new GetZoneResult();
-            o.id = id;
-            o.maxNumberOfRecordSets = maxNumberOfRecordSets;
-            o.name = name;
-            o.nameServers = nameServers;
-            o.numberOfRecordSets = numberOfRecordSets;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetZoneResult();
+            _resultValue.id = id;
+            _resultValue.maxNumberOfRecordSets = maxNumberOfRecordSets;
+            _resultValue.name = name;
+            _resultValue.nameServers = nameServers;
+            _resultValue.numberOfRecordSets = numberOfRecordSets;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

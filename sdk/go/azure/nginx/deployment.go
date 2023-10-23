@@ -96,6 +96,8 @@ import (
 //						SubnetId: exampleSubnet.ID(),
 //					},
 //				},
+//				Capacity: pulumi.Int(20),
+//				Email:    pulumi.String("user@test.com"),
 //			})
 //			if err != nil {
 //				return err
@@ -118,8 +120,14 @@ import (
 type Deployment struct {
 	pulumi.CustomResourceState
 
+	// Specify the number of NGINX capacity units for this NGINX deployment.
+	//
+	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+	Capacity pulumi.IntPtrOutput `pulumi:"capacity"`
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled pulumi.BoolPtrOutput `pulumi:"diagnoseSupportEnabled"`
+	// Specify the preferred support contact email address of the user used for sending alerts and notification.
+	Email pulumi.StringPtrOutput `pulumi:"email"`
 	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
 	FrontendPrivates DeploymentFrontendPrivateArrayOutput `pulumi:"frontendPrivates"`
 	// A `frontendPublic` block as defined below. Changing this forces a new Nginx Deployment to be created.
@@ -184,8 +192,14 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
+	// Specify the number of NGINX capacity units for this NGINX deployment.
+	//
+	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+	Capacity *int `pulumi:"capacity"`
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
+	// Specify the preferred support contact email address of the user used for sending alerts and notification.
+	Email *string `pulumi:"email"`
 	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
 	FrontendPrivates []DeploymentFrontendPrivate `pulumi:"frontendPrivates"`
 	// A `frontendPublic` block as defined below. Changing this forces a new Nginx Deployment to be created.
@@ -215,8 +229,14 @@ type deploymentState struct {
 }
 
 type DeploymentState struct {
+	// Specify the number of NGINX capacity units for this NGINX deployment.
+	//
+	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+	Capacity pulumi.IntPtrInput
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
+	// Specify the preferred support contact email address of the user used for sending alerts and notification.
+	Email pulumi.StringPtrInput
 	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
 	FrontendPrivates DeploymentFrontendPrivateArrayInput
 	// A `frontendPublic` block as defined below. Changing this forces a new Nginx Deployment to be created.
@@ -250,8 +270,14 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
+	// Specify the number of NGINX capacity units for this NGINX deployment.
+	//
+	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+	Capacity *int `pulumi:"capacity"`
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled *bool `pulumi:"diagnoseSupportEnabled"`
+	// Specify the preferred support contact email address of the user used for sending alerts and notification.
+	Email *string `pulumi:"email"`
 	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
 	FrontendPrivates []DeploymentFrontendPrivate `pulumi:"frontendPrivates"`
 	// A `frontendPublic` block as defined below. Changing this forces a new Nginx Deployment to be created.
@@ -278,8 +304,14 @@ type deploymentArgs struct {
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
+	// Specify the number of NGINX capacity units for this NGINX deployment.
+	//
+	// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+	Capacity pulumi.IntPtrInput
 	// Should the diagnosis support be enabled?
 	DiagnoseSupportEnabled pulumi.BoolPtrInput
+	// Specify the preferred support contact email address of the user used for sending alerts and notification.
+	Email pulumi.StringPtrInput
 	// One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
 	FrontendPrivates DeploymentFrontendPrivateArrayInput
 	// A `frontendPublic` block as defined below. Changing this forces a new Nginx Deployment to be created.
@@ -415,9 +447,21 @@ func (o DeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*Deployme
 	}
 }
 
+// Specify the number of NGINX capacity units for this NGINX deployment.
+//
+// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+func (o DeploymentOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.IntPtrOutput { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
 // Should the diagnosis support be enabled?
 func (o DeploymentOutput) DiagnoseSupportEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.BoolPtrOutput { return v.DiagnoseSupportEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specify the preferred support contact email address of the user used for sending alerts and notification.
+func (o DeploymentOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Email }).(pulumi.StringPtrOutput)
 }
 
 // One or more `frontendPrivate` blocks as defined below. Changing this forces a new Nginx Deployment to be created.

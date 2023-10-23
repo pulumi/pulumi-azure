@@ -71,10 +71,10 @@ public final class ClusterReverseProxyCertificateCommonNamesCommonName {
             return this;
         }
         public ClusterReverseProxyCertificateCommonNamesCommonName build() {
-            final var o = new ClusterReverseProxyCertificateCommonNamesCommonName();
-            o.certificateCommonName = certificateCommonName;
-            o.certificateIssuerThumbprint = certificateIssuerThumbprint;
-            return o;
+            final var _resultValue = new ClusterReverseProxyCertificateCommonNamesCommonName();
+            _resultValue.certificateCommonName = certificateCommonName;
+            _resultValue.certificateIssuerThumbprint = certificateIssuerThumbprint;
+            return _resultValue;
         }
     }
 }

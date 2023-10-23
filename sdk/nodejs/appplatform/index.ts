@@ -55,6 +55,11 @@ export type SpringCloudAppRedisAssociation = import("./springCloudAppRedisAssoci
 export const SpringCloudAppRedisAssociation: typeof import("./springCloudAppRedisAssociation").SpringCloudAppRedisAssociation = null as any;
 utilities.lazyLoad(exports, ["SpringCloudAppRedisAssociation"], () => require("./springCloudAppRedisAssociation"));
 
+export { SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs, SpringCloudApplicationInsightsApplicationPerformanceMonitoringState } from "./springCloudApplicationInsightsApplicationPerformanceMonitoring";
+export type SpringCloudApplicationInsightsApplicationPerformanceMonitoring = import("./springCloudApplicationInsightsApplicationPerformanceMonitoring").SpringCloudApplicationInsightsApplicationPerformanceMonitoring;
+export const SpringCloudApplicationInsightsApplicationPerformanceMonitoring: typeof import("./springCloudApplicationInsightsApplicationPerformanceMonitoring").SpringCloudApplicationInsightsApplicationPerformanceMonitoring = null as any;
+utilities.lazyLoad(exports, ["SpringCloudApplicationInsightsApplicationPerformanceMonitoring"], () => require("./springCloudApplicationInsightsApplicationPerformanceMonitoring"));
+
 export { SpringCloudApplicationLiveViewArgs, SpringCloudApplicationLiveViewState } from "./springCloudApplicationLiveView";
 export type SpringCloudApplicationLiveView = import("./springCloudApplicationLiveView").SpringCloudApplicationLiveView;
 export const SpringCloudApplicationLiveView: typeof import("./springCloudApplicationLiveView").SpringCloudApplicationLiveView = null as any;
@@ -161,6 +166,8 @@ const _module = {
                 return new SpringCloudAppMysqlAssociation(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation":
                 return new SpringCloudAppRedisAssociation(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring":
+                return new SpringCloudApplicationInsightsApplicationPerformanceMonitoring(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView":
                 return new SpringCloudApplicationLiveView(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment":
@@ -208,6 +215,7 @@ pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApp", _mo
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppCosmosDBAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppMysqlAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppRedisAssociation", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApplicationLiveView", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudBuildDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudBuildPackBinding", _module)

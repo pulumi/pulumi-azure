@@ -69,7 +69,23 @@ class SqlPoolArgs:
              restore: Optional[pulumi.Input['SqlPoolRestoreArgs']] = None,
              storage_account_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'dataEncrypted' in kwargs:
+            data_encrypted = kwargs['dataEncrypted']
+        if 'geoBackupPolicyEnabled' in kwargs:
+            geo_backup_policy_enabled = kwargs['geoBackupPolicyEnabled']
+        if 'recoveryDatabaseId' in kwargs:
+            recovery_database_id = kwargs['recoveryDatabaseId']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+
         _setter("sku_name", sku_name)
         _setter("synapse_workspace_id", synapse_workspace_id)
         if collation is not None:
@@ -280,7 +296,23 @@ class _SqlPoolState:
              storage_account_type: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if 'dataEncrypted' in kwargs:
+            data_encrypted = kwargs['dataEncrypted']
+        if 'geoBackupPolicyEnabled' in kwargs:
+            geo_backup_policy_enabled = kwargs['geoBackupPolicyEnabled']
+        if 'recoveryDatabaseId' in kwargs:
+            recovery_database_id = kwargs['recoveryDatabaseId']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+
         if collation is not None:
             _setter("collation", collation)
         if create_mode is not None:

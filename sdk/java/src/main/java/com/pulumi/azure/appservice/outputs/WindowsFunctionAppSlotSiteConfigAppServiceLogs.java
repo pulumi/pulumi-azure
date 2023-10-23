@@ -71,10 +71,10 @@ public final class WindowsFunctionAppSlotSiteConfigAppServiceLogs {
             return this;
         }
         public WindowsFunctionAppSlotSiteConfigAppServiceLogs build() {
-            final var o = new WindowsFunctionAppSlotSiteConfigAppServiceLogs();
-            o.diskQuotaMb = diskQuotaMb;
-            o.retentionPeriodDays = retentionPeriodDays;
-            return o;
+            final var _resultValue = new WindowsFunctionAppSlotSiteConfigAppServiceLogs();
+            _resultValue.diskQuotaMb = diskQuotaMb;
+            _resultValue.retentionPeriodDays = retentionPeriodDays;
+            return _resultValue;
         }
     }
 }

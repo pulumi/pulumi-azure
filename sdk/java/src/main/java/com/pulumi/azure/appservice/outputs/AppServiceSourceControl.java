@@ -125,13 +125,13 @@ public final class AppServiceSourceControl {
             return this;
         }
         public AppServiceSourceControl build() {
-            final var o = new AppServiceSourceControl();
-            o.branch = branch;
-            o.manualIntegration = manualIntegration;
-            o.repoUrl = repoUrl;
-            o.rollbackEnabled = rollbackEnabled;
-            o.useMercurial = useMercurial;
-            return o;
+            final var _resultValue = new AppServiceSourceControl();
+            _resultValue.branch = branch;
+            _resultValue.manualIntegration = manualIntegration;
+            _resultValue.repoUrl = repoUrl;
+            _resultValue.rollbackEnabled = rollbackEnabled;
+            _resultValue.useMercurial = useMercurial;
+            return _resultValue;
         }
     }
 }

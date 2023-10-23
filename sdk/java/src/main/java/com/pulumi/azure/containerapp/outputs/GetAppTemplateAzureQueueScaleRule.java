@@ -85,12 +85,12 @@ public final class GetAppTemplateAzureQueueScaleRule {
             return this;
         }
         public GetAppTemplateAzureQueueScaleRule build() {
-            final var o = new GetAppTemplateAzureQueueScaleRule();
-            o.authentications = authentications;
-            o.name = name;
-            o.queueLength = queueLength;
-            o.queueName = queueName;
-            return o;
+            final var _resultValue = new GetAppTemplateAzureQueueScaleRule();
+            _resultValue.authentications = authentications;
+            _resultValue.name = name;
+            _resultValue.queueLength = queueLength;
+            _resultValue.queueName = queueName;
+            return _resultValue;
         }
     }
 }

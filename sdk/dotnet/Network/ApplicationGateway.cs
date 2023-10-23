@@ -176,7 +176,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificate>> AuthenticationCertificates { get; private set; } = null!;
 
         /// <summary>
-        /// A `autoscale_configuration` block as defined below.
+        /// An `autoscale_configuration` block as defined below.
         /// </summary>
         [Output("autoscaleConfiguration")]
         public Output<Outputs.ApplicationGatewayAutoscaleConfiguration?> AutoscaleConfiguration { get; private set; } = null!;
@@ -333,8 +333,6 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `ssl_profile` blocks as defined below.
-        /// 
-        /// &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         /// </summary>
         [Output("sslProfiles")]
         public Output<ImmutableArray<Outputs.ApplicationGatewaySslProfile>> SslProfiles { get; private set; } = null!;
@@ -371,6 +369,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
+        /// 
+        /// &gt; **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -434,7 +434,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `autoscale_configuration` block as defined below.
+        /// An `autoscale_configuration` block as defined below.
         /// </summary>
         [Input("autoscaleConfiguration")]
         public Input<Inputs.ApplicationGatewayAutoscaleConfigurationArgs>? AutoscaleConfiguration { get; set; }
@@ -666,8 +666,6 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `ssl_profile` blocks as defined below.
-        /// 
-        /// &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         /// </summary>
         public InputList<Inputs.ApplicationGatewaySslProfileArgs> SslProfiles
         {
@@ -734,6 +732,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
+        /// 
+        /// &gt; **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         /// </summary>
         public InputList<string> Zones
         {
@@ -762,7 +762,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// A `autoscale_configuration` block as defined below.
+        /// An `autoscale_configuration` block as defined below.
         /// </summary>
         [Input("autoscaleConfiguration")]
         public Input<Inputs.ApplicationGatewayAutoscaleConfigurationGetArgs>? AutoscaleConfiguration { get; set; }
@@ -1006,8 +1006,6 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// One or more `ssl_profile` blocks as defined below.
-        /// 
-        /// &gt; **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         /// </summary>
         public InputList<Inputs.ApplicationGatewaySslProfileGetArgs> SslProfiles
         {
@@ -1074,6 +1072,8 @@ namespace Pulumi.Azure.Network
 
         /// <summary>
         /// Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
+        /// 
+        /// &gt; **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         /// </summary>
         public InputList<string> Zones
         {

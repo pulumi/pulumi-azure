@@ -64,7 +64,13 @@ class ActionHttpRunAfterArgs:
              _setter: Callable[[Any, Any], None],
              action_name: pulumi.Input[str],
              action_result: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+        if 'actionResult' in kwargs:
+            action_result = kwargs['actionResult']
+
         _setter("action_name", action_name)
         _setter("action_result", action_result)
 
@@ -112,7 +118,9 @@ class IntegrationAccountAgreementGuestIdentityArgs:
              _setter: Callable[[Any, Any], None],
              qualifier: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("qualifier", qualifier)
         _setter("value", value)
 
@@ -160,7 +168,9 @@ class IntegrationAccountAgreementHostIdentityArgs:
              _setter: Callable[[Any, Any], None],
              qualifier: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("qualifier", qualifier)
         _setter("value", value)
 
@@ -212,7 +222,13 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaArgs:
              batch_size: Optional[pulumi.Input[int]] = None,
              message_count: Optional[pulumi.Input[int]] = None,
              recurrence: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if 'messageCount' in kwargs:
+            message_count = kwargs['messageCount']
+
         if batch_size is not None:
             _setter("batch_size", batch_size)
         if message_count is not None:
@@ -292,7 +308,15 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs:
              schedule: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("frequency", frequency)
         _setter("interval", interval)
         if end_time is not None:
@@ -408,7 +432,13 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs:
              month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]] = None,
              week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monthDays' in kwargs:
+            month_days = kwargs['monthDays']
+        if 'weekDays' in kwargs:
+            week_days = kwargs['weekDays']
+
         if hours is not None:
             _setter("hours", hours)
         if minutes is not None:
@@ -500,7 +530,9 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonth
              _setter: Callable[[Any, Any], None],
              week: pulumi.Input[int],
              weekday: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("week", week)
         _setter("weekday", weekday)
 
@@ -552,7 +584,15 @@ class IntegrationAccountCertificateKeyVaultKeyArgs:
              key_name: pulumi.Input[str],
              key_vault_id: pulumi.Input[str],
              key_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+
         _setter("key_name", key_name)
         _setter("key_vault_id", key_vault_id)
         if key_version is not None:
@@ -614,7 +654,9 @@ class IntegrationAccountPartnerBusinessIdentityArgs:
              _setter: Callable[[Any, Any], None],
              qualifier: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("qualifier", qualifier)
         _setter("value", value)
 
@@ -666,7 +708,9 @@ class StandardConnectionStringArgs:
              name: pulumi.Input[str],
              type: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
         _setter("value", value)
@@ -739,7 +783,15 @@ class StandardIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -902,7 +954,49 @@ class StandardSiteConfigArgs:
              use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
              vnet_route_all_enabled: Optional[pulumi.Input[bool]] = None,
              websockets_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'appScaleLimit' in kwargs:
+            app_scale_limit = kwargs['appScaleLimit']
+        if 'autoSwapSlotName' in kwargs:
+            auto_swap_slot_name = kwargs['autoSwapSlotName']
+        if 'dotnetFrameworkVersion' in kwargs:
+            dotnet_framework_version = kwargs['dotnetFrameworkVersion']
+        if 'elasticInstanceMinimum' in kwargs:
+            elastic_instance_minimum = kwargs['elasticInstanceMinimum']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'minTlsVersion' in kwargs:
+            min_tls_version = kwargs['minTlsVersion']
+        if 'preWarmedInstanceCount' in kwargs:
+            pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
+        if 'runtimeScaleMonitoringEnabled' in kwargs:
+            runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinTlsVersion' in kwargs:
+            scm_min_tls_version = kwargs['scmMinTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorkerProcess' in kwargs:
+            use32_bit_worker_process = kwargs['use32BitWorkerProcess']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+
         if always_on is not None:
             _setter("always_on", always_on)
         if app_scale_limit is not None:
@@ -1224,7 +1318,13 @@ class StandardSiteConfigCorsArgs:
              _setter: Callable[[Any, Any], None],
              allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
              support_credentials: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
             _setter("support_credentials", support_credentials)
@@ -1295,7 +1395,15 @@ class StandardSiteConfigIpRestrictionArgs:
              priority: Optional[pulumi.Input[int]] = None,
              service_tag: Optional[pulumi.Input[str]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -1425,7 +1533,17 @@ class StandardSiteConfigIpRestrictionHeadersArgs:
              x_fd_health_probe: Optional[pulumi.Input[str]] = None,
              x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -1525,7 +1643,15 @@ class StandardSiteConfigScmIpRestrictionArgs:
              priority: Optional[pulumi.Input[int]] = None,
              service_tag: Optional[pulumi.Input[str]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if action is not None:
             _setter("action", action)
         if headers is not None:
@@ -1655,7 +1781,17 @@ class StandardSiteConfigScmIpRestrictionHeadersArgs:
              x_fd_health_probe: Optional[pulumi.Input[str]] = None,
              x_forwarded_fors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              x_forwarded_hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -1733,7 +1869,9 @@ class StandardSiteCredentialArgs:
              _setter: Callable[[Any, Any], None],
              password: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if password is not None:
             _setter("password", password)
         if username is not None:
@@ -1787,7 +1925,15 @@ class TriggerRecurrenceScheduleArgs:
              at_these_hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              at_these_minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              on_these_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'atTheseHours' in kwargs:
+            at_these_hours = kwargs['atTheseHours']
+        if 'atTheseMinutes' in kwargs:
+            at_these_minutes = kwargs['atTheseMinutes']
+        if 'onTheseDays' in kwargs:
+            on_these_days = kwargs['onTheseDays']
+
         if at_these_hours is not None:
             _setter("at_these_hours", at_these_hours)
         if at_these_minutes is not None:
@@ -1859,7 +2005,11 @@ class WorkflowAccessControlArgs:
              content: Optional[pulumi.Input['WorkflowAccessControlContentArgs']] = None,
              trigger: Optional[pulumi.Input['WorkflowAccessControlTriggerArgs']] = None,
              workflow_management: Optional[pulumi.Input['WorkflowAccessControlWorkflowManagementArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workflowManagement' in kwargs:
+            workflow_management = kwargs['workflowManagement']
+
         if action is not None:
             _setter("action", action)
         if content is not None:
@@ -1933,7 +2083,11 @@ class WorkflowAccessControlActionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedCallerIpAddressRanges' in kwargs:
+            allowed_caller_ip_address_ranges = kwargs['allowedCallerIpAddressRanges']
+
         _setter("allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
 
     @property
@@ -1964,7 +2118,11 @@ class WorkflowAccessControlContentArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedCallerIpAddressRanges' in kwargs:
+            allowed_caller_ip_address_ranges = kwargs['allowedCallerIpAddressRanges']
+
         _setter("allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
 
     @property
@@ -1999,7 +2157,13 @@ class WorkflowAccessControlTriggerArgs:
              _setter: Callable[[Any, Any], None],
              allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
              open_authentication_policies: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedCallerIpAddressRanges' in kwargs:
+            allowed_caller_ip_address_ranges = kwargs['allowedCallerIpAddressRanges']
+        if 'openAuthenticationPolicies' in kwargs:
+            open_authentication_policies = kwargs['openAuthenticationPolicies']
+
         _setter("allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
         if open_authentication_policies is not None:
             _setter("open_authentication_policies", open_authentication_policies)
@@ -2048,7 +2212,9 @@ class WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs:
              _setter: Callable[[Any, Any], None],
              claims: pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs']]],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("claims", claims)
         _setter("name", name)
 
@@ -2096,7 +2262,9 @@ class WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -2140,7 +2308,11 @@ class WorkflowAccessControlWorkflowManagementArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedCallerIpAddressRanges' in kwargs:
+            allowed_caller_ip_address_ranges = kwargs['allowedCallerIpAddressRanges']
+
         _setter("allowed_caller_ip_address_ranges", allowed_caller_ip_address_ranges)
 
     @property
@@ -2185,7 +2357,15 @@ class WorkflowIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -2317,7 +2497,49 @@ class GetStandardSiteConfigArgs:
              scm_use_main_ip_restriction: Optional[bool] = None,
              use32_bit_worker_process: Optional[bool] = None,
              websockets_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appScaleLimit' in kwargs:
+            app_scale_limit = kwargs['appScaleLimit']
+        if 'autoSwapSlotName' in kwargs:
+            auto_swap_slot_name = kwargs['autoSwapSlotName']
+        if 'elasticInstanceMinimum' in kwargs:
+            elastic_instance_minimum = kwargs['elasticInstanceMinimum']
+        if 'ftpsState' in kwargs:
+            ftps_state = kwargs['ftpsState']
+        if 'ipRestrictions' in kwargs:
+            ip_restrictions = kwargs['ipRestrictions']
+        if 'linuxFxVersion' in kwargs:
+            linux_fx_version = kwargs['linuxFxVersion']
+        if 'minTlsVersion' in kwargs:
+            min_tls_version = kwargs['minTlsVersion']
+        if 'preWarmedInstanceCount' in kwargs:
+            pre_warmed_instance_count = kwargs['preWarmedInstanceCount']
+        if 'scmIpRestrictions' in kwargs:
+            scm_ip_restrictions = kwargs['scmIpRestrictions']
+        if 'scmMinTlsVersion' in kwargs:
+            scm_min_tls_version = kwargs['scmMinTlsVersion']
+        if 'scmType' in kwargs:
+            scm_type = kwargs['scmType']
+        if 'vnetRouteAllEnabled' in kwargs:
+            vnet_route_all_enabled = kwargs['vnetRouteAllEnabled']
+        if 'alwaysOn' in kwargs:
+            always_on = kwargs['alwaysOn']
+        if 'dotnetFrameworkVersion' in kwargs:
+            dotnet_framework_version = kwargs['dotnetFrameworkVersion']
+        if 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if 'runtimeScaleMonitoringEnabled' in kwargs:
+            runtime_scale_monitoring_enabled = kwargs['runtimeScaleMonitoringEnabled']
+        if 'scmUseMainIpRestriction' in kwargs:
+            scm_use_main_ip_restriction = kwargs['scmUseMainIpRestriction']
+        if 'use32BitWorkerProcess' in kwargs:
+            use32_bit_worker_process = kwargs['use32BitWorkerProcess']
+        if 'websocketsEnabled' in kwargs:
+            websockets_enabled = kwargs['websocketsEnabled']
+
         _setter("app_scale_limit", app_scale_limit)
         _setter("auto_swap_slot_name", auto_swap_slot_name)
         _setter("cors", cors)
@@ -2553,7 +2775,13 @@ class GetStandardSiteConfigCorsArgs:
              _setter: Callable[[Any, Any], None],
              allowed_origins: Sequence[str],
              support_credentials: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if 'supportCredentials' in kwargs:
+            support_credentials = kwargs['supportCredentials']
+
         _setter("allowed_origins", allowed_origins)
         if support_credentials is not None:
             _setter("support_credentials", support_credentials)
@@ -2610,7 +2838,15 @@ class GetStandardSiteConfigIpRestrictionArgs:
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("headers", headers)
         _setter("name", name)
         if action is not None:
@@ -2712,7 +2948,17 @@ class GetStandardSiteConfigIpRestrictionHeadersArgs:
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:
@@ -2792,7 +3038,15 @@ class GetStandardSiteConfigScmIpRestrictionArgs:
              priority: Optional[int] = None,
              service_tag: Optional[str] = None,
              virtual_network_subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'serviceTag' in kwargs:
+            service_tag = kwargs['serviceTag']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("headers", headers)
         _setter("name", name)
         if action is not None:
@@ -2894,7 +3148,17 @@ class GetStandardSiteConfigScmIpRestrictionHeadersArgs:
              x_fd_health_probe: Optional[str] = None,
              x_forwarded_fors: Optional[Sequence[str]] = None,
              x_forwarded_hosts: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'xAzureFdids' in kwargs:
+            x_azure_fdids = kwargs['xAzureFdids']
+        if 'xFdHealthProbe' in kwargs:
+            x_fd_health_probe = kwargs['xFdHealthProbe']
+        if 'xForwardedFors' in kwargs:
+            x_forwarded_fors = kwargs['xForwardedFors']
+        if 'xForwardedHosts' in kwargs:
+            x_forwarded_hosts = kwargs['xForwardedHosts']
+
         if x_azure_fdids is not None:
             _setter("x_azure_fdids", x_azure_fdids)
         if x_fd_health_probe is not None:

@@ -102,7 +102,21 @@ class DeviceDeviceProperty(dict):
              status: Optional[str] = None,
              time_zone: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configuredRoleTypes' in kwargs:
+            configured_role_types = kwargs['configuredRoleTypes']
+        if 'hcsVersion' in kwargs:
+            hcs_version = kwargs['hcsVersion']
+        if 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if 'softwareVersion' in kwargs:
+            software_version = kwargs['softwareVersion']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if capacity is not None:
             _setter("capacity", capacity)
         if configured_role_types is not None:
@@ -261,7 +275,13 @@ class OrderContact(dict):
              emails: Sequence[str],
              name: str,
              phone_number: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("company_name", company_name)
         _setter("emails", emails)
         _setter("name", name)
@@ -350,7 +370,17 @@ class OrderReturnTracking(dict):
              serial_number: Optional[str] = None,
              tracking_id: Optional[str] = None,
              tracking_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'carrierName' in kwargs:
+            carrier_name = kwargs['carrierName']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if 'trackingId' in kwargs:
+            tracking_id = kwargs['trackingId']
+        if 'trackingUrl' in kwargs:
+            tracking_url = kwargs['trackingUrl']
+
         if carrier_name is not None:
             _setter("carrier_name", carrier_name)
         if serial_number is not None:
@@ -441,7 +471,11 @@ class OrderShipmentAddress(dict):
              country: str,
              postal_code: str,
              state: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'postalCode' in kwargs:
+            postal_code = kwargs['postalCode']
+
         _setter("addresses", addresses)
         _setter("city", city)
         _setter("country", country)
@@ -531,7 +565,13 @@ class OrderShipmentHistory(dict):
              additional_details: Optional[Mapping[str, str]] = None,
              comments: Optional[str] = None,
              last_update: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalDetails' in kwargs:
+            additional_details = kwargs['additionalDetails']
+        if 'lastUpdate' in kwargs:
+            last_update = kwargs['lastUpdate']
+
         if additional_details is not None:
             _setter("additional_details", additional_details)
         if comments is not None:
@@ -614,7 +654,17 @@ class OrderShipmentTracking(dict):
              serial_number: Optional[str] = None,
              tracking_id: Optional[str] = None,
              tracking_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'carrierName' in kwargs:
+            carrier_name = kwargs['carrierName']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if 'trackingId' in kwargs:
+            tracking_id = kwargs['trackingId']
+        if 'trackingUrl' in kwargs:
+            tracking_url = kwargs['trackingUrl']
+
         if carrier_name is not None:
             _setter("carrier_name", carrier_name)
         if serial_number is not None:
@@ -703,7 +753,13 @@ class OrderStatus(dict):
              comments: Optional[str] = None,
              info: Optional[str] = None,
              last_update: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalDetails' in kwargs:
+            additional_details = kwargs['additionalDetails']
+        if 'lastUpdate' in kwargs:
+            last_update = kwargs['lastUpdate']
+
         if additional_details is not None:
             _setter("additional_details", additional_details)
         if comments is not None:
@@ -801,7 +857,21 @@ class GetDeviceDevicePropertyResult(dict):
              status: str,
              time_zone: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'configuredRoleTypes' in kwargs:
+            configured_role_types = kwargs['configuredRoleTypes']
+        if 'hcsVersion' in kwargs:
+            hcs_version = kwargs['hcsVersion']
+        if 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if 'softwareVersion' in kwargs:
+            software_version = kwargs['softwareVersion']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("capacity", capacity)
         _setter("configured_role_types", configured_role_types)
         _setter("culture", culture)

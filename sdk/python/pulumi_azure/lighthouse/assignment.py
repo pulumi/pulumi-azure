@@ -35,7 +35,11 @@ class AssignmentArgs:
              lighthouse_definition_id: pulumi.Input[str],
              scope: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lighthouseDefinitionId' in kwargs:
+            lighthouse_definition_id = kwargs['lighthouseDefinitionId']
+
         _setter("lighthouse_definition_id", lighthouse_definition_id)
         _setter("scope", scope)
         if name is not None:
@@ -102,7 +106,11 @@ class _AssignmentState:
              lighthouse_definition_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'lighthouseDefinitionId' in kwargs:
+            lighthouse_definition_id = kwargs['lighthouseDefinitionId']
+
         if lighthouse_definition_id is not None:
             _setter("lighthouse_definition_id", lighthouse_definition_id)
         if name is not None:

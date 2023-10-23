@@ -244,19 +244,19 @@ public final class LinuxVirtualMachineScaleSetExtension {
             return this;
         }
         public LinuxVirtualMachineScaleSetExtension build() {
-            final var o = new LinuxVirtualMachineScaleSetExtension();
-            o.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
-            o.automaticUpgradeEnabled = automaticUpgradeEnabled;
-            o.forceUpdateTag = forceUpdateTag;
-            o.name = name;
-            o.protectedSettings = protectedSettings;
-            o.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
-            o.provisionAfterExtensions = provisionAfterExtensions;
-            o.publisher = publisher;
-            o.settings = settings;
-            o.type = type;
-            o.typeHandlerVersion = typeHandlerVersion;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetExtension();
+            _resultValue.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            _resultValue.automaticUpgradeEnabled = automaticUpgradeEnabled;
+            _resultValue.forceUpdateTag = forceUpdateTag;
+            _resultValue.name = name;
+            _resultValue.protectedSettings = protectedSettings;
+            _resultValue.protectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
+            _resultValue.provisionAfterExtensions = provisionAfterExtensions;
+            _resultValue.publisher = publisher;
+            _resultValue.settings = settings;
+            _resultValue.type = type;
+            _resultValue.typeHandlerVersion = typeHandlerVersion;
+            return _resultValue;
         }
     }
 }

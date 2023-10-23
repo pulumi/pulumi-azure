@@ -86,11 +86,11 @@ public final class HBaseClusterRolesHeadNodeScriptAction {
             return this;
         }
         public HBaseClusterRolesHeadNodeScriptAction build() {
-            final var o = new HBaseClusterRolesHeadNodeScriptAction();
-            o.name = name;
-            o.parameters = parameters;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new HBaseClusterRolesHeadNodeScriptAction();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

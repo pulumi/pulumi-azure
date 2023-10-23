@@ -65,10 +65,10 @@ public final class ConfigurationConfigFile {
             return this;
         }
         public ConfigurationConfigFile build() {
-            final var o = new ConfigurationConfigFile();
-            o.content = content;
-            o.virtualPath = virtualPath;
-            return o;
+            final var _resultValue = new ConfigurationConfigFile();
+            _resultValue.content = content;
+            _resultValue.virtualPath = virtualPath;
+            return _resultValue;
         }
     }
 }

@@ -69,10 +69,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
             return this;
         }
         public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate build() {
-            final var o = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate();
-            o.store = store;
-            o.url = url;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate();
+            _resultValue.store = store;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

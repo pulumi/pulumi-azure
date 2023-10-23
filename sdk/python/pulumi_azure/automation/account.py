@@ -61,7 +61,17 @@ class AccountArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
         if encryptions is not None:
@@ -255,7 +265,27 @@ class _AccountState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dscPrimaryAccessKey' in kwargs:
+            dsc_primary_access_key = kwargs['dscPrimaryAccessKey']
+        if 'dscSecondaryAccessKey' in kwargs:
+            dsc_secondary_access_key = kwargs['dscSecondaryAccessKey']
+        if 'dscServerEndpoint' in kwargs:
+            dsc_server_endpoint = kwargs['dscServerEndpoint']
+        if 'hybridServiceUrl' in kwargs:
+            hybrid_service_url = kwargs['hybridServiceUrl']
+        if 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if dsc_primary_access_key is not None:
             _setter("dsc_primary_access_key", dsc_primary_access_key)
         if dsc_secondary_access_key is not None:

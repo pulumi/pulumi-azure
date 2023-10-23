@@ -48,9 +48,9 @@ public final class BackupPolicyDiskRetentionRuleCriteria {
             return this;
         }
         public BackupPolicyDiskRetentionRuleCriteria build() {
-            final var o = new BackupPolicyDiskRetentionRuleCriteria();
-            o.absoluteCriteria = absoluteCriteria;
-            return o;
+            final var _resultValue = new BackupPolicyDiskRetentionRuleCriteria();
+            _resultValue.absoluteCriteria = absoluteCriteria;
+            return _resultValue;
         }
     }
 }

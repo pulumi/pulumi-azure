@@ -279,22 +279,22 @@ public final class GetLBRuleResult {
             return this;
         }
         public GetLBRuleResult build() {
-            final var o = new GetLBRuleResult();
-            o.backendAddressPoolId = backendAddressPoolId;
-            o.backendPort = backendPort;
-            o.disableOutboundSnat = disableOutboundSnat;
-            o.enableFloatingIp = enableFloatingIp;
-            o.enableTcpReset = enableTcpReset;
-            o.frontendIpConfigurationName = frontendIpConfigurationName;
-            o.frontendPort = frontendPort;
-            o.id = id;
-            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
-            o.loadDistribution = loadDistribution;
-            o.loadbalancerId = loadbalancerId;
-            o.name = name;
-            o.probeId = probeId;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new GetLBRuleResult();
+            _resultValue.backendAddressPoolId = backendAddressPoolId;
+            _resultValue.backendPort = backendPort;
+            _resultValue.disableOutboundSnat = disableOutboundSnat;
+            _resultValue.enableFloatingIp = enableFloatingIp;
+            _resultValue.enableTcpReset = enableTcpReset;
+            _resultValue.frontendIpConfigurationName = frontendIpConfigurationName;
+            _resultValue.frontendPort = frontendPort;
+            _resultValue.id = id;
+            _resultValue.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            _resultValue.loadDistribution = loadDistribution;
+            _resultValue.loadbalancerId = loadbalancerId;
+            _resultValue.name = name;
+            _resultValue.probeId = probeId;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

@@ -90,11 +90,11 @@ public final class FileSystemHsmSetting {
             return this;
         }
         public FileSystemHsmSetting build() {
-            final var o = new FileSystemHsmSetting();
-            o.containerId = containerId;
-            o.importPrefix = importPrefix;
-            o.loggingContainerId = loggingContainerId;
-            return o;
+            final var _resultValue = new FileSystemHsmSetting();
+            _resultValue.containerId = containerId;
+            _resultValue.importPrefix = importPrefix;
+            _resultValue.loggingContainerId = loggingContainerId;
+            return _resultValue;
         }
     }
 }

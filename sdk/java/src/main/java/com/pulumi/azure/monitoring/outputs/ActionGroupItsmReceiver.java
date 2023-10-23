@@ -126,13 +126,13 @@ public final class ActionGroupItsmReceiver {
             return this;
         }
         public ActionGroupItsmReceiver build() {
-            final var o = new ActionGroupItsmReceiver();
-            o.connectionId = connectionId;
-            o.name = name;
-            o.region = region;
-            o.ticketConfiguration = ticketConfiguration;
-            o.workspaceId = workspaceId;
-            return o;
+            final var _resultValue = new ActionGroupItsmReceiver();
+            _resultValue.connectionId = connectionId;
+            _resultValue.name = name;
+            _resultValue.region = region;
+            _resultValue.ticketConfiguration = ticketConfiguration;
+            _resultValue.workspaceId = workspaceId;
+            return _resultValue;
         }
     }
 }

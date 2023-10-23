@@ -51,7 +51,21 @@ class NamespaceNetworkRuleSetInitArgs:
              network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'networkRules' in kwargs:
+            network_rules = kwargs['networkRules']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'trustedServicesAllowed' in kwargs:
+            trusted_services_allowed = kwargs['trustedServicesAllowed']
+
         _setter("namespace_id", namespace_id)
         if default_action is not None:
             _setter("default_action", default_action)
@@ -177,7 +191,21 @@ class _NamespaceNetworkRuleSetState:
              network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if 'networkRules' in kwargs:
+            network_rules = kwargs['networkRules']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'trustedServicesAllowed' in kwargs:
+            trusted_services_allowed = kwargs['trustedServicesAllowed']
+
         if default_action is not None:
             _setter("default_action", default_action)
         if ip_rules is not None:

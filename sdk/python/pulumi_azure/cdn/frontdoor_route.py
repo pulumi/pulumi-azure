@@ -87,7 +87,31 @@ class FrontdoorRouteArgs:
              https_redirect_enabled: Optional[pulumi.Input[bool]] = None,
              link_to_default_domain: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorEndpointId' in kwargs:
+            cdn_frontdoor_endpoint_id = kwargs['cdnFrontdoorEndpointId']
+        if 'cdnFrontdoorOriginGroupId' in kwargs:
+            cdn_frontdoor_origin_group_id = kwargs['cdnFrontdoorOriginGroupId']
+        if 'cdnFrontdoorOriginIds' in kwargs:
+            cdn_frontdoor_origin_ids = kwargs['cdnFrontdoorOriginIds']
+        if 'patternsToMatches' in kwargs:
+            patterns_to_matches = kwargs['patternsToMatches']
+        if 'supportedProtocols' in kwargs:
+            supported_protocols = kwargs['supportedProtocols']
+        if 'cdnFrontdoorCustomDomainIds' in kwargs:
+            cdn_frontdoor_custom_domain_ids = kwargs['cdnFrontdoorCustomDomainIds']
+        if 'cdnFrontdoorOriginPath' in kwargs:
+            cdn_frontdoor_origin_path = kwargs['cdnFrontdoorOriginPath']
+        if 'cdnFrontdoorRuleSetIds' in kwargs:
+            cdn_frontdoor_rule_set_ids = kwargs['cdnFrontdoorRuleSetIds']
+        if 'forwardingProtocol' in kwargs:
+            forwarding_protocol = kwargs['forwardingProtocol']
+        if 'httpsRedirectEnabled' in kwargs:
+            https_redirect_enabled = kwargs['httpsRedirectEnabled']
+        if 'linkToDefaultDomain' in kwargs:
+            link_to_default_domain = kwargs['linkToDefaultDomain']
+
         _setter("cdn_frontdoor_endpoint_id", cdn_frontdoor_endpoint_id)
         _setter("cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
         _setter("cdn_frontdoor_origin_ids", cdn_frontdoor_origin_ids)
@@ -361,7 +385,31 @@ class _FrontdoorRouteState:
              name: Optional[pulumi.Input[str]] = None,
              patterns_to_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cdnFrontdoorCustomDomainIds' in kwargs:
+            cdn_frontdoor_custom_domain_ids = kwargs['cdnFrontdoorCustomDomainIds']
+        if 'cdnFrontdoorEndpointId' in kwargs:
+            cdn_frontdoor_endpoint_id = kwargs['cdnFrontdoorEndpointId']
+        if 'cdnFrontdoorOriginGroupId' in kwargs:
+            cdn_frontdoor_origin_group_id = kwargs['cdnFrontdoorOriginGroupId']
+        if 'cdnFrontdoorOriginIds' in kwargs:
+            cdn_frontdoor_origin_ids = kwargs['cdnFrontdoorOriginIds']
+        if 'cdnFrontdoorOriginPath' in kwargs:
+            cdn_frontdoor_origin_path = kwargs['cdnFrontdoorOriginPath']
+        if 'cdnFrontdoorRuleSetIds' in kwargs:
+            cdn_frontdoor_rule_set_ids = kwargs['cdnFrontdoorRuleSetIds']
+        if 'forwardingProtocol' in kwargs:
+            forwarding_protocol = kwargs['forwardingProtocol']
+        if 'httpsRedirectEnabled' in kwargs:
+            https_redirect_enabled = kwargs['httpsRedirectEnabled']
+        if 'linkToDefaultDomain' in kwargs:
+            link_to_default_domain = kwargs['linkToDefaultDomain']
+        if 'patternsToMatches' in kwargs:
+            patterns_to_matches = kwargs['patternsToMatches']
+        if 'supportedProtocols' in kwargs:
+            supported_protocols = kwargs['supportedProtocols']
+
         if cache is not None:
             _setter("cache", cache)
         if cdn_frontdoor_custom_domain_ids is not None:

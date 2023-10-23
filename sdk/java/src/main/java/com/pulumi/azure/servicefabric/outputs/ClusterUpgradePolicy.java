@@ -203,17 +203,17 @@ public final class ClusterUpgradePolicy {
             return this;
         }
         public ClusterUpgradePolicy build() {
-            final var o = new ClusterUpgradePolicy();
-            o.deltaHealthPolicy = deltaHealthPolicy;
-            o.forceRestartEnabled = forceRestartEnabled;
-            o.healthCheckRetryTimeout = healthCheckRetryTimeout;
-            o.healthCheckStableDuration = healthCheckStableDuration;
-            o.healthCheckWaitDuration = healthCheckWaitDuration;
-            o.healthPolicy = healthPolicy;
-            o.upgradeDomainTimeout = upgradeDomainTimeout;
-            o.upgradeReplicaSetCheckTimeout = upgradeReplicaSetCheckTimeout;
-            o.upgradeTimeout = upgradeTimeout;
-            return o;
+            final var _resultValue = new ClusterUpgradePolicy();
+            _resultValue.deltaHealthPolicy = deltaHealthPolicy;
+            _resultValue.forceRestartEnabled = forceRestartEnabled;
+            _resultValue.healthCheckRetryTimeout = healthCheckRetryTimeout;
+            _resultValue.healthCheckStableDuration = healthCheckStableDuration;
+            _resultValue.healthCheckWaitDuration = healthCheckWaitDuration;
+            _resultValue.healthPolicy = healthPolicy;
+            _resultValue.upgradeDomainTimeout = upgradeDomainTimeout;
+            _resultValue.upgradeReplicaSetCheckTimeout = upgradeReplicaSetCheckTimeout;
+            _resultValue.upgradeTimeout = upgradeTimeout;
+            return _resultValue;
         }
     }
 }

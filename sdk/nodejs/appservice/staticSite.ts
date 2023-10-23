@@ -64,6 +64,10 @@ export class StaticSite extends pulumi.CustomResource {
      */
     public /*out*/ readonly apiKey!: pulumi.Output<string>;
     /**
+     * A key-value pair of App Settings.
+     */
+    public readonly appSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The default host name of the Static Web App.
      */
     public /*out*/ readonly defaultHostName!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class StaticSite extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as StaticSiteState | undefined;
             resourceInputs["apiKey"] = state ? state.apiKey : undefined;
+            resourceInputs["appSettings"] = state ? state.appSettings : undefined;
             resourceInputs["defaultHostName"] = state ? state.defaultHostName : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -123,6 +128,7 @@ export class StaticSite extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["appSettings"] = args ? args.appSettings : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -148,6 +154,10 @@ export interface StaticSiteState {
      * The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
      */
     apiKey?: pulumi.Input<string>;
+    /**
+     * A key-value pair of App Settings.
+     */
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The default host name of the Static Web App.
      */
@@ -186,6 +196,10 @@ export interface StaticSiteState {
  * The set of arguments for constructing a StaticSite resource.
  */
 export interface StaticSiteArgs {
+    /**
+     * A key-value pair of App Settings.
+     */
+    appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An `identity` block as defined below.
      */

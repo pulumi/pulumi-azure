@@ -252,21 +252,21 @@ public final class GetSharedImageVersionResult {
             return targetRegions(List.of(targetRegions));
         }
         public GetSharedImageVersionResult build() {
-            final var o = new GetSharedImageVersionResult();
-            o.excludeFromLatest = excludeFromLatest;
-            o.galleryName = galleryName;
-            o.id = id;
-            o.imageName = imageName;
-            o.location = location;
-            o.managedImageId = managedImageId;
-            o.name = name;
-            o.osDiskImageSizeGb = osDiskImageSizeGb;
-            o.osDiskSnapshotId = osDiskSnapshotId;
-            o.resourceGroupName = resourceGroupName;
-            o.sortVersionsBySemver = sortVersionsBySemver;
-            o.tags = tags;
-            o.targetRegions = targetRegions;
-            return o;
+            final var _resultValue = new GetSharedImageVersionResult();
+            _resultValue.excludeFromLatest = excludeFromLatest;
+            _resultValue.galleryName = galleryName;
+            _resultValue.id = id;
+            _resultValue.imageName = imageName;
+            _resultValue.location = location;
+            _resultValue.managedImageId = managedImageId;
+            _resultValue.name = name;
+            _resultValue.osDiskImageSizeGb = osDiskImageSizeGb;
+            _resultValue.osDiskSnapshotId = osDiskSnapshotId;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sortVersionsBySemver = sortVersionsBySemver;
+            _resultValue.tags = tags;
+            _resultValue.targetRegions = targetRegions;
+            return _resultValue;
         }
     }
 }

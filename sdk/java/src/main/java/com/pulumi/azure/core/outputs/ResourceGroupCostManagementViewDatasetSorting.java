@@ -65,10 +65,10 @@ public final class ResourceGroupCostManagementViewDatasetSorting {
             return this;
         }
         public ResourceGroupCostManagementViewDatasetSorting build() {
-            final var o = new ResourceGroupCostManagementViewDatasetSorting();
-            o.direction = direction;
-            o.name = name;
-            return o;
+            final var _resultValue = new ResourceGroupCostManagementViewDatasetSorting();
+            _resultValue.direction = direction;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

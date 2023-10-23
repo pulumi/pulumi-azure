@@ -46,9 +46,9 @@ public final class GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2 {
             return this;
         }
         public GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2 build() {
-            final var o = new GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2();
-            o.clientId = clientId;
-            return o;
+            final var _resultValue = new GetWindowsWebAppAuthSettingsV2AzureStaticWebAppV2();
+            _resultValue.clientId = clientId;
+            return _resultValue;
         }
     }
 }

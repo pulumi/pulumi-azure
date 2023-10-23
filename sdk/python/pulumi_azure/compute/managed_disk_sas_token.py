@@ -38,7 +38,15 @@ class ManagedDiskSasTokenArgs:
              access_level: pulumi.Input[str],
              duration_in_seconds: pulumi.Input[int],
              managed_disk_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessLevel' in kwargs:
+            access_level = kwargs['accessLevel']
+        if 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+        if 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+
         _setter("access_level", access_level)
         _setter("duration_in_seconds", duration_in_seconds)
         _setter("managed_disk_id", managed_disk_id)
@@ -114,7 +122,17 @@ class _ManagedDiskSasTokenState:
              duration_in_seconds: Optional[pulumi.Input[int]] = None,
              managed_disk_id: Optional[pulumi.Input[str]] = None,
              sas_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessLevel' in kwargs:
+            access_level = kwargs['accessLevel']
+        if 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+        if 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+        if 'sasUrl' in kwargs:
+            sas_url = kwargs['sasUrl']
+
         if access_level is not None:
             _setter("access_level", access_level)
         if duration_in_seconds is not None:

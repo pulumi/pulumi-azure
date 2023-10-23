@@ -90,11 +90,11 @@ public final class SlotAuthSettingsActiveDirectory {
             return this;
         }
         public SlotAuthSettingsActiveDirectory build() {
-            final var o = new SlotAuthSettingsActiveDirectory();
-            o.allowedAudiences = allowedAudiences;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            return o;
+            final var _resultValue = new SlotAuthSettingsActiveDirectory();
+            _resultValue.allowedAudiences = allowedAudiences;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            return _resultValue;
         }
     }
 }

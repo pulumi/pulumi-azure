@@ -107,12 +107,12 @@ public final class GetLinuxWebAppAuthSettingMicrosoft {
             return oauthScopes(List.of(oauthScopes));
         }
         public GetLinuxWebAppAuthSettingMicrosoft build() {
-            final var o = new GetLinuxWebAppAuthSettingMicrosoft();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.clientSecretSettingName = clientSecretSettingName;
-            o.oauthScopes = oauthScopes;
-            return o;
+            final var _resultValue = new GetLinuxWebAppAuthSettingMicrosoft();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            _resultValue.oauthScopes = oauthScopes;
+            return _resultValue;
         }
     }
 }

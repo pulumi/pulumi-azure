@@ -194,16 +194,16 @@ public final class FrontdoorRoutingRule {
             return this;
         }
         public FrontdoorRoutingRule build() {
-            final var o = new FrontdoorRoutingRule();
-            o.acceptedProtocols = acceptedProtocols;
-            o.enabled = enabled;
-            o.forwardingConfiguration = forwardingConfiguration;
-            o.frontendEndpoints = frontendEndpoints;
-            o.id = id;
-            o.name = name;
-            o.patternsToMatches = patternsToMatches;
-            o.redirectConfiguration = redirectConfiguration;
-            return o;
+            final var _resultValue = new FrontdoorRoutingRule();
+            _resultValue.acceptedProtocols = acceptedProtocols;
+            _resultValue.enabled = enabled;
+            _resultValue.forwardingConfiguration = forwardingConfiguration;
+            _resultValue.frontendEndpoints = frontendEndpoints;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.patternsToMatches = patternsToMatches;
+            _resultValue.redirectConfiguration = redirectConfiguration;
+            return _resultValue;
         }
     }
 }

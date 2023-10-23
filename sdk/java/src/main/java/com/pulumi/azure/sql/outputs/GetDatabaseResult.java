@@ -258,20 +258,20 @@ public final class GetDatabaseResult {
             return this;
         }
         public GetDatabaseResult build() {
-            final var o = new GetDatabaseResult();
-            o.collation = collation;
-            o.defaultSecondaryLocation = defaultSecondaryLocation;
-            o.edition = edition;
-            o.elasticPoolName = elasticPoolName;
-            o.failoverGroupId = failoverGroupId;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.readScale = readScale;
-            o.resourceGroupName = resourceGroupName;
-            o.serverName = serverName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDatabaseResult();
+            _resultValue.collation = collation;
+            _resultValue.defaultSecondaryLocation = defaultSecondaryLocation;
+            _resultValue.edition = edition;
+            _resultValue.elasticPoolName = elasticPoolName;
+            _resultValue.failoverGroupId = failoverGroupId;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.readScale = readScale;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.serverName = serverName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

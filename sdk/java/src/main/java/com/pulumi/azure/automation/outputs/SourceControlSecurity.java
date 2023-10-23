@@ -86,11 +86,11 @@ public final class SourceControlSecurity {
             return this;
         }
         public SourceControlSecurity build() {
-            final var o = new SourceControlSecurity();
-            o.refreshToken = refreshToken;
-            o.token = token;
-            o.tokenType = tokenType;
-            return o;
+            final var _resultValue = new SourceControlSecurity();
+            _resultValue.refreshToken = refreshToken;
+            _resultValue.token = token;
+            _resultValue.tokenType = tokenType;
+            return _resultValue;
         }
     }
 }

@@ -50,9 +50,9 @@ public final class FrontdoorSecretSecret {
             return customerCertificates(List.of(customerCertificates));
         }
         public FrontdoorSecretSecret build() {
-            final var o = new FrontdoorSecretSecret();
-            o.customerCertificates = customerCertificates;
-            return o;
+            final var _resultValue = new FrontdoorSecretSecret();
+            _resultValue.customerCertificates = customerCertificates;
+            return _resultValue;
         }
     }
 }

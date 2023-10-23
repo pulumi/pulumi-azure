@@ -39,7 +39,17 @@ class GatewayCertificateAuthorityArgs:
              certificate_name: pulumi.Input[str],
              gateway_name: pulumi.Input[str],
              is_trusted: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if 'gatewayName' in kwargs:
+            gateway_name = kwargs['gatewayName']
+        if 'isTrusted' in kwargs:
+            is_trusted = kwargs['isTrusted']
+
         _setter("api_management_id", api_management_id)
         _setter("certificate_name", certificate_name)
         _setter("gateway_name", gateway_name)
@@ -123,7 +133,17 @@ class _GatewayCertificateAuthorityState:
              certificate_name: Optional[pulumi.Input[str]] = None,
              gateway_name: Optional[pulumi.Input[str]] = None,
              is_trusted: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if 'gatewayName' in kwargs:
+            gateway_name = kwargs['gatewayName']
+        if 'isTrusted' in kwargs:
+            is_trusted = kwargs['isTrusted']
+
         if api_management_id is not None:
             _setter("api_management_id", api_management_id)
         if certificate_name is not None:

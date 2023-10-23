@@ -87,11 +87,11 @@ public final class WindowsVirtualMachineInboundNatRule {
             return this;
         }
         public WindowsVirtualMachineInboundNatRule build() {
-            final var o = new WindowsVirtualMachineInboundNatRule();
-            o.backendPort = backendPort;
-            o.frontendPort = frontendPort;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineInboundNatRule();
+            _resultValue.backendPort = backendPort;
+            _resultValue.frontendPort = frontendPort;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

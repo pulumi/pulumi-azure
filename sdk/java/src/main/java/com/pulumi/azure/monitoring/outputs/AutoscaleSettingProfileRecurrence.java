@@ -110,12 +110,12 @@ public final class AutoscaleSettingProfileRecurrence {
             return this;
         }
         public AutoscaleSettingProfileRecurrence build() {
-            final var o = new AutoscaleSettingProfileRecurrence();
-            o.days = days;
-            o.hours = hours;
-            o.minutes = minutes;
-            o.timezone = timezone;
-            return o;
+            final var _resultValue = new AutoscaleSettingProfileRecurrence();
+            _resultValue.days = days;
+            _resultValue.hours = hours;
+            _resultValue.minutes = minutes;
+            _resultValue.timezone = timezone;
+            return _resultValue;
         }
     }
 }

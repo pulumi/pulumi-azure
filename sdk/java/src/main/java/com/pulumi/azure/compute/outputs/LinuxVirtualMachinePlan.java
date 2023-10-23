@@ -84,11 +84,11 @@ public final class LinuxVirtualMachinePlan {
             return this;
         }
         public LinuxVirtualMachinePlan build() {
-            final var o = new LinuxVirtualMachinePlan();
-            o.name = name;
-            o.product = product;
-            o.publisher = publisher;
-            return o;
+            final var _resultValue = new LinuxVirtualMachinePlan();
+            _resultValue.name = name;
+            _resultValue.product = product;
+            _resultValue.publisher = publisher;
+            return _resultValue;
         }
     }
 }

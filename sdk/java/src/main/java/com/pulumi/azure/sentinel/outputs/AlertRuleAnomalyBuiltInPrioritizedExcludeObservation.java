@@ -105,12 +105,12 @@ public final class AlertRuleAnomalyBuiltInPrioritizedExcludeObservation {
             return this;
         }
         public AlertRuleAnomalyBuiltInPrioritizedExcludeObservation build() {
-            final var o = new AlertRuleAnomalyBuiltInPrioritizedExcludeObservation();
-            o.description = description;
-            o.exclude = exclude;
-            o.name = name;
-            o.prioritize = prioritize;
-            return o;
+            final var _resultValue = new AlertRuleAnomalyBuiltInPrioritizedExcludeObservation();
+            _resultValue.description = description;
+            _resultValue.exclude = exclude;
+            _resultValue.name = name;
+            _resultValue.prioritize = prioritize;
+            return _resultValue;
         }
     }
 }

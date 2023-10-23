@@ -103,12 +103,12 @@ public final class KafkaClusterMetastoresAmbari {
             return this;
         }
         public KafkaClusterMetastoresAmbari build() {
-            final var o = new KafkaClusterMetastoresAmbari();
-            o.databaseName = databaseName;
-            o.password = password;
-            o.server = server;
-            o.username = username;
-            return o;
+            final var _resultValue = new KafkaClusterMetastoresAmbari();
+            _resultValue.databaseName = databaseName;
+            _resultValue.password = password;
+            _resultValue.server = server;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

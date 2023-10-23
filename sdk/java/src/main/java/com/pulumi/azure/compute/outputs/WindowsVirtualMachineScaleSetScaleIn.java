@@ -68,10 +68,10 @@ public final class WindowsVirtualMachineScaleSetScaleIn {
             return this;
         }
         public WindowsVirtualMachineScaleSetScaleIn build() {
-            final var o = new WindowsVirtualMachineScaleSetScaleIn();
-            o.forceDeletionEnabled = forceDeletionEnabled;
-            o.rule = rule;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetScaleIn();
+            _resultValue.forceDeletionEnabled = forceDeletionEnabled;
+            _resultValue.rule = rule;
+            return _resultValue;
         }
     }
 }

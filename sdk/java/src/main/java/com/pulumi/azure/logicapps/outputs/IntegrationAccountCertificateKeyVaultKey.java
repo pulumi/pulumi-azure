@@ -86,11 +86,11 @@ public final class IntegrationAccountCertificateKeyVaultKey {
             return this;
         }
         public IntegrationAccountCertificateKeyVaultKey build() {
-            final var o = new IntegrationAccountCertificateKeyVaultKey();
-            o.keyName = keyName;
-            o.keyVaultId = keyVaultId;
-            o.keyVersion = keyVersion;
-            return o;
+            final var _resultValue = new IntegrationAccountCertificateKeyVaultKey();
+            _resultValue.keyName = keyName;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.keyVersion = keyVersion;
+            return _resultValue;
         }
     }
 }

@@ -92,11 +92,11 @@ public final class OrchestratedVirtualMachineScaleSetOsProfile {
             return this;
         }
         public OrchestratedVirtualMachineScaleSetOsProfile build() {
-            final var o = new OrchestratedVirtualMachineScaleSetOsProfile();
-            o.customData = customData;
-            o.linuxConfiguration = linuxConfiguration;
-            o.windowsConfiguration = windowsConfiguration;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetOsProfile();
+            _resultValue.customData = customData;
+            _resultValue.linuxConfiguration = linuxConfiguration;
+            _resultValue.windowsConfiguration = windowsConfiguration;
+            return _resultValue;
         }
     }
 }

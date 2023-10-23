@@ -51,7 +51,13 @@ class NetworkSimGroupArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+        if 'encryptionKeyUrl' in kwargs:
+            encryption_key_url = kwargs['encryptionKeyUrl']
+
         _setter("mobile_network_id", mobile_network_id)
         if encryption_key_url is not None:
             _setter("encryption_key_url", encryption_key_url)
@@ -177,7 +183,13 @@ class _NetworkSimGroupState:
              mobile_network_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionKeyUrl' in kwargs:
+            encryption_key_url = kwargs['encryptionKeyUrl']
+        if 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+
         if encryption_key_url is not None:
             _setter("encryption_key_url", encryption_key_url)
         if identity is not None:

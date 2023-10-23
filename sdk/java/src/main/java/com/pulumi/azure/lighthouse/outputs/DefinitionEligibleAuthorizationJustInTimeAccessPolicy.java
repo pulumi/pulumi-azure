@@ -95,11 +95,11 @@ public final class DefinitionEligibleAuthorizationJustInTimeAccessPolicy {
             return this;
         }
         public DefinitionEligibleAuthorizationJustInTimeAccessPolicy build() {
-            final var o = new DefinitionEligibleAuthorizationJustInTimeAccessPolicy();
-            o.approvers = approvers;
-            o.maximumActivationDuration = maximumActivationDuration;
-            o.multiFactorAuthProvider = multiFactorAuthProvider;
-            return o;
+            final var _resultValue = new DefinitionEligibleAuthorizationJustInTimeAccessPolicy();
+            _resultValue.approvers = approvers;
+            _resultValue.maximumActivationDuration = maximumActivationDuration;
+            _resultValue.multiFactorAuthProvider = multiFactorAuthProvider;
+            return _resultValue;
         }
     }
 }

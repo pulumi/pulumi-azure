@@ -107,12 +107,12 @@ public final class GetFactoryIdentity {
             return this;
         }
         public GetFactoryIdentity build() {
-            final var o = new GetFactoryIdentity();
-            o.identityIds = identityIds;
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetFactoryIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

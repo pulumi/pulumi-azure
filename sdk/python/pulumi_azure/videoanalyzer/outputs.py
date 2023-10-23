@@ -50,7 +50,11 @@ class AnalyzerIdentity(dict):
              _setter: Callable[[Any, Any], None],
              identity_ids: Sequence[str],
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+
         _setter("identity_ids", identity_ids)
         _setter("type", type)
 
@@ -107,7 +111,11 @@ class AnalyzerStorageAccount(dict):
              _setter: Callable[[Any, Any], None],
              id: str,
              user_assigned_identity_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         _setter("id", id)
         _setter("user_assigned_identity_id", user_assigned_identity_id)
 

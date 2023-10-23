@@ -133,13 +133,13 @@ public final class PolicyVMBackup {
             return weekdays(List.of(weekdays));
         }
         public PolicyVMBackup build() {
-            final var o = new PolicyVMBackup();
-            o.frequency = frequency;
-            o.hourDuration = hourDuration;
-            o.hourInterval = hourInterval;
-            o.time = time;
-            o.weekdays = weekdays;
-            return o;
+            final var _resultValue = new PolicyVMBackup();
+            _resultValue.frequency = frequency;
+            _resultValue.hourDuration = hourDuration;
+            _resultValue.hourInterval = hourInterval;
+            _resultValue.time = time;
+            _resultValue.weekdays = weekdays;
+            return _resultValue;
         }
     }
 }

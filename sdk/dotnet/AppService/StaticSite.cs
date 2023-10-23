@@ -51,6 +51,12 @@ namespace Pulumi.Azure.AppService
         public Output<string> ApiKey { get; private set; } = null!;
 
         /// <summary>
+        /// A key-value pair of App Settings.
+        /// </summary>
+        [Output("appSettings")]
+        public Output<ImmutableDictionary<string, string>?> AppSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The default host name of the Static Web App.
         /// </summary>
         [Output("defaultHostName")]
@@ -148,6 +154,18 @@ namespace Pulumi.Azure.AppService
 
     public sealed class StaticSiteArgs : global::Pulumi.ResourceArgs
     {
+        [Input("appSettings")]
+        private InputMap<string>? _appSettings;
+
+        /// <summary>
+        /// A key-value pair of App Settings.
+        /// </summary>
+        public InputMap<string> AppSettings
+        {
+            get => _appSettings ?? (_appSettings = new InputMap<string>());
+            set => _appSettings = value;
+        }
+
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
@@ -218,6 +236,18 @@ namespace Pulumi.Azure.AppService
                 var emptySecret = Output.CreateSecret(0);
                 _apiKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
+        }
+
+        [Input("appSettings")]
+        private InputMap<string>? _appSettings;
+
+        /// <summary>
+        /// A key-value pair of App Settings.
+        /// </summary>
+        public InputMap<string> AppSettings
+        {
+            get => _appSettings ?? (_appSettings = new InputMap<string>());
+            set => _appSettings = value;
         }
 
         /// <summary>

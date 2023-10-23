@@ -105,12 +105,12 @@ public final class VirtualNetworkSubnet {
             return this;
         }
         public VirtualNetworkSubnet build() {
-            final var o = new VirtualNetworkSubnet();
-            o.addressPrefix = addressPrefix;
-            o.id = id;
-            o.name = name;
-            o.securityGroup = securityGroup;
-            return o;
+            final var _resultValue = new VirtualNetworkSubnet();
+            _resultValue.addressPrefix = addressPrefix;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.securityGroup = securityGroup;
+            return _resultValue;
         }
     }
 }

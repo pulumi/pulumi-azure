@@ -212,16 +212,16 @@ public final class DataCollectionRuleDestinations {
             return storageTableDirects(List.of(storageTableDirects));
         }
         public DataCollectionRuleDestinations build() {
-            final var o = new DataCollectionRuleDestinations();
-            o.azureMonitorMetrics = azureMonitorMetrics;
-            o.eventHub = eventHub;
-            o.eventHubDirect = eventHubDirect;
-            o.logAnalytics = logAnalytics;
-            o.monitorAccounts = monitorAccounts;
-            o.storageBlobDirects = storageBlobDirects;
-            o.storageBlobs = storageBlobs;
-            o.storageTableDirects = storageTableDirects;
-            return o;
+            final var _resultValue = new DataCollectionRuleDestinations();
+            _resultValue.azureMonitorMetrics = azureMonitorMetrics;
+            _resultValue.eventHub = eventHub;
+            _resultValue.eventHubDirect = eventHubDirect;
+            _resultValue.logAnalytics = logAnalytics;
+            _resultValue.monitorAccounts = monitorAccounts;
+            _resultValue.storageBlobDirects = storageBlobDirects;
+            _resultValue.storageBlobs = storageBlobs;
+            _resultValue.storageTableDirects = storageTableDirects;
+            return _resultValue;
         }
     }
 }

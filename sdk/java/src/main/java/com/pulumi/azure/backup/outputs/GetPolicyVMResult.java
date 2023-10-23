@@ -79,12 +79,12 @@ public final class GetPolicyVMResult {
             return this;
         }
         public GetPolicyVMResult build() {
-            final var o = new GetPolicyVMResult();
-            o.id = id;
-            o.name = name;
-            o.recoveryVaultName = recoveryVaultName;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetPolicyVMResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.recoveryVaultName = recoveryVaultName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

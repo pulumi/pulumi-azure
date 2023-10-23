@@ -253,20 +253,20 @@ public final class GetNetworkInterfaceIpConfiguration {
             return this;
         }
         public GetNetworkInterfaceIpConfiguration build() {
-            final var o = new GetNetworkInterfaceIpConfiguration();
-            o.applicationGatewayBackendAddressPoolsIds = applicationGatewayBackendAddressPoolsIds;
-            o.applicationSecurityGroupIds = applicationSecurityGroupIds;
-            o.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
-            o.loadBalancerBackendAddressPoolsIds = loadBalancerBackendAddressPoolsIds;
-            o.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
-            o.name = name;
-            o.primary = primary;
-            o.privateIpAddress = privateIpAddress;
-            o.privateIpAddressAllocation = privateIpAddressAllocation;
-            o.privateIpAddressVersion = privateIpAddressVersion;
-            o.publicIpAddressId = publicIpAddressId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetNetworkInterfaceIpConfiguration();
+            _resultValue.applicationGatewayBackendAddressPoolsIds = applicationGatewayBackendAddressPoolsIds;
+            _resultValue.applicationSecurityGroupIds = applicationSecurityGroupIds;
+            _resultValue.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
+            _resultValue.loadBalancerBackendAddressPoolsIds = loadBalancerBackendAddressPoolsIds;
+            _resultValue.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
+            _resultValue.name = name;
+            _resultValue.primary = primary;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.privateIpAddressAllocation = privateIpAddressAllocation;
+            _resultValue.privateIpAddressVersion = privateIpAddressVersion;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

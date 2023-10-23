@@ -108,12 +108,12 @@ public final class GetPoolStartTaskContainer {
             return this;
         }
         public GetPoolStartTaskContainer build() {
-            final var o = new GetPoolStartTaskContainer();
-            o.imageName = imageName;
-            o.registries = registries;
-            o.runOptions = runOptions;
-            o.workingDirectory = workingDirectory;
-            return o;
+            final var _resultValue = new GetPoolStartTaskContainer();
+            _resultValue.imageName = imageName;
+            _resultValue.registries = registries;
+            _resultValue.runOptions = runOptions;
+            _resultValue.workingDirectory = workingDirectory;
+            return _resultValue;
         }
     }
 }

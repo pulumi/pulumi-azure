@@ -90,11 +90,11 @@ public final class KubernetesClusterIngressApplicationGatewayIngressApplicationG
             return this;
         }
         public KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity build() {
-            final var o = new KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity();
-            o.clientId = clientId;
-            o.objectId = objectId;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity();
+            _resultValue.clientId = clientId;
+            _resultValue.objectId = objectId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

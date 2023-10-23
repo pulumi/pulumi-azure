@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string>? OperationName { get; set; }
 
         /// <summary>
-        /// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+        /// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
         /// </summary>
         [Input("recommendationCategory")]
         public Input<string>? RecommendationCategory { get; set; }

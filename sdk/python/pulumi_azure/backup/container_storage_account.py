@@ -37,7 +37,15 @@ class ContainerStorageAccountArgs:
              recovery_vault_name: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              storage_account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("recovery_vault_name", recovery_vault_name)
         _setter("resource_group_name", resource_group_name)
         _setter("storage_account_id", storage_account_id)
@@ -107,7 +115,15 @@ class _ContainerStorageAccountState:
              recovery_vault_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if recovery_vault_name is not None:
             _setter("recovery_vault_name", recovery_vault_name)
         if resource_group_name is not None:

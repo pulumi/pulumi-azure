@@ -41,7 +41,17 @@ class PrivateCloudCircuitArgs:
              express_route_private_peering_id: Optional[pulumi.Input[str]] = None,
              primary_subnet_cidr: Optional[pulumi.Input[str]] = None,
              secondary_subnet_cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expressRouteId' in kwargs:
+            express_route_id = kwargs['expressRouteId']
+        if 'expressRoutePrivatePeeringId' in kwargs:
+            express_route_private_peering_id = kwargs['expressRoutePrivatePeeringId']
+        if 'primarySubnetCidr' in kwargs:
+            primary_subnet_cidr = kwargs['primarySubnetCidr']
+        if 'secondarySubnetCidr' in kwargs:
+            secondary_subnet_cidr = kwargs['secondarySubnetCidr']
+
         if express_route_id is not None:
             _setter("express_route_id", express_route_id)
         if express_route_private_peering_id is not None:
@@ -123,7 +133,9 @@ class PrivateCloudManagementClusterArgs:
              size: pulumi.Input[int],
              hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("size", size)
         if hosts is not None:
             _setter("hosts", hosts)

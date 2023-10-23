@@ -90,11 +90,11 @@ public final class AccountEncryption {
             return this;
         }
         public AccountEncryption build() {
-            final var o = new AccountEncryption();
-            o.keySource = keySource;
-            o.keyVaultKeyId = keyVaultKeyId;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new AccountEncryption();
+            _resultValue.keySource = keySource;
+            _resultValue.keyVaultKeyId = keyVaultKeyId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

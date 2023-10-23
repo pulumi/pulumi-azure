@@ -53,7 +53,17 @@ class PolicyArgs:
              name: Optional[pulumi.Input[str]] = None,
              policy_settings: Optional[pulumi.Input['PolicyPolicySettingsArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managedRules' in kwargs:
+            managed_rules = kwargs['managedRules']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'customRules' in kwargs:
+            custom_rules = kwargs['customRules']
+        if 'policySettings' in kwargs:
+            policy_settings = kwargs['policySettings']
+
         _setter("managed_rules", managed_rules)
         _setter("resource_group_name", resource_group_name)
         if custom_rules is not None:
@@ -200,7 +210,21 @@ class _PolicyState:
              policy_settings: Optional[pulumi.Input['PolicyPolicySettingsArgs']] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRules' in kwargs:
+            custom_rules = kwargs['customRules']
+        if 'httpListenerIds' in kwargs:
+            http_listener_ids = kwargs['httpListenerIds']
+        if 'managedRules' in kwargs:
+            managed_rules = kwargs['managedRules']
+        if 'pathBasedRuleIds' in kwargs:
+            path_based_rule_ids = kwargs['pathBasedRuleIds']
+        if 'policySettings' in kwargs:
+            policy_settings = kwargs['policySettings']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if custom_rules is not None:
             _setter("custom_rules", custom_rules)
         if http_listener_ids is not None:

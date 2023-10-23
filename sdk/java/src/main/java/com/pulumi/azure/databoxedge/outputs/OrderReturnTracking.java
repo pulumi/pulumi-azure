@@ -105,12 +105,12 @@ public final class OrderReturnTracking {
             return this;
         }
         public OrderReturnTracking build() {
-            final var o = new OrderReturnTracking();
-            o.carrierName = carrierName;
-            o.serialNumber = serialNumber;
-            o.trackingId = trackingId;
-            o.trackingUrl = trackingUrl;
-            return o;
+            final var _resultValue = new OrderReturnTracking();
+            _resultValue.carrierName = carrierName;
+            _resultValue.serialNumber = serialNumber;
+            _resultValue.trackingId = trackingId;
+            _resultValue.trackingUrl = trackingUrl;
+            return _resultValue;
         }
     }
 }

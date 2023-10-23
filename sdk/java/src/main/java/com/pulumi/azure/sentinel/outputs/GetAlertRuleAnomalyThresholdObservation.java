@@ -122,13 +122,13 @@ public final class GetAlertRuleAnomalyThresholdObservation {
             return this;
         }
         public GetAlertRuleAnomalyThresholdObservation build() {
-            final var o = new GetAlertRuleAnomalyThresholdObservation();
-            o.description = description;
-            o.max = max;
-            o.min = min;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetAlertRuleAnomalyThresholdObservation();
+            _resultValue.description = description;
+            _resultValue.max = max;
+            _resultValue.min = min;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

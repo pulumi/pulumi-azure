@@ -226,19 +226,19 @@ public final class GetServiceResult {
             return this;
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.accessPolicyObjectIds = accessPolicyObjectIds;
-            o.authenticationConfigurations = authenticationConfigurations;
-            o.corsConfigurations = corsConfigurations;
-            o.cosmosdbKeyVaultKeyVersionlessId = cosmosdbKeyVaultKeyVersionlessId;
-            o.cosmosdbThroughput = cosmosdbThroughput;
-            o.id = id;
-            o.kind = kind;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.accessPolicyObjectIds = accessPolicyObjectIds;
+            _resultValue.authenticationConfigurations = authenticationConfigurations;
+            _resultValue.corsConfigurations = corsConfigurations;
+            _resultValue.cosmosdbKeyVaultKeyVersionlessId = cosmosdbKeyVaultKeyVersionlessId;
+            _resultValue.cosmosdbThroughput = cosmosdbThroughput;
+            _resultValue.id = id;
+            _resultValue.kind = kind;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

@@ -157,15 +157,15 @@ public final class GetShareResult {
             return this;
         }
         public GetShareResult build() {
-            final var o = new GetShareResult();
-            o.accountId = accountId;
-            o.description = description;
-            o.id = id;
-            o.kind = kind;
-            o.name = name;
-            o.snapshotSchedules = snapshotSchedules;
-            o.terms = terms;
-            return o;
+            final var _resultValue = new GetShareResult();
+            _resultValue.accountId = accountId;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.kind = kind;
+            _resultValue.name = name;
+            _resultValue.snapshotSchedules = snapshotSchedules;
+            _resultValue.terms = terms;
+            return _resultValue;
         }
     }
 }

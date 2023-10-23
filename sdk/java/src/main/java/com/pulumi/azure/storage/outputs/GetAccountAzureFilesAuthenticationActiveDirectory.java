@@ -141,14 +141,14 @@ public final class GetAccountAzureFilesAuthenticationActiveDirectory {
             return this;
         }
         public GetAccountAzureFilesAuthenticationActiveDirectory build() {
-            final var o = new GetAccountAzureFilesAuthenticationActiveDirectory();
-            o.domainGuid = domainGuid;
-            o.domainName = domainName;
-            o.domainSid = domainSid;
-            o.forestName = forestName;
-            o.netbiosDomainName = netbiosDomainName;
-            o.storageSid = storageSid;
-            return o;
+            final var _resultValue = new GetAccountAzureFilesAuthenticationActiveDirectory();
+            _resultValue.domainGuid = domainGuid;
+            _resultValue.domainName = domainName;
+            _resultValue.domainSid = domainSid;
+            _resultValue.forestName = forestName;
+            _resultValue.netbiosDomainName = netbiosDomainName;
+            _resultValue.storageSid = storageSid;
+            return _resultValue;
         }
     }
 }

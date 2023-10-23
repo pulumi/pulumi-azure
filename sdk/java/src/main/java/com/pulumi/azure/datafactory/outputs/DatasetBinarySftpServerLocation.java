@@ -106,12 +106,12 @@ public final class DatasetBinarySftpServerLocation {
             return this;
         }
         public DatasetBinarySftpServerLocation build() {
-            final var o = new DatasetBinarySftpServerLocation();
-            o.dynamicFilenameEnabled = dynamicFilenameEnabled;
-            o.dynamicPathEnabled = dynamicPathEnabled;
-            o.filename = filename;
-            o.path = path;
-            return o;
+            final var _resultValue = new DatasetBinarySftpServerLocation();
+            _resultValue.dynamicFilenameEnabled = dynamicFilenameEnabled;
+            _resultValue.dynamicPathEnabled = dynamicPathEnabled;
+            _resultValue.filename = filename;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

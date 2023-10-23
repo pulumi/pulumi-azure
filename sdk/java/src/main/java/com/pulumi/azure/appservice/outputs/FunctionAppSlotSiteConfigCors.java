@@ -72,10 +72,10 @@ public final class FunctionAppSlotSiteConfigCors {
             return this;
         }
         public FunctionAppSlotSiteConfigCors build() {
-            final var o = new FunctionAppSlotSiteConfigCors();
-            o.allowedOrigins = allowedOrigins;
-            o.supportCredentials = supportCredentials;
-            return o;
+            final var _resultValue = new FunctionAppSlotSiteConfigCors();
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.supportCredentials = supportCredentials;
+            return _resultValue;
         }
     }
 }

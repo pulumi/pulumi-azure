@@ -65,10 +65,10 @@ public final class AppTemplateContainerLivenessProbeHeader {
             return this;
         }
         public AppTemplateContainerLivenessProbeHeader build() {
-            final var o = new AppTemplateContainerLivenessProbeHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new AppTemplateContainerLivenessProbeHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

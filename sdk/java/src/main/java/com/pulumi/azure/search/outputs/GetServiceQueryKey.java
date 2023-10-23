@@ -65,10 +65,10 @@ public final class GetServiceQueryKey {
             return this;
         }
         public GetServiceQueryKey build() {
-            final var o = new GetServiceQueryKey();
-            o.key = key;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetServiceQueryKey();
+            _resultValue.key = key;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

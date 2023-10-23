@@ -70,10 +70,10 @@ public final class GetAppServiceSiteConfigCor {
             return this;
         }
         public GetAppServiceSiteConfigCor build() {
-            final var o = new GetAppServiceSiteConfigCor();
-            o.allowedOrigins = allowedOrigins;
-            o.supportCredentials = supportCredentials;
-            return o;
+            final var _resultValue = new GetAppServiceSiteConfigCor();
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.supportCredentials = supportCredentials;
+            return _resultValue;
         }
     }
 }

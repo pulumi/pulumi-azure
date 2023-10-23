@@ -132,13 +132,13 @@ public final class CertifiateCertificatePolicy {
             return this;
         }
         public CertifiateCertificatePolicy build() {
-            final var o = new CertifiateCertificatePolicy();
-            o.issuerParameters = issuerParameters;
-            o.keyProperties = keyProperties;
-            o.lifetimeActions = lifetimeActions;
-            o.secretProperties = secretProperties;
-            o.x509CertificateProperties = x509CertificateProperties;
-            return o;
+            final var _resultValue = new CertifiateCertificatePolicy();
+            _resultValue.issuerParameters = issuerParameters;
+            _resultValue.keyProperties = keyProperties;
+            _resultValue.lifetimeActions = lifetimeActions;
+            _resultValue.secretProperties = secretProperties;
+            _resultValue.x509CertificateProperties = x509CertificateProperties;
+            return _resultValue;
         }
     }
 }

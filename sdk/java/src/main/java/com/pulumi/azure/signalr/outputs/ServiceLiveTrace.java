@@ -105,12 +105,12 @@ public final class ServiceLiveTrace {
             return this;
         }
         public ServiceLiveTrace build() {
-            final var o = new ServiceLiveTrace();
-            o.connectivityLogsEnabled = connectivityLogsEnabled;
-            o.enabled = enabled;
-            o.httpRequestLogsEnabled = httpRequestLogsEnabled;
-            o.messagingLogsEnabled = messagingLogsEnabled;
-            return o;
+            final var _resultValue = new ServiceLiveTrace();
+            _resultValue.connectivityLogsEnabled = connectivityLogsEnabled;
+            _resultValue.enabled = enabled;
+            _resultValue.httpRequestLogsEnabled = httpRequestLogsEnabled;
+            _resultValue.messagingLogsEnabled = messagingLogsEnabled;
+            return _resultValue;
         }
     }
 }

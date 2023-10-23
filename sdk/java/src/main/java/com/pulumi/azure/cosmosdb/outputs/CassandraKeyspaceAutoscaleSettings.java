@@ -48,9 +48,9 @@ public final class CassandraKeyspaceAutoscaleSettings {
             return this;
         }
         public CassandraKeyspaceAutoscaleSettings build() {
-            final var o = new CassandraKeyspaceAutoscaleSettings();
-            o.maxThroughput = maxThroughput;
-            return o;
+            final var _resultValue = new CassandraKeyspaceAutoscaleSettings();
+            _resultValue.maxThroughput = maxThroughput;
+            return _resultValue;
         }
     }
 }

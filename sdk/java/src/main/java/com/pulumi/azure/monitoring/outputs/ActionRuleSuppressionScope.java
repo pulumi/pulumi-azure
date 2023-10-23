@@ -69,10 +69,10 @@ public final class ActionRuleSuppressionScope {
             return this;
         }
         public ActionRuleSuppressionScope build() {
-            final var o = new ActionRuleSuppressionScope();
-            o.resourceIds = resourceIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new ActionRuleSuppressionScope();
+            _resultValue.resourceIds = resourceIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

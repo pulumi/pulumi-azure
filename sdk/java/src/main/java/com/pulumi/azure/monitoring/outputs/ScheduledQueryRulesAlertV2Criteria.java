@@ -192,16 +192,16 @@ public final class ScheduledQueryRulesAlertV2Criteria {
             return this;
         }
         public ScheduledQueryRulesAlertV2Criteria build() {
-            final var o = new ScheduledQueryRulesAlertV2Criteria();
-            o.dimensions = dimensions;
-            o.failingPeriods = failingPeriods;
-            o.metricMeasureColumn = metricMeasureColumn;
-            o.operator = operator;
-            o.query = query;
-            o.resourceIdColumn = resourceIdColumn;
-            o.threshold = threshold;
-            o.timeAggregationMethod = timeAggregationMethod;
-            return o;
+            final var _resultValue = new ScheduledQueryRulesAlertV2Criteria();
+            _resultValue.dimensions = dimensions;
+            _resultValue.failingPeriods = failingPeriods;
+            _resultValue.metricMeasureColumn = metricMeasureColumn;
+            _resultValue.operator = operator;
+            _resultValue.query = query;
+            _resultValue.resourceIdColumn = resourceIdColumn;
+            _resultValue.threshold = threshold;
+            _resultValue.timeAggregationMethod = timeAggregationMethod;
+            return _resultValue;
         }
     }
 }

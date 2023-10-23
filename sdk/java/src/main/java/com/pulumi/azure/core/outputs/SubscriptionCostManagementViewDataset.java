@@ -117,12 +117,12 @@ public final class SubscriptionCostManagementViewDataset {
             return sortings(List.of(sortings));
         }
         public SubscriptionCostManagementViewDataset build() {
-            final var o = new SubscriptionCostManagementViewDataset();
-            o.aggregations = aggregations;
-            o.granularity = granularity;
-            o.groupings = groupings;
-            o.sortings = sortings;
-            return o;
+            final var _resultValue = new SubscriptionCostManagementViewDataset();
+            _resultValue.aggregations = aggregations;
+            _resultValue.granularity = granularity;
+            _resultValue.groupings = groupings;
+            _resultValue.sortings = sortings;
+            return _resultValue;
         }
     }
 }

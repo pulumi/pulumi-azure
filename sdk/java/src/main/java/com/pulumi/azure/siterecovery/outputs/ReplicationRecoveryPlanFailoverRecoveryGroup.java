@@ -74,10 +74,10 @@ public final class ReplicationRecoveryPlanFailoverRecoveryGroup {
             return preActions(List.of(preActions));
         }
         public ReplicationRecoveryPlanFailoverRecoveryGroup build() {
-            final var o = new ReplicationRecoveryPlanFailoverRecoveryGroup();
-            o.postActions = postActions;
-            o.preActions = preActions;
-            return o;
+            final var _resultValue = new ReplicationRecoveryPlanFailoverRecoveryGroup();
+            _resultValue.postActions = postActions;
+            _resultValue.preActions = preActions;
+            return _resultValue;
         }
     }
 }

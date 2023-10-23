@@ -65,10 +65,10 @@ public final class SourceControlSlotGithubActionConfigurationCodeConfiguration {
             return this;
         }
         public SourceControlSlotGithubActionConfigurationCodeConfiguration build() {
-            final var o = new SourceControlSlotGithubActionConfigurationCodeConfiguration();
-            o.runtimeStack = runtimeStack;
-            o.runtimeVersion = runtimeVersion;
-            return o;
+            final var _resultValue = new SourceControlSlotGithubActionConfigurationCodeConfiguration();
+            _resultValue.runtimeStack = runtimeStack;
+            _resultValue.runtimeVersion = runtimeVersion;
+            return _resultValue;
         }
     }
 }

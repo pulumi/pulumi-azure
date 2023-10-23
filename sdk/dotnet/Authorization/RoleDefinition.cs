@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Authorization
     ///                 {
     ///                     "*",
     ///                 },
-    ///                 NotActions = new[] {},
+    ///                 NotActions = new() { },
     ///             },
     ///         },
     ///         AssignableScopes = new[]

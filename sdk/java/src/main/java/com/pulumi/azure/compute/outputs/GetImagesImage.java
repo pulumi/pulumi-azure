@@ -152,14 +152,14 @@ public final class GetImagesImage {
             return this;
         }
         public GetImagesImage build() {
-            final var o = new GetImagesImage();
-            o.dataDisks = dataDisks;
-            o.location = location;
-            o.name = name;
-            o.osDisks = osDisks;
-            o.tags = tags;
-            o.zoneResilient = zoneResilient;
-            return o;
+            final var _resultValue = new GetImagesImage();
+            _resultValue.dataDisks = dataDisks;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.osDisks = osDisks;
+            _resultValue.tags = tags;
+            _resultValue.zoneResilient = zoneResilient;
+            return _resultValue;
         }
     }
 }

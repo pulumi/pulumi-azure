@@ -138,13 +138,13 @@ public final class AccountCorsRule {
             return this;
         }
         public AccountCorsRule build() {
-            final var o = new AccountCorsRule();
-            o.allowedHeaders = allowedHeaders;
-            o.allowedMethods = allowedMethods;
-            o.allowedOrigins = allowedOrigins;
-            o.exposedHeaders = exposedHeaders;
-            o.maxAgeInSeconds = maxAgeInSeconds;
-            return o;
+            final var _resultValue = new AccountCorsRule();
+            _resultValue.allowedHeaders = allowedHeaders;
+            _resultValue.allowedMethods = allowedMethods;
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.exposedHeaders = exposedHeaders;
+            _resultValue.maxAgeInSeconds = maxAgeInSeconds;
+            return _resultValue;
         }
     }
 }

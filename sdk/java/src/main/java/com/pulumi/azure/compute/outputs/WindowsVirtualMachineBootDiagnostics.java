@@ -52,9 +52,9 @@ public final class WindowsVirtualMachineBootDiagnostics {
             return this;
         }
         public WindowsVirtualMachineBootDiagnostics build() {
-            final var o = new WindowsVirtualMachineBootDiagnostics();
-            o.storageAccountUri = storageAccountUri;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineBootDiagnostics();
+            _resultValue.storageAccountUri = storageAccountUri;
+            return _resultValue;
         }
     }
 }

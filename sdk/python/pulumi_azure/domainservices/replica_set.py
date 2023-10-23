@@ -35,7 +35,13 @@ class ReplicaSetArgs:
              domain_service_id: pulumi.Input[str],
              subnet_id: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainServiceId' in kwargs:
+            domain_service_id = kwargs['domainServiceId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("domain_service_id", domain_service_id)
         _setter("subnet_id", subnet_id)
         if location is not None:
@@ -114,7 +120,19 @@ class _ReplicaSetState:
              location: Optional[pulumi.Input[str]] = None,
              service_status: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'domainControllerIpAddresses' in kwargs:
+            domain_controller_ip_addresses = kwargs['domainControllerIpAddresses']
+        if 'domainServiceId' in kwargs:
+            domain_service_id = kwargs['domainServiceId']
+        if 'externalAccessIpAddress' in kwargs:
+            external_access_ip_address = kwargs['externalAccessIpAddress']
+        if 'serviceStatus' in kwargs:
+            service_status = kwargs['serviceStatus']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if domain_controller_ip_addresses is not None:
             _setter("domain_controller_ip_addresses", domain_controller_ip_addresses)
         if domain_service_id is not None:

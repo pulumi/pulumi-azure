@@ -161,15 +161,15 @@ public final class GetExpressRouteCircuitPeering {
             return this;
         }
         public GetExpressRouteCircuitPeering build() {
-            final var o = new GetExpressRouteCircuitPeering();
-            o.azureAsn = azureAsn;
-            o.peerAsn = peerAsn;
-            o.peeringType = peeringType;
-            o.primaryPeerAddressPrefix = primaryPeerAddressPrefix;
-            o.secondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
-            o.sharedKey = sharedKey;
-            o.vlanId = vlanId;
-            return o;
+            final var _resultValue = new GetExpressRouteCircuitPeering();
+            _resultValue.azureAsn = azureAsn;
+            _resultValue.peerAsn = peerAsn;
+            _resultValue.peeringType = peeringType;
+            _resultValue.primaryPeerAddressPrefix = primaryPeerAddressPrefix;
+            _resultValue.secondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
+            _resultValue.sharedKey = sharedKey;
+            _resultValue.vlanId = vlanId;
+            return _resultValue;
         }
     }
 }

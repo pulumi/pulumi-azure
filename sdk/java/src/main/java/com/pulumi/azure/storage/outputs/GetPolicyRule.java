@@ -113,12 +113,12 @@ public final class GetPolicyRule {
             return this;
         }
         public GetPolicyRule build() {
-            final var o = new GetPolicyRule();
-            o.actions = actions;
-            o.enabled = enabled;
-            o.filters = filters;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetPolicyRule();
+            _resultValue.actions = actions;
+            _resultValue.enabled = enabled;
+            _resultValue.filters = filters;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

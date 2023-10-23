@@ -87,11 +87,11 @@ public final class LinuxVirtualMachineInboundNatRule {
             return this;
         }
         public LinuxVirtualMachineInboundNatRule build() {
-            final var o = new LinuxVirtualMachineInboundNatRule();
-            o.backendPort = backendPort;
-            o.frontendPort = frontendPort;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineInboundNatRule();
+            _resultValue.backendPort = backendPort;
+            _resultValue.frontendPort = frontendPort;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

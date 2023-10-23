@@ -91,11 +91,11 @@ public final class EndpointDeliveryRuleRemoteAddressCondition {
             return this;
         }
         public EndpointDeliveryRuleRemoteAddressCondition build() {
-            final var o = new EndpointDeliveryRuleRemoteAddressCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new EndpointDeliveryRuleRemoteAddressCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

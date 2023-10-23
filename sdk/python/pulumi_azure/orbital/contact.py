@@ -47,7 +47,19 @@ class ContactArgs:
              reservation_start_time: pulumi.Input[str],
              spacecraft_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactProfileId' in kwargs:
+            contact_profile_id = kwargs['contactProfileId']
+        if 'groundStationName' in kwargs:
+            ground_station_name = kwargs['groundStationName']
+        if 'reservationEndTime' in kwargs:
+            reservation_end_time = kwargs['reservationEndTime']
+        if 'reservationStartTime' in kwargs:
+            reservation_start_time = kwargs['reservationStartTime']
+        if 'spacecraftId' in kwargs:
+            spacecraft_id = kwargs['spacecraftId']
+
         _setter("contact_profile_id", contact_profile_id)
         _setter("ground_station_name", ground_station_name)
         _setter("reservation_end_time", reservation_end_time)
@@ -165,7 +177,19 @@ class _ContactState:
              reservation_end_time: Optional[pulumi.Input[str]] = None,
              reservation_start_time: Optional[pulumi.Input[str]] = None,
              spacecraft_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contactProfileId' in kwargs:
+            contact_profile_id = kwargs['contactProfileId']
+        if 'groundStationName' in kwargs:
+            ground_station_name = kwargs['groundStationName']
+        if 'reservationEndTime' in kwargs:
+            reservation_end_time = kwargs['reservationEndTime']
+        if 'reservationStartTime' in kwargs:
+            reservation_start_time = kwargs['reservationStartTime']
+        if 'spacecraftId' in kwargs:
+            spacecraft_id = kwargs['spacecraftId']
+
         if contact_profile_id is not None:
             _setter("contact_profile_id", contact_profile_id)
         if ground_station_name is not None:

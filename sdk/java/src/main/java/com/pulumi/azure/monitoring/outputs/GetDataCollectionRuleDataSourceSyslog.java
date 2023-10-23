@@ -113,12 +113,12 @@ public final class GetDataCollectionRuleDataSourceSyslog {
             return streams(List.of(streams));
         }
         public GetDataCollectionRuleDataSourceSyslog build() {
-            final var o = new GetDataCollectionRuleDataSourceSyslog();
-            o.facilityNames = facilityNames;
-            o.logLevels = logLevels;
-            o.name = name;
-            o.streams = streams;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleDataSourceSyslog();
+            _resultValue.facilityNames = facilityNames;
+            _resultValue.logLevels = logLevels;
+            _resultValue.name = name;
+            _resultValue.streams = streams;
+            return _resultValue;
         }
     }
 }

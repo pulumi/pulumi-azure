@@ -88,11 +88,11 @@ public final class GetBudgetResourceGroupFilterDimension {
             return values(List.of(values));
         }
         public GetBudgetResourceGroupFilterDimension build() {
-            final var o = new GetBudgetResourceGroupFilterDimension();
-            o.name = name;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetBudgetResourceGroupFilterDimension();
+            _resultValue.name = name;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

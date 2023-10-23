@@ -41,7 +41,17 @@ class NetworkAclArgs:
              web_pubsub_id: pulumi.Input[str],
              default_action: Optional[pulumi.Input[str]] = None,
              private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'publicNetwork' in kwargs:
+            public_network = kwargs['publicNetwork']
+        if 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'privateEndpoints' in kwargs:
+            private_endpoints = kwargs['privateEndpoints']
+
         _setter("public_network", public_network)
         _setter("web_pubsub_id", web_pubsub_id)
         if default_action is not None:
@@ -126,7 +136,17 @@ class _NetworkAclState:
              private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclPrivateEndpointArgs']]]] = None,
              public_network: Optional[pulumi.Input['NetworkAclPublicNetworkArgs']] = None,
              web_pubsub_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'privateEndpoints' in kwargs:
+            private_endpoints = kwargs['privateEndpoints']
+        if 'publicNetwork' in kwargs:
+            public_network = kwargs['publicNetwork']
+        if 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+
         if default_action is not None:
             _setter("default_action", default_action)
         if private_endpoints is not None:

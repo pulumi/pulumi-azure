@@ -49,7 +49,17 @@ class ChannelFacebookArgs:
              pages: pulumi.Input[Sequence[pulumi.Input['ChannelFacebookPageArgs']]],
              resource_group_name: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'facebookApplicationId' in kwargs:
+            facebook_application_id = kwargs['facebookApplicationId']
+        if 'facebookApplicationSecret' in kwargs:
+            facebook_application_secret = kwargs['facebookApplicationSecret']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("bot_name", bot_name)
         _setter("facebook_application_id", facebook_application_id)
         _setter("facebook_application_secret", facebook_application_secret)
@@ -167,7 +177,17 @@ class _ChannelFacebookState:
              location: Optional[pulumi.Input[str]] = None,
              pages: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelFacebookPageArgs']]]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'facebookApplicationId' in kwargs:
+            facebook_application_id = kwargs['facebookApplicationId']
+        if 'facebookApplicationSecret' in kwargs:
+            facebook_application_secret = kwargs['facebookApplicationSecret']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if bot_name is not None:
             _setter("bot_name", bot_name)
         if facebook_application_id is not None:

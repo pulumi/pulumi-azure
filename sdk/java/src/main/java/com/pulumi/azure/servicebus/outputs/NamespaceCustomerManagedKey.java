@@ -87,11 +87,11 @@ public final class NamespaceCustomerManagedKey {
             return this;
         }
         public NamespaceCustomerManagedKey build() {
-            final var o = new NamespaceCustomerManagedKey();
-            o.identityId = identityId;
-            o.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
-            o.keyVaultKeyId = keyVaultKeyId;
-            return o;
+            final var _resultValue = new NamespaceCustomerManagedKey();
+            _resultValue.identityId = identityId;
+            _resultValue.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
+            _resultValue.keyVaultKeyId = keyVaultKeyId;
+            return _resultValue;
         }
     }
 }

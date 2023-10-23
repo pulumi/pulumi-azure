@@ -65,10 +65,10 @@ public final class AccountKeyVaultReference {
             return this;
         }
         public AccountKeyVaultReference build() {
-            final var o = new AccountKeyVaultReference();
-            o.id = id;
-            o.url = url;
-            return o;
+            final var _resultValue = new AccountKeyVaultReference();
+            _resultValue.id = id;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

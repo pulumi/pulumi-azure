@@ -164,16 +164,16 @@ public final class GetUserAssignedIdentityResult {
             return this;
         }
         public GetUserAssignedIdentityResult build() {
-            final var o = new GetUserAssignedIdentityResult();
-            o.clientId = clientId;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.principalId = principalId;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new GetUserAssignedIdentityResult();
+            _resultValue.clientId = clientId;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.principalId = principalId;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

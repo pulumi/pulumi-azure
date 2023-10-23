@@ -86,11 +86,11 @@ public final class InteractiveQueryClusterRoles {
             return this;
         }
         public InteractiveQueryClusterRoles build() {
-            final var o = new InteractiveQueryClusterRoles();
-            o.headNode = headNode;
-            o.workerNode = workerNode;
-            o.zookeeperNode = zookeeperNode;
-            return o;
+            final var _resultValue = new InteractiveQueryClusterRoles();
+            _resultValue.headNode = headNode;
+            _resultValue.workerNode = workerNode;
+            _resultValue.zookeeperNode = zookeeperNode;
+            return _resultValue;
         }
     }
 }

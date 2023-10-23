@@ -14,15 +14,15 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class GetApplicationGatewayBackendAddressPoolResult
     {
         /// <summary>
-        /// A list of FQDN's that are included in the Backend Address Pool.
+        /// A list of FQDNs which are part of the Backend Address Pool.
         /// </summary>
         public readonly ImmutableArray<string> Fqdns;
         /// <summary>
-        /// The ID of the Backend Address Pool.
+        /// The ID of the Rewrite Rule Set
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of IP Addresses that are included in the Backend Address Pool.
+        /// A list of IP Addresses which are part of the Backend Address Pool.
         /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
         /// <summary>

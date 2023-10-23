@@ -150,14 +150,14 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
             return this;
         }
         public OrchestratedVirtualMachineScaleSetOsDisk build() {
-            final var o = new OrchestratedVirtualMachineScaleSetOsDisk();
-            o.caching = caching;
-            o.diffDiskSettings = diffDiskSettings;
-            o.diskEncryptionSetId = diskEncryptionSetId;
-            o.diskSizeGb = diskSizeGb;
-            o.storageAccountType = storageAccountType;
-            o.writeAcceleratorEnabled = writeAcceleratorEnabled;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetOsDisk();
+            _resultValue.caching = caching;
+            _resultValue.diffDiskSettings = diffDiskSettings;
+            _resultValue.diskEncryptionSetId = diskEncryptionSetId;
+            _resultValue.diskSizeGb = diskSizeGb;
+            _resultValue.storageAccountType = storageAccountType;
+            _resultValue.writeAcceleratorEnabled = writeAcceleratorEnabled;
+            return _resultValue;
         }
     }
 }

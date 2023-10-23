@@ -85,11 +85,11 @@ public final class GetPoolFixedScale {
             return this;
         }
         public GetPoolFixedScale build() {
-            final var o = new GetPoolFixedScale();
-            o.resizeTimeout = resizeTimeout;
-            o.targetDedicatedNodes = targetDedicatedNodes;
-            o.targetLowPriorityNodes = targetLowPriorityNodes;
-            return o;
+            final var _resultValue = new GetPoolFixedScale();
+            _resultValue.resizeTimeout = resizeTimeout;
+            _resultValue.targetDedicatedNodes = targetDedicatedNodes;
+            _resultValue.targetLowPriorityNodes = targetLowPriorityNodes;
+            return _resultValue;
         }
     }
 }

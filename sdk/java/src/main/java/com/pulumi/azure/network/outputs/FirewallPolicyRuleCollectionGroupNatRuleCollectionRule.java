@@ -234,18 +234,18 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
             return this;
         }
         public FirewallPolicyRuleCollectionGroupNatRuleCollectionRule build() {
-            final var o = new FirewallPolicyRuleCollectionGroupNatRuleCollectionRule();
-            o.description = description;
-            o.destinationAddress = destinationAddress;
-            o.destinationPorts = destinationPorts;
-            o.name = name;
-            o.protocols = protocols;
-            o.sourceAddresses = sourceAddresses;
-            o.sourceIpGroups = sourceIpGroups;
-            o.translatedAddress = translatedAddress;
-            o.translatedFqdn = translatedFqdn;
-            o.translatedPort = translatedPort;
-            return o;
+            final var _resultValue = new FirewallPolicyRuleCollectionGroupNatRuleCollectionRule();
+            _resultValue.description = description;
+            _resultValue.destinationAddress = destinationAddress;
+            _resultValue.destinationPorts = destinationPorts;
+            _resultValue.name = name;
+            _resultValue.protocols = protocols;
+            _resultValue.sourceAddresses = sourceAddresses;
+            _resultValue.sourceIpGroups = sourceIpGroups;
+            _resultValue.translatedAddress = translatedAddress;
+            _resultValue.translatedFqdn = translatedFqdn;
+            _resultValue.translatedPort = translatedPort;
+            return _resultValue;
         }
     }
 }

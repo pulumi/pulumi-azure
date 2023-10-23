@@ -244,19 +244,19 @@ public final class GetVirtualMachineScaleSetInstance {
             return this;
         }
         public GetVirtualMachineScaleSetInstance build() {
-            final var o = new GetVirtualMachineScaleSetInstance();
-            o.computerName = computerName;
-            o.instanceId = instanceId;
-            o.latestModelApplied = latestModelApplied;
-            o.name = name;
-            o.powerState = powerState;
-            o.privateIpAddress = privateIpAddress;
-            o.privateIpAddresses = privateIpAddresses;
-            o.publicIpAddress = publicIpAddress;
-            o.publicIpAddresses = publicIpAddresses;
-            o.virtualMachineId = virtualMachineId;
-            o.zone = zone;
-            return o;
+            final var _resultValue = new GetVirtualMachineScaleSetInstance();
+            _resultValue.computerName = computerName;
+            _resultValue.instanceId = instanceId;
+            _resultValue.latestModelApplied = latestModelApplied;
+            _resultValue.name = name;
+            _resultValue.powerState = powerState;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.privateIpAddresses = privateIpAddresses;
+            _resultValue.publicIpAddress = publicIpAddress;
+            _resultValue.publicIpAddresses = publicIpAddresses;
+            _resultValue.virtualMachineId = virtualMachineId;
+            _resultValue.zone = zone;
+            return _resultValue;
         }
     }
 }

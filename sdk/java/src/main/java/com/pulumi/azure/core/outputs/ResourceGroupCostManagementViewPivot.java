@@ -65,10 +65,10 @@ public final class ResourceGroupCostManagementViewPivot {
             return this;
         }
         public ResourceGroupCostManagementViewPivot build() {
-            final var o = new ResourceGroupCostManagementViewPivot();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new ResourceGroupCostManagementViewPivot();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

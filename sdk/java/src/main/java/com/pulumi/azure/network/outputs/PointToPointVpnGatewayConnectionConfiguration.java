@@ -108,12 +108,12 @@ public final class PointToPointVpnGatewayConnectionConfiguration {
             return this;
         }
         public PointToPointVpnGatewayConnectionConfiguration build() {
-            final var o = new PointToPointVpnGatewayConnectionConfiguration();
-            o.internetSecurityEnabled = internetSecurityEnabled;
-            o.name = name;
-            o.route = route;
-            o.vpnClientAddressPool = vpnClientAddressPool;
-            return o;
+            final var _resultValue = new PointToPointVpnGatewayConnectionConfiguration();
+            _resultValue.internetSecurityEnabled = internetSecurityEnabled;
+            _resultValue.name = name;
+            _resultValue.route = route;
+            _resultValue.vpnClientAddressPool = vpnClientAddressPool;
+            return _resultValue;
         }
     }
 }

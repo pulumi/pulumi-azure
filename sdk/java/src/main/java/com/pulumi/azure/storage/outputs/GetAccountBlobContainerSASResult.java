@@ -201,22 +201,22 @@ public final class GetAccountBlobContainerSASResult {
             return this;
         }
         public GetAccountBlobContainerSASResult build() {
-            final var o = new GetAccountBlobContainerSASResult();
-            o.cacheControl = cacheControl;
-            o.connectionString = connectionString;
-            o.containerName = containerName;
-            o.contentDisposition = contentDisposition;
-            o.contentEncoding = contentEncoding;
-            o.contentLanguage = contentLanguage;
-            o.contentType = contentType;
-            o.expiry = expiry;
-            o.httpsOnly = httpsOnly;
-            o.id = id;
-            o.ipAddress = ipAddress;
-            o.permissions = permissions;
-            o.sas = sas;
-            o.start = start;
-            return o;
+            final var _resultValue = new GetAccountBlobContainerSASResult();
+            _resultValue.cacheControl = cacheControl;
+            _resultValue.connectionString = connectionString;
+            _resultValue.containerName = containerName;
+            _resultValue.contentDisposition = contentDisposition;
+            _resultValue.contentEncoding = contentEncoding;
+            _resultValue.contentLanguage = contentLanguage;
+            _resultValue.contentType = contentType;
+            _resultValue.expiry = expiry;
+            _resultValue.httpsOnly = httpsOnly;
+            _resultValue.id = id;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.permissions = permissions;
+            _resultValue.sas = sas;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

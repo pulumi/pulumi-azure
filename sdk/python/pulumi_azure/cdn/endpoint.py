@@ -99,7 +99,37 @@ class EndpointArgs:
              probe_path: Optional[pulumi.Input[str]] = None,
              querystring_caching_behaviour: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'contentTypesToCompresses' in kwargs:
+            content_types_to_compresses = kwargs['contentTypesToCompresses']
+        if 'deliveryRules' in kwargs:
+            delivery_rules = kwargs['deliveryRules']
+        if 'geoFilters' in kwargs:
+            geo_filters = kwargs['geoFilters']
+        if 'globalDeliveryRule' in kwargs:
+            global_delivery_rule = kwargs['globalDeliveryRule']
+        if 'isCompressionEnabled' in kwargs:
+            is_compression_enabled = kwargs['isCompressionEnabled']
+        if 'isHttpAllowed' in kwargs:
+            is_http_allowed = kwargs['isHttpAllowed']
+        if 'isHttpsAllowed' in kwargs:
+            is_https_allowed = kwargs['isHttpsAllowed']
+        if 'optimizationType' in kwargs:
+            optimization_type = kwargs['optimizationType']
+        if 'originHostHeader' in kwargs:
+            origin_host_header = kwargs['originHostHeader']
+        if 'originPath' in kwargs:
+            origin_path = kwargs['originPath']
+        if 'probePath' in kwargs:
+            probe_path = kwargs['probePath']
+        if 'querystringCachingBehaviour' in kwargs:
+            querystring_caching_behaviour = kwargs['querystringCachingBehaviour']
+
         _setter("origins", origins)
         _setter("profile_name", profile_name)
         _setter("resource_group_name", resource_group_name)
@@ -443,7 +473,37 @@ class _EndpointState:
              querystring_caching_behaviour: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentTypesToCompresses' in kwargs:
+            content_types_to_compresses = kwargs['contentTypesToCompresses']
+        if 'deliveryRules' in kwargs:
+            delivery_rules = kwargs['deliveryRules']
+        if 'geoFilters' in kwargs:
+            geo_filters = kwargs['geoFilters']
+        if 'globalDeliveryRule' in kwargs:
+            global_delivery_rule = kwargs['globalDeliveryRule']
+        if 'isCompressionEnabled' in kwargs:
+            is_compression_enabled = kwargs['isCompressionEnabled']
+        if 'isHttpAllowed' in kwargs:
+            is_http_allowed = kwargs['isHttpAllowed']
+        if 'isHttpsAllowed' in kwargs:
+            is_https_allowed = kwargs['isHttpsAllowed']
+        if 'optimizationType' in kwargs:
+            optimization_type = kwargs['optimizationType']
+        if 'originHostHeader' in kwargs:
+            origin_host_header = kwargs['originHostHeader']
+        if 'originPath' in kwargs:
+            origin_path = kwargs['originPath']
+        if 'probePath' in kwargs:
+            probe_path = kwargs['probePath']
+        if 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if 'querystringCachingBehaviour' in kwargs:
+            querystring_caching_behaviour = kwargs['querystringCachingBehaviour']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if content_types_to_compresses is not None:
             _setter("content_types_to_compresses", content_types_to_compresses)
         if delivery_rules is not None:

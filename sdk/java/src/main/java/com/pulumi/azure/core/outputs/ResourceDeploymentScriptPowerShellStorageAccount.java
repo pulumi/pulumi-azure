@@ -65,10 +65,10 @@ public final class ResourceDeploymentScriptPowerShellStorageAccount {
             return this;
         }
         public ResourceDeploymentScriptPowerShellStorageAccount build() {
-            final var o = new ResourceDeploymentScriptPowerShellStorageAccount();
-            o.key = key;
-            o.name = name;
-            return o;
+            final var _resultValue = new ResourceDeploymentScriptPowerShellStorageAccount();
+            _resultValue.key = key;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

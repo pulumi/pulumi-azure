@@ -65,10 +65,10 @@ public final class CassandraTableSchemaColumn {
             return this;
         }
         public CassandraTableSchemaColumn build() {
-            final var o = new CassandraTableSchemaColumn();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new CassandraTableSchemaColumn();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -113,12 +113,12 @@ public final class EndpointDeliveryRuleUrlFileNameCondition {
             return transforms(List.of(transforms));
         }
         public EndpointDeliveryRuleUrlFileNameCondition build() {
-            final var o = new EndpointDeliveryRuleUrlFileNameCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            o.transforms = transforms;
-            return o;
+            final var _resultValue = new EndpointDeliveryRuleUrlFileNameCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            _resultValue.transforms = transforms;
+            return _resultValue;
         }
     }
 }

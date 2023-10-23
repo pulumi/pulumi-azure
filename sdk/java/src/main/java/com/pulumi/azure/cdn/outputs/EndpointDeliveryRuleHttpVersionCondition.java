@@ -91,11 +91,11 @@ public final class EndpointDeliveryRuleHttpVersionCondition {
             return this;
         }
         public EndpointDeliveryRuleHttpVersionCondition build() {
-            final var o = new EndpointDeliveryRuleHttpVersionCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new EndpointDeliveryRuleHttpVersionCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

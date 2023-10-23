@@ -41,7 +41,11 @@ class SubscriptionPricingArgs:
              extensions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPricingExtensionArgs']]]] = None,
              resource_type: Optional[pulumi.Input[str]] = None,
              subplan: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         _setter("tier", tier)
         if extensions is not None:
             _setter("extensions", extensions)
@@ -127,7 +131,11 @@ class _SubscriptionPricingState:
              resource_type: Optional[pulumi.Input[str]] = None,
              subplan: Optional[pulumi.Input[str]] = None,
              tier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if extensions is not None:
             _setter("extensions", extensions)
         if resource_type is not None:

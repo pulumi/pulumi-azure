@@ -49,7 +49,13 @@ class GlobalVMShutdownScheduleNotificationSettingsArgs:
              email: Optional[pulumi.Input[str]] = None,
              time_in_minutes: Optional[pulumi.Input[int]] = None,
              webhook_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeInMinutes' in kwargs:
+            time_in_minutes = kwargs['timeInMinutes']
+        if 'webhookUrl' in kwargs:
+            webhook_url = kwargs['webhookUrl']
+
         _setter("enabled", enabled)
         if email is not None:
             _setter("email", email)
@@ -134,7 +140,9 @@ class LinuxVirtualMachineGalleryImageReferenceArgs:
              publisher: pulumi.Input[str],
              sku: pulumi.Input[str],
              version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("offer", offer)
         _setter("publisher", publisher)
         _setter("sku", sku)
@@ -212,7 +220,13 @@ class LinuxVirtualMachineInboundNatRuleArgs:
              backend_port: pulumi.Input[int],
              protocol: pulumi.Input[str],
              frontend_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+
         _setter("backend_port", backend_port)
         _setter("protocol", protocol)
         if frontend_port is not None:
@@ -270,7 +284,9 @@ class ScheduleDailyRecurrenceArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("time", time)
 
     @property
@@ -301,7 +317,9 @@ class ScheduleHourlyRecurrenceArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              minute: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("minute", minute)
 
     @property
@@ -340,7 +358,13 @@ class ScheduleNotificationSettingsArgs:
              status: Optional[pulumi.Input[str]] = None,
              time_in_minutes: Optional[pulumi.Input[int]] = None,
              webhook_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeInMinutes' in kwargs:
+            time_in_minutes = kwargs['timeInMinutes']
+        if 'webhookUrl' in kwargs:
+            webhook_url = kwargs['webhookUrl']
+
         if status is not None:
             _setter("status", status)
         if time_in_minutes is not None:
@@ -404,7 +428,11 @@ class ScheduleWeeklyRecurrenceArgs:
              _setter: Callable[[Any, Any], None],
              time: pulumi.Input[str],
              week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'weekDays' in kwargs:
+            week_days = kwargs['weekDays']
+
         _setter("time", time)
         if week_days is not None:
             _setter("week_days", week_days)
@@ -457,7 +485,13 @@ class VirtualNetworkSubnetArgs:
              name: Optional[pulumi.Input[str]] = None,
              use_in_virtual_machine_creation: Optional[pulumi.Input[str]] = None,
              use_public_ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'useInVirtualMachineCreation' in kwargs:
+            use_in_virtual_machine_creation = kwargs['useInVirtualMachineCreation']
+        if 'usePublicIpAddress' in kwargs:
+            use_public_ip_address = kwargs['usePublicIpAddress']
+
         if name is not None:
             _setter("name", name)
         if use_in_virtual_machine_creation is not None:
@@ -529,7 +563,9 @@ class WindowsVirtualMachineGalleryImageReferenceArgs:
              publisher: pulumi.Input[str],
              sku: pulumi.Input[str],
              version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("offer", offer)
         _setter("publisher", publisher)
         _setter("sku", sku)
@@ -607,7 +643,13 @@ class WindowsVirtualMachineInboundNatRuleArgs:
              backend_port: pulumi.Input[int],
              protocol: pulumi.Input[str],
              frontend_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+
         _setter("backend_port", backend_port)
         _setter("protocol", protocol)
         if frontend_port is not None:

@@ -95,11 +95,11 @@ public final class ConfigurationInstallPatches {
             return windows(List.of(windows));
         }
         public ConfigurationInstallPatches build() {
-            final var o = new ConfigurationInstallPatches();
-            o.linuxes = linuxes;
-            o.reboot = reboot;
-            o.windows = windows;
-            return o;
+            final var _resultValue = new ConfigurationInstallPatches();
+            _resultValue.linuxes = linuxes;
+            _resultValue.reboot = reboot;
+            _resultValue.windows = windows;
+            return _resultValue;
         }
     }
 }

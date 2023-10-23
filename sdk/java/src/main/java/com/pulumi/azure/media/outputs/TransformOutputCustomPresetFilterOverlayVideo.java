@@ -203,17 +203,17 @@ public final class TransformOutputCustomPresetFilterOverlayVideo {
             return this;
         }
         public TransformOutputCustomPresetFilterOverlayVideo build() {
-            final var o = new TransformOutputCustomPresetFilterOverlayVideo();
-            o.audioGainLevel = audioGainLevel;
-            o.cropRectangle = cropRectangle;
-            o.end = end;
-            o.fadeInDuration = fadeInDuration;
-            o.fadeOutDuration = fadeOutDuration;
-            o.inputLabel = inputLabel;
-            o.opacity = opacity;
-            o.position = position;
-            o.start = start;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFilterOverlayVideo();
+            _resultValue.audioGainLevel = audioGainLevel;
+            _resultValue.cropRectangle = cropRectangle;
+            _resultValue.end = end;
+            _resultValue.fadeInDuration = fadeInDuration;
+            _resultValue.fadeOutDuration = fadeOutDuration;
+            _resultValue.inputLabel = inputLabel;
+            _resultValue.opacity = opacity;
+            _resultValue.position = position;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

@@ -71,10 +71,10 @@ public final class EventSubscriptionAdvancedFilterNumberInRange {
             return this;
         }
         public EventSubscriptionAdvancedFilterNumberInRange build() {
-            final var o = new EventSubscriptionAdvancedFilterNumberInRange();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new EventSubscriptionAdvancedFilterNumberInRange();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

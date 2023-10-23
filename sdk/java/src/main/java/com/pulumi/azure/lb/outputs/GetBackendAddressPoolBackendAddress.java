@@ -108,12 +108,12 @@ public final class GetBackendAddressPoolBackendAddress {
             return this;
         }
         public GetBackendAddressPoolBackendAddress build() {
-            final var o = new GetBackendAddressPoolBackendAddress();
-            o.inboundNatRulePortMappings = inboundNatRulePortMappings;
-            o.ipAddress = ipAddress;
-            o.name = name;
-            o.virtualNetworkId = virtualNetworkId;
-            return o;
+            final var _resultValue = new GetBackendAddressPoolBackendAddress();
+            _resultValue.inboundNatRulePortMappings = inboundNatRulePortMappings;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.name = name;
+            _resultValue.virtualNetworkId = virtualNetworkId;
+            return _resultValue;
         }
     }
 }

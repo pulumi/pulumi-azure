@@ -91,11 +91,11 @@ public final class FrontdoorRuleConditionsSslProtocolCondition {
             return this;
         }
         public FrontdoorRuleConditionsSslProtocolCondition build() {
-            final var o = new FrontdoorRuleConditionsSslProtocolCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new FrontdoorRuleConditionsSslProtocolCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

@@ -104,12 +104,12 @@ public final class GetMariaDbServerStorageProfile {
             return this;
         }
         public GetMariaDbServerStorageProfile build() {
-            final var o = new GetMariaDbServerStorageProfile();
-            o.autoGrow = autoGrow;
-            o.backupRetentionDays = backupRetentionDays;
-            o.geoRedundantBackup = geoRedundantBackup;
-            o.storageMb = storageMb;
-            return o;
+            final var _resultValue = new GetMariaDbServerStorageProfile();
+            _resultValue.autoGrow = autoGrow;
+            _resultValue.backupRetentionDays = backupRetentionDays;
+            _resultValue.geoRedundantBackup = geoRedundantBackup;
+            _resultValue.storageMb = storageMb;
+            return _resultValue;
         }
     }
 }

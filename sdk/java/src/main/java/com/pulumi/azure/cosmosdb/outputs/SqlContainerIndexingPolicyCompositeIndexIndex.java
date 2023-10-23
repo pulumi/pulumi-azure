@@ -65,10 +65,10 @@ public final class SqlContainerIndexingPolicyCompositeIndexIndex {
             return this;
         }
         public SqlContainerIndexingPolicyCompositeIndexIndex build() {
-            final var o = new SqlContainerIndexingPolicyCompositeIndexIndex();
-            o.order = order;
-            o.path = path;
-            return o;
+            final var _resultValue = new SqlContainerIndexingPolicyCompositeIndexIndex();
+            _resultValue.order = order;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

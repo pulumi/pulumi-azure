@@ -148,14 +148,14 @@ public final class AccountFilterPresentationTimeRange {
             return this;
         }
         public AccountFilterPresentationTimeRange build() {
-            final var o = new AccountFilterPresentationTimeRange();
-            o.endInUnits = endInUnits;
-            o.forceEnd = forceEnd;
-            o.liveBackoffInUnits = liveBackoffInUnits;
-            o.presentationWindowInUnits = presentationWindowInUnits;
-            o.startInUnits = startInUnits;
-            o.unitTimescaleInMilliseconds = unitTimescaleInMilliseconds;
-            return o;
+            final var _resultValue = new AccountFilterPresentationTimeRange();
+            _resultValue.endInUnits = endInUnits;
+            _resultValue.forceEnd = forceEnd;
+            _resultValue.liveBackoffInUnits = liveBackoffInUnits;
+            _resultValue.presentationWindowInUnits = presentationWindowInUnits;
+            _resultValue.startInUnits = startInUnits;
+            _resultValue.unitTimescaleInMilliseconds = unitTimescaleInMilliseconds;
+            return _resultValue;
         }
     }
 }

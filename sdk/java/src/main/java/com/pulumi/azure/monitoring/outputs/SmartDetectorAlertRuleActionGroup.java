@@ -90,11 +90,11 @@ public final class SmartDetectorAlertRuleActionGroup {
             return this;
         }
         public SmartDetectorAlertRuleActionGroup build() {
-            final var o = new SmartDetectorAlertRuleActionGroup();
-            o.emailSubject = emailSubject;
-            o.ids = ids;
-            o.webhookPayload = webhookPayload;
-            return o;
+            final var _resultValue = new SmartDetectorAlertRuleActionGroup();
+            _resultValue.emailSubject = emailSubject;
+            _resultValue.ids = ids;
+            _resultValue.webhookPayload = webhookPayload;
+            return _resultValue;
         }
     }
 }

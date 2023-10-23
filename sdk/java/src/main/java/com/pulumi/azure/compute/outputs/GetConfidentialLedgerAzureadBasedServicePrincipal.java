@@ -84,11 +84,11 @@ public final class GetConfidentialLedgerAzureadBasedServicePrincipal {
             return this;
         }
         public GetConfidentialLedgerAzureadBasedServicePrincipal build() {
-            final var o = new GetConfidentialLedgerAzureadBasedServicePrincipal();
-            o.ledgerRoleName = ledgerRoleName;
-            o.principalId = principalId;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new GetConfidentialLedgerAzureadBasedServicePrincipal();
+            _resultValue.ledgerRoleName = ledgerRoleName;
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

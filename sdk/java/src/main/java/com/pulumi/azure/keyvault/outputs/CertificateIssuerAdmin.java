@@ -105,12 +105,12 @@ public final class CertificateIssuerAdmin {
             return this;
         }
         public CertificateIssuerAdmin build() {
-            final var o = new CertificateIssuerAdmin();
-            o.emailAddress = emailAddress;
-            o.firstName = firstName;
-            o.lastName = lastName;
-            o.phone = phone;
-            return o;
+            final var _resultValue = new CertificateIssuerAdmin();
+            _resultValue.emailAddress = emailAddress;
+            _resultValue.firstName = firstName;
+            _resultValue.lastName = lastName;
+            _resultValue.phone = phone;
+            return _resultValue;
         }
     }
 }

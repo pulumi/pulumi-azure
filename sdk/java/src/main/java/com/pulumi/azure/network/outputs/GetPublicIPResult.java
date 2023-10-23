@@ -340,25 +340,25 @@ public final class GetPublicIPResult {
             return zones(List.of(zones));
         }
         public GetPublicIPResult build() {
-            final var o = new GetPublicIPResult();
-            o.allocationMethod = allocationMethod;
-            o.ddosProtectionMode = ddosProtectionMode;
-            o.ddosProtectionPlanId = ddosProtectionPlanId;
-            o.domainNameLabel = domainNameLabel;
-            o.fqdn = fqdn;
-            o.id = id;
-            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
-            o.ipAddress = ipAddress;
-            o.ipTags = ipTags;
-            o.ipVersion = ipVersion;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.reverseFqdn = reverseFqdn;
-            o.sku = sku;
-            o.tags = tags;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new GetPublicIPResult();
+            _resultValue.allocationMethod = allocationMethod;
+            _resultValue.ddosProtectionMode = ddosProtectionMode;
+            _resultValue.ddosProtectionPlanId = ddosProtectionPlanId;
+            _resultValue.domainNameLabel = domainNameLabel;
+            _resultValue.fqdn = fqdn;
+            _resultValue.id = id;
+            _resultValue.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.ipTags = ipTags;
+            _resultValue.ipVersion = ipVersion;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.reverseFqdn = reverseFqdn;
+            _resultValue.sku = sku;
+            _resultValue.tags = tags;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

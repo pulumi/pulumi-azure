@@ -106,12 +106,12 @@ public final class ScaleSetRollingUpgradePolicy {
             return this;
         }
         public ScaleSetRollingUpgradePolicy build() {
-            final var o = new ScaleSetRollingUpgradePolicy();
-            o.maxBatchInstancePercent = maxBatchInstancePercent;
-            o.maxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
-            o.maxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
-            o.pauseTimeBetweenBatches = pauseTimeBetweenBatches;
-            return o;
+            final var _resultValue = new ScaleSetRollingUpgradePolicy();
+            _resultValue.maxBatchInstancePercent = maxBatchInstancePercent;
+            _resultValue.maxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
+            _resultValue.maxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
+            _resultValue.pauseTimeBetweenBatches = pauseTimeBetweenBatches;
+            return _resultValue;
         }
     }
 }

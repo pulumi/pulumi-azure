@@ -103,12 +103,12 @@ public final class MonitorUser {
             return this;
         }
         public MonitorUser build() {
-            final var o = new MonitorUser();
-            o.email = email;
-            o.firstName = firstName;
-            o.lastName = lastName;
-            o.phoneNumber = phoneNumber;
-            return o;
+            final var _resultValue = new MonitorUser();
+            _resultValue.email = email;
+            _resultValue.firstName = firstName;
+            _resultValue.lastName = lastName;
+            _resultValue.phoneNumber = phoneNumber;
+            return _resultValue;
         }
     }
 }

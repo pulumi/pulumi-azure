@@ -109,12 +109,12 @@ public final class PolicySetDefinitionPolicyDefinitionReference {
             return this;
         }
         public PolicySetDefinitionPolicyDefinitionReference build() {
-            final var o = new PolicySetDefinitionPolicyDefinitionReference();
-            o.parameterValues = parameterValues;
-            o.policyDefinitionId = policyDefinitionId;
-            o.policyGroupNames = policyGroupNames;
-            o.referenceId = referenceId;
-            return o;
+            final var _resultValue = new PolicySetDefinitionPolicyDefinitionReference();
+            _resultValue.parameterValues = parameterValues;
+            _resultValue.policyDefinitionId = policyDefinitionId;
+            _resultValue.policyGroupNames = policyGroupNames;
+            _resultValue.referenceId = referenceId;
+            return _resultValue;
         }
     }
 }

@@ -97,11 +97,11 @@ public final class AlertProcessingRuleSuppressionScheduleRecurrence {
             return weeklies(List.of(weeklies));
         }
         public AlertProcessingRuleSuppressionScheduleRecurrence build() {
-            final var o = new AlertProcessingRuleSuppressionScheduleRecurrence();
-            o.dailies = dailies;
-            o.monthlies = monthlies;
-            o.weeklies = weeklies;
-            return o;
+            final var _resultValue = new AlertProcessingRuleSuppressionScheduleRecurrence();
+            _resultValue.dailies = dailies;
+            _resultValue.monthlies = monthlies;
+            _resultValue.weeklies = weeklies;
+            return _resultValue;
         }
     }
 }

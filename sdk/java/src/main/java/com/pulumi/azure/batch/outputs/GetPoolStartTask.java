@@ -177,15 +177,15 @@ public final class GetPoolStartTask {
             return this;
         }
         public GetPoolStartTask build() {
-            final var o = new GetPoolStartTask();
-            o.commandLine = commandLine;
-            o.commonEnvironmentProperties = commonEnvironmentProperties;
-            o.containers = containers;
-            o.resourceFiles = resourceFiles;
-            o.taskRetryMaximum = taskRetryMaximum;
-            o.userIdentities = userIdentities;
-            o.waitForSuccess = waitForSuccess;
-            return o;
+            final var _resultValue = new GetPoolStartTask();
+            _resultValue.commandLine = commandLine;
+            _resultValue.commonEnvironmentProperties = commonEnvironmentProperties;
+            _resultValue.containers = containers;
+            _resultValue.resourceFiles = resourceFiles;
+            _resultValue.taskRetryMaximum = taskRetryMaximum;
+            _resultValue.userIdentities = userIdentities;
+            _resultValue.waitForSuccess = waitForSuccess;
+            return _resultValue;
         }
     }
 }

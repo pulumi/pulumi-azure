@@ -97,11 +97,11 @@ public final class CassandraTableSchema {
             return partitionKeys(List.of(partitionKeys));
         }
         public CassandraTableSchema build() {
-            final var o = new CassandraTableSchema();
-            o.clusterKeys = clusterKeys;
-            o.columns = columns;
-            o.partitionKeys = partitionKeys;
-            return o;
+            final var _resultValue = new CassandraTableSchema();
+            _resultValue.clusterKeys = clusterKeys;
+            _resultValue.columns = columns;
+            _resultValue.partitionKeys = partitionKeys;
+            return _resultValue;
         }
     }
 }

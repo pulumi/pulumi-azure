@@ -125,13 +125,13 @@ public final class SystemTopicEventSubscriptionDeliveryProperty {
             return this;
         }
         public SystemTopicEventSubscriptionDeliveryProperty build() {
-            final var o = new SystemTopicEventSubscriptionDeliveryProperty();
-            o.headerName = headerName;
-            o.secret = secret;
-            o.sourceField = sourceField;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionDeliveryProperty();
+            _resultValue.headerName = headerName;
+            _resultValue.secret = secret;
+            _resultValue.sourceField = sourceField;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

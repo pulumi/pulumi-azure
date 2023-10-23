@@ -188,16 +188,16 @@ public final class FrontdoorFirewallPolicyCustomRule {
             return this;
         }
         public FrontdoorFirewallPolicyCustomRule build() {
-            final var o = new FrontdoorFirewallPolicyCustomRule();
-            o.action = action;
-            o.enabled = enabled;
-            o.matchConditions = matchConditions;
-            o.name = name;
-            o.priority = priority;
-            o.rateLimitDurationInMinutes = rateLimitDurationInMinutes;
-            o.rateLimitThreshold = rateLimitThreshold;
-            o.type = type;
-            return o;
+            final var _resultValue = new FrontdoorFirewallPolicyCustomRule();
+            _resultValue.action = action;
+            _resultValue.enabled = enabled;
+            _resultValue.matchConditions = matchConditions;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            _resultValue.rateLimitDurationInMinutes = rateLimitDurationInMinutes;
+            _resultValue.rateLimitThreshold = rateLimitThreshold;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

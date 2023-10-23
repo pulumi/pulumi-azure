@@ -46,9 +46,9 @@ public final class GetComputeMachineCloudMetadata {
             return this;
         }
         public GetComputeMachineCloudMetadata build() {
-            final var o = new GetComputeMachineCloudMetadata();
-            o.provider = provider;
-            return o;
+            final var _resultValue = new GetComputeMachineCloudMetadata();
+            _resultValue.provider = provider;
+            return _resultValue;
         }
     }
 }

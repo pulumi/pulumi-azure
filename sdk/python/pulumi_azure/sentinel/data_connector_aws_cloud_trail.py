@@ -35,7 +35,13 @@ class DataConnectorAwsCloudTrailArgs:
              aws_role_arn: pulumi.Input[str],
              log_analytics_workspace_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsRoleArn' in kwargs:
+            aws_role_arn = kwargs['awsRoleArn']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+
         _setter("aws_role_arn", aws_role_arn)
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
@@ -102,7 +108,13 @@ class _DataConnectorAwsCloudTrailState:
              aws_role_arn: Optional[pulumi.Input[str]] = None,
              log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'awsRoleArn' in kwargs:
+            aws_role_arn = kwargs['awsRoleArn']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+
         if aws_role_arn is not None:
             _setter("aws_role_arn", aws_role_arn)
         if log_analytics_workspace_id is not None:

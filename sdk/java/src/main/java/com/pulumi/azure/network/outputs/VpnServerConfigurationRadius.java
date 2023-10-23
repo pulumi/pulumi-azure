@@ -97,11 +97,11 @@ public final class VpnServerConfigurationRadius {
             return servers(List.of(servers));
         }
         public VpnServerConfigurationRadius build() {
-            final var o = new VpnServerConfigurationRadius();
-            o.clientRootCertificates = clientRootCertificates;
-            o.serverRootCertificates = serverRootCertificates;
-            o.servers = servers;
-            return o;
+            final var _resultValue = new VpnServerConfigurationRadius();
+            _resultValue.clientRootCertificates = clientRootCertificates;
+            _resultValue.serverRootCertificates = serverRootCertificates;
+            _resultValue.servers = servers;
+            return _resultValue;
         }
     }
 }

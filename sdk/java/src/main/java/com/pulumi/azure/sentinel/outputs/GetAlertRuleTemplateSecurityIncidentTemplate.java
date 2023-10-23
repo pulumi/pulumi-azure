@@ -65,10 +65,10 @@ public final class GetAlertRuleTemplateSecurityIncidentTemplate {
             return this;
         }
         public GetAlertRuleTemplateSecurityIncidentTemplate build() {
-            final var o = new GetAlertRuleTemplateSecurityIncidentTemplate();
-            o.description = description;
-            o.productFilter = productFilter;
-            return o;
+            final var _resultValue = new GetAlertRuleTemplateSecurityIncidentTemplate();
+            _resultValue.description = description;
+            _resultValue.productFilter = productFilter;
+            return _resultValue;
         }
     }
 }

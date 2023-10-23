@@ -65,10 +65,10 @@ public final class KafkaClusterMonitor {
             return this;
         }
         public KafkaClusterMonitor build() {
-            final var o = new KafkaClusterMonitor();
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.primaryKey = primaryKey;
-            return o;
+            final var _resultValue = new KafkaClusterMonitor();
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.primaryKey = primaryKey;
+            return _resultValue;
         }
     }
 }

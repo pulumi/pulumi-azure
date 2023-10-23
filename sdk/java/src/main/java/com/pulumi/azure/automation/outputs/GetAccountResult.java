@@ -183,17 +183,17 @@ public final class GetAccountResult {
             return this;
         }
         public GetAccountResult build() {
-            final var o = new GetAccountResult();
-            o.endpoint = endpoint;
-            o.hybridServiceUrl = hybridServiceUrl;
-            o.id = id;
-            o.identities = identities;
-            o.name = name;
-            o.primaryKey = primaryKey;
-            o.privateEndpointConnections = privateEndpointConnections;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryKey = secondaryKey;
-            return o;
+            final var _resultValue = new GetAccountResult();
+            _resultValue.endpoint = endpoint;
+            _resultValue.hybridServiceUrl = hybridServiceUrl;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.name = name;
+            _resultValue.primaryKey = primaryKey;
+            _resultValue.privateEndpointConnections = privateEndpointConnections;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryKey = secondaryKey;
+            return _resultValue;
         }
     }
 }

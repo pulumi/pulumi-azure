@@ -70,10 +70,10 @@ public final class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOr
             return this;
         }
         public SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual build() {
-            final var o = new SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

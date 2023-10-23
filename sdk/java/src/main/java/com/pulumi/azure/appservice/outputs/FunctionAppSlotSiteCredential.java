@@ -67,10 +67,10 @@ public final class FunctionAppSlotSiteCredential {
             return this;
         }
         public FunctionAppSlotSiteCredential build() {
-            final var o = new FunctionAppSlotSiteCredential();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new FunctionAppSlotSiteCredential();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

@@ -138,13 +138,13 @@ public final class VirtualMachineOsProfileWindowsConfig {
             return winrms(List.of(winrms));
         }
         public VirtualMachineOsProfileWindowsConfig build() {
-            final var o = new VirtualMachineOsProfileWindowsConfig();
-            o.additionalUnattendConfigs = additionalUnattendConfigs;
-            o.enableAutomaticUpgrades = enableAutomaticUpgrades;
-            o.provisionVmAgent = provisionVmAgent;
-            o.timezone = timezone;
-            o.winrms = winrms;
-            return o;
+            final var _resultValue = new VirtualMachineOsProfileWindowsConfig();
+            _resultValue.additionalUnattendConfigs = additionalUnattendConfigs;
+            _resultValue.enableAutomaticUpgrades = enableAutomaticUpgrades;
+            _resultValue.provisionVmAgent = provisionVmAgent;
+            _resultValue.timezone = timezone;
+            _resultValue.winrms = winrms;
+            return _resultValue;
         }
     }
 }

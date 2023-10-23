@@ -12,15 +12,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FeaturesVirtualMachineScaleSet {
     private @Nullable Boolean forceDelete;
-    private Boolean rollInstancesWhenRequired;
+    private @Nullable Boolean rollInstancesWhenRequired;
     private @Nullable Boolean scaleToZeroBeforeDeletion;
 
     private FeaturesVirtualMachineScaleSet() {}
     public Optional<Boolean> forceDelete() {
         return Optional.ofNullable(this.forceDelete);
     }
-    public Boolean rollInstancesWhenRequired() {
-        return this.rollInstancesWhenRequired;
+    public Optional<Boolean> rollInstancesWhenRequired() {
+        return Optional.ofNullable(this.rollInstancesWhenRequired);
     }
     public Optional<Boolean> scaleToZeroBeforeDeletion() {
         return Optional.ofNullable(this.scaleToZeroBeforeDeletion);
@@ -36,7 +36,7 @@ public final class FeaturesVirtualMachineScaleSet {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean forceDelete;
-        private Boolean rollInstancesWhenRequired;
+        private @Nullable Boolean rollInstancesWhenRequired;
         private @Nullable Boolean scaleToZeroBeforeDeletion;
         public Builder() {}
         public Builder(FeaturesVirtualMachineScaleSet defaults) {
@@ -52,8 +52,8 @@ public final class FeaturesVirtualMachineScaleSet {
             return this;
         }
         @CustomType.Setter
-        public Builder rollInstancesWhenRequired(Boolean rollInstancesWhenRequired) {
-            this.rollInstancesWhenRequired = Objects.requireNonNull(rollInstancesWhenRequired);
+        public Builder rollInstancesWhenRequired(@Nullable Boolean rollInstancesWhenRequired) {
+            this.rollInstancesWhenRequired = rollInstancesWhenRequired;
             return this;
         }
         @CustomType.Setter
@@ -62,11 +62,11 @@ public final class FeaturesVirtualMachineScaleSet {
             return this;
         }
         public FeaturesVirtualMachineScaleSet build() {
-            final var o = new FeaturesVirtualMachineScaleSet();
-            o.forceDelete = forceDelete;
-            o.rollInstancesWhenRequired = rollInstancesWhenRequired;
-            o.scaleToZeroBeforeDeletion = scaleToZeroBeforeDeletion;
-            return o;
+            final var _resultValue = new FeaturesVirtualMachineScaleSet();
+            _resultValue.forceDelete = forceDelete;
+            _resultValue.rollInstancesWhenRequired = rollInstancesWhenRequired;
+            _resultValue.scaleToZeroBeforeDeletion = scaleToZeroBeforeDeletion;
+            return _resultValue;
         }
     }
 }

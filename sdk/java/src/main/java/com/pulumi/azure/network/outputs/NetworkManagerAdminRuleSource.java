@@ -65,10 +65,10 @@ public final class NetworkManagerAdminRuleSource {
             return this;
         }
         public NetworkManagerAdminRuleSource build() {
-            final var o = new NetworkManagerAdminRuleSource();
-            o.addressPrefix = addressPrefix;
-            o.addressPrefixType = addressPrefixType;
-            return o;
+            final var _resultValue = new NetworkManagerAdminRuleSource();
+            _resultValue.addressPrefix = addressPrefix;
+            _resultValue.addressPrefixType = addressPrefixType;
+            return _resultValue;
         }
     }
 }

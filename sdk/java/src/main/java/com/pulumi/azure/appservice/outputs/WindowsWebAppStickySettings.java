@@ -73,10 +73,10 @@ public final class WindowsWebAppStickySettings {
             return connectionStringNames(List.of(connectionStringNames));
         }
         public WindowsWebAppStickySettings build() {
-            final var o = new WindowsWebAppStickySettings();
-            o.appSettingNames = appSettingNames;
-            o.connectionStringNames = connectionStringNames;
-            return o;
+            final var _resultValue = new WindowsWebAppStickySettings();
+            _resultValue.appSettingNames = appSettingNames;
+            _resultValue.connectionStringNames = connectionStringNames;
+            return _resultValue;
         }
     }
 }

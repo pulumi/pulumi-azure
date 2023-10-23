@@ -140,13 +140,13 @@ public final class PolicyVMRetentionMonthly {
             return weeks(List.of(weeks));
         }
         public PolicyVMRetentionMonthly build() {
-            final var o = new PolicyVMRetentionMonthly();
-            o.count = count;
-            o.days = days;
-            o.includeLastDays = includeLastDays;
-            o.weekdays = weekdays;
-            o.weeks = weeks;
-            return o;
+            final var _resultValue = new PolicyVMRetentionMonthly();
+            _resultValue.count = count;
+            _resultValue.days = days;
+            _resultValue.includeLastDays = includeLastDays;
+            _resultValue.weekdays = weekdays;
+            _resultValue.weeks = weeks;
+            return _resultValue;
         }
     }
 }

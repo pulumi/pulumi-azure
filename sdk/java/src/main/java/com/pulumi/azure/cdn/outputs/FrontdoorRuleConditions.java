@@ -465,27 +465,27 @@ public final class FrontdoorRuleConditions {
             return urlPathConditions(List.of(urlPathConditions));
         }
         public FrontdoorRuleConditions build() {
-            final var o = new FrontdoorRuleConditions();
-            o.clientPortConditions = clientPortConditions;
-            o.cookiesConditions = cookiesConditions;
-            o.hostNameConditions = hostNameConditions;
-            o.httpVersionConditions = httpVersionConditions;
-            o.isDeviceConditions = isDeviceConditions;
-            o.postArgsConditions = postArgsConditions;
-            o.queryStringConditions = queryStringConditions;
-            o.remoteAddressConditions = remoteAddressConditions;
-            o.requestBodyConditions = requestBodyConditions;
-            o.requestHeaderConditions = requestHeaderConditions;
-            o.requestMethodConditions = requestMethodConditions;
-            o.requestSchemeConditions = requestSchemeConditions;
-            o.requestUriConditions = requestUriConditions;
-            o.serverPortConditions = serverPortConditions;
-            o.socketAddressConditions = socketAddressConditions;
-            o.sslProtocolConditions = sslProtocolConditions;
-            o.urlFileExtensionConditions = urlFileExtensionConditions;
-            o.urlFilenameConditions = urlFilenameConditions;
-            o.urlPathConditions = urlPathConditions;
-            return o;
+            final var _resultValue = new FrontdoorRuleConditions();
+            _resultValue.clientPortConditions = clientPortConditions;
+            _resultValue.cookiesConditions = cookiesConditions;
+            _resultValue.hostNameConditions = hostNameConditions;
+            _resultValue.httpVersionConditions = httpVersionConditions;
+            _resultValue.isDeviceConditions = isDeviceConditions;
+            _resultValue.postArgsConditions = postArgsConditions;
+            _resultValue.queryStringConditions = queryStringConditions;
+            _resultValue.remoteAddressConditions = remoteAddressConditions;
+            _resultValue.requestBodyConditions = requestBodyConditions;
+            _resultValue.requestHeaderConditions = requestHeaderConditions;
+            _resultValue.requestMethodConditions = requestMethodConditions;
+            _resultValue.requestSchemeConditions = requestSchemeConditions;
+            _resultValue.requestUriConditions = requestUriConditions;
+            _resultValue.serverPortConditions = serverPortConditions;
+            _resultValue.socketAddressConditions = socketAddressConditions;
+            _resultValue.sslProtocolConditions = sslProtocolConditions;
+            _resultValue.urlFileExtensionConditions = urlFileExtensionConditions;
+            _resultValue.urlFilenameConditions = urlFilenameConditions;
+            _resultValue.urlPathConditions = urlPathConditions;
+            return _resultValue;
         }
     }
 }

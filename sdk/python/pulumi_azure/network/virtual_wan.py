@@ -55,7 +55,17 @@ class VirtualWanArgs:
              office365_local_breakout_category: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'allowBranchToBranchTraffic' in kwargs:
+            allow_branch_to_branch_traffic = kwargs['allowBranchToBranchTraffic']
+        if 'disableVpnEncryption' in kwargs:
+            disable_vpn_encryption = kwargs['disableVpnEncryption']
+        if 'office365LocalBreakoutCategory' in kwargs:
+            office365_local_breakout_category = kwargs['office365LocalBreakoutCategory']
+
         _setter("resource_group_name", resource_group_name)
         if allow_branch_to_branch_traffic is not None:
             _setter("allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
@@ -213,7 +223,17 @@ class _VirtualWanState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowBranchToBranchTraffic' in kwargs:
+            allow_branch_to_branch_traffic = kwargs['allowBranchToBranchTraffic']
+        if 'disableVpnEncryption' in kwargs:
+            disable_vpn_encryption = kwargs['disableVpnEncryption']
+        if 'office365LocalBreakoutCategory' in kwargs:
+            office365_local_breakout_category = kwargs['office365LocalBreakoutCategory']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if allow_branch_to_branch_traffic is not None:
             _setter("allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
         if disable_vpn_encryption is not None:

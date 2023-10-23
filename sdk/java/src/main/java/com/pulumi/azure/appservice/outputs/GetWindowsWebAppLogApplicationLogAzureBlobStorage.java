@@ -85,11 +85,11 @@ public final class GetWindowsWebAppLogApplicationLogAzureBlobStorage {
             return this;
         }
         public GetWindowsWebAppLogApplicationLogAzureBlobStorage build() {
-            final var o = new GetWindowsWebAppLogApplicationLogAzureBlobStorage();
-            o.level = level;
-            o.retentionInDays = retentionInDays;
-            o.sasUrl = sasUrl;
-            return o;
+            final var _resultValue = new GetWindowsWebAppLogApplicationLogAzureBlobStorage();
+            _resultValue.level = level;
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.sasUrl = sasUrl;
+            return _resultValue;
         }
     }
 }

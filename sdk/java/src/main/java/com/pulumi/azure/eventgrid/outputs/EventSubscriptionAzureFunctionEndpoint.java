@@ -87,11 +87,11 @@ public final class EventSubscriptionAzureFunctionEndpoint {
             return this;
         }
         public EventSubscriptionAzureFunctionEndpoint build() {
-            final var o = new EventSubscriptionAzureFunctionEndpoint();
-            o.functionId = functionId;
-            o.maxEventsPerBatch = maxEventsPerBatch;
-            o.preferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
-            return o;
+            final var _resultValue = new EventSubscriptionAzureFunctionEndpoint();
+            _resultValue.functionId = functionId;
+            _resultValue.maxEventsPerBatch = maxEventsPerBatch;
+            _resultValue.preferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
+            return _resultValue;
         }
     }
 }

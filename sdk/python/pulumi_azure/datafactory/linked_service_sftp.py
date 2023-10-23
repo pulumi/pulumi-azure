@@ -81,7 +81,21 @@ class LinkedServiceSftpArgs:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              skip_host_key_validation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'hostKeyFingerprint' in kwargs:
+            host_key_fingerprint = kwargs['hostKeyFingerprint']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'skipHostKeyValidation' in kwargs:
+            skip_host_key_validation = kwargs['skipHostKeyValidation']
+
         _setter("authentication_type", authentication_type)
         _setter("data_factory_id", data_factory_id)
         _setter("host", host)
@@ -346,7 +360,21 @@ class _LinkedServiceSftpState:
              port: Optional[pulumi.Input[int]] = None,
              skip_host_key_validation: Optional[pulumi.Input[bool]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'hostKeyFingerprint' in kwargs:
+            host_key_fingerprint = kwargs['hostKeyFingerprint']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'skipHostKeyValidation' in kwargs:
+            skip_host_key_validation = kwargs['skipHostKeyValidation']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

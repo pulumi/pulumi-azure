@@ -92,11 +92,11 @@ public final class ApiDiagnosticBackendResponse {
             return headersToLogs(List.of(headersToLogs));
         }
         public ApiDiagnosticBackendResponse build() {
-            final var o = new ApiDiagnosticBackendResponse();
-            o.bodyBytes = bodyBytes;
-            o.dataMasking = dataMasking;
-            o.headersToLogs = headersToLogs;
-            return o;
+            final var _resultValue = new ApiDiagnosticBackendResponse();
+            _resultValue.bodyBytes = bodyBytes;
+            _resultValue.dataMasking = dataMasking;
+            _resultValue.headersToLogs = headersToLogs;
+            return _resultValue;
         }
     }
 }

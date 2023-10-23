@@ -202,17 +202,17 @@ public final class GetRecommendationsRecommendation {
             return this;
         }
         public GetRecommendationsRecommendation build() {
-            final var o = new GetRecommendationsRecommendation();
-            o.category = category;
-            o.description = description;
-            o.impact = impact;
-            o.recommendationName = recommendationName;
-            o.recommendationTypeId = recommendationTypeId;
-            o.resourceName = resourceName;
-            o.resourceType = resourceType;
-            o.suppressionNames = suppressionNames;
-            o.updatedTime = updatedTime;
-            return o;
+            final var _resultValue = new GetRecommendationsRecommendation();
+            _resultValue.category = category;
+            _resultValue.description = description;
+            _resultValue.impact = impact;
+            _resultValue.recommendationName = recommendationName;
+            _resultValue.recommendationTypeId = recommendationTypeId;
+            _resultValue.resourceName = resourceName;
+            _resultValue.resourceType = resourceType;
+            _resultValue.suppressionNames = suppressionNames;
+            _resultValue.updatedTime = updatedTime;
+            return _resultValue;
         }
     }
 }

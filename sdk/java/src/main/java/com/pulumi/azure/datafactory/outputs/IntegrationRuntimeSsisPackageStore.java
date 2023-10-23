@@ -65,10 +65,10 @@ public final class IntegrationRuntimeSsisPackageStore {
             return this;
         }
         public IntegrationRuntimeSsisPackageStore build() {
-            final var o = new IntegrationRuntimeSsisPackageStore();
-            o.linkedServiceName = linkedServiceName;
-            o.name = name;
-            return o;
+            final var _resultValue = new IntegrationRuntimeSsisPackageStore();
+            _resultValue.linkedServiceName = linkedServiceName;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

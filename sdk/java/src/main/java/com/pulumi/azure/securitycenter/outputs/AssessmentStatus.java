@@ -86,11 +86,11 @@ public final class AssessmentStatus {
             return this;
         }
         public AssessmentStatus build() {
-            final var o = new AssessmentStatus();
-            o.cause = cause;
-            o.code = code;
-            o.description = description;
-            return o;
+            final var _resultValue = new AssessmentStatus();
+            _resultValue.cause = cause;
+            _resultValue.code = code;
+            _resultValue.description = description;
+            return _resultValue;
         }
     }
 }

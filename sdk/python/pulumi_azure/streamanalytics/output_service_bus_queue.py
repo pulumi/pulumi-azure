@@ -71,7 +71,27 @@ class OutputServiceBusQueueArgs:
              shared_access_policy_key: Optional[pulumi.Input[str]] = None,
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
              system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'servicebusNamespace' in kwargs:
+            servicebus_namespace = kwargs['servicebusNamespace']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if 'propertyColumns' in kwargs:
+            property_columns = kwargs['propertyColumns']
+        if 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+        if 'systemPropertyColumns' in kwargs:
+            system_property_columns = kwargs['systemPropertyColumns']
+
         _setter("queue_name", queue_name)
         _setter("resource_group_name", resource_group_name)
         _setter("serialization", serialization)
@@ -283,7 +303,27 @@ class _OutputServiceBusQueueState:
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              system_property_columns: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if 'propertyColumns' in kwargs:
+            property_columns = kwargs['propertyColumns']
+        if 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'servicebusNamespace' in kwargs:
+            servicebus_namespace = kwargs['servicebusNamespace']
+        if 'sharedAccessPolicyKey' in kwargs:
+            shared_access_policy_key = kwargs['sharedAccessPolicyKey']
+        if 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if 'systemPropertyColumns' in kwargs:
+            system_property_columns = kwargs['systemPropertyColumns']
+
         if authentication_mode is not None:
             _setter("authentication_mode", authentication_mode)
         if name is not None:

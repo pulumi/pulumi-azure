@@ -41,7 +41,13 @@ class IntegrationRuntimeSelfHostedArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'rbacAuthorizations' in kwargs:
+            rbac_authorizations = kwargs['rbacAuthorizations']
+
         _setter("data_factory_id", data_factory_id)
         if description is not None:
             _setter("description", description)
@@ -135,7 +141,17 @@ class _IntegrationRuntimeSelfHostedState:
              primary_authorization_key: Optional[pulumi.Input[str]] = None,
              rbac_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSelfHostedRbacAuthorizationArgs']]]] = None,
              secondary_authorization_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'primaryAuthorizationKey' in kwargs:
+            primary_authorization_key = kwargs['primaryAuthorizationKey']
+        if 'rbacAuthorizations' in kwargs:
+            rbac_authorizations = kwargs['rbacAuthorizations']
+        if 'secondaryAuthorizationKey' in kwargs:
+            secondary_authorization_key = kwargs['secondaryAuthorizationKey']
+
         if data_factory_id is not None:
             _setter("data_factory_id", data_factory_id)
         if description is not None:

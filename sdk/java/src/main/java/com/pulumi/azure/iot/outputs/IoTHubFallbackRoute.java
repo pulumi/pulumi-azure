@@ -110,12 +110,12 @@ public final class IoTHubFallbackRoute {
             return this;
         }
         public IoTHubFallbackRoute build() {
-            final var o = new IoTHubFallbackRoute();
-            o.condition = condition;
-            o.enabled = enabled;
-            o.endpointNames = endpointNames;
-            o.source = source;
-            return o;
+            final var _resultValue = new IoTHubFallbackRoute();
+            _resultValue.condition = condition;
+            _resultValue.enabled = enabled;
+            _resultValue.endpointNames = endpointNames;
+            _resultValue.source = source;
+            return _resultValue;
         }
     }
 }

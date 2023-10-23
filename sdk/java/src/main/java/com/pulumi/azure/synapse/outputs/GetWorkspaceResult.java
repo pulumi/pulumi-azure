@@ -150,15 +150,15 @@ public final class GetWorkspaceResult {
             return this;
         }
         public GetWorkspaceResult build() {
-            final var o = new GetWorkspaceResult();
-            o.connectivityEndpoints = connectivityEndpoints;
-            o.id = id;
-            o.identities = identities;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetWorkspaceResult();
+            _resultValue.connectivityEndpoints = connectivityEndpoints;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

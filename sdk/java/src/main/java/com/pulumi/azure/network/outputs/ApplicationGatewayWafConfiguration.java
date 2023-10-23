@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationGatewayWafConfiguration {
     /**
-     * @return one or more `disabled_rule_group` blocks as defined below.
+     * @return One or more `disabled_rule_group` blocks as defined below.
      * 
      */
     private @Nullable List<ApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups;
@@ -27,7 +27,7 @@ public final class ApplicationGatewayWafConfiguration {
      */
     private Boolean enabled;
     /**
-     * @return one or more `exclusion` blocks as defined below.
+     * @return One or more `exclusion` blocks as defined below.
      * 
      */
     private @Nullable List<ApplicationGatewayWafConfigurationExclusion> exclusions;
@@ -64,7 +64,7 @@ public final class ApplicationGatewayWafConfiguration {
 
     private ApplicationGatewayWafConfiguration() {}
     /**
-     * @return one or more `disabled_rule_group` blocks as defined below.
+     * @return One or more `disabled_rule_group` blocks as defined below.
      * 
      */
     public List<ApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups() {
@@ -78,7 +78,7 @@ public final class ApplicationGatewayWafConfiguration {
         return this.enabled;
     }
     /**
-     * @return one or more `exclusion` blocks as defined below.
+     * @return One or more `exclusion` blocks as defined below.
      * 
      */
     public List<ApplicationGatewayWafConfigurationExclusion> exclusions() {
@@ -211,17 +211,17 @@ public final class ApplicationGatewayWafConfiguration {
             return this;
         }
         public ApplicationGatewayWafConfiguration build() {
-            final var o = new ApplicationGatewayWafConfiguration();
-            o.disabledRuleGroups = disabledRuleGroups;
-            o.enabled = enabled;
-            o.exclusions = exclusions;
-            o.fileUploadLimitMb = fileUploadLimitMb;
-            o.firewallMode = firewallMode;
-            o.maxRequestBodySizeKb = maxRequestBodySizeKb;
-            o.requestBodyCheck = requestBodyCheck;
-            o.ruleSetType = ruleSetType;
-            o.ruleSetVersion = ruleSetVersion;
-            return o;
+            final var _resultValue = new ApplicationGatewayWafConfiguration();
+            _resultValue.disabledRuleGroups = disabledRuleGroups;
+            _resultValue.enabled = enabled;
+            _resultValue.exclusions = exclusions;
+            _resultValue.fileUploadLimitMb = fileUploadLimitMb;
+            _resultValue.firewallMode = firewallMode;
+            _resultValue.maxRequestBodySizeKb = maxRequestBodySizeKb;
+            _resultValue.requestBodyCheck = requestBodyCheck;
+            _resultValue.ruleSetType = ruleSetType;
+            _resultValue.ruleSetVersion = ruleSetVersion;
+            return _resultValue;
         }
     }
 }

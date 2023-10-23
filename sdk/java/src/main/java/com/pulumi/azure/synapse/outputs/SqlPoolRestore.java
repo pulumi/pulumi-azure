@@ -65,10 +65,10 @@ public final class SqlPoolRestore {
             return this;
         }
         public SqlPoolRestore build() {
-            final var o = new SqlPoolRestore();
-            o.pointInTime = pointInTime;
-            o.sourceDatabaseId = sourceDatabaseId;
-            return o;
+            final var _resultValue = new SqlPoolRestore();
+            _resultValue.pointInTime = pointInTime;
+            _resultValue.sourceDatabaseId = sourceDatabaseId;
+            return _resultValue;
         }
     }
 }

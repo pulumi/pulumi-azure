@@ -65,10 +65,10 @@ public final class GetDataCollectionRuleDataSourcePrometheusForwarderLabelInclud
             return this;
         }
         public GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter build() {
-            final var o = new GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter();
-            o.label = label;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleDataSourcePrometheusForwarderLabelIncludeFilter();
+            _resultValue.label = label;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

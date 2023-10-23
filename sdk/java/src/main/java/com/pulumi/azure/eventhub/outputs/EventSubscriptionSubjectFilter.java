@@ -87,11 +87,11 @@ public final class EventSubscriptionSubjectFilter {
             return this;
         }
         public EventSubscriptionSubjectFilter build() {
-            final var o = new EventSubscriptionSubjectFilter();
-            o.caseSensitive = caseSensitive;
-            o.subjectBeginsWith = subjectBeginsWith;
-            o.subjectEndsWith = subjectEndsWith;
-            return o;
+            final var _resultValue = new EventSubscriptionSubjectFilter();
+            _resultValue.caseSensitive = caseSensitive;
+            _resultValue.subjectBeginsWith = subjectBeginsWith;
+            _resultValue.subjectEndsWith = subjectEndsWith;
+            return _resultValue;
         }
     }
 }

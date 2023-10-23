@@ -65,10 +65,10 @@ public final class NetworkManagerConnectivityConfigurationHub {
             return this;
         }
         public NetworkManagerConnectivityConfigurationHub build() {
-            final var o = new NetworkManagerConnectivityConfigurationHub();
-            o.resourceId = resourceId;
-            o.resourceType = resourceType;
-            return o;
+            final var _resultValue = new NetworkManagerConnectivityConfigurationHub();
+            _resultValue.resourceId = resourceId;
+            _resultValue.resourceType = resourceType;
+            return _resultValue;
         }
     }
 }

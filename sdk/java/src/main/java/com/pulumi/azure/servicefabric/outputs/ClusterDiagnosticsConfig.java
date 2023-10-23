@@ -122,13 +122,13 @@ public final class ClusterDiagnosticsConfig {
             return this;
         }
         public ClusterDiagnosticsConfig build() {
-            final var o = new ClusterDiagnosticsConfig();
-            o.blobEndpoint = blobEndpoint;
-            o.protectedAccountKeyName = protectedAccountKeyName;
-            o.queueEndpoint = queueEndpoint;
-            o.storageAccountName = storageAccountName;
-            o.tableEndpoint = tableEndpoint;
-            return o;
+            final var _resultValue = new ClusterDiagnosticsConfig();
+            _resultValue.blobEndpoint = blobEndpoint;
+            _resultValue.protectedAccountKeyName = protectedAccountKeyName;
+            _resultValue.queueEndpoint = queueEndpoint;
+            _resultValue.storageAccountName = storageAccountName;
+            _resultValue.tableEndpoint = tableEndpoint;
+            return _resultValue;
         }
     }
 }

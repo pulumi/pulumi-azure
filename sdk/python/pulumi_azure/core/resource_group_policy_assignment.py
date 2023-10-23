@@ -83,7 +83,21 @@ class ResourceGroupPolicyAssignmentArgs:
              overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideArgs']]]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
              resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDefinitionId' in kwargs:
+            policy_definition_id = kwargs['policyDefinitionId']
+        if 'resourceGroupId' in kwargs:
+            resource_group_id = kwargs['resourceGroupId']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'nonComplianceMessages' in kwargs:
+            non_compliance_messages = kwargs['nonComplianceMessages']
+        if 'notScopes' in kwargs:
+            not_scopes = kwargs['notScopes']
+        if 'resourceSelectors' in kwargs:
+            resource_selectors = kwargs['resourceSelectors']
+
         _setter("policy_definition_id", policy_definition_id)
         _setter("resource_group_id", resource_group_id)
         if description is not None:
@@ -352,7 +366,21 @@ class _ResourceGroupPolicyAssignmentState:
              policy_definition_id: Optional[pulumi.Input[str]] = None,
              resource_group_id: Optional[pulumi.Input[str]] = None,
              resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'nonComplianceMessages' in kwargs:
+            non_compliance_messages = kwargs['nonComplianceMessages']
+        if 'notScopes' in kwargs:
+            not_scopes = kwargs['notScopes']
+        if 'policyDefinitionId' in kwargs:
+            policy_definition_id = kwargs['policyDefinitionId']
+        if 'resourceGroupId' in kwargs:
+            resource_group_id = kwargs['resourceGroupId']
+        if 'resourceSelectors' in kwargs:
+            resource_selectors = kwargs['resourceSelectors']
+
         if description is not None:
             _setter("description", description)
         if display_name is not None:

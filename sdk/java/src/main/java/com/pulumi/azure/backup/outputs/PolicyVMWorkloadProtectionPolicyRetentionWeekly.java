@@ -70,10 +70,10 @@ public final class PolicyVMWorkloadProtectionPolicyRetentionWeekly {
             return weekdays(List.of(weekdays));
         }
         public PolicyVMWorkloadProtectionPolicyRetentionWeekly build() {
-            final var o = new PolicyVMWorkloadProtectionPolicyRetentionWeekly();
-            o.count = count;
-            o.weekdays = weekdays;
-            return o;
+            final var _resultValue = new PolicyVMWorkloadProtectionPolicyRetentionWeekly();
+            _resultValue.count = count;
+            _resultValue.weekdays = weekdays;
+            return _resultValue;
         }
     }
 }

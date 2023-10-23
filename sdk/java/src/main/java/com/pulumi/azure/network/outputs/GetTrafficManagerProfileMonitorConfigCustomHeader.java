@@ -65,10 +65,10 @@ public final class GetTrafficManagerProfileMonitorConfigCustomHeader {
             return this;
         }
         public GetTrafficManagerProfileMonitorConfigCustomHeader build() {
-            final var o = new GetTrafficManagerProfileMonitorConfigCustomHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetTrafficManagerProfileMonitorConfigCustomHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

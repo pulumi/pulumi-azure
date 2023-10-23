@@ -112,12 +112,12 @@ public final class GetLinuxWebAppLog {
             return httpLogs(List.of(httpLogs));
         }
         public GetLinuxWebAppLog build() {
-            final var o = new GetLinuxWebAppLog();
-            o.applicationLogs = applicationLogs;
-            o.detailedErrorMessages = detailedErrorMessages;
-            o.failedRequestTracing = failedRequestTracing;
-            o.httpLogs = httpLogs;
-            return o;
+            final var _resultValue = new GetLinuxWebAppLog();
+            _resultValue.applicationLogs = applicationLogs;
+            _resultValue.detailedErrorMessages = detailedErrorMessages;
+            _resultValue.failedRequestTracing = failedRequestTracing;
+            _resultValue.httpLogs = httpLogs;
+            return _resultValue;
         }
     }
 }

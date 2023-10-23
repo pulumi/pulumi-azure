@@ -67,7 +67,17 @@ class LinkedServiceAzureFunctionArgs:
              key_vault_key: Optional[pulumi.Input['LinkedServiceAzureFunctionKeyVaultKeyArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'keyVaultKey' in kwargs:
+            key_vault_key = kwargs['keyVaultKey']
+
         _setter("data_factory_id", data_factory_id)
         _setter("url", url)
         if additional_properties is not None:
@@ -264,7 +274,17 @@ class _LinkedServiceAzureFunctionState:
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'keyVaultKey' in kwargs:
+            key_vault_key = kwargs['keyVaultKey']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

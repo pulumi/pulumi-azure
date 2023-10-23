@@ -69,7 +69,23 @@ class VnpGatewayNatRuleArgs:
              mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+        if 'externalAddressSpaceMappings' in kwargs:
+            external_address_space_mappings = kwargs['externalAddressSpaceMappings']
+        if 'externalMappings' in kwargs:
+            external_mappings = kwargs['externalMappings']
+        if 'internalAddressSpaceMappings' in kwargs:
+            internal_address_space_mappings = kwargs['internalAddressSpaceMappings']
+        if 'internalMappings' in kwargs:
+            internal_mappings = kwargs['internalMappings']
+        if 'ipConfigurationId' in kwargs:
+            ip_configuration_id = kwargs['ipConfigurationId']
+
         _setter("resource_group_name", resource_group_name)
         _setter("vpn_gateway_id", vpn_gateway_id)
         if external_address_space_mappings is not None:
@@ -282,7 +298,23 @@ class _VnpGatewayNatRuleState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'externalAddressSpaceMappings' in kwargs:
+            external_address_space_mappings = kwargs['externalAddressSpaceMappings']
+        if 'externalMappings' in kwargs:
+            external_mappings = kwargs['externalMappings']
+        if 'internalAddressSpaceMappings' in kwargs:
+            internal_address_space_mappings = kwargs['internalAddressSpaceMappings']
+        if 'internalMappings' in kwargs:
+            internal_mappings = kwargs['internalMappings']
+        if 'ipConfigurationId' in kwargs:
+            ip_configuration_id = kwargs['ipConfigurationId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+
         if external_address_space_mappings is not None:
             warnings.warn("""`external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""external_address_space_mappings is deprecated: `external_address_space_mappings` will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.""")

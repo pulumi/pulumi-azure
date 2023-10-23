@@ -48,9 +48,9 @@ public final class GremlinDatabaseAutoscaleSettings {
             return this;
         }
         public GremlinDatabaseAutoscaleSettings build() {
-            final var o = new GremlinDatabaseAutoscaleSettings();
-            o.maxThroughput = maxThroughput;
-            return o;
+            final var _resultValue = new GremlinDatabaseAutoscaleSettings();
+            _resultValue.maxThroughput = maxThroughput;
+            return _resultValue;
         }
     }
 }

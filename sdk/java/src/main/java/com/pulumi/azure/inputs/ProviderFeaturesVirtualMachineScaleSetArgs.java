@@ -22,11 +22,11 @@ public final class ProviderFeaturesVirtualMachineScaleSetArgs extends com.pulumi
         return Optional.ofNullable(this.forceDelete);
     }
 
-    @Import(name="rollInstancesWhenRequired", required=true)
-    private Output<Boolean> rollInstancesWhenRequired;
+    @Import(name="rollInstancesWhenRequired")
+    private @Nullable Output<Boolean> rollInstancesWhenRequired;
 
-    public Output<Boolean> rollInstancesWhenRequired() {
-        return this.rollInstancesWhenRequired;
+    public Optional<Output<Boolean>> rollInstancesWhenRequired() {
+        return Optional.ofNullable(this.rollInstancesWhenRequired);
     }
 
     @Import(name="scaleToZeroBeforeDeletion")
@@ -71,7 +71,7 @@ public final class ProviderFeaturesVirtualMachineScaleSetArgs extends com.pulumi
             return forceDelete(Output.of(forceDelete));
         }
 
-        public Builder rollInstancesWhenRequired(Output<Boolean> rollInstancesWhenRequired) {
+        public Builder rollInstancesWhenRequired(@Nullable Output<Boolean> rollInstancesWhenRequired) {
             $.rollInstancesWhenRequired = rollInstancesWhenRequired;
             return this;
         }
@@ -90,7 +90,6 @@ public final class ProviderFeaturesVirtualMachineScaleSetArgs extends com.pulumi
         }
 
         public ProviderFeaturesVirtualMachineScaleSetArgs build() {
-            $.rollInstancesWhenRequired = Objects.requireNonNull($.rollInstancesWhenRequired, "expected parameter 'rollInstancesWhenRequired' to be non-null");
             return $;
         }
     }

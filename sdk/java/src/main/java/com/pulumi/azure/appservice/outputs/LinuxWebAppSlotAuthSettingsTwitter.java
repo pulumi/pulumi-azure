@@ -86,11 +86,11 @@ public final class LinuxWebAppSlotAuthSettingsTwitter {
             return this;
         }
         public LinuxWebAppSlotAuthSettingsTwitter build() {
-            final var o = new LinuxWebAppSlotAuthSettingsTwitter();
-            o.consumerKey = consumerKey;
-            o.consumerSecret = consumerSecret;
-            o.consumerSecretSettingName = consumerSecretSettingName;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotAuthSettingsTwitter();
+            _resultValue.consumerKey = consumerKey;
+            _resultValue.consumerSecret = consumerSecret;
+            _resultValue.consumerSecretSettingName = consumerSecretSettingName;
+            return _resultValue;
         }
     }
 }

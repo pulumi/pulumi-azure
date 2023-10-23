@@ -65,10 +65,10 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConf
             return this;
         }
         public ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration build() {
-            final var o = new ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration();
-            o.headerName = headerName;
-            o.headerValue = headerValue;
-            return o;
+            final var _resultValue = new ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration();
+            _resultValue.headerName = headerName;
+            _resultValue.headerValue = headerValue;
+            return _resultValue;
         }
     }
 }

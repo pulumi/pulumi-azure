@@ -69,10 +69,10 @@ public final class KafkaClusterGateway {
             return this;
         }
         public KafkaClusterGateway build() {
-            final var o = new KafkaClusterGateway();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new KafkaClusterGateway();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

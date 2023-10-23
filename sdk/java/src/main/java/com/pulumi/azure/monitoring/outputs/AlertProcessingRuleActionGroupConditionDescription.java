@@ -69,10 +69,10 @@ public final class AlertProcessingRuleActionGroupConditionDescription {
             return values(List.of(values));
         }
         public AlertProcessingRuleActionGroupConditionDescription build() {
-            final var o = new AlertProcessingRuleActionGroupConditionDescription();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new AlertProcessingRuleActionGroupConditionDescription();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

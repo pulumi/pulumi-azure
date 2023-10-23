@@ -184,16 +184,16 @@ public final class GetAlertRuleTemplateScheduledTemplate {
             return this;
         }
         public GetAlertRuleTemplateScheduledTemplate build() {
-            final var o = new GetAlertRuleTemplateScheduledTemplate();
-            o.description = description;
-            o.query = query;
-            o.queryFrequency = queryFrequency;
-            o.queryPeriod = queryPeriod;
-            o.severity = severity;
-            o.tactics = tactics;
-            o.triggerOperator = triggerOperator;
-            o.triggerThreshold = triggerThreshold;
-            return o;
+            final var _resultValue = new GetAlertRuleTemplateScheduledTemplate();
+            _resultValue.description = description;
+            _resultValue.query = query;
+            _resultValue.queryFrequency = queryFrequency;
+            _resultValue.queryPeriod = queryPeriod;
+            _resultValue.severity = severity;
+            _resultValue.tactics = tactics;
+            _resultValue.triggerOperator = triggerOperator;
+            _resultValue.triggerThreshold = triggerThreshold;
+            return _resultValue;
         }
     }
 }

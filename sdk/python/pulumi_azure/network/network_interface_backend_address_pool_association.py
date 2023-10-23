@@ -35,7 +35,15 @@ class NetworkInterfaceBackendAddressPoolAssociationArgs:
              backend_address_pool_id: pulumi.Input[str],
              ip_configuration_name: pulumi.Input[str],
              network_interface_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendAddressPoolId' in kwargs:
+            backend_address_pool_id = kwargs['backendAddressPoolId']
+        if 'ipConfigurationName' in kwargs:
+            ip_configuration_name = kwargs['ipConfigurationName']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+
         _setter("backend_address_pool_id", backend_address_pool_id)
         _setter("ip_configuration_name", ip_configuration_name)
         _setter("network_interface_id", network_interface_id)
@@ -101,7 +109,15 @@ class _NetworkInterfaceBackendAddressPoolAssociationState:
              backend_address_pool_id: Optional[pulumi.Input[str]] = None,
              ip_configuration_name: Optional[pulumi.Input[str]] = None,
              network_interface_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendAddressPoolId' in kwargs:
+            backend_address_pool_id = kwargs['backendAddressPoolId']
+        if 'ipConfigurationName' in kwargs:
+            ip_configuration_name = kwargs['ipConfigurationName']
+        if 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+
         if backend_address_pool_id is not None:
             _setter("backend_address_pool_id", backend_address_pool_id)
         if ip_configuration_name is not None:

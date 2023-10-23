@@ -11,17 +11,17 @@ import java.util.Objects;
 @CustomType
 public final class GetApplicationGatewayBackendAddressPool {
     /**
-     * @return A list of FQDN&#39;s that are included in the Backend Address Pool.
+     * @return A list of FQDNs which are part of the Backend Address Pool.
      * 
      */
     private List<String> fqdns;
     /**
-     * @return The ID of the Backend Address Pool.
+     * @return The ID of the Rewrite Rule Set
      * 
      */
     private String id;
     /**
-     * @return A list of IP Addresses that are included in the Backend Address Pool.
+     * @return A list of IP Addresses which are part of the Backend Address Pool.
      * 
      */
     private List<String> ipAddresses;
@@ -33,21 +33,21 @@ public final class GetApplicationGatewayBackendAddressPool {
 
     private GetApplicationGatewayBackendAddressPool() {}
     /**
-     * @return A list of FQDN&#39;s that are included in the Backend Address Pool.
+     * @return A list of FQDNs which are part of the Backend Address Pool.
      * 
      */
     public List<String> fqdns() {
         return this.fqdns;
     }
     /**
-     * @return The ID of the Backend Address Pool.
+     * @return The ID of the Rewrite Rule Set
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return A list of IP Addresses that are included in the Backend Address Pool.
+     * @return A list of IP Addresses which are part of the Backend Address Pool.
      * 
      */
     public List<String> ipAddresses() {
@@ -110,12 +110,12 @@ public final class GetApplicationGatewayBackendAddressPool {
             return this;
         }
         public GetApplicationGatewayBackendAddressPool build() {
-            final var o = new GetApplicationGatewayBackendAddressPool();
-            o.fqdns = fqdns;
-            o.id = id;
-            o.ipAddresses = ipAddresses;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetApplicationGatewayBackendAddressPool();
+            _resultValue.fqdns = fqdns;
+            _resultValue.id = id;
+            _resultValue.ipAddresses = ipAddresses;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

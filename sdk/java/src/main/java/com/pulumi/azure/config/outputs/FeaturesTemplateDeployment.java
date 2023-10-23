@@ -38,9 +38,9 @@ public final class FeaturesTemplateDeployment {
             return this;
         }
         public FeaturesTemplateDeployment build() {
-            final var o = new FeaturesTemplateDeployment();
-            o.deleteNestedItemsDuringDeletion = deleteNestedItemsDuringDeletion;
-            return o;
+            final var _resultValue = new FeaturesTemplateDeployment();
+            _resultValue.deleteNestedItemsDuringDeletion = deleteNestedItemsDuringDeletion;
+            return _resultValue;
         }
     }
 }

@@ -213,18 +213,18 @@ public final class ZoneSoaRecord {
             return this;
         }
         public ZoneSoaRecord build() {
-            final var o = new ZoneSoaRecord();
-            o.email = email;
-            o.expireTime = expireTime;
-            o.fqdn = fqdn;
-            o.hostName = hostName;
-            o.minimumTtl = minimumTtl;
-            o.refreshTime = refreshTime;
-            o.retryTime = retryTime;
-            o.serialNumber = serialNumber;
-            o.tags = tags;
-            o.ttl = ttl;
-            return o;
+            final var _resultValue = new ZoneSoaRecord();
+            _resultValue.email = email;
+            _resultValue.expireTime = expireTime;
+            _resultValue.fqdn = fqdn;
+            _resultValue.hostName = hostName;
+            _resultValue.minimumTtl = minimumTtl;
+            _resultValue.refreshTime = refreshTime;
+            _resultValue.retryTime = retryTime;
+            _resultValue.serialNumber = serialNumber;
+            _resultValue.tags = tags;
+            _resultValue.ttl = ttl;
+            return _resultValue;
         }
     }
 }

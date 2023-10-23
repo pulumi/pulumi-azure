@@ -68,10 +68,10 @@ public final class LabSecurity {
             return this;
         }
         public LabSecurity build() {
-            final var o = new LabSecurity();
-            o.openAccessEnabled = openAccessEnabled;
-            o.registrationCode = registrationCode;
-            return o;
+            final var _resultValue = new LabSecurity();
+            _resultValue.openAccessEnabled = openAccessEnabled;
+            _resultValue.registrationCode = registrationCode;
+            return _resultValue;
         }
     }
 }

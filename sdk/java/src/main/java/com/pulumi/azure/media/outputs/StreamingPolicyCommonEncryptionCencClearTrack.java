@@ -50,9 +50,9 @@ public final class StreamingPolicyCommonEncryptionCencClearTrack {
             return conditions(List.of(conditions));
         }
         public StreamingPolicyCommonEncryptionCencClearTrack build() {
-            final var o = new StreamingPolicyCommonEncryptionCencClearTrack();
-            o.conditions = conditions;
-            return o;
+            final var _resultValue = new StreamingPolicyCommonEncryptionCencClearTrack();
+            _resultValue.conditions = conditions;
+            return _resultValue;
         }
     }
 }

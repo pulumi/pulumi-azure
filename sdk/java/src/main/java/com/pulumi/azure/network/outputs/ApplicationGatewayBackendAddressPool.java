@@ -112,12 +112,12 @@ public final class ApplicationGatewayBackendAddressPool {
             return this;
         }
         public ApplicationGatewayBackendAddressPool build() {
-            final var o = new ApplicationGatewayBackendAddressPool();
-            o.fqdns = fqdns;
-            o.id = id;
-            o.ipAddresses = ipAddresses;
-            o.name = name;
-            return o;
+            final var _resultValue = new ApplicationGatewayBackendAddressPool();
+            _resultValue.fqdns = fqdns;
+            _resultValue.id = id;
+            _resultValue.ipAddresses = ipAddresses;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

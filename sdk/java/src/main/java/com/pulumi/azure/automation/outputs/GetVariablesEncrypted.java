@@ -115,13 +115,13 @@ public final class GetVariablesEncrypted {
             return this;
         }
         public GetVariablesEncrypted build() {
-            final var o = new GetVariablesEncrypted();
-            o.description = description;
-            o.encrypted = encrypted;
-            o.id = id;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetVariablesEncrypted();
+            _resultValue.description = description;
+            _resultValue.encrypted = encrypted;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

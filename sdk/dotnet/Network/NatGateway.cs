@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network
 {
     /// <summary>
-    /// Manages a Azure NAT Gateway.
+    /// Manages an Azure NAT Gateway.
     /// 
     /// ## Example Usage
     /// 
@@ -27,29 +27,6 @@ namespace Pulumi.Azure.Network
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AllocationMethod = "Static",
-    ///         Sku = "Standard",
-    ///         Zones = new[]
-    ///         {
-    ///             "1",
-    ///         },
-    ///     });
-    /// 
-    ///     var examplePublicIpPrefix = new Azure.Network.PublicIpPrefix("examplePublicIpPrefix", new()
-    ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         PrefixLength = 30,
-    ///         Zones = new[]
-    ///         {
-    ///             "1",
-    ///         },
-    ///     });
-    /// 
     ///     var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new()
     ///     {
     ///         Location = exampleResourceGroup.Location,
@@ -64,6 +41,8 @@ namespace Pulumi.Azure.Network
     /// 
     /// });
     /// ```
+    /// 
+    /// For more complete examples, please see the azure.network.NatGatewayPublicIpAssociation and azure.network.NatGatewayPublicIpPrefixAssociation resources.
     /// 
     /// ## Import
     /// 

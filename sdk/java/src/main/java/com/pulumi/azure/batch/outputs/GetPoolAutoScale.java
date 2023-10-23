@@ -65,10 +65,10 @@ public final class GetPoolAutoScale {
             return this;
         }
         public GetPoolAutoScale build() {
-            final var o = new GetPoolAutoScale();
-            o.evaluationInterval = evaluationInterval;
-            o.formula = formula;
-            return o;
+            final var _resultValue = new GetPoolAutoScale();
+            _resultValue.evaluationInterval = evaluationInterval;
+            _resultValue.formula = formula;
+            return _resultValue;
         }
     }
 }

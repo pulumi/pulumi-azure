@@ -50,9 +50,9 @@ public final class KubernetesClusterDefaultNodePoolUpgradeSettings {
             return this;
         }
         public KubernetesClusterDefaultNodePoolUpgradeSettings build() {
-            final var o = new KubernetesClusterDefaultNodePoolUpgradeSettings();
-            o.maxSurge = maxSurge;
-            return o;
+            final var _resultValue = new KubernetesClusterDefaultNodePoolUpgradeSettings();
+            _resultValue.maxSurge = maxSurge;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class LinkedServiceOdbcBasicAuthentication {
             return this;
         }
         public LinkedServiceOdbcBasicAuthentication build() {
-            final var o = new LinkedServiceOdbcBasicAuthentication();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new LinkedServiceOdbcBasicAuthentication();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

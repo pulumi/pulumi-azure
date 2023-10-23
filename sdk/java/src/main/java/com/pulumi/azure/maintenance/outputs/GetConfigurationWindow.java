@@ -122,13 +122,13 @@ public final class GetConfigurationWindow {
             return this;
         }
         public GetConfigurationWindow build() {
-            final var o = new GetConfigurationWindow();
-            o.duration = duration;
-            o.expirationDateTime = expirationDateTime;
-            o.recurEvery = recurEvery;
-            o.startDateTime = startDateTime;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new GetConfigurationWindow();
+            _resultValue.duration = duration;
+            _resultValue.expirationDateTime = expirationDateTime;
+            _resultValue.recurEvery = recurEvery;
+            _resultValue.startDateTime = startDateTime;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

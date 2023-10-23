@@ -71,10 +71,10 @@ public final class TransformOutputCustomPresetFormatTransportStream {
             return outputFiles(List.of(outputFiles));
         }
         public TransformOutputCustomPresetFormatTransportStream build() {
-            final var o = new TransformOutputCustomPresetFormatTransportStream();
-            o.filenamePattern = filenamePattern;
-            o.outputFiles = outputFiles;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFormatTransportStream();
+            _resultValue.filenamePattern = filenamePattern;
+            _resultValue.outputFiles = outputFiles;
+            return _resultValue;
         }
     }
 }

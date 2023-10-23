@@ -105,12 +105,12 @@ public final class IntegrationRuntimeManagedCatalogInfo {
             return this;
         }
         public IntegrationRuntimeManagedCatalogInfo build() {
-            final var o = new IntegrationRuntimeManagedCatalogInfo();
-            o.administratorLogin = administratorLogin;
-            o.administratorPassword = administratorPassword;
-            o.pricingTier = pricingTier;
-            o.serverEndpoint = serverEndpoint;
-            return o;
+            final var _resultValue = new IntegrationRuntimeManagedCatalogInfo();
+            _resultValue.administratorLogin = administratorLogin;
+            _resultValue.administratorPassword = administratorPassword;
+            _resultValue.pricingTier = pricingTier;
+            _resultValue.serverEndpoint = serverEndpoint;
+            return _resultValue;
         }
     }
 }

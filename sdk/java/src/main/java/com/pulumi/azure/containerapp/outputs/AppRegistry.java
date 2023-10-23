@@ -109,12 +109,12 @@ public final class AppRegistry {
             return this;
         }
         public AppRegistry build() {
-            final var o = new AppRegistry();
-            o.identity = identity;
-            o.passwordSecretName = passwordSecretName;
-            o.server = server;
-            o.username = username;
-            return o;
+            final var _resultValue = new AppRegistry();
+            _resultValue.identity = identity;
+            _resultValue.passwordSecretName = passwordSecretName;
+            _resultValue.server = server;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

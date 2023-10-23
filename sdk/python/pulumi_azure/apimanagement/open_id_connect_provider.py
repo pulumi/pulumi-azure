@@ -55,7 +55,21 @@ class OpenIdConnectProviderArgs:
              resource_group_name: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'metadataEndpoint' in kwargs:
+            metadata_endpoint = kwargs['metadataEndpoint']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("api_management_name", api_management_name)
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
@@ -208,7 +222,21 @@ class _OpenIdConnectProviderState:
              metadata_endpoint: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'metadataEndpoint' in kwargs:
+            metadata_endpoint = kwargs['metadataEndpoint']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if client_id is not None:

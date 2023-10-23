@@ -63,7 +63,17 @@ class RegistryWebhookArgs:
              scope: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceUri' in kwargs:
+            service_uri = kwargs['serviceUri']
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+
         _setter("actions", actions)
         _setter("registry_name", registry_name)
         _setter("resource_group_name", resource_group_name)
@@ -254,7 +264,17 @@ class _RegistryWebhookState:
              service_uri: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceUri' in kwargs:
+            service_uri = kwargs['serviceUri']
+
         if actions is not None:
             _setter("actions", actions)
         if custom_headers is not None:

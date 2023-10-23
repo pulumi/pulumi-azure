@@ -43,7 +43,17 @@ class EndpointEventHubArgs:
              eventhub_secondary_connection_string: pulumi.Input[str],
              dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'digitalTwinsId' in kwargs:
+            digital_twins_id = kwargs['digitalTwinsId']
+        if 'eventhubPrimaryConnectionString' in kwargs:
+            eventhub_primary_connection_string = kwargs['eventhubPrimaryConnectionString']
+        if 'eventhubSecondaryConnectionString' in kwargs:
+            eventhub_secondary_connection_string = kwargs['eventhubSecondaryConnectionString']
+        if 'deadLetterStorageSecret' in kwargs:
+            dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
+
         _setter("digital_twins_id", digital_twins_id)
         _setter("eventhub_primary_connection_string", eventhub_primary_connection_string)
         _setter("eventhub_secondary_connection_string", eventhub_secondary_connection_string)
@@ -145,7 +155,17 @@ class _EndpointEventHubState:
              eventhub_primary_connection_string: Optional[pulumi.Input[str]] = None,
              eventhub_secondary_connection_string: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deadLetterStorageSecret' in kwargs:
+            dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
+        if 'digitalTwinsId' in kwargs:
+            digital_twins_id = kwargs['digitalTwinsId']
+        if 'eventhubPrimaryConnectionString' in kwargs:
+            eventhub_primary_connection_string = kwargs['eventhubPrimaryConnectionString']
+        if 'eventhubSecondaryConnectionString' in kwargs:
+            eventhub_secondary_connection_string = kwargs['eventhubSecondaryConnectionString']
+
         if dead_letter_storage_secret is not None:
             _setter("dead_letter_storage_secret", dead_letter_storage_secret)
         if digital_twins_id is not None:

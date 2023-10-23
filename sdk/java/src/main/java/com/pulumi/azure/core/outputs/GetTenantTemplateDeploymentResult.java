@@ -76,11 +76,11 @@ public final class GetTenantTemplateDeploymentResult {
             return this;
         }
         public GetTenantTemplateDeploymentResult build() {
-            final var o = new GetTenantTemplateDeploymentResult();
-            o.id = id;
-            o.name = name;
-            o.outputContent = outputContent;
-            return o;
+            final var _resultValue = new GetTenantTemplateDeploymentResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.outputContent = outputContent;
+            return _resultValue;
         }
     }
 }

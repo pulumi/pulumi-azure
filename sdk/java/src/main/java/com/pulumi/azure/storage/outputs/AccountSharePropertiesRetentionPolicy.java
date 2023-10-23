@@ -48,9 +48,9 @@ public final class AccountSharePropertiesRetentionPolicy {
             return this;
         }
         public AccountSharePropertiesRetentionPolicy build() {
-            final var o = new AccountSharePropertiesRetentionPolicy();
-            o.days = days;
-            return o;
+            final var _resultValue = new AccountSharePropertiesRetentionPolicy();
+            _resultValue.days = days;
+            return _resultValue;
         }
     }
 }

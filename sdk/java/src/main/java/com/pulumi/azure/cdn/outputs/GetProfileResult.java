@@ -126,14 +126,14 @@ public final class GetProfileResult {
             return this;
         }
         public GetProfileResult build() {
-            final var o = new GetProfileResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.sku = sku;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetProfileResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sku = sku;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

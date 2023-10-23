@@ -65,10 +65,10 @@ public final class GetConfidentialLedgerCertificateBasedSecurityPrincipal {
             return this;
         }
         public GetConfidentialLedgerCertificateBasedSecurityPrincipal build() {
-            final var o = new GetConfidentialLedgerCertificateBasedSecurityPrincipal();
-            o.ledgerRoleName = ledgerRoleName;
-            o.pemPublicKey = pemPublicKey;
-            return o;
+            final var _resultValue = new GetConfidentialLedgerCertificateBasedSecurityPrincipal();
+            _resultValue.ledgerRoleName = ledgerRoleName;
+            _resultValue.pemPublicKey = pemPublicKey;
+            return _resultValue;
         }
     }
 }

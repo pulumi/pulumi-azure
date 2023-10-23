@@ -85,11 +85,11 @@ public final class GetAppServicePlanSku {
             return this;
         }
         public GetAppServicePlanSku build() {
-            final var o = new GetAppServicePlanSku();
-            o.capacity = capacity;
-            o.size = size;
-            o.tier = tier;
-            return o;
+            final var _resultValue = new GetAppServicePlanSku();
+            _resultValue.capacity = capacity;
+            _resultValue.size = size;
+            _resultValue.tier = tier;
+            return _resultValue;
         }
     }
 }

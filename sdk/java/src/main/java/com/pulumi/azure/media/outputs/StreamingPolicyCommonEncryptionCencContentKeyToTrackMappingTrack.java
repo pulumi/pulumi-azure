@@ -50,9 +50,9 @@ public final class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTr
             return conditions(List.of(conditions));
         }
         public StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack build() {
-            final var o = new StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack();
-            o.conditions = conditions;
-            return o;
+            final var _resultValue = new StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrack();
+            _resultValue.conditions = conditions;
+            return _resultValue;
         }
     }
 }

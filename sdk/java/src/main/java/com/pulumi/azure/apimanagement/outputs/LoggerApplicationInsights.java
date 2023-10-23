@@ -46,9 +46,9 @@ public final class LoggerApplicationInsights {
             return this;
         }
         public LoggerApplicationInsights build() {
-            final var o = new LoggerApplicationInsights();
-            o.instrumentationKey = instrumentationKey;
-            return o;
+            final var _resultValue = new LoggerApplicationInsights();
+            _resultValue.instrumentationKey = instrumentationKey;
+            return _resultValue;
         }
     }
 }

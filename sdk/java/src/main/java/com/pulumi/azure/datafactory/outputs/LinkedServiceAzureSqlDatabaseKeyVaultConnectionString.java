@@ -65,10 +65,10 @@ public final class LinkedServiceAzureSqlDatabaseKeyVaultConnectionString {
             return this;
         }
         public LinkedServiceAzureSqlDatabaseKeyVaultConnectionString build() {
-            final var o = new LinkedServiceAzureSqlDatabaseKeyVaultConnectionString();
-            o.linkedServiceName = linkedServiceName;
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new LinkedServiceAzureSqlDatabaseKeyVaultConnectionString();
+            _resultValue.linkedServiceName = linkedServiceName;
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

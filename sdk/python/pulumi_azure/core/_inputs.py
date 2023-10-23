@@ -77,7 +77,9 @@ class CustomProviderActionArgs:
              _setter: Callable[[Any, Any], None],
              endpoint: pulumi.Input[str],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("endpoint", endpoint)
         _setter("name", name)
 
@@ -129,7 +131,11 @@ class CustomProviderResourceTypeArgs:
              endpoint: pulumi.Input[str],
              name: pulumi.Input[str],
              routing_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'routingType' in kwargs:
+            routing_type = kwargs['routingType']
+
         _setter("endpoint", endpoint)
         _setter("name", name)
         if routing_type is not None:
@@ -187,7 +193,9 @@ class CustomProviderValidationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              specification: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("specification", specification)
 
     @property
@@ -218,7 +226,11 @@ class ResourceDeploymentScriptAzureCliContainerArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              container_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerGroupName' in kwargs:
+            container_group_name = kwargs['containerGroupName']
+
         if container_group_name is not None:
             _setter("container_group_name", container_group_name)
 
@@ -258,7 +270,11 @@ class ResourceDeploymentScriptAzureCliEnvironmentVariableArgs:
              name: pulumi.Input[str],
              secure_value: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secureValue' in kwargs:
+            secure_value = kwargs['secureValue']
+
         _setter("name", name)
         if secure_value is not None:
             _setter("secure_value", secure_value)
@@ -321,7 +337,11 @@ class ResourceDeploymentScriptAzureCliIdentityArgs:
              _setter: Callable[[Any, Any], None],
              identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+
         _setter("identity_ids", identity_ids)
         _setter("type", type)
 
@@ -369,7 +389,9 @@ class ResourceDeploymentScriptAzureCliStorageAccountArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("name", name)
 
@@ -413,7 +435,11 @@ class ResourceDeploymentScriptPowerShellContainerArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              container_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerGroupName' in kwargs:
+            container_group_name = kwargs['containerGroupName']
+
         if container_group_name is not None:
             _setter("container_group_name", container_group_name)
 
@@ -453,7 +479,11 @@ class ResourceDeploymentScriptPowerShellEnvironmentVariableArgs:
              name: pulumi.Input[str],
              secure_value: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secureValue' in kwargs:
+            secure_value = kwargs['secureValue']
+
         _setter("name", name)
         if secure_value is not None:
             _setter("secure_value", secure_value)
@@ -516,7 +546,11 @@ class ResourceDeploymentScriptPowerShellIdentityArgs:
              _setter: Callable[[Any, Any], None],
              identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+
         _setter("identity_ids", identity_ids)
         _setter("type", type)
 
@@ -564,7 +598,9 @@ class ResourceDeploymentScriptPowerShellStorageAccountArgs:
              _setter: Callable[[Any, Any], None],
              key: pulumi.Input[str],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("key", key)
         _setter("name", name)
 
@@ -612,7 +648,11 @@ class ResourceGroupCostManagementExportExportDataOptionsArgs:
              _setter: Callable[[Any, Any], None],
              time_frame: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeFrame' in kwargs:
+            time_frame = kwargs['timeFrame']
+
         _setter("time_frame", time_frame)
         _setter("type", type)
 
@@ -662,7 +702,13 @@ class ResourceGroupCostManagementExportExportDataStorageLocationArgs:
              _setter: Callable[[Any, Any], None],
              container_id: pulumi.Input[str],
              root_folder_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerId' in kwargs:
+            container_id = kwargs['containerId']
+        if 'rootFolderPath' in kwargs:
+            root_folder_path = kwargs['rootFolderPath']
+
         _setter("container_id", container_id)
         _setter("root_folder_path", root_folder_path)
 
@@ -720,7 +766,9 @@ class ResourceGroupCostManagementViewDatasetArgs:
              granularity: pulumi.Input[str],
              groupings: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]] = None,
              sortings: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("aggregations", aggregations)
         _setter("granularity", granularity)
         if groupings is not None:
@@ -796,7 +844,11 @@ class ResourceGroupCostManagementViewDatasetAggregationArgs:
              _setter: Callable[[Any, Any], None],
              column_name: pulumi.Input[str],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+
         _setter("column_name", column_name)
         _setter("name", name)
 
@@ -844,7 +896,9 @@ class ResourceGroupCostManagementViewDatasetGroupingArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -892,7 +946,9 @@ class ResourceGroupCostManagementViewDatasetSortingArgs:
              _setter: Callable[[Any, Any], None],
              direction: pulumi.Input[str],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("direction", direction)
         _setter("name", name)
 
@@ -936,7 +992,9 @@ class ResourceGroupCostManagementViewKpiArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
 
     @property
@@ -971,7 +1029,9 @@ class ResourceGroupCostManagementViewPivotArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -1029,7 +1089,15 @@ class ResourceGroupPolicyAssignmentIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -1108,7 +1176,11 @@ class ResourceGroupPolicyAssignmentNonComplianceMessageArgs:
              _setter: Callable[[Any, Any], None],
              content: pulumi.Input[str],
              policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDefinitionReferenceId' in kwargs:
+            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
+
         _setter("content", content)
         if policy_definition_reference_id is not None:
             _setter("policy_definition_reference_id", policy_definition_reference_id)
@@ -1157,7 +1229,9 @@ class ResourceGroupPolicyAssignmentOverrideArgs:
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
              selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if selectors is not None:
             _setter("selectors", selectors)
@@ -1210,7 +1284,11 @@ class ResourceGroupPolicyAssignmentOverrideSelectorArgs:
              ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              kind: Optional[pulumi.Input[str]] = None,
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notIns' in kwargs:
+            not_ins = kwargs['notIns']
+
         if ins is not None:
             _setter("ins", ins)
         if kind is not None:
@@ -1274,7 +1352,9 @@ class ResourceGroupPolicyAssignmentResourceSelectorArgs:
              _setter: Callable[[Any, Any], None],
              selectors: pulumi.Input[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs']]],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("selectors", selectors)
         if name is not None:
             _setter("name", name)
@@ -1327,7 +1407,11 @@ class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs:
              kind: pulumi.Input[str],
              ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notIns' in kwargs:
+            not_ins = kwargs['notIns']
+
         _setter("kind", kind)
         if ins is not None:
             _setter("ins", ins)
@@ -1400,7 +1484,15 @@ class ResourcePolicyAssignmentIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -1479,7 +1571,11 @@ class ResourcePolicyAssignmentNonComplianceMessageArgs:
              _setter: Callable[[Any, Any], None],
              content: pulumi.Input[str],
              policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDefinitionReferenceId' in kwargs:
+            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
+
         _setter("content", content)
         if policy_definition_reference_id is not None:
             _setter("policy_definition_reference_id", policy_definition_reference_id)
@@ -1528,7 +1624,9 @@ class ResourcePolicyAssignmentOverrideArgs:
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
              selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if selectors is not None:
             _setter("selectors", selectors)
@@ -1581,7 +1679,11 @@ class ResourcePolicyAssignmentOverrideSelectorArgs:
              ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              kind: Optional[pulumi.Input[str]] = None,
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notIns' in kwargs:
+            not_ins = kwargs['notIns']
+
         if ins is not None:
             _setter("ins", ins)
         if kind is not None:
@@ -1645,7 +1747,9 @@ class ResourcePolicyAssignmentResourceSelectorArgs:
              _setter: Callable[[Any, Any], None],
              selectors: pulumi.Input[Sequence[pulumi.Input['ResourcePolicyAssignmentResourceSelectorSelectorArgs']]],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("selectors", selectors)
         if name is not None:
             _setter("name", name)
@@ -1698,7 +1802,11 @@ class ResourcePolicyAssignmentResourceSelectorSelectorArgs:
              kind: pulumi.Input[str],
              ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notIns' in kwargs:
+            not_ins = kwargs['notIns']
+
         _setter("kind", kind)
         if ins is not None:
             _setter("ins", ins)
@@ -1760,7 +1868,9 @@ class ResourceProviderRegistrationFeatureArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              registered: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("registered", registered)
 
@@ -1805,7 +1915,11 @@ class SubscriptionCostManagementExportExportDataOptionsArgs:
              _setter: Callable[[Any, Any], None],
              time_frame: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeFrame' in kwargs:
+            time_frame = kwargs['timeFrame']
+
         _setter("time_frame", time_frame)
         _setter("type", type)
 
@@ -1855,7 +1969,13 @@ class SubscriptionCostManagementExportExportDataStorageLocationArgs:
              _setter: Callable[[Any, Any], None],
              container_id: pulumi.Input[str],
              root_folder_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerId' in kwargs:
+            container_id = kwargs['containerId']
+        if 'rootFolderPath' in kwargs:
+            root_folder_path = kwargs['rootFolderPath']
+
         _setter("container_id", container_id)
         _setter("root_folder_path", root_folder_path)
 
@@ -1913,7 +2033,9 @@ class SubscriptionCostManagementViewDatasetArgs:
              granularity: pulumi.Input[str],
              groupings: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]] = None,
              sortings: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("aggregations", aggregations)
         _setter("granularity", granularity)
         if groupings is not None:
@@ -1989,7 +2111,11 @@ class SubscriptionCostManagementViewDatasetAggregationArgs:
              _setter: Callable[[Any, Any], None],
              column_name: pulumi.Input[str],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+
         _setter("column_name", column_name)
         _setter("name", name)
 
@@ -2037,7 +2163,9 @@ class SubscriptionCostManagementViewDatasetGroupingArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -2085,7 +2213,9 @@ class SubscriptionCostManagementViewDatasetSortingArgs:
              _setter: Callable[[Any, Any], None],
              direction: pulumi.Input[str],
              name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("direction", direction)
         _setter("name", name)
 
@@ -2129,7 +2259,9 @@ class SubscriptionCostManagementViewKpiArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("type", type)
 
     @property
@@ -2164,7 +2296,9 @@ class SubscriptionCostManagementViewPivotArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("type", type)
 
@@ -2222,7 +2356,15 @@ class SubscriptionPolicyAssignmentIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -2301,7 +2443,11 @@ class SubscriptionPolicyAssignmentNonComplianceMessageArgs:
              _setter: Callable[[Any, Any], None],
              content: pulumi.Input[str],
              policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'policyDefinitionReferenceId' in kwargs:
+            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
+
         _setter("content", content)
         if policy_definition_reference_id is not None:
             _setter("policy_definition_reference_id", policy_definition_reference_id)
@@ -2350,7 +2496,9 @@ class SubscriptionPolicyAssignmentOverrideArgs:
              _setter: Callable[[Any, Any], None],
              value: pulumi.Input[str],
              selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("value", value)
         if selectors is not None:
             _setter("selectors", selectors)
@@ -2403,7 +2551,11 @@ class SubscriptionPolicyAssignmentOverrideSelectorArgs:
              ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              kind: Optional[pulumi.Input[str]] = None,
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notIns' in kwargs:
+            not_ins = kwargs['notIns']
+
         if ins is not None:
             _setter("ins", ins)
         if kind is not None:
@@ -2467,7 +2619,9 @@ class SubscriptionPolicyAssignmentResourceSelectorArgs:
              _setter: Callable[[Any, Any], None],
              selectors: pulumi.Input[Sequence[pulumi.Input['SubscriptionPolicyAssignmentResourceSelectorSelectorArgs']]],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("selectors", selectors)
         if name is not None:
             _setter("name", name)
@@ -2520,7 +2674,11 @@ class SubscriptionPolicyAssignmentResourceSelectorSelectorArgs:
              kind: pulumi.Input[str],
              ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'notIns' in kwargs:
+            not_ins = kwargs['notIns']
+
         _setter("kind", kind)
         if ins is not None:
             _setter("ins", ins)

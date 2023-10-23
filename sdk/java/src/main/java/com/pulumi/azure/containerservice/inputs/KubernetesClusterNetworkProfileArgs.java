@@ -221,6 +221,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
      * 
      * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
      * 
+     * &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+     * 
      */
     @Import(name="networkPolicy")
     private @Nullable Output<String> networkPolicy;
@@ -229,6 +231,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
      * @return Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
+     * 
+     * &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
      * 
      */
     public Optional<Output<String>> networkPolicy() {
@@ -630,6 +634,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * 
          * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
          * 
+         * &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+         * 
          * @return builder
          * 
          */
@@ -642,6 +648,8 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
          * @param networkPolicy Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
+         * 
+         * &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
          * 
          * @return builder
          * 

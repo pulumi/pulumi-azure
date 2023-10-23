@@ -85,11 +85,11 @@ public final class GetCachePatchSchedule {
             return this;
         }
         public GetCachePatchSchedule build() {
-            final var o = new GetCachePatchSchedule();
-            o.dayOfWeek = dayOfWeek;
-            o.maintenanceWindow = maintenanceWindow;
-            o.startHourUtc = startHourUtc;
-            return o;
+            final var _resultValue = new GetCachePatchSchedule();
+            _resultValue.dayOfWeek = dayOfWeek;
+            _resultValue.maintenanceWindow = maintenanceWindow;
+            _resultValue.startHourUtc = startHourUtc;
+            return _resultValue;
         }
     }
 }

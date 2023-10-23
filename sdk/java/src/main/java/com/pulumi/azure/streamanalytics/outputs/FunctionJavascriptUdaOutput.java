@@ -46,9 +46,9 @@ public final class FunctionJavascriptUdaOutput {
             return this;
         }
         public FunctionJavascriptUdaOutput build() {
-            final var o = new FunctionJavascriptUdaOutput();
-            o.type = type;
-            return o;
+            final var _resultValue = new FunctionJavascriptUdaOutput();
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

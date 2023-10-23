@@ -51,7 +51,17 @@ class IntegrationRuntimeAzureArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              time_to_live_min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'coreCount' in kwargs:
+            core_count = kwargs['coreCount']
+        if 'timeToLiveMin' in kwargs:
+            time_to_live_min = kwargs['timeToLiveMin']
+
         _setter("synapse_workspace_id", synapse_workspace_id)
         if compute_type is not None:
             _setter("compute_type", compute_type)
@@ -191,7 +201,17 @@ class _IntegrationRuntimeAzureState:
              name: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              time_to_live_min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if 'coreCount' in kwargs:
+            core_count = kwargs['coreCount']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if 'timeToLiveMin' in kwargs:
+            time_to_live_min = kwargs['timeToLiveMin']
+
         if compute_type is not None:
             _setter("compute_type", compute_type)
         if core_count is not None:

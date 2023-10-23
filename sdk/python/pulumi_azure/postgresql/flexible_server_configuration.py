@@ -37,7 +37,11 @@ class FlexibleServerConfigurationArgs:
              server_id: pulumi.Input[str],
              value: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         _setter("server_id", server_id)
         _setter("value", value)
         if name is not None:
@@ -108,7 +112,11 @@ class _FlexibleServerConfigurationState:
              name: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         if name is not None:
             _setter("name", name)
         if server_id is not None:

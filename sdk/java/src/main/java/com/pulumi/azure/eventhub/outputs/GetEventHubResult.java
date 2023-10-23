@@ -122,14 +122,14 @@ public final class GetEventHubResult {
             return this;
         }
         public GetEventHubResult build() {
-            final var o = new GetEventHubResult();
-            o.id = id;
-            o.name = name;
-            o.namespaceName = namespaceName;
-            o.partitionCount = partitionCount;
-            o.partitionIds = partitionIds;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetEventHubResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.namespaceName = namespaceName;
+            _resultValue.partitionCount = partitionCount;
+            _resultValue.partitionIds = partitionIds;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

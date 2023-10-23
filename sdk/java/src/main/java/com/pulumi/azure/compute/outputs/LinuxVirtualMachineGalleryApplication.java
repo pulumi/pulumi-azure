@@ -106,12 +106,12 @@ public final class LinuxVirtualMachineGalleryApplication {
             return this;
         }
         public LinuxVirtualMachineGalleryApplication build() {
-            final var o = new LinuxVirtualMachineGalleryApplication();
-            o.configurationBlobUri = configurationBlobUri;
-            o.order = order;
-            o.tag = tag;
-            o.versionId = versionId;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineGalleryApplication();
+            _resultValue.configurationBlobUri = configurationBlobUri;
+            _resultValue.order = order;
+            _resultValue.tag = tag;
+            _resultValue.versionId = versionId;
+            return _resultValue;
         }
     }
 }

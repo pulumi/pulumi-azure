@@ -65,10 +65,10 @@ public final class SparkClusterMonitor {
             return this;
         }
         public SparkClusterMonitor build() {
-            final var o = new SparkClusterMonitor();
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.primaryKey = primaryKey;
-            return o;
+            final var _resultValue = new SparkClusterMonitor();
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.primaryKey = primaryKey;
+            return _resultValue;
         }
     }
 }

@@ -43,7 +43,15 @@ class MoverAgentArgs:
              storage_mover_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'arcVirtualMachineId' in kwargs:
+            arc_virtual_machine_id = kwargs['arcVirtualMachineId']
+        if 'arcVirtualMachineUuid' in kwargs:
+            arc_virtual_machine_uuid = kwargs['arcVirtualMachineUuid']
+        if 'storageMoverId' in kwargs:
+            storage_mover_id = kwargs['storageMoverId']
+
         _setter("arc_virtual_machine_id", arc_virtual_machine_id)
         _setter("arc_virtual_machine_uuid", arc_virtual_machine_uuid)
         _setter("storage_mover_id", storage_mover_id)
@@ -145,7 +153,15 @@ class _MoverAgentState:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_mover_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'arcVirtualMachineId' in kwargs:
+            arc_virtual_machine_id = kwargs['arcVirtualMachineId']
+        if 'arcVirtualMachineUuid' in kwargs:
+            arc_virtual_machine_uuid = kwargs['arcVirtualMachineUuid']
+        if 'storageMoverId' in kwargs:
+            storage_mover_id = kwargs['storageMoverId']
+
         if arc_virtual_machine_id is not None:
             _setter("arc_virtual_machine_id", arc_virtual_machine_id)
         if arc_virtual_machine_uuid is not None:

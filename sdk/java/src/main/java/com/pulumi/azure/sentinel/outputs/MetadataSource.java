@@ -86,11 +86,11 @@ public final class MetadataSource {
             return this;
         }
         public MetadataSource build() {
-            final var o = new MetadataSource();
-            o.id = id;
-            o.kind = kind;
-            o.name = name;
-            return o;
+            final var _resultValue = new MetadataSource();
+            _resultValue.id = id;
+            _resultValue.kind = kind;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -77,7 +77,27 @@ class DomainArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'autoCreateTopicWithFirstSubscription' in kwargs:
+            auto_create_topic_with_first_subscription = kwargs['autoCreateTopicWithFirstSubscription']
+        if 'autoDeleteTopicWithLastSubscription' in kwargs:
+            auto_delete_topic_with_last_subscription = kwargs['autoDeleteTopicWithLastSubscription']
+        if 'inboundIpRules' in kwargs:
+            inbound_ip_rules = kwargs['inboundIpRules']
+        if 'inputMappingDefaultValues' in kwargs:
+            input_mapping_default_values = kwargs['inputMappingDefaultValues']
+        if 'inputMappingFields' in kwargs:
+            input_mapping_fields = kwargs['inputMappingFields']
+        if 'inputSchema' in kwargs:
+            input_schema = kwargs['inputSchema']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+
         _setter("resource_group_name", resource_group_name)
         if auto_create_topic_with_first_subscription is not None:
             _setter("auto_create_topic_with_first_subscription", auto_create_topic_with_first_subscription)
@@ -337,7 +357,31 @@ class _DomainState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              secondary_access_key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoCreateTopicWithFirstSubscription' in kwargs:
+            auto_create_topic_with_first_subscription = kwargs['autoCreateTopicWithFirstSubscription']
+        if 'autoDeleteTopicWithLastSubscription' in kwargs:
+            auto_delete_topic_with_last_subscription = kwargs['autoDeleteTopicWithLastSubscription']
+        if 'inboundIpRules' in kwargs:
+            inbound_ip_rules = kwargs['inboundIpRules']
+        if 'inputMappingDefaultValues' in kwargs:
+            input_mapping_default_values = kwargs['inputMappingDefaultValues']
+        if 'inputMappingFields' in kwargs:
+            input_mapping_fields = kwargs['inputMappingFields']
+        if 'inputSchema' in kwargs:
+            input_schema = kwargs['inputSchema']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'primaryAccessKey' in kwargs:
+            primary_access_key = kwargs['primaryAccessKey']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryAccessKey' in kwargs:
+            secondary_access_key = kwargs['secondaryAccessKey']
+
         if auto_create_topic_with_first_subscription is not None:
             _setter("auto_create_topic_with_first_subscription", auto_create_topic_with_first_subscription)
         if auto_delete_topic_with_last_subscription is not None:

@@ -46,9 +46,9 @@ public final class KafkaClusterComponentVersion {
             return this;
         }
         public KafkaClusterComponentVersion build() {
-            final var o = new KafkaClusterComponentVersion();
-            o.kafka = kafka;
-            return o;
+            final var _resultValue = new KafkaClusterComponentVersion();
+            _resultValue.kafka = kafka;
+            return _resultValue;
         }
     }
 }

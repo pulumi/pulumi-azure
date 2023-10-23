@@ -67,10 +67,10 @@ public final class AutoscaleSettingPredictive {
             return this;
         }
         public AutoscaleSettingPredictive build() {
-            final var o = new AutoscaleSettingPredictive();
-            o.lookAheadTime = lookAheadTime;
-            o.scaleMode = scaleMode;
-            return o;
+            final var _resultValue = new AutoscaleSettingPredictive();
+            _resultValue.lookAheadTime = lookAheadTime;
+            _resultValue.scaleMode = scaleMode;
+            return _resultValue;
         }
     }
 }

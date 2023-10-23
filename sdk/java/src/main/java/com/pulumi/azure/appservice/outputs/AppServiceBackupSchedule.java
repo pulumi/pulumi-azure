@@ -126,13 +126,13 @@ public final class AppServiceBackupSchedule {
             return this;
         }
         public AppServiceBackupSchedule build() {
-            final var o = new AppServiceBackupSchedule();
-            o.frequencyInterval = frequencyInterval;
-            o.frequencyUnit = frequencyUnit;
-            o.keepAtLeastOneBackup = keepAtLeastOneBackup;
-            o.retentionPeriodInDays = retentionPeriodInDays;
-            o.startTime = startTime;
-            return o;
+            final var _resultValue = new AppServiceBackupSchedule();
+            _resultValue.frequencyInterval = frequencyInterval;
+            _resultValue.frequencyUnit = frequencyUnit;
+            _resultValue.keepAtLeastOneBackup = keepAtLeastOneBackup;
+            _resultValue.retentionPeriodInDays = retentionPeriodInDays;
+            _resultValue.startTime = startTime;
+            return _resultValue;
         }
     }
 }

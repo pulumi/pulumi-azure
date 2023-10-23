@@ -113,12 +113,12 @@ public final class WindowsFunctionAppAuthSettingsActiveDirectory {
             return this;
         }
         public WindowsFunctionAppAuthSettingsActiveDirectory build() {
-            final var o = new WindowsFunctionAppAuthSettingsActiveDirectory();
-            o.allowedAudiences = allowedAudiences;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.clientSecretSettingName = clientSecretSettingName;
-            return o;
+            final var _resultValue = new WindowsFunctionAppAuthSettingsActiveDirectory();
+            _resultValue.allowedAudiences = allowedAudiences;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            return _resultValue;
         }
     }
 }

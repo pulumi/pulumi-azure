@@ -46,9 +46,9 @@ public final class GetKubernetesClusterLinuxProfileSshKey {
             return this;
         }
         public GetKubernetesClusterLinuxProfileSshKey build() {
-            final var o = new GetKubernetesClusterLinuxProfileSshKey();
-            o.keyData = keyData;
-            return o;
+            final var _resultValue = new GetKubernetesClusterLinuxProfileSshKey();
+            _resultValue.keyData = keyData;
+            return _resultValue;
         }
     }
 }

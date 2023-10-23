@@ -63,7 +63,15 @@ class InferenceClusterArgs:
              name: Optional[pulumi.Input[str]] = None,
              ssl: Optional[pulumi.Input['InferenceClusterSslArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'kubernetesClusterId' in kwargs:
+            kubernetes_cluster_id = kwargs['kubernetesClusterId']
+        if 'machineLearningWorkspaceId' in kwargs:
+            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
+        if 'clusterPurpose' in kwargs:
+            cluster_purpose = kwargs['clusterPurpose']
+
         _setter("kubernetes_cluster_id", kubernetes_cluster_id)
         _setter("machine_learning_workspace_id", machine_learning_workspace_id)
         if cluster_purpose is not None:
@@ -242,7 +250,15 @@ class _InferenceClusterState:
              name: Optional[pulumi.Input[str]] = None,
              ssl: Optional[pulumi.Input['InferenceClusterSslArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterPurpose' in kwargs:
+            cluster_purpose = kwargs['clusterPurpose']
+        if 'kubernetesClusterId' in kwargs:
+            kubernetes_cluster_id = kwargs['kubernetesClusterId']
+        if 'machineLearningWorkspaceId' in kwargs:
+            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
+
         if cluster_purpose is not None:
             _setter("cluster_purpose", cluster_purpose)
         if description is not None:

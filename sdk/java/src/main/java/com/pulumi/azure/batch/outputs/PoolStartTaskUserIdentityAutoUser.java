@@ -67,10 +67,10 @@ public final class PoolStartTaskUserIdentityAutoUser {
             return this;
         }
         public PoolStartTaskUserIdentityAutoUser build() {
-            final var o = new PoolStartTaskUserIdentityAutoUser();
-            o.elevationLevel = elevationLevel;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new PoolStartTaskUserIdentityAutoUser();
+            _resultValue.elevationLevel = elevationLevel;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

@@ -170,15 +170,15 @@ public final class ScaleSetStorageProfileOsDisk {
             return vhdContainers(List.of(vhdContainers));
         }
         public ScaleSetStorageProfileOsDisk build() {
-            final var o = new ScaleSetStorageProfileOsDisk();
-            o.caching = caching;
-            o.createOption = createOption;
-            o.image = image;
-            o.managedDiskType = managedDiskType;
-            o.name = name;
-            o.osType = osType;
-            o.vhdContainers = vhdContainers;
-            return o;
+            final var _resultValue = new ScaleSetStorageProfileOsDisk();
+            _resultValue.caching = caching;
+            _resultValue.createOption = createOption;
+            _resultValue.image = image;
+            _resultValue.managedDiskType = managedDiskType;
+            _resultValue.name = name;
+            _resultValue.osType = osType;
+            _resultValue.vhdContainers = vhdContainers;
+            return _resultValue;
         }
     }
 }

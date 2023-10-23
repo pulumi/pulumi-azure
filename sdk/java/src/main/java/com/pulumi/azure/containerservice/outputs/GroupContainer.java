@@ -359,24 +359,24 @@ public final class GroupContainer {
             return volumes(List.of(volumes));
         }
         public GroupContainer build() {
-            final var o = new GroupContainer();
-            o.commands = commands;
-            o.cpu = cpu;
-            o.cpuLimit = cpuLimit;
-            o.environmentVariables = environmentVariables;
-            o.gpu = gpu;
-            o.gpuLimit = gpuLimit;
-            o.image = image;
-            o.livenessProbe = livenessProbe;
-            o.memory = memory;
-            o.memoryLimit = memoryLimit;
-            o.name = name;
-            o.ports = ports;
-            o.readinessProbe = readinessProbe;
-            o.secureEnvironmentVariables = secureEnvironmentVariables;
-            o.securities = securities;
-            o.volumes = volumes;
-            return o;
+            final var _resultValue = new GroupContainer();
+            _resultValue.commands = commands;
+            _resultValue.cpu = cpu;
+            _resultValue.cpuLimit = cpuLimit;
+            _resultValue.environmentVariables = environmentVariables;
+            _resultValue.gpu = gpu;
+            _resultValue.gpuLimit = gpuLimit;
+            _resultValue.image = image;
+            _resultValue.livenessProbe = livenessProbe;
+            _resultValue.memory = memory;
+            _resultValue.memoryLimit = memoryLimit;
+            _resultValue.name = name;
+            _resultValue.ports = ports;
+            _resultValue.readinessProbe = readinessProbe;
+            _resultValue.secureEnvironmentVariables = secureEnvironmentVariables;
+            _resultValue.securities = securities;
+            _resultValue.volumes = volumes;
+            return _resultValue;
         }
     }
 }

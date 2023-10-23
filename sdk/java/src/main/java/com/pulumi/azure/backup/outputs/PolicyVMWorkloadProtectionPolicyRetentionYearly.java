@@ -156,14 +156,14 @@ public final class PolicyVMWorkloadProtectionPolicyRetentionYearly {
             return weeks(List.of(weeks));
         }
         public PolicyVMWorkloadProtectionPolicyRetentionYearly build() {
-            final var o = new PolicyVMWorkloadProtectionPolicyRetentionYearly();
-            o.count = count;
-            o.formatType = formatType;
-            o.monthdays = monthdays;
-            o.months = months;
-            o.weekdays = weekdays;
-            o.weeks = weeks;
-            return o;
+            final var _resultValue = new PolicyVMWorkloadProtectionPolicyRetentionYearly();
+            _resultValue.count = count;
+            _resultValue.formatType = formatType;
+            _resultValue.monthdays = monthdays;
+            _resultValue.months = months;
+            _resultValue.weekdays = weekdays;
+            _resultValue.weeks = weeks;
+            return _resultValue;
         }
     }
 }

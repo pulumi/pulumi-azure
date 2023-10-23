@@ -392,26 +392,26 @@ public final class GetVolumeGroupSapHanaVolume {
             return this;
         }
         public GetVolumeGroupSapHanaVolume build() {
-            final var o = new GetVolumeGroupSapHanaVolume();
-            o.capacityPoolId = capacityPoolId;
-            o.dataProtectionReplications = dataProtectionReplications;
-            o.dataProtectionSnapshotPolicies = dataProtectionSnapshotPolicies;
-            o.exportPolicyRules = exportPolicyRules;
-            o.id = id;
-            o.mountIpAddresses = mountIpAddresses;
-            o.name = name;
-            o.protocols = protocols;
-            o.proximityPlacementGroupId = proximityPlacementGroupId;
-            o.securityStyle = securityStyle;
-            o.serviceLevel = serviceLevel;
-            o.snapshotDirectoryVisible = snapshotDirectoryVisible;
-            o.storageQuotaInGb = storageQuotaInGb;
-            o.subnetId = subnetId;
-            o.tags = tags;
-            o.throughputInMibps = throughputInMibps;
-            o.volumePath = volumePath;
-            o.volumeSpecName = volumeSpecName;
-            return o;
+            final var _resultValue = new GetVolumeGroupSapHanaVolume();
+            _resultValue.capacityPoolId = capacityPoolId;
+            _resultValue.dataProtectionReplications = dataProtectionReplications;
+            _resultValue.dataProtectionSnapshotPolicies = dataProtectionSnapshotPolicies;
+            _resultValue.exportPolicyRules = exportPolicyRules;
+            _resultValue.id = id;
+            _resultValue.mountIpAddresses = mountIpAddresses;
+            _resultValue.name = name;
+            _resultValue.protocols = protocols;
+            _resultValue.proximityPlacementGroupId = proximityPlacementGroupId;
+            _resultValue.securityStyle = securityStyle;
+            _resultValue.serviceLevel = serviceLevel;
+            _resultValue.snapshotDirectoryVisible = snapshotDirectoryVisible;
+            _resultValue.storageQuotaInGb = storageQuotaInGb;
+            _resultValue.subnetId = subnetId;
+            _resultValue.tags = tags;
+            _resultValue.throughputInMibps = throughputInMibps;
+            _resultValue.volumePath = volumePath;
+            _resultValue.volumeSpecName = volumeSpecName;
+            return _resultValue;
         }
     }
 }

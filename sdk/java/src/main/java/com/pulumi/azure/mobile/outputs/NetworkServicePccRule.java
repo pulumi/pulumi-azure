@@ -132,13 +132,13 @@ public final class NetworkServicePccRule {
             return this;
         }
         public NetworkServicePccRule build() {
-            final var o = new NetworkServicePccRule();
-            o.name = name;
-            o.precedence = precedence;
-            o.qosPolicy = qosPolicy;
-            o.serviceDataFlowTemplates = serviceDataFlowTemplates;
-            o.trafficControlEnabled = trafficControlEnabled;
-            return o;
+            final var _resultValue = new NetworkServicePccRule();
+            _resultValue.name = name;
+            _resultValue.precedence = precedence;
+            _resultValue.qosPolicy = qosPolicy;
+            _resultValue.serviceDataFlowTemplates = serviceDataFlowTemplates;
+            _resultValue.trafficControlEnabled = trafficControlEnabled;
+            return _resultValue;
         }
     }
 }

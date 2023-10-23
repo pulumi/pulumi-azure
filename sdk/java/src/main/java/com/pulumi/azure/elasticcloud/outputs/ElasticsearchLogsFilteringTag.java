@@ -84,11 +84,11 @@ public final class ElasticsearchLogsFilteringTag {
             return this;
         }
         public ElasticsearchLogsFilteringTag build() {
-            final var o = new ElasticsearchLogsFilteringTag();
-            o.action = action;
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new ElasticsearchLogsFilteringTag();
+            _resultValue.action = action;
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

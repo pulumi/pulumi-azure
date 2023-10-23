@@ -56,7 +56,13 @@ class ApplicationIdentity(dict):
              type: str,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if principal_id is not None:
             _setter("principal_id", principal_id)
@@ -124,7 +130,11 @@ class ApplicationNetworkRuleSetIpRule(dict):
              _setter: Callable[[Any, Any], None],
              ip_mask: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ipMask' in kwargs:
+            ip_mask = kwargs['ipMask']
+
         _setter("ip_mask", ip_mask)
         _setter("name", name)
 

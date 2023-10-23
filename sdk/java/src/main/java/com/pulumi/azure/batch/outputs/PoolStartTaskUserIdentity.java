@@ -72,10 +72,10 @@ public final class PoolStartTaskUserIdentity {
             return this;
         }
         public PoolStartTaskUserIdentity build() {
-            final var o = new PoolStartTaskUserIdentity();
-            o.autoUser = autoUser;
-            o.userName = userName;
-            return o;
+            final var _resultValue = new PoolStartTaskUserIdentity();
+            _resultValue.autoUser = autoUser;
+            _resultValue.userName = userName;
+            return _resultValue;
         }
     }
 }

@@ -107,12 +107,12 @@ public final class GetWindowsFunctionAppAuthSettingFacebook {
             return oauthScopes(List.of(oauthScopes));
         }
         public GetWindowsFunctionAppAuthSettingFacebook build() {
-            final var o = new GetWindowsFunctionAppAuthSettingFacebook();
-            o.appId = appId;
-            o.appSecret = appSecret;
-            o.appSecretSettingName = appSecretSettingName;
-            o.oauthScopes = oauthScopes;
-            return o;
+            final var _resultValue = new GetWindowsFunctionAppAuthSettingFacebook();
+            _resultValue.appId = appId;
+            _resultValue.appSecret = appSecret;
+            _resultValue.appSecretSettingName = appSecretSettingName;
+            _resultValue.oauthScopes = oauthScopes;
+            return _resultValue;
         }
     }
 }

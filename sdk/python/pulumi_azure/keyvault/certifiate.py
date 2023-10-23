@@ -47,7 +47,13 @@ class CertifiateArgs:
              certificate_policy: Optional[pulumi.Input['CertifiateCertificatePolicyArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'certificatePolicy' in kwargs:
+            certificate_policy = kwargs['certificatePolicy']
+
         _setter("key_vault_id", key_vault_id)
         if certificate is not None:
             _setter("certificate", certificate)
@@ -195,7 +201,29 @@ class _CertifiateState:
              version: Optional[pulumi.Input[str]] = None,
              versionless_id: Optional[pulumi.Input[str]] = None,
              versionless_secret_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateAttributes' in kwargs:
+            certificate_attributes = kwargs['certificateAttributes']
+        if 'certificateData' in kwargs:
+            certificate_data = kwargs['certificateData']
+        if 'certificateDataBase64' in kwargs:
+            certificate_data_base64 = kwargs['certificateDataBase64']
+        if 'certificatePolicy' in kwargs:
+            certificate_policy = kwargs['certificatePolicy']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'resourceManagerId' in kwargs:
+            resource_manager_id = kwargs['resourceManagerId']
+        if 'resourceManagerVersionlessId' in kwargs:
+            resource_manager_versionless_id = kwargs['resourceManagerVersionlessId']
+        if 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+        if 'versionlessId' in kwargs:
+            versionless_id = kwargs['versionlessId']
+        if 'versionlessSecretId' in kwargs:
+            versionless_secret_id = kwargs['versionlessSecretId']
+
         if certificate is not None:
             _setter("certificate", certificate)
         if certificate_attributes is not None:

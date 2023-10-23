@@ -65,10 +65,10 @@ public final class SlotAuthSettingsTwitter {
             return this;
         }
         public SlotAuthSettingsTwitter build() {
-            final var o = new SlotAuthSettingsTwitter();
-            o.consumerKey = consumerKey;
-            o.consumerSecret = consumerSecret;
-            return o;
+            final var _resultValue = new SlotAuthSettingsTwitter();
+            _resultValue.consumerKey = consumerKey;
+            _resultValue.consumerSecret = consumerSecret;
+            return _resultValue;
         }
     }
 }

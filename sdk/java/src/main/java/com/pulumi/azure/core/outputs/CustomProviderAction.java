@@ -65,10 +65,10 @@ public final class CustomProviderAction {
             return this;
         }
         public CustomProviderAction build() {
-            final var o = new CustomProviderAction();
-            o.endpoint = endpoint;
-            o.name = name;
-            return o;
+            final var _resultValue = new CustomProviderAction();
+            _resultValue.endpoint = endpoint;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

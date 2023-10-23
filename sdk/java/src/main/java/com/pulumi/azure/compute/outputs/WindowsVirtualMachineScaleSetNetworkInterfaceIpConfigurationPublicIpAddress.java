@@ -153,14 +153,14 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
             return this;
         }
         public WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {
-            final var o = new WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
-            o.domainNameLabel = domainNameLabel;
-            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
-            o.ipTags = ipTags;
-            o.name = name;
-            o.publicIpPrefixId = publicIpPrefixId;
-            o.version = version;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
+            _resultValue.domainNameLabel = domainNameLabel;
+            _resultValue.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            _resultValue.ipTags = ipTags;
+            _resultValue.name = name;
+            _resultValue.publicIpPrefixId = publicIpPrefixId;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

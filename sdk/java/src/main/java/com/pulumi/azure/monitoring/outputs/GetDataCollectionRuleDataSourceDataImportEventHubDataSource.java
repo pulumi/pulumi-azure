@@ -84,11 +84,11 @@ public final class GetDataCollectionRuleDataSourceDataImportEventHubDataSource {
             return this;
         }
         public GetDataCollectionRuleDataSourceDataImportEventHubDataSource build() {
-            final var o = new GetDataCollectionRuleDataSourceDataImportEventHubDataSource();
-            o.consumerGroup = consumerGroup;
-            o.name = name;
-            o.stream = stream;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleDataSourceDataImportEventHubDataSource();
+            _resultValue.consumerGroup = consumerGroup;
+            _resultValue.name = name;
+            _resultValue.stream = stream;
+            return _resultValue;
         }
     }
 }

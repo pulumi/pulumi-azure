@@ -168,15 +168,15 @@ public final class TransformOutputCustomPresetCodecH265Video {
             return this;
         }
         public TransformOutputCustomPresetCodecH265Video build() {
-            final var o = new TransformOutputCustomPresetCodecH265Video();
-            o.complexity = complexity;
-            o.keyFrameInterval = keyFrameInterval;
-            o.label = label;
-            o.layers = layers;
-            o.sceneChangeDetectionEnabled = sceneChangeDetectionEnabled;
-            o.stretchMode = stretchMode;
-            o.syncMode = syncMode;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetCodecH265Video();
+            _resultValue.complexity = complexity;
+            _resultValue.keyFrameInterval = keyFrameInterval;
+            _resultValue.label = label;
+            _resultValue.layers = layers;
+            _resultValue.sceneChangeDetectionEnabled = sceneChangeDetectionEnabled;
+            _resultValue.stretchMode = stretchMode;
+            _resultValue.syncMode = syncMode;
+            return _resultValue;
         }
     }
 }

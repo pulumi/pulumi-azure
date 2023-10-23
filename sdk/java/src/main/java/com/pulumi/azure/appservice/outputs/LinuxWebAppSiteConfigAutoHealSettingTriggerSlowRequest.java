@@ -106,12 +106,12 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
             return this;
         }
         public LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest build() {
-            final var o = new LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest();
-            o.count = count;
-            o.interval = interval;
-            o.path = path;
-            o.timeTaken = timeTaken;
-            return o;
+            final var _resultValue = new LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest();
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            _resultValue.path = path;
+            _resultValue.timeTaken = timeTaken;
+            return _resultValue;
         }
     }
 }

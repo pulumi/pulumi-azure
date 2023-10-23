@@ -81,7 +81,25 @@ class LinkedServiceKustoArgs:
              service_principal_key: Optional[pulumi.Input[str]] = None,
              tenant: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'kustoDatabaseName' in kwargs:
+            kusto_database_name = kwargs['kustoDatabaseName']
+        if 'kustoEndpoint' in kwargs:
+            kusto_endpoint = kwargs['kustoEndpoint']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'servicePrincipalId' in kwargs:
+            service_principal_id = kwargs['servicePrincipalId']
+        if 'servicePrincipalKey' in kwargs:
+            service_principal_key = kwargs['servicePrincipalKey']
+        if 'useManagedIdentity' in kwargs:
+            use_managed_identity = kwargs['useManagedIdentity']
+
         _setter("data_factory_id", data_factory_id)
         _setter("kusto_database_name", kusto_database_name)
         _setter("kusto_endpoint", kusto_endpoint)
@@ -339,7 +357,25 @@ class _LinkedServiceKustoState:
              service_principal_key: Optional[pulumi.Input[str]] = None,
              tenant: Optional[pulumi.Input[str]] = None,
              use_managed_identity: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'kustoDatabaseName' in kwargs:
+            kusto_database_name = kwargs['kustoDatabaseName']
+        if 'kustoEndpoint' in kwargs:
+            kusto_endpoint = kwargs['kustoEndpoint']
+        if 'servicePrincipalId' in kwargs:
+            service_principal_id = kwargs['servicePrincipalId']
+        if 'servicePrincipalKey' in kwargs:
+            service_principal_key = kwargs['servicePrincipalKey']
+        if 'useManagedIdentity' in kwargs:
+            use_managed_identity = kwargs['useManagedIdentity']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

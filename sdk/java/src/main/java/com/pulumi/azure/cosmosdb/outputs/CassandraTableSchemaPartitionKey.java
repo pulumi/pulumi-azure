@@ -46,9 +46,9 @@ public final class CassandraTableSchemaPartitionKey {
             return this;
         }
         public CassandraTableSchemaPartitionKey build() {
-            final var o = new CassandraTableSchemaPartitionKey();
-            o.name = name;
-            return o;
+            final var _resultValue = new CassandraTableSchemaPartitionKey();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

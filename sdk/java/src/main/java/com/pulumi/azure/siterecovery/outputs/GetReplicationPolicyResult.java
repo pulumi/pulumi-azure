@@ -118,14 +118,14 @@ public final class GetReplicationPolicyResult {
             return this;
         }
         public GetReplicationPolicyResult build() {
-            final var o = new GetReplicationPolicyResult();
-            o.applicationConsistentSnapshotFrequencyInMinutes = applicationConsistentSnapshotFrequencyInMinutes;
-            o.id = id;
-            o.name = name;
-            o.recoveryPointRetentionInMinutes = recoveryPointRetentionInMinutes;
-            o.recoveryVaultName = recoveryVaultName;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetReplicationPolicyResult();
+            _resultValue.applicationConsistentSnapshotFrequencyInMinutes = applicationConsistentSnapshotFrequencyInMinutes;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.recoveryPointRetentionInMinutes = recoveryPointRetentionInMinutes;
+            _resultValue.recoveryVaultName = recoveryVaultName;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

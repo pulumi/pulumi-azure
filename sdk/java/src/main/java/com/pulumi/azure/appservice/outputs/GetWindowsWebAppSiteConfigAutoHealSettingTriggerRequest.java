@@ -66,10 +66,10 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest {
             return this;
         }
         public GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest build() {
-            final var o = new GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest();
-            o.count = count;
-            o.interval = interval;
-            return o;
+            final var _resultValue = new GetWindowsWebAppSiteConfigAutoHealSettingTriggerRequest();
+            _resultValue.count = count;
+            _resultValue.interval = interval;
+            return _resultValue;
         }
     }
 }

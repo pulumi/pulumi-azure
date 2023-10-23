@@ -92,11 +92,11 @@ public final class DiagnosticFrontendResponse {
             return headersToLogs(List.of(headersToLogs));
         }
         public DiagnosticFrontendResponse build() {
-            final var o = new DiagnosticFrontendResponse();
-            o.bodyBytes = bodyBytes;
-            o.dataMasking = dataMasking;
-            o.headersToLogs = headersToLogs;
-            return o;
+            final var _resultValue = new DiagnosticFrontendResponse();
+            _resultValue.bodyBytes = bodyBytes;
+            _resultValue.dataMasking = dataMasking;
+            _resultValue.headersToLogs = headersToLogs;
+            return _resultValue;
         }
     }
 }

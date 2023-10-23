@@ -183,16 +183,16 @@ public final class TransformOutputBuiltinPresetPresetConfiguration {
             return this;
         }
         public TransformOutputBuiltinPresetPresetConfiguration build() {
-            final var o = new TransformOutputBuiltinPresetPresetConfiguration();
-            o.complexity = complexity;
-            o.interleaveOutput = interleaveOutput;
-            o.keyFrameIntervalInSeconds = keyFrameIntervalInSeconds;
-            o.maxBitrateBps = maxBitrateBps;
-            o.maxHeight = maxHeight;
-            o.maxLayers = maxLayers;
-            o.minBitrateBps = minBitrateBps;
-            o.minHeight = minHeight;
-            return o;
+            final var _resultValue = new TransformOutputBuiltinPresetPresetConfiguration();
+            _resultValue.complexity = complexity;
+            _resultValue.interleaveOutput = interleaveOutput;
+            _resultValue.keyFrameIntervalInSeconds = keyFrameIntervalInSeconds;
+            _resultValue.maxBitrateBps = maxBitrateBps;
+            _resultValue.maxHeight = maxHeight;
+            _resultValue.maxLayers = maxLayers;
+            _resultValue.minBitrateBps = minBitrateBps;
+            _resultValue.minHeight = minHeight;
+            return _resultValue;
         }
     }
 }

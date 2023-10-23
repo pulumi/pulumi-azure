@@ -31,7 +31,11 @@ class OutboundFirewallRuleArgs:
              _setter: Callable[[Any, Any], None],
              server_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         _setter("server_id", server_id)
         if name is not None:
             _setter("name", name)
@@ -81,7 +85,11 @@ class _OutboundFirewallRuleState:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              server_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+
         if name is not None:
             _setter("name", name)
         if server_id is not None:

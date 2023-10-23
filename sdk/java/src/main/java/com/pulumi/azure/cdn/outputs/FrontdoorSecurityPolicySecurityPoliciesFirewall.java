@@ -66,10 +66,10 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewall {
             return this;
         }
         public FrontdoorSecurityPolicySecurityPoliciesFirewall build() {
-            final var o = new FrontdoorSecurityPolicySecurityPoliciesFirewall();
-            o.association = association;
-            o.cdnFrontdoorFirewallPolicyId = cdnFrontdoorFirewallPolicyId;
-            return o;
+            final var _resultValue = new FrontdoorSecurityPolicySecurityPoliciesFirewall();
+            _resultValue.association = association;
+            _resultValue.cdnFrontdoorFirewallPolicyId = cdnFrontdoorFirewallPolicyId;
+            return _resultValue;
         }
     }
 }

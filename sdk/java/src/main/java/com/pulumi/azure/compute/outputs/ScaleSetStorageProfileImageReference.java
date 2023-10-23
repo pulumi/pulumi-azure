@@ -124,13 +124,13 @@ public final class ScaleSetStorageProfileImageReference {
             return this;
         }
         public ScaleSetStorageProfileImageReference build() {
-            final var o = new ScaleSetStorageProfileImageReference();
-            o.id = id;
-            o.offer = offer;
-            o.publisher = publisher;
-            o.sku = sku;
-            o.version = version;
-            return o;
+            final var _resultValue = new ScaleSetStorageProfileImageReference();
+            _resultValue.id = id;
+            _resultValue.offer = offer;
+            _resultValue.publisher = publisher;
+            _resultValue.sku = sku;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

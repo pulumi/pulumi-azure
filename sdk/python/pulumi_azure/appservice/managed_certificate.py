@@ -31,7 +31,11 @@ class ManagedCertificateArgs:
              _setter: Callable[[Any, Any], None],
              custom_hostname_binding_id: pulumi.Input[str],
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customHostnameBindingId' in kwargs:
+            custom_hostname_binding_id = kwargs['customHostnameBindingId']
+
         _setter("custom_hostname_binding_id", custom_hostname_binding_id)
         if tags is not None:
             _setter("tags", tags)
@@ -113,7 +117,23 @@ class _ManagedCertificateState:
              subject_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'canonicalName' in kwargs:
+            canonical_name = kwargs['canonicalName']
+        if 'customHostnameBindingId' in kwargs:
+            custom_hostname_binding_id = kwargs['customHostnameBindingId']
+        if 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'hostNames' in kwargs:
+            host_names = kwargs['hostNames']
+        if 'issueDate' in kwargs:
+            issue_date = kwargs['issueDate']
+        if 'subjectName' in kwargs:
+            subject_name = kwargs['subjectName']
+
         if canonical_name is not None:
             _setter("canonical_name", canonical_name)
         if custom_hostname_binding_id is not None:

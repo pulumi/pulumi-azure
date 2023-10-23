@@ -14,6 +14,7 @@ from .contact import *
 from .server_vulnerability_assessment import *
 from .server_vulnerability_assessment_virtual_machine import *
 from .setting import *
+from .storage_defender import *
 from .subscription_pricing import *
 from .workspace import *
 from ._inputs import *

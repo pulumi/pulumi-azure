@@ -86,11 +86,11 @@ public final class KafkaClusterRolesZookeeperNodeScriptAction {
             return this;
         }
         public KafkaClusterRolesZookeeperNodeScriptAction build() {
-            final var o = new KafkaClusterRolesZookeeperNodeScriptAction();
-            o.name = name;
-            o.parameters = parameters;
-            o.uri = uri;
-            return o;
+            final var _resultValue = new KafkaClusterRolesZookeeperNodeScriptAction();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.uri = uri;
+            return _resultValue;
         }
     }
 }

@@ -93,6 +93,8 @@ public final class KubernetesClusterNetworkProfile {
      * 
      * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
      * 
+     * &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+     * 
      */
     private @Nullable String networkPolicy;
     /**
@@ -222,6 +224,8 @@ public final class KubernetesClusterNetworkProfile {
      * @return Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
+     * 
+     * &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
      * 
      */
     public Optional<String> networkPolicy() {
@@ -401,24 +405,24 @@ public final class KubernetesClusterNetworkProfile {
             return serviceCidrs(List.of(serviceCidrs));
         }
         public KubernetesClusterNetworkProfile build() {
-            final var o = new KubernetesClusterNetworkProfile();
-            o.dnsServiceIp = dnsServiceIp;
-            o.dockerBridgeCidr = dockerBridgeCidr;
-            o.ebpfDataPlane = ebpfDataPlane;
-            o.ipVersions = ipVersions;
-            o.loadBalancerProfile = loadBalancerProfile;
-            o.loadBalancerSku = loadBalancerSku;
-            o.natGatewayProfile = natGatewayProfile;
-            o.networkMode = networkMode;
-            o.networkPlugin = networkPlugin;
-            o.networkPluginMode = networkPluginMode;
-            o.networkPolicy = networkPolicy;
-            o.outboundType = outboundType;
-            o.podCidr = podCidr;
-            o.podCidrs = podCidrs;
-            o.serviceCidr = serviceCidr;
-            o.serviceCidrs = serviceCidrs;
-            return o;
+            final var _resultValue = new KubernetesClusterNetworkProfile();
+            _resultValue.dnsServiceIp = dnsServiceIp;
+            _resultValue.dockerBridgeCidr = dockerBridgeCidr;
+            _resultValue.ebpfDataPlane = ebpfDataPlane;
+            _resultValue.ipVersions = ipVersions;
+            _resultValue.loadBalancerProfile = loadBalancerProfile;
+            _resultValue.loadBalancerSku = loadBalancerSku;
+            _resultValue.natGatewayProfile = natGatewayProfile;
+            _resultValue.networkMode = networkMode;
+            _resultValue.networkPlugin = networkPlugin;
+            _resultValue.networkPluginMode = networkPluginMode;
+            _resultValue.networkPolicy = networkPolicy;
+            _resultValue.outboundType = outboundType;
+            _resultValue.podCidr = podCidr;
+            _resultValue.podCidrs = podCidrs;
+            _resultValue.serviceCidr = serviceCidr;
+            _resultValue.serviceCidrs = serviceCidrs;
+            return _resultValue;
         }
     }
 }

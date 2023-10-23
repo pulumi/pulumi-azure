@@ -67,7 +67,7 @@ type PostgresqlCluster struct {
 
 	// The password of the administrator login.
 	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
-	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
 	CitusVersion pulumi.StringOutput `pulumi:"citusVersion"`
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled pulumi.BoolPtrOutput `pulumi:"coordinatorPublicIpAccessEnabled"`
@@ -111,7 +111,7 @@ type PostgresqlCluster struct {
 	SourceLocation pulumi.StringPtrOutput `pulumi:"sourceLocation"`
 	// The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrOutput `pulumi:"sourceResourceId"`
-	// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+	// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
 	SqlVersion pulumi.StringOutput `pulumi:"sqlVersion"`
 	// A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -171,7 +171,7 @@ func GetPostgresqlCluster(ctx *pulumi.Context,
 type postgresqlClusterState struct {
 	// The password of the administrator login.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
-	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
 	CitusVersion *string `pulumi:"citusVersion"`
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled *bool `pulumi:"coordinatorPublicIpAccessEnabled"`
@@ -215,7 +215,7 @@ type postgresqlClusterState struct {
 	SourceLocation *string `pulumi:"sourceLocation"`
 	// The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+	// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
 	SqlVersion *string `pulumi:"sqlVersion"`
 	// A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -224,7 +224,7 @@ type postgresqlClusterState struct {
 type PostgresqlClusterState struct {
 	// The password of the administrator login.
 	AdministratorLoginPassword pulumi.StringPtrInput
-	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
 	CitusVersion pulumi.StringPtrInput
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled pulumi.BoolPtrInput
@@ -268,7 +268,7 @@ type PostgresqlClusterState struct {
 	SourceLocation pulumi.StringPtrInput
 	// The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrInput
-	// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+	// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
 	SqlVersion pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
 	Tags pulumi.StringMapInput
@@ -281,7 +281,7 @@ func (PostgresqlClusterState) ElementType() reflect.Type {
 type postgresqlClusterArgs struct {
 	// The password of the administrator login.
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
-	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
 	CitusVersion *string `pulumi:"citusVersion"`
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled *bool `pulumi:"coordinatorPublicIpAccessEnabled"`
@@ -323,7 +323,7 @@ type postgresqlClusterArgs struct {
 	SourceLocation *string `pulumi:"sourceLocation"`
 	// The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
-	// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+	// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
 	SqlVersion *string `pulumi:"sqlVersion"`
 	// A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
 	Tags map[string]string `pulumi:"tags"`
@@ -333,7 +333,7 @@ type postgresqlClusterArgs struct {
 type PostgresqlClusterArgs struct {
 	// The password of the administrator login.
 	AdministratorLoginPassword pulumi.StringInput
-	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
 	CitusVersion pulumi.StringPtrInput
 	// Is public access enabled on coordinator? Defaults to `true`.
 	CoordinatorPublicIpAccessEnabled pulumi.BoolPtrInput
@@ -375,7 +375,7 @@ type PostgresqlClusterArgs struct {
 	SourceLocation pulumi.StringPtrInput
 	// The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
 	SourceResourceId pulumi.StringPtrInput
-	// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+	// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
 	SqlVersion pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
 	Tags pulumi.StringMapInput
@@ -497,7 +497,7 @@ func (o PostgresqlClusterOutput) AdministratorLoginPassword() pulumi.StringOutpu
 	return o.ApplyT(func(v *PostgresqlCluster) pulumi.StringOutput { return v.AdministratorLoginPassword }).(pulumi.StringOutput)
 }
 
-// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2` and `11.3`.
+// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
 func (o PostgresqlClusterOutput) CitusVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *PostgresqlCluster) pulumi.StringOutput { return v.CitusVersion }).(pulumi.StringOutput)
 }
@@ -604,7 +604,7 @@ func (o PostgresqlClusterOutput) SourceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PostgresqlCluster) pulumi.StringPtrOutput { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14` and `15`.
+// The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
 func (o PostgresqlClusterOutput) SqlVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *PostgresqlCluster) pulumi.StringOutput { return v.SqlVersion }).(pulumi.StringOutput)
 }

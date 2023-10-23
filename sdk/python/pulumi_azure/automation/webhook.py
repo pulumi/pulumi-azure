@@ -59,7 +59,19 @@ class WebhookArgs:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              run_on_worker_group: Optional[pulumi.Input[str]] = None,
              uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'runbookName' in kwargs:
+            runbook_name = kwargs['runbookName']
+        if 'runOnWorkerGroup' in kwargs:
+            run_on_worker_group = kwargs['runOnWorkerGroup']
+
         _setter("automation_account_name", automation_account_name)
         _setter("expiry_time", expiry_time)
         _setter("resource_group_name", resource_group_name)
@@ -232,7 +244,19 @@ class _WebhookState:
              run_on_worker_group: Optional[pulumi.Input[str]] = None,
              runbook_name: Optional[pulumi.Input[str]] = None,
              uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'runOnWorkerGroup' in kwargs:
+            run_on_worker_group = kwargs['runOnWorkerGroup']
+        if 'runbookName' in kwargs:
+            runbook_name = kwargs['runbookName']
+
         if automation_account_name is not None:
             _setter("automation_account_name", automation_account_name)
         if enabled is not None:

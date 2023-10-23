@@ -109,12 +109,12 @@ public final class GetWindowsFunctionAppBackup {
             return this;
         }
         public GetWindowsFunctionAppBackup build() {
-            final var o = new GetWindowsFunctionAppBackup();
-            o.enabled = enabled;
-            o.name = name;
-            o.schedules = schedules;
-            o.storageAccountUrl = storageAccountUrl;
-            return o;
+            final var _resultValue = new GetWindowsFunctionAppBackup();
+            _resultValue.enabled = enabled;
+            _resultValue.name = name;
+            _resultValue.schedules = schedules;
+            _resultValue.storageAccountUrl = storageAccountUrl;
+            return _resultValue;
         }
     }
 }

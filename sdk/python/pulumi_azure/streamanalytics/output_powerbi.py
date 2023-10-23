@@ -55,7 +55,19 @@ class OutputPowerbiArgs:
              name: Optional[pulumi.Input[str]] = None,
              token_user_display_name: Optional[pulumi.Input[str]] = None,
              token_user_principal_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'streamAnalyticsJobId' in kwargs:
+            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
+        if 'tokenUserDisplayName' in kwargs:
+            token_user_display_name = kwargs['tokenUserDisplayName']
+        if 'tokenUserPrincipalName' in kwargs:
+            token_user_principal_name = kwargs['tokenUserPrincipalName']
+
         _setter("dataset", dataset)
         _setter("group_id", group_id)
         _setter("group_name", group_name)
@@ -209,7 +221,19 @@ class _OutputPowerbiState:
              table: Optional[pulumi.Input[str]] = None,
              token_user_display_name: Optional[pulumi.Input[str]] = None,
              token_user_principal_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if 'streamAnalyticsJobId' in kwargs:
+            stream_analytics_job_id = kwargs['streamAnalyticsJobId']
+        if 'tokenUserDisplayName' in kwargs:
+            token_user_display_name = kwargs['tokenUserDisplayName']
+        if 'tokenUserPrincipalName' in kwargs:
+            token_user_principal_name = kwargs['tokenUserPrincipalName']
+
         if dataset is not None:
             _setter("dataset", dataset)
         if group_id is not None:

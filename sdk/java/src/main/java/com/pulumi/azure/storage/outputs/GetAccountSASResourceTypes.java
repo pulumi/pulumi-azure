@@ -84,11 +84,11 @@ public final class GetAccountSASResourceTypes {
             return this;
         }
         public GetAccountSASResourceTypes build() {
-            final var o = new GetAccountSASResourceTypes();
-            o.container = container;
-            o.object = object;
-            o.service = service;
-            return o;
+            final var _resultValue = new GetAccountSASResourceTypes();
+            _resultValue.container = container;
+            _resultValue.object = object;
+            _resultValue.service = service;
+            return _resultValue;
         }
     }
 }

@@ -86,11 +86,11 @@ public final class ApplicationGatewayWafConfigurationExclusion {
             return this;
         }
         public ApplicationGatewayWafConfigurationExclusion build() {
-            final var o = new ApplicationGatewayWafConfigurationExclusion();
-            o.matchVariable = matchVariable;
-            o.selector = selector;
-            o.selectorMatchOperator = selectorMatchOperator;
-            return o;
+            final var _resultValue = new ApplicationGatewayWafConfigurationExclusion();
+            _resultValue.matchVariable = matchVariable;
+            _resultValue.selector = selector;
+            _resultValue.selectorMatchOperator = selectorMatchOperator;
+            return _resultValue;
         }
     }
 }

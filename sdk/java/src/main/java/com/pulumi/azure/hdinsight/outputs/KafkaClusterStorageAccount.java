@@ -114,12 +114,12 @@ public final class KafkaClusterStorageAccount {
             return this;
         }
         public KafkaClusterStorageAccount build() {
-            final var o = new KafkaClusterStorageAccount();
-            o.isDefault = isDefault;
-            o.storageAccountKey = storageAccountKey;
-            o.storageContainerId = storageContainerId;
-            o.storageResourceId = storageResourceId;
-            return o;
+            final var _resultValue = new KafkaClusterStorageAccount();
+            _resultValue.isDefault = isDefault;
+            _resultValue.storageAccountKey = storageAccountKey;
+            _resultValue.storageContainerId = storageContainerId;
+            _resultValue.storageResourceId = storageResourceId;
+            return _resultValue;
         }
     }
 }

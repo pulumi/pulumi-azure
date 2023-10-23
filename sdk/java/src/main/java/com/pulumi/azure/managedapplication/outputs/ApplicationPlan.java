@@ -128,13 +128,13 @@ public final class ApplicationPlan {
             return this;
         }
         public ApplicationPlan build() {
-            final var o = new ApplicationPlan();
-            o.name = name;
-            o.product = product;
-            o.promotionCode = promotionCode;
-            o.publisher = publisher;
-            o.version = version;
-            return o;
+            final var _resultValue = new ApplicationPlan();
+            _resultValue.name = name;
+            _resultValue.product = product;
+            _resultValue.promotionCode = promotionCode;
+            _resultValue.publisher = publisher;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

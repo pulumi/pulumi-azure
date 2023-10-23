@@ -109,12 +109,12 @@ public final class LinuxWebAppSlotAuthSettingsFacebook {
             return oauthScopes(List.of(oauthScopes));
         }
         public LinuxWebAppSlotAuthSettingsFacebook build() {
-            final var o = new LinuxWebAppSlotAuthSettingsFacebook();
-            o.appId = appId;
-            o.appSecret = appSecret;
-            o.appSecretSettingName = appSecretSettingName;
-            o.oauthScopes = oauthScopes;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotAuthSettingsFacebook();
+            _resultValue.appId = appId;
+            _resultValue.appSecret = appSecret;
+            _resultValue.appSecretSettingName = appSecretSettingName;
+            _resultValue.oauthScopes = oauthScopes;
+            return _resultValue;
         }
     }
 }

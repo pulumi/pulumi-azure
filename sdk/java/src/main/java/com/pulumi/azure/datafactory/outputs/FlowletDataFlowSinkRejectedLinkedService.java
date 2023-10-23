@@ -67,10 +67,10 @@ public final class FlowletDataFlowSinkRejectedLinkedService {
             return this;
         }
         public FlowletDataFlowSinkRejectedLinkedService build() {
-            final var o = new FlowletDataFlowSinkRejectedLinkedService();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new FlowletDataFlowSinkRejectedLinkedService();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

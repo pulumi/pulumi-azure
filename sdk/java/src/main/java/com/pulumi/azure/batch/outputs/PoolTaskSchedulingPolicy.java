@@ -48,9 +48,9 @@ public final class PoolTaskSchedulingPolicy {
             return this;
         }
         public PoolTaskSchedulingPolicy build() {
-            final var o = new PoolTaskSchedulingPolicy();
-            o.nodeFillType = nodeFillType;
-            return o;
+            final var _resultValue = new PoolTaskSchedulingPolicy();
+            _resultValue.nodeFillType = nodeFillType;
+            return _resultValue;
         }
     }
 }

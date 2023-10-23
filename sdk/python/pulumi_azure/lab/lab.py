@@ -77,7 +77,19 @@ class LabArgs:
              network: Optional[pulumi.Input['LabNetworkArgs']] = None,
              roster: Optional[pulumi.Input['LabRosterArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualMachine' in kwargs:
+            virtual_machine = kwargs['virtualMachine']
+        if 'autoShutdown' in kwargs:
+            auto_shutdown = kwargs['autoShutdown']
+        if 'connectionSetting' in kwargs:
+            connection_setting = kwargs['connectionSetting']
+        if 'labPlanId' in kwargs:
+            lab_plan_id = kwargs['labPlanId']
+
         _setter("resource_group_name", resource_group_name)
         _setter("security", security)
         _setter("title", title)
@@ -322,7 +334,19 @@ class _LabState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              title: Optional[pulumi.Input[str]] = None,
              virtual_machine: Optional[pulumi.Input['LabVirtualMachineArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoShutdown' in kwargs:
+            auto_shutdown = kwargs['autoShutdown']
+        if 'connectionSetting' in kwargs:
+            connection_setting = kwargs['connectionSetting']
+        if 'labPlanId' in kwargs:
+            lab_plan_id = kwargs['labPlanId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualMachine' in kwargs:
+            virtual_machine = kwargs['virtualMachine']
+
         if auto_shutdown is not None:
             _setter("auto_shutdown", auto_shutdown)
         if connection_setting is not None:

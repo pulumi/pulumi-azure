@@ -70,10 +70,10 @@ public final class SystemTopicEventSubscriptionAdvancedFilterBoolEqual {
             return this;
         }
         public SystemTopicEventSubscriptionAdvancedFilterBoolEqual build() {
-            final var o = new SystemTopicEventSubscriptionAdvancedFilterBoolEqual();
-            o.key = key;
-            o.value = value;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionAdvancedFilterBoolEqual();
+            _resultValue.key = key;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

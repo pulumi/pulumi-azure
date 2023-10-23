@@ -55,7 +55,13 @@ class ServerIpv4FirewallRule(dict):
              name: str,
              range_end: str,
              range_start: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'rangeEnd' in kwargs:
+            range_end = kwargs['rangeEnd']
+        if 'rangeStart' in kwargs:
+            range_start = kwargs['rangeStart']
+
         _setter("name", name)
         _setter("range_end", range_end)
         _setter("range_start", range_start)

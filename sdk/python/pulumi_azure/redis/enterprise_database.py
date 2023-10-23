@@ -69,7 +69,23 @@ class EnterpriseDatabaseArgs:
              name: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if 'clientProtocol' in kwargs:
+            client_protocol = kwargs['clientProtocol']
+        if 'clusteringPolicy' in kwargs:
+            clustering_policy = kwargs['clusteringPolicy']
+        if 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if 'linkedDatabaseGroupNickname' in kwargs:
+            linked_database_group_nickname = kwargs['linkedDatabaseGroupNickname']
+        if 'linkedDatabaseIds' in kwargs:
+            linked_database_ids = kwargs['linkedDatabaseIds']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("cluster_id", cluster_id)
         if client_protocol is not None:
             _setter("client_protocol", client_protocol)
@@ -285,7 +301,27 @@ class _EnterpriseDatabaseState:
              primary_access_key: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              secondary_access_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientProtocol' in kwargs:
+            client_protocol = kwargs['clientProtocol']
+        if 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if 'clusteringPolicy' in kwargs:
+            clustering_policy = kwargs['clusteringPolicy']
+        if 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if 'linkedDatabaseGroupNickname' in kwargs:
+            linked_database_group_nickname = kwargs['linkedDatabaseGroupNickname']
+        if 'linkedDatabaseIds' in kwargs:
+            linked_database_ids = kwargs['linkedDatabaseIds']
+        if 'primaryAccessKey' in kwargs:
+            primary_access_key = kwargs['primaryAccessKey']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryAccessKey' in kwargs:
+            secondary_access_key = kwargs['secondaryAccessKey']
+
         if client_protocol is not None:
             _setter("client_protocol", client_protocol)
         if cluster_id is not None:

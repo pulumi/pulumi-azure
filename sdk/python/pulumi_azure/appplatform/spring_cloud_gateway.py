@@ -77,7 +77,27 @@ class SpringCloudGatewayArgs:
              quota: Optional[pulumi.Input['SpringCloudGatewayQuotaArgs']] = None,
              sensitive_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              sso: Optional[pulumi.Input['SpringCloudGatewaySsoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+        if 'apiMetadata' in kwargs:
+            api_metadata = kwargs['apiMetadata']
+        if 'applicationPerformanceMonitoringTypes' in kwargs:
+            application_performance_monitoring_types = kwargs['applicationPerformanceMonitoringTypes']
+        if 'clientAuthorization' in kwargs:
+            client_authorization = kwargs['clientAuthorization']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'sensitiveEnvironmentVariables' in kwargs:
+            sensitive_environment_variables = kwargs['sensitiveEnvironmentVariables']
+
         _setter("spring_cloud_service_id", spring_cloud_service_id)
         if api_metadata is not None:
             _setter("api_metadata", api_metadata)
@@ -329,7 +349,27 @@ class _SpringCloudGatewayState:
              spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
              sso: Optional[pulumi.Input['SpringCloudGatewaySsoArgs']] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiMetadata' in kwargs:
+            api_metadata = kwargs['apiMetadata']
+        if 'applicationPerformanceMonitoringTypes' in kwargs:
+            application_performance_monitoring_types = kwargs['applicationPerformanceMonitoringTypes']
+        if 'clientAuthorization' in kwargs:
+            client_authorization = kwargs['clientAuthorization']
+        if 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'sensitiveEnvironmentVariables' in kwargs:
+            sensitive_environment_variables = kwargs['sensitiveEnvironmentVariables']
+        if 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+
         if api_metadata is not None:
             _setter("api_metadata", api_metadata)
         if application_performance_monitoring_types is not None:

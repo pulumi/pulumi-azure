@@ -65,10 +65,10 @@ public final class LinkedServiceSnowflakeKeyVaultPassword {
             return this;
         }
         public LinkedServiceSnowflakeKeyVaultPassword build() {
-            final var o = new LinkedServiceSnowflakeKeyVaultPassword();
-            o.linkedServiceName = linkedServiceName;
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new LinkedServiceSnowflakeKeyVaultPassword();
+            _resultValue.linkedServiceName = linkedServiceName;
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

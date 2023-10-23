@@ -142,14 +142,14 @@ public final class GetPoolNetworkConfiguration {
             return this;
         }
         public GetPoolNetworkConfiguration build() {
-            final var o = new GetPoolNetworkConfiguration();
-            o.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
-            o.dynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
-            o.endpointConfigurations = endpointConfigurations;
-            o.publicAddressProvisioningType = publicAddressProvisioningType;
-            o.publicIps = publicIps;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new GetPoolNetworkConfiguration();
+            _resultValue.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
+            _resultValue.dynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
+            _resultValue.endpointConfigurations = endpointConfigurations;
+            _resultValue.publicAddressProvisioningType = publicAddressProvisioningType;
+            _resultValue.publicIps = publicIps;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

@@ -126,13 +126,13 @@ public final class SharedImageVersionTargetRegion {
             return this;
         }
         public SharedImageVersionTargetRegion build() {
-            final var o = new SharedImageVersionTargetRegion();
-            o.diskEncryptionSetId = diskEncryptionSetId;
-            o.excludeFromLatestEnabled = excludeFromLatestEnabled;
-            o.name = name;
-            o.regionalReplicaCount = regionalReplicaCount;
-            o.storageAccountType = storageAccountType;
-            return o;
+            final var _resultValue = new SharedImageVersionTargetRegion();
+            _resultValue.diskEncryptionSetId = diskEncryptionSetId;
+            _resultValue.excludeFromLatestEnabled = excludeFromLatestEnabled;
+            _resultValue.name = name;
+            _resultValue.regionalReplicaCount = regionalReplicaCount;
+            _resultValue.storageAccountType = storageAccountType;
+            return _resultValue;
         }
     }
 }

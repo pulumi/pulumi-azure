@@ -84,11 +84,11 @@ public final class GetLinuxFunctionAppConnectionString {
             return this;
         }
         public GetLinuxFunctionAppConnectionString build() {
-            final var o = new GetLinuxFunctionAppConnectionString();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetLinuxFunctionAppConnectionString();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

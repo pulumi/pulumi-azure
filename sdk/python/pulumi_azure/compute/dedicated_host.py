@@ -55,7 +55,19 @@ class DedicatedHostArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dedicatedHostGroupId' in kwargs:
+            dedicated_host_group_id = kwargs['dedicatedHostGroupId']
+        if 'platformFaultDomain' in kwargs:
+            platform_fault_domain = kwargs['platformFaultDomain']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'autoReplaceOnFailure' in kwargs:
+            auto_replace_on_failure = kwargs['autoReplaceOnFailure']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+
         _setter("dedicated_host_group_id", dedicated_host_group_id)
         _setter("platform_fault_domain", platform_fault_domain)
         _setter("sku_name", sku_name)
@@ -211,7 +223,19 @@ class _DedicatedHostState:
              platform_fault_domain: Optional[pulumi.Input[int]] = None,
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'autoReplaceOnFailure' in kwargs:
+            auto_replace_on_failure = kwargs['autoReplaceOnFailure']
+        if 'dedicatedHostGroupId' in kwargs:
+            dedicated_host_group_id = kwargs['dedicatedHostGroupId']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'platformFaultDomain' in kwargs:
+            platform_fault_domain = kwargs['platformFaultDomain']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if auto_replace_on_failure is not None:
             _setter("auto_replace_on_failure", auto_replace_on_failure)
         if dedicated_host_group_id is not None:

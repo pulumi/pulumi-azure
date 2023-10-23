@@ -43,7 +43,17 @@ class CertificateArgs:
              key_virtual_path: pulumi.Input[str],
              nginx_deployment_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateVirtualPath' in kwargs:
+            certificate_virtual_path = kwargs['certificateVirtualPath']
+        if 'keyVaultSecretId' in kwargs:
+            key_vault_secret_id = kwargs['keyVaultSecretId']
+        if 'keyVirtualPath' in kwargs:
+            key_virtual_path = kwargs['keyVirtualPath']
+        if 'nginxDeploymentId' in kwargs:
+            nginx_deployment_id = kwargs['nginxDeploymentId']
+
         _setter("certificate_virtual_path", certificate_virtual_path)
         _setter("key_vault_secret_id", key_vault_secret_id)
         _setter("key_virtual_path", key_virtual_path)
@@ -144,7 +154,17 @@ class _CertificateState:
              key_virtual_path: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              nginx_deployment_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateVirtualPath' in kwargs:
+            certificate_virtual_path = kwargs['certificateVirtualPath']
+        if 'keyVaultSecretId' in kwargs:
+            key_vault_secret_id = kwargs['keyVaultSecretId']
+        if 'keyVirtualPath' in kwargs:
+            key_virtual_path = kwargs['keyVirtualPath']
+        if 'nginxDeploymentId' in kwargs:
+            nginx_deployment_id = kwargs['nginxDeploymentId']
+
         if certificate_virtual_path is not None:
             _setter("certificate_virtual_path", certificate_virtual_path)
         if key_vault_secret_id is not None:

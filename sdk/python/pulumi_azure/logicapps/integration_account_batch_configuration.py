@@ -49,7 +49,17 @@ class IntegrationAccountBatchConfigurationArgs:
              resource_group_name: pulumi.Input[str],
              metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchGroupName' in kwargs:
+            batch_group_name = kwargs['batchGroupName']
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'releaseCriteria' in kwargs:
+            release_criteria = kwargs['releaseCriteria']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("batch_group_name", batch_group_name)
         _setter("integration_account_name", integration_account_name)
         _setter("release_criteria", release_criteria)
@@ -168,7 +178,17 @@ class _IntegrationAccountBatchConfigurationState:
              name: Optional[pulumi.Input[str]] = None,
              release_criteria: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaArgs']] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'batchGroupName' in kwargs:
+            batch_group_name = kwargs['batchGroupName']
+        if 'integrationAccountName' in kwargs:
+            integration_account_name = kwargs['integrationAccountName']
+        if 'releaseCriteria' in kwargs:
+            release_criteria = kwargs['releaseCriteria']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if batch_group_name is not None:
             _setter("batch_group_name", batch_group_name)
         if integration_account_name is not None:

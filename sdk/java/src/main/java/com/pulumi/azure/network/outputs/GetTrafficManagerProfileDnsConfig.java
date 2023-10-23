@@ -66,10 +66,10 @@ public final class GetTrafficManagerProfileDnsConfig {
             return this;
         }
         public GetTrafficManagerProfileDnsConfig build() {
-            final var o = new GetTrafficManagerProfileDnsConfig();
-            o.relativeName = relativeName;
-            o.ttl = ttl;
-            return o;
+            final var _resultValue = new GetTrafficManagerProfileDnsConfig();
+            _resultValue.relativeName = relativeName;
+            _resultValue.ttl = ttl;
+            return _resultValue;
         }
     }
 }

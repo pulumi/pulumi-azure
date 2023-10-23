@@ -48,9 +48,9 @@ public final class CassandraTableAutoscaleSettings {
             return this;
         }
         public CassandraTableAutoscaleSettings build() {
-            final var o = new CassandraTableAutoscaleSettings();
-            o.maxThroughput = maxThroughput;
-            return o;
+            final var _resultValue = new CassandraTableAutoscaleSettings();
+            _resultValue.maxThroughput = maxThroughput;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLice
             return this;
         }
         public IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense build() {
-            final var o = new IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense();
-            o.linkedServiceName = linkedServiceName;
-            o.parameters = parameters;
-            o.secretName = secretName;
-            o.secretVersion = secretVersion;
-            return o;
+            final var _resultValue = new IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense();
+            _resultValue.linkedServiceName = linkedServiceName;
+            _resultValue.parameters = parameters;
+            _resultValue.secretName = secretName;
+            _resultValue.secretVersion = secretVersion;
+            return _resultValue;
         }
     }
 }

@@ -91,11 +91,11 @@ public final class AutoscaleSettingNotificationEmail {
             return this;
         }
         public AutoscaleSettingNotificationEmail build() {
-            final var o = new AutoscaleSettingNotificationEmail();
-            o.customEmails = customEmails;
-            o.sendToSubscriptionAdministrator = sendToSubscriptionAdministrator;
-            o.sendToSubscriptionCoAdministrator = sendToSubscriptionCoAdministrator;
-            return o;
+            final var _resultValue = new AutoscaleSettingNotificationEmail();
+            _resultValue.customEmails = customEmails;
+            _resultValue.sendToSubscriptionAdministrator = sendToSubscriptionAdministrator;
+            _resultValue.sendToSubscriptionCoAdministrator = sendToSubscriptionCoAdministrator;
+            return _resultValue;
         }
     }
 }

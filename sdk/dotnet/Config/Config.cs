@@ -389,7 +389,7 @@ namespace Pulumi.Azure
              public class FeaturesVirtualMachineScaleSet
              {
                 public bool? ForceDelete { get; set; }
-                public bool RollInstancesWhenRequired { get; set; }
+                public bool? RollInstancesWhenRequired { get; set; }
                 public bool? ScaleToZeroBeforeDeletion { get; set; }
             }
         }

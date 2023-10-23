@@ -65,7 +65,17 @@ class ResourceGroupCostManagementViewArgs:
              kpis: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewKpiArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              pivots: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupCostManagementViewPivotArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'chartType' in kwargs:
+            chart_type = kwargs['chartType']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'reportType' in kwargs:
+            report_type = kwargs['reportType']
+        if 'resourceGroupId' in kwargs:
+            resource_group_id = kwargs['resourceGroupId']
+
         _setter("accumulated", accumulated)
         _setter("chart_type", chart_type)
         _setter("dataset", dataset)
@@ -253,7 +263,17 @@ class _ResourceGroupCostManagementViewState:
              report_type: Optional[pulumi.Input[str]] = None,
              resource_group_id: Optional[pulumi.Input[str]] = None,
              timeframe: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'chartType' in kwargs:
+            chart_type = kwargs['chartType']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'reportType' in kwargs:
+            report_type = kwargs['reportType']
+        if 'resourceGroupId' in kwargs:
+            resource_group_id = kwargs['resourceGroupId']
+
         if accumulated is not None:
             _setter("accumulated", accumulated)
         if chart_type is not None:

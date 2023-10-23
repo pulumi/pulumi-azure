@@ -54,9 +54,9 @@ public final class LinuxVirtualMachineScaleSetSecretCertificate {
             return this;
         }
         public LinuxVirtualMachineScaleSetSecretCertificate build() {
-            final var o = new LinuxVirtualMachineScaleSetSecretCertificate();
-            o.url = url;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetSecretCertificate();
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

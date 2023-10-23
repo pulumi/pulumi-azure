@@ -126,13 +126,13 @@ public final class NetworkWatcherFlowLogTrafficAnalytics {
             return this;
         }
         public NetworkWatcherFlowLogTrafficAnalytics build() {
-            final var o = new NetworkWatcherFlowLogTrafficAnalytics();
-            o.enabled = enabled;
-            o.intervalInMinutes = intervalInMinutes;
-            o.workspaceId = workspaceId;
-            o.workspaceRegion = workspaceRegion;
-            o.workspaceResourceId = workspaceResourceId;
-            return o;
+            final var _resultValue = new NetworkWatcherFlowLogTrafficAnalytics();
+            _resultValue.enabled = enabled;
+            _resultValue.intervalInMinutes = intervalInMinutes;
+            _resultValue.workspaceId = workspaceId;
+            _resultValue.workspaceRegion = workspaceRegion;
+            _resultValue.workspaceResourceId = workspaceResourceId;
+            return _resultValue;
         }
     }
 }

@@ -68,10 +68,10 @@ public final class RegistryRetentionPolicy {
             return this;
         }
         public RegistryRetentionPolicy build() {
-            final var o = new RegistryRetentionPolicy();
-            o.days = days;
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new RegistryRetentionPolicy();
+            _resultValue.days = days;
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

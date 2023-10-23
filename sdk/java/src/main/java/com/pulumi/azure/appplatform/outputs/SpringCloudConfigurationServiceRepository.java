@@ -265,20 +265,20 @@ public final class SpringCloudConfigurationServiceRepository {
             return this;
         }
         public SpringCloudConfigurationServiceRepository build() {
-            final var o = new SpringCloudConfigurationServiceRepository();
-            o.caCertificateId = caCertificateId;
-            o.hostKey = hostKey;
-            o.hostKeyAlgorithm = hostKeyAlgorithm;
-            o.label = label;
-            o.name = name;
-            o.password = password;
-            o.patterns = patterns;
-            o.privateKey = privateKey;
-            o.searchPaths = searchPaths;
-            o.strictHostKeyChecking = strictHostKeyChecking;
-            o.uri = uri;
-            o.username = username;
-            return o;
+            final var _resultValue = new SpringCloudConfigurationServiceRepository();
+            _resultValue.caCertificateId = caCertificateId;
+            _resultValue.hostKey = hostKey;
+            _resultValue.hostKeyAlgorithm = hostKeyAlgorithm;
+            _resultValue.label = label;
+            _resultValue.name = name;
+            _resultValue.password = password;
+            _resultValue.patterns = patterns;
+            _resultValue.privateKey = privateKey;
+            _resultValue.searchPaths = searchPaths;
+            _resultValue.strictHostKeyChecking = strictHostKeyChecking;
+            _resultValue.uri = uri;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

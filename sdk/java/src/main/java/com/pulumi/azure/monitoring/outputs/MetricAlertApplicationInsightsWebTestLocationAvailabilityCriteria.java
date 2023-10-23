@@ -85,11 +85,11 @@ public final class MetricAlertApplicationInsightsWebTestLocationAvailabilityCrit
             return this;
         }
         public MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria build() {
-            final var o = new MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria();
-            o.componentId = componentId;
-            o.failedLocationCount = failedLocationCount;
-            o.webTestId = webTestId;
-            return o;
+            final var _resultValue = new MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria();
+            _resultValue.componentId = componentId;
+            _resultValue.failedLocationCount = failedLocationCount;
+            _resultValue.webTestId = webTestId;
+            return _resultValue;
         }
     }
 }

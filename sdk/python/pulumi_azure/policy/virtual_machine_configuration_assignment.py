@@ -41,7 +41,11 @@ class VirtualMachineConfigurationAssignmentArgs:
              virtual_machine_id: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+
         _setter("configuration", configuration)
         _setter("virtual_machine_id", virtual_machine_id)
         if location is not None:
@@ -126,7 +130,11 @@ class _VirtualMachineConfigurationAssignmentState:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              virtual_machine_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+
         if configuration is not None:
             _setter("configuration", configuration)
         if location is not None:

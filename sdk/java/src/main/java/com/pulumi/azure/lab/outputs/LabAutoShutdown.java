@@ -117,12 +117,12 @@ public final class LabAutoShutdown {
             return this;
         }
         public LabAutoShutdown build() {
-            final var o = new LabAutoShutdown();
-            o.disconnectDelay = disconnectDelay;
-            o.idleDelay = idleDelay;
-            o.noConnectDelay = noConnectDelay;
-            o.shutdownOnIdle = shutdownOnIdle;
-            return o;
+            final var _resultValue = new LabAutoShutdown();
+            _resultValue.disconnectDelay = disconnectDelay;
+            _resultValue.idleDelay = idleDelay;
+            _resultValue.noConnectDelay = noConnectDelay;
+            _resultValue.shutdownOnIdle = shutdownOnIdle;
+            return _resultValue;
         }
     }
 }

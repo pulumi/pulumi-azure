@@ -181,16 +181,16 @@ public final class ApplicationGatewayFrontendIpConfiguration {
             return this;
         }
         public ApplicationGatewayFrontendIpConfiguration build() {
-            final var o = new ApplicationGatewayFrontendIpConfiguration();
-            o.id = id;
-            o.name = name;
-            o.privateIpAddress = privateIpAddress;
-            o.privateIpAddressAllocation = privateIpAddressAllocation;
-            o.privateLinkConfigurationId = privateLinkConfigurationId;
-            o.privateLinkConfigurationName = privateLinkConfigurationName;
-            o.publicIpAddressId = publicIpAddressId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new ApplicationGatewayFrontendIpConfiguration();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.privateIpAddressAllocation = privateIpAddressAllocation;
+            _resultValue.privateLinkConfigurationId = privateLinkConfigurationId;
+            _resultValue.privateLinkConfigurationName = privateLinkConfigurationName;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

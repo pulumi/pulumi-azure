@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Azure NAT Gateway.
+ * Manages an Azure NAT Gateway.
  *
  * ## Example Usage
  *
@@ -14,19 +14,6 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     allocationMethod: "Static",
- *     sku: "Standard",
- *     zones: ["1"],
- * });
- * const examplePublicIpPrefix = new azure.network.PublicIpPrefix("examplePublicIpPrefix", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     prefixLength: 30,
- *     zones: ["1"],
- * });
  * const exampleNatGateway = new azure.network.NatGateway("exampleNatGateway", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -35,6 +22,8 @@ import * as utilities from "../utilities";
  *     zones: ["1"],
  * });
  * ```
+ *
+ * For more complete examples, please see the azure.network.NatGatewayPublicIpAssociation and azure.network.NatGatewayPublicIpPrefixAssociation resources.
  *
  * ## Import
  *

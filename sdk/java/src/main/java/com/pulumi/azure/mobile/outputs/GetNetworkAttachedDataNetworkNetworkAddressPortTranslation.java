@@ -135,15 +135,15 @@ public final class GetNetworkAttachedDataNetworkNetworkAddressPortTranslation {
             return this;
         }
         public GetNetworkAttachedDataNetworkNetworkAddressPortTranslation build() {
-            final var o = new GetNetworkAttachedDataNetworkNetworkAddressPortTranslation();
-            o.icmpPinholeTimeoutInSeconds = icmpPinholeTimeoutInSeconds;
-            o.pinholeMaximumNumber = pinholeMaximumNumber;
-            o.portRanges = portRanges;
-            o.tcpPinholeTimeoutInSeconds = tcpPinholeTimeoutInSeconds;
-            o.tcpPortReuseMinimumHoldTimeInSeconds = tcpPortReuseMinimumHoldTimeInSeconds;
-            o.udpPinholeTimeoutInSeconds = udpPinholeTimeoutInSeconds;
-            o.udpPortReuseMinimumHoldTimeInSeconds = udpPortReuseMinimumHoldTimeInSeconds;
-            return o;
+            final var _resultValue = new GetNetworkAttachedDataNetworkNetworkAddressPortTranslation();
+            _resultValue.icmpPinholeTimeoutInSeconds = icmpPinholeTimeoutInSeconds;
+            _resultValue.pinholeMaximumNumber = pinholeMaximumNumber;
+            _resultValue.portRanges = portRanges;
+            _resultValue.tcpPinholeTimeoutInSeconds = tcpPinholeTimeoutInSeconds;
+            _resultValue.tcpPortReuseMinimumHoldTimeInSeconds = tcpPortReuseMinimumHoldTimeInSeconds;
+            _resultValue.udpPinholeTimeoutInSeconds = udpPinholeTimeoutInSeconds;
+            _resultValue.udpPortReuseMinimumHoldTimeInSeconds = udpPortReuseMinimumHoldTimeInSeconds;
+            return _resultValue;
         }
     }
 }

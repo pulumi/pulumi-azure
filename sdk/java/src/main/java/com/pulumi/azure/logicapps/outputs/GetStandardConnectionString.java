@@ -76,11 +76,11 @@ public final class GetStandardConnectionString {
             return this;
         }
         public GetStandardConnectionString build() {
-            final var o = new GetStandardConnectionString();
-            o.name = name;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetStandardConnectionString();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

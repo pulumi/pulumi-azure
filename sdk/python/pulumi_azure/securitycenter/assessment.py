@@ -41,7 +41,15 @@ class AssessmentArgs:
              status: pulumi.Input['AssessmentStatusArgs'],
              target_resource_id: pulumi.Input[str],
              additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'assessmentPolicyId' in kwargs:
+            assessment_policy_id = kwargs['assessmentPolicyId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if 'additionalData' in kwargs:
+            additional_data = kwargs['additionalData']
+
         _setter("assessment_policy_id", assessment_policy_id)
         _setter("status", status)
         _setter("target_resource_id", target_resource_id)
@@ -125,7 +133,15 @@ class _AssessmentState:
              assessment_policy_id: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input['AssessmentStatusArgs']] = None,
              target_resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalData' in kwargs:
+            additional_data = kwargs['additionalData']
+        if 'assessmentPolicyId' in kwargs:
+            assessment_policy_id = kwargs['assessmentPolicyId']
+        if 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if additional_data is not None:
             _setter("additional_data", additional_data)
         if assessment_policy_id is not None:

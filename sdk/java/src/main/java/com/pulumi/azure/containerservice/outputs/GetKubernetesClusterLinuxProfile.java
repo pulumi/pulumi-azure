@@ -70,10 +70,10 @@ public final class GetKubernetesClusterLinuxProfile {
             return sshKeys(List.of(sshKeys));
         }
         public GetKubernetesClusterLinuxProfile build() {
-            final var o = new GetKubernetesClusterLinuxProfile();
-            o.adminUsername = adminUsername;
-            o.sshKeys = sshKeys;
-            return o;
+            final var _resultValue = new GetKubernetesClusterLinuxProfile();
+            _resultValue.adminUsername = adminUsername;
+            _resultValue.sshKeys = sshKeys;
+            return _resultValue;
         }
     }
 }

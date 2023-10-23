@@ -106,12 +106,12 @@ public final class ServiceDelegation {
             return this;
         }
         public ServiceDelegation build() {
-            final var o = new ServiceDelegation();
-            o.subscriptionsEnabled = subscriptionsEnabled;
-            o.url = url;
-            o.userRegistrationEnabled = userRegistrationEnabled;
-            o.validationKey = validationKey;
-            return o;
+            final var _resultValue = new ServiceDelegation();
+            _resultValue.subscriptionsEnabled = subscriptionsEnabled;
+            _resultValue.url = url;
+            _resultValue.userRegistrationEnabled = userRegistrationEnabled;
+            _resultValue.validationKey = validationKey;
+            return _resultValue;
         }
     }
 }

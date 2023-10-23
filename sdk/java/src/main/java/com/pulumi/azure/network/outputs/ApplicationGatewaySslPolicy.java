@@ -30,7 +30,7 @@ public final class ApplicationGatewaySslPolicy {
      */
     private @Nullable String minProtocolVersion;
     /**
-     * @return The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
+     * @return The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
      * 
      */
     private @Nullable String policyName;
@@ -67,7 +67,7 @@ public final class ApplicationGatewaySslPolicy {
         return Optional.ofNullable(this.minProtocolVersion);
     }
     /**
-     * @return The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
+     * @return The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and are published here &lt;https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview&gt;. Not compatible with `disabled_protocols`.
      * 
      */
     public Optional<String> policyName() {
@@ -139,13 +139,13 @@ public final class ApplicationGatewaySslPolicy {
             return this;
         }
         public ApplicationGatewaySslPolicy build() {
-            final var o = new ApplicationGatewaySslPolicy();
-            o.cipherSuites = cipherSuites;
-            o.disabledProtocols = disabledProtocols;
-            o.minProtocolVersion = minProtocolVersion;
-            o.policyName = policyName;
-            o.policyType = policyType;
-            return o;
+            final var _resultValue = new ApplicationGatewaySslPolicy();
+            _resultValue.cipherSuites = cipherSuites;
+            _resultValue.disabledProtocols = disabledProtocols;
+            _resultValue.minProtocolVersion = minProtocolVersion;
+            _resultValue.policyName = policyName;
+            _resultValue.policyType = policyType;
+            return _resultValue;
         }
     }
 }

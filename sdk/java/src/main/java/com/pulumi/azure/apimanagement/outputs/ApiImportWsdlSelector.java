@@ -65,10 +65,10 @@ public final class ApiImportWsdlSelector {
             return this;
         }
         public ApiImportWsdlSelector build() {
-            final var o = new ApiImportWsdlSelector();
-            o.endpointName = endpointName;
-            o.serviceName = serviceName;
-            return o;
+            final var _resultValue = new ApiImportWsdlSelector();
+            _resultValue.endpointName = endpointName;
+            _resultValue.serviceName = serviceName;
+            return _resultValue;
         }
     }
 }

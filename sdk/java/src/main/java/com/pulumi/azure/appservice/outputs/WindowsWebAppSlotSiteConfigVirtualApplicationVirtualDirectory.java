@@ -67,10 +67,10 @@ public final class WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory
             return this;
         }
         public WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory build() {
-            final var o = new WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory();
-            o.physicalPath = physicalPath;
-            o.virtualPath = virtualPath;
-            return o;
+            final var _resultValue = new WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectory();
+            _resultValue.physicalPath = physicalPath;
+            _resultValue.virtualPath = virtualPath;
+            return _resultValue;
         }
     }
 }

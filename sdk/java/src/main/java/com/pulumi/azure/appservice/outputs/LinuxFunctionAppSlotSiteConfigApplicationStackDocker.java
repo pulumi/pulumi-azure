@@ -132,13 +132,13 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackDocker {
             return this;
         }
         public LinuxFunctionAppSlotSiteConfigApplicationStackDocker build() {
-            final var o = new LinuxFunctionAppSlotSiteConfigApplicationStackDocker();
-            o.imageName = imageName;
-            o.imageTag = imageTag;
-            o.registryPassword = registryPassword;
-            o.registryUrl = registryUrl;
-            o.registryUsername = registryUsername;
-            return o;
+            final var _resultValue = new LinuxFunctionAppSlotSiteConfigApplicationStackDocker();
+            _resultValue.imageName = imageName;
+            _resultValue.imageTag = imageTag;
+            _resultValue.registryPassword = registryPassword;
+            _resultValue.registryUrl = registryUrl;
+            _resultValue.registryUsername = registryUsername;
+            return _resultValue;
         }
     }
 }

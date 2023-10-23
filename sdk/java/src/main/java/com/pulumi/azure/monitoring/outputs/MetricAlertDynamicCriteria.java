@@ -226,18 +226,18 @@ public final class MetricAlertDynamicCriteria {
             return this;
         }
         public MetricAlertDynamicCriteria build() {
-            final var o = new MetricAlertDynamicCriteria();
-            o.aggregation = aggregation;
-            o.alertSensitivity = alertSensitivity;
-            o.dimensions = dimensions;
-            o.evaluationFailureCount = evaluationFailureCount;
-            o.evaluationTotalCount = evaluationTotalCount;
-            o.ignoreDataBefore = ignoreDataBefore;
-            o.metricName = metricName;
-            o.metricNamespace = metricNamespace;
-            o.operator = operator;
-            o.skipMetricValidation = skipMetricValidation;
-            return o;
+            final var _resultValue = new MetricAlertDynamicCriteria();
+            _resultValue.aggregation = aggregation;
+            _resultValue.alertSensitivity = alertSensitivity;
+            _resultValue.dimensions = dimensions;
+            _resultValue.evaluationFailureCount = evaluationFailureCount;
+            _resultValue.evaluationTotalCount = evaluationTotalCount;
+            _resultValue.ignoreDataBefore = ignoreDataBefore;
+            _resultValue.metricName = metricName;
+            _resultValue.metricNamespace = metricNamespace;
+            _resultValue.operator = operator;
+            _resultValue.skipMetricValidation = skipMetricValidation;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class GetComputeMachineServiceStatusGuestConfigurationService {
             return this;
         }
         public GetComputeMachineServiceStatusGuestConfigurationService build() {
-            final var o = new GetComputeMachineServiceStatusGuestConfigurationService();
-            o.startupType = startupType;
-            o.status = status;
-            return o;
+            final var _resultValue = new GetComputeMachineServiceStatusGuestConfigurationService();
+            _resultValue.startupType = startupType;
+            _resultValue.status = status;
+            return _resultValue;
         }
     }
 }

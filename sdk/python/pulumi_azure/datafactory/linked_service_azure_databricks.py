@@ -81,7 +81,29 @@ class LinkedServiceAzureDatabricksArgs:
              name: Optional[pulumi.Input[str]] = None,
              new_cluster_config: Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs']] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'adbDomain' in kwargs:
+            adb_domain = kwargs['adbDomain']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'existingClusterId' in kwargs:
+            existing_cluster_id = kwargs['existingClusterId']
+        if 'instancePool' in kwargs:
+            instance_pool = kwargs['instancePool']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+        if 'msiWorkSpaceResourceId' in kwargs:
+            msi_work_space_resource_id = kwargs['msiWorkSpaceResourceId']
+        if 'newClusterConfig' in kwargs:
+            new_cluster_config = kwargs['newClusterConfig']
+
         _setter("adb_domain", adb_domain)
         _setter("data_factory_id", data_factory_id)
         if access_token is not None:
@@ -346,7 +368,29 @@ class _LinkedServiceAzureDatabricksState:
              name: Optional[pulumi.Input[str]] = None,
              new_cluster_config: Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs']] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if 'adbDomain' in kwargs:
+            adb_domain = kwargs['adbDomain']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'existingClusterId' in kwargs:
+            existing_cluster_id = kwargs['existingClusterId']
+        if 'instancePool' in kwargs:
+            instance_pool = kwargs['instancePool']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+        if 'msiWorkSpaceResourceId' in kwargs:
+            msi_work_space_resource_id = kwargs['msiWorkSpaceResourceId']
+        if 'newClusterConfig' in kwargs:
+            new_cluster_config = kwargs['newClusterConfig']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if adb_domain is not None:

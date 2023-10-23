@@ -74,7 +74,7 @@ namespace Pulumi.Azure.ManagedLustre
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
+        /// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageCapacityInTb")]
         public Output<int> StorageCapacityInTb { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.ManagedLustre
         public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
-        /// The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
+        /// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageCapacityInTb", required: true)]
         public Input<int> StorageCapacityInTb { get; set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.ManagedLustre
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
-        /// The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
+        /// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageCapacityInTb")]
         public Input<int>? StorageCapacityInTb { get; set; }

@@ -131,14 +131,14 @@ public final class GetNetworkDdosProtectionPlanResult {
             return virtualNetworkIds(List.of(virtualNetworkIds));
         }
         public GetNetworkDdosProtectionPlanResult build() {
-            final var o = new GetNetworkDdosProtectionPlanResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.virtualNetworkIds = virtualNetworkIds;
-            return o;
+            final var _resultValue = new GetNetworkDdosProtectionPlanResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.virtualNetworkIds = virtualNetworkIds;
+            return _resultValue;
         }
     }
 }

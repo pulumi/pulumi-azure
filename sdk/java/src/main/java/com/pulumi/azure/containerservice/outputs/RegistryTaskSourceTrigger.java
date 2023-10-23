@@ -168,15 +168,15 @@ public final class RegistryTaskSourceTrigger {
             return this;
         }
         public RegistryTaskSourceTrigger build() {
-            final var o = new RegistryTaskSourceTrigger();
-            o.authentication = authentication;
-            o.branch = branch;
-            o.enabled = enabled;
-            o.events = events;
-            o.name = name;
-            o.repositoryUrl = repositoryUrl;
-            o.sourceType = sourceType;
-            return o;
+            final var _resultValue = new RegistryTaskSourceTrigger();
+            _resultValue.authentication = authentication;
+            _resultValue.branch = branch;
+            _resultValue.enabled = enabled;
+            _resultValue.events = events;
+            _resultValue.name = name;
+            _resultValue.repositoryUrl = repositoryUrl;
+            _resultValue.sourceType = sourceType;
+            return _resultValue;
         }
     }
 }

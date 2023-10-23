@@ -162,16 +162,16 @@ public final class GetSrvRecordResult {
             return this;
         }
         public GetSrvRecordResult build() {
-            final var o = new GetSrvRecordResult();
-            o.fqdn = fqdn;
-            o.id = id;
-            o.name = name;
-            o.records = records;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.ttl = ttl;
-            o.zoneName = zoneName;
-            return o;
+            final var _resultValue = new GetSrvRecordResult();
+            _resultValue.fqdn = fqdn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.records = records;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.ttl = ttl;
+            _resultValue.zoneName = zoneName;
+            return _resultValue;
         }
     }
 }

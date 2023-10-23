@@ -88,11 +88,11 @@ public final class AuthomationRuleCondition {
             return values(List.of(values));
         }
         public AuthomationRuleCondition build() {
-            final var o = new AuthomationRuleCondition();
-            o.operator = operator;
-            o.property = property;
-            o.values = values;
-            return o;
+            final var _resultValue = new AuthomationRuleCondition();
+            _resultValue.operator = operator;
+            _resultValue.property = property;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

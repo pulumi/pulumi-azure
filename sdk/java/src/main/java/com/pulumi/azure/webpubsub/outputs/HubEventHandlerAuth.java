@@ -50,9 +50,9 @@ public final class HubEventHandlerAuth {
             return this;
         }
         public HubEventHandlerAuth build() {
-            final var o = new HubEventHandlerAuth();
-            o.managedIdentityId = managedIdentityId;
-            return o;
+            final var _resultValue = new HubEventHandlerAuth();
+            _resultValue.managedIdentityId = managedIdentityId;
+            return _resultValue;
         }
     }
 }

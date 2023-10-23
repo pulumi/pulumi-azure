@@ -79,12 +79,12 @@ public final class GetDefinitionResult {
             return this;
         }
         public GetDefinitionResult build() {
-            final var o = new GetDefinitionResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetDefinitionResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

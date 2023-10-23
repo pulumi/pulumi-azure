@@ -114,12 +114,12 @@ public final class MonitorTagRuleLog {
             return this;
         }
         public MonitorTagRuleLog build() {
-            final var o = new MonitorTagRuleLog();
-            o.aadLogEnabled = aadLogEnabled;
-            o.filters = filters;
-            o.resourceLogEnabled = resourceLogEnabled;
-            o.subscriptionLogEnabled = subscriptionLogEnabled;
-            return o;
+            final var _resultValue = new MonitorTagRuleLog();
+            _resultValue.aadLogEnabled = aadLogEnabled;
+            _resultValue.filters = filters;
+            _resultValue.resourceLogEnabled = resourceLogEnabled;
+            _resultValue.subscriptionLogEnabled = subscriptionLogEnabled;
+            return _resultValue;
         }
     }
 }

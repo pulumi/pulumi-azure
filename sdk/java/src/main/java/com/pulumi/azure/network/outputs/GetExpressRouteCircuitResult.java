@@ -192,17 +192,17 @@ public final class GetExpressRouteCircuitResult {
             return this;
         }
         public GetExpressRouteCircuitResult build() {
-            final var o = new GetExpressRouteCircuitResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.peerings = peerings;
-            o.resourceGroupName = resourceGroupName;
-            o.serviceKey = serviceKey;
-            o.serviceProviderProperties = serviceProviderProperties;
-            o.serviceProviderProvisioningState = serviceProviderProvisioningState;
-            o.sku = sku;
-            return o;
+            final var _resultValue = new GetExpressRouteCircuitResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.peerings = peerings;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.serviceKey = serviceKey;
+            _resultValue.serviceProviderProperties = serviceProviderProperties;
+            _resultValue.serviceProviderProvisioningState = serviceProviderProvisioningState;
+            _resultValue.sku = sku;
+            return _resultValue;
         }
     }
 }

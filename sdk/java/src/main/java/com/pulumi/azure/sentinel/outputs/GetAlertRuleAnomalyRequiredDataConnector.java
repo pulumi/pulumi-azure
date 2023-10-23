@@ -69,10 +69,10 @@ public final class GetAlertRuleAnomalyRequiredDataConnector {
             return dataTypes(List.of(dataTypes));
         }
         public GetAlertRuleAnomalyRequiredDataConnector build() {
-            final var o = new GetAlertRuleAnomalyRequiredDataConnector();
-            o.connectorId = connectorId;
-            o.dataTypes = dataTypes;
-            return o;
+            final var _resultValue = new GetAlertRuleAnomalyRequiredDataConnector();
+            _resultValue.connectorId = connectorId;
+            _resultValue.dataTypes = dataTypes;
+            return _resultValue;
         }
     }
 }

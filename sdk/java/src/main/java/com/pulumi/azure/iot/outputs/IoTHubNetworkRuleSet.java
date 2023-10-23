@@ -92,11 +92,11 @@ public final class IoTHubNetworkRuleSet {
             return ipRules(List.of(ipRules));
         }
         public IoTHubNetworkRuleSet build() {
-            final var o = new IoTHubNetworkRuleSet();
-            o.applyToBuiltinEventhubEndpoint = applyToBuiltinEventhubEndpoint;
-            o.defaultAction = defaultAction;
-            o.ipRules = ipRules;
-            return o;
+            final var _resultValue = new IoTHubNetworkRuleSet();
+            _resultValue.applyToBuiltinEventhubEndpoint = applyToBuiltinEventhubEndpoint;
+            _resultValue.defaultAction = defaultAction;
+            _resultValue.ipRules = ipRules;
+            return _resultValue;
         }
     }
 }

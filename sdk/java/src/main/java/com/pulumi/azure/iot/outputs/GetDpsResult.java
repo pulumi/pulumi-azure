@@ -176,17 +176,17 @@ public final class GetDpsResult {
             return this;
         }
         public GetDpsResult build() {
-            final var o = new GetDpsResult();
-            o.allocationPolicy = allocationPolicy;
-            o.deviceProvisioningHostName = deviceProvisioningHostName;
-            o.id = id;
-            o.idScope = idScope;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.serviceOperationsHostName = serviceOperationsHostName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDpsResult();
+            _resultValue.allocationPolicy = allocationPolicy;
+            _resultValue.deviceProvisioningHostName = deviceProvisioningHostName;
+            _resultValue.id = id;
+            _resultValue.idScope = idScope;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.serviceOperationsHostName = serviceOperationsHostName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

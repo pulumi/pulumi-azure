@@ -73,10 +73,10 @@ public final class VpnGatewayConnectionRoutingPropagatedRouteTable {
             return routeTableIds(List.of(routeTableIds));
         }
         public VpnGatewayConnectionRoutingPropagatedRouteTable build() {
-            final var o = new VpnGatewayConnectionRoutingPropagatedRouteTable();
-            o.labels = labels;
-            o.routeTableIds = routeTableIds;
-            return o;
+            final var _resultValue = new VpnGatewayConnectionRoutingPropagatedRouteTable();
+            _resultValue.labels = labels;
+            _resultValue.routeTableIds = routeTableIds;
+            return _resultValue;
         }
     }
 }

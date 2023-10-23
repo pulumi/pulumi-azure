@@ -51,7 +51,17 @@ class ProjectArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'sourcePlatform' in kwargs:
+            source_platform = kwargs['sourcePlatform']
+        if 'targetPlatform' in kwargs:
+            target_platform = kwargs['targetPlatform']
+
         _setter("resource_group_name", resource_group_name)
         _setter("service_name", service_name)
         _setter("source_platform", source_platform)
@@ -188,7 +198,17 @@ class _ProjectState:
              source_platform: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              target_platform: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'sourcePlatform' in kwargs:
+            source_platform = kwargs['sourcePlatform']
+        if 'targetPlatform' in kwargs:
+            target_platform = kwargs['targetPlatform']
+
         if location is not None:
             _setter("location", location)
         if name is not None:

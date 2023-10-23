@@ -143,14 +143,14 @@ public final class AppServiceStorageAccount {
             return this;
         }
         public AppServiceStorageAccount build() {
-            final var o = new AppServiceStorageAccount();
-            o.accessKey = accessKey;
-            o.accountName = accountName;
-            o.mountPath = mountPath;
-            o.name = name;
-            o.shareName = shareName;
-            o.type = type;
-            return o;
+            final var _resultValue = new AppServiceStorageAccount();
+            _resultValue.accessKey = accessKey;
+            _resultValue.accountName = accountName;
+            _resultValue.mountPath = mountPath;
+            _resultValue.name = name;
+            _resultValue.shareName = shareName;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

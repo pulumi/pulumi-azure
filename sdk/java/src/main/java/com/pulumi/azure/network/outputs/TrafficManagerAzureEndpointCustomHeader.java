@@ -65,10 +65,10 @@ public final class TrafficManagerAzureEndpointCustomHeader {
             return this;
         }
         public TrafficManagerAzureEndpointCustomHeader build() {
-            final var o = new TrafficManagerAzureEndpointCustomHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new TrafficManagerAzureEndpointCustomHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

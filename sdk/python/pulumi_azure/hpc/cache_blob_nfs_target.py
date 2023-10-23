@@ -53,7 +53,21 @@ class CacheBlobNfsTargetArgs:
              usage_model: pulumi.Input[str],
              access_policy_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'cacheName' in kwargs:
+            cache_name = kwargs['cacheName']
+        if 'namespacePath' in kwargs:
+            namespace_path = kwargs['namespacePath']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if 'usageModel' in kwargs:
+            usage_model = kwargs['usageModel']
+        if 'accessPolicyName' in kwargs:
+            access_policy_name = kwargs['accessPolicyName']
+
         _setter("cache_name", cache_name)
         _setter("namespace_path", namespace_path)
         _setter("resource_group_name", resource_group_name)
@@ -193,7 +207,21 @@ class _CacheBlobNfsTargetState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              storage_container_id: Optional[pulumi.Input[str]] = None,
              usage_model: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessPolicyName' in kwargs:
+            access_policy_name = kwargs['accessPolicyName']
+        if 'cacheName' in kwargs:
+            cache_name = kwargs['cacheName']
+        if 'namespacePath' in kwargs:
+            namespace_path = kwargs['namespacePath']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if 'usageModel' in kwargs:
+            usage_model = kwargs['usageModel']
+
         if access_policy_name is not None:
             _setter("access_policy_name", access_policy_name)
         if cache_name is not None:

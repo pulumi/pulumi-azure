@@ -112,12 +112,12 @@ public final class AlertRuleAnomalyDuplicateMultiSelectObservation {
             return values(List.of(values));
         }
         public AlertRuleAnomalyDuplicateMultiSelectObservation build() {
-            final var o = new AlertRuleAnomalyDuplicateMultiSelectObservation();
-            o.description = description;
-            o.name = name;
-            o.supportedValues = supportedValues;
-            o.values = values;
-            return o;
+            final var _resultValue = new AlertRuleAnomalyDuplicateMultiSelectObservation();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.supportedValues = supportedValues;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

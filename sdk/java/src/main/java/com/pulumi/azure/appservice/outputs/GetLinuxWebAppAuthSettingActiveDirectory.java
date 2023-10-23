@@ -107,12 +107,12 @@ public final class GetLinuxWebAppAuthSettingActiveDirectory {
             return this;
         }
         public GetLinuxWebAppAuthSettingActiveDirectory build() {
-            final var o = new GetLinuxWebAppAuthSettingActiveDirectory();
-            o.allowedAudiences = allowedAudiences;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.clientSecretSettingName = clientSecretSettingName;
-            return o;
+            final var _resultValue = new GetLinuxWebAppAuthSettingActiveDirectory();
+            _resultValue.allowedAudiences = allowedAudiences;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            return _resultValue;
         }
     }
 }

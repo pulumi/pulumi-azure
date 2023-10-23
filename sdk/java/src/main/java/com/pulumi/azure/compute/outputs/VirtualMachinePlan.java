@@ -84,11 +84,11 @@ public final class VirtualMachinePlan {
             return this;
         }
         public VirtualMachinePlan build() {
-            final var o = new VirtualMachinePlan();
-            o.name = name;
-            o.product = product;
-            o.publisher = publisher;
-            return o;
+            final var _resultValue = new VirtualMachinePlan();
+            _resultValue.name = name;
+            _resultValue.product = product;
+            _resultValue.publisher = publisher;
+            return _resultValue;
         }
     }
 }

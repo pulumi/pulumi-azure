@@ -75,7 +75,25 @@ class WebAppArgs:
              luis_key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'microsoftAppId' in kwargs:
+            microsoft_app_id = kwargs['microsoftAppId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'developerAppInsightsApiKey' in kwargs:
+            developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
+        if 'developerAppInsightsApplicationId' in kwargs:
+            developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
+        if 'developerAppInsightsKey' in kwargs:
+            developer_app_insights_key = kwargs['developerAppInsightsKey']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'luisAppIds' in kwargs:
+            luis_app_ids = kwargs['luisAppIds']
+        if 'luisKey' in kwargs:
+            luis_key = kwargs['luisKey']
+
         _setter("microsoft_app_id", microsoft_app_id)
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
@@ -321,7 +339,25 @@ class _WebAppState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'developerAppInsightsApiKey' in kwargs:
+            developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
+        if 'developerAppInsightsApplicationId' in kwargs:
+            developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
+        if 'developerAppInsightsKey' in kwargs:
+            developer_app_insights_key = kwargs['developerAppInsightsKey']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'luisAppIds' in kwargs:
+            luis_app_ids = kwargs['luisAppIds']
+        if 'luisKey' in kwargs:
+            luis_key = kwargs['luisKey']
+        if 'microsoftAppId' in kwargs:
+            microsoft_app_id = kwargs['microsoftAppId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if developer_app_insights_api_key is not None:
             _setter("developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:

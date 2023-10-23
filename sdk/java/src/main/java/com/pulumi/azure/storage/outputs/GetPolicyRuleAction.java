@@ -96,11 +96,11 @@ public final class GetPolicyRuleAction {
             return versions(List.of(versions));
         }
         public GetPolicyRuleAction build() {
-            final var o = new GetPolicyRuleAction();
-            o.baseBlobs = baseBlobs;
-            o.snapshots = snapshots;
-            o.versions = versions;
-            return o;
+            final var _resultValue = new GetPolicyRuleAction();
+            _resultValue.baseBlobs = baseBlobs;
+            _resultValue.snapshots = snapshots;
+            _resultValue.versions = versions;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class WorkspacePrivateEndpointConnection {
             return this;
         }
         public WorkspacePrivateEndpointConnection build() {
-            final var o = new WorkspacePrivateEndpointConnection();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new WorkspacePrivateEndpointConnection();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

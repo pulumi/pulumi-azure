@@ -103,12 +103,12 @@ public final class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig 
             return this;
         }
         public VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig build() {
-            final var o = new VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig();
-            o.component = component;
-            o.content = content;
-            o.pass = pass;
-            o.settingName = settingName;
-            return o;
+            final var _resultValue = new VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig();
+            _resultValue.component = component;
+            _resultValue.content = content;
+            _resultValue.pass = pass;
+            _resultValue.settingName = settingName;
+            return _resultValue;
         }
     }
 }

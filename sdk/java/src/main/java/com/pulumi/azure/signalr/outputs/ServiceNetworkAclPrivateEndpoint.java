@@ -104,11 +104,11 @@ public final class ServiceNetworkAclPrivateEndpoint {
             return this;
         }
         public ServiceNetworkAclPrivateEndpoint build() {
-            final var o = new ServiceNetworkAclPrivateEndpoint();
-            o.allowedRequestTypes = allowedRequestTypes;
-            o.deniedRequestTypes = deniedRequestTypes;
-            o.id = id;
-            return o;
+            final var _resultValue = new ServiceNetworkAclPrivateEndpoint();
+            _resultValue.allowedRequestTypes = allowedRequestTypes;
+            _resultValue.deniedRequestTypes = deniedRequestTypes;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

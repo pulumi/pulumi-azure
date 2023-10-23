@@ -86,11 +86,11 @@ public final class EndpointCustomDomainCdnManagedHttps {
             return this;
         }
         public EndpointCustomDomainCdnManagedHttps build() {
-            final var o = new EndpointCustomDomainCdnManagedHttps();
-            o.certificateType = certificateType;
-            o.protocolType = protocolType;
-            o.tlsVersion = tlsVersion;
-            return o;
+            final var _resultValue = new EndpointCustomDomainCdnManagedHttps();
+            _resultValue.certificateType = certificateType;
+            _resultValue.protocolType = protocolType;
+            _resultValue.tlsVersion = tlsVersion;
+            return _resultValue;
         }
     }
 }

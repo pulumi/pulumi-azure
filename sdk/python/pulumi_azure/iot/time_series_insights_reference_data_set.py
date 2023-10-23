@@ -49,7 +49,15 @@ class TimeSeriesInsightsReferenceDataSetArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyProperties' in kwargs:
+            key_properties = kwargs['keyProperties']
+        if 'timeSeriesInsightsEnvironmentId' in kwargs:
+            time_series_insights_environment_id = kwargs['timeSeriesInsightsEnvironmentId']
+        if 'dataStringComparisonBehavior' in kwargs:
+            data_string_comparison_behavior = kwargs['dataStringComparisonBehavior']
+
         _setter("key_properties", key_properties)
         _setter("time_series_insights_environment_id", time_series_insights_environment_id)
         if data_string_comparison_behavior is not None:
@@ -170,7 +178,15 @@ class _TimeSeriesInsightsReferenceDataSetState:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataStringComparisonBehavior' in kwargs:
+            data_string_comparison_behavior = kwargs['dataStringComparisonBehavior']
+        if 'keyProperties' in kwargs:
+            key_properties = kwargs['keyProperties']
+        if 'timeSeriesInsightsEnvironmentId' in kwargs:
+            time_series_insights_environment_id = kwargs['timeSeriesInsightsEnvironmentId']
+
         if data_string_comparison_behavior is not None:
             _setter("data_string_comparison_behavior", data_string_comparison_behavior)
         if key_properties is not None:

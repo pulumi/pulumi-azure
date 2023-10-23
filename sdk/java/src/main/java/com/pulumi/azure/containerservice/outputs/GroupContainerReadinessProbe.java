@@ -171,15 +171,15 @@ public final class GroupContainerReadinessProbe {
             return this;
         }
         public GroupContainerReadinessProbe build() {
-            final var o = new GroupContainerReadinessProbe();
-            o.execs = execs;
-            o.failureThreshold = failureThreshold;
-            o.httpGets = httpGets;
-            o.initialDelaySeconds = initialDelaySeconds;
-            o.periodSeconds = periodSeconds;
-            o.successThreshold = successThreshold;
-            o.timeoutSeconds = timeoutSeconds;
-            return o;
+            final var _resultValue = new GroupContainerReadinessProbe();
+            _resultValue.execs = execs;
+            _resultValue.failureThreshold = failureThreshold;
+            _resultValue.httpGets = httpGets;
+            _resultValue.initialDelaySeconds = initialDelaySeconds;
+            _resultValue.periodSeconds = periodSeconds;
+            _resultValue.successThreshold = successThreshold;
+            _resultValue.timeoutSeconds = timeoutSeconds;
+            return _resultValue;
         }
     }
 }

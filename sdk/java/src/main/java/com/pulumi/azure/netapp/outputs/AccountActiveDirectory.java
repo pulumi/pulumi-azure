@@ -147,14 +147,14 @@ public final class AccountActiveDirectory {
             return this;
         }
         public AccountActiveDirectory build() {
-            final var o = new AccountActiveDirectory();
-            o.dnsServers = dnsServers;
-            o.domain = domain;
-            o.organizationalUnit = organizationalUnit;
-            o.password = password;
-            o.smbServerName = smbServerName;
-            o.username = username;
-            return o;
+            final var _resultValue = new AccountActiveDirectory();
+            _resultValue.dnsServers = dnsServers;
+            _resultValue.domain = domain;
+            _resultValue.organizationalUnit = organizationalUnit;
+            _resultValue.password = password;
+            _resultValue.smbServerName = smbServerName;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class FlowletDataFlowSinkDataset {
             return this;
         }
         public FlowletDataFlowSinkDataset build() {
-            final var o = new FlowletDataFlowSinkDataset();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new FlowletDataFlowSinkDataset();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

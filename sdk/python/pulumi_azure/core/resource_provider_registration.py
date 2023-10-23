@@ -32,7 +32,9 @@ class ResourceProviderRegistrationArgs:
              _setter: Callable[[Any, Any], None],
              features: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if features is not None:
             _setter("features", features)
         if name is not None:
@@ -79,7 +81,9 @@ class _ResourceProviderRegistrationState:
              _setter: Callable[[Any, Any], None],
              features: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if features is not None:
             _setter("features", features)
         if name is not None:

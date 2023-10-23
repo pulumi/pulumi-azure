@@ -110,12 +110,12 @@ public final class GetAlertRuleAnomalyMultiSelectObservation {
             return values(List.of(values));
         }
         public GetAlertRuleAnomalyMultiSelectObservation build() {
-            final var o = new GetAlertRuleAnomalyMultiSelectObservation();
-            o.description = description;
-            o.name = name;
-            o.supportedValues = supportedValues;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetAlertRuleAnomalyMultiSelectObservation();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.supportedValues = supportedValues;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

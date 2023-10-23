@@ -144,14 +144,14 @@ public final class RegistryTaskFileStep {
             return this;
         }
         public RegistryTaskFileStep build() {
-            final var o = new RegistryTaskFileStep();
-            o.contextAccessToken = contextAccessToken;
-            o.contextPath = contextPath;
-            o.secretValues = secretValues;
-            o.taskFilePath = taskFilePath;
-            o.valueFilePath = valueFilePath;
-            o.values = values;
-            return o;
+            final var _resultValue = new RegistryTaskFileStep();
+            _resultValue.contextAccessToken = contextAccessToken;
+            _resultValue.contextPath = contextPath;
+            _resultValue.secretValues = secretValues;
+            _resultValue.taskFilePath = taskFilePath;
+            _resultValue.valueFilePath = valueFilePath;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

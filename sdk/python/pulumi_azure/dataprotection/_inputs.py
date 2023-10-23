@@ -44,7 +44,9 @@ class BackupPolicyDiskRetentionRuleArgs:
              duration: pulumi.Input[str],
              name: pulumi.Input[str],
              priority: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("criteria", criteria)
         _setter("duration", duration)
         _setter("name", name)
@@ -114,7 +116,11 @@ class BackupPolicyDiskRetentionRuleCriteriaArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              absolute_criteria: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'absoluteCriteria' in kwargs:
+            absolute_criteria = kwargs['absoluteCriteria']
+
         if absolute_criteria is not None:
             _setter("absolute_criteria", absolute_criteria)
 
@@ -158,7 +164,9 @@ class BackupPolicyPostgresqlRetentionRuleArgs:
              duration: pulumi.Input[str],
              name: pulumi.Input[str],
              priority: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("criteria", criteria)
         _setter("duration", duration)
         _setter("name", name)
@@ -244,7 +252,19 @@ class BackupPolicyPostgresqlRetentionRuleCriteriaArgs:
              months_of_years: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              scheduled_backup_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'absoluteCriteria' in kwargs:
+            absolute_criteria = kwargs['absoluteCriteria']
+        if 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+        if 'monthsOfYears' in kwargs:
+            months_of_years = kwargs['monthsOfYears']
+        if 'scheduledBackupTimes' in kwargs:
+            scheduled_backup_times = kwargs['scheduledBackupTimes']
+        if 'weeksOfMonths' in kwargs:
+            weeks_of_months = kwargs['weeksOfMonths']
+
         if absolute_criteria is not None:
             _setter("absolute_criteria", absolute_criteria)
         if days_of_weeks is not None:
@@ -340,7 +360,13 @@ class BackupVaultIdentityArgs:
              type: pulumi.Input[str],
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if principal_id is not None:
             _setter("principal_id", principal_id)

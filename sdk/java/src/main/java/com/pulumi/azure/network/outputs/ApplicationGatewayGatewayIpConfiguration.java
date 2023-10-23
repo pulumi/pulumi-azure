@@ -86,11 +86,11 @@ public final class ApplicationGatewayGatewayIpConfiguration {
             return this;
         }
         public ApplicationGatewayGatewayIpConfiguration build() {
-            final var o = new ApplicationGatewayGatewayIpConfiguration();
-            o.id = id;
-            o.name = name;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new ApplicationGatewayGatewayIpConfiguration();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class AlertProcessingRuleActionGroupSchedule {
             return this;
         }
         public AlertProcessingRuleActionGroupSchedule build() {
-            final var o = new AlertProcessingRuleActionGroupSchedule();
-            o.effectiveFrom = effectiveFrom;
-            o.effectiveUntil = effectiveUntil;
-            o.recurrence = recurrence;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new AlertProcessingRuleActionGroupSchedule();
+            _resultValue.effectiveFrom = effectiveFrom;
+            _resultValue.effectiveUntil = effectiveUntil;
+            _resultValue.recurrence = recurrence;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

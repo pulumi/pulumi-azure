@@ -39,7 +39,15 @@ class NamespaceDisasterRecoveryConfigArgs:
              primary_namespace_id: pulumi.Input[str],
              alias_authorization_rule_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'partnerNamespaceId' in kwargs:
+            partner_namespace_id = kwargs['partnerNamespaceId']
+        if 'primaryNamespaceId' in kwargs:
+            primary_namespace_id = kwargs['primaryNamespaceId']
+        if 'aliasAuthorizationRuleId' in kwargs:
+            alias_authorization_rule_id = kwargs['aliasAuthorizationRuleId']
+
         _setter("partner_namespace_id", partner_namespace_id)
         _setter("primary_namespace_id", primary_namespace_id)
         if alias_authorization_rule_id is not None:
@@ -140,7 +148,23 @@ class _NamespaceDisasterRecoveryConfigState:
              primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
              primary_namespace_id: Optional[pulumi.Input[str]] = None,
              secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aliasAuthorizationRuleId' in kwargs:
+            alias_authorization_rule_id = kwargs['aliasAuthorizationRuleId']
+        if 'defaultPrimaryKey' in kwargs:
+            default_primary_key = kwargs['defaultPrimaryKey']
+        if 'defaultSecondaryKey' in kwargs:
+            default_secondary_key = kwargs['defaultSecondaryKey']
+        if 'partnerNamespaceId' in kwargs:
+            partner_namespace_id = kwargs['partnerNamespaceId']
+        if 'primaryConnectionStringAlias' in kwargs:
+            primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
+        if 'primaryNamespaceId' in kwargs:
+            primary_namespace_id = kwargs['primaryNamespaceId']
+        if 'secondaryConnectionStringAlias' in kwargs:
+            secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
+
         if alias_authorization_rule_id is not None:
             _setter("alias_authorization_rule_id", alias_authorization_rule_id)
         if default_primary_key is not None:

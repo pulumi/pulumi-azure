@@ -71,7 +71,21 @@ class ReferenceInputMssqlArgs:
              name: Optional[pulumi.Input[str]] = None,
              refresh_interval_duration: Optional[pulumi.Input[str]] = None,
              table: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'fullSnapshotQuery' in kwargs:
+            full_snapshot_query = kwargs['fullSnapshotQuery']
+        if 'refreshType' in kwargs:
+            refresh_type = kwargs['refreshType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if 'deltaSnapshotQuery' in kwargs:
+            delta_snapshot_query = kwargs['deltaSnapshotQuery']
+        if 'refreshIntervalDuration' in kwargs:
+            refresh_interval_duration = kwargs['refreshIntervalDuration']
+
         _setter("database", database)
         _setter("full_snapshot_query", full_snapshot_query)
         _setter("password", password)
@@ -294,7 +308,21 @@ class _ReferenceInputMssqlState:
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              table: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deltaSnapshotQuery' in kwargs:
+            delta_snapshot_query = kwargs['deltaSnapshotQuery']
+        if 'fullSnapshotQuery' in kwargs:
+            full_snapshot_query = kwargs['fullSnapshotQuery']
+        if 'refreshIntervalDuration' in kwargs:
+            refresh_interval_duration = kwargs['refreshIntervalDuration']
+        if 'refreshType' in kwargs:
+            refresh_type = kwargs['refreshType']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+
         if database is not None:
             _setter("database", database)
         if delta_snapshot_query is not None:

@@ -139,15 +139,15 @@ public final class GetDashboardResult {
             return this;
         }
         public GetDashboardResult build() {
-            final var o = new GetDashboardResult();
-            o.dashboardProperties = dashboardProperties;
-            o.displayName = displayName;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetDashboardResult();
+            _resultValue.dashboardProperties = dashboardProperties;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

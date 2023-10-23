@@ -121,12 +121,12 @@ public final class OutputBlobSerialization {
             return this;
         }
         public OutputBlobSerialization build() {
-            final var o = new OutputBlobSerialization();
-            o.encoding = encoding;
-            o.fieldDelimiter = fieldDelimiter;
-            o.format = format;
-            o.type = type;
-            return o;
+            final var _resultValue = new OutputBlobSerialization();
+            _resultValue.encoding = encoding;
+            _resultValue.fieldDelimiter = fieldDelimiter;
+            _resultValue.format = format;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

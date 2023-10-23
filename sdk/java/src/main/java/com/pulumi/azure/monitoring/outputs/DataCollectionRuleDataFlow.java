@@ -131,13 +131,13 @@ public final class DataCollectionRuleDataFlow {
             return this;
         }
         public DataCollectionRuleDataFlow build() {
-            final var o = new DataCollectionRuleDataFlow();
-            o.builtInTransform = builtInTransform;
-            o.destinations = destinations;
-            o.outputStream = outputStream;
-            o.streams = streams;
-            o.transformKql = transformKql;
-            return o;
+            final var _resultValue = new DataCollectionRuleDataFlow();
+            _resultValue.builtInTransform = builtInTransform;
+            _resultValue.destinations = destinations;
+            _resultValue.outputStream = outputStream;
+            _resultValue.streams = streams;
+            _resultValue.transformKql = transformKql;
+            return _resultValue;
         }
     }
 }

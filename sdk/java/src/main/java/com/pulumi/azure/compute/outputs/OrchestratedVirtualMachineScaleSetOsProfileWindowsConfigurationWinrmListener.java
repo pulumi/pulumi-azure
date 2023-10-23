@@ -71,10 +71,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
             return this;
         }
         public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener build() {
-            final var o = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener();
-            o.certificateUrl = certificateUrl;
-            o.protocol = protocol;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener();
+            _resultValue.certificateUrl = certificateUrl;
+            _resultValue.protocol = protocol;
+            return _resultValue;
         }
     }
 }

@@ -113,12 +113,12 @@ public final class FrontdoorOriginPrivateLink {
             return this;
         }
         public FrontdoorOriginPrivateLink build() {
-            final var o = new FrontdoorOriginPrivateLink();
-            o.location = location;
-            o.privateLinkTargetId = privateLinkTargetId;
-            o.requestMessage = requestMessage;
-            o.targetType = targetType;
-            return o;
+            final var _resultValue = new FrontdoorOriginPrivateLink();
+            _resultValue.location = location;
+            _resultValue.privateLinkTargetId = privateLinkTargetId;
+            _resultValue.requestMessage = requestMessage;
+            _resultValue.targetType = targetType;
+            return _resultValue;
         }
     }
 }

@@ -85,7 +85,31 @@ class SecuritySolutionArgs:
              query_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              recommendations_enabled: Optional[pulumi.Input['SecuritySolutionRecommendationsEnabledArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'iothubIds' in kwargs:
+            iothub_ids = kwargs['iothubIds']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'additionalWorkspaces' in kwargs:
+            additional_workspaces = kwargs['additionalWorkspaces']
+        if 'disabledDataSources' in kwargs:
+            disabled_data_sources = kwargs['disabledDataSources']
+        if 'eventsToExports' in kwargs:
+            events_to_exports = kwargs['eventsToExports']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'logUnmaskedIpsEnabled' in kwargs:
+            log_unmasked_ips_enabled = kwargs['logUnmaskedIpsEnabled']
+        if 'queryForResources' in kwargs:
+            query_for_resources = kwargs['queryForResources']
+        if 'querySubscriptionIds' in kwargs:
+            query_subscription_ids = kwargs['querySubscriptionIds']
+        if 'recommendationsEnabled' in kwargs:
+            recommendations_enabled = kwargs['recommendationsEnabled']
+
         _setter("display_name", display_name)
         _setter("iothub_ids", iothub_ids)
         _setter("resource_group_name", resource_group_name)
@@ -367,7 +391,31 @@ class _SecuritySolutionState:
              recommendations_enabled: Optional[pulumi.Input['SecuritySolutionRecommendationsEnabledArgs']] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalWorkspaces' in kwargs:
+            additional_workspaces = kwargs['additionalWorkspaces']
+        if 'disabledDataSources' in kwargs:
+            disabled_data_sources = kwargs['disabledDataSources']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'eventsToExports' in kwargs:
+            events_to_exports = kwargs['eventsToExports']
+        if 'iothubIds' in kwargs:
+            iothub_ids = kwargs['iothubIds']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'logUnmaskedIpsEnabled' in kwargs:
+            log_unmasked_ips_enabled = kwargs['logUnmaskedIpsEnabled']
+        if 'queryForResources' in kwargs:
+            query_for_resources = kwargs['queryForResources']
+        if 'querySubscriptionIds' in kwargs:
+            query_subscription_ids = kwargs['querySubscriptionIds']
+        if 'recommendationsEnabled' in kwargs:
+            recommendations_enabled = kwargs['recommendationsEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if additional_workspaces is not None:
             _setter("additional_workspaces", additional_workspaces)
         if disabled_data_sources is not None:

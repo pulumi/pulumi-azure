@@ -69,10 +69,10 @@ public final class ExpressRoutePortIdentity {
             return this;
         }
         public ExpressRoutePortIdentity build() {
-            final var o = new ExpressRoutePortIdentity();
-            o.identityIds = identityIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new ExpressRoutePortIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

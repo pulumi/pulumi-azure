@@ -45,7 +45,11 @@ class TopicAuthorizationRuleArgs:
              manage: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'topicId' in kwargs:
+            topic_id = kwargs['topicId']
+
         _setter("topic_id", topic_id)
         if listen is not None:
             _setter("listen", listen)
@@ -177,7 +181,23 @@ class _TopicAuthorizationRuleState:
              secondary_key: Optional[pulumi.Input[str]] = None,
              send: Optional[pulumi.Input[bool]] = None,
              topic_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if 'primaryConnectionStringAlias' in kwargs:
+            primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if 'secondaryConnectionStringAlias' in kwargs:
+            secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
+        if 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+        if 'topicId' in kwargs:
+            topic_id = kwargs['topicId']
+
         if listen is not None:
             _setter("listen", listen)
         if manage is not None:

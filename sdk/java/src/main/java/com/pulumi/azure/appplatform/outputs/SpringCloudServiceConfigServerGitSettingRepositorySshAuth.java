@@ -106,12 +106,12 @@ public final class SpringCloudServiceConfigServerGitSettingRepositorySshAuth {
             return this;
         }
         public SpringCloudServiceConfigServerGitSettingRepositorySshAuth build() {
-            final var o = new SpringCloudServiceConfigServerGitSettingRepositorySshAuth();
-            o.hostKey = hostKey;
-            o.hostKeyAlgorithm = hostKeyAlgorithm;
-            o.privateKey = privateKey;
-            o.strictHostKeyCheckingEnabled = strictHostKeyCheckingEnabled;
-            return o;
+            final var _resultValue = new SpringCloudServiceConfigServerGitSettingRepositorySshAuth();
+            _resultValue.hostKey = hostKey;
+            _resultValue.hostKeyAlgorithm = hostKeyAlgorithm;
+            _resultValue.privateKey = privateKey;
+            _resultValue.strictHostKeyCheckingEnabled = strictHostKeyCheckingEnabled;
+            return _resultValue;
         }
     }
 }

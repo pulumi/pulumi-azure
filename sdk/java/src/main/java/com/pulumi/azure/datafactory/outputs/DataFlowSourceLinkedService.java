@@ -67,10 +67,10 @@ public final class DataFlowSourceLinkedService {
             return this;
         }
         public DataFlowSourceLinkedService build() {
-            final var o = new DataFlowSourceLinkedService();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new DataFlowSourceLinkedService();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

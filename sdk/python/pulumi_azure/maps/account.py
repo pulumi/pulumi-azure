@@ -23,6 +23,8 @@ class AccountArgs:
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+               
+               > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
         :param pulumi.Input[bool] local_authentication_enabled: Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Azure Maps Account.
@@ -43,7 +45,15 @@ class AccountArgs:
              local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku_name", sku_name)
         if local_authentication_enabled is not None:
@@ -70,6 +80,8 @@ class AccountArgs:
     def sku_name(self) -> pulumi.Input[str]:
         """
         The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+
+        > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
         """
         return pulumi.get(self, "sku_name")
 
@@ -133,6 +145,8 @@ class _AccountState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The secondary key used to authenticate and authorize access to the Maps REST APIs.
         :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+               
+               > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Azure Maps Account.
         :param pulumi.Input[str] x_ms_client_id: A unique identifier for the Maps Account.
         """
@@ -158,7 +172,21 @@ class _AccountState:
              sku_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              x_ms_client_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if 'primaryAccessKey' in kwargs:
+            primary_access_key = kwargs['primaryAccessKey']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryAccessKey' in kwargs:
+            secondary_access_key = kwargs['secondaryAccessKey']
+        if 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if 'xMsClientId' in kwargs:
+            x_ms_client_id = kwargs['xMsClientId']
+
         if local_authentication_enabled is not None:
             _setter("local_authentication_enabled", local_authentication_enabled)
         if name is not None:
@@ -241,6 +269,8 @@ class _AccountState:
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
         The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+
+        > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
         """
         return pulumi.get(self, "sku_name")
 
@@ -317,6 +347,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+               
+               > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Azure Maps Account.
         """
         ...
@@ -430,6 +462,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The secondary key used to authenticate and authorize access to the Maps REST APIs.
         :param pulumi.Input[str] sku_name: The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+               
+               > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Azure Maps Account.
         :param pulumi.Input[str] x_ms_client_id: A unique identifier for the Maps Account.
         """
@@ -492,6 +526,8 @@ class Account(pulumi.CustomResource):
     def sku_name(self) -> pulumi.Output[str]:
         """
         The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+
+        > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
         """
         return pulumi.get(self, "sku_name")
 

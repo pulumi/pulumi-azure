@@ -40,9 +40,9 @@ public final class FeaturesSubscription {
             return this;
         }
         public FeaturesSubscription build() {
-            final var o = new FeaturesSubscription();
-            o.preventCancellationOnDestroy = preventCancellationOnDestroy;
-            return o;
+            final var _resultValue = new FeaturesSubscription();
+            _resultValue.preventCancellationOnDestroy = preventCancellationOnDestroy;
+            return _resultValue;
         }
     }
 }

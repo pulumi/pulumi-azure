@@ -183,17 +183,17 @@ public final class GetEnvironmentCertificateResult {
             return this;
         }
         public GetEnvironmentCertificateResult build() {
-            final var o = new GetEnvironmentCertificateResult();
-            o.containerAppEnvironmentId = containerAppEnvironmentId;
-            o.expirationDate = expirationDate;
-            o.id = id;
-            o.issueDate = issueDate;
-            o.issuer = issuer;
-            o.name = name;
-            o.subjectName = subjectName;
-            o.tags = tags;
-            o.thumbprint = thumbprint;
-            return o;
+            final var _resultValue = new GetEnvironmentCertificateResult();
+            _resultValue.containerAppEnvironmentId = containerAppEnvironmentId;
+            _resultValue.expirationDate = expirationDate;
+            _resultValue.id = id;
+            _resultValue.issueDate = issueDate;
+            _resultValue.issuer = issuer;
+            _resultValue.name = name;
+            _resultValue.subjectName = subjectName;
+            _resultValue.tags = tags;
+            _resultValue.thumbprint = thumbprint;
+            return _resultValue;
         }
     }
 }

@@ -186,16 +186,16 @@ public final class TransformOutputCustomPresetCodecPngImage {
             return this;
         }
         public TransformOutputCustomPresetCodecPngImage build() {
-            final var o = new TransformOutputCustomPresetCodecPngImage();
-            o.keyFrameInterval = keyFrameInterval;
-            o.label = label;
-            o.layers = layers;
-            o.range = range;
-            o.start = start;
-            o.step = step;
-            o.stretchMode = stretchMode;
-            o.syncMode = syncMode;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetCodecPngImage();
+            _resultValue.keyFrameInterval = keyFrameInterval;
+            _resultValue.label = label;
+            _resultValue.layers = layers;
+            _resultValue.range = range;
+            _resultValue.start = start;
+            _resultValue.step = step;
+            _resultValue.stretchMode = stretchMode;
+            _resultValue.syncMode = syncMode;
+            return _resultValue;
         }
     }
 }

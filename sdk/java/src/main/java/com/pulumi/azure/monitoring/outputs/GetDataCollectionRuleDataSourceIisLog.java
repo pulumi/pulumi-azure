@@ -91,11 +91,11 @@ public final class GetDataCollectionRuleDataSourceIisLog {
             return streams(List.of(streams));
         }
         public GetDataCollectionRuleDataSourceIisLog build() {
-            final var o = new GetDataCollectionRuleDataSourceIisLog();
-            o.logDirectories = logDirectories;
-            o.name = name;
-            o.streams = streams;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleDataSourceIisLog();
+            _resultValue.logDirectories = logDirectories;
+            _resultValue.name = name;
+            _resultValue.streams = streams;
+            return _resultValue;
         }
     }
 }

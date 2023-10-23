@@ -86,11 +86,11 @@ public final class GremlinGraphConflictResolutionPolicy {
             return this;
         }
         public GremlinGraphConflictResolutionPolicy build() {
-            final var o = new GremlinGraphConflictResolutionPolicy();
-            o.conflictResolutionPath = conflictResolutionPath;
-            o.conflictResolutionProcedure = conflictResolutionProcedure;
-            o.mode = mode;
-            return o;
+            final var _resultValue = new GremlinGraphConflictResolutionPolicy();
+            _resultValue.conflictResolutionPath = conflictResolutionPath;
+            _resultValue.conflictResolutionProcedure = conflictResolutionProcedure;
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

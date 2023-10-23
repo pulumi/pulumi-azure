@@ -138,13 +138,13 @@ public final class AccountQueuePropertiesCorsRule {
             return this;
         }
         public AccountQueuePropertiesCorsRule build() {
-            final var o = new AccountQueuePropertiesCorsRule();
-            o.allowedHeaders = allowedHeaders;
-            o.allowedMethods = allowedMethods;
-            o.allowedOrigins = allowedOrigins;
-            o.exposedHeaders = exposedHeaders;
-            o.maxAgeInSeconds = maxAgeInSeconds;
-            return o;
+            final var _resultValue = new AccountQueuePropertiesCorsRule();
+            _resultValue.allowedHeaders = allowedHeaders;
+            _resultValue.allowedMethods = allowedMethods;
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.exposedHeaders = exposedHeaders;
+            _resultValue.maxAgeInSeconds = maxAgeInSeconds;
+            return _resultValue;
         }
     }
 }

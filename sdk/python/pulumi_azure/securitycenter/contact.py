@@ -43,7 +43,13 @@ class ContactArgs:
              email: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              phone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertNotifications' in kwargs:
+            alert_notifications = kwargs['alertNotifications']
+        if 'alertsToAdmins' in kwargs:
+            alerts_to_admins = kwargs['alertsToAdmins']
+
         _setter("alert_notifications", alert_notifications)
         _setter("alerts_to_admins", alerts_to_admins)
         _setter("email", email)
@@ -145,7 +151,13 @@ class _ContactState:
              email: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              phone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'alertNotifications' in kwargs:
+            alert_notifications = kwargs['alertNotifications']
+        if 'alertsToAdmins' in kwargs:
+            alerts_to_admins = kwargs['alertsToAdmins']
+
         if alert_notifications is not None:
             _setter("alert_notifications", alert_notifications)
         if alerts_to_admins is not None:

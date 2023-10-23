@@ -65,7 +65,19 @@ class AccountArgs:
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              storage_authentication_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if 'keyDeliveryAccessControl' in kwargs:
+            key_delivery_access_control = kwargs['keyDeliveryAccessControl']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'storageAuthenticationType' in kwargs:
+            storage_authentication_type = kwargs['storageAuthenticationType']
+
         _setter("resource_group_name", resource_group_name)
         _setter("storage_accounts", storage_accounts)
         if encryption is not None:
@@ -258,7 +270,19 @@ class _AccountState:
              storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AccountStorageAccountArgs']]]] = None,
              storage_authentication_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyDeliveryAccessControl' in kwargs:
+            key_delivery_access_control = kwargs['keyDeliveryAccessControl']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if 'storageAuthenticationType' in kwargs:
+            storage_authentication_type = kwargs['storageAuthenticationType']
+
         if encryption is not None:
             _setter("encryption", encryption)
         if identity is not None:

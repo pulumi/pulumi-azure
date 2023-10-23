@@ -126,13 +126,13 @@ public final class CertifiateCertificatePolicyKeyProperties {
             return this;
         }
         public CertifiateCertificatePolicyKeyProperties build() {
-            final var o = new CertifiateCertificatePolicyKeyProperties();
-            o.curve = curve;
-            o.exportable = exportable;
-            o.keySize = keySize;
-            o.keyType = keyType;
-            o.reuseKey = reuseKey;
-            return o;
+            final var _resultValue = new CertifiateCertificatePolicyKeyProperties();
+            _resultValue.curve = curve;
+            _resultValue.exportable = exportable;
+            _resultValue.keySize = keySize;
+            _resultValue.keyType = keyType;
+            _resultValue.reuseKey = reuseKey;
+            return _resultValue;
         }
     }
 }

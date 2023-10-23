@@ -116,12 +116,12 @@ public final class TransformOutputCustomPreset {
             return formats(List.of(formats));
         }
         public TransformOutputCustomPreset build() {
-            final var o = new TransformOutputCustomPreset();
-            o.codecs = codecs;
-            o.experimentalOptions = experimentalOptions;
-            o.filter = filter;
-            o.formats = formats;
-            return o;
+            final var _resultValue = new TransformOutputCustomPreset();
+            _resultValue.codecs = codecs;
+            _resultValue.experimentalOptions = experimentalOptions;
+            _resultValue.filter = filter;
+            _resultValue.formats = formats;
+            return _resultValue;
         }
     }
 }

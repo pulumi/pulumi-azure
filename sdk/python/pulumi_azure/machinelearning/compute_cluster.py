@@ -81,7 +81,25 @@ class ComputeClusterArgs:
              ssh_public_access_enabled: Optional[pulumi.Input[bool]] = None,
              subnet_resource_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'machineLearningWorkspaceId' in kwargs:
+            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
+        if 'scaleSettings' in kwargs:
+            scale_settings = kwargs['scaleSettings']
+        if 'vmPriority' in kwargs:
+            vm_priority = kwargs['vmPriority']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'nodePublicIpEnabled' in kwargs:
+            node_public_ip_enabled = kwargs['nodePublicIpEnabled']
+        if 'sshPublicAccessEnabled' in kwargs:
+            ssh_public_access_enabled = kwargs['sshPublicAccessEnabled']
+        if 'subnetResourceId' in kwargs:
+            subnet_resource_id = kwargs['subnetResourceId']
+
         _setter("machine_learning_workspace_id", machine_learning_workspace_id)
         _setter("scale_settings", scale_settings)
         _setter("vm_priority", vm_priority)
@@ -344,7 +362,25 @@ class _ComputeClusterState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vm_priority: Optional[pulumi.Input[str]] = None,
              vm_size: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'machineLearningWorkspaceId' in kwargs:
+            machine_learning_workspace_id = kwargs['machineLearningWorkspaceId']
+        if 'nodePublicIpEnabled' in kwargs:
+            node_public_ip_enabled = kwargs['nodePublicIpEnabled']
+        if 'scaleSettings' in kwargs:
+            scale_settings = kwargs['scaleSettings']
+        if 'sshPublicAccessEnabled' in kwargs:
+            ssh_public_access_enabled = kwargs['sshPublicAccessEnabled']
+        if 'subnetResourceId' in kwargs:
+            subnet_resource_id = kwargs['subnetResourceId']
+        if 'vmPriority' in kwargs:
+            vm_priority = kwargs['vmPriority']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
         if description is not None:
             _setter("description", description)
         if identity is not None:

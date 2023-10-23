@@ -68,10 +68,10 @@ public final class LinuxVirtualMachineScaleSetScaleIn {
             return this;
         }
         public LinuxVirtualMachineScaleSetScaleIn build() {
-            final var o = new LinuxVirtualMachineScaleSetScaleIn();
-            o.forceDeletionEnabled = forceDeletionEnabled;
-            o.rule = rule;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetScaleIn();
+            _resultValue.forceDeletionEnabled = forceDeletionEnabled;
+            _resultValue.rule = rule;
+            return _resultValue;
         }
     }
 }

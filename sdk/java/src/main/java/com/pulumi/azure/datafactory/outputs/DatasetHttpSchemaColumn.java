@@ -86,11 +86,11 @@ public final class DatasetHttpSchemaColumn {
             return this;
         }
         public DatasetHttpSchemaColumn build() {
-            final var o = new DatasetHttpSchemaColumn();
-            o.description = description;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DatasetHttpSchemaColumn();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

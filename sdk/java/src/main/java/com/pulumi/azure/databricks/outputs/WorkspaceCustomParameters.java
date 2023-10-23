@@ -266,20 +266,20 @@ public final class WorkspaceCustomParameters {
             return this;
         }
         public WorkspaceCustomParameters build() {
-            final var o = new WorkspaceCustomParameters();
-            o.machineLearningWorkspaceId = machineLearningWorkspaceId;
-            o.natGatewayName = natGatewayName;
-            o.noPublicIp = noPublicIp;
-            o.privateSubnetName = privateSubnetName;
-            o.privateSubnetNetworkSecurityGroupAssociationId = privateSubnetNetworkSecurityGroupAssociationId;
-            o.publicIpName = publicIpName;
-            o.publicSubnetName = publicSubnetName;
-            o.publicSubnetNetworkSecurityGroupAssociationId = publicSubnetNetworkSecurityGroupAssociationId;
-            o.storageAccountName = storageAccountName;
-            o.storageAccountSkuName = storageAccountSkuName;
-            o.virtualNetworkId = virtualNetworkId;
-            o.vnetAddressPrefix = vnetAddressPrefix;
-            return o;
+            final var _resultValue = new WorkspaceCustomParameters();
+            _resultValue.machineLearningWorkspaceId = machineLearningWorkspaceId;
+            _resultValue.natGatewayName = natGatewayName;
+            _resultValue.noPublicIp = noPublicIp;
+            _resultValue.privateSubnetName = privateSubnetName;
+            _resultValue.privateSubnetNetworkSecurityGroupAssociationId = privateSubnetNetworkSecurityGroupAssociationId;
+            _resultValue.publicIpName = publicIpName;
+            _resultValue.publicSubnetName = publicSubnetName;
+            _resultValue.publicSubnetNetworkSecurityGroupAssociationId = publicSubnetNetworkSecurityGroupAssociationId;
+            _resultValue.storageAccountName = storageAccountName;
+            _resultValue.storageAccountSkuName = storageAccountSkuName;
+            _resultValue.virtualNetworkId = virtualNetworkId;
+            _resultValue.vnetAddressPrefix = vnetAddressPrefix;
+            return _resultValue;
         }
     }
 }

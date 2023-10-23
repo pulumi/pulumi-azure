@@ -114,12 +114,12 @@ public final class VaultEncryption {
             return this;
         }
         public VaultEncryption build() {
-            final var o = new VaultEncryption();
-            o.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
-            o.keyId = keyId;
-            o.useSystemAssignedIdentity = useSystemAssignedIdentity;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new VaultEncryption();
+            _resultValue.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
+            _resultValue.keyId = keyId;
+            _resultValue.useSystemAssignedIdentity = useSystemAssignedIdentity;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

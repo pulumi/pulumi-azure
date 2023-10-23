@@ -107,12 +107,12 @@ public final class StandardWebTestValidationRules {
             return this;
         }
         public StandardWebTestValidationRules build() {
-            final var o = new StandardWebTestValidationRules();
-            o.content = content;
-            o.expectedStatusCode = expectedStatusCode;
-            o.sslCertRemainingLifetime = sslCertRemainingLifetime;
-            o.sslCheckEnabled = sslCheckEnabled;
-            return o;
+            final var _resultValue = new StandardWebTestValidationRules();
+            _resultValue.content = content;
+            _resultValue.expectedStatusCode = expectedStatusCode;
+            _resultValue.sslCertRemainingLifetime = sslCertRemainingLifetime;
+            _resultValue.sslCheckEnabled = sslCheckEnabled;
+            return _resultValue;
         }
     }
 }

@@ -77,7 +77,23 @@ class AutomationRuleArgs:
              name: Optional[pulumi.Input[str]] = None,
              triggers_on: Optional[pulumi.Input[str]] = None,
              triggers_when: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'actionIncidents' in kwargs:
+            action_incidents = kwargs['actionIncidents']
+        if 'actionPlaybooks' in kwargs:
+            action_playbooks = kwargs['actionPlaybooks']
+        if 'conditionJson' in kwargs:
+            condition_json = kwargs['conditionJson']
+        if 'triggersOn' in kwargs:
+            triggers_on = kwargs['triggersOn']
+        if 'triggersWhen' in kwargs:
+            triggers_when = kwargs['triggersWhen']
+
         _setter("display_name", display_name)
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("order", order)
@@ -319,7 +335,23 @@ class _AutomationRuleState:
              order: Optional[pulumi.Input[int]] = None,
              triggers_on: Optional[pulumi.Input[str]] = None,
              triggers_when: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionIncidents' in kwargs:
+            action_incidents = kwargs['actionIncidents']
+        if 'actionPlaybooks' in kwargs:
+            action_playbooks = kwargs['actionPlaybooks']
+        if 'conditionJson' in kwargs:
+            condition_json = kwargs['conditionJson']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'triggersOn' in kwargs:
+            triggers_on = kwargs['triggersOn']
+        if 'triggersWhen' in kwargs:
+            triggers_when = kwargs['triggersWhen']
+
         if action_incidents is not None:
             _setter("action_incidents", action_incidents)
         if action_playbooks is not None:

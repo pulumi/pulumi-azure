@@ -65,10 +65,10 @@ public final class SparkPoolLibraryRequirement {
             return this;
         }
         public SparkPoolLibraryRequirement build() {
-            final var o = new SparkPoolLibraryRequirement();
-            o.content = content;
-            o.filename = filename;
-            return o;
+            final var _resultValue = new SparkPoolLibraryRequirement();
+            _resultValue.content = content;
+            _resultValue.filename = filename;
+            return _resultValue;
         }
     }
 }

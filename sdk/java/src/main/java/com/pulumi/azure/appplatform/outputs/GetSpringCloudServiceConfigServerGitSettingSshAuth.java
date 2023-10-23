@@ -104,12 +104,12 @@ public final class GetSpringCloudServiceConfigServerGitSettingSshAuth {
             return this;
         }
         public GetSpringCloudServiceConfigServerGitSettingSshAuth build() {
-            final var o = new GetSpringCloudServiceConfigServerGitSettingSshAuth();
-            o.hostKey = hostKey;
-            o.hostKeyAlgorithm = hostKeyAlgorithm;
-            o.privateKey = privateKey;
-            o.strictHostKeyCheckingEnabled = strictHostKeyCheckingEnabled;
-            return o;
+            final var _resultValue = new GetSpringCloudServiceConfigServerGitSettingSshAuth();
+            _resultValue.hostKey = hostKey;
+            _resultValue.hostKeyAlgorithm = hostKeyAlgorithm;
+            _resultValue.privateKey = privateKey;
+            _resultValue.strictHostKeyCheckingEnabled = strictHostKeyCheckingEnabled;
+            return _resultValue;
         }
     }
 }

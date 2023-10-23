@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayWafConfigurationDisabledRuleGroupArgs>? _disabledRuleGroups;
 
         /// <summary>
-        /// one or more `disabled_rule_group` blocks as defined below.
+        /// One or more `disabled_rule_group` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayWafConfigurationDisabledRuleGroupArgs> DisabledRuleGroups
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network.Inputs
         private InputList<Inputs.ApplicationGatewayWafConfigurationExclusionArgs>? _exclusions;
 
         /// <summary>
-        /// one or more `exclusion` blocks as defined below.
+        /// One or more `exclusion` blocks as defined below.
         /// </summary>
         public InputList<Inputs.ApplicationGatewayWafConfigurationExclusionArgs> Exclusions
         {

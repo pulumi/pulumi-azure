@@ -52,9 +52,9 @@ public final class KubernetesClusterDefaultNodePoolNodeNetworkProfile {
             return this;
         }
         public KubernetesClusterDefaultNodePoolNodeNetworkProfile build() {
-            final var o = new KubernetesClusterDefaultNodePoolNodeNetworkProfile();
-            o.nodePublicIpTags = nodePublicIpTags;
-            return o;
+            final var _resultValue = new KubernetesClusterDefaultNodePoolNodeNetworkProfile();
+            _resultValue.nodePublicIpTags = nodePublicIpTags;
+            return _resultValue;
         }
     }
 }

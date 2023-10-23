@@ -104,12 +104,12 @@ public final class GetPoolDataDisk {
             return this;
         }
         public GetPoolDataDisk build() {
-            final var o = new GetPoolDataDisk();
-            o.caching = caching;
-            o.diskSizeGb = diskSizeGb;
-            o.lun = lun;
-            o.storageAccountType = storageAccountType;
-            return o;
+            final var _resultValue = new GetPoolDataDisk();
+            _resultValue.caching = caching;
+            _resultValue.diskSizeGb = diskSizeGb;
+            _resultValue.lun = lun;
+            _resultValue.storageAccountType = storageAccountType;
+            return _resultValue;
         }
     }
 }

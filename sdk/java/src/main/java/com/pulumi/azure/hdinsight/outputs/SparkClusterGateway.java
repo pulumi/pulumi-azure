@@ -69,10 +69,10 @@ public final class SparkClusterGateway {
             return this;
         }
         public SparkClusterGateway build() {
-            final var o = new SparkClusterGateway();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new SparkClusterGateway();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

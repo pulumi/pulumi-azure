@@ -87,11 +87,11 @@ public final class AccountRouting {
             return this;
         }
         public AccountRouting build() {
-            final var o = new AccountRouting();
-            o.choice = choice;
-            o.publishInternetEndpoints = publishInternetEndpoints;
-            o.publishMicrosoftEndpoints = publishMicrosoftEndpoints;
-            return o;
+            final var _resultValue = new AccountRouting();
+            _resultValue.choice = choice;
+            _resultValue.publishInternetEndpoints = publishInternetEndpoints;
+            _resultValue.publishMicrosoftEndpoints = publishMicrosoftEndpoints;
+            return _resultValue;
         }
     }
 }

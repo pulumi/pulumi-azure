@@ -43,7 +43,17 @@ class ConsumerGroupArgs:
              resource_group_name: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              user_metadata: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'userMetadata' in kwargs:
+            user_metadata = kwargs['userMetadata']
+
         _setter("eventhub_name", eventhub_name)
         _setter("namespace_name", namespace_name)
         _setter("resource_group_name", resource_group_name)
@@ -145,7 +155,17 @@ class _ConsumerGroupState:
              namespace_name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              user_metadata: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'userMetadata' in kwargs:
+            user_metadata = kwargs['userMetadata']
+
         if eventhub_name is not None:
             _setter("eventhub_name", eventhub_name)
         if name is not None:

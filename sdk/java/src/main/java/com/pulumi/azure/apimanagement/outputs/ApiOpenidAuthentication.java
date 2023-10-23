@@ -70,10 +70,10 @@ public final class ApiOpenidAuthentication {
             return this;
         }
         public ApiOpenidAuthentication build() {
-            final var o = new ApiOpenidAuthentication();
-            o.bearerTokenSendingMethods = bearerTokenSendingMethods;
-            o.openidProviderName = openidProviderName;
-            return o;
+            final var _resultValue = new ApiOpenidAuthentication();
+            _resultValue.bearerTokenSendingMethods = bearerTokenSendingMethods;
+            _resultValue.openidProviderName = openidProviderName;
+            return _resultValue;
         }
     }
 }

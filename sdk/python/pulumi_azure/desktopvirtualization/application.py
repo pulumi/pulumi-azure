@@ -63,7 +63,23 @@ class ApplicationArgs:
              icon_path: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              show_in_portal: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationGroupId' in kwargs:
+            application_group_id = kwargs['applicationGroupId']
+        if 'commandLineArgumentPolicy' in kwargs:
+            command_line_argument_policy = kwargs['commandLineArgumentPolicy']
+        if 'commandLineArguments' in kwargs:
+            command_line_arguments = kwargs['commandLineArguments']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'iconIndex' in kwargs:
+            icon_index = kwargs['iconIndex']
+        if 'iconPath' in kwargs:
+            icon_path = kwargs['iconPath']
+        if 'showInPortal' in kwargs:
+            show_in_portal = kwargs['showInPortal']
+
         _setter("application_group_id", application_group_id)
         _setter("command_line_argument_policy", command_line_argument_policy)
         _setter("path", path)
@@ -255,7 +271,23 @@ class _ApplicationState:
              name: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              show_in_portal: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationGroupId' in kwargs:
+            application_group_id = kwargs['applicationGroupId']
+        if 'commandLineArgumentPolicy' in kwargs:
+            command_line_argument_policy = kwargs['commandLineArgumentPolicy']
+        if 'commandLineArguments' in kwargs:
+            command_line_arguments = kwargs['commandLineArguments']
+        if 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if 'iconIndex' in kwargs:
+            icon_index = kwargs['iconIndex']
+        if 'iconPath' in kwargs:
+            icon_path = kwargs['iconPath']
+        if 'showInPortal' in kwargs:
+            show_in_portal = kwargs['showInPortal']
+
         if application_group_id is not None:
             _setter("application_group_id", application_group_id)
         if command_line_argument_policy is not None:

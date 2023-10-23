@@ -50,9 +50,9 @@ public final class GetComputeMachineOsProfileWindowsConfiguration {
             return patchSettings(List.of(patchSettings));
         }
         public GetComputeMachineOsProfileWindowsConfiguration build() {
-            final var o = new GetComputeMachineOsProfileWindowsConfiguration();
-            o.patchSettings = patchSettings;
-            return o;
+            final var _resultValue = new GetComputeMachineOsProfileWindowsConfiguration();
+            _resultValue.patchSettings = patchSettings;
+            return _resultValue;
         }
     }
 }

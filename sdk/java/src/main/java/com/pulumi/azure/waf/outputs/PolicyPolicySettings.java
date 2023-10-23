@@ -165,15 +165,15 @@ public final class PolicyPolicySettings {
             return this;
         }
         public PolicyPolicySettings build() {
-            final var o = new PolicyPolicySettings();
-            o.enabled = enabled;
-            o.fileUploadLimitInMb = fileUploadLimitInMb;
-            o.logScrubbing = logScrubbing;
-            o.maxRequestBodySizeInKb = maxRequestBodySizeInKb;
-            o.mode = mode;
-            o.requestBodyCheck = requestBodyCheck;
-            o.requestBodyInspectLimitInKb = requestBodyInspectLimitInKb;
-            return o;
+            final var _resultValue = new PolicyPolicySettings();
+            _resultValue.enabled = enabled;
+            _resultValue.fileUploadLimitInMb = fileUploadLimitInMb;
+            _resultValue.logScrubbing = logScrubbing;
+            _resultValue.maxRequestBodySizeInKb = maxRequestBodySizeInKb;
+            _resultValue.mode = mode;
+            _resultValue.requestBodyCheck = requestBodyCheck;
+            _resultValue.requestBodyInspectLimitInKb = requestBodyInspectLimitInKb;
+            return _resultValue;
         }
     }
 }

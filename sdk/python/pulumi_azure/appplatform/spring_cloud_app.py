@@ -73,7 +73,29 @@ class SpringCloudAppArgs:
              persistent_disk: Optional[pulumi.Input['SpringCloudAppPersistentDiskArgs']] = None,
              public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
              tls_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'addonJson' in kwargs:
+            addon_json = kwargs['addonJson']
+        if 'customPersistentDisks' in kwargs:
+            custom_persistent_disks = kwargs['customPersistentDisks']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'ingressSettings' in kwargs:
+            ingress_settings = kwargs['ingressSettings']
+        if 'isPublic' in kwargs:
+            is_public = kwargs['isPublic']
+        if 'persistentDisk' in kwargs:
+            persistent_disk = kwargs['persistentDisk']
+        if 'publicEndpointEnabled' in kwargs:
+            public_endpoint_enabled = kwargs['publicEndpointEnabled']
+        if 'tlsEnabled' in kwargs:
+            tls_enabled = kwargs['tlsEnabled']
+
         _setter("resource_group_name", resource_group_name)
         _setter("service_name", service_name)
         if addon_json is not None:
@@ -310,7 +332,29 @@ class _SpringCloudAppState:
              service_name: Optional[pulumi.Input[str]] = None,
              tls_enabled: Optional[pulumi.Input[bool]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addonJson' in kwargs:
+            addon_json = kwargs['addonJson']
+        if 'customPersistentDisks' in kwargs:
+            custom_persistent_disks = kwargs['customPersistentDisks']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'ingressSettings' in kwargs:
+            ingress_settings = kwargs['ingressSettings']
+        if 'isPublic' in kwargs:
+            is_public = kwargs['isPublic']
+        if 'persistentDisk' in kwargs:
+            persistent_disk = kwargs['persistentDisk']
+        if 'publicEndpointEnabled' in kwargs:
+            public_endpoint_enabled = kwargs['publicEndpointEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if 'tlsEnabled' in kwargs:
+            tls_enabled = kwargs['tlsEnabled']
+
         if addon_json is not None:
             _setter("addon_json", addon_json)
         if custom_persistent_disks is not None:

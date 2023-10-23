@@ -65,10 +65,10 @@ public final class TrafficManagerExternalEndpointCustomHeader {
             return this;
         }
         public TrafficManagerExternalEndpointCustomHeader build() {
-            final var o = new TrafficManagerExternalEndpointCustomHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new TrafficManagerExternalEndpointCustomHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

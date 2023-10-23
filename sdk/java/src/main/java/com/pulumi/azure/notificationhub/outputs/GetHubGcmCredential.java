@@ -46,9 +46,9 @@ public final class GetHubGcmCredential {
             return this;
         }
         public GetHubGcmCredential build() {
-            final var o = new GetHubGcmCredential();
-            o.apiKey = apiKey;
-            return o;
+            final var _resultValue = new GetHubGcmCredential();
+            _resultValue.apiKey = apiKey;
+            return _resultValue;
         }
     }
 }

@@ -48,9 +48,9 @@ public final class SqlContainerAutoscaleSettings {
             return this;
         }
         public SqlContainerAutoscaleSettings build() {
-            final var o = new SqlContainerAutoscaleSettings();
-            o.maxThroughput = maxThroughput;
-            return o;
+            final var _resultValue = new SqlContainerAutoscaleSettings();
+            _resultValue.maxThroughput = maxThroughput;
+            return _resultValue;
         }
     }
 }

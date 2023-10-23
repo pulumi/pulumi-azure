@@ -157,16 +157,16 @@ public final class GetAccountResult {
             return this;
         }
         public GetAccountResult build() {
-            final var o = new GetAccountResult();
-            o.id = id;
-            o.name = name;
-            o.primaryAccessKey = primaryAccessKey;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryAccessKey = secondaryAccessKey;
-            o.skuName = skuName;
-            o.tags = tags;
-            o.xMsClientId = xMsClientId;
-            return o;
+            final var _resultValue = new GetAccountResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.primaryAccessKey = primaryAccessKey;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryAccessKey = secondaryAccessKey;
+            _resultValue.skuName = skuName;
+            _resultValue.tags = tags;
+            _resultValue.xMsClientId = xMsClientId;
+            return _resultValue;
         }
     }
 }

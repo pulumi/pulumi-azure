@@ -113,12 +113,12 @@ public final class PoolCertificate {
             return visibilities(List.of(visibilities));
         }
         public PoolCertificate build() {
-            final var o = new PoolCertificate();
-            o.id = id;
-            o.storeLocation = storeLocation;
-            o.storeName = storeName;
-            o.visibilities = visibilities;
-            return o;
+            final var _resultValue = new PoolCertificate();
+            _resultValue.id = id;
+            _resultValue.storeLocation = storeLocation;
+            _resultValue.storeName = storeName;
+            _resultValue.visibilities = visibilities;
+            return _resultValue;
         }
     }
 }

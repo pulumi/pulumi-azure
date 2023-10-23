@@ -67,10 +67,10 @@ public final class ResourcePolicyAssignmentNonComplianceMessage {
             return this;
         }
         public ResourcePolicyAssignmentNonComplianceMessage build() {
-            final var o = new ResourcePolicyAssignmentNonComplianceMessage();
-            o.content = content;
-            o.policyDefinitionReferenceId = policyDefinitionReferenceId;
-            return o;
+            final var _resultValue = new ResourcePolicyAssignmentNonComplianceMessage();
+            _resultValue.content = content;
+            _resultValue.policyDefinitionReferenceId = policyDefinitionReferenceId;
+            return _resultValue;
         }
     }
 }

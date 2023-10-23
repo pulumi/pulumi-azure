@@ -131,12 +131,12 @@ public final class DiagnosticSettingLog {
             return this;
         }
         public DiagnosticSettingLog build() {
-            final var o = new DiagnosticSettingLog();
-            o.category = category;
-            o.categoryGroup = categoryGroup;
-            o.enabled = enabled;
-            o.retentionPolicy = retentionPolicy;
-            return o;
+            final var _resultValue = new DiagnosticSettingLog();
+            _resultValue.category = category;
+            _resultValue.categoryGroup = categoryGroup;
+            _resultValue.enabled = enabled;
+            _resultValue.retentionPolicy = retentionPolicy;
+            return _resultValue;
         }
     }
 }

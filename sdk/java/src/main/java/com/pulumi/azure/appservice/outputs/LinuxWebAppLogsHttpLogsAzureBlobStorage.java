@@ -68,10 +68,10 @@ public final class LinuxWebAppLogsHttpLogsAzureBlobStorage {
             return this;
         }
         public LinuxWebAppLogsHttpLogsAzureBlobStorage build() {
-            final var o = new LinuxWebAppLogsHttpLogsAzureBlobStorage();
-            o.retentionInDays = retentionInDays;
-            o.sasUrl = sasUrl;
-            return o;
+            final var _resultValue = new LinuxWebAppLogsHttpLogsAzureBlobStorage();
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.sasUrl = sasUrl;
+            return _resultValue;
         }
     }
 }

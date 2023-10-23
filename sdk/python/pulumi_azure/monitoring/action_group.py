@@ -93,7 +93,35 @@ class ActionGroupArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              voice_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupVoiceReceiverArgs']]]] = None,
              webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupWebhookReceiverArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'shortName' in kwargs:
+            short_name = kwargs['shortName']
+        if 'armRoleReceivers' in kwargs:
+            arm_role_receivers = kwargs['armRoleReceivers']
+        if 'automationRunbookReceivers' in kwargs:
+            automation_runbook_receivers = kwargs['automationRunbookReceivers']
+        if 'azureAppPushReceivers' in kwargs:
+            azure_app_push_receivers = kwargs['azureAppPushReceivers']
+        if 'azureFunctionReceivers' in kwargs:
+            azure_function_receivers = kwargs['azureFunctionReceivers']
+        if 'emailReceivers' in kwargs:
+            email_receivers = kwargs['emailReceivers']
+        if 'eventHubReceivers' in kwargs:
+            event_hub_receivers = kwargs['eventHubReceivers']
+        if 'itsmReceivers' in kwargs:
+            itsm_receivers = kwargs['itsmReceivers']
+        if 'logicAppReceivers' in kwargs:
+            logic_app_receivers = kwargs['logicAppReceivers']
+        if 'smsReceivers' in kwargs:
+            sms_receivers = kwargs['smsReceivers']
+        if 'voiceReceivers' in kwargs:
+            voice_receivers = kwargs['voiceReceivers']
+        if 'webhookReceivers' in kwargs:
+            webhook_receivers = kwargs['webhookReceivers']
+
         _setter("resource_group_name", resource_group_name)
         _setter("short_name", short_name)
         if arm_role_receivers is not None:
@@ -412,7 +440,35 @@ class _ActionGroupState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              voice_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupVoiceReceiverArgs']]]] = None,
              webhook_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ActionGroupWebhookReceiverArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'armRoleReceivers' in kwargs:
+            arm_role_receivers = kwargs['armRoleReceivers']
+        if 'automationRunbookReceivers' in kwargs:
+            automation_runbook_receivers = kwargs['automationRunbookReceivers']
+        if 'azureAppPushReceivers' in kwargs:
+            azure_app_push_receivers = kwargs['azureAppPushReceivers']
+        if 'azureFunctionReceivers' in kwargs:
+            azure_function_receivers = kwargs['azureFunctionReceivers']
+        if 'emailReceivers' in kwargs:
+            email_receivers = kwargs['emailReceivers']
+        if 'eventHubReceivers' in kwargs:
+            event_hub_receivers = kwargs['eventHubReceivers']
+        if 'itsmReceivers' in kwargs:
+            itsm_receivers = kwargs['itsmReceivers']
+        if 'logicAppReceivers' in kwargs:
+            logic_app_receivers = kwargs['logicAppReceivers']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'shortName' in kwargs:
+            short_name = kwargs['shortName']
+        if 'smsReceivers' in kwargs:
+            sms_receivers = kwargs['smsReceivers']
+        if 'voiceReceivers' in kwargs:
+            voice_receivers = kwargs['voiceReceivers']
+        if 'webhookReceivers' in kwargs:
+            webhook_receivers = kwargs['webhookReceivers']
+
         if arm_role_receivers is not None:
             _setter("arm_role_receivers", arm_role_receivers)
         if automation_runbook_receivers is not None:

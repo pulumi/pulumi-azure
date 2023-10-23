@@ -39,7 +39,13 @@ class NetworkManagerManagementGroupConnectionArgs:
              network_manager_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'networkManagerId' in kwargs:
+            network_manager_id = kwargs['networkManagerId']
+
         _setter("management_group_id", management_group_id)
         _setter("network_manager_id", network_manager_id)
         if description is not None:
@@ -128,7 +134,15 @@ class _NetworkManagerManagementGroupConnectionState:
              management_group_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              network_manager_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionState' in kwargs:
+            connection_state = kwargs['connectionState']
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'networkManagerId' in kwargs:
+            network_manager_id = kwargs['networkManagerId']
+
         if connection_state is not None:
             _setter("connection_state", connection_state)
         if description is not None:

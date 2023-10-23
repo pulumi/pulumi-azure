@@ -65,10 +65,10 @@ public final class GremlinGraphIndexPolicyCompositeIndexIndex {
             return this;
         }
         public GremlinGraphIndexPolicyCompositeIndexIndex build() {
-            final var o = new GremlinGraphIndexPolicyCompositeIndexIndex();
-            o.order = order;
-            o.path = path;
-            return o;
+            final var _resultValue = new GremlinGraphIndexPolicyCompositeIndexIndex();
+            _resultValue.order = order;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

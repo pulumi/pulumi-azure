@@ -65,10 +65,10 @@ public final class ModuleModuleLinkHash {
             return this;
         }
         public ModuleModuleLinkHash build() {
-            final var o = new ModuleModuleLinkHash();
-            o.algorithm = algorithm;
-            o.value = value;
-            return o;
+            final var _resultValue = new ModuleModuleLinkHash();
+            _resultValue.algorithm = algorithm;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

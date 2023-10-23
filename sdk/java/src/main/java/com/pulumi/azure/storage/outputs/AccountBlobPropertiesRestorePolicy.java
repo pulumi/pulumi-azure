@@ -46,9 +46,9 @@ public final class AccountBlobPropertiesRestorePolicy {
             return this;
         }
         public AccountBlobPropertiesRestorePolicy build() {
-            final var o = new AccountBlobPropertiesRestorePolicy();
-            o.days = days;
-            return o;
+            final var _resultValue = new AccountBlobPropertiesRestorePolicy();
+            _resultValue.days = days;
+            return _resultValue;
         }
     }
 }

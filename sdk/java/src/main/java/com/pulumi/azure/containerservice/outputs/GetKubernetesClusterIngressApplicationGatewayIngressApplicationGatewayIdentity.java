@@ -84,11 +84,11 @@ public final class GetKubernetesClusterIngressApplicationGatewayIngressApplicati
             return this;
         }
         public GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity build() {
-            final var o = new GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity();
-            o.clientId = clientId;
-            o.objectId = objectId;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity();
+            _resultValue.clientId = clientId;
+            _resultValue.objectId = objectId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

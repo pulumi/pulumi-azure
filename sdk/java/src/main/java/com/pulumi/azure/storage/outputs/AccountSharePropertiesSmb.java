@@ -138,13 +138,13 @@ public final class AccountSharePropertiesSmb {
             return versions(List.of(versions));
         }
         public AccountSharePropertiesSmb build() {
-            final var o = new AccountSharePropertiesSmb();
-            o.authenticationTypes = authenticationTypes;
-            o.channelEncryptionTypes = channelEncryptionTypes;
-            o.kerberosTicketEncryptionTypes = kerberosTicketEncryptionTypes;
-            o.multichannelEnabled = multichannelEnabled;
-            o.versions = versions;
-            return o;
+            final var _resultValue = new AccountSharePropertiesSmb();
+            _resultValue.authenticationTypes = authenticationTypes;
+            _resultValue.channelEncryptionTypes = channelEncryptionTypes;
+            _resultValue.kerberosTicketEncryptionTypes = kerberosTicketEncryptionTypes;
+            _resultValue.multichannelEnabled = multichannelEnabled;
+            _resultValue.versions = versions;
+            return _resultValue;
         }
     }
 }

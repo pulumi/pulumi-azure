@@ -150,15 +150,15 @@ public final class GetNetworkSimGroupResult {
             return this;
         }
         public GetNetworkSimGroupResult build() {
-            final var o = new GetNetworkSimGroupResult();
-            o.encryptionKeyUrl = encryptionKeyUrl;
-            o.id = id;
-            o.identities = identities;
-            o.location = location;
-            o.mobileNetworkId = mobileNetworkId;
-            o.name = name;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetNetworkSimGroupResult();
+            _resultValue.encryptionKeyUrl = encryptionKeyUrl;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.location = location;
+            _resultValue.mobileNetworkId = mobileNetworkId;
+            _resultValue.name = name;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

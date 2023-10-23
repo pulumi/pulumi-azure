@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string? OperationName;
         /// <summary>
-        /// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+        /// The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
         /// </summary>
         public readonly string? RecommendationCategory;
         /// <summary>

@@ -70,7 +70,13 @@ class GlobalVMShutdownScheduleNotificationSettings(dict):
              email: Optional[str] = None,
              time_in_minutes: Optional[int] = None,
              webhook_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeInMinutes' in kwargs:
+            time_in_minutes = kwargs['timeInMinutes']
+        if 'webhookUrl' in kwargs:
+            webhook_url = kwargs['webhookUrl']
+
         _setter("enabled", enabled)
         if email is not None:
             _setter("email", email)
@@ -139,7 +145,9 @@ class LinuxVirtualMachineGalleryImageReference(dict):
              publisher: str,
              sku: str,
              version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("offer", offer)
         _setter("publisher", publisher)
         _setter("sku", sku)
@@ -220,7 +228,13 @@ class LinuxVirtualMachineInboundNatRule(dict):
              backend_port: int,
              protocol: str,
              frontend_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+
         _setter("backend_port", backend_port)
         _setter("protocol", protocol)
         if frontend_port is not None:
@@ -266,7 +280,9 @@ class ScheduleDailyRecurrence(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("time", time)
 
     @property
@@ -293,7 +309,9 @@ class ScheduleHourlyRecurrence(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              minute: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("minute", minute)
 
     @property
@@ -347,7 +365,13 @@ class ScheduleNotificationSettings(dict):
              status: Optional[str] = None,
              time_in_minutes: Optional[int] = None,
              webhook_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'timeInMinutes' in kwargs:
+            time_in_minutes = kwargs['timeInMinutes']
+        if 'webhookUrl' in kwargs:
+            webhook_url = kwargs['webhookUrl']
+
         if status is not None:
             _setter("status", status)
         if time_in_minutes is not None:
@@ -416,7 +440,11 @@ class ScheduleWeeklyRecurrence(dict):
              _setter: Callable[[Any, Any], None],
              time: str,
              week_days: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'weekDays' in kwargs:
+            week_days = kwargs['weekDays']
+
         _setter("time", time)
         if week_days is not None:
             _setter("week_days", week_days)
@@ -480,7 +508,13 @@ class VirtualNetworkSubnet(dict):
              name: Optional[str] = None,
              use_in_virtual_machine_creation: Optional[str] = None,
              use_public_ip_address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'useInVirtualMachineCreation' in kwargs:
+            use_in_virtual_machine_creation = kwargs['useInVirtualMachineCreation']
+        if 'usePublicIpAddress' in kwargs:
+            use_public_ip_address = kwargs['usePublicIpAddress']
+
         if name is not None:
             _setter("name", name)
         if use_in_virtual_machine_creation is not None:
@@ -540,7 +574,9 @@ class WindowsVirtualMachineGalleryImageReference(dict):
              publisher: str,
              sku: str,
              version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("offer", offer)
         _setter("publisher", publisher)
         _setter("sku", sku)
@@ -621,7 +657,13 @@ class WindowsVirtualMachineInboundNatRule(dict):
              backend_port: int,
              protocol: str,
              frontend_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+
         _setter("backend_port", backend_port)
         _setter("protocol", protocol)
         if frontend_port is not None:
@@ -675,7 +717,15 @@ class GetVirtualNetworkAllowedSubnetResult(dict):
              allow_public_ip: str,
              lab_subnet_name: str,
              resource_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowPublicIp' in kwargs:
+            allow_public_ip = kwargs['allowPublicIp']
+        if 'labSubnetName' in kwargs:
+            lab_subnet_name = kwargs['labSubnetName']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         _setter("allow_public_ip", allow_public_ip)
         _setter("lab_subnet_name", lab_subnet_name)
         _setter("resource_id", resource_id)
@@ -735,7 +785,19 @@ class GetVirtualNetworkSubnetOverrideResult(dict):
              use_in_vm_creation_permission: str,
              use_public_ip_address_permission: str,
              virtual_network_pool_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'labSubnetName' in kwargs:
+            lab_subnet_name = kwargs['labSubnetName']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'useInVmCreationPermission' in kwargs:
+            use_in_vm_creation_permission = kwargs['useInVmCreationPermission']
+        if 'usePublicIpAddressPermission' in kwargs:
+            use_public_ip_address_permission = kwargs['usePublicIpAddressPermission']
+        if 'virtualNetworkPoolName' in kwargs:
+            virtual_network_pool_name = kwargs['virtualNetworkPoolName']
+
         _setter("lab_subnet_name", lab_subnet_name)
         _setter("resource_id", resource_id)
         _setter("use_in_vm_creation_permission", use_in_vm_creation_permission)

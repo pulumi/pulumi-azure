@@ -109,12 +109,12 @@ public final class LinuxWebAppSlotAuthSettingsGoogle {
             return oauthScopes(List.of(oauthScopes));
         }
         public LinuxWebAppSlotAuthSettingsGoogle build() {
-            final var o = new LinuxWebAppSlotAuthSettingsGoogle();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.clientSecretSettingName = clientSecretSettingName;
-            o.oauthScopes = oauthScopes;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotAuthSettingsGoogle();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            _resultValue.oauthScopes = oauthScopes;
+            return _resultValue;
         }
     }
 }

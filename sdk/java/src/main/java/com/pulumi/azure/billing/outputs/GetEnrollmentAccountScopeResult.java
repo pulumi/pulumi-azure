@@ -68,11 +68,11 @@ public final class GetEnrollmentAccountScopeResult {
             return this;
         }
         public GetEnrollmentAccountScopeResult build() {
-            final var o = new GetEnrollmentAccountScopeResult();
-            o.billingAccountName = billingAccountName;
-            o.enrollmentAccountName = enrollmentAccountName;
-            o.id = id;
-            return o;
+            final var _resultValue = new GetEnrollmentAccountScopeResult();
+            _resultValue.billingAccountName = billingAccountName;
+            _resultValue.enrollmentAccountName = enrollmentAccountName;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAu
             return this;
         }
         public SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth build() {
-            final var o = new SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

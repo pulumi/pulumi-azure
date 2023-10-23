@@ -142,13 +142,13 @@ public final class GetCertificateCertificatePolicy {
             return x509CertificateProperties(List.of(x509CertificateProperties));
         }
         public GetCertificateCertificatePolicy build() {
-            final var o = new GetCertificateCertificatePolicy();
-            o.issuerParameters = issuerParameters;
-            o.keyProperties = keyProperties;
-            o.lifetimeActions = lifetimeActions;
-            o.secretProperties = secretProperties;
-            o.x509CertificateProperties = x509CertificateProperties;
-            return o;
+            final var _resultValue = new GetCertificateCertificatePolicy();
+            _resultValue.issuerParameters = issuerParameters;
+            _resultValue.keyProperties = keyProperties;
+            _resultValue.lifetimeActions = lifetimeActions;
+            _resultValue.secretProperties = secretProperties;
+            _resultValue.x509CertificateProperties = x509CertificateProperties;
+            return _resultValue;
         }
     }
 }

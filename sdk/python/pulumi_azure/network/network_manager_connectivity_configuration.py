@@ -57,7 +57,19 @@ class NetworkManagerConnectivityConfigurationArgs:
              global_mesh_enabled: Optional[pulumi.Input[bool]] = None,
              hub: Optional[pulumi.Input['NetworkManagerConnectivityConfigurationHubArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appliesToGroups' in kwargs:
+            applies_to_groups = kwargs['appliesToGroups']
+        if 'connectivityTopology' in kwargs:
+            connectivity_topology = kwargs['connectivityTopology']
+        if 'networkManagerId' in kwargs:
+            network_manager_id = kwargs['networkManagerId']
+        if 'deleteExistingPeeringEnabled' in kwargs:
+            delete_existing_peering_enabled = kwargs['deleteExistingPeeringEnabled']
+        if 'globalMeshEnabled' in kwargs:
+            global_mesh_enabled = kwargs['globalMeshEnabled']
+
         _setter("applies_to_groups", applies_to_groups)
         _setter("connectivity_topology", connectivity_topology)
         _setter("network_manager_id", network_manager_id)
@@ -213,7 +225,19 @@ class _NetworkManagerConnectivityConfigurationState:
              hub: Optional[pulumi.Input['NetworkManagerConnectivityConfigurationHubArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              network_manager_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appliesToGroups' in kwargs:
+            applies_to_groups = kwargs['appliesToGroups']
+        if 'connectivityTopology' in kwargs:
+            connectivity_topology = kwargs['connectivityTopology']
+        if 'deleteExistingPeeringEnabled' in kwargs:
+            delete_existing_peering_enabled = kwargs['deleteExistingPeeringEnabled']
+        if 'globalMeshEnabled' in kwargs:
+            global_mesh_enabled = kwargs['globalMeshEnabled']
+        if 'networkManagerId' in kwargs:
+            network_manager_id = kwargs['networkManagerId']
+
         if applies_to_groups is not None:
             _setter("applies_to_groups", applies_to_groups)
         if connectivity_topology is not None:

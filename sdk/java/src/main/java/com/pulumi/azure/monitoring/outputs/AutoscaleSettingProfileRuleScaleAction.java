@@ -104,12 +104,12 @@ public final class AutoscaleSettingProfileRuleScaleAction {
             return this;
         }
         public AutoscaleSettingProfileRuleScaleAction build() {
-            final var o = new AutoscaleSettingProfileRuleScaleAction();
-            o.cooldown = cooldown;
-            o.direction = direction;
-            o.type = type;
-            o.value = value;
-            return o;
+            final var _resultValue = new AutoscaleSettingProfileRuleScaleAction();
+            _resultValue.cooldown = cooldown;
+            _resultValue.direction = direction;
+            _resultValue.type = type;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

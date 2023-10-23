@@ -73,10 +73,10 @@ public final class GetLinuxWebAppSiteConfigAutoHealSetting {
             return triggers(List.of(triggers));
         }
         public GetLinuxWebAppSiteConfigAutoHealSetting build() {
-            final var o = new GetLinuxWebAppSiteConfigAutoHealSetting();
-            o.actions = actions;
-            o.triggers = triggers;
-            return o;
+            final var _resultValue = new GetLinuxWebAppSiteConfigAutoHealSetting();
+            _resultValue.actions = actions;
+            _resultValue.triggers = triggers;
+            return _resultValue;
         }
     }
 }

@@ -103,11 +103,11 @@ public final class BudgetSubscriptionFilter {
             return tags(List.of(tags));
         }
         public BudgetSubscriptionFilter build() {
-            final var o = new BudgetSubscriptionFilter();
-            o.dimensions = dimensions;
-            o.not = not;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new BudgetSubscriptionFilter();
+            _resultValue.dimensions = dimensions;
+            _resultValue.not = not;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

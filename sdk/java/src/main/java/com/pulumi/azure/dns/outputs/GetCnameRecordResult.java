@@ -176,17 +176,17 @@ public final class GetCnameRecordResult {
             return this;
         }
         public GetCnameRecordResult build() {
-            final var o = new GetCnameRecordResult();
-            o.fqdn = fqdn;
-            o.id = id;
-            o.name = name;
-            o.record = record;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.targetResourceId = targetResourceId;
-            o.ttl = ttl;
-            o.zoneName = zoneName;
-            return o;
+            final var _resultValue = new GetCnameRecordResult();
+            _resultValue.fqdn = fqdn;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.record = record;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.targetResourceId = targetResourceId;
+            _resultValue.ttl = ttl;
+            _resultValue.zoneName = zoneName;
+            return _resultValue;
         }
     }
 }

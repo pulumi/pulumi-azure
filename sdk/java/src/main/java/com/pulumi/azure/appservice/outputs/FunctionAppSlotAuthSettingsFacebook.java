@@ -89,11 +89,11 @@ public final class FunctionAppSlotAuthSettingsFacebook {
             return oauthScopes(List.of(oauthScopes));
         }
         public FunctionAppSlotAuthSettingsFacebook build() {
-            final var o = new FunctionAppSlotAuthSettingsFacebook();
-            o.appId = appId;
-            o.appSecret = appSecret;
-            o.oauthScopes = oauthScopes;
-            return o;
+            final var _resultValue = new FunctionAppSlotAuthSettingsFacebook();
+            _resultValue.appId = appId;
+            _resultValue.appSecret = appSecret;
+            _resultValue.oauthScopes = oauthScopes;
+            return _resultValue;
         }
     }
 }

@@ -101,14 +101,14 @@ public final class GetAgreementResult {
             return this;
         }
         public GetAgreementResult build() {
-            final var o = new GetAgreementResult();
-            o.id = id;
-            o.licenseTextLink = licenseTextLink;
-            o.offer = offer;
-            o.plan = plan;
-            o.privacyPolicyLink = privacyPolicyLink;
-            o.publisher = publisher;
-            return o;
+            final var _resultValue = new GetAgreementResult();
+            _resultValue.id = id;
+            _resultValue.licenseTextLink = licenseTextLink;
+            _resultValue.offer = offer;
+            _resultValue.plan = plan;
+            _resultValue.privacyPolicyLink = privacyPolicyLink;
+            _resultValue.publisher = publisher;
+            return _resultValue;
         }
     }
 }

@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConfigurationStore{}
 	case "azure:appconfiguration/licationLoadBalancer:LicationLoadBalancer":
 		r = &LicationLoadBalancer{}
+	case "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend":
+		r = &LicationLoadBalancerFrontend{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appconfiguration/licationLoadBalancer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appconfiguration/licationLoadBalancerFrontend",
 		&module{version},
 	)
 }

@@ -65,10 +65,10 @@ public final class ProfileMonitorConfigCustomHeader {
             return this;
         }
         public ProfileMonitorConfigCustomHeader build() {
-            final var o = new ProfileMonitorConfigCustomHeader();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new ProfileMonitorConfigCustomHeader();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

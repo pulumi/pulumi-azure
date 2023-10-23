@@ -314,23 +314,23 @@ public final class GetWorkflowResult {
             return this;
         }
         public GetWorkflowResult build() {
-            final var o = new GetWorkflowResult();
-            o.accessEndpoint = accessEndpoint;
-            o.connectorEndpointIpAddresses = connectorEndpointIpAddresses;
-            o.connectorOutboundIpAddresses = connectorOutboundIpAddresses;
-            o.id = id;
-            o.identities = identities;
-            o.location = location;
-            o.logicAppIntegrationAccountId = logicAppIntegrationAccountId;
-            o.name = name;
-            o.parameters = parameters;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.workflowEndpointIpAddresses = workflowEndpointIpAddresses;
-            o.workflowOutboundIpAddresses = workflowOutboundIpAddresses;
-            o.workflowSchema = workflowSchema;
-            o.workflowVersion = workflowVersion;
-            return o;
+            final var _resultValue = new GetWorkflowResult();
+            _resultValue.accessEndpoint = accessEndpoint;
+            _resultValue.connectorEndpointIpAddresses = connectorEndpointIpAddresses;
+            _resultValue.connectorOutboundIpAddresses = connectorOutboundIpAddresses;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.location = location;
+            _resultValue.logicAppIntegrationAccountId = logicAppIntegrationAccountId;
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.workflowEndpointIpAddresses = workflowEndpointIpAddresses;
+            _resultValue.workflowOutboundIpAddresses = workflowOutboundIpAddresses;
+            _resultValue.workflowSchema = workflowSchema;
+            _resultValue.workflowVersion = workflowVersion;
+            return _resultValue;
         }
     }
 }

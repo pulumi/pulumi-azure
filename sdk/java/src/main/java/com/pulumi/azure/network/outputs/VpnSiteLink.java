@@ -172,15 +172,15 @@ public final class VpnSiteLink {
             return this;
         }
         public VpnSiteLink build() {
-            final var o = new VpnSiteLink();
-            o.bgp = bgp;
-            o.fqdn = fqdn;
-            o.id = id;
-            o.ipAddress = ipAddress;
-            o.name = name;
-            o.providerName = providerName;
-            o.speedInMbps = speedInMbps;
-            return o;
+            final var _resultValue = new VpnSiteLink();
+            _resultValue.bgp = bgp;
+            _resultValue.fqdn = fqdn;
+            _resultValue.id = id;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.name = name;
+            _resultValue.providerName = providerName;
+            _resultValue.speedInMbps = speedInMbps;
+            return _resultValue;
         }
     }
 }

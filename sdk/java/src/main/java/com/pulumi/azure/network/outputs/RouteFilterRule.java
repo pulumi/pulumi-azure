@@ -107,12 +107,12 @@ public final class RouteFilterRule {
             return this;
         }
         public RouteFilterRule build() {
-            final var o = new RouteFilterRule();
-            o.access = access;
-            o.communities = communities;
-            o.name = name;
-            o.ruleType = ruleType;
-            return o;
+            final var _resultValue = new RouteFilterRule();
+            _resultValue.access = access;
+            _resultValue.communities = communities;
+            _resultValue.name = name;
+            _resultValue.ruleType = ruleType;
+            return _resultValue;
         }
     }
 }

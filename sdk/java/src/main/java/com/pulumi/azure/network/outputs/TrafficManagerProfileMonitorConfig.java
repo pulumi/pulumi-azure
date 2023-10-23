@@ -190,16 +190,16 @@ public final class TrafficManagerProfileMonitorConfig {
             return this;
         }
         public TrafficManagerProfileMonitorConfig build() {
-            final var o = new TrafficManagerProfileMonitorConfig();
-            o.customHeaders = customHeaders;
-            o.expectedStatusCodeRanges = expectedStatusCodeRanges;
-            o.intervalInSeconds = intervalInSeconds;
-            o.path = path;
-            o.port = port;
-            o.protocol = protocol;
-            o.timeoutInSeconds = timeoutInSeconds;
-            o.toleratedNumberOfFailures = toleratedNumberOfFailures;
-            return o;
+            final var _resultValue = new TrafficManagerProfileMonitorConfig();
+            _resultValue.customHeaders = customHeaders;
+            _resultValue.expectedStatusCodeRanges = expectedStatusCodeRanges;
+            _resultValue.intervalInSeconds = intervalInSeconds;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.protocol = protocol;
+            _resultValue.timeoutInSeconds = timeoutInSeconds;
+            _resultValue.toleratedNumberOfFailures = toleratedNumberOfFailures;
+            return _resultValue;
         }
     }
 }

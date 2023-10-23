@@ -51,10 +51,10 @@ public final class LiveEventInputEndpoint {
             return this;
         }
         public LiveEventInputEndpoint build() {
-            final var o = new LiveEventInputEndpoint();
-            o.protocol = protocol;
-            o.url = url;
-            return o;
+            final var _resultValue = new LiveEventInputEndpoint();
+            _resultValue.protocol = protocol;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

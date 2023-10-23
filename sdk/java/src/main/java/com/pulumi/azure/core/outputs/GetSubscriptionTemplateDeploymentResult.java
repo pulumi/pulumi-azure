@@ -76,11 +76,11 @@ public final class GetSubscriptionTemplateDeploymentResult {
             return this;
         }
         public GetSubscriptionTemplateDeploymentResult build() {
-            final var o = new GetSubscriptionTemplateDeploymentResult();
-            o.id = id;
-            o.name = name;
-            o.outputContent = outputContent;
-            return o;
+            final var _resultValue = new GetSubscriptionTemplateDeploymentResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.outputContent = outputContent;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class LocalUserSshAuthorizedKey {
             return this;
         }
         public LocalUserSshAuthorizedKey build() {
-            final var o = new LocalUserSshAuthorizedKey();
-            o.description = description;
-            o.key = key;
-            return o;
+            final var _resultValue = new LocalUserSshAuthorizedKey();
+            _resultValue.description = description;
+            _resultValue.key = key;
+            return _resultValue;
         }
     }
 }

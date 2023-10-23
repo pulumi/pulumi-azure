@@ -33,7 +33,7 @@ public final class ApplicationGatewayUrlPathMapPathRule {
      */
     private @Nullable String backendHttpSettingsName;
     /**
-     * @return The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+     * @return The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
      * 
      */
     private @Nullable String firewallPolicyId;
@@ -103,7 +103,7 @@ public final class ApplicationGatewayUrlPathMapPathRule {
         return Optional.ofNullable(this.backendHttpSettingsName);
     }
     /**
-     * @return The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+     * @return The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
      * 
      */
     public Optional<String> firewallPolicyId() {
@@ -261,20 +261,20 @@ public final class ApplicationGatewayUrlPathMapPathRule {
             return this;
         }
         public ApplicationGatewayUrlPathMapPathRule build() {
-            final var o = new ApplicationGatewayUrlPathMapPathRule();
-            o.backendAddressPoolId = backendAddressPoolId;
-            o.backendAddressPoolName = backendAddressPoolName;
-            o.backendHttpSettingsId = backendHttpSettingsId;
-            o.backendHttpSettingsName = backendHttpSettingsName;
-            o.firewallPolicyId = firewallPolicyId;
-            o.id = id;
-            o.name = name;
-            o.paths = paths;
-            o.redirectConfigurationId = redirectConfigurationId;
-            o.redirectConfigurationName = redirectConfigurationName;
-            o.rewriteRuleSetId = rewriteRuleSetId;
-            o.rewriteRuleSetName = rewriteRuleSetName;
-            return o;
+            final var _resultValue = new ApplicationGatewayUrlPathMapPathRule();
+            _resultValue.backendAddressPoolId = backendAddressPoolId;
+            _resultValue.backendAddressPoolName = backendAddressPoolName;
+            _resultValue.backendHttpSettingsId = backendHttpSettingsId;
+            _resultValue.backendHttpSettingsName = backendHttpSettingsName;
+            _resultValue.firewallPolicyId = firewallPolicyId;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.paths = paths;
+            _resultValue.redirectConfigurationId = redirectConfigurationId;
+            _resultValue.redirectConfigurationName = redirectConfigurationName;
+            _resultValue.rewriteRuleSetId = rewriteRuleSetId;
+            _resultValue.rewriteRuleSetName = rewriteRuleSetName;
+            return _resultValue;
         }
     }
 }

@@ -178,11 +178,11 @@ public final class ScaleSetIdentity {
             return this;
         }
         public ScaleSetIdentity build() {
-            final var o = new ScaleSetIdentity();
-            o.identityIds = identityIds;
-            o.principalId = principalId;
-            o.type = type;
-            return o;
+            final var _resultValue = new ScaleSetIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.principalId = principalId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

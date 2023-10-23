@@ -176,16 +176,16 @@ public final class GetGroupResult {
             return subscriptionIds(List.of(subscriptionIds));
         }
         public GetGroupResult build() {
-            final var o = new GetGroupResult();
-            o.allManagementGroupIds = allManagementGroupIds;
-            o.allSubscriptionIds = allSubscriptionIds;
-            o.displayName = displayName;
-            o.id = id;
-            o.managementGroupIds = managementGroupIds;
-            o.name = name;
-            o.parentManagementGroupId = parentManagementGroupId;
-            o.subscriptionIds = subscriptionIds;
-            return o;
+            final var _resultValue = new GetGroupResult();
+            _resultValue.allManagementGroupIds = allManagementGroupIds;
+            _resultValue.allSubscriptionIds = allSubscriptionIds;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.managementGroupIds = managementGroupIds;
+            _resultValue.name = name;
+            _resultValue.parentManagementGroupId = parentManagementGroupId;
+            _resultValue.subscriptionIds = subscriptionIds;
+            return _resultValue;
         }
     }
 }

@@ -61,7 +61,7 @@ class ApplicationGatewayArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['ApplicationGatewaySkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
-        :param pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs'] autoscale_configuration: A `autoscale_configuration` block as defined below.
+        :param pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs'] autoscale_configuration: An `autoscale_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
         :param pulumi.Input[bool] fips_enabled: Is FIPS enabled on the Application Gateway?
@@ -78,14 +78,14 @@ class ApplicationGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input['ApplicationGatewaySslPolicyArgs'] ssl_policy: a `ssl_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
-               
-               > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input['ApplicationGatewayWafConfigurationArgs'] waf_configuration: A `waf_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
+               
+               > **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         """
         ApplicationGatewayArgs._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -159,7 +159,61 @@ class ApplicationGatewayArgs:
              url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]]] = None,
              waf_configuration: Optional[pulumi.Input['ApplicationGatewayWafConfigurationArgs']] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendAddressPools' in kwargs:
+            backend_address_pools = kwargs['backendAddressPools']
+        if 'backendHttpSettings' in kwargs:
+            backend_http_settings = kwargs['backendHttpSettings']
+        if 'frontendIpConfigurations' in kwargs:
+            frontend_ip_configurations = kwargs['frontendIpConfigurations']
+        if 'frontendPorts' in kwargs:
+            frontend_ports = kwargs['frontendPorts']
+        if 'gatewayIpConfigurations' in kwargs:
+            gateway_ip_configurations = kwargs['gatewayIpConfigurations']
+        if 'httpListeners' in kwargs:
+            http_listeners = kwargs['httpListeners']
+        if 'requestRoutingRules' in kwargs:
+            request_routing_rules = kwargs['requestRoutingRules']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'authenticationCertificates' in kwargs:
+            authentication_certificates = kwargs['authenticationCertificates']
+        if 'autoscaleConfiguration' in kwargs:
+            autoscale_configuration = kwargs['autoscaleConfiguration']
+        if 'customErrorConfigurations' in kwargs:
+            custom_error_configurations = kwargs['customErrorConfigurations']
+        if 'enableHttp2' in kwargs:
+            enable_http2 = kwargs['enableHttp2']
+        if 'fipsEnabled' in kwargs:
+            fips_enabled = kwargs['fipsEnabled']
+        if 'firewallPolicyId' in kwargs:
+            firewall_policy_id = kwargs['firewallPolicyId']
+        if 'forceFirewallPolicyAssociation' in kwargs:
+            force_firewall_policy_association = kwargs['forceFirewallPolicyAssociation']
+        if 'global' in kwargs:
+            global_ = kwargs['global']
+        if 'privateLinkConfigurations' in kwargs:
+            private_link_configurations = kwargs['privateLinkConfigurations']
+        if 'redirectConfigurations' in kwargs:
+            redirect_configurations = kwargs['redirectConfigurations']
+        if 'rewriteRuleSets' in kwargs:
+            rewrite_rule_sets = kwargs['rewriteRuleSets']
+        if 'sslCertificates' in kwargs:
+            ssl_certificates = kwargs['sslCertificates']
+        if 'sslPolicy' in kwargs:
+            ssl_policy = kwargs['sslPolicy']
+        if 'sslProfiles' in kwargs:
+            ssl_profiles = kwargs['sslProfiles']
+        if 'trustedClientCertificates' in kwargs:
+            trusted_client_certificates = kwargs['trustedClientCertificates']
+        if 'trustedRootCertificates' in kwargs:
+            trusted_root_certificates = kwargs['trustedRootCertificates']
+        if 'urlPathMaps' in kwargs:
+            url_path_maps = kwargs['urlPathMaps']
+        if 'wafConfiguration' in kwargs:
+            waf_configuration = kwargs['wafConfiguration']
+
         _setter("backend_address_pools", backend_address_pools)
         _setter("backend_http_settings", backend_http_settings)
         _setter("frontend_ip_configurations", frontend_ip_configurations)
@@ -342,7 +396,7 @@ class ApplicationGatewayArgs:
     @pulumi.getter(name="autoscaleConfiguration")
     def autoscale_configuration(self) -> Optional[pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs']]:
         """
-        A `autoscale_configuration` block as defined below.
+        An `autoscale_configuration` block as defined below.
         """
         return pulumi.get(self, "autoscale_configuration")
 
@@ -535,8 +589,6 @@ class ApplicationGatewayArgs:
     def ssl_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]]]:
         """
         One or more `ssl_profile` blocks as defined below.
-
-        > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         """
         return pulumi.get(self, "ssl_profiles")
 
@@ -609,6 +661,8 @@ class ApplicationGatewayArgs:
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
+
+        > **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         """
         return pulumi.get(self, "zones")
 
@@ -657,7 +711,7 @@ class _ApplicationGatewayState:
         """
         Input properties used for looking up and filtering ApplicationGateway resources.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
-        :param pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs'] autoscale_configuration: A `autoscale_configuration` block as defined below.
+        :param pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs'] autoscale_configuration: An `autoscale_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]] backend_address_pools: One or more `backend_address_pool` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
@@ -684,14 +738,14 @@ class _ApplicationGatewayState:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input['ApplicationGatewaySslPolicyArgs'] ssl_policy: a `ssl_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
-               
-               > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedClientCertificateArgs']]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayTrustedRootCertificateArgs']]] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input['ApplicationGatewayWafConfigurationArgs'] waf_configuration: A `waf_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
+               
+               > **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         """
         _ApplicationGatewayState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -767,7 +821,63 @@ class _ApplicationGatewayState:
              url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayUrlPathMapArgs']]]] = None,
              waf_configuration: Optional[pulumi.Input['ApplicationGatewayWafConfigurationArgs']] = None,
              zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationCertificates' in kwargs:
+            authentication_certificates = kwargs['authenticationCertificates']
+        if 'autoscaleConfiguration' in kwargs:
+            autoscale_configuration = kwargs['autoscaleConfiguration']
+        if 'backendAddressPools' in kwargs:
+            backend_address_pools = kwargs['backendAddressPools']
+        if 'backendHttpSettings' in kwargs:
+            backend_http_settings = kwargs['backendHttpSettings']
+        if 'customErrorConfigurations' in kwargs:
+            custom_error_configurations = kwargs['customErrorConfigurations']
+        if 'enableHttp2' in kwargs:
+            enable_http2 = kwargs['enableHttp2']
+        if 'fipsEnabled' in kwargs:
+            fips_enabled = kwargs['fipsEnabled']
+        if 'firewallPolicyId' in kwargs:
+            firewall_policy_id = kwargs['firewallPolicyId']
+        if 'forceFirewallPolicyAssociation' in kwargs:
+            force_firewall_policy_association = kwargs['forceFirewallPolicyAssociation']
+        if 'frontendIpConfigurations' in kwargs:
+            frontend_ip_configurations = kwargs['frontendIpConfigurations']
+        if 'frontendPorts' in kwargs:
+            frontend_ports = kwargs['frontendPorts']
+        if 'gatewayIpConfigurations' in kwargs:
+            gateway_ip_configurations = kwargs['gatewayIpConfigurations']
+        if 'global' in kwargs:
+            global_ = kwargs['global']
+        if 'httpListeners' in kwargs:
+            http_listeners = kwargs['httpListeners']
+        if 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if 'privateLinkConfigurations' in kwargs:
+            private_link_configurations = kwargs['privateLinkConfigurations']
+        if 'redirectConfigurations' in kwargs:
+            redirect_configurations = kwargs['redirectConfigurations']
+        if 'requestRoutingRules' in kwargs:
+            request_routing_rules = kwargs['requestRoutingRules']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'rewriteRuleSets' in kwargs:
+            rewrite_rule_sets = kwargs['rewriteRuleSets']
+        if 'sslCertificates' in kwargs:
+            ssl_certificates = kwargs['sslCertificates']
+        if 'sslPolicy' in kwargs:
+            ssl_policy = kwargs['sslPolicy']
+        if 'sslProfiles' in kwargs:
+            ssl_profiles = kwargs['sslProfiles']
+        if 'trustedClientCertificates' in kwargs:
+            trusted_client_certificates = kwargs['trustedClientCertificates']
+        if 'trustedRootCertificates' in kwargs:
+            trusted_root_certificates = kwargs['trustedRootCertificates']
+        if 'urlPathMaps' in kwargs:
+            url_path_maps = kwargs['urlPathMaps']
+        if 'wafConfiguration' in kwargs:
+            waf_configuration = kwargs['wafConfiguration']
+
         if authentication_certificates is not None:
             _setter("authentication_certificates", authentication_certificates)
         if autoscale_configuration is not None:
@@ -853,7 +963,7 @@ class _ApplicationGatewayState:
     @pulumi.getter(name="autoscaleConfiguration")
     def autoscale_configuration(self) -> Optional[pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs']]:
         """
-        A `autoscale_configuration` block as defined below.
+        An `autoscale_configuration` block as defined below.
         """
         return pulumi.get(self, "autoscale_configuration")
 
@@ -1166,8 +1276,6 @@ class _ApplicationGatewayState:
     def ssl_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslProfileArgs']]]]:
         """
         One or more `ssl_profile` blocks as defined below.
-
-        > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         """
         return pulumi.get(self, "ssl_profiles")
 
@@ -1240,6 +1348,8 @@ class _ApplicationGatewayState:
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
+
+        > **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         """
         return pulumi.get(self, "zones")
 
@@ -1378,7 +1488,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayAuthenticationCertificateArgs']]]] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['ApplicationGatewayAutoscaleConfigurationArgs']] autoscale_configuration: A `autoscale_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ApplicationGatewayAutoscaleConfigurationArgs']] autoscale_configuration: An `autoscale_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendAddressPoolArgs']]]] backend_address_pools: One or more `backend_address_pool` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingArgs']]]] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayCustomErrorConfigurationArgs']]]] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
@@ -1404,14 +1514,14 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']] ssl_policy: a `ssl_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
-               
-               > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedRootCertificateArgs']]]] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewayWafConfigurationArgs']] waf_configuration: A `waf_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
+               
+               > **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         """
         ...
     @overload
@@ -1702,7 +1812,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayAuthenticationCertificateArgs']]]] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['ApplicationGatewayAutoscaleConfigurationArgs']] autoscale_configuration: A `autoscale_configuration` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ApplicationGatewayAutoscaleConfigurationArgs']] autoscale_configuration: An `autoscale_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendAddressPoolArgs']]]] backend_address_pools: One or more `backend_address_pool` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingArgs']]]] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayCustomErrorConfigurationArgs']]]] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
@@ -1729,14 +1839,14 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']] ssl_policy: a `ssl_policy` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslProfileArgs']]]] ssl_profiles: One or more `ssl_profile` blocks as defined below.
-               
-               > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedClientCertificateArgs']]]] trusted_client_certificates: One or more `trusted_client_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayTrustedRootCertificateArgs']]]] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewayWafConfigurationArgs']] waf_configuration: A `waf_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
+               
+               > **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1790,7 +1900,7 @@ class ApplicationGateway(pulumi.CustomResource):
     @pulumi.getter(name="autoscaleConfiguration")
     def autoscale_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationGatewayAutoscaleConfiguration']]:
         """
-        A `autoscale_configuration` block as defined below.
+        An `autoscale_configuration` block as defined below.
         """
         return pulumi.get(self, "autoscale_configuration")
 
@@ -1999,8 +2109,6 @@ class ApplicationGateway(pulumi.CustomResource):
     def ssl_profiles(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewaySslProfile']]]:
         """
         One or more `ssl_profile` blocks as defined below.
-
-        > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).  They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         """
         return pulumi.get(self, "ssl_profiles")
 
@@ -2049,6 +2157,8 @@ class ApplicationGateway(pulumi.CustomResource):
     def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created.
+
+        > **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         """
         return pulumi.get(self, "zones")
 

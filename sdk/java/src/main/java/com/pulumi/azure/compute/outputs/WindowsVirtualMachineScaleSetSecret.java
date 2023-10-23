@@ -70,10 +70,10 @@ public final class WindowsVirtualMachineScaleSetSecret {
             return this;
         }
         public WindowsVirtualMachineScaleSetSecret build() {
-            final var o = new WindowsVirtualMachineScaleSetSecret();
-            o.certificates = certificates;
-            o.keyVaultId = keyVaultId;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineScaleSetSecret();
+            _resultValue.certificates = certificates;
+            _resultValue.keyVaultId = keyVaultId;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class ManagedDiskEncryptionSettingsDiskEncryptionKey {
             return this;
         }
         public ManagedDiskEncryptionSettingsDiskEncryptionKey build() {
-            final var o = new ManagedDiskEncryptionSettingsDiskEncryptionKey();
-            o.secretUrl = secretUrl;
-            o.sourceVaultId = sourceVaultId;
-            return o;
+            final var _resultValue = new ManagedDiskEncryptionSettingsDiskEncryptionKey();
+            _resultValue.secretUrl = secretUrl;
+            _resultValue.sourceVaultId = sourceVaultId;
+            return _resultValue;
         }
     }
 }

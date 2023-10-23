@@ -75,10 +75,10 @@ public final class SubscriptionPricingExtension {
             return this;
         }
         public SubscriptionPricingExtension build() {
-            final var o = new SubscriptionPricingExtension();
-            o.additionalExtensionProperties = additionalExtensionProperties;
-            o.name = name;
-            return o;
+            final var _resultValue = new SubscriptionPricingExtension();
+            _resultValue.additionalExtensionProperties = additionalExtensionProperties;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

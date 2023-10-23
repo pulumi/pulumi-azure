@@ -124,34 +124,169 @@ namespace Pulumi.Azure.Network
     public sealed class GetApplicationGatewayResult
     {
         /// <summary>
-        /// A `backend_address_pool` block as defined below.
+        /// One or more `authentication_certificate` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayAuthenticationCertificateResult> AuthenticationCertificates;
+        /// <summary>
+        /// An `autoscale_configuration` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayAutoscaleConfigurationResult> AutoscaleConfigurations;
+        /// <summary>
+        /// One or more `backend_address_pool` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayBackendAddressPoolResult> BackendAddressPools;
+        /// <summary>
+        /// One or more `backend_http_settings` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayBackendHttpSettingResult> BackendHttpSettings;
+        /// <summary>
+        /// One or more `custom_error_configuration` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayCustomErrorConfigurationResult> CustomErrorConfigurations;
+        /// <summary>
+        /// Is FIPS enabled on the Application Gateway?
+        /// </summary>
+        public readonly bool FipsEnabled;
+        /// <summary>
+        /// The ID of the Web Application Firewall Policy which is used as an HTTP Listener for this Path Rule.
+        /// </summary>
+        public readonly string FirewallPolicyId;
+        /// <summary>
+        /// Is the Firewall Policy associated with the Application Gateway?
+        /// </summary>
+        public readonly bool ForceFirewallPolicyAssociation;
+        /// <summary>
+        /// One or more `frontend_ip_configuration` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayFrontendIpConfigurationResult> FrontendIpConfigurations;
+        /// <summary>
+        /// One or more `frontend_port` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayFrontendPortResult> FrontendPorts;
+        /// <summary>
+        /// One or more `gateway_ip_configuration` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayGatewayIpConfigurationResult> GatewayIpConfigurations;
+        /// <summary>
+        /// A `global` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayGlobalResult> Globals;
+        /// <summary>
+        /// Is HTTP2 enabled on the application gateway resource?
+        /// </summary>
+        public readonly bool Http2Enabled;
+        /// <summary>
+        /// One or more `http_listener` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayHttpListenerResult> HttpListeners;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayIdentityResult> Identities;
         /// <summary>
-        /// The Azure Region where the Application Gateway exists.
+        /// The Azure region where the Application Gateway exists.
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The name of the Backend Address Pool.
+        /// Unique name of the Rewrite Rule
         /// </summary>
         public readonly string Name;
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayPrivateEndpointConnectionResult> PrivateEndpointConnections;
+        /// <summary>
+        /// One or more `private_link_configuration` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayPrivateLinkConfigurationResult> PrivateLinkConfigurations;
+        /// <summary>
+        /// One or more `probe` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayProbeResult> Probes;
+        /// <summary>
+        /// One or more `redirect_configuration` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayRedirectConfigurationResult> RedirectConfigurations;
+        /// <summary>
+        /// One or more `request_routing_rule` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayRequestRoutingRuleResult> RequestRoutingRules;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A mapping of tags assigned to the Application Gateway.
+        /// One or more `rewrite_rule_set` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayRewriteRuleSetResult> RewriteRuleSets;
+        /// <summary>
+        /// A `sku` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewaySkusResult> Skus;
+        /// <summary>
+        /// One or more `ssl_certificate` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewaySslCertificateResult> SslCertificates;
+        /// <summary>
+        /// a `ssl_policy` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewaySslPolicyResult> SslPolicies;
+        /// <summary>
+        /// One or more `ssl_profile` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewaySslProfileResult> SslProfiles;
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// One or more `trusted_client_certificate` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayTrustedClientCertificateResult> TrustedClientCertificates;
+        /// <summary>
+        /// One or more `trusted_root_certificate` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayTrustedRootCertificateResult> TrustedRootCertificates;
+        /// <summary>
+        /// One or more `url_path_map` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayUrlPathMapResult> UrlPathMaps;
+        /// <summary>
+        /// A `waf_configuration` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetApplicationGatewayWafConfigurationResult> WafConfigurations;
+        /// <summary>
+        /// The list of Availability Zones in which this Application Gateway can use.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetApplicationGatewayResult(
+            ImmutableArray<Outputs.GetApplicationGatewayAuthenticationCertificateResult> authenticationCertificates,
+
+            ImmutableArray<Outputs.GetApplicationGatewayAutoscaleConfigurationResult> autoscaleConfigurations,
+
             ImmutableArray<Outputs.GetApplicationGatewayBackendAddressPoolResult> backendAddressPools,
+
+            ImmutableArray<Outputs.GetApplicationGatewayBackendHttpSettingResult> backendHttpSettings,
+
+            ImmutableArray<Outputs.GetApplicationGatewayCustomErrorConfigurationResult> customErrorConfigurations,
+
+            bool fipsEnabled,
+
+            string firewallPolicyId,
+
+            bool forceFirewallPolicyAssociation,
+
+            ImmutableArray<Outputs.GetApplicationGatewayFrontendIpConfigurationResult> frontendIpConfigurations,
+
+            ImmutableArray<Outputs.GetApplicationGatewayFrontendPortResult> frontendPorts,
+
+            ImmutableArray<Outputs.GetApplicationGatewayGatewayIpConfigurationResult> gatewayIpConfigurations,
+
+            ImmutableArray<Outputs.GetApplicationGatewayGlobalResult> globals,
+
+            bool http2Enabled,
+
+            ImmutableArray<Outputs.GetApplicationGatewayHttpListenerResult> httpListeners,
 
             string id,
 
@@ -161,17 +296,75 @@ namespace Pulumi.Azure.Network
 
             string name,
 
+            ImmutableArray<Outputs.GetApplicationGatewayPrivateEndpointConnectionResult> privateEndpointConnections,
+
+            ImmutableArray<Outputs.GetApplicationGatewayPrivateLinkConfigurationResult> privateLinkConfigurations,
+
+            ImmutableArray<Outputs.GetApplicationGatewayProbeResult> probes,
+
+            ImmutableArray<Outputs.GetApplicationGatewayRedirectConfigurationResult> redirectConfigurations,
+
+            ImmutableArray<Outputs.GetApplicationGatewayRequestRoutingRuleResult> requestRoutingRules,
+
             string resourceGroupName,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableArray<Outputs.GetApplicationGatewayRewriteRuleSetResult> rewriteRuleSets,
+
+            ImmutableArray<Outputs.GetApplicationGatewaySkusResult> skus,
+
+            ImmutableArray<Outputs.GetApplicationGatewaySslCertificateResult> sslCertificates,
+
+            ImmutableArray<Outputs.GetApplicationGatewaySslPolicyResult> sslPolicies,
+
+            ImmutableArray<Outputs.GetApplicationGatewaySslProfileResult> sslProfiles,
+
+            ImmutableDictionary<string, string> tags,
+
+            ImmutableArray<Outputs.GetApplicationGatewayTrustedClientCertificateResult> trustedClientCertificates,
+
+            ImmutableArray<Outputs.GetApplicationGatewayTrustedRootCertificateResult> trustedRootCertificates,
+
+            ImmutableArray<Outputs.GetApplicationGatewayUrlPathMapResult> urlPathMaps,
+
+            ImmutableArray<Outputs.GetApplicationGatewayWafConfigurationResult> wafConfigurations,
+
+            ImmutableArray<string> zones)
         {
+            AuthenticationCertificates = authenticationCertificates;
+            AutoscaleConfigurations = autoscaleConfigurations;
             BackendAddressPools = backendAddressPools;
+            BackendHttpSettings = backendHttpSettings;
+            CustomErrorConfigurations = customErrorConfigurations;
+            FipsEnabled = fipsEnabled;
+            FirewallPolicyId = firewallPolicyId;
+            ForceFirewallPolicyAssociation = forceFirewallPolicyAssociation;
+            FrontendIpConfigurations = frontendIpConfigurations;
+            FrontendPorts = frontendPorts;
+            GatewayIpConfigurations = gatewayIpConfigurations;
+            Globals = globals;
+            Http2Enabled = http2Enabled;
+            HttpListeners = httpListeners;
             Id = id;
             Identities = identities;
             Location = location;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
+            PrivateLinkConfigurations = privateLinkConfigurations;
+            Probes = probes;
+            RedirectConfigurations = redirectConfigurations;
+            RequestRoutingRules = requestRoutingRules;
             ResourceGroupName = resourceGroupName;
+            RewriteRuleSets = rewriteRuleSets;
+            Skus = skus;
+            SslCertificates = sslCertificates;
+            SslPolicies = sslPolicies;
+            SslProfiles = sslProfiles;
             Tags = tags;
+            TrustedClientCertificates = trustedClientCertificates;
+            TrustedRootCertificates = trustedRootCertificates;
+            UrlPathMaps = urlPathMaps;
+            WafConfigurations = wafConfigurations;
+            Zones = zones;
         }
     }
 }

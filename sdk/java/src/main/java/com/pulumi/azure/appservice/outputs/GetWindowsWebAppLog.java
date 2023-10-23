@@ -112,12 +112,12 @@ public final class GetWindowsWebAppLog {
             return httpLogs(List.of(httpLogs));
         }
         public GetWindowsWebAppLog build() {
-            final var o = new GetWindowsWebAppLog();
-            o.applicationLogs = applicationLogs;
-            o.detailedErrorMessages = detailedErrorMessages;
-            o.failedRequestTracing = failedRequestTracing;
-            o.httpLogs = httpLogs;
-            return o;
+            final var _resultValue = new GetWindowsWebAppLog();
+            _resultValue.applicationLogs = applicationLogs;
+            _resultValue.detailedErrorMessages = detailedErrorMessages;
+            _resultValue.failedRequestTracing = failedRequestTracing;
+            _resultValue.httpLogs = httpLogs;
+            return _resultValue;
         }
     }
 }

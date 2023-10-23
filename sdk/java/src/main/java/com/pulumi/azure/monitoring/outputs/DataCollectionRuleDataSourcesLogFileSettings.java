@@ -46,9 +46,9 @@ public final class DataCollectionRuleDataSourcesLogFileSettings {
             return this;
         }
         public DataCollectionRuleDataSourcesLogFileSettings build() {
-            final var o = new DataCollectionRuleDataSourcesLogFileSettings();
-            o.text = text;
-            return o;
+            final var _resultValue = new DataCollectionRuleDataSourcesLogFileSettings();
+            _resultValue.text = text;
+            return _resultValue;
         }
     }
 }

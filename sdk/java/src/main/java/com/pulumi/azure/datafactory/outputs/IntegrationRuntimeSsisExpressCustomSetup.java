@@ -119,12 +119,12 @@ public final class IntegrationRuntimeSsisExpressCustomSetup {
             return this;
         }
         public IntegrationRuntimeSsisExpressCustomSetup build() {
-            final var o = new IntegrationRuntimeSsisExpressCustomSetup();
-            o.commandKeys = commandKeys;
-            o.components = components;
-            o.environment = environment;
-            o.powershellVersion = powershellVersion;
-            return o;
+            final var _resultValue = new IntegrationRuntimeSsisExpressCustomSetup();
+            _resultValue.commandKeys = commandKeys;
+            _resultValue.components = components;
+            _resultValue.environment = environment;
+            _resultValue.powershellVersion = powershellVersion;
+            return _resultValue;
         }
     }
 }

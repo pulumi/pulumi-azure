@@ -49,7 +49,13 @@ class CustomDomainArgs:
              managements: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]] = None,
              portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]] = None,
              scms: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'developerPortals' in kwargs:
+            developer_portals = kwargs['developerPortals']
+
         _setter("api_management_id", api_management_id)
         if developer_portals is not None:
             _setter("developer_portals", developer_portals)
@@ -171,7 +177,13 @@ class _CustomDomainState:
              managements: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainManagementArgs']]]] = None,
              portals: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainPortalArgs']]]] = None,
              scms: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainScmArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'developerPortals' in kwargs:
+            developer_portals = kwargs['developerPortals']
+
         if api_management_id is not None:
             _setter("api_management_id", api_management_id)
         if developer_portals is not None:

@@ -46,9 +46,9 @@ public final class HadoopClusterComponentVersion {
             return this;
         }
         public HadoopClusterComponentVersion build() {
-            final var o = new HadoopClusterComponentVersion();
-            o.hadoop = hadoop;
-            return o;
+            final var _resultValue = new HadoopClusterComponentVersion();
+            _resultValue.hadoop = hadoop;
+            return _resultValue;
         }
     }
 }

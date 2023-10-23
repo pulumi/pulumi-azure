@@ -84,12 +84,12 @@ public final class GetWindowsWebAppSiteConfigIpRestrictionHeader {
             return xForwardedHosts(List.of(xForwardedHosts));
         }
         public GetWindowsWebAppSiteConfigIpRestrictionHeader build() {
-            final var o = new GetWindowsWebAppSiteConfigIpRestrictionHeader();
-            o.xAzureFdids = xAzureFdids;
-            o.xFdHealthProbes = xFdHealthProbes;
-            o.xForwardedFors = xForwardedFors;
-            o.xForwardedHosts = xForwardedHosts;
-            return o;
+            final var _resultValue = new GetWindowsWebAppSiteConfigIpRestrictionHeader();
+            _resultValue.xAzureFdids = xAzureFdids;
+            _resultValue.xFdHealthProbes = xFdHealthProbes;
+            _resultValue.xForwardedFors = xForwardedFors;
+            _resultValue.xForwardedHosts = xForwardedHosts;
+            return _resultValue;
         }
     }
 }

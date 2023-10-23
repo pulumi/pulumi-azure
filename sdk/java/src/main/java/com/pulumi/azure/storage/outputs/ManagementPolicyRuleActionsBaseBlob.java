@@ -259,19 +259,19 @@ public final class ManagementPolicyRuleActionsBaseBlob {
             return this;
         }
         public ManagementPolicyRuleActionsBaseBlob build() {
-            final var o = new ManagementPolicyRuleActionsBaseBlob();
-            o.autoTierToHotFromCoolEnabled = autoTierToHotFromCoolEnabled;
-            o.deleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
-            o.deleteAfterDaysSinceLastAccessTimeGreaterThan = deleteAfterDaysSinceLastAccessTimeGreaterThan;
-            o.deleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;
-            o.tierToArchiveAfterDaysSinceCreationGreaterThan = tierToArchiveAfterDaysSinceCreationGreaterThan;
-            o.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
-            o.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
-            o.tierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
-            o.tierToCoolAfterDaysSinceCreationGreaterThan = tierToCoolAfterDaysSinceCreationGreaterThan;
-            o.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
-            o.tierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;
-            return o;
+            final var _resultValue = new ManagementPolicyRuleActionsBaseBlob();
+            _resultValue.autoTierToHotFromCoolEnabled = autoTierToHotFromCoolEnabled;
+            _resultValue.deleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
+            _resultValue.deleteAfterDaysSinceLastAccessTimeGreaterThan = deleteAfterDaysSinceLastAccessTimeGreaterThan;
+            _resultValue.deleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;
+            _resultValue.tierToArchiveAfterDaysSinceCreationGreaterThan = tierToArchiveAfterDaysSinceCreationGreaterThan;
+            _resultValue.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
+            _resultValue.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
+            _resultValue.tierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
+            _resultValue.tierToCoolAfterDaysSinceCreationGreaterThan = tierToCoolAfterDaysSinceCreationGreaterThan;
+            _resultValue.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
+            _resultValue.tierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2 {
             return this;
         }
         public LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2 build() {
-            final var o = new LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2();
-            o.clientId = clientId;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2();
+            _resultValue.clientId = clientId;
+            return _resultValue;
         }
     }
 }

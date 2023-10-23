@@ -35,7 +35,15 @@ class NotificationRecipientUserArgs:
              api_management_id: pulumi.Input[str],
              notification_type: pulumi.Input[str],
              user_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         _setter("api_management_id", api_management_id)
         _setter("notification_type", notification_type)
         _setter("user_id", user_id)
@@ -101,7 +109,15 @@ class _NotificationRecipientUserState:
              api_management_id: Optional[pulumi.Input[str]] = None,
              notification_type: Optional[pulumi.Input[str]] = None,
              user_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if api_management_id is not None:
             _setter("api_management_id", api_management_id)
         if notification_type is not None:

@@ -145,13 +145,13 @@ public final class ApiOperationResponseRepresentation {
             return this;
         }
         public ApiOperationResponseRepresentation build() {
-            final var o = new ApiOperationResponseRepresentation();
-            o.contentType = contentType;
-            o.examples = examples;
-            o.formParameters = formParameters;
-            o.schemaId = schemaId;
-            o.typeName = typeName;
-            return o;
+            final var _resultValue = new ApiOperationResponseRepresentation();
+            _resultValue.contentType = contentType;
+            _resultValue.examples = examples;
+            _resultValue.formParameters = formParameters;
+            _resultValue.schemaId = schemaId;
+            _resultValue.typeName = typeName;
+            return _resultValue;
         }
     }
 }

@@ -170,16 +170,16 @@ public final class GetDedicatedHostGroupResult {
             return zones(List.of(zones));
         }
         public GetDedicatedHostGroupResult build() {
-            final var o = new GetDedicatedHostGroupResult();
-            o.automaticPlacementEnabled = automaticPlacementEnabled;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.platformFaultDomainCount = platformFaultDomainCount;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new GetDedicatedHostGroupResult();
+            _resultValue.automaticPlacementEnabled = automaticPlacementEnabled;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.platformFaultDomainCount = platformFaultDomainCount;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

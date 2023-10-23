@@ -65,10 +65,10 @@ public final class IotHubDeviceUpdateInstanceDiagnosticStorageAccount {
             return this;
         }
         public IotHubDeviceUpdateInstanceDiagnosticStorageAccount build() {
-            final var o = new IotHubDeviceUpdateInstanceDiagnosticStorageAccount();
-            o.connectionString = connectionString;
-            o.id = id;
-            return o;
+            final var _resultValue = new IotHubDeviceUpdateInstanceDiagnosticStorageAccount();
+            _resultValue.connectionString = connectionString;
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

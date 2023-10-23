@@ -66,10 +66,10 @@ public final class GetResolverForwardingRuleTargetDnsServer {
             return this;
         }
         public GetResolverForwardingRuleTargetDnsServer build() {
-            final var o = new GetResolverForwardingRuleTargetDnsServer();
-            o.ipAddress = ipAddress;
-            o.port = port;
-            return o;
+            final var _resultValue = new GetResolverForwardingRuleTargetDnsServer();
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.port = port;
+            return _resultValue;
         }
     }
 }

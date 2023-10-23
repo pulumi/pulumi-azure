@@ -67,10 +67,10 @@ public final class DataFlowSourceDataset {
             return this;
         }
         public DataFlowSourceDataset build() {
-            final var o = new DataFlowSourceDataset();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new DataFlowSourceDataset();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

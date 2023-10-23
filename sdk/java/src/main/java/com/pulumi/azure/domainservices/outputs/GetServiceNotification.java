@@ -89,11 +89,11 @@ public final class GetServiceNotification {
             return this;
         }
         public GetServiceNotification build() {
-            final var o = new GetServiceNotification();
-            o.additionalRecipients = additionalRecipients;
-            o.notifyDcAdmins = notifyDcAdmins;
-            o.notifyGlobalAdmins = notifyGlobalAdmins;
-            return o;
+            final var _resultValue = new GetServiceNotification();
+            _resultValue.additionalRecipients = additionalRecipients;
+            _resultValue.notifyDcAdmins = notifyDcAdmins;
+            _resultValue.notifyGlobalAdmins = notifyGlobalAdmins;
+            return _resultValue;
         }
     }
 }

@@ -41,7 +41,15 @@ class NamespaceCustomerManagedKeyArgs:
              identity_id: pulumi.Input[str],
              key_vault_key_id: pulumi.Input[str],
              infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+
         _setter("identity_id", identity_id)
         _setter("key_vault_key_id", key_vault_key_id)
         if infrastructure_encryption_enabled is not None:
@@ -113,7 +121,15 @@ class NamespaceIdentityArgs:
              identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              principal_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -204,7 +220,19 @@ class NamespaceNetworkRuleSetArgs:
              network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if 'networkRules' in kwargs:
+            network_rules = kwargs['networkRules']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'trustedServicesAllowed' in kwargs:
+            trusted_services_allowed = kwargs['trustedServicesAllowed']
+
         if default_action is not None:
             _setter("default_action", default_action)
         if ip_rules is not None:
@@ -296,7 +324,13 @@ class NamespaceNetworkRuleSetNetworkRuleArgs:
              _setter: Callable[[Any, Any], None],
              subnet_id: pulumi.Input[str],
              ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'ignoreMissingVnetServiceEndpoint' in kwargs:
+            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
+
         _setter("subnet_id", subnet_id)
         if ignore_missing_vnet_service_endpoint is not None:
             _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
@@ -351,7 +385,15 @@ class SubscriptionClientScopedSubscriptionArgs:
              client_id: Optional[pulumi.Input[str]] = None,
              is_client_scoped_subscription_durable: Optional[pulumi.Input[bool]] = None,
              is_client_scoped_subscription_shareable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'isClientScopedSubscriptionDurable' in kwargs:
+            is_client_scoped_subscription_durable = kwargs['isClientScopedSubscriptionDurable']
+        if 'isClientScopedSubscriptionShareable' in kwargs:
+            is_client_scoped_subscription_shareable = kwargs['isClientScopedSubscriptionShareable']
+
         if client_id is not None:
             _setter("client_id", client_id)
         if is_client_scoped_subscription_durable is not None:
@@ -447,7 +489,21 @@ class SubscriptionRuleCorrelationFilterArgs:
              reply_to_session_id: Optional[pulumi.Input[str]] = None,
              session_id: Optional[pulumi.Input[str]] = None,
              to: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if 'correlationId' in kwargs:
+            correlation_id = kwargs['correlationId']
+        if 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if 'replyTo' in kwargs:
+            reply_to = kwargs['replyTo']
+        if 'replyToSessionId' in kwargs:
+            reply_to_session_id = kwargs['replyToSessionId']
+        if 'sessionId' in kwargs:
+            session_id = kwargs['sessionId']
+
         if content_type is not None:
             _setter("content_type", content_type)
         if correlation_id is not None:

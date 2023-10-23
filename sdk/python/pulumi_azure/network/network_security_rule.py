@@ -95,7 +95,33 @@ class NetworkSecurityRuleArgs:
              source_application_security_group_ids: Optional[pulumi.Input[str]] = None,
              source_port_range: Optional[pulumi.Input[str]] = None,
              source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkSecurityGroupName' in kwargs:
+            network_security_group_name = kwargs['networkSecurityGroupName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'destinationAddressPrefix' in kwargs:
+            destination_address_prefix = kwargs['destinationAddressPrefix']
+        if 'destinationAddressPrefixes' in kwargs:
+            destination_address_prefixes = kwargs['destinationAddressPrefixes']
+        if 'destinationApplicationSecurityGroupIds' in kwargs:
+            destination_application_security_group_ids = kwargs['destinationApplicationSecurityGroupIds']
+        if 'destinationPortRange' in kwargs:
+            destination_port_range = kwargs['destinationPortRange']
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'sourceAddressPrefix' in kwargs:
+            source_address_prefix = kwargs['sourceAddressPrefix']
+        if 'sourceAddressPrefixes' in kwargs:
+            source_address_prefixes = kwargs['sourceAddressPrefixes']
+        if 'sourceApplicationSecurityGroupIds' in kwargs:
+            source_application_security_group_ids = kwargs['sourceApplicationSecurityGroupIds']
+        if 'sourcePortRange' in kwargs:
+            source_port_range = kwargs['sourcePortRange']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
         _setter("access", access)
         _setter("direction", direction)
         _setter("network_security_group_name", network_security_group_name)
@@ -428,7 +454,33 @@ class _NetworkSecurityRuleState:
              source_application_security_group_ids: Optional[pulumi.Input[str]] = None,
              source_port_range: Optional[pulumi.Input[str]] = None,
              source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationAddressPrefix' in kwargs:
+            destination_address_prefix = kwargs['destinationAddressPrefix']
+        if 'destinationAddressPrefixes' in kwargs:
+            destination_address_prefixes = kwargs['destinationAddressPrefixes']
+        if 'destinationApplicationSecurityGroupIds' in kwargs:
+            destination_application_security_group_ids = kwargs['destinationApplicationSecurityGroupIds']
+        if 'destinationPortRange' in kwargs:
+            destination_port_range = kwargs['destinationPortRange']
+        if 'destinationPortRanges' in kwargs:
+            destination_port_ranges = kwargs['destinationPortRanges']
+        if 'networkSecurityGroupName' in kwargs:
+            network_security_group_name = kwargs['networkSecurityGroupName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sourceAddressPrefix' in kwargs:
+            source_address_prefix = kwargs['sourceAddressPrefix']
+        if 'sourceAddressPrefixes' in kwargs:
+            source_address_prefixes = kwargs['sourceAddressPrefixes']
+        if 'sourceApplicationSecurityGroupIds' in kwargs:
+            source_application_security_group_ids = kwargs['sourceApplicationSecurityGroupIds']
+        if 'sourcePortRange' in kwargs:
+            source_port_range = kwargs['sourcePortRange']
+        if 'sourcePortRanges' in kwargs:
+            source_port_ranges = kwargs['sourcePortRanges']
+
         if access is not None:
             _setter("access", access)
         if description is not None:

@@ -91,11 +91,11 @@ public final class AlertProcessingRuleActionGroupScheduleRecurrenceMonthly {
             return this;
         }
         public AlertProcessingRuleActionGroupScheduleRecurrenceMonthly build() {
-            final var o = new AlertProcessingRuleActionGroupScheduleRecurrenceMonthly();
-            o.daysOfMonths = daysOfMonths;
-            o.endTime = endTime;
-            o.startTime = startTime;
-            return o;
+            final var _resultValue = new AlertProcessingRuleActionGroupScheduleRecurrenceMonthly();
+            _resultValue.daysOfMonths = daysOfMonths;
+            _resultValue.endTime = endTime;
+            _resultValue.startTime = startTime;
+            return _resultValue;
         }
     }
 }

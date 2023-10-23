@@ -70,10 +70,10 @@ public final class GetPoolStartTaskUserIdentity {
             return this;
         }
         public GetPoolStartTaskUserIdentity build() {
-            final var o = new GetPoolStartTaskUserIdentity();
-            o.autoUsers = autoUsers;
-            o.userName = userName;
-            return o;
+            final var _resultValue = new GetPoolStartTaskUserIdentity();
+            _resultValue.autoUsers = autoUsers;
+            _resultValue.userName = userName;
+            return _resultValue;
         }
     }
 }

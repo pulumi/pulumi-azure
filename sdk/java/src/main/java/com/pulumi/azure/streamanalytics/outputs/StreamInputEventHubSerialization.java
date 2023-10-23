@@ -94,11 +94,11 @@ public final class StreamInputEventHubSerialization {
             return this;
         }
         public StreamInputEventHubSerialization build() {
-            final var o = new StreamInputEventHubSerialization();
-            o.encoding = encoding;
-            o.fieldDelimiter = fieldDelimiter;
-            o.type = type;
-            return o;
+            final var _resultValue = new StreamInputEventHubSerialization();
+            _resultValue.encoding = encoding;
+            _resultValue.fieldDelimiter = fieldDelimiter;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class StreamingPolicyCommonEncryptionCencDrmPlayready {
             return this;
         }
         public StreamingPolicyCommonEncryptionCencDrmPlayready build() {
-            final var o = new StreamingPolicyCommonEncryptionCencDrmPlayready();
-            o.customAttributes = customAttributes;
-            o.customLicenseAcquisitionUrlTemplate = customLicenseAcquisitionUrlTemplate;
-            return o;
+            final var _resultValue = new StreamingPolicyCommonEncryptionCencDrmPlayready();
+            _resultValue.customAttributes = customAttributes;
+            _resultValue.customLicenseAcquisitionUrlTemplate = customLicenseAcquisitionUrlTemplate;
+            return _resultValue;
         }
     }
 }

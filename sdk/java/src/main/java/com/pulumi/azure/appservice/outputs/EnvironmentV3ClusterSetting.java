@@ -65,10 +65,10 @@ public final class EnvironmentV3ClusterSetting {
             return this;
         }
         public EnvironmentV3ClusterSetting build() {
-            final var o = new EnvironmentV3ClusterSetting();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new EnvironmentV3ClusterSetting();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -95,11 +95,11 @@ public final class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAl
             return upns(List.of(upns));
         }
         public CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames build() {
-            final var o = new CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames();
-            o.dnsNames = dnsNames;
-            o.emails = emails;
-            o.upns = upns;
-            return o;
+            final var _resultValue = new CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames();
+            _resultValue.dnsNames = dnsNames;
+            _resultValue.emails = emails;
+            _resultValue.upns = upns;
+            return _resultValue;
         }
     }
 }

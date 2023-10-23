@@ -40,7 +40,15 @@ class DefinitionPermissionArgs:
              data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataActions' in kwargs:
+            data_actions = kwargs['dataActions']
+        if 'notActions' in kwargs:
+            not_actions = kwargs['notActions']
+        if 'notDataActions' in kwargs:
+            not_data_actions = kwargs['notDataActions']
+
         if actions is not None:
             _setter("actions", actions)
         if data_actions is not None:

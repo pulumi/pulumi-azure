@@ -88,11 +88,11 @@ public final class GetVirtualHubConnectionRoutingStaticVnetRoute {
             return this;
         }
         public GetVirtualHubConnectionRoutingStaticVnetRoute build() {
-            final var o = new GetVirtualHubConnectionRoutingStaticVnetRoute();
-            o.addressPrefixes = addressPrefixes;
-            o.name = name;
-            o.nextHopIpAddress = nextHopIpAddress;
-            return o;
+            final var _resultValue = new GetVirtualHubConnectionRoutingStaticVnetRoute();
+            _resultValue.addressPrefixes = addressPrefixes;
+            _resultValue.name = name;
+            _resultValue.nextHopIpAddress = nextHopIpAddress;
+            return _resultValue;
         }
     }
 }

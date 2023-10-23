@@ -68,10 +68,10 @@ public final class FailoverGroupReadWriteEndpointFailoverPolicy {
             return this;
         }
         public FailoverGroupReadWriteEndpointFailoverPolicy build() {
-            final var o = new FailoverGroupReadWriteEndpointFailoverPolicy();
-            o.graceMinutes = graceMinutes;
-            o.mode = mode;
-            return o;
+            final var _resultValue = new FailoverGroupReadWriteEndpointFailoverPolicy();
+            _resultValue.graceMinutes = graceMinutes;
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

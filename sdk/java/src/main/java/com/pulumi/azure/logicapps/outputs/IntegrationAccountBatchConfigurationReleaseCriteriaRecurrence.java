@@ -145,14 +145,14 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
             return this;
         }
         public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence build() {
-            final var o = new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence();
-            o.endTime = endTime;
-            o.frequency = frequency;
-            o.interval = interval;
-            o.schedule = schedule;
-            o.startTime = startTime;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence();
+            _resultValue.endTime = endTime;
+            _resultValue.frequency = frequency;
+            _resultValue.interval = interval;
+            _resultValue.schedule = schedule;
+            _resultValue.startTime = startTime;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

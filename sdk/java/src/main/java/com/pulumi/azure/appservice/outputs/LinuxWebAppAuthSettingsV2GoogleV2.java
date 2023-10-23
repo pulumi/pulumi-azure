@@ -115,12 +115,12 @@ public final class LinuxWebAppAuthSettingsV2GoogleV2 {
             return loginScopes(List.of(loginScopes));
         }
         public LinuxWebAppAuthSettingsV2GoogleV2 build() {
-            final var o = new LinuxWebAppAuthSettingsV2GoogleV2();
-            o.allowedAudiences = allowedAudiences;
-            o.clientId = clientId;
-            o.clientSecretSettingName = clientSecretSettingName;
-            o.loginScopes = loginScopes;
-            return o;
+            final var _resultValue = new LinuxWebAppAuthSettingsV2GoogleV2();
+            _resultValue.allowedAudiences = allowedAudiences;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            _resultValue.loginScopes = loginScopes;
+            return _resultValue;
         }
     }
 }

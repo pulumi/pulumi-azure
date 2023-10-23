@@ -84,12 +84,12 @@ public final class GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader {
             return xForwardedHosts(List.of(xForwardedHosts));
         }
         public GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader build() {
-            final var o = new GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader();
-            o.xAzureFdids = xAzureFdids;
-            o.xFdHealthProbes = xFdHealthProbes;
-            o.xForwardedFors = xForwardedFors;
-            o.xForwardedHosts = xForwardedHosts;
-            return o;
+            final var _resultValue = new GetWindowsFunctionAppSiteConfigScmIpRestrictionHeader();
+            _resultValue.xAzureFdids = xAzureFdids;
+            _resultValue.xFdHealthProbes = xFdHealthProbes;
+            _resultValue.xForwardedFors = xForwardedFors;
+            _resultValue.xForwardedHosts = xForwardedHosts;
+            return _resultValue;
         }
     }
 }

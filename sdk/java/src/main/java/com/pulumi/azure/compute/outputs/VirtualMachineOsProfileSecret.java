@@ -71,10 +71,10 @@ public final class VirtualMachineOsProfileSecret {
             return vaultCertificates(List.of(vaultCertificates));
         }
         public VirtualMachineOsProfileSecret build() {
-            final var o = new VirtualMachineOsProfileSecret();
-            o.sourceVaultId = sourceVaultId;
-            o.vaultCertificates = vaultCertificates;
-            return o;
+            final var _resultValue = new VirtualMachineOsProfileSecret();
+            _resultValue.sourceVaultId = sourceVaultId;
+            _resultValue.vaultCertificates = vaultCertificates;
+            return _resultValue;
         }
     }
 }

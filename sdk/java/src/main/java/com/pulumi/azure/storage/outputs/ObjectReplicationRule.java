@@ -120,13 +120,13 @@ public final class ObjectReplicationRule {
             return this;
         }
         public ObjectReplicationRule build() {
-            final var o = new ObjectReplicationRule();
-            o.copyBlobsCreatedAfter = copyBlobsCreatedAfter;
-            o.destinationContainerName = destinationContainerName;
-            o.filterOutBlobsWithPrefixes = filterOutBlobsWithPrefixes;
-            o.name = name;
-            o.sourceContainerName = sourceContainerName;
-            return o;
+            final var _resultValue = new ObjectReplicationRule();
+            _resultValue.copyBlobsCreatedAfter = copyBlobsCreatedAfter;
+            _resultValue.destinationContainerName = destinationContainerName;
+            _resultValue.filterOutBlobsWithPrefixes = filterOutBlobsWithPrefixes;
+            _resultValue.name = name;
+            _resultValue.sourceContainerName = sourceContainerName;
+            return _resultValue;
         }
     }
 }

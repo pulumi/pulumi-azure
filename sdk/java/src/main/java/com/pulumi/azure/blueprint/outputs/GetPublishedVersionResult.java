@@ -177,18 +177,18 @@ public final class GetPublishedVersionResult {
             return this;
         }
         public GetPublishedVersionResult build() {
-            final var o = new GetPublishedVersionResult();
-            o.blueprintName = blueprintName;
-            o.description = description;
-            o.displayName = displayName;
-            o.id = id;
-            o.lastModified = lastModified;
-            o.scopeId = scopeId;
-            o.targetScope = targetScope;
-            o.timeCreated = timeCreated;
-            o.type = type;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetPublishedVersionResult();
+            _resultValue.blueprintName = blueprintName;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.lastModified = lastModified;
+            _resultValue.scopeId = scopeId;
+            _resultValue.targetScope = targetScope;
+            _resultValue.timeCreated = timeCreated;
+            _resultValue.type = type;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

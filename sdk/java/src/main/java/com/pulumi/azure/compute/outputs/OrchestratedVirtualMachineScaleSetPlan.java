@@ -84,11 +84,11 @@ public final class OrchestratedVirtualMachineScaleSetPlan {
             return this;
         }
         public OrchestratedVirtualMachineScaleSetPlan build() {
-            final var o = new OrchestratedVirtualMachineScaleSetPlan();
-            o.name = name;
-            o.product = product;
-            o.publisher = publisher;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetPlan();
+            _resultValue.name = name;
+            _resultValue.product = product;
+            _resultValue.publisher = publisher;
+            return _resultValue;
         }
     }
 }

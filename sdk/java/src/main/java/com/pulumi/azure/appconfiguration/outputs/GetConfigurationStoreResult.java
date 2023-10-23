@@ -396,27 +396,27 @@ public final class GetConfigurationStoreResult {
             return this;
         }
         public GetConfigurationStoreResult build() {
-            final var o = new GetConfigurationStoreResult();
-            o.encryptions = encryptions;
-            o.endpoint = endpoint;
-            o.id = id;
-            o.identities = identities;
-            o.localAuthEnabled = localAuthEnabled;
-            o.location = location;
-            o.name = name;
-            o.primaryReadKeys = primaryReadKeys;
-            o.primaryWriteKeys = primaryWriteKeys;
-            o.publicNetworkAccess = publicNetworkAccess;
-            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            o.purgeProtectionEnabled = purgeProtectionEnabled;
-            o.replicas = replicas;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryReadKeys = secondaryReadKeys;
-            o.secondaryWriteKeys = secondaryWriteKeys;
-            o.sku = sku;
-            o.softDeleteRetentionDays = softDeleteRetentionDays;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetConfigurationStoreResult();
+            _resultValue.encryptions = encryptions;
+            _resultValue.endpoint = endpoint;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.localAuthEnabled = localAuthEnabled;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.primaryReadKeys = primaryReadKeys;
+            _resultValue.primaryWriteKeys = primaryWriteKeys;
+            _resultValue.publicNetworkAccess = publicNetworkAccess;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            _resultValue.purgeProtectionEnabled = purgeProtectionEnabled;
+            _resultValue.replicas = replicas;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryReadKeys = secondaryReadKeys;
+            _resultValue.secondaryWriteKeys = secondaryWriteKeys;
+            _resultValue.sku = sku;
+            _resultValue.softDeleteRetentionDays = softDeleteRetentionDays;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

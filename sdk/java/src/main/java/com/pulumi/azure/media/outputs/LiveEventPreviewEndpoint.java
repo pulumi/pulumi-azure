@@ -51,10 +51,10 @@ public final class LiveEventPreviewEndpoint {
             return this;
         }
         public LiveEventPreviewEndpoint build() {
-            final var o = new LiveEventPreviewEndpoint();
-            o.protocol = protocol;
-            o.url = url;
-            return o;
+            final var _resultValue = new LiveEventPreviewEndpoint();
+            _resultValue.protocol = protocol;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

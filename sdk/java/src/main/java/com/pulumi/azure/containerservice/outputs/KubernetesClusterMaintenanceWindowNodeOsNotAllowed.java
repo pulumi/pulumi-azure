@@ -65,10 +65,10 @@ public final class KubernetesClusterMaintenanceWindowNodeOsNotAllowed {
             return this;
         }
         public KubernetesClusterMaintenanceWindowNodeOsNotAllowed build() {
-            final var o = new KubernetesClusterMaintenanceWindowNodeOsNotAllowed();
-            o.end = end;
-            o.start = start;
-            return o;
+            final var _resultValue = new KubernetesClusterMaintenanceWindowNodeOsNotAllowed();
+            _resultValue.end = end;
+            _resultValue.start = start;
+            return _resultValue;
         }
     }
 }

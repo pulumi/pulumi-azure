@@ -108,12 +108,12 @@ public final class StreamingPolicyCommonEncryptionCbcs {
             return this;
         }
         public StreamingPolicyCommonEncryptionCbcs build() {
-            final var o = new StreamingPolicyCommonEncryptionCbcs();
-            o.clearKeyEncryption = clearKeyEncryption;
-            o.defaultContentKey = defaultContentKey;
-            o.drmFairplay = drmFairplay;
-            o.enabledProtocols = enabledProtocols;
-            return o;
+            final var _resultValue = new StreamingPolicyCommonEncryptionCbcs();
+            _resultValue.clearKeyEncryption = clearKeyEncryption;
+            _resultValue.defaultContentKey = defaultContentKey;
+            _resultValue.drmFairplay = drmFairplay;
+            _resultValue.enabledProtocols = enabledProtocols;
+            return _resultValue;
         }
     }
 }

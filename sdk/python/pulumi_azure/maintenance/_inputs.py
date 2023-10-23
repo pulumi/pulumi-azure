@@ -39,7 +39,9 @@ class ConfigurationInstallPatchesArgs:
              linuxes: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]] = None,
              reboot: Optional[pulumi.Input[str]] = None,
              windows: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if linuxes is not None:
             _setter("linuxes", linuxes)
         if reboot is not None:
@@ -107,7 +109,15 @@ class ConfigurationInstallPatchesLinuxArgs:
              classifications_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              package_names_mask_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              package_names_mask_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classificationsToIncludes' in kwargs:
+            classifications_to_includes = kwargs['classificationsToIncludes']
+        if 'packageNamesMaskToExcludes' in kwargs:
+            package_names_mask_to_excludes = kwargs['packageNamesMaskToExcludes']
+        if 'packageNamesMaskToIncludes' in kwargs:
+            package_names_mask_to_includes = kwargs['packageNamesMaskToIncludes']
+
         if classifications_to_includes is not None:
             _setter("classifications_to_includes", classifications_to_includes)
         if package_names_mask_to_excludes is not None:
@@ -175,7 +185,15 @@ class ConfigurationInstallPatchesWindowArgs:
              classifications_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              kb_numbers_to_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              kb_numbers_to_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classificationsToIncludes' in kwargs:
+            classifications_to_includes = kwargs['classificationsToIncludes']
+        if 'kbNumbersToExcludes' in kwargs:
+            kb_numbers_to_excludes = kwargs['kbNumbersToExcludes']
+        if 'kbNumbersToIncludes' in kwargs:
+            kb_numbers_to_includes = kwargs['kbNumbersToIncludes']
+
         if classifications_to_includes is not None:
             _setter("classifications_to_includes", classifications_to_includes)
         if kb_numbers_to_excludes is not None:
@@ -251,7 +269,17 @@ class ConfigurationWindowArgs:
              duration: Optional[pulumi.Input[str]] = None,
              expiration_date_time: Optional[pulumi.Input[str]] = None,
              recur_every: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'startDateTime' in kwargs:
+            start_date_time = kwargs['startDateTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if 'expirationDateTime' in kwargs:
+            expiration_date_time = kwargs['expirationDateTime']
+        if 'recurEvery' in kwargs:
+            recur_every = kwargs['recurEvery']
+
         _setter("start_date_time", start_date_time)
         _setter("time_zone", time_zone)
         if duration is not None:

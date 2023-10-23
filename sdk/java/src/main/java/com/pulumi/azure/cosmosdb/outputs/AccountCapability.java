@@ -46,9 +46,9 @@ public final class AccountCapability {
             return this;
         }
         public AccountCapability build() {
-            final var o = new AccountCapability();
-            o.name = name;
-            return o;
+            final var _resultValue = new AccountCapability();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class LinkedCustomServiceIntegrationRuntime {
             return this;
         }
         public LinkedCustomServiceIntegrationRuntime build() {
-            final var o = new LinkedCustomServiceIntegrationRuntime();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new LinkedCustomServiceIntegrationRuntime();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

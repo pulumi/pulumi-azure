@@ -67,10 +67,10 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddresses {
             return this;
         }
         public VirtualNetworkGatewayConnectionCustomBgpAddresses build() {
-            final var o = new VirtualNetworkGatewayConnectionCustomBgpAddresses();
-            o.primary = primary;
-            o.secondary = secondary;
-            return o;
+            final var _resultValue = new VirtualNetworkGatewayConnectionCustomBgpAddresses();
+            _resultValue.primary = primary;
+            _resultValue.secondary = secondary;
+            return _resultValue;
         }
     }
 }

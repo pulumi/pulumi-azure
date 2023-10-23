@@ -65,7 +65,19 @@ class VirtualHubArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[int]] = None,
              virtual_wan_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'hubRoutingPreference' in kwargs:
+            hub_routing_preference = kwargs['hubRoutingPreference']
+        if 'virtualRouterAutoScaleMinCapacity' in kwargs:
+            virtual_router_auto_scale_min_capacity = kwargs['virtualRouterAutoScaleMinCapacity']
+        if 'virtualWanId' in kwargs:
+            virtual_wan_id = kwargs['virtualWanId']
+
         _setter("resource_group_name", resource_group_name)
         if address_prefix is not None:
             _setter("address_prefix", address_prefix)
@@ -271,7 +283,25 @@ class _VirtualHubState:
              virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[int]] = None,
              virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              virtual_wan_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if 'defaultRouteTableId' in kwargs:
+            default_route_table_id = kwargs['defaultRouteTableId']
+        if 'hubRoutingPreference' in kwargs:
+            hub_routing_preference = kwargs['hubRoutingPreference']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualRouterAsn' in kwargs:
+            virtual_router_asn = kwargs['virtualRouterAsn']
+        if 'virtualRouterAutoScaleMinCapacity' in kwargs:
+            virtual_router_auto_scale_min_capacity = kwargs['virtualRouterAutoScaleMinCapacity']
+        if 'virtualRouterIps' in kwargs:
+            virtual_router_ips = kwargs['virtualRouterIps']
+        if 'virtualWanId' in kwargs:
+            virtual_wan_id = kwargs['virtualWanId']
+
         if address_prefix is not None:
             _setter("address_prefix", address_prefix)
         if default_route_table_id is not None:

@@ -65,10 +65,10 @@ public final class GetNetworkServiceServiceQosPolicyMaximumBitRate {
             return this;
         }
         public GetNetworkServiceServiceQosPolicyMaximumBitRate build() {
-            final var o = new GetNetworkServiceServiceQosPolicyMaximumBitRate();
-            o.downlink = downlink;
-            o.uplink = uplink;
-            return o;
+            final var _resultValue = new GetNetworkServiceServiceQosPolicyMaximumBitRate();
+            _resultValue.downlink = downlink;
+            _resultValue.uplink = uplink;
+            return _resultValue;
         }
     }
 }

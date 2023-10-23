@@ -73,10 +73,10 @@ public final class GetWindowsWebAppLogHttpLog {
             return fileSystems(List.of(fileSystems));
         }
         public GetWindowsWebAppLogHttpLog build() {
-            final var o = new GetWindowsWebAppLogHttpLog();
-            o.azureBlobStorages = azureBlobStorages;
-            o.fileSystems = fileSystems;
-            return o;
+            final var _resultValue = new GetWindowsWebAppLogHttpLog();
+            _resultValue.azureBlobStorages = azureBlobStorages;
+            _resultValue.fileSystems = fileSystems;
+            return _resultValue;
         }
     }
 }

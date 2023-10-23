@@ -65,10 +65,10 @@ public final class HadoopClusterMonitor {
             return this;
         }
         public HadoopClusterMonitor build() {
-            final var o = new HadoopClusterMonitor();
-            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-            o.primaryKey = primaryKey;
-            return o;
+            final var _resultValue = new HadoopClusterMonitor();
+            _resultValue.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            _resultValue.primaryKey = primaryKey;
+            return _resultValue;
         }
     }
 }

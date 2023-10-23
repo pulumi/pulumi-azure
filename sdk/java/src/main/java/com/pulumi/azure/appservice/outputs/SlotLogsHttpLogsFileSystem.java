@@ -65,10 +65,10 @@ public final class SlotLogsHttpLogsFileSystem {
             return this;
         }
         public SlotLogsHttpLogsFileSystem build() {
-            final var o = new SlotLogsHttpLogsFileSystem();
-            o.retentionInDays = retentionInDays;
-            o.retentionInMb = retentionInMb;
-            return o;
+            final var _resultValue = new SlotLogsHttpLogsFileSystem();
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.retentionInMb = retentionInMb;
+            return _resultValue;
         }
     }
 }

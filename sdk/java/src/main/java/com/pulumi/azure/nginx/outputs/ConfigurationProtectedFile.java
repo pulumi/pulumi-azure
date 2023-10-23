@@ -65,10 +65,10 @@ public final class ConfigurationProtectedFile {
             return this;
         }
         public ConfigurationProtectedFile build() {
-            final var o = new ConfigurationProtectedFile();
-            o.content = content;
-            o.virtualPath = virtualPath;
-            return o;
+            final var _resultValue = new ConfigurationProtectedFile();
+            _resultValue.content = content;
+            _resultValue.virtualPath = virtualPath;
+            return _resultValue;
         }
     }
 }

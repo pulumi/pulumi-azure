@@ -55,7 +55,23 @@ class ChannelSlackArgs:
              landing_page_url: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              signing_secret: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'verificationToken' in kwargs:
+            verification_token = kwargs['verificationToken']
+        if 'landingPageUrl' in kwargs:
+            landing_page_url = kwargs['landingPageUrl']
+        if 'signingSecret' in kwargs:
+            signing_secret = kwargs['signingSecret']
+
         _setter("bot_name", bot_name)
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
@@ -209,7 +225,23 @@ class _ChannelSlackState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              signing_secret: Optional[pulumi.Input[str]] = None,
              verification_token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'landingPageUrl' in kwargs:
+            landing_page_url = kwargs['landingPageUrl']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'signingSecret' in kwargs:
+            signing_secret = kwargs['signingSecret']
+        if 'verificationToken' in kwargs:
+            verification_token = kwargs['verificationToken']
+
         if bot_name is not None:
             _setter("bot_name", bot_name)
         if client_id is not None:

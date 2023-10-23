@@ -107,12 +107,12 @@ public final class SlotLogs {
             return this;
         }
         public SlotLogs build() {
-            final var o = new SlotLogs();
-            o.applicationLogs = applicationLogs;
-            o.detailedErrorMessagesEnabled = detailedErrorMessagesEnabled;
-            o.failedRequestTracingEnabled = failedRequestTracingEnabled;
-            o.httpLogs = httpLogs;
-            return o;
+            final var _resultValue = new SlotLogs();
+            _resultValue.applicationLogs = applicationLogs;
+            _resultValue.detailedErrorMessagesEnabled = detailedErrorMessagesEnabled;
+            _resultValue.failedRequestTracingEnabled = failedRequestTracingEnabled;
+            _resultValue.httpLogs = httpLogs;
+            return _resultValue;
         }
     }
 }

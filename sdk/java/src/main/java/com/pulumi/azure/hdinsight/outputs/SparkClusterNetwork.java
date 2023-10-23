@@ -72,10 +72,10 @@ public final class SparkClusterNetwork {
             return this;
         }
         public SparkClusterNetwork build() {
-            final var o = new SparkClusterNetwork();
-            o.connectionDirection = connectionDirection;
-            o.privateLinkEnabled = privateLinkEnabled;
-            return o;
+            final var _resultValue = new SparkClusterNetwork();
+            _resultValue.connectionDirection = connectionDirection;
+            _resultValue.privateLinkEnabled = privateLinkEnabled;
+            return _resultValue;
         }
     }
 }

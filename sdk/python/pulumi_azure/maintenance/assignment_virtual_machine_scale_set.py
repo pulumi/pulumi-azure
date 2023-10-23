@@ -35,7 +35,13 @@ class AssignmentVirtualMachineScaleSetArgs:
              maintenance_configuration_id: pulumi.Input[str],
              virtual_machine_scale_set_id: pulumi.Input[str],
              location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maintenanceConfigurationId' in kwargs:
+            maintenance_configuration_id = kwargs['maintenanceConfigurationId']
+        if 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+
         _setter("maintenance_configuration_id", maintenance_configuration_id)
         _setter("virtual_machine_scale_set_id", virtual_machine_scale_set_id)
         if location is not None:
@@ -102,7 +108,13 @@ class _AssignmentVirtualMachineScaleSetState:
              location: Optional[pulumi.Input[str]] = None,
              maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
              virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maintenanceConfigurationId' in kwargs:
+            maintenance_configuration_id = kwargs['maintenanceConfigurationId']
+        if 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+
         if location is not None:
             _setter("location", location)
         if maintenance_configuration_id is not None:

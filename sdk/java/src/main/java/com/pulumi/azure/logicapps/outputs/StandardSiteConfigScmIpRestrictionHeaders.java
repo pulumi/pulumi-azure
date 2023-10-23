@@ -115,12 +115,12 @@ public final class StandardSiteConfigScmIpRestrictionHeaders {
             return xForwardedHosts(List.of(xForwardedHosts));
         }
         public StandardSiteConfigScmIpRestrictionHeaders build() {
-            final var o = new StandardSiteConfigScmIpRestrictionHeaders();
-            o.xAzureFdids = xAzureFdids;
-            o.xFdHealthProbe = xFdHealthProbe;
-            o.xForwardedFors = xForwardedFors;
-            o.xForwardedHosts = xForwardedHosts;
-            return o;
+            final var _resultValue = new StandardSiteConfigScmIpRestrictionHeaders();
+            _resultValue.xAzureFdids = xAzureFdids;
+            _resultValue.xFdHealthProbe = xFdHealthProbe;
+            _resultValue.xForwardedFors = xForwardedFors;
+            _resultValue.xForwardedHosts = xForwardedHosts;
+            return _resultValue;
         }
     }
 }

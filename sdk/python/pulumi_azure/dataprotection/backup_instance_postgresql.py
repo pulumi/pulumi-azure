@@ -47,7 +47,17 @@ class BackupInstancePostgresqlArgs:
              database_credential_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupPolicyId' in kwargs:
+            backup_policy_id = kwargs['backupPolicyId']
+        if 'databaseId' in kwargs:
+            database_id = kwargs['databaseId']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+        if 'databaseCredentialKeyVaultSecretId' in kwargs:
+            database_credential_key_vault_secret_id = kwargs['databaseCredentialKeyVaultSecretId']
+
         _setter("backup_policy_id", backup_policy_id)
         _setter("database_id", database_id)
         _setter("vault_id", vault_id)
@@ -167,7 +177,17 @@ class _BackupInstancePostgresqlState:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              vault_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backupPolicyId' in kwargs:
+            backup_policy_id = kwargs['backupPolicyId']
+        if 'databaseCredentialKeyVaultSecretId' in kwargs:
+            database_credential_key_vault_secret_id = kwargs['databaseCredentialKeyVaultSecretId']
+        if 'databaseId' in kwargs:
+            database_id = kwargs['databaseId']
+        if 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         if backup_policy_id is not None:
             _setter("backup_policy_id", backup_policy_id)
         if database_credential_key_vault_secret_id is not None:

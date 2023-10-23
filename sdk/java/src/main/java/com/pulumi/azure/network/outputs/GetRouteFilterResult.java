@@ -139,14 +139,14 @@ public final class GetRouteFilterResult {
             return this;
         }
         public GetRouteFilterResult build() {
-            final var o = new GetRouteFilterResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.rules = rules;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetRouteFilterResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.rules = rules;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

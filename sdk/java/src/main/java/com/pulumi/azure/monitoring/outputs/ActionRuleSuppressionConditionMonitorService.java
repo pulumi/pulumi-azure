@@ -69,10 +69,10 @@ public final class ActionRuleSuppressionConditionMonitorService {
             return values(List.of(values));
         }
         public ActionRuleSuppressionConditionMonitorService build() {
-            final var o = new ActionRuleSuppressionConditionMonitorService();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new ActionRuleSuppressionConditionMonitorService();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -331,24 +331,24 @@ public final class GetSubscriptionResult {
             return this;
         }
         public GetSubscriptionResult build() {
-            final var o = new GetSubscriptionResult();
-            o.autoDeleteOnIdle = autoDeleteOnIdle;
-            o.deadLetteringOnFilterEvaluationError = deadLetteringOnFilterEvaluationError;
-            o.deadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
-            o.defaultMessageTtl = defaultMessageTtl;
-            o.enableBatchedOperations = enableBatchedOperations;
-            o.forwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
-            o.forwardTo = forwardTo;
-            o.id = id;
-            o.lockDuration = lockDuration;
-            o.maxDeliveryCount = maxDeliveryCount;
-            o.name = name;
-            o.namespaceName = namespaceName;
-            o.requiresSession = requiresSession;
-            o.resourceGroupName = resourceGroupName;
-            o.topicId = topicId;
-            o.topicName = topicName;
-            return o;
+            final var _resultValue = new GetSubscriptionResult();
+            _resultValue.autoDeleteOnIdle = autoDeleteOnIdle;
+            _resultValue.deadLetteringOnFilterEvaluationError = deadLetteringOnFilterEvaluationError;
+            _resultValue.deadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
+            _resultValue.defaultMessageTtl = defaultMessageTtl;
+            _resultValue.enableBatchedOperations = enableBatchedOperations;
+            _resultValue.forwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
+            _resultValue.forwardTo = forwardTo;
+            _resultValue.id = id;
+            _resultValue.lockDuration = lockDuration;
+            _resultValue.maxDeliveryCount = maxDeliveryCount;
+            _resultValue.name = name;
+            _resultValue.namespaceName = namespaceName;
+            _resultValue.requiresSession = requiresSession;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.topicId = topicId;
+            _resultValue.topicName = topicName;
+            return _resultValue;
         }
     }
 }

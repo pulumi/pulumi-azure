@@ -43,7 +43,13 @@ class SlotCustomHostnameBindingArgs:
              hostname: pulumi.Input[str],
              ssl_state: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceSlotId' in kwargs:
+            app_service_slot_id = kwargs['appServiceSlotId']
+        if 'sslState' in kwargs:
+            ssl_state = kwargs['sslState']
+
         _setter("app_service_slot_id", app_service_slot_id)
         _setter("hostname", hostname)
         if ssl_state is not None:
@@ -140,7 +146,15 @@ class _SlotCustomHostnameBindingState:
              ssl_state: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
              virtual_ip: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceSlotId' in kwargs:
+            app_service_slot_id = kwargs['appServiceSlotId']
+        if 'sslState' in kwargs:
+            ssl_state = kwargs['sslState']
+        if 'virtualIp' in kwargs:
+            virtual_ip = kwargs['virtualIp']
+
         if app_service_slot_id is not None:
             _setter("app_service_slot_id", app_service_slot_id)
         if hostname is not None:

@@ -107,12 +107,12 @@ public final class GetWindowsFunctionAppAuthSettingGithub {
             return oauthScopes(List.of(oauthScopes));
         }
         public GetWindowsFunctionAppAuthSettingGithub build() {
-            final var o = new GetWindowsFunctionAppAuthSettingGithub();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.clientSecretSettingName = clientSecretSettingName;
-            o.oauthScopes = oauthScopes;
-            return o;
+            final var _resultValue = new GetWindowsFunctionAppAuthSettingGithub();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            _resultValue.oauthScopes = oauthScopes;
+            return _resultValue;
         }
     }
 }

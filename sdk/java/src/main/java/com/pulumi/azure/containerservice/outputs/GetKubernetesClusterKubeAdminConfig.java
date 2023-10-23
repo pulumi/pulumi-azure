@@ -141,14 +141,14 @@ public final class GetKubernetesClusterKubeAdminConfig {
             return this;
         }
         public GetKubernetesClusterKubeAdminConfig build() {
-            final var o = new GetKubernetesClusterKubeAdminConfig();
-            o.clientCertificate = clientCertificate;
-            o.clientKey = clientKey;
-            o.clusterCaCertificate = clusterCaCertificate;
-            o.host = host;
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new GetKubernetesClusterKubeAdminConfig();
+            _resultValue.clientCertificate = clientCertificate;
+            _resultValue.clientKey = clientKey;
+            _resultValue.clusterCaCertificate = clusterCaCertificate;
+            _resultValue.host = host;
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

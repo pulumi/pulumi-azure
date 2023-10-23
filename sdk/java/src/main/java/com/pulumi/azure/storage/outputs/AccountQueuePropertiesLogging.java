@@ -126,13 +126,13 @@ public final class AccountQueuePropertiesLogging {
             return this;
         }
         public AccountQueuePropertiesLogging build() {
-            final var o = new AccountQueuePropertiesLogging();
-            o.delete = delete;
-            o.read = read;
-            o.retentionPolicyDays = retentionPolicyDays;
-            o.version = version;
-            o.write = write;
-            return o;
+            final var _resultValue = new AccountQueuePropertiesLogging();
+            _resultValue.delete = delete;
+            _resultValue.read = read;
+            _resultValue.retentionPolicyDays = retentionPolicyDays;
+            _resultValue.version = version;
+            _resultValue.write = write;
+            return _resultValue;
         }
     }
 }

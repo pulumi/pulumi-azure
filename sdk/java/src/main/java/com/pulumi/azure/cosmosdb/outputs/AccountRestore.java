@@ -94,11 +94,11 @@ public final class AccountRestore {
             return this;
         }
         public AccountRestore build() {
-            final var o = new AccountRestore();
-            o.databases = databases;
-            o.restoreTimestampInUtc = restoreTimestampInUtc;
-            o.sourceCosmosdbAccountId = sourceCosmosdbAccountId;
-            return o;
+            final var _resultValue = new AccountRestore();
+            _resultValue.databases = databases;
+            _resultValue.restoreTimestampInUtc = restoreTimestampInUtc;
+            _resultValue.sourceCosmosdbAccountId = sourceCosmosdbAccountId;
+            return _resultValue;
         }
     }
 }

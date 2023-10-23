@@ -35,7 +35,11 @@ class ApiReleaseArgs:
              api_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
              notes: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+
         _setter("api_id", api_id)
         if name is not None:
             _setter("name", name)
@@ -103,7 +107,11 @@ class _ApiReleaseState:
              api_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              notes: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+
         if api_id is not None:
             _setter("api_id", api_id)
         if name is not None:

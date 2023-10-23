@@ -105,12 +105,12 @@ public final class ServicePlanSupport {
             return this;
         }
         public ServicePlanSupport build() {
-            final var o = new ServicePlanSupport();
-            o.email = email;
-            o.instructions = instructions;
-            o.phone = phone;
-            o.url = url;
-            return o;
+            final var _resultValue = new ServicePlanSupport();
+            _resultValue.email = email;
+            _resultValue.instructions = instructions;
+            _resultValue.phone = phone;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

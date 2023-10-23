@@ -359,26 +359,26 @@ public final class GetKeyResult {
             return this;
         }
         public GetKeyResult build() {
-            final var o = new GetKeyResult();
-            o.curve = curve;
-            o.e = e;
-            o.id = id;
-            o.keyOpts = keyOpts;
-            o.keySize = keySize;
-            o.keyType = keyType;
-            o.keyVaultId = keyVaultId;
-            o.n = n;
-            o.name = name;
-            o.publicKeyOpenssh = publicKeyOpenssh;
-            o.publicKeyPem = publicKeyPem;
-            o.resourceId = resourceId;
-            o.resourceVersionlessId = resourceVersionlessId;
-            o.tags = tags;
-            o.version = version;
-            o.versionlessId = versionlessId;
-            o.x = x;
-            o.y = y;
-            return o;
+            final var _resultValue = new GetKeyResult();
+            _resultValue.curve = curve;
+            _resultValue.e = e;
+            _resultValue.id = id;
+            _resultValue.keyOpts = keyOpts;
+            _resultValue.keySize = keySize;
+            _resultValue.keyType = keyType;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.n = n;
+            _resultValue.name = name;
+            _resultValue.publicKeyOpenssh = publicKeyOpenssh;
+            _resultValue.publicKeyPem = publicKeyPem;
+            _resultValue.resourceId = resourceId;
+            _resultValue.resourceVersionlessId = resourceVersionlessId;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            _resultValue.versionlessId = versionlessId;
+            _resultValue.x = x;
+            _resultValue.y = y;
+            return _resultValue;
         }
     }
 }

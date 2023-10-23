@@ -108,12 +108,12 @@ public final class GetWorkspacePrivateEndpointConnectionResult {
             return this;
         }
         public GetWorkspacePrivateEndpointConnectionResult build() {
-            final var o = new GetWorkspacePrivateEndpointConnectionResult();
-            o.connections = connections;
-            o.id = id;
-            o.privateEndpointId = privateEndpointId;
-            o.workspaceId = workspaceId;
-            return o;
+            final var _resultValue = new GetWorkspacePrivateEndpointConnectionResult();
+            _resultValue.connections = connections;
+            _resultValue.id = id;
+            _resultValue.privateEndpointId = privateEndpointId;
+            _resultValue.workspaceId = workspaceId;
+            return _resultValue;
         }
     }
 }

@@ -78,11 +78,11 @@ public final class EnterpriseDatabaseModule {
             return this;
         }
         public EnterpriseDatabaseModule build() {
-            final var o = new EnterpriseDatabaseModule();
-            o.args = args;
-            o.name = name;
-            o.version = version;
-            return o;
+            final var _resultValue = new EnterpriseDatabaseModule();
+            _resultValue.args = args;
+            _resultValue.name = name;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

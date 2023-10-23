@@ -134,13 +134,13 @@ public final class ServiceUpstreamEndpoint {
             return this;
         }
         public ServiceUpstreamEndpoint build() {
-            final var o = new ServiceUpstreamEndpoint();
-            o.categoryPatterns = categoryPatterns;
-            o.eventPatterns = eventPatterns;
-            o.hubPatterns = hubPatterns;
-            o.urlTemplate = urlTemplate;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new ServiceUpstreamEndpoint();
+            _resultValue.categoryPatterns = categoryPatterns;
+            _resultValue.eventPatterns = eventPatterns;
+            _resultValue.hubPatterns = hubPatterns;
+            _resultValue.urlTemplate = urlTemplate;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

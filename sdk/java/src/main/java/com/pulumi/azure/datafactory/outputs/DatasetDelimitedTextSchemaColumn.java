@@ -86,11 +86,11 @@ public final class DatasetDelimitedTextSchemaColumn {
             return this;
         }
         public DatasetDelimitedTextSchemaColumn build() {
-            final var o = new DatasetDelimitedTextSchemaColumn();
-            o.description = description;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DatasetDelimitedTextSchemaColumn();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

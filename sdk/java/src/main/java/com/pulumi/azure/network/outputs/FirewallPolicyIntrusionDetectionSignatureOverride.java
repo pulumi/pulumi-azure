@@ -67,10 +67,10 @@ public final class FirewallPolicyIntrusionDetectionSignatureOverride {
             return this;
         }
         public FirewallPolicyIntrusionDetectionSignatureOverride build() {
-            final var o = new FirewallPolicyIntrusionDetectionSignatureOverride();
-            o.id = id;
-            o.state = state;
-            return o;
+            final var _resultValue = new FirewallPolicyIntrusionDetectionSignatureOverride();
+            _resultValue.id = id;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

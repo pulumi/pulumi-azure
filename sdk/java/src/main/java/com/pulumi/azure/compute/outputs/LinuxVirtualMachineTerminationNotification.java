@@ -72,10 +72,10 @@ public final class LinuxVirtualMachineTerminationNotification {
             return this;
         }
         public LinuxVirtualMachineTerminationNotification build() {
-            final var o = new LinuxVirtualMachineTerminationNotification();
-            o.enabled = enabled;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineTerminationNotification();
+            _resultValue.enabled = enabled;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

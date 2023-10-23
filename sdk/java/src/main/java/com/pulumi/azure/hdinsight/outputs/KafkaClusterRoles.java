@@ -112,12 +112,12 @@ public final class KafkaClusterRoles {
             return this;
         }
         public KafkaClusterRoles build() {
-            final var o = new KafkaClusterRoles();
-            o.headNode = headNode;
-            o.kafkaManagementNode = kafkaManagementNode;
-            o.workerNode = workerNode;
-            o.zookeeperNode = zookeeperNode;
-            return o;
+            final var _resultValue = new KafkaClusterRoles();
+            _resultValue.headNode = headNode;
+            _resultValue.kafkaManagementNode = kafkaManagementNode;
+            _resultValue.workerNode = workerNode;
+            _resultValue.zookeeperNode = zookeeperNode;
+            return _resultValue;
         }
     }
 }

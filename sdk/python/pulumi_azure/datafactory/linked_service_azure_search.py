@@ -61,7 +61,17 @@ class LinkedServiceAzureSearchArgs:
              integration_runtime_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'searchServiceKey' in kwargs:
+            search_service_key = kwargs['searchServiceKey']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+
         _setter("data_factory_id", data_factory_id)
         _setter("search_service_key", search_service_key)
         _setter("url", url)
@@ -243,7 +253,19 @@ class _LinkedServiceAzureSearchState:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              search_service_key: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'encryptedCredential' in kwargs:
+            encrypted_credential = kwargs['encryptedCredential']
+        if 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if 'searchServiceKey' in kwargs:
+            search_service_key = kwargs['searchServiceKey']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

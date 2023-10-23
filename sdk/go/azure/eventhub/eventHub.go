@@ -85,9 +85,9 @@ type EventHub struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
-	// Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+	// Specifies the current number of shards on the Event Hub.
 	//
-	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
 	//
 	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
@@ -151,9 +151,9 @@ type eventHubState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName *string `pulumi:"namespaceName"`
-	// Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+	// Specifies the current number of shards on the Event Hub.
 	//
-	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
 	//
 	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount *int `pulumi:"partitionCount"`
@@ -176,9 +176,9 @@ type EventHubState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName pulumi.StringPtrInput
-	// Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+	// Specifies the current number of shards on the Event Hub.
 	//
-	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
 	//
 	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount pulumi.IntPtrInput
@@ -205,9 +205,9 @@ type eventHubArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName string `pulumi:"namespaceName"`
-	// Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+	// Specifies the current number of shards on the Event Hub.
 	//
-	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
 	//
 	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount int `pulumi:"partitionCount"`
@@ -229,9 +229,9 @@ type EventHubArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName pulumi.StringInput
-	// Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+	// Specifies the current number of shards on the Event Hub.
 	//
-	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+	// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
 	//
 	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount pulumi.IntInput
@@ -374,9 +374,9 @@ func (o EventHubOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
-// Specifies the current number of shards on the Event Hub. Changing this will force-recreate the resource.
+// Specifies the current number of shards on the Event Hub.
 //
-// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium`.
+// > **Note:** `partitionCount` cannot be changed unless Eventhub Namespace SKU is `Premium` and cannot be decreased.
 //
 // > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 func (o EventHubOutput) PartitionCount() pulumi.IntOutput {

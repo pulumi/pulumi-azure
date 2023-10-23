@@ -69,7 +69,17 @@ class DatasetAzureSqlTableArgs:
              schema: Optional[pulumi.Input[str]] = None,
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAzureSqlTableSchemaColumnArgs']]]] = None,
              table: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'linkedServiceId' in kwargs:
+            linked_service_id = kwargs['linkedServiceId']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'schemaColumns' in kwargs:
+            schema_columns = kwargs['schemaColumns']
+
         _setter("data_factory_id", data_factory_id)
         _setter("linked_service_id", linked_service_id)
         if additional_properties is not None:
@@ -280,7 +290,17 @@ class _DatasetAzureSqlTableState:
              schema: Optional[pulumi.Input[str]] = None,
              schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetAzureSqlTableSchemaColumnArgs']]]] = None,
              table: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'linkedServiceId' in kwargs:
+            linked_service_id = kwargs['linkedServiceId']
+        if 'schemaColumns' in kwargs:
+            schema_columns = kwargs['schemaColumns']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

@@ -88,11 +88,11 @@ public final class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigura
             return this;
         }
         public VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration build() {
-            final var o = new VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration();
-            o.privateIpAddress = privateIpAddress;
-            o.sqlVirtualMachineId = sqlVirtualMachineId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration();
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.sqlVirtualMachineId = sqlVirtualMachineId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

@@ -169,16 +169,16 @@ public final class GetBackupVaultResult {
             return this;
         }
         public GetBackupVaultResult build() {
-            final var o = new GetBackupVaultResult();
-            o.datastoreType = datastoreType;
-            o.id = id;
-            o.identities = identities;
-            o.location = location;
-            o.name = name;
-            o.redundancy = redundancy;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetBackupVaultResult();
+            _resultValue.datastoreType = datastoreType;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.redundancy = redundancy;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

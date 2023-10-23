@@ -85,11 +85,11 @@ public final class GetKubernetesClusterServiceMeshProfile {
             return this;
         }
         public GetKubernetesClusterServiceMeshProfile build() {
-            final var o = new GetKubernetesClusterServiceMeshProfile();
-            o.externalIngressGatewayEnabled = externalIngressGatewayEnabled;
-            o.internalIngressGatewayEnabled = internalIngressGatewayEnabled;
-            o.mode = mode;
-            return o;
+            final var _resultValue = new GetKubernetesClusterServiceMeshProfile();
+            _resultValue.externalIngressGatewayEnabled = externalIngressGatewayEnabled;
+            _resultValue.internalIngressGatewayEnabled = internalIngressGatewayEnabled;
+            _resultValue.mode = mode;
+            return _resultValue;
         }
     }
 }

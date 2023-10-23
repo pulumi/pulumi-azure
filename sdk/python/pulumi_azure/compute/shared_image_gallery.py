@@ -49,7 +49,11 @@ class SharedImageGalleryArgs:
              name: Optional[pulumi.Input[str]] = None,
              sharing: Optional[pulumi.Input['SharedImageGallerySharingArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("resource_group_name", resource_group_name)
         if description is not None:
             _setter("description", description)
@@ -175,7 +179,13 @@ class _SharedImageGalleryState:
              sharing: Optional[pulumi.Input['SharedImageGallerySharingArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              unique_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'uniqueName' in kwargs:
+            unique_name = kwargs['uniqueName']
+
         if description is not None:
             _setter("description", description)
         if location is not None:

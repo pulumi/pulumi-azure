@@ -65,10 +65,10 @@ public final class AlertProcessingRuleSuppressionScheduleRecurrenceDaily {
             return this;
         }
         public AlertProcessingRuleSuppressionScheduleRecurrenceDaily build() {
-            final var o = new AlertProcessingRuleSuppressionScheduleRecurrenceDaily();
-            o.endTime = endTime;
-            o.startTime = startTime;
-            return o;
+            final var _resultValue = new AlertProcessingRuleSuppressionScheduleRecurrenceDaily();
+            _resultValue.endTime = endTime;
+            _resultValue.startTime = startTime;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class StreamingEndpointCrossSiteAccessPolicy {
             return this;
         }
         public StreamingEndpointCrossSiteAccessPolicy build() {
-            final var o = new StreamingEndpointCrossSiteAccessPolicy();
-            o.clientAccessPolicy = clientAccessPolicy;
-            o.crossDomainPolicy = crossDomainPolicy;
-            return o;
+            final var _resultValue = new StreamingEndpointCrossSiteAccessPolicy();
+            _resultValue.clientAccessPolicy = clientAccessPolicy;
+            _resultValue.crossDomainPolicy = crossDomainPolicy;
+            return _resultValue;
         }
     }
 }

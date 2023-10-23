@@ -57,7 +57,17 @@ class SpacecraftArgs:
              location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'noradId' in kwargs:
+            norad_id = kwargs['noradId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'titleLine' in kwargs:
+            title_line = kwargs['titleLine']
+        if 'twoLineElements' in kwargs:
+            two_line_elements = kwargs['twoLineElements']
+
         _setter("links", links)
         _setter("norad_id", norad_id)
         _setter("resource_group_name", resource_group_name)
@@ -211,7 +221,17 @@ class _SpacecraftState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              title_line: Optional[pulumi.Input[str]] = None,
              two_line_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'noradId' in kwargs:
+            norad_id = kwargs['noradId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'titleLine' in kwargs:
+            title_line = kwargs['titleLine']
+        if 'twoLineElements' in kwargs:
+            two_line_elements = kwargs['twoLineElements']
+
         if links is not None:
             _setter("links", links)
         if location is not None:

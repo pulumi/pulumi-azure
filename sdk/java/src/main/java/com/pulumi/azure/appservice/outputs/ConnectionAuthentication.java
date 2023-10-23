@@ -162,15 +162,15 @@ public final class ConnectionAuthentication {
             return this;
         }
         public ConnectionAuthentication build() {
-            final var o = new ConnectionAuthentication();
-            o.certificate = certificate;
-            o.clientId = clientId;
-            o.name = name;
-            o.principalId = principalId;
-            o.secret = secret;
-            o.subscriptionId = subscriptionId;
-            o.type = type;
-            return o;
+            final var _resultValue = new ConnectionAuthentication();
+            _resultValue.certificate = certificate;
+            _resultValue.clientId = clientId;
+            _resultValue.name = name;
+            _resultValue.principalId = principalId;
+            _resultValue.secret = secret;
+            _resultValue.subscriptionId = subscriptionId;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

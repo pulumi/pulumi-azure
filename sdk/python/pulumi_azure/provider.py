@@ -133,7 +133,57 @@ class ProviderArgs:
              use_cli: Optional[pulumi.Input[bool]] = None,
              use_msi: Optional[pulumi.Input[bool]] = None,
              use_oidc: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'auxiliaryTenantIds' in kwargs:
+            auxiliary_tenant_ids = kwargs['auxiliaryTenantIds']
+        if 'clientCertificate' in kwargs:
+            client_certificate = kwargs['clientCertificate']
+        if 'clientCertificatePassword' in kwargs:
+            client_certificate_password = kwargs['clientCertificatePassword']
+        if 'clientCertificatePath' in kwargs:
+            client_certificate_path = kwargs['clientCertificatePath']
+        if 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if 'clientIdFilePath' in kwargs:
+            client_id_file_path = kwargs['clientIdFilePath']
+        if 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if 'clientSecretFilePath' in kwargs:
+            client_secret_file_path = kwargs['clientSecretFilePath']
+        if 'disableCorrelationRequestId' in kwargs:
+            disable_correlation_request_id = kwargs['disableCorrelationRequestId']
+        if 'disableTerraformPartnerId' in kwargs:
+            disable_terraform_partner_id = kwargs['disableTerraformPartnerId']
+        if 'metadataHost' in kwargs:
+            metadata_host = kwargs['metadataHost']
+        if 'msiEndpoint' in kwargs:
+            msi_endpoint = kwargs['msiEndpoint']
+        if 'oidcRequestToken' in kwargs:
+            oidc_request_token = kwargs['oidcRequestToken']
+        if 'oidcRequestUrl' in kwargs:
+            oidc_request_url = kwargs['oidcRequestUrl']
+        if 'oidcToken' in kwargs:
+            oidc_token = kwargs['oidcToken']
+        if 'oidcTokenFilePath' in kwargs:
+            oidc_token_file_path = kwargs['oidcTokenFilePath']
+        if 'partnerId' in kwargs:
+            partner_id = kwargs['partnerId']
+        if 'skipProviderRegistration' in kwargs:
+            skip_provider_registration = kwargs['skipProviderRegistration']
+        if 'storageUseAzuread' in kwargs:
+            storage_use_azuread = kwargs['storageUseAzuread']
+        if 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'useCli' in kwargs:
+            use_cli = kwargs['useCli']
+        if 'useMsi' in kwargs:
+            use_msi = kwargs['useMsi']
+        if 'useOidc' in kwargs:
+            use_oidc = kwargs['useOidc']
+
         if auxiliary_tenant_ids is not None:
             _setter("auxiliary_tenant_ids", auxiliary_tenant_ids)
         if client_certificate is not None:

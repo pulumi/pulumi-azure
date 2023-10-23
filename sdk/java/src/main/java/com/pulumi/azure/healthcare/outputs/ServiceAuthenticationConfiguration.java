@@ -89,11 +89,11 @@ public final class ServiceAuthenticationConfiguration {
             return this;
         }
         public ServiceAuthenticationConfiguration build() {
-            final var o = new ServiceAuthenticationConfiguration();
-            o.audience = audience;
-            o.authority = authority;
-            o.smartProxyEnabled = smartProxyEnabled;
-            return o;
+            final var _resultValue = new ServiceAuthenticationConfiguration();
+            _resultValue.audience = audience;
+            _resultValue.authority = authority;
+            _resultValue.smartProxyEnabled = smartProxyEnabled;
+            return _resultValue;
         }
     }
 }

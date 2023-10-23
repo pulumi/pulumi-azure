@@ -251,21 +251,21 @@ public final class GetNamespaceAuthorizationRuleResult {
             return this;
         }
         public GetNamespaceAuthorizationRuleResult build() {
-            final var o = new GetNamespaceAuthorizationRuleResult();
-            o.id = id;
-            o.listen = listen;
-            o.manage = manage;
-            o.name = name;
-            o.namespaceName = namespaceName;
-            o.primaryConnectionString = primaryConnectionString;
-            o.primaryConnectionStringAlias = primaryConnectionStringAlias;
-            o.primaryKey = primaryKey;
-            o.resourceGroupName = resourceGroupName;
-            o.secondaryConnectionString = secondaryConnectionString;
-            o.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
-            o.secondaryKey = secondaryKey;
-            o.send = send;
-            return o;
+            final var _resultValue = new GetNamespaceAuthorizationRuleResult();
+            _resultValue.id = id;
+            _resultValue.listen = listen;
+            _resultValue.manage = manage;
+            _resultValue.name = name;
+            _resultValue.namespaceName = namespaceName;
+            _resultValue.primaryConnectionString = primaryConnectionString;
+            _resultValue.primaryConnectionStringAlias = primaryConnectionStringAlias;
+            _resultValue.primaryKey = primaryKey;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.secondaryConnectionString = secondaryConnectionString;
+            _resultValue.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
+            _resultValue.secondaryKey = secondaryKey;
+            _resultValue.send = send;
+            return _resultValue;
         }
     }
 }

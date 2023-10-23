@@ -69,10 +69,10 @@ public final class VirtualHubRoute {
             return this;
         }
         public VirtualHubRoute build() {
-            final var o = new VirtualHubRoute();
-            o.addressPrefixes = addressPrefixes;
-            o.nextHopIpAddress = nextHopIpAddress;
-            return o;
+            final var _resultValue = new VirtualHubRoute();
+            _resultValue.addressPrefixes = addressPrefixes;
+            _resultValue.nextHopIpAddress = nextHopIpAddress;
+            return _resultValue;
         }
     }
 }

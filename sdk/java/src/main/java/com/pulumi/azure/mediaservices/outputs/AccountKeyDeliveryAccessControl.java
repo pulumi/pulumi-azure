@@ -71,10 +71,10 @@ public final class AccountKeyDeliveryAccessControl {
             return ipAllowLists(List.of(ipAllowLists));
         }
         public AccountKeyDeliveryAccessControl build() {
-            final var o = new AccountKeyDeliveryAccessControl();
-            o.defaultAction = defaultAction;
-            o.ipAllowLists = ipAllowLists;
-            return o;
+            final var _resultValue = new AccountKeyDeliveryAccessControl();
+            _resultValue.defaultAction = defaultAction;
+            _resultValue.ipAllowLists = ipAllowLists;
+            return _resultValue;
         }
     }
 }

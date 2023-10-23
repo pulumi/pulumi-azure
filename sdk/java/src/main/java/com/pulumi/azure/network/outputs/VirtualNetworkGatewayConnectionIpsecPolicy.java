@@ -186,16 +186,16 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicy {
             return this;
         }
         public VirtualNetworkGatewayConnectionIpsecPolicy build() {
-            final var o = new VirtualNetworkGatewayConnectionIpsecPolicy();
-            o.dhGroup = dhGroup;
-            o.ikeEncryption = ikeEncryption;
-            o.ikeIntegrity = ikeIntegrity;
-            o.ipsecEncryption = ipsecEncryption;
-            o.ipsecIntegrity = ipsecIntegrity;
-            o.pfsGroup = pfsGroup;
-            o.saDatasize = saDatasize;
-            o.saLifetime = saLifetime;
-            return o;
+            final var _resultValue = new VirtualNetworkGatewayConnectionIpsecPolicy();
+            _resultValue.dhGroup = dhGroup;
+            _resultValue.ikeEncryption = ikeEncryption;
+            _resultValue.ikeIntegrity = ikeIntegrity;
+            _resultValue.ipsecEncryption = ipsecEncryption;
+            _resultValue.ipsecIntegrity = ipsecIntegrity;
+            _resultValue.pfsGroup = pfsGroup;
+            _resultValue.saDatasize = saDatasize;
+            _resultValue.saLifetime = saLifetime;
+            return _resultValue;
         }
     }
 }

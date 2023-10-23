@@ -52,9 +52,9 @@ public final class LinuxVirtualMachineScaleSetBootDiagnostics {
             return this;
         }
         public LinuxVirtualMachineScaleSetBootDiagnostics build() {
-            final var o = new LinuxVirtualMachineScaleSetBootDiagnostics();
-            o.storageAccountUri = storageAccountUri;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetBootDiagnostics();
+            _resultValue.storageAccountUri = storageAccountUri;
+            return _resultValue;
         }
     }
 }

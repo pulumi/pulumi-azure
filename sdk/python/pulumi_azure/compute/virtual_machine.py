@@ -131,7 +131,45 @@ class VirtualMachineArgs:
              storage_image_reference: Optional[pulumi.Input['VirtualMachineStorageImageReferenceArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              zones: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfaceIds' in kwargs:
+            network_interface_ids = kwargs['networkInterfaceIds']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageOsDisk' in kwargs:
+            storage_os_disk = kwargs['storageOsDisk']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'additionalCapabilities' in kwargs:
+            additional_capabilities = kwargs['additionalCapabilities']
+        if 'availabilitySetId' in kwargs:
+            availability_set_id = kwargs['availabilitySetId']
+        if 'bootDiagnostics' in kwargs:
+            boot_diagnostics = kwargs['bootDiagnostics']
+        if 'deleteDataDisksOnTermination' in kwargs:
+            delete_data_disks_on_termination = kwargs['deleteDataDisksOnTermination']
+        if 'deleteOsDiskOnTermination' in kwargs:
+            delete_os_disk_on_termination = kwargs['deleteOsDiskOnTermination']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if 'osProfileLinuxConfig' in kwargs:
+            os_profile_linux_config = kwargs['osProfileLinuxConfig']
+        if 'osProfileSecrets' in kwargs:
+            os_profile_secrets = kwargs['osProfileSecrets']
+        if 'osProfileWindowsConfig' in kwargs:
+            os_profile_windows_config = kwargs['osProfileWindowsConfig']
+        if 'primaryNetworkInterfaceId' in kwargs:
+            primary_network_interface_id = kwargs['primaryNetworkInterfaceId']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if 'storageDataDisks' in kwargs:
+            storage_data_disks = kwargs['storageDataDisks']
+        if 'storageImageReference' in kwargs:
+            storage_image_reference = kwargs['storageImageReference']
+
         _setter("network_interface_ids", network_interface_ids)
         _setter("resource_group_name", resource_group_name)
         _setter("storage_os_disk", storage_os_disk)
@@ -594,7 +632,45 @@ class _VirtualMachineState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              vm_size: Optional[pulumi.Input[str]] = None,
              zones: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalCapabilities' in kwargs:
+            additional_capabilities = kwargs['additionalCapabilities']
+        if 'availabilitySetId' in kwargs:
+            availability_set_id = kwargs['availabilitySetId']
+        if 'bootDiagnostics' in kwargs:
+            boot_diagnostics = kwargs['bootDiagnostics']
+        if 'deleteDataDisksOnTermination' in kwargs:
+            delete_data_disks_on_termination = kwargs['deleteDataDisksOnTermination']
+        if 'deleteOsDiskOnTermination' in kwargs:
+            delete_os_disk_on_termination = kwargs['deleteOsDiskOnTermination']
+        if 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if 'networkInterfaceIds' in kwargs:
+            network_interface_ids = kwargs['networkInterfaceIds']
+        if 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if 'osProfileLinuxConfig' in kwargs:
+            os_profile_linux_config = kwargs['osProfileLinuxConfig']
+        if 'osProfileSecrets' in kwargs:
+            os_profile_secrets = kwargs['osProfileSecrets']
+        if 'osProfileWindowsConfig' in kwargs:
+            os_profile_windows_config = kwargs['osProfileWindowsConfig']
+        if 'primaryNetworkInterfaceId' in kwargs:
+            primary_network_interface_id = kwargs['primaryNetworkInterfaceId']
+        if 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageDataDisks' in kwargs:
+            storage_data_disks = kwargs['storageDataDisks']
+        if 'storageImageReference' in kwargs:
+            storage_image_reference = kwargs['storageImageReference']
+        if 'storageOsDisk' in kwargs:
+            storage_os_disk = kwargs['storageOsDisk']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+
         if additional_capabilities is not None:
             _setter("additional_capabilities", additional_capabilities)
         if availability_set_id is not None:

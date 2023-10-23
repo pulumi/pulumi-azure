@@ -87,11 +87,11 @@ public final class TransformOutputAudioAnalyzerPreset {
             return this;
         }
         public TransformOutputAudioAnalyzerPreset build() {
-            final var o = new TransformOutputAudioAnalyzerPreset();
-            o.audioAnalysisMode = audioAnalysisMode;
-            o.audioLanguage = audioLanguage;
-            o.experimentalOptions = experimentalOptions;
-            return o;
+            final var _resultValue = new TransformOutputAudioAnalyzerPreset();
+            _resultValue.audioAnalysisMode = audioAnalysisMode;
+            _resultValue.audioLanguage = audioLanguage;
+            _resultValue.experimentalOptions = experimentalOptions;
+            return _resultValue;
         }
     }
 }

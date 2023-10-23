@@ -131,13 +131,13 @@ public final class GetPoolUserAccount {
             return windowsUserConfigurations(List.of(windowsUserConfigurations));
         }
         public GetPoolUserAccount build() {
-            final var o = new GetPoolUserAccount();
-            o.elevationLevel = elevationLevel;
-            o.linuxUserConfigurations = linuxUserConfigurations;
-            o.name = name;
-            o.password = password;
-            o.windowsUserConfigurations = windowsUserConfigurations;
-            return o;
+            final var _resultValue = new GetPoolUserAccount();
+            _resultValue.elevationLevel = elevationLevel;
+            _resultValue.linuxUserConfigurations = linuxUserConfigurations;
+            _resultValue.name = name;
+            _resultValue.password = password;
+            _resultValue.windowsUserConfigurations = windowsUserConfigurations;
+            return _resultValue;
         }
     }
 }

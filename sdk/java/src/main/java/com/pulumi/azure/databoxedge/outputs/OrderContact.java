@@ -107,12 +107,12 @@ public final class OrderContact {
             return this;
         }
         public OrderContact build() {
-            final var o = new OrderContact();
-            o.companyName = companyName;
-            o.emails = emails;
-            o.name = name;
-            o.phoneNumber = phoneNumber;
-            return o;
+            final var _resultValue = new OrderContact();
+            _resultValue.companyName = companyName;
+            _resultValue.emails = emails;
+            _resultValue.name = name;
+            _resultValue.phoneNumber = phoneNumber;
+            return _resultValue;
         }
     }
 }

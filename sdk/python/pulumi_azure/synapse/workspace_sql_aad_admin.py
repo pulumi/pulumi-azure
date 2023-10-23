@@ -39,7 +39,15 @@ class WorkspaceSqlAadAdminInitArgs:
              object_id: pulumi.Input[str],
              synapse_workspace_id: pulumi.Input[str],
              tenant_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("login", login)
         _setter("object_id", object_id)
         _setter("synapse_workspace_id", synapse_workspace_id)
@@ -122,7 +130,15 @@ class _WorkspaceSqlAadAdminState:
              object_id: Optional[pulumi.Input[str]] = None,
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if login is not None:
             _setter("login", login)
         if object_id is not None:

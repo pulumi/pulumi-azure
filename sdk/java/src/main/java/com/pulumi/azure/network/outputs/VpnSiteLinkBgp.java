@@ -66,10 +66,10 @@ public final class VpnSiteLinkBgp {
             return this;
         }
         public VpnSiteLinkBgp build() {
-            final var o = new VpnSiteLinkBgp();
-            o.asn = asn;
-            o.peeringAddress = peeringAddress;
-            return o;
+            final var _resultValue = new VpnSiteLinkBgp();
+            _resultValue.asn = asn;
+            _resultValue.peeringAddress = peeringAddress;
+            return _resultValue;
         }
     }
 }

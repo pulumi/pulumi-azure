@@ -155,16 +155,16 @@ public final class GetGroupResult {
             return this;
         }
         public GetGroupResult build() {
-            final var o = new GetGroupResult();
-            o.apiManagementName = apiManagementName;
-            o.description = description;
-            o.displayName = displayName;
-            o.externalId = externalId;
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetGroupResult();
+            _resultValue.apiManagementName = apiManagementName;
+            _resultValue.description = description;
+            _resultValue.displayName = displayName;
+            _resultValue.externalId = externalId;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

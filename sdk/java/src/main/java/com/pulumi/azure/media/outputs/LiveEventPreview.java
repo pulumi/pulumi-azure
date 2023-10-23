@@ -125,13 +125,13 @@ public final class LiveEventPreview {
             return this;
         }
         public LiveEventPreview build() {
-            final var o = new LiveEventPreview();
-            o.alternativeMediaId = alternativeMediaId;
-            o.endpoints = endpoints;
-            o.ipAccessControlAllows = ipAccessControlAllows;
-            o.previewLocator = previewLocator;
-            o.streamingPolicyName = streamingPolicyName;
-            return o;
+            final var _resultValue = new LiveEventPreview();
+            _resultValue.alternativeMediaId = alternativeMediaId;
+            _resultValue.endpoints = endpoints;
+            _resultValue.ipAccessControlAllows = ipAccessControlAllows;
+            _resultValue.previewLocator = previewLocator;
+            _resultValue.streamingPolicyName = streamingPolicyName;
+            return _resultValue;
         }
     }
 }

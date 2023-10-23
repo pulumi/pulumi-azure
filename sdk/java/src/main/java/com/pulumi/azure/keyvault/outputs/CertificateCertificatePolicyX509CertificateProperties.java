@@ -133,13 +133,13 @@ public final class CertificateCertificatePolicyX509CertificateProperties {
             return this;
         }
         public CertificateCertificatePolicyX509CertificateProperties build() {
-            final var o = new CertificateCertificatePolicyX509CertificateProperties();
-            o.extendedKeyUsages = extendedKeyUsages;
-            o.keyUsages = keyUsages;
-            o.subject = subject;
-            o.subjectAlternativeNames = subjectAlternativeNames;
-            o.validityInMonths = validityInMonths;
-            return o;
+            final var _resultValue = new CertificateCertificatePolicyX509CertificateProperties();
+            _resultValue.extendedKeyUsages = extendedKeyUsages;
+            _resultValue.keyUsages = keyUsages;
+            _resultValue.subject = subject;
+            _resultValue.subjectAlternativeNames = subjectAlternativeNames;
+            _resultValue.validityInMonths = validityInMonths;
+            return _resultValue;
         }
     }
 }

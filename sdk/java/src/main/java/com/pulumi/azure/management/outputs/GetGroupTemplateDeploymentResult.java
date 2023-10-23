@@ -87,12 +87,12 @@ public final class GetGroupTemplateDeploymentResult {
             return this;
         }
         public GetGroupTemplateDeploymentResult build() {
-            final var o = new GetGroupTemplateDeploymentResult();
-            o.id = id;
-            o.managementGroupId = managementGroupId;
-            o.name = name;
-            o.outputContent = outputContent;
-            return o;
+            final var _resultValue = new GetGroupTemplateDeploymentResult();
+            _resultValue.id = id;
+            _resultValue.managementGroupId = managementGroupId;
+            _resultValue.name = name;
+            _resultValue.outputContent = outputContent;
+            return _resultValue;
         }
     }
 }

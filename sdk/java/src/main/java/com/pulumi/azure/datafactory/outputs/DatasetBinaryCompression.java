@@ -67,10 +67,10 @@ public final class DatasetBinaryCompression {
             return this;
         }
         public DatasetBinaryCompression build() {
-            final var o = new DatasetBinaryCompression();
-            o.level = level;
-            o.type = type;
-            return o;
+            final var _resultValue = new DatasetBinaryCompression();
+            _resultValue.level = level;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

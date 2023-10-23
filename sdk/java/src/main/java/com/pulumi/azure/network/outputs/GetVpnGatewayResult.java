@@ -170,16 +170,16 @@ public final class GetVpnGatewayResult {
             return this;
         }
         public GetVpnGatewayResult build() {
-            final var o = new GetVpnGatewayResult();
-            o.bgpSettings = bgpSettings;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.scaleUnit = scaleUnit;
-            o.tags = tags;
-            o.virtualHubId = virtualHubId;
-            return o;
+            final var _resultValue = new GetVpnGatewayResult();
+            _resultValue.bgpSettings = bgpSettings;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.scaleUnit = scaleUnit;
+            _resultValue.tags = tags;
+            _resultValue.virtualHubId = virtualHubId;
+            return _resultValue;
         }
     }
 }

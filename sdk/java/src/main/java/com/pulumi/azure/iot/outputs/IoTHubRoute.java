@@ -129,13 +129,13 @@ public final class IoTHubRoute {
             return this;
         }
         public IoTHubRoute build() {
-            final var o = new IoTHubRoute();
-            o.condition = condition;
-            o.enabled = enabled;
-            o.endpointNames = endpointNames;
-            o.name = name;
-            o.source = source;
-            return o;
+            final var _resultValue = new IoTHubRoute();
+            _resultValue.condition = condition;
+            _resultValue.enabled = enabled;
+            _resultValue.endpointNames = endpointNames;
+            _resultValue.name = name;
+            _resultValue.source = source;
+            return _resultValue;
         }
     }
 }

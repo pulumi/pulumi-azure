@@ -132,13 +132,13 @@ public final class FrontdoorFirewallPolicyManagedRule {
             return this;
         }
         public FrontdoorFirewallPolicyManagedRule build() {
-            final var o = new FrontdoorFirewallPolicyManagedRule();
-            o.action = action;
-            o.exclusions = exclusions;
-            o.overrides = overrides;
-            o.type = type;
-            o.version = version;
-            return o;
+            final var _resultValue = new FrontdoorFirewallPolicyManagedRule();
+            _resultValue.action = action;
+            _resultValue.exclusions = exclusions;
+            _resultValue.overrides = overrides;
+            _resultValue.type = type;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

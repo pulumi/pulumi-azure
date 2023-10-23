@@ -308,23 +308,23 @@ public final class GetTopicResult {
             return this;
         }
         public GetTopicResult build() {
-            final var o = new GetTopicResult();
-            o.autoDeleteOnIdle = autoDeleteOnIdle;
-            o.defaultMessageTtl = defaultMessageTtl;
-            o.duplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
-            o.enableBatchedOperations = enableBatchedOperations;
-            o.enableExpress = enableExpress;
-            o.enablePartitioning = enablePartitioning;
-            o.id = id;
-            o.maxSizeInMegabytes = maxSizeInMegabytes;
-            o.name = name;
-            o.namespaceId = namespaceId;
-            o.namespaceName = namespaceName;
-            o.requiresDuplicateDetection = requiresDuplicateDetection;
-            o.resourceGroupName = resourceGroupName;
-            o.status = status;
-            o.supportOrdering = supportOrdering;
-            return o;
+            final var _resultValue = new GetTopicResult();
+            _resultValue.autoDeleteOnIdle = autoDeleteOnIdle;
+            _resultValue.defaultMessageTtl = defaultMessageTtl;
+            _resultValue.duplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
+            _resultValue.enableBatchedOperations = enableBatchedOperations;
+            _resultValue.enableExpress = enableExpress;
+            _resultValue.enablePartitioning = enablePartitioning;
+            _resultValue.id = id;
+            _resultValue.maxSizeInMegabytes = maxSizeInMegabytes;
+            _resultValue.name = name;
+            _resultValue.namespaceId = namespaceId;
+            _resultValue.namespaceName = namespaceName;
+            _resultValue.requiresDuplicateDetection = requiresDuplicateDetection;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.status = status;
+            _resultValue.supportOrdering = supportOrdering;
+            return _resultValue;
         }
     }
 }

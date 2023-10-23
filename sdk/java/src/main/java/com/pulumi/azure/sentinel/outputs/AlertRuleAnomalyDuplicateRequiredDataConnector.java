@@ -71,10 +71,10 @@ public final class AlertRuleAnomalyDuplicateRequiredDataConnector {
             return dataTypes(List.of(dataTypes));
         }
         public AlertRuleAnomalyDuplicateRequiredDataConnector build() {
-            final var o = new AlertRuleAnomalyDuplicateRequiredDataConnector();
-            o.connectorId = connectorId;
-            o.dataTypes = dataTypes;
-            return o;
+            final var _resultValue = new AlertRuleAnomalyDuplicateRequiredDataConnector();
+            _resultValue.connectorId = connectorId;
+            _resultValue.dataTypes = dataTypes;
+            return _resultValue;
         }
     }
 }

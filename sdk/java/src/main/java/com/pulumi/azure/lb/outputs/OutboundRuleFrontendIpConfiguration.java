@@ -67,10 +67,10 @@ public final class OutboundRuleFrontendIpConfiguration {
             return this;
         }
         public OutboundRuleFrontendIpConfiguration build() {
-            final var o = new OutboundRuleFrontendIpConfiguration();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new OutboundRuleFrontendIpConfiguration();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

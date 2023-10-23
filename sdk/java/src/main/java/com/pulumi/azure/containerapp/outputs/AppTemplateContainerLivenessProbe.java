@@ -225,18 +225,18 @@ public final class AppTemplateContainerLivenessProbe {
             return this;
         }
         public AppTemplateContainerLivenessProbe build() {
-            final var o = new AppTemplateContainerLivenessProbe();
-            o.failureCountThreshold = failureCountThreshold;
-            o.headers = headers;
-            o.host = host;
-            o.initialDelay = initialDelay;
-            o.intervalSeconds = intervalSeconds;
-            o.path = path;
-            o.port = port;
-            o.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
-            o.timeout = timeout;
-            o.transport = transport;
-            return o;
+            final var _resultValue = new AppTemplateContainerLivenessProbe();
+            _resultValue.failureCountThreshold = failureCountThreshold;
+            _resultValue.headers = headers;
+            _resultValue.host = host;
+            _resultValue.initialDelay = initialDelay;
+            _resultValue.intervalSeconds = intervalSeconds;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
+            _resultValue.timeout = timeout;
+            _resultValue.transport = transport;
+            return _resultValue;
         }
     }
 }

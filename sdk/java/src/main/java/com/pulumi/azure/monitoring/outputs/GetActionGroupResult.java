@@ -369,24 +369,24 @@ public final class GetActionGroupResult {
             return webhookReceivers(List.of(webhookReceivers));
         }
         public GetActionGroupResult build() {
-            final var o = new GetActionGroupResult();
-            o.armRoleReceivers = armRoleReceivers;
-            o.automationRunbookReceivers = automationRunbookReceivers;
-            o.azureAppPushReceivers = azureAppPushReceivers;
-            o.azureFunctionReceivers = azureFunctionReceivers;
-            o.emailReceivers = emailReceivers;
-            o.enabled = enabled;
-            o.eventHubReceivers = eventHubReceivers;
-            o.id = id;
-            o.itsmReceivers = itsmReceivers;
-            o.logicAppReceivers = logicAppReceivers;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.shortName = shortName;
-            o.smsReceivers = smsReceivers;
-            o.voiceReceivers = voiceReceivers;
-            o.webhookReceivers = webhookReceivers;
-            return o;
+            final var _resultValue = new GetActionGroupResult();
+            _resultValue.armRoleReceivers = armRoleReceivers;
+            _resultValue.automationRunbookReceivers = automationRunbookReceivers;
+            _resultValue.azureAppPushReceivers = azureAppPushReceivers;
+            _resultValue.azureFunctionReceivers = azureFunctionReceivers;
+            _resultValue.emailReceivers = emailReceivers;
+            _resultValue.enabled = enabled;
+            _resultValue.eventHubReceivers = eventHubReceivers;
+            _resultValue.id = id;
+            _resultValue.itsmReceivers = itsmReceivers;
+            _resultValue.logicAppReceivers = logicAppReceivers;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.shortName = shortName;
+            _resultValue.smsReceivers = smsReceivers;
+            _resultValue.voiceReceivers = voiceReceivers;
+            _resultValue.webhookReceivers = webhookReceivers;
+            return _resultValue;
         }
     }
 }

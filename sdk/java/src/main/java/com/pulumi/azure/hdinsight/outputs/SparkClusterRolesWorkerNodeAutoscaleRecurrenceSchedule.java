@@ -89,11 +89,11 @@ public final class SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
             return this;
         }
         public SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule build() {
-            final var o = new SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule();
-            o.days = days;
-            o.targetInstanceCount = targetInstanceCount;
-            o.time = time;
-            return o;
+            final var _resultValue = new SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule();
+            _resultValue.days = days;
+            _resultValue.targetInstanceCount = targetInstanceCount;
+            _resultValue.time = time;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class FlowletDataFlowSourceSchemaLinkedService {
             return this;
         }
         public FlowletDataFlowSourceSchemaLinkedService build() {
-            final var o = new FlowletDataFlowSourceSchemaLinkedService();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new FlowletDataFlowSourceSchemaLinkedService();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

@@ -184,16 +184,16 @@ public final class FluxConfigurationBlobStorage {
             return this;
         }
         public FluxConfigurationBlobStorage build() {
-            final var o = new FluxConfigurationBlobStorage();
-            o.accountKey = accountKey;
-            o.containerId = containerId;
-            o.localAuthReference = localAuthReference;
-            o.managedIdentity = managedIdentity;
-            o.sasToken = sasToken;
-            o.servicePrincipal = servicePrincipal;
-            o.syncIntervalInSeconds = syncIntervalInSeconds;
-            o.timeoutInSeconds = timeoutInSeconds;
-            return o;
+            final var _resultValue = new FluxConfigurationBlobStorage();
+            _resultValue.accountKey = accountKey;
+            _resultValue.containerId = containerId;
+            _resultValue.localAuthReference = localAuthReference;
+            _resultValue.managedIdentity = managedIdentity;
+            _resultValue.sasToken = sasToken;
+            _resultValue.servicePrincipal = servicePrincipal;
+            _resultValue.syncIntervalInSeconds = syncIntervalInSeconds;
+            _resultValue.timeoutInSeconds = timeoutInSeconds;
+            return _resultValue;
         }
     }
 }

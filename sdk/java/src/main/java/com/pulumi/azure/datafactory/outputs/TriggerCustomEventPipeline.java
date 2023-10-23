@@ -67,10 +67,10 @@ public final class TriggerCustomEventPipeline {
             return this;
         }
         public TriggerCustomEventPipeline build() {
-            final var o = new TriggerCustomEventPipeline();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new TriggerCustomEventPipeline();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

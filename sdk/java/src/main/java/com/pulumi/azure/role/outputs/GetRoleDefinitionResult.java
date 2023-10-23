@@ -165,16 +165,16 @@ public final class GetRoleDefinitionResult {
             return this;
         }
         public GetRoleDefinitionResult build() {
-            final var o = new GetRoleDefinitionResult();
-            o.assignableScopes = assignableScopes;
-            o.description = description;
-            o.id = id;
-            o.name = name;
-            o.permissions = permissions;
-            o.roleDefinitionId = roleDefinitionId;
-            o.scope = scope;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetRoleDefinitionResult();
+            _resultValue.assignableScopes = assignableScopes;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.permissions = permissions;
+            _resultValue.roleDefinitionId = roleDefinitionId;
+            _resultValue.scope = scope;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

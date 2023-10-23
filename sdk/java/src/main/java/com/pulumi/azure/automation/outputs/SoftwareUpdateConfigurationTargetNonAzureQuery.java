@@ -67,10 +67,10 @@ public final class SoftwareUpdateConfigurationTargetNonAzureQuery {
             return this;
         }
         public SoftwareUpdateConfigurationTargetNonAzureQuery build() {
-            final var o = new SoftwareUpdateConfigurationTargetNonAzureQuery();
-            o.functionAlias = functionAlias;
-            o.workspaceId = workspaceId;
-            return o;
+            final var _resultValue = new SoftwareUpdateConfigurationTargetNonAzureQuery();
+            _resultValue.functionAlias = functionAlias;
+            _resultValue.workspaceId = workspaceId;
+            return _resultValue;
         }
     }
 }

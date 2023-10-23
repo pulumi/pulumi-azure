@@ -105,12 +105,12 @@ public final class PoolContainerConfigurationContainerRegistry {
             return this;
         }
         public PoolContainerConfigurationContainerRegistry build() {
-            final var o = new PoolContainerConfigurationContainerRegistry();
-            o.password = password;
-            o.registryServer = registryServer;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            o.userName = userName;
-            return o;
+            final var _resultValue = new PoolContainerConfigurationContainerRegistry();
+            _resultValue.password = password;
+            _resultValue.registryServer = registryServer;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            _resultValue.userName = userName;
+            return _resultValue;
         }
     }
 }

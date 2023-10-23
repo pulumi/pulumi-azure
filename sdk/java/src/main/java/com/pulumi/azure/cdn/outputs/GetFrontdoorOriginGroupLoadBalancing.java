@@ -84,11 +84,11 @@ public final class GetFrontdoorOriginGroupLoadBalancing {
             return this;
         }
         public GetFrontdoorOriginGroupLoadBalancing build() {
-            final var o = new GetFrontdoorOriginGroupLoadBalancing();
-            o.additionalLatencyInMilliseconds = additionalLatencyInMilliseconds;
-            o.sampleSize = sampleSize;
-            o.successfulSamplesRequired = successfulSamplesRequired;
-            return o;
+            final var _resultValue = new GetFrontdoorOriginGroupLoadBalancing();
+            _resultValue.additionalLatencyInMilliseconds = additionalLatencyInMilliseconds;
+            _resultValue.sampleSize = sampleSize;
+            _resultValue.successfulSamplesRequired = successfulSamplesRequired;
+            return _resultValue;
         }
     }
 }

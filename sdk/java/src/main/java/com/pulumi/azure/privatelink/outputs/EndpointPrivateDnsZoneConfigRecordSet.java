@@ -129,13 +129,13 @@ public final class EndpointPrivateDnsZoneConfigRecordSet {
             return this;
         }
         public EndpointPrivateDnsZoneConfigRecordSet build() {
-            final var o = new EndpointPrivateDnsZoneConfigRecordSet();
-            o.fqdn = fqdn;
-            o.ipAddresses = ipAddresses;
-            o.name = name;
-            o.ttl = ttl;
-            o.type = type;
-            return o;
+            final var _resultValue = new EndpointPrivateDnsZoneConfigRecordSet();
+            _resultValue.fqdn = fqdn;
+            _resultValue.ipAddresses = ipAddresses;
+            _resultValue.name = name;
+            _resultValue.ttl = ttl;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

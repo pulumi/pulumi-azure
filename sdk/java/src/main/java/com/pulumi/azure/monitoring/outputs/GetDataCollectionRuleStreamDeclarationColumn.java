@@ -65,10 +65,10 @@ public final class GetDataCollectionRuleStreamDeclarationColumn {
             return this;
         }
         public GetDataCollectionRuleStreamDeclarationColumn build() {
-            final var o = new GetDataCollectionRuleStreamDeclarationColumn();
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetDataCollectionRuleStreamDeclarationColumn();
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

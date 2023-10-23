@@ -67,7 +67,17 @@ class ApplicationArgs:
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subDomain' in kwargs:
+            sub_domain = kwargs['subDomain']
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sub_domain", sub_domain)
         if display_name is not None:
@@ -264,7 +274,17 @@ class _ApplicationState:
              sub_domain: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'subDomain' in kwargs:
+            sub_domain = kwargs['subDomain']
+
         if display_name is not None:
             _setter("display_name", display_name)
         if identity is not None:

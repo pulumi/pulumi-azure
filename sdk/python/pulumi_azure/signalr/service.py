@@ -105,7 +105,35 @@ class ServiceArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tls_client_cert_enabled: Optional[pulumi.Input[bool]] = None,
              upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'aadAuthEnabled' in kwargs:
+            aad_auth_enabled = kwargs['aadAuthEnabled']
+        if 'connectivityLogsEnabled' in kwargs:
+            connectivity_logs_enabled = kwargs['connectivityLogsEnabled']
+        if 'httpRequestLogsEnabled' in kwargs:
+            http_request_logs_enabled = kwargs['httpRequestLogsEnabled']
+        if 'liveTrace' in kwargs:
+            live_trace = kwargs['liveTrace']
+        if 'liveTraceEnabled' in kwargs:
+            live_trace_enabled = kwargs['liveTraceEnabled']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'messagingLogsEnabled' in kwargs:
+            messaging_logs_enabled = kwargs['messagingLogsEnabled']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'serverlessConnectionTimeoutInSeconds' in kwargs:
+            serverless_connection_timeout_in_seconds = kwargs['serverlessConnectionTimeoutInSeconds']
+        if 'serviceMode' in kwargs:
+            service_mode = kwargs['serviceMode']
+        if 'tlsClientCertEnabled' in kwargs:
+            tls_client_cert_enabled = kwargs['tlsClientCertEnabled']
+        if 'upstreamEndpoints' in kwargs:
+            upstream_endpoints = kwargs['upstreamEndpoints']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
         if aad_auth_enabled is not None:
@@ -506,7 +534,49 @@ class _ServiceState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tls_client_cert_enabled: Optional[pulumi.Input[bool]] = None,
              upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aadAuthEnabled' in kwargs:
+            aad_auth_enabled = kwargs['aadAuthEnabled']
+        if 'connectivityLogsEnabled' in kwargs:
+            connectivity_logs_enabled = kwargs['connectivityLogsEnabled']
+        if 'httpRequestLogsEnabled' in kwargs:
+            http_request_logs_enabled = kwargs['httpRequestLogsEnabled']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'liveTrace' in kwargs:
+            live_trace = kwargs['liveTrace']
+        if 'liveTraceEnabled' in kwargs:
+            live_trace_enabled = kwargs['liveTraceEnabled']
+        if 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if 'messagingLogsEnabled' in kwargs:
+            messaging_logs_enabled = kwargs['messagingLogsEnabled']
+        if 'primaryAccessKey' in kwargs:
+            primary_access_key = kwargs['primaryAccessKey']
+        if 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'publicPort' in kwargs:
+            public_port = kwargs['publicPort']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'secondaryAccessKey' in kwargs:
+            secondary_access_key = kwargs['secondaryAccessKey']
+        if 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if 'serverPort' in kwargs:
+            server_port = kwargs['serverPort']
+        if 'serverlessConnectionTimeoutInSeconds' in kwargs:
+            serverless_connection_timeout_in_seconds = kwargs['serverlessConnectionTimeoutInSeconds']
+        if 'serviceMode' in kwargs:
+            service_mode = kwargs['serviceMode']
+        if 'tlsClientCertEnabled' in kwargs:
+            tls_client_cert_enabled = kwargs['tlsClientCertEnabled']
+        if 'upstreamEndpoints' in kwargs:
+            upstream_endpoints = kwargs['upstreamEndpoints']
+
         if aad_auth_enabled is not None:
             _setter("aad_auth_enabled", aad_auth_enabled)
         if connectivity_logs_enabled is not None:

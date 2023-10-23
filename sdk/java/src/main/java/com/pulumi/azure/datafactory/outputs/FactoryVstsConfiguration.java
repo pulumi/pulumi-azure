@@ -163,15 +163,15 @@ public final class FactoryVstsConfiguration {
             return this;
         }
         public FactoryVstsConfiguration build() {
-            final var o = new FactoryVstsConfiguration();
-            o.accountName = accountName;
-            o.branchName = branchName;
-            o.projectName = projectName;
-            o.publishingEnabled = publishingEnabled;
-            o.repositoryName = repositoryName;
-            o.rootFolder = rootFolder;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new FactoryVstsConfiguration();
+            _resultValue.accountName = accountName;
+            _resultValue.branchName = branchName;
+            _resultValue.projectName = projectName;
+            _resultValue.publishingEnabled = publishingEnabled;
+            _resultValue.repositoryName = repositoryName;
+            _resultValue.rootFolder = rootFolder;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

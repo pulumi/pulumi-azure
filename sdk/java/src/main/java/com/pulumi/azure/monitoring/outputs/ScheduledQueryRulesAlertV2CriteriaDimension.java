@@ -88,11 +88,11 @@ public final class ScheduledQueryRulesAlertV2CriteriaDimension {
             return values(List.of(values));
         }
         public ScheduledQueryRulesAlertV2CriteriaDimension build() {
-            final var o = new ScheduledQueryRulesAlertV2CriteriaDimension();
-            o.name = name;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new ScheduledQueryRulesAlertV2CriteriaDimension();
+            _resultValue.name = name;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -106,12 +106,12 @@ public final class DatabaseLongTermRetentionPolicy {
             return this;
         }
         public DatabaseLongTermRetentionPolicy build() {
-            final var o = new DatabaseLongTermRetentionPolicy();
-            o.monthlyRetention = monthlyRetention;
-            o.weekOfYear = weekOfYear;
-            o.weeklyRetention = weeklyRetention;
-            o.yearlyRetention = yearlyRetention;
-            return o;
+            final var _resultValue = new DatabaseLongTermRetentionPolicy();
+            _resultValue.monthlyRetention = monthlyRetention;
+            _resultValue.weekOfYear = weekOfYear;
+            _resultValue.weeklyRetention = weeklyRetention;
+            _resultValue.yearlyRetention = yearlyRetention;
+            return _resultValue;
         }
     }
 }

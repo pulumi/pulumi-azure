@@ -508,30 +508,30 @@ public final class EndpointDeliveryRule {
             return this;
         }
         public EndpointDeliveryRule build() {
-            final var o = new EndpointDeliveryRule();
-            o.cacheExpirationAction = cacheExpirationAction;
-            o.cacheKeyQueryStringAction = cacheKeyQueryStringAction;
-            o.cookiesConditions = cookiesConditions;
-            o.deviceCondition = deviceCondition;
-            o.httpVersionConditions = httpVersionConditions;
-            o.modifyRequestHeaderActions = modifyRequestHeaderActions;
-            o.modifyResponseHeaderActions = modifyResponseHeaderActions;
-            o.name = name;
-            o.order = order;
-            o.postArgConditions = postArgConditions;
-            o.queryStringConditions = queryStringConditions;
-            o.remoteAddressConditions = remoteAddressConditions;
-            o.requestBodyConditions = requestBodyConditions;
-            o.requestHeaderConditions = requestHeaderConditions;
-            o.requestMethodCondition = requestMethodCondition;
-            o.requestSchemeCondition = requestSchemeCondition;
-            o.requestUriConditions = requestUriConditions;
-            o.urlFileExtensionConditions = urlFileExtensionConditions;
-            o.urlFileNameConditions = urlFileNameConditions;
-            o.urlPathConditions = urlPathConditions;
-            o.urlRedirectAction = urlRedirectAction;
-            o.urlRewriteAction = urlRewriteAction;
-            return o;
+            final var _resultValue = new EndpointDeliveryRule();
+            _resultValue.cacheExpirationAction = cacheExpirationAction;
+            _resultValue.cacheKeyQueryStringAction = cacheKeyQueryStringAction;
+            _resultValue.cookiesConditions = cookiesConditions;
+            _resultValue.deviceCondition = deviceCondition;
+            _resultValue.httpVersionConditions = httpVersionConditions;
+            _resultValue.modifyRequestHeaderActions = modifyRequestHeaderActions;
+            _resultValue.modifyResponseHeaderActions = modifyResponseHeaderActions;
+            _resultValue.name = name;
+            _resultValue.order = order;
+            _resultValue.postArgConditions = postArgConditions;
+            _resultValue.queryStringConditions = queryStringConditions;
+            _resultValue.remoteAddressConditions = remoteAddressConditions;
+            _resultValue.requestBodyConditions = requestBodyConditions;
+            _resultValue.requestHeaderConditions = requestHeaderConditions;
+            _resultValue.requestMethodCondition = requestMethodCondition;
+            _resultValue.requestSchemeCondition = requestSchemeCondition;
+            _resultValue.requestUriConditions = requestUriConditions;
+            _resultValue.urlFileExtensionConditions = urlFileExtensionConditions;
+            _resultValue.urlFileNameConditions = urlFileNameConditions;
+            _resultValue.urlPathConditions = urlPathConditions;
+            _resultValue.urlRedirectAction = urlRedirectAction;
+            _resultValue.urlRewriteAction = urlRewriteAction;
+            return _resultValue;
         }
     }
 }

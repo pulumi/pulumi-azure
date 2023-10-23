@@ -125,7 +125,7 @@ export class StandardWebTest extends pulumi.CustomResource {
     /**
      * A `validationRules` block as defined below.
      */
-    public readonly validationRules!: pulumi.Output<outputs.appinsights.StandardWebTestValidationRules>;
+    public readonly validationRules!: pulumi.Output<outputs.appinsights.StandardWebTestValidationRules | undefined>;
 
     /**
      * Create a StandardWebTest resource with the given unique name, arguments, and options.

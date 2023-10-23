@@ -117,12 +117,12 @@ public final class ResourceGroupCostManagementViewDataset {
             return sortings(List.of(sortings));
         }
         public ResourceGroupCostManagementViewDataset build() {
-            final var o = new ResourceGroupCostManagementViewDataset();
-            o.aggregations = aggregations;
-            o.granularity = granularity;
-            o.groupings = groupings;
-            o.sortings = sortings;
-            return o;
+            final var _resultValue = new ResourceGroupCostManagementViewDataset();
+            _resultValue.aggregations = aggregations;
+            _resultValue.granularity = granularity;
+            _resultValue.groupings = groupings;
+            _resultValue.sortings = sortings;
+            return _resultValue;
         }
     }
 }

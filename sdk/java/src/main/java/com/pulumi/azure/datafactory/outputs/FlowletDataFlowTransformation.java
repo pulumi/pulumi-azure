@@ -127,13 +127,13 @@ public final class FlowletDataFlowTransformation {
             return this;
         }
         public FlowletDataFlowTransformation build() {
-            final var o = new FlowletDataFlowTransformation();
-            o.dataset = dataset;
-            o.description = description;
-            o.flowlet = flowlet;
-            o.linkedService = linkedService;
-            o.name = name;
-            return o;
+            final var _resultValue = new FlowletDataFlowTransformation();
+            _resultValue.dataset = dataset;
+            _resultValue.description = description;
+            _resultValue.flowlet = flowlet;
+            _resultValue.linkedService = linkedService;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

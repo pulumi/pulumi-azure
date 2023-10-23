@@ -67,10 +67,10 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings {
             return this;
         }
         public OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings build() {
-            final var o = new OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings();
-            o.option = option;
-            o.placement = placement;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings();
+            _resultValue.option = option;
+            _resultValue.placement = placement;
+            return _resultValue;
         }
     }
 }

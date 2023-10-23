@@ -52,7 +52,13 @@ class ModuleManagementNetworkProfile(dict):
              _setter: Callable[[Any, Any], None],
              network_interface_private_ip_addresses: Sequence[str],
              subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfacePrivateIpAddresses' in kwargs:
+            network_interface_private_ip_addresses = kwargs['networkInterfacePrivateIpAddresses']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("network_interface_private_ip_addresses", network_interface_private_ip_addresses)
         _setter("subnet_id", subnet_id)
 
@@ -111,7 +117,13 @@ class ModuleNetworkProfile(dict):
              _setter: Callable[[Any, Any], None],
              network_interface_private_ip_addresses: Sequence[str],
              subnet_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkInterfacePrivateIpAddresses' in kwargs:
+            network_interface_private_ip_addresses = kwargs['networkInterfacePrivateIpAddresses']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("network_interface_private_ip_addresses", network_interface_private_ip_addresses)
         _setter("subnet_id", subnet_id)
 

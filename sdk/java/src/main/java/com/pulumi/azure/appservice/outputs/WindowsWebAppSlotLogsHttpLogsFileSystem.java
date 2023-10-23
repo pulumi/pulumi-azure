@@ -65,10 +65,10 @@ public final class WindowsWebAppSlotLogsHttpLogsFileSystem {
             return this;
         }
         public WindowsWebAppSlotLogsHttpLogsFileSystem build() {
-            final var o = new WindowsWebAppSlotLogsHttpLogsFileSystem();
-            o.retentionInDays = retentionInDays;
-            o.retentionInMb = retentionInMb;
-            return o;
+            final var _resultValue = new WindowsWebAppSlotLogsHttpLogsFileSystem();
+            _resultValue.retentionInDays = retentionInDays;
+            _resultValue.retentionInMb = retentionInMb;
+            return _resultValue;
         }
     }
 }

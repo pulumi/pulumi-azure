@@ -94,12 +94,12 @@ public final class GetImagesResult {
             return this;
         }
         public GetImagesResult build() {
-            final var o = new GetImagesResult();
-            o.id = id;
-            o.images = images;
-            o.resourceGroupName = resourceGroupName;
-            o.tagsFilter = tagsFilter;
-            return o;
+            final var _resultValue = new GetImagesResult();
+            _resultValue.id = id;
+            _resultValue.images = images;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tagsFilter = tagsFilter;
+            return _resultValue;
         }
     }
 }

@@ -168,15 +168,15 @@ public final class LinuxWebAppSiteConfigScmIpRestriction {
             return this;
         }
         public LinuxWebAppSiteConfigScmIpRestriction build() {
-            final var o = new LinuxWebAppSiteConfigScmIpRestriction();
-            o.action = action;
-            o.headers = headers;
-            o.ipAddress = ipAddress;
-            o.name = name;
-            o.priority = priority;
-            o.serviceTag = serviceTag;
-            o.virtualNetworkSubnetId = virtualNetworkSubnetId;
-            return o;
+            final var _resultValue = new LinuxWebAppSiteConfigScmIpRestriction();
+            _resultValue.action = action;
+            _resultValue.headers = headers;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.name = name;
+            _resultValue.priority = priority;
+            _resultValue.serviceTag = serviceTag;
+            _resultValue.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            return _resultValue;
         }
     }
 }

@@ -61,7 +61,25 @@ class NetworkSimArgs:
              name: Optional[pulumi.Input[str]] = None,
              sim_policy_id: Optional[pulumi.Input[str]] = None,
              static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationKey' in kwargs:
+            authentication_key = kwargs['authenticationKey']
+        if 'integratedCircuitCardIdentifier' in kwargs:
+            integrated_circuit_card_identifier = kwargs['integratedCircuitCardIdentifier']
+        if 'internationalMobileSubscriberIdentity' in kwargs:
+            international_mobile_subscriber_identity = kwargs['internationalMobileSubscriberIdentity']
+        if 'mobileNetworkSimGroupId' in kwargs:
+            mobile_network_sim_group_id = kwargs['mobileNetworkSimGroupId']
+        if 'operatorKeyCode' in kwargs:
+            operator_key_code = kwargs['operatorKeyCode']
+        if 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+        if 'simPolicyId' in kwargs:
+            sim_policy_id = kwargs['simPolicyId']
+        if 'staticIpConfigurations' in kwargs:
+            static_ip_configurations = kwargs['staticIpConfigurations']
+
         _setter("authentication_key", authentication_key)
         _setter("integrated_circuit_card_identifier", integrated_circuit_card_identifier)
         _setter("international_mobile_subscriber_identity", international_mobile_subscriber_identity)
@@ -245,7 +263,31 @@ class _NetworkSimState:
              static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]]] = None,
              vendor_key_fingerprint: Optional[pulumi.Input[str]] = None,
              vendor_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationKey' in kwargs:
+            authentication_key = kwargs['authenticationKey']
+        if 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+        if 'integratedCircuitCardIdentifier' in kwargs:
+            integrated_circuit_card_identifier = kwargs['integratedCircuitCardIdentifier']
+        if 'internationalMobileSubscriberIdentity' in kwargs:
+            international_mobile_subscriber_identity = kwargs['internationalMobileSubscriberIdentity']
+        if 'mobileNetworkSimGroupId' in kwargs:
+            mobile_network_sim_group_id = kwargs['mobileNetworkSimGroupId']
+        if 'operatorKeyCode' in kwargs:
+            operator_key_code = kwargs['operatorKeyCode']
+        if 'simPolicyId' in kwargs:
+            sim_policy_id = kwargs['simPolicyId']
+        if 'simState' in kwargs:
+            sim_state = kwargs['simState']
+        if 'staticIpConfigurations' in kwargs:
+            static_ip_configurations = kwargs['staticIpConfigurations']
+        if 'vendorKeyFingerprint' in kwargs:
+            vendor_key_fingerprint = kwargs['vendorKeyFingerprint']
+        if 'vendorName' in kwargs:
+            vendor_name = kwargs['vendorName']
+
         if authentication_key is not None:
             _setter("authentication_key", authentication_key)
         if device_type is not None:

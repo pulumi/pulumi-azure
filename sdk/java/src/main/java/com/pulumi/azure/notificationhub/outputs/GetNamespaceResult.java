@@ -185,17 +185,17 @@ public final class GetNamespaceResult {
             return this;
         }
         public GetNamespaceResult build() {
-            final var o = new GetNamespaceResult();
-            o.enabled = enabled;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.namespaceType = namespaceType;
-            o.resourceGroupName = resourceGroupName;
-            o.servicebusEndpoint = servicebusEndpoint;
-            o.sku = sku;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetNamespaceResult();
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.namespaceType = namespaceType;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.servicebusEndpoint = servicebusEndpoint;
+            _resultValue.sku = sku;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

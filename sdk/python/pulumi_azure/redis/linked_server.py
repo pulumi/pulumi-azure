@@ -43,7 +43,19 @@ class LinkedServerArgs:
              resource_group_name: pulumi.Input[str],
              server_role: pulumi.Input[str],
              target_redis_cache_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedRedisCacheId' in kwargs:
+            linked_redis_cache_id = kwargs['linkedRedisCacheId']
+        if 'linkedRedisCacheLocation' in kwargs:
+            linked_redis_cache_location = kwargs['linkedRedisCacheLocation']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverRole' in kwargs:
+            server_role = kwargs['serverRole']
+        if 'targetRedisCacheName' in kwargs:
+            target_redis_cache_name = kwargs['targetRedisCacheName']
+
         _setter("linked_redis_cache_id", linked_redis_cache_id)
         _setter("linked_redis_cache_location", linked_redis_cache_location)
         _setter("resource_group_name", resource_group_name)
@@ -147,7 +159,19 @@ class _LinkedServerState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              server_role: Optional[pulumi.Input[str]] = None,
              target_redis_cache_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'linkedRedisCacheId' in kwargs:
+            linked_redis_cache_id = kwargs['linkedRedisCacheId']
+        if 'linkedRedisCacheLocation' in kwargs:
+            linked_redis_cache_location = kwargs['linkedRedisCacheLocation']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'serverRole' in kwargs:
+            server_role = kwargs['serverRole']
+        if 'targetRedisCacheName' in kwargs:
+            target_redis_cache_name = kwargs['targetRedisCacheName']
+
         if linked_redis_cache_id is not None:
             _setter("linked_redis_cache_id", linked_redis_cache_id)
         if linked_redis_cache_location is not None:

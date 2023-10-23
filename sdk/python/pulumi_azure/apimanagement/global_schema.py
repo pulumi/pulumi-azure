@@ -47,7 +47,15 @@ class GlobalSchemaArgs:
              type: pulumi.Input[str],
              value: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+
         _setter("api_management_name", api_management_name)
         _setter("resource_group_name", resource_group_name)
         _setter("schema_id", schema_id)
@@ -165,7 +173,15 @@ class _GlobalSchemaState:
              schema_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if description is not None:

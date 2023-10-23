@@ -65,10 +65,10 @@ public final class GetComputeMachineErrorDetailAdditionalInfo {
             return this;
         }
         public GetComputeMachineErrorDetailAdditionalInfo build() {
-            final var o = new GetComputeMachineErrorDetailAdditionalInfo();
-            o.info = info;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetComputeMachineErrorDetailAdditionalInfo();
+            _resultValue.info = info;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

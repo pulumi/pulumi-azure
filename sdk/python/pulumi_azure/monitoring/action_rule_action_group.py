@@ -57,7 +57,13 @@ class ActionRuleActionGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input['ActionRuleActionGroupScopeArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroupId' in kwargs:
+            action_group_id = kwargs['actionGroupId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("action_group_id", action_group_id)
         _setter("resource_group_name", resource_group_name)
         if condition is not None:
@@ -214,7 +220,13 @@ class _ActionRuleActionGroupState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input['ActionRuleActionGroupScopeArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'actionGroupId' in kwargs:
+            action_group_id = kwargs['actionGroupId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if action_group_id is not None:
             _setter("action_group_id", action_group_id)
         if condition is not None:

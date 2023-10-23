@@ -65,10 +65,10 @@ public final class LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKe
             return this;
         }
         public LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey build() {
-            final var o = new LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey();
-            o.linkedServiceName = linkedServiceName;
-            o.secretName = secretName;
-            return o;
+            final var _resultValue = new LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey();
+            _resultValue.linkedServiceName = linkedServiceName;
+            _resultValue.secretName = secretName;
+            return _resultValue;
         }
     }
 }

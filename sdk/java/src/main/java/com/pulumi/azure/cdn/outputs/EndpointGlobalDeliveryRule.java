@@ -155,14 +155,14 @@ public final class EndpointGlobalDeliveryRule {
             return this;
         }
         public EndpointGlobalDeliveryRule build() {
-            final var o = new EndpointGlobalDeliveryRule();
-            o.cacheExpirationAction = cacheExpirationAction;
-            o.cacheKeyQueryStringAction = cacheKeyQueryStringAction;
-            o.modifyRequestHeaderActions = modifyRequestHeaderActions;
-            o.modifyResponseHeaderActions = modifyResponseHeaderActions;
-            o.urlRedirectAction = urlRedirectAction;
-            o.urlRewriteAction = urlRewriteAction;
-            return o;
+            final var _resultValue = new EndpointGlobalDeliveryRule();
+            _resultValue.cacheExpirationAction = cacheExpirationAction;
+            _resultValue.cacheKeyQueryStringAction = cacheKeyQueryStringAction;
+            _resultValue.modifyRequestHeaderActions = modifyRequestHeaderActions;
+            _resultValue.modifyResponseHeaderActions = modifyResponseHeaderActions;
+            _resultValue.urlRedirectAction = urlRedirectAction;
+            _resultValue.urlRewriteAction = urlRewriteAction;
+            return _resultValue;
         }
     }
 }

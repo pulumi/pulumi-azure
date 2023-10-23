@@ -97,12 +97,12 @@ public final class AnalyticsSolutionPlan {
             return this;
         }
         public AnalyticsSolutionPlan build() {
-            final var o = new AnalyticsSolutionPlan();
-            o.name = name;
-            o.product = product;
-            o.promotionCode = promotionCode;
-            o.publisher = publisher;
-            return o;
+            final var _resultValue = new AnalyticsSolutionPlan();
+            _resultValue.name = name;
+            _resultValue.product = product;
+            _resultValue.promotionCode = promotionCode;
+            _resultValue.publisher = publisher;
+            return _resultValue;
         }
     }
 }

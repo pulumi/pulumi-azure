@@ -74,10 +74,10 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
             return this;
         }
         public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret build() {
-            final var o = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret();
-            o.certificates = certificates;
-            o.keyVaultId = keyVaultId;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret();
+            _resultValue.certificates = certificates;
+            _resultValue.keyVaultId = keyVaultId;
+            return _resultValue;
         }
     }
 }

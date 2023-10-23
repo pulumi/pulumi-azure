@@ -104,7 +104,23 @@ class ChannelDirectLineSite(dict):
              user_upload_enabled: Optional[bool] = None,
              v1_allowed: Optional[bool] = None,
              v3_allowed: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointParametersEnabled' in kwargs:
+            endpoint_parameters_enabled = kwargs['endpointParametersEnabled']
+        if 'enhancedAuthenticationEnabled' in kwargs:
+            enhanced_authentication_enabled = kwargs['enhancedAuthenticationEnabled']
+        if 'storageEnabled' in kwargs:
+            storage_enabled = kwargs['storageEnabled']
+        if 'trustedOrigins' in kwargs:
+            trusted_origins = kwargs['trustedOrigins']
+        if 'userUploadEnabled' in kwargs:
+            user_upload_enabled = kwargs['userUploadEnabled']
+        if 'v1Allowed' in kwargs:
+            v1_allowed = kwargs['v1Allowed']
+        if 'v3Allowed' in kwargs:
+            v3_allowed = kwargs['v3Allowed']
+
         _setter("name", name)
         if enabled is not None:
             _setter("enabled", enabled)
@@ -262,7 +278,11 @@ class ChannelFacebookPage(dict):
              _setter: Callable[[Any, Any], None],
              access_token: str,
              id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+
         _setter("access_token", access_token)
         _setter("id", id)
 
@@ -319,7 +339,11 @@ class ChannelLineLineChannel(dict):
              _setter: Callable[[Any, Any], None],
              access_token: str,
              secret: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+
         _setter("access_token", access_token)
         _setter("secret", secret)
 
@@ -388,7 +412,15 @@ class ChannelWebChatSite(dict):
              endpoint_parameters_enabled: Optional[bool] = None,
              storage_enabled: Optional[bool] = None,
              user_upload_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointParametersEnabled' in kwargs:
+            endpoint_parameters_enabled = kwargs['endpointParametersEnabled']
+        if 'storageEnabled' in kwargs:
+            storage_enabled = kwargs['storageEnabled']
+        if 'userUploadEnabled' in kwargs:
+            user_upload_enabled = kwargs['userUploadEnabled']
+
         _setter("name", name)
         if endpoint_parameters_enabled is not None:
             _setter("endpoint_parameters_enabled", endpoint_parameters_enabled)

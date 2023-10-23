@@ -31,7 +31,11 @@ class ServerDnsAliasArgs:
              _setter: Callable[[Any, Any], None],
              mssql_server_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'mssqlServerId' in kwargs:
+            mssql_server_id = kwargs['mssqlServerId']
+
         _setter("mssql_server_id", mssql_server_id)
         if name is not None:
             _setter("name", name)
@@ -85,7 +89,13 @@ class _ServerDnsAliasState:
              dns_record: Optional[pulumi.Input[str]] = None,
              mssql_server_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dnsRecord' in kwargs:
+            dns_record = kwargs['dnsRecord']
+        if 'mssqlServerId' in kwargs:
+            mssql_server_id = kwargs['mssqlServerId']
+
         if dns_record is not None:
             _setter("dns_record", dns_record)
         if mssql_server_id is not None:

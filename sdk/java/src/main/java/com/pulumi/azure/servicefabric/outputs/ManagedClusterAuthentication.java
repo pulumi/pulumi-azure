@@ -72,10 +72,10 @@ public final class ManagedClusterAuthentication {
             return certificates(List.of(certificates));
         }
         public ManagedClusterAuthentication build() {
-            final var o = new ManagedClusterAuthentication();
-            o.activeDirectory = activeDirectory;
-            o.certificates = certificates;
-            return o;
+            final var _resultValue = new ManagedClusterAuthentication();
+            _resultValue.activeDirectory = activeDirectory;
+            _resultValue.certificates = certificates;
+            return _resultValue;
         }
     }
 }

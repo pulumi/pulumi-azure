@@ -117,12 +117,12 @@ public final class SecurityDeviceGroupAllowRule {
             return processesNotAlloweds(List.of(processesNotAlloweds));
         }
         public SecurityDeviceGroupAllowRule build() {
-            final var o = new SecurityDeviceGroupAllowRule();
-            o.connectionFromIpsNotAlloweds = connectionFromIpsNotAlloweds;
-            o.connectionToIpsNotAlloweds = connectionToIpsNotAlloweds;
-            o.localUsersNotAlloweds = localUsersNotAlloweds;
-            o.processesNotAlloweds = processesNotAlloweds;
-            return o;
+            final var _resultValue = new SecurityDeviceGroupAllowRule();
+            _resultValue.connectionFromIpsNotAlloweds = connectionFromIpsNotAlloweds;
+            _resultValue.connectionToIpsNotAlloweds = connectionToIpsNotAlloweds;
+            _resultValue.localUsersNotAlloweds = localUsersNotAlloweds;
+            _resultValue.processesNotAlloweds = processesNotAlloweds;
+            return _resultValue;
         }
     }
 }

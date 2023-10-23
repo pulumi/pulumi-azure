@@ -78,7 +78,7 @@ export interface ProviderFeaturesVirtualMachine {
 
 export interface ProviderFeaturesVirtualMachineScaleSet {
     forceDelete?: pulumi.Input<boolean>;
-    rollInstancesWhenRequired: pulumi.Input<boolean>;
+    rollInstancesWhenRequired?: pulumi.Input<boolean>;
     scaleToZeroBeforeDeletion?: pulumi.Input<boolean>;
 }
 export namespace advisor {
@@ -17270,8 +17270,10 @@ export namespace cdn {
     export interface FrontdoorRuleConditionsUrlFilenameCondition {
         /**
          * A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+         *
+         * > **NOTE:** The `matchValues` field is only optional if the `operator` is set to `Any`.
          */
-        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        matchValues?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
          */
@@ -19433,7 +19435,7 @@ export namespace compute {
          */
         communityGallery?: pulumi.Input<inputs.compute.SharedImageGallerySharingCommunityGallery>;
         /**
-         * The permission of the Shared Image Gallery when sharing. The only possible value now is `Community`. Changing this forces a new resource to be created.
+         * The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
          *
          * > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
          */
@@ -23302,6 +23304,8 @@ export namespace containerservice {
          * Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
          *
          * > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
+         *
+         * > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
          */
         networkPolicy?: pulumi.Input<string>;
         /**
@@ -27531,6 +27535,15 @@ export namespace desktopvirtualization {
     }
 }
 
+export namespace devcenter {
+    export interface DevCenterIdentity {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+}
+
 export namespace devtest {
     export interface GlobalVMShutdownScheduleNotificationSettings {
         /**
@@ -30231,9 +30244,9 @@ export namespace frontdoor {
          */
         path?: pulumi.Input<string>;
         /**
-         * Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `GET`.
+         * Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
          *
-         * > **NOTE:** Use the `Head` method if you do not need to check the response body of your health probe.
+         * > **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
          */
         probeMethod?: pulumi.Input<string>;
         /**
@@ -38716,7 +38729,7 @@ export namespace monitoring {
          */
         operationName?: pulumi.Input<string>;
         /**
-         * The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
+         * The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
          */
         recommendationCategory?: pulumi.Input<string>;
         /**
@@ -42038,11 +42051,11 @@ export namespace network {
          */
         id?: pulumi.Input<string>;
         /**
-         * Whether or not to include the path in the redirected Url. Defaults to `false`
+         * Whether to include the path in the redirected URL. Defaults to `false`
          */
         includePath?: pulumi.Input<boolean>;
         /**
-         * Whether or not to include the query string in the redirected Url. Default to `false`
+         * Whether to include the query string in the redirected URL. Default to `false`
          */
         includeQueryString?: pulumi.Input<boolean>;
         /**
@@ -42059,7 +42072,7 @@ export namespace network {
          */
         targetListenerName?: pulumi.Input<string>;
         /**
-         * The Url to redirect the request to. Cannot be set if `targetListenerName` is set.
+         * The URL to redirect the request to. Cannot be set if `targetListenerName` is set.
          */
         targetUrl?: pulumi.Input<string>;
     }
@@ -42145,7 +42158,7 @@ export namespace network {
          */
         name: pulumi.Input<string>;
         /**
-         * One or more `rewriteRule` blocks as defined above.
+         * One or more `rewriteRule` blocks as defined below.
          */
         rewriteRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSetRewriteRule>[]>;
     }
@@ -42222,7 +42235,7 @@ export namespace network {
         /**
          * The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
          *
-         * > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value  will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
+         * > **Note:** One or both of `path` and `queryString` must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite `path` or `queryString`, use `components`.
          */
         components?: pulumi.Input<string>;
         /**
@@ -42234,14 +42247,14 @@ export namespace network {
          */
         queryString?: pulumi.Input<string>;
         /**
-         * Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+         * Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
          */
         reroute?: pulumi.Input<boolean>;
     }
 
     export interface ApplicationGatewaySku {
         /**
-         * The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
+         * The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between `1` and `32`, and `1` to `125` for a V2 SKU. This property is optional if `autoscaleConfiguration` is set.
          */
         capacity?: pulumi.Input<number>;
         /**
@@ -42268,7 +42281,7 @@ export namespace network {
          */
         id?: pulumi.Input<string>;
         /**
-         * Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
+         * The Secret ID of (base-64 encoded unencrypted pfx) the `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
          *
          * > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
          *
@@ -42305,7 +42318,7 @@ export namespace network {
          */
         minProtocolVersion?: pulumi.Input<string>;
         /**
-         * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+         * The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
          */
         policyName?: pulumi.Input<string>;
         /**
@@ -42359,7 +42372,7 @@ export namespace network {
          */
         minProtocolVersion?: pulumi.Input<string>;
         /**
-         * The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
+         * The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if `policyType` is set to `Predefined`. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with `disabledProtocols`.
          */
         policyName?: pulumi.Input<string>;
         /**
@@ -42472,7 +42485,7 @@ export namespace network {
          */
         backendHttpSettingsName?: pulumi.Input<string>;
         /**
-         * The ID of the Web Application Firewall Policy which should be used as a HTTP Listener.
+         * The ID of the Web Application Firewall Policy which should be used as an HTTP Listener.
          */
         firewallPolicyId?: pulumi.Input<string>;
         /**
@@ -42507,7 +42520,7 @@ export namespace network {
 
     export interface ApplicationGatewayWafConfiguration {
         /**
-         * one or more `disabledRuleGroup` blocks as defined below.
+         * One or more `disabledRuleGroup` blocks as defined below.
          */
         disabledRuleGroups?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayWafConfigurationDisabledRuleGroup>[]>;
         /**
@@ -42515,7 +42528,7 @@ export namespace network {
          */
         enabled: pulumi.Input<boolean>;
         /**
-         * one or more `exclusion` blocks as defined below.
+         * One or more `exclusion` blocks as defined below.
          */
         exclusions?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayWafConfigurationExclusion>[]>;
         /**

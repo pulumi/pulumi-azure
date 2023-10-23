@@ -65,10 +65,10 @@ public final class SpringCloudBuilderStack {
             return this;
         }
         public SpringCloudBuilderStack build() {
-            final var o = new SpringCloudBuilderStack();
-            o.id = id;
-            o.version = version;
-            return o;
+            final var _resultValue = new SpringCloudBuilderStack();
+            _resultValue.id = id;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

@@ -91,11 +91,11 @@ public final class AlertProcessingRuleSuppressionScheduleRecurrenceMonthly {
             return this;
         }
         public AlertProcessingRuleSuppressionScheduleRecurrenceMonthly build() {
-            final var o = new AlertProcessingRuleSuppressionScheduleRecurrenceMonthly();
-            o.daysOfMonths = daysOfMonths;
-            o.endTime = endTime;
-            o.startTime = startTime;
-            return o;
+            final var _resultValue = new AlertProcessingRuleSuppressionScheduleRecurrenceMonthly();
+            _resultValue.daysOfMonths = daysOfMonths;
+            _resultValue.endTime = endTime;
+            _resultValue.startTime = startTime;
+            return _resultValue;
         }
     }
 }

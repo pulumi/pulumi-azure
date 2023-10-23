@@ -18,9 +18,21 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string AssociatedRouteTableId;
         /// <summary>
+        /// The ID of the Route Map associated with this Routing Configuration for inbound learned routes.
+        /// </summary>
+        public readonly string InboundRouteMapId;
+        /// <summary>
+        /// The ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
+        /// </summary>
+        public readonly string OutboundRouteMapId;
+        /// <summary>
         /// A `propagated_route_table` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualHubConnectionRoutingPropagatedRouteTableResult> PropagatedRouteTables;
+        /// <summary>
+        /// The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet.
+        /// </summary>
+        public readonly string StaticVnetLocalRouteOverrideCriteria;
         /// <summary>
         /// A `static_vnet_route` block as defined below.
         /// </summary>
@@ -30,12 +42,21 @@ namespace Pulumi.Azure.Network.Outputs
         private GetVirtualHubConnectionRoutingResult(
             string associatedRouteTableId,
 
+            string inboundRouteMapId,
+
+            string outboundRouteMapId,
+
             ImmutableArray<Outputs.GetVirtualHubConnectionRoutingPropagatedRouteTableResult> propagatedRouteTables,
+
+            string staticVnetLocalRouteOverrideCriteria,
 
             ImmutableArray<Outputs.GetVirtualHubConnectionRoutingStaticVnetRouteResult> staticVnetRoutes)
         {
             AssociatedRouteTableId = associatedRouteTableId;
+            InboundRouteMapId = inboundRouteMapId;
+            OutboundRouteMapId = outboundRouteMapId;
             PropagatedRouteTables = propagatedRouteTables;
+            StaticVnetLocalRouteOverrideCriteria = staticVnetLocalRouteOverrideCriteria;
             StaticVnetRoutes = staticVnetRoutes;
         }
     }

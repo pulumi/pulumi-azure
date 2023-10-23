@@ -73,10 +73,10 @@ public final class EventSubscriptionAdvancedFilterStringNotContain {
             return values(List.of(values));
         }
         public EventSubscriptionAdvancedFilterStringNotContain build() {
-            final var o = new EventSubscriptionAdvancedFilterStringNotContain();
-            o.key = key;
-            o.values = values;
-            return o;
+            final var _resultValue = new EventSubscriptionAdvancedFilterStringNotContain();
+            _resultValue.key = key;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

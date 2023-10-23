@@ -53,7 +53,23 @@ class TagRuleArgs:
              metric_enabled: Optional[pulumi.Input[bool]] = None,
              metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]] = None,
              subscription_log_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if 'activityLogEnabled' in kwargs:
+            activity_log_enabled = kwargs['activityLogEnabled']
+        if 'azureActiveDirectoryLogEnabled' in kwargs:
+            azure_active_directory_log_enabled = kwargs['azureActiveDirectoryLogEnabled']
+        if 'logTagFilters' in kwargs:
+            log_tag_filters = kwargs['logTagFilters']
+        if 'metricEnabled' in kwargs:
+            metric_enabled = kwargs['metricEnabled']
+        if 'metricTagFilters' in kwargs:
+            metric_tag_filters = kwargs['metricTagFilters']
+        if 'subscriptionLogEnabled' in kwargs:
+            subscription_log_enabled = kwargs['subscriptionLogEnabled']
+
         _setter("monitor_id", monitor_id)
         if activity_log_enabled is not None:
             _setter("activity_log_enabled", activity_log_enabled)
@@ -193,7 +209,23 @@ class _TagRuleState:
              metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]] = None,
              monitor_id: Optional[pulumi.Input[str]] = None,
              subscription_log_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'activityLogEnabled' in kwargs:
+            activity_log_enabled = kwargs['activityLogEnabled']
+        if 'azureActiveDirectoryLogEnabled' in kwargs:
+            azure_active_directory_log_enabled = kwargs['azureActiveDirectoryLogEnabled']
+        if 'logTagFilters' in kwargs:
+            log_tag_filters = kwargs['logTagFilters']
+        if 'metricEnabled' in kwargs:
+            metric_enabled = kwargs['metricEnabled']
+        if 'metricTagFilters' in kwargs:
+            metric_tag_filters = kwargs['metricTagFilters']
+        if 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if 'subscriptionLogEnabled' in kwargs:
+            subscription_log_enabled = kwargs['subscriptionLogEnabled']
+
         if activity_log_enabled is not None:
             _setter("activity_log_enabled", activity_log_enabled)
         if azure_active_directory_log_enabled is not None:

@@ -97,12 +97,12 @@ public final class DataLakeGen2PathAce {
             return this;
         }
         public DataLakeGen2PathAce build() {
-            final var o = new DataLakeGen2PathAce();
-            o.id = id;
-            o.permissions = permissions;
-            o.scope = scope;
-            o.type = type;
-            return o;
+            final var _resultValue = new DataLakeGen2PathAce();
+            _resultValue.id = id;
+            _resultValue.permissions = permissions;
+            _resultValue.scope = scope;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

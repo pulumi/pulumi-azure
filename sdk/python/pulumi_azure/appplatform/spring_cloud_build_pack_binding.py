@@ -41,7 +41,13 @@ class SpringCloudBuildPackBindingArgs:
              binding_type: Optional[pulumi.Input[str]] = None,
              launch: Optional[pulumi.Input['SpringCloudBuildPackBindingLaunchArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'springCloudBuilderId' in kwargs:
+            spring_cloud_builder_id = kwargs['springCloudBuilderId']
+        if 'bindingType' in kwargs:
+            binding_type = kwargs['bindingType']
+
         _setter("spring_cloud_builder_id", spring_cloud_builder_id)
         if binding_type is not None:
             _setter("binding_type", binding_type)
@@ -127,7 +133,13 @@ class _SpringCloudBuildPackBindingState:
              launch: Optional[pulumi.Input['SpringCloudBuildPackBindingLaunchArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              spring_cloud_builder_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'bindingType' in kwargs:
+            binding_type = kwargs['bindingType']
+        if 'springCloudBuilderId' in kwargs:
+            spring_cloud_builder_id = kwargs['springCloudBuilderId']
+
         if binding_type is not None:
             _setter("binding_type", binding_type)
         if launch is not None:

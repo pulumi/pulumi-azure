@@ -65,10 +65,10 @@ public final class AlertRuleScheduledAlertDetailsOverrideDynamicProperty {
             return this;
         }
         public AlertRuleScheduledAlertDetailsOverrideDynamicProperty build() {
-            final var o = new AlertRuleScheduledAlertDetailsOverrideDynamicProperty();
-            o.name = name;
-            o.value = value;
-            return o;
+            final var _resultValue = new AlertRuleScheduledAlertDetailsOverrideDynamicProperty();
+            _resultValue.name = name;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

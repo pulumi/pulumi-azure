@@ -71,10 +71,10 @@ public final class TransformOutputCustomPresetFormatMp4 {
             return outputFiles(List.of(outputFiles));
         }
         public TransformOutputCustomPresetFormatMp4 build() {
-            final var o = new TransformOutputCustomPresetFormatMp4();
-            o.filenamePattern = filenamePattern;
-            o.outputFiles = outputFiles;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetFormatMp4();
+            _resultValue.filenamePattern = filenamePattern;
+            _resultValue.outputFiles = outputFiles;
+            return _resultValue;
         }
     }
 }

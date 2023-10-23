@@ -72,10 +72,10 @@ public final class SubscriptionPolicyAssignmentResourceSelector {
             return selectors(List.of(selectors));
         }
         public SubscriptionPolicyAssignmentResourceSelector build() {
-            final var o = new SubscriptionPolicyAssignmentResourceSelector();
-            o.name = name;
-            o.selectors = selectors;
-            return o;
+            final var _resultValue = new SubscriptionPolicyAssignmentResourceSelector();
+            _resultValue.name = name;
+            _resultValue.selectors = selectors;
+            return _resultValue;
         }
     }
 }

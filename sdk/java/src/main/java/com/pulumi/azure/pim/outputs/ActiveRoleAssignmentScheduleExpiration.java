@@ -87,11 +87,11 @@ public final class ActiveRoleAssignmentScheduleExpiration {
             return this;
         }
         public ActiveRoleAssignmentScheduleExpiration build() {
-            final var o = new ActiveRoleAssignmentScheduleExpiration();
-            o.durationDays = durationDays;
-            o.durationHours = durationHours;
-            o.endDateTime = endDateTime;
-            return o;
+            final var _resultValue = new ActiveRoleAssignmentScheduleExpiration();
+            _resultValue.durationDays = durationDays;
+            _resultValue.durationHours = durationHours;
+            _resultValue.endDateTime = endDateTime;
+            return _resultValue;
         }
     }
 }

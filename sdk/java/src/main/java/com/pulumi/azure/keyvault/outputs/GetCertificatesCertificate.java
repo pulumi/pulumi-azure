@@ -77,11 +77,11 @@ public final class GetCertificatesCertificate {
             return this;
         }
         public GetCertificatesCertificate build() {
-            final var o = new GetCertificatesCertificate();
-            o.enabled = enabled;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetCertificatesCertificate();
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

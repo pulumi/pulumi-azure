@@ -130,13 +130,13 @@ public final class HadoopClusterRolesEdgeNodeHttpsEndpoint {
             return this;
         }
         public HadoopClusterRolesEdgeNodeHttpsEndpoint build() {
-            final var o = new HadoopClusterRolesEdgeNodeHttpsEndpoint();
-            o.accessModes = accessModes;
-            o.destinationPort = destinationPort;
-            o.disableGatewayAuth = disableGatewayAuth;
-            o.privateIpAddress = privateIpAddress;
-            o.subDomainSuffix = subDomainSuffix;
-            return o;
+            final var _resultValue = new HadoopClusterRolesEdgeNodeHttpsEndpoint();
+            _resultValue.accessModes = accessModes;
+            _resultValue.destinationPort = destinationPort;
+            _resultValue.disableGatewayAuth = disableGatewayAuth;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.subDomainSuffix = subDomainSuffix;
+            return _resultValue;
         }
     }
 }

@@ -104,12 +104,12 @@ public final class SecurityDeviceGroupRangeRule {
             return this;
         }
         public SecurityDeviceGroupRangeRule build() {
-            final var o = new SecurityDeviceGroupRangeRule();
-            o.duration = duration;
-            o.max = max;
-            o.min = min;
-            o.type = type;
-            return o;
+            final var _resultValue = new SecurityDeviceGroupRangeRule();
+            _resultValue.duration = duration;
+            _resultValue.max = max;
+            _resultValue.min = min;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

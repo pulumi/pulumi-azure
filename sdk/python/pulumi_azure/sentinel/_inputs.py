@@ -82,7 +82,11 @@ class AlertRuleAnomalyBuiltInMultiSelectObservationArgs:
              name: Optional[pulumi.Input[str]] = None,
              supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'supportedValues' in kwargs:
+            supported_values = kwargs['supportedValues']
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -168,7 +172,9 @@ class AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs:
              exclude: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              prioritize: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if exclude is not None:
@@ -246,7 +252,13 @@ class AlertRuleAnomalyBuiltInRequiredDataConnectorArgs:
              _setter: Callable[[Any, Any], None],
              connector_id: Optional[pulumi.Input[str]] = None,
              data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorId' in kwargs:
+            connector_id = kwargs['connectorId']
+        if 'dataTypes' in kwargs:
+            data_types = kwargs['dataTypes']
+
         if connector_id is not None:
             _setter("connector_id", connector_id)
         if data_types is not None:
@@ -304,7 +316,11 @@ class AlertRuleAnomalyBuiltInSingleSelectObservationArgs:
              name: Optional[pulumi.Input[str]] = None,
              supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'supportedValues' in kwargs:
+            supported_values = kwargs['supportedValues']
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -394,7 +410,9 @@ class AlertRuleAnomalyBuiltInThresholdObservationArgs:
              min: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if max is not None:
@@ -494,7 +512,11 @@ class AlertRuleAnomalyDuplicateMultiSelectObservationArgs:
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
              description: Optional[pulumi.Input[str]] = None,
              supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'supportedValues' in kwargs:
+            supported_values = kwargs['supportedValues']
+
         _setter("name", name)
         _setter("values", values)
         if description is not None:
@@ -578,7 +600,9 @@ class AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs:
              description: Optional[pulumi.Input[str]] = None,
              exclude: Optional[pulumi.Input[str]] = None,
              prioritize: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -655,7 +679,13 @@ class AlertRuleAnomalyDuplicateRequiredDataConnectorArgs:
              _setter: Callable[[Any, Any], None],
              connector_id: Optional[pulumi.Input[str]] = None,
              data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectorId' in kwargs:
+            connector_id = kwargs['connectorId']
+        if 'dataTypes' in kwargs:
+            data_types = kwargs['dataTypes']
+
         if connector_id is not None:
             _setter("connector_id", connector_id)
         if data_types is not None:
@@ -713,7 +743,11 @@ class AlertRuleAnomalyDuplicateSingleSelectObservationArgs:
              value: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              supported_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'supportedValues' in kwargs:
+            supported_values = kwargs['supportedValues']
+
         _setter("name", name)
         _setter("value", value)
         if description is not None:
@@ -801,7 +835,9 @@ class AlertRuleAnomalyDuplicateThresholdObservationArgs:
              description: Optional[pulumi.Input[str]] = None,
              max: Optional[pulumi.Input[str]] = None,
              min: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
         if description is not None:
@@ -895,7 +931,11 @@ class AlertRuleFusionSourceArgs:
              name: pulumi.Input[str],
              enabled: Optional[pulumi.Input[bool]] = None,
              sub_types: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'subTypes' in kwargs:
+            sub_types = kwargs['subTypes']
+
         _setter("name", name)
         if enabled is not None:
             _setter("enabled", enabled)
@@ -962,7 +1002,11 @@ class AlertRuleFusionSourceSubTypeArgs:
              name: pulumi.Input[str],
              severities_alloweds: pulumi.Input[Sequence[pulumi.Input[str]]],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'severitiesAlloweds' in kwargs:
+            severities_alloweds = kwargs['severitiesAlloweds']
+
         _setter("name", name)
         _setter("severities_alloweds", severities_alloweds)
         if enabled is not None:
@@ -1036,7 +1080,19 @@ class AlertRuleNrtAlertDetailsOverrideArgs:
              dynamic_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]] = None,
              severity_column_name: Optional[pulumi.Input[str]] = None,
              tactics_column_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'descriptionFormat' in kwargs:
+            description_format = kwargs['descriptionFormat']
+        if 'displayNameFormat' in kwargs:
+            display_name_format = kwargs['displayNameFormat']
+        if 'dynamicProperties' in kwargs:
+            dynamic_properties = kwargs['dynamicProperties']
+        if 'severityColumnName' in kwargs:
+            severity_column_name = kwargs['severityColumnName']
+        if 'tacticsColumnName' in kwargs:
+            tactics_column_name = kwargs['tacticsColumnName']
+
         if description_format is not None:
             _setter("description_format", description_format)
         if display_name_format is not None:
@@ -1128,7 +1184,9 @@ class AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1176,7 +1234,13 @@ class AlertRuleNrtEntityMappingArgs:
              _setter: Callable[[Any, Any], None],
              entity_type: pulumi.Input[str],
              field_mappings: pulumi.Input[Sequence[pulumi.Input['AlertRuleNrtEntityMappingFieldMappingArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityType' in kwargs:
+            entity_type = kwargs['entityType']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+
         _setter("entity_type", entity_type)
         _setter("field_mappings", field_mappings)
 
@@ -1224,7 +1288,11 @@ class AlertRuleNrtEntityMappingFieldMappingArgs:
              _setter: Callable[[Any, Any], None],
              column_name: pulumi.Input[str],
              identifier: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+
         _setter("column_name", column_name)
         _setter("identifier", identifier)
 
@@ -1268,7 +1336,11 @@ class AlertRuleNrtEventGroupingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              aggregation_method: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aggregationMethod' in kwargs:
+            aggregation_method = kwargs['aggregationMethod']
+
         _setter("aggregation_method", aggregation_method)
 
     @property
@@ -1303,7 +1375,11 @@ class AlertRuleNrtIncidentArgs:
              _setter: Callable[[Any, Any], None],
              create_incident_enabled: pulumi.Input[bool],
              grouping: pulumi.Input['AlertRuleNrtIncidentGroupingArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createIncidentEnabled' in kwargs:
+            create_incident_enabled = kwargs['createIncidentEnabled']
+
         _setter("create_incident_enabled", create_incident_enabled)
         _setter("grouping", grouping)
 
@@ -1371,7 +1447,21 @@ class AlertRuleNrtIncidentGroupingArgs:
              entity_matching_method: Optional[pulumi.Input[str]] = None,
              lookback_duration: Optional[pulumi.Input[str]] = None,
              reopen_closed_incidents: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'byAlertDetails' in kwargs:
+            by_alert_details = kwargs['byAlertDetails']
+        if 'byCustomDetails' in kwargs:
+            by_custom_details = kwargs['byCustomDetails']
+        if 'byEntities' in kwargs:
+            by_entities = kwargs['byEntities']
+        if 'entityMatchingMethod' in kwargs:
+            entity_matching_method = kwargs['entityMatchingMethod']
+        if 'lookbackDuration' in kwargs:
+            lookback_duration = kwargs['lookbackDuration']
+        if 'reopenClosedIncidents' in kwargs:
+            reopen_closed_incidents = kwargs['reopenClosedIncidents']
+
         if by_alert_details is not None:
             _setter("by_alert_details", by_alert_details)
         if by_custom_details is not None:
@@ -1487,7 +1577,11 @@ class AlertRuleNrtSentinelEntityMappingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              column_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+
         _setter("column_name", column_name)
 
     @property
@@ -1534,7 +1628,19 @@ class AlertRuleScheduledAlertDetailsOverrideArgs:
              dynamic_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]] = None,
              severity_column_name: Optional[pulumi.Input[str]] = None,
              tactics_column_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'descriptionFormat' in kwargs:
+            description_format = kwargs['descriptionFormat']
+        if 'displayNameFormat' in kwargs:
+            display_name_format = kwargs['displayNameFormat']
+        if 'dynamicProperties' in kwargs:
+            dynamic_properties = kwargs['dynamicProperties']
+        if 'severityColumnName' in kwargs:
+            severity_column_name = kwargs['severityColumnName']
+        if 'tacticsColumnName' in kwargs:
+            tactics_column_name = kwargs['tacticsColumnName']
+
         if description_format is not None:
             _setter("description_format", description_format)
         if display_name_format is not None:
@@ -1626,7 +1732,9 @@ class AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs:
              _setter: Callable[[Any, Any], None],
              name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1674,7 +1782,13 @@ class AlertRuleScheduledEntityMappingArgs:
              _setter: Callable[[Any, Any], None],
              entity_type: pulumi.Input[str],
              field_mappings: pulumi.Input[Sequence[pulumi.Input['AlertRuleScheduledEntityMappingFieldMappingArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityType' in kwargs:
+            entity_type = kwargs['entityType']
+        if 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+
         _setter("entity_type", entity_type)
         _setter("field_mappings", field_mappings)
 
@@ -1722,7 +1836,11 @@ class AlertRuleScheduledEntityMappingFieldMappingArgs:
              _setter: Callable[[Any, Any], None],
              column_name: pulumi.Input[str],
              identifier: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+
         _setter("column_name", column_name)
         _setter("identifier", identifier)
 
@@ -1766,7 +1884,11 @@ class AlertRuleScheduledEventGroupingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              aggregation_method: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aggregationMethod' in kwargs:
+            aggregation_method = kwargs['aggregationMethod']
+
         _setter("aggregation_method", aggregation_method)
 
     @property
@@ -1801,7 +1923,11 @@ class AlertRuleScheduledIncidentConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              create_incident: pulumi.Input[bool],
              grouping: pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'createIncident' in kwargs:
+            create_incident = kwargs['createIncident']
+
         _setter("create_incident", create_incident)
         _setter("grouping", grouping)
 
@@ -1869,7 +1995,21 @@ class AlertRuleScheduledIncidentConfigurationGroupingArgs:
              group_by_entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              lookback_duration: Optional[pulumi.Input[str]] = None,
              reopen_closed_incidents: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'entityMatchingMethod' in kwargs:
+            entity_matching_method = kwargs['entityMatchingMethod']
+        if 'groupByAlertDetails' in kwargs:
+            group_by_alert_details = kwargs['groupByAlertDetails']
+        if 'groupByCustomDetails' in kwargs:
+            group_by_custom_details = kwargs['groupByCustomDetails']
+        if 'groupByEntities' in kwargs:
+            group_by_entities = kwargs['groupByEntities']
+        if 'lookbackDuration' in kwargs:
+            lookback_duration = kwargs['lookbackDuration']
+        if 'reopenClosedIncidents' in kwargs:
+            reopen_closed_incidents = kwargs['reopenClosedIncidents']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if entity_matching_method is not None:
@@ -1985,7 +2125,11 @@ class AlertRuleScheduledSentinelEntityMappingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              column_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+
         _setter("column_name", column_name)
 
     @property
@@ -2046,7 +2190,13 @@ class AuthomationRuleActionIncidentArgs:
              owner_id: Optional[pulumi.Input[str]] = None,
              severity: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classificationComment' in kwargs:
+            classification_comment = kwargs['classificationComment']
+        if 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+
         _setter("order", order)
         if classification is not None:
             _setter("classification", classification)
@@ -2175,7 +2325,13 @@ class AuthomationRuleActionPlaybookArgs:
              logic_app_id: pulumi.Input[str],
              order: pulumi.Input[int],
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("logic_app_id", logic_app_id)
         _setter("order", order)
         if tenant_id is not None:
@@ -2241,7 +2397,9 @@ class AuthomationRuleConditionArgs:
              operator: pulumi.Input[str],
              property: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("property", property)
         _setter("values", values)
@@ -2328,7 +2486,13 @@ class AutomationRuleActionIncidentArgs:
              owner_id: Optional[pulumi.Input[str]] = None,
              severity: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'classificationComment' in kwargs:
+            classification_comment = kwargs['classificationComment']
+        if 'ownerId' in kwargs:
+            owner_id = kwargs['ownerId']
+
         _setter("order", order)
         if classification is not None:
             _setter("classification", classification)
@@ -2457,7 +2621,13 @@ class AutomationRuleActionPlaybookArgs:
              logic_app_id: pulumi.Input[str],
              order: pulumi.Input[int],
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("logic_app_id", logic_app_id)
         _setter("order", order)
         if tenant_id is not None:
@@ -2523,7 +2693,9 @@ class AutomationRuleConditionArgs:
              operator: pulumi.Input[str],
              property: pulumi.Input[str],
              values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("operator", operator)
         _setter("property", property)
         _setter("values", values)
@@ -2588,7 +2760,9 @@ class MetadataAuthorArgs:
              email: Optional[pulumi.Input[str]] = None,
              link: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if email is not None:
             _setter("email", email)
         if link is not None:
@@ -2652,7 +2826,9 @@ class MetadataCategoryArgs:
              _setter: Callable[[Any, Any], None],
              domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              verticals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if domains is not None:
             _setter("domains", domains)
         if verticals is not None:
@@ -2706,7 +2882,9 @@ class MetadataSourceArgs:
              kind: pulumi.Input[str],
              id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("kind", kind)
         if id is not None:
             _setter("id", id)
@@ -2777,7 +2955,9 @@ class MetadataSupportArgs:
              email: Optional[pulumi.Input[str]] = None,
              link: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("tier", tier)
         if email is not None:
             _setter("email", email)
@@ -2866,7 +3046,11 @@ class ThreatIntelligenceIndicatorExternalReferenceArgs:
              id: Optional[pulumi.Input[str]] = None,
              source_name: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'sourceName' in kwargs:
+            source_name = kwargs['sourceName']
+
         if description is not None:
             _setter("description", description)
         if hashes is not None:
@@ -2962,7 +3146,11 @@ class ThreatIntelligenceIndicatorGranularMarkingArgs:
              language: Optional[pulumi.Input[str]] = None,
              marking_ref: Optional[pulumi.Input[str]] = None,
              selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'markingRef' in kwargs:
+            marking_ref = kwargs['markingRef']
+
         if language is not None:
             _setter("language", language)
         if marking_ref is not None:
@@ -3022,7 +3210,9 @@ class ThreatIntelligenceIndicatorKillChainPhaseArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
 
@@ -3058,7 +3248,13 @@ class ThreatIntelligenceIndicatorParsedPatternArgs:
              _setter: Callable[[Any, Any], None],
              pattern_type_key: Optional[pulumi.Input[str]] = None,
              pattern_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'patternTypeKey' in kwargs:
+            pattern_type_key = kwargs['patternTypeKey']
+        if 'patternTypeValues' in kwargs:
+            pattern_type_values = kwargs['patternTypeValues']
+
         if pattern_type_key is not None:
             _setter("pattern_type_key", pattern_type_key)
         if pattern_type_values is not None:
@@ -3108,7 +3304,11 @@ class ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs:
              _setter: Callable[[Any, Any], None],
              value: Optional[pulumi.Input[str]] = None,
              value_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'valueType' in kwargs:
+            value_type = kwargs['valueType']
+
         if value is not None:
             _setter("value", value)
         if value_type is not None:

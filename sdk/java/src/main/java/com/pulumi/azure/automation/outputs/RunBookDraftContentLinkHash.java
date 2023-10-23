@@ -65,10 +65,10 @@ public final class RunBookDraftContentLinkHash {
             return this;
         }
         public RunBookDraftContentLinkHash build() {
-            final var o = new RunBookDraftContentLinkHash();
-            o.algorithm = algorithm;
-            o.value = value;
-            return o;
+            final var _resultValue = new RunBookDraftContentLinkHash();
+            _resultValue.algorithm = algorithm;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

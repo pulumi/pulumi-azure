@@ -75,7 +75,31 @@ class IotHubDataConnectionArgs:
              mapping_rule_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'consumerGroup' in kwargs:
+            consumer_group = kwargs['consumerGroup']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+        if 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if 'databaseRoutingType' in kwargs:
+            database_routing_type = kwargs['databaseRoutingType']
+        if 'eventSystemProperties' in kwargs:
+            event_system_properties = kwargs['eventSystemProperties']
+        if 'mappingRuleName' in kwargs:
+            mapping_rule_name = kwargs['mappingRuleName']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("cluster_name", cluster_name)
         _setter("consumer_group", consumer_group)
         _setter("database_name", database_name)
@@ -318,7 +342,31 @@ class _IotHubDataConnectionState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              shared_access_policy_name: Optional[pulumi.Input[str]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if 'consumerGroup' in kwargs:
+            consumer_group = kwargs['consumerGroup']
+        if 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if 'databaseRoutingType' in kwargs:
+            database_routing_type = kwargs['databaseRoutingType']
+        if 'eventSystemProperties' in kwargs:
+            event_system_properties = kwargs['eventSystemProperties']
+        if 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if 'mappingRuleName' in kwargs:
+            mapping_rule_name = kwargs['mappingRuleName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'sharedAccessPolicyName' in kwargs:
+            shared_access_policy_name = kwargs['sharedAccessPolicyName']
+        if 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         if cluster_name is not None:
             _setter("cluster_name", cluster_name)
         if consumer_group is not None:

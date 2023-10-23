@@ -183,17 +183,17 @@ public final class GetDirectoryResult {
             return this;
         }
         public GetDirectoryResult build() {
-            final var o = new GetDirectoryResult();
-            o.billingType = billingType;
-            o.dataResidencyLocation = dataResidencyLocation;
-            o.domainName = domainName;
-            o.effectiveStartDate = effectiveStartDate;
-            o.id = id;
-            o.resourceGroupName = resourceGroupName;
-            o.skuName = skuName;
-            o.tags = tags;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new GetDirectoryResult();
+            _resultValue.billingType = billingType;
+            _resultValue.dataResidencyLocation = dataResidencyLocation;
+            _resultValue.domainName = domainName;
+            _resultValue.effectiveStartDate = effectiveStartDate;
+            _resultValue.id = id;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.skuName = skuName;
+            _resultValue.tags = tags;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

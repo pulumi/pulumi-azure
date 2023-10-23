@@ -87,12 +87,12 @@ public final class GetSasResult {
             return this;
         }
         public GetSasResult build() {
-            final var o = new GetSasResult();
-            o.connectionString = connectionString;
-            o.expiry = expiry;
-            o.id = id;
-            o.sas = sas;
-            return o;
+            final var _resultValue = new GetSasResult();
+            _resultValue.connectionString = connectionString;
+            _resultValue.expiry = expiry;
+            _resultValue.id = id;
+            _resultValue.sas = sas;
+            return _resultValue;
         }
     }
 }

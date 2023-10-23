@@ -73,10 +73,10 @@ public final class GetWindowsWebAppSiteConfigAutoHealSetting {
             return triggers(List.of(triggers));
         }
         public GetWindowsWebAppSiteConfigAutoHealSetting build() {
-            final var o = new GetWindowsWebAppSiteConfigAutoHealSetting();
-            o.actions = actions;
-            o.triggers = triggers;
-            return o;
+            final var _resultValue = new GetWindowsWebAppSiteConfigAutoHealSetting();
+            _resultValue.actions = actions;
+            _resultValue.triggers = triggers;
+            return _resultValue;
         }
     }
 }

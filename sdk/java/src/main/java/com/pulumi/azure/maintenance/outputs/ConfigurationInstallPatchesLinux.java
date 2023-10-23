@@ -95,11 +95,11 @@ public final class ConfigurationInstallPatchesLinux {
             return packageNamesMaskToIncludes(List.of(packageNamesMaskToIncludes));
         }
         public ConfigurationInstallPatchesLinux build() {
-            final var o = new ConfigurationInstallPatchesLinux();
-            o.classificationsToIncludes = classificationsToIncludes;
-            o.packageNamesMaskToExcludes = packageNamesMaskToExcludes;
-            o.packageNamesMaskToIncludes = packageNamesMaskToIncludes;
-            return o;
+            final var _resultValue = new ConfigurationInstallPatchesLinux();
+            _resultValue.classificationsToIncludes = classificationsToIncludes;
+            _resultValue.packageNamesMaskToExcludes = packageNamesMaskToExcludes;
+            _resultValue.packageNamesMaskToIncludes = packageNamesMaskToIncludes;
+            return _resultValue;
         }
     }
 }

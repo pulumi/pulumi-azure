@@ -68,11 +68,11 @@ public final class GetActionGroupWebhookReceiverAadAuth {
             return this;
         }
         public GetActionGroupWebhookReceiverAadAuth build() {
-            final var o = new GetActionGroupWebhookReceiverAadAuth();
-            o.identifierUri = identifierUri;
-            o.objectId = objectId;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new GetActionGroupWebhookReceiverAadAuth();
+            _resultValue.identifierUri = identifierUri;
+            _resultValue.objectId = objectId;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

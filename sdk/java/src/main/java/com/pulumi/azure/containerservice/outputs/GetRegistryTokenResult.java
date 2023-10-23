@@ -118,14 +118,14 @@ public final class GetRegistryTokenResult {
             return this;
         }
         public GetRegistryTokenResult build() {
-            final var o = new GetRegistryTokenResult();
-            o.containerRegistryName = containerRegistryName;
-            o.enabled = enabled;
-            o.id = id;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.scopeMapId = scopeMapId;
-            return o;
+            final var _resultValue = new GetRegistryTokenResult();
+            _resultValue.containerRegistryName = containerRegistryName;
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.scopeMapId = scopeMapId;
+            return _resultValue;
         }
     }
 }

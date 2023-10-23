@@ -46,9 +46,9 @@ public final class GetAccountVirtualNetworkRule {
             return this;
         }
         public GetAccountVirtualNetworkRule build() {
-            final var o = new GetAccountVirtualNetworkRule();
-            o.id = id;
-            return o;
+            final var _resultValue = new GetAccountVirtualNetworkRule();
+            _resultValue.id = id;
+            return _resultValue;
         }
     }
 }

@@ -80,7 +80,7 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
+     * The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
      */
     public readonly storageCapacityInTb!: pulumi.Output<number>;
     /**
@@ -198,7 +198,7 @@ export interface FileSystemState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
+     * The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
      */
     storageCapacityInTb?: pulumi.Input<number>;
     /**
@@ -254,7 +254,7 @@ export interface FileSystemArgs {
      */
     skuName: pulumi.Input<string>;
     /**
-     * The size of the Azure Managed Lustre File System in TiB. Possible values are between 8 and 128 and must be divisible by 8. Changing this forces a new resource to be created.
+     * The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `skuName` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
      */
     storageCapacityInTb: pulumi.Input<number>;
     /**

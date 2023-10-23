@@ -31,7 +31,13 @@ class SubnetNatGatewayAssociationArgs:
              _setter: Callable[[Any, Any], None],
              nat_gateway_id: pulumi.Input[str],
              subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'natGatewayId' in kwargs:
+            nat_gateway_id = kwargs['natGatewayId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("nat_gateway_id", nat_gateway_id)
         _setter("subnet_id", subnet_id)
 
@@ -80,7 +86,13 @@ class _SubnetNatGatewayAssociationState:
              _setter: Callable[[Any, Any], None],
              nat_gateway_id: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'natGatewayId' in kwargs:
+            nat_gateway_id = kwargs['natGatewayId']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if nat_gateway_id is not None:
             _setter("nat_gateway_id", nat_gateway_id)
         if subnet_id is not None:

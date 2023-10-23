@@ -49,7 +49,13 @@ class DicomServiceArgs:
              name: Optional[pulumi.Input[str]] = None,
              public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+
         _setter("workspace_id", workspace_id)
         if identity is not None:
             _setter("identity", identity)
@@ -182,7 +188,17 @@ class _DicomServiceState:
              service_url: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              workspace_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateEndpoints' in kwargs:
+            private_endpoints = kwargs['privateEndpoints']
+        if 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if 'serviceUrl' in kwargs:
+            service_url = kwargs['serviceUrl']
+        if 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if authentications is not None:
             _setter("authentications", authentications)
         if identity is not None:

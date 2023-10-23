@@ -69,10 +69,10 @@ public final class LinuxVirtualMachineAdminSshKey {
             return this;
         }
         public LinuxVirtualMachineAdminSshKey build() {
-            final var o = new LinuxVirtualMachineAdminSshKey();
-            o.publicKey = publicKey;
-            o.username = username;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineAdminSshKey();
+            _resultValue.publicKey = publicKey;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

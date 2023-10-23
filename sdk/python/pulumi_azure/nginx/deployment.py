@@ -18,7 +18,9 @@ class DeploymentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input[str],
+                 capacity: Optional[pulumi.Input[int]] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
+                 email: Optional[pulumi.Input[str]] = None,
                  frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
                  frontend_public: Optional[pulumi.Input['DeploymentFrontendPublicArgs']] = None,
                  identity: Optional[pulumi.Input['DeploymentIdentityArgs']] = None,
@@ -32,7 +34,11 @@ class DeploymentArgs:
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Nginx Deployment should exist. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[str] sku: Specify the Name of Nginx deployment SKU. The possible value are `publicpreview_Monthly_gmz7xq9ge3py` and `standard_Monthly`.
+        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
+               
+               > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
+        :param pulumi.Input[str] email: Specify the preferred support contact email address of the user used for sending alerts and notification.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input['DeploymentIdentityArgs'] identity: An `identity` block as defined below.
@@ -47,7 +53,9 @@ class DeploymentArgs:
             lambda key, value: pulumi.set(__self__, key, value),
             resource_group_name=resource_group_name,
             sku=sku,
+            capacity=capacity,
             diagnose_support_enabled=diagnose_support_enabled,
+            email=email,
             frontend_privates=frontend_privates,
             frontend_public=frontend_public,
             identity=identity,
@@ -63,7 +71,9 @@ class DeploymentArgs:
              _setter: Callable[[Any, Any], None],
              resource_group_name: pulumi.Input[str],
              sku: pulumi.Input[str],
+             capacity: Optional[pulumi.Input[int]] = None,
              diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
+             email: Optional[pulumi.Input[str]] = None,
              frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
              frontend_public: Optional[pulumi.Input['DeploymentFrontendPublicArgs']] = None,
              identity: Optional[pulumi.Input['DeploymentIdentityArgs']] = None,
@@ -73,11 +83,31 @@ class DeploymentArgs:
              name: Optional[pulumi.Input[str]] = None,
              network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'diagnoseSupportEnabled' in kwargs:
+            diagnose_support_enabled = kwargs['diagnoseSupportEnabled']
+        if 'frontendPrivates' in kwargs:
+            frontend_privates = kwargs['frontendPrivates']
+        if 'frontendPublic' in kwargs:
+            frontend_public = kwargs['frontendPublic']
+        if 'loggingStorageAccounts' in kwargs:
+            logging_storage_accounts = kwargs['loggingStorageAccounts']
+        if 'managedResourceGroup' in kwargs:
+            managed_resource_group = kwargs['managedResourceGroup']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+
         _setter("resource_group_name", resource_group_name)
         _setter("sku", sku)
+        if capacity is not None:
+            _setter("capacity", capacity)
         if diagnose_support_enabled is not None:
             _setter("diagnose_support_enabled", diagnose_support_enabled)
+        if email is not None:
+            _setter("email", email)
         if frontend_privates is not None:
             _setter("frontend_privates", frontend_privates)
         if frontend_public is not None:
@@ -122,6 +152,20 @@ class DeploymentArgs:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specify the number of NGINX capacity units for this NGINX deployment.
+
+        > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
     @pulumi.getter(name="diagnoseSupportEnabled")
     def diagnose_support_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -132,6 +176,18 @@ class DeploymentArgs:
     @diagnose_support_enabled.setter
     def diagnose_support_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "diagnose_support_enabled", value)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the preferred support contact email address of the user used for sending alerts and notification.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
 
     @property
     @pulumi.getter(name="frontendPrivates")
@@ -245,7 +301,9 @@ class DeploymentArgs:
 @pulumi.input_type
 class _DeploymentState:
     def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
+                 email: Optional[pulumi.Input[str]] = None,
                  frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
                  frontend_public: Optional[pulumi.Input['DeploymentFrontendPublicArgs']] = None,
                  identity: Optional[pulumi.Input['DeploymentIdentityArgs']] = None,
@@ -261,7 +319,11 @@ class _DeploymentState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
+        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
+               
+               > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
+        :param pulumi.Input[str] email: Specify the preferred support contact email address of the user used for sending alerts and notification.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input['DeploymentFrontendPublicArgs'] frontend_public: A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input['DeploymentIdentityArgs'] identity: An `identity` block as defined below.
@@ -278,7 +340,9 @@ class _DeploymentState:
         """
         _DeploymentState._configure(
             lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
             diagnose_support_enabled=diagnose_support_enabled,
+            email=email,
             frontend_privates=frontend_privates,
             frontend_public=frontend_public,
             identity=identity,
@@ -296,7 +360,9 @@ class _DeploymentState:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
+             capacity: Optional[pulumi.Input[int]] = None,
              diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
+             email: Optional[pulumi.Input[str]] = None,
              frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
              frontend_public: Optional[pulumi.Input['DeploymentFrontendPublicArgs']] = None,
              identity: Optional[pulumi.Input['DeploymentIdentityArgs']] = None,
@@ -310,9 +376,33 @@ class _DeploymentState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              sku: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'diagnoseSupportEnabled' in kwargs:
+            diagnose_support_enabled = kwargs['diagnoseSupportEnabled']
+        if 'frontendPrivates' in kwargs:
+            frontend_privates = kwargs['frontendPrivates']
+        if 'frontendPublic' in kwargs:
+            frontend_public = kwargs['frontendPublic']
+        if 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if 'loggingStorageAccounts' in kwargs:
+            logging_storage_accounts = kwargs['loggingStorageAccounts']
+        if 'managedResourceGroup' in kwargs:
+            managed_resource_group = kwargs['managedResourceGroup']
+        if 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if 'nginxVersion' in kwargs:
+            nginx_version = kwargs['nginxVersion']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
+        if capacity is not None:
+            _setter("capacity", capacity)
         if diagnose_support_enabled is not None:
             _setter("diagnose_support_enabled", diagnose_support_enabled)
+        if email is not None:
+            _setter("email", email)
         if frontend_privates is not None:
             _setter("frontend_privates", frontend_privates)
         if frontend_public is not None:
@@ -341,6 +431,20 @@ class _DeploymentState:
             _setter("tags", tags)
 
     @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specify the number of NGINX capacity units for this NGINX deployment.
+
+        > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
     @pulumi.getter(name="diagnoseSupportEnabled")
     def diagnose_support_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -351,6 +455,18 @@ class _DeploymentState:
     @diagnose_support_enabled.setter
     def diagnose_support_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "diagnose_support_enabled", value)
+
+    @property
+    @pulumi.getter
+    def email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the preferred support contact email address of the user used for sending alerts and notification.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email", value)
 
     @property
     @pulumi.getter(name="frontendPrivates")
@@ -514,7 +630,9 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
+                 email: Optional[pulumi.Input[str]] = None,
                  frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]]] = None,
                  frontend_public: Optional[pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['DeploymentIdentityArgs']]] = None,
@@ -571,7 +689,9 @@ class Deployment(pulumi.CustomResource):
             ),
             network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
                 subnet_id=example_subnet.id,
-            )])
+            )],
+            capacity=20,
+            email="user@test.com")
         ```
 
         ## Import
@@ -584,7 +704,11 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
+               
+               > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
+        :param pulumi.Input[str] email: Specify the preferred support contact email address of the user used for sending alerts and notification.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[pulumi.InputType['DeploymentIdentityArgs']] identity: An `identity` block as defined below.
@@ -647,7 +771,9 @@ class Deployment(pulumi.CustomResource):
             ),
             network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
                 subnet_id=example_subnet.id,
-            )])
+            )],
+            capacity=20,
+            email="user@test.com")
         ```
 
         ## Import
@@ -677,7 +803,9 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
+                 email: Optional[pulumi.Input[str]] = None,
                  frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]]] = None,
                  frontend_public: Optional[pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['DeploymentIdentityArgs']]] = None,
@@ -698,7 +826,9 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
+            __props__.__dict__["capacity"] = capacity
             __props__.__dict__["diagnose_support_enabled"] = diagnose_support_enabled
+            __props__.__dict__["email"] = email
             __props__.__dict__["frontend_privates"] = frontend_privates
             if frontend_public is not None and not isinstance(frontend_public, DeploymentFrontendPublicArgs):
                 frontend_public = frontend_public or {}
@@ -736,7 +866,9 @@ class Deployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            capacity: Optional[pulumi.Input[int]] = None,
             diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
+            email: Optional[pulumi.Input[str]] = None,
             frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]]] = None,
             frontend_public: Optional[pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['DeploymentIdentityArgs']]] = None,
@@ -757,7 +889,11 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
+               
+               > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the diagnosis support be enabled?
+        :param pulumi.Input[str] email: Specify the preferred support contact email address of the user used for sending alerts and notification.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new Nginx Deployment to be created.
         :param pulumi.Input[pulumi.InputType['DeploymentIdentityArgs']] identity: An `identity` block as defined below.
@@ -776,7 +912,9 @@ class Deployment(pulumi.CustomResource):
 
         __props__ = _DeploymentState.__new__(_DeploymentState)
 
+        __props__.__dict__["capacity"] = capacity
         __props__.__dict__["diagnose_support_enabled"] = diagnose_support_enabled
+        __props__.__dict__["email"] = email
         __props__.__dict__["frontend_privates"] = frontend_privates
         __props__.__dict__["frontend_public"] = frontend_public
         __props__.__dict__["identity"] = identity
@@ -793,12 +931,30 @@ class Deployment(pulumi.CustomResource):
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter
+    def capacity(self) -> pulumi.Output[Optional[int]]:
+        """
+        Specify the number of NGINX capacity units for this NGINX deployment.
+
+        > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
     @pulumi.getter(name="diagnoseSupportEnabled")
     def diagnose_support_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Should the diagnosis support be enabled?
         """
         return pulumi.get(self, "diagnose_support_enabled")
+
+    @property
+    @pulumi.getter
+    def email(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify the preferred support contact email address of the user used for sending alerts and notification.
+        """
+        return pulumi.get(self, "email")
 
     @property
     @pulumi.getter(name="frontendPrivates")

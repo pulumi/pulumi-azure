@@ -241,19 +241,19 @@ public final class GetDeviceDeviceProperty {
             return this;
         }
         public GetDeviceDeviceProperty build() {
-            final var o = new GetDeviceDeviceProperty();
-            o.capacity = capacity;
-            o.configuredRoleTypes = configuredRoleTypes;
-            o.culture = culture;
-            o.hcsVersion = hcsVersion;
-            o.model = model;
-            o.nodeCount = nodeCount;
-            o.serialNumber = serialNumber;
-            o.softwareVersion = softwareVersion;
-            o.status = status;
-            o.timeZone = timeZone;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetDeviceDeviceProperty();
+            _resultValue.capacity = capacity;
+            _resultValue.configuredRoleTypes = configuredRoleTypes;
+            _resultValue.culture = culture;
+            _resultValue.hcsVersion = hcsVersion;
+            _resultValue.model = model;
+            _resultValue.nodeCount = nodeCount;
+            _resultValue.serialNumber = serialNumber;
+            _resultValue.softwareVersion = softwareVersion;
+            _resultValue.status = status;
+            _resultValue.timeZone = timeZone;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

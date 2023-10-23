@@ -65,10 +65,10 @@ public final class FirewallPolicyTlsCertificate {
             return this;
         }
         public FirewallPolicyTlsCertificate build() {
-            final var o = new FirewallPolicyTlsCertificate();
-            o.keyVaultSecretId = keyVaultSecretId;
-            o.name = name;
-            return o;
+            final var _resultValue = new FirewallPolicyTlsCertificate();
+            _resultValue.keyVaultSecretId = keyVaultSecretId;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

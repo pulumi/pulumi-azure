@@ -156,7 +156,9 @@ class HBaseClusterComponentVersion(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              hbase: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("hbase", hbase)
 
     @property
@@ -206,7 +208,13 @@ class HBaseClusterComputeIsolation(dict):
              _setter: Callable[[Any, Any], None],
              compute_isolation_enabled: Optional[bool] = None,
              host_sku: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeIsolationEnabled' in kwargs:
+            compute_isolation_enabled = kwargs['computeIsolationEnabled']
+        if 'hostSku' in kwargs:
+            host_sku = kwargs['hostSku']
+
         if compute_isolation_enabled is not None:
             _setter("compute_isolation_enabled", compute_isolation_enabled)
         if host_sku is not None:
@@ -279,7 +287,17 @@ class HBaseClusterDiskEncryption(dict):
              encryption_at_host_enabled: Optional[bool] = None,
              key_vault_key_id: Optional[str] = None,
              key_vault_managed_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionAlgorithm' in kwargs:
+            encryption_algorithm = kwargs['encryptionAlgorithm']
+        if 'encryptionAtHostEnabled' in kwargs:
+            encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'keyVaultManagedIdentityId' in kwargs:
+            key_vault_managed_identity_id = kwargs['keyVaultManagedIdentityId']
+
         if encryption_algorithm is not None:
             _setter("encryption_algorithm", encryption_algorithm)
         if encryption_at_host_enabled is not None:
@@ -360,7 +378,13 @@ class HBaseClusterExtension(dict):
              _setter: Callable[[Any, Any], None],
              log_analytics_workspace_id: str,
              primary_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
 
@@ -402,7 +426,9 @@ class HBaseClusterGateway(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -448,7 +474,9 @@ class HBaseClusterMetastores(dict):
              ambari: Optional['outputs.HBaseClusterMetastoresAmbari'] = None,
              hive: Optional['outputs.HBaseClusterMetastoresHive'] = None,
              oozie: Optional['outputs.HBaseClusterMetastoresOozie'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ambari is not None:
             _setter("ambari", ambari)
         if hive is not None:
@@ -525,7 +553,11 @@ class HBaseClusterMetastoresAmbari(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -608,7 +640,11 @@ class HBaseClusterMetastoresHive(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -691,7 +727,11 @@ class HBaseClusterMetastoresOozie(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -768,7 +808,13 @@ class HBaseClusterMonitor(dict):
              _setter: Callable[[Any, Any], None],
              log_analytics_workspace_id: str,
              primary_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
 
@@ -829,7 +875,13 @@ class HBaseClusterNetwork(dict):
              _setter: Callable[[Any, Any], None],
              connection_direction: Optional[str] = None,
              private_link_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionDirection' in kwargs:
+            connection_direction = kwargs['connectionDirection']
+        if 'privateLinkEnabled' in kwargs:
+            private_link_enabled = kwargs['privateLinkEnabled']
+
         if connection_direction is not None:
             _setter("connection_direction", connection_direction)
         if private_link_enabled is not None:
@@ -898,7 +950,15 @@ class HBaseClusterRoles(dict):
              head_node: 'outputs.HBaseClusterRolesHeadNode',
              worker_node: 'outputs.HBaseClusterRolesWorkerNode',
              zookeeper_node: 'outputs.HBaseClusterRolesZookeeperNode',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headNode' in kwargs:
+            head_node = kwargs['headNode']
+        if 'workerNode' in kwargs:
+            worker_node = kwargs['workerNode']
+        if 'zookeeperNode' in kwargs:
+            zookeeper_node = kwargs['zookeeperNode']
+
         _setter("head_node", head_node)
         _setter("worker_node", worker_node)
         _setter("zookeeper_node", zookeeper_node)
@@ -996,7 +1056,19 @@ class HBaseClusterRolesHeadNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("username", username)
         _setter("vm_size", vm_size)
         if password is not None:
@@ -1094,7 +1166,9 @@ class HBaseClusterRolesHeadNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -1202,7 +1276,21 @@ class HBaseClusterRolesWorkerNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetInstanceCount' in kwargs:
+            target_instance_count = kwargs['targetInstanceCount']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("target_instance_count", target_instance_count)
         _setter("username", username)
         _setter("vm_size", vm_size)
@@ -1305,7 +1393,9 @@ class HBaseClusterRolesWorkerNodeAutoscale(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              recurrence: Optional['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrence'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if recurrence is not None:
             _setter("recurrence", recurrence)
 
@@ -1330,7 +1420,9 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrence(dict):
              _setter: Callable[[Any, Any], None],
              schedules: Sequence['outputs.HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
              timezone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("schedules", schedules)
         _setter("timezone", timezone)
 
@@ -1383,7 +1475,11 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
              days: Sequence[str],
              target_instance_count: int,
              time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetInstanceCount' in kwargs:
+            target_instance_count = kwargs['targetInstanceCount']
+
         _setter("days", days)
         _setter("target_instance_count", target_instance_count)
         _setter("time", time)
@@ -1430,7 +1526,9 @@ class HBaseClusterRolesWorkerNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -1529,7 +1627,19 @@ class HBaseClusterRolesZookeeperNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("username", username)
         _setter("vm_size", vm_size)
         if password is not None:
@@ -1627,7 +1737,9 @@ class HBaseClusterRolesZookeeperNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -1726,7 +1838,23 @@ class HBaseClusterSecurityProfile(dict):
              ldaps_urls: Sequence[str],
              msi_resource_id: str,
              cluster_users_group_dns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aaddsResourceId' in kwargs:
+            aadds_resource_id = kwargs['aaddsResourceId']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'domainUserPassword' in kwargs:
+            domain_user_password = kwargs['domainUserPassword']
+        if 'domainUsername' in kwargs:
+            domain_username = kwargs['domainUsername']
+        if 'ldapsUrls' in kwargs:
+            ldaps_urls = kwargs['ldapsUrls']
+        if 'msiResourceId' in kwargs:
+            msi_resource_id = kwargs['msiResourceId']
+        if 'clusterUsersGroupDns' in kwargs:
+            cluster_users_group_dns = kwargs['clusterUsersGroupDns']
+
         _setter("aadds_resource_id", aadds_resource_id)
         _setter("domain_name", domain_name)
         _setter("domain_user_password", domain_user_password)
@@ -1847,7 +1975,17 @@ class HBaseClusterStorageAccount(dict):
              storage_account_key: str,
              storage_container_id: str,
              storage_resource_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+
         _setter("is_default", is_default)
         _setter("storage_account_key", storage_account_key)
         _setter("storage_container_id", storage_container_id)
@@ -1945,7 +2083,17 @@ class HBaseClusterStorageAccountGen2(dict):
              is_default: bool,
              managed_identity_resource_id: str,
              storage_resource_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filesystemId' in kwargs:
+            filesystem_id = kwargs['filesystemId']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'managedIdentityResourceId' in kwargs:
+            managed_identity_resource_id = kwargs['managedIdentityResourceId']
+        if 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+
         _setter("filesystem_id", filesystem_id)
         _setter("is_default", is_default)
         _setter("managed_identity_resource_id", managed_identity_resource_id)
@@ -2003,7 +2151,9 @@ class HadoopClusterComponentVersion(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              hadoop: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("hadoop", hadoop)
 
     @property
@@ -2053,7 +2203,13 @@ class HadoopClusterComputeIsolation(dict):
              _setter: Callable[[Any, Any], None],
              compute_isolation_enabled: Optional[bool] = None,
              host_sku: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeIsolationEnabled' in kwargs:
+            compute_isolation_enabled = kwargs['computeIsolationEnabled']
+        if 'hostSku' in kwargs:
+            host_sku = kwargs['hostSku']
+
         if compute_isolation_enabled is not None:
             _setter("compute_isolation_enabled", compute_isolation_enabled)
         if host_sku is not None:
@@ -2126,7 +2282,17 @@ class HadoopClusterDiskEncryption(dict):
              encryption_at_host_enabled: Optional[bool] = None,
              key_vault_key_id: Optional[str] = None,
              key_vault_managed_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionAlgorithm' in kwargs:
+            encryption_algorithm = kwargs['encryptionAlgorithm']
+        if 'encryptionAtHostEnabled' in kwargs:
+            encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'keyVaultManagedIdentityId' in kwargs:
+            key_vault_managed_identity_id = kwargs['keyVaultManagedIdentityId']
+
         if encryption_algorithm is not None:
             _setter("encryption_algorithm", encryption_algorithm)
         if encryption_at_host_enabled is not None:
@@ -2207,7 +2373,13 @@ class HadoopClusterExtension(dict):
              _setter: Callable[[Any, Any], None],
              log_analytics_workspace_id: str,
              primary_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
 
@@ -2249,7 +2421,9 @@ class HadoopClusterGateway(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -2295,7 +2469,9 @@ class HadoopClusterMetastores(dict):
              ambari: Optional['outputs.HadoopClusterMetastoresAmbari'] = None,
              hive: Optional['outputs.HadoopClusterMetastoresHive'] = None,
              oozie: Optional['outputs.HadoopClusterMetastoresOozie'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ambari is not None:
             _setter("ambari", ambari)
         if hive is not None:
@@ -2372,7 +2548,11 @@ class HadoopClusterMetastoresAmbari(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -2455,7 +2635,11 @@ class HadoopClusterMetastoresHive(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -2538,7 +2722,11 @@ class HadoopClusterMetastoresOozie(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -2615,7 +2803,13 @@ class HadoopClusterMonitor(dict):
              _setter: Callable[[Any, Any], None],
              log_analytics_workspace_id: str,
              primary_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
 
@@ -2676,7 +2870,13 @@ class HadoopClusterNetwork(dict):
              _setter: Callable[[Any, Any], None],
              connection_direction: Optional[str] = None,
              private_link_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionDirection' in kwargs:
+            connection_direction = kwargs['connectionDirection']
+        if 'privateLinkEnabled' in kwargs:
+            private_link_enabled = kwargs['privateLinkEnabled']
+
         if connection_direction is not None:
             _setter("connection_direction", connection_direction)
         if private_link_enabled is not None:
@@ -2751,7 +2951,17 @@ class HadoopClusterRoles(dict):
              worker_node: 'outputs.HadoopClusterRolesWorkerNode',
              zookeeper_node: 'outputs.HadoopClusterRolesZookeeperNode',
              edge_node: Optional['outputs.HadoopClusterRolesEdgeNode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headNode' in kwargs:
+            head_node = kwargs['headNode']
+        if 'workerNode' in kwargs:
+            worker_node = kwargs['workerNode']
+        if 'zookeeperNode' in kwargs:
+            zookeeper_node = kwargs['zookeeperNode']
+        if 'edgeNode' in kwargs:
+            edge_node = kwargs['edgeNode']
+
         _setter("head_node", head_node)
         _setter("worker_node", worker_node)
         _setter("zookeeper_node", zookeeper_node)
@@ -2847,7 +3057,19 @@ class HadoopClusterRolesEdgeNode(dict):
              vm_size: str,
              https_endpoints: Optional[Sequence['outputs.HadoopClusterRolesEdgeNodeHttpsEndpoint']] = None,
              uninstall_script_actions: Optional[Sequence['outputs.HadoopClusterRolesEdgeNodeUninstallScriptAction']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'installScriptActions' in kwargs:
+            install_script_actions = kwargs['installScriptActions']
+        if 'targetInstanceCount' in kwargs:
+            target_instance_count = kwargs['targetInstanceCount']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'httpsEndpoints' in kwargs:
+            https_endpoints = kwargs['httpsEndpoints']
+        if 'uninstallScriptActions' in kwargs:
+            uninstall_script_actions = kwargs['uninstallScriptActions']
+
         _setter("install_script_actions", install_script_actions)
         _setter("target_instance_count", target_instance_count)
         _setter("vm_size", vm_size)
@@ -2953,7 +3175,19 @@ class HadoopClusterRolesEdgeNodeHttpsEndpoint(dict):
              disable_gateway_auth: Optional[bool] = None,
              private_ip_address: Optional[str] = None,
              sub_domain_suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'accessModes' in kwargs:
+            access_modes = kwargs['accessModes']
+        if 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if 'disableGatewayAuth' in kwargs:
+            disable_gateway_auth = kwargs['disableGatewayAuth']
+        if 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if 'subDomainSuffix' in kwargs:
+            sub_domain_suffix = kwargs['subDomainSuffix']
+
         if access_modes is not None:
             _setter("access_modes", access_modes)
         if destination_port is not None:
@@ -3029,7 +3263,9 @@ class HadoopClusterRolesEdgeNodeInstallScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -3083,7 +3319,9 @@ class HadoopClusterRolesEdgeNodeUninstallScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -3182,7 +3420,19 @@ class HadoopClusterRolesHeadNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("username", username)
         _setter("vm_size", vm_size)
         if password is not None:
@@ -3280,7 +3530,9 @@ class HadoopClusterRolesHeadNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -3389,7 +3641,21 @@ class HadoopClusterRolesWorkerNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetInstanceCount' in kwargs:
+            target_instance_count = kwargs['targetInstanceCount']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("target_instance_count", target_instance_count)
         _setter("username", username)
         _setter("vm_size", vm_size)
@@ -3504,7 +3770,9 @@ class HadoopClusterRolesWorkerNodeAutoscale(dict):
              _setter: Callable[[Any, Any], None],
              capacity: Optional['outputs.HadoopClusterRolesWorkerNodeAutoscaleCapacity'] = None,
              recurrence: Optional['outputs.HadoopClusterRolesWorkerNodeAutoscaleRecurrence'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if capacity is not None:
             _setter("capacity", capacity)
         if recurrence is not None:
@@ -3567,7 +3835,13 @@ class HadoopClusterRolesWorkerNodeAutoscaleCapacity(dict):
              _setter: Callable[[Any, Any], None],
              max_instance_count: int,
              min_instance_count: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxInstanceCount' in kwargs:
+            max_instance_count = kwargs['maxInstanceCount']
+        if 'minInstanceCount' in kwargs:
+            min_instance_count = kwargs['minInstanceCount']
+
         _setter("max_instance_count", max_instance_count)
         _setter("min_instance_count", min_instance_count)
 
@@ -3607,7 +3881,9 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrence(dict):
              _setter: Callable[[Any, Any], None],
              schedules: Sequence['outputs.HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
              timezone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("schedules", schedules)
         _setter("timezone", timezone)
 
@@ -3668,7 +3944,11 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
              days: Sequence[str],
              target_instance_count: int,
              time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetInstanceCount' in kwargs:
+            target_instance_count = kwargs['targetInstanceCount']
+
         _setter("days", days)
         _setter("target_instance_count", target_instance_count)
         _setter("time", time)
@@ -3721,7 +4001,9 @@ class HadoopClusterRolesWorkerNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -3820,7 +4102,19 @@ class HadoopClusterRolesZookeeperNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("username", username)
         _setter("vm_size", vm_size)
         if password is not None:
@@ -3918,7 +4212,9 @@ class HadoopClusterRolesZookeeperNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -4017,7 +4313,23 @@ class HadoopClusterSecurityProfile(dict):
              ldaps_urls: Sequence[str],
              msi_resource_id: str,
              cluster_users_group_dns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aaddsResourceId' in kwargs:
+            aadds_resource_id = kwargs['aaddsResourceId']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'domainUserPassword' in kwargs:
+            domain_user_password = kwargs['domainUserPassword']
+        if 'domainUsername' in kwargs:
+            domain_username = kwargs['domainUsername']
+        if 'ldapsUrls' in kwargs:
+            ldaps_urls = kwargs['ldapsUrls']
+        if 'msiResourceId' in kwargs:
+            msi_resource_id = kwargs['msiResourceId']
+        if 'clusterUsersGroupDns' in kwargs:
+            cluster_users_group_dns = kwargs['clusterUsersGroupDns']
+
         _setter("aadds_resource_id", aadds_resource_id)
         _setter("domain_name", domain_name)
         _setter("domain_user_password", domain_user_password)
@@ -4138,7 +4450,17 @@ class HadoopClusterStorageAccount(dict):
              storage_account_key: str,
              storage_container_id: str,
              storage_resource_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+
         _setter("is_default", is_default)
         _setter("storage_account_key", storage_account_key)
         _setter("storage_container_id", storage_container_id)
@@ -4236,7 +4558,17 @@ class HadoopClusterStorageAccountGen2(dict):
              is_default: bool,
              managed_identity_resource_id: str,
              storage_resource_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filesystemId' in kwargs:
+            filesystem_id = kwargs['filesystemId']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'managedIdentityResourceId' in kwargs:
+            managed_identity_resource_id = kwargs['managedIdentityResourceId']
+        if 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+
         _setter("filesystem_id", filesystem_id)
         _setter("is_default", is_default)
         _setter("managed_identity_resource_id", managed_identity_resource_id)
@@ -4311,7 +4643,11 @@ class InteractiveQueryClusterComponentVersion(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              interactive_hive: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'interactiveHive' in kwargs:
+            interactive_hive = kwargs['interactiveHive']
+
         _setter("interactive_hive", interactive_hive)
 
     @property
@@ -4361,7 +4697,13 @@ class InteractiveQueryClusterComputeIsolation(dict):
              _setter: Callable[[Any, Any], None],
              compute_isolation_enabled: Optional[bool] = None,
              host_sku: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeIsolationEnabled' in kwargs:
+            compute_isolation_enabled = kwargs['computeIsolationEnabled']
+        if 'hostSku' in kwargs:
+            host_sku = kwargs['hostSku']
+
         if compute_isolation_enabled is not None:
             _setter("compute_isolation_enabled", compute_isolation_enabled)
         if host_sku is not None:
@@ -4434,7 +4776,17 @@ class InteractiveQueryClusterDiskEncryption(dict):
              encryption_at_host_enabled: Optional[bool] = None,
              key_vault_key_id: Optional[str] = None,
              key_vault_managed_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionAlgorithm' in kwargs:
+            encryption_algorithm = kwargs['encryptionAlgorithm']
+        if 'encryptionAtHostEnabled' in kwargs:
+            encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'keyVaultManagedIdentityId' in kwargs:
+            key_vault_managed_identity_id = kwargs['keyVaultManagedIdentityId']
+
         if encryption_algorithm is not None:
             _setter("encryption_algorithm", encryption_algorithm)
         if encryption_at_host_enabled is not None:
@@ -4515,7 +4867,13 @@ class InteractiveQueryClusterExtension(dict):
              _setter: Callable[[Any, Any], None],
              log_analytics_workspace_id: str,
              primary_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
 
@@ -4557,7 +4915,9 @@ class InteractiveQueryClusterGateway(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -4603,7 +4963,9 @@ class InteractiveQueryClusterMetastores(dict):
              ambari: Optional['outputs.InteractiveQueryClusterMetastoresAmbari'] = None,
              hive: Optional['outputs.InteractiveQueryClusterMetastoresHive'] = None,
              oozie: Optional['outputs.InteractiveQueryClusterMetastoresOozie'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ambari is not None:
             _setter("ambari", ambari)
         if hive is not None:
@@ -4680,7 +5042,11 @@ class InteractiveQueryClusterMetastoresAmbari(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -4763,7 +5129,11 @@ class InteractiveQueryClusterMetastoresHive(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -4846,7 +5216,11 @@ class InteractiveQueryClusterMetastoresOozie(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -4923,7 +5297,13 @@ class InteractiveQueryClusterMonitor(dict):
              _setter: Callable[[Any, Any], None],
              log_analytics_workspace_id: str,
              primary_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
 
@@ -4984,7 +5364,13 @@ class InteractiveQueryClusterNetwork(dict):
              _setter: Callable[[Any, Any], None],
              connection_direction: Optional[str] = None,
              private_link_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionDirection' in kwargs:
+            connection_direction = kwargs['connectionDirection']
+        if 'privateLinkEnabled' in kwargs:
+            private_link_enabled = kwargs['privateLinkEnabled']
+
         if connection_direction is not None:
             _setter("connection_direction", connection_direction)
         if private_link_enabled is not None:
@@ -5053,7 +5439,15 @@ class InteractiveQueryClusterRoles(dict):
              head_node: 'outputs.InteractiveQueryClusterRolesHeadNode',
              worker_node: 'outputs.InteractiveQueryClusterRolesWorkerNode',
              zookeeper_node: 'outputs.InteractiveQueryClusterRolesZookeeperNode',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headNode' in kwargs:
+            head_node = kwargs['headNode']
+        if 'workerNode' in kwargs:
+            worker_node = kwargs['workerNode']
+        if 'zookeeperNode' in kwargs:
+            zookeeper_node = kwargs['zookeeperNode']
+
         _setter("head_node", head_node)
         _setter("worker_node", worker_node)
         _setter("zookeeper_node", zookeeper_node)
@@ -5153,7 +5547,19 @@ class InteractiveQueryClusterRolesHeadNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("username", username)
         _setter("vm_size", vm_size)
         if password is not None:
@@ -5253,7 +5659,9 @@ class InteractiveQueryClusterRolesHeadNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -5364,7 +5772,21 @@ class InteractiveQueryClusterRolesWorkerNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetInstanceCount' in kwargs:
+            target_instance_count = kwargs['targetInstanceCount']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("target_instance_count", target_instance_count)
         _setter("username", username)
         _setter("vm_size", vm_size)
@@ -5478,7 +5900,9 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscale(dict):
              _setter: Callable[[Any, Any], None],
              capacity: Optional['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity'] = None,
              recurrence: Optional['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if capacity is not None:
             _setter("capacity", capacity)
         if recurrence is not None:
@@ -5535,7 +5959,13 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity(dict):
              _setter: Callable[[Any, Any], None],
              max_instance_count: int,
              min_instance_count: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxInstanceCount' in kwargs:
+            max_instance_count = kwargs['maxInstanceCount']
+        if 'minInstanceCount' in kwargs:
+            min_instance_count = kwargs['minInstanceCount']
+
         _setter("max_instance_count", max_instance_count)
         _setter("min_instance_count", min_instance_count)
 
@@ -5569,7 +5999,9 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence(dict):
              _setter: Callable[[Any, Any], None],
              schedules: Sequence['outputs.InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
              timezone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("schedules", schedules)
         _setter("timezone", timezone)
 
@@ -5630,7 +6062,11 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
              days: Sequence[str],
              target_instance_count: int,
              time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetInstanceCount' in kwargs:
+            target_instance_count = kwargs['targetInstanceCount']
+
         _setter("days", days)
         _setter("target_instance_count", target_instance_count)
         _setter("time", time)
@@ -5683,7 +6119,9 @@ class InteractiveQueryClusterRolesWorkerNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -5782,7 +6220,19 @@ class InteractiveQueryClusterRolesZookeeperNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("username", username)
         _setter("vm_size", vm_size)
         if password is not None:
@@ -5880,7 +6330,9 @@ class InteractiveQueryClusterRolesZookeeperNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -5979,7 +6431,23 @@ class InteractiveQueryClusterSecurityProfile(dict):
              ldaps_urls: Sequence[str],
              msi_resource_id: str,
              cluster_users_group_dns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aaddsResourceId' in kwargs:
+            aadds_resource_id = kwargs['aaddsResourceId']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'domainUserPassword' in kwargs:
+            domain_user_password = kwargs['domainUserPassword']
+        if 'domainUsername' in kwargs:
+            domain_username = kwargs['domainUsername']
+        if 'ldapsUrls' in kwargs:
+            ldaps_urls = kwargs['ldapsUrls']
+        if 'msiResourceId' in kwargs:
+            msi_resource_id = kwargs['msiResourceId']
+        if 'clusterUsersGroupDns' in kwargs:
+            cluster_users_group_dns = kwargs['clusterUsersGroupDns']
+
         _setter("aadds_resource_id", aadds_resource_id)
         _setter("domain_name", domain_name)
         _setter("domain_user_password", domain_user_password)
@@ -6100,7 +6568,17 @@ class InteractiveQueryClusterStorageAccount(dict):
              storage_account_key: str,
              storage_container_id: str,
              storage_resource_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+
         _setter("is_default", is_default)
         _setter("storage_account_key", storage_account_key)
         _setter("storage_container_id", storage_container_id)
@@ -6198,7 +6676,17 @@ class InteractiveQueryClusterStorageAccountGen2(dict):
              is_default: bool,
              managed_identity_resource_id: str,
              storage_resource_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filesystemId' in kwargs:
+            filesystem_id = kwargs['filesystemId']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'managedIdentityResourceId' in kwargs:
+            managed_identity_resource_id = kwargs['managedIdentityResourceId']
+        if 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+
         _setter("filesystem_id", filesystem_id)
         _setter("is_default", is_default)
         _setter("managed_identity_resource_id", managed_identity_resource_id)
@@ -6256,7 +6744,9 @@ class KafkaClusterComponentVersion(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              kafka: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("kafka", kafka)
 
     @property
@@ -6306,7 +6796,13 @@ class KafkaClusterComputeIsolation(dict):
              _setter: Callable[[Any, Any], None],
              compute_isolation_enabled: Optional[bool] = None,
              host_sku: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeIsolationEnabled' in kwargs:
+            compute_isolation_enabled = kwargs['computeIsolationEnabled']
+        if 'hostSku' in kwargs:
+            host_sku = kwargs['hostSku']
+
         if compute_isolation_enabled is not None:
             _setter("compute_isolation_enabled", compute_isolation_enabled)
         if host_sku is not None:
@@ -6379,7 +6875,17 @@ class KafkaClusterDiskEncryption(dict):
              encryption_at_host_enabled: Optional[bool] = None,
              key_vault_key_id: Optional[str] = None,
              key_vault_managed_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionAlgorithm' in kwargs:
+            encryption_algorithm = kwargs['encryptionAlgorithm']
+        if 'encryptionAtHostEnabled' in kwargs:
+            encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'keyVaultManagedIdentityId' in kwargs:
+            key_vault_managed_identity_id = kwargs['keyVaultManagedIdentityId']
+
         if encryption_algorithm is not None:
             _setter("encryption_algorithm", encryption_algorithm)
         if encryption_at_host_enabled is not None:
@@ -6460,7 +6966,13 @@ class KafkaClusterExtension(dict):
              _setter: Callable[[Any, Any], None],
              log_analytics_workspace_id: str,
              primary_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
 
@@ -6502,7 +7014,9 @@ class KafkaClusterGateway(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -6548,7 +7062,9 @@ class KafkaClusterMetastores(dict):
              ambari: Optional['outputs.KafkaClusterMetastoresAmbari'] = None,
              hive: Optional['outputs.KafkaClusterMetastoresHive'] = None,
              oozie: Optional['outputs.KafkaClusterMetastoresOozie'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ambari is not None:
             _setter("ambari", ambari)
         if hive is not None:
@@ -6625,7 +7141,11 @@ class KafkaClusterMetastoresAmbari(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -6708,7 +7228,11 @@ class KafkaClusterMetastoresHive(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -6791,7 +7315,11 @@ class KafkaClusterMetastoresOozie(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -6868,7 +7396,13 @@ class KafkaClusterMonitor(dict):
              _setter: Callable[[Any, Any], None],
              log_analytics_workspace_id: str,
              primary_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
 
@@ -6929,7 +7463,13 @@ class KafkaClusterNetwork(dict):
              _setter: Callable[[Any, Any], None],
              connection_direction: Optional[str] = None,
              private_link_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionDirection' in kwargs:
+            connection_direction = kwargs['connectionDirection']
+        if 'privateLinkEnabled' in kwargs:
+            private_link_enabled = kwargs['privateLinkEnabled']
+
         if connection_direction is not None:
             _setter("connection_direction", connection_direction)
         if private_link_enabled is not None:
@@ -6994,7 +7534,13 @@ class KafkaClusterRestProxy(dict):
              _setter: Callable[[Any, Any], None],
              security_group_id: str,
              security_group_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'securityGroupId' in kwargs:
+            security_group_id = kwargs['securityGroupId']
+        if 'securityGroupName' in kwargs:
+            security_group_name = kwargs['securityGroupName']
+
         _setter("security_group_id", security_group_id)
         _setter("security_group_name", security_group_name)
 
@@ -7069,7 +7615,17 @@ class KafkaClusterRoles(dict):
              worker_node: 'outputs.KafkaClusterRolesWorkerNode',
              zookeeper_node: 'outputs.KafkaClusterRolesZookeeperNode',
              kafka_management_node: Optional['outputs.KafkaClusterRolesKafkaManagementNode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headNode' in kwargs:
+            head_node = kwargs['headNode']
+        if 'workerNode' in kwargs:
+            worker_node = kwargs['workerNode']
+        if 'zookeeperNode' in kwargs:
+            zookeeper_node = kwargs['zookeeperNode']
+        if 'kafkaManagementNode' in kwargs:
+            kafka_management_node = kwargs['kafkaManagementNode']
+
         _setter("head_node", head_node)
         _setter("worker_node", worker_node)
         _setter("zookeeper_node", zookeeper_node)
@@ -7179,7 +7735,19 @@ class KafkaClusterRolesHeadNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("username", username)
         _setter("vm_size", vm_size)
         if password is not None:
@@ -7277,7 +7845,9 @@ class KafkaClusterRolesHeadNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -7376,7 +7946,19 @@ class KafkaClusterRolesKafkaManagementNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("username", username)
         _setter("vm_size", vm_size)
         if password is not None:
@@ -7474,7 +8056,9 @@ class KafkaClusterRolesKafkaManagementNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -7585,7 +8169,23 @@ class KafkaClusterRolesWorkerNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'numberOfDisksPerNode' in kwargs:
+            number_of_disks_per_node = kwargs['numberOfDisksPerNode']
+        if 'targetInstanceCount' in kwargs:
+            target_instance_count = kwargs['targetInstanceCount']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("number_of_disks_per_node", number_of_disks_per_node)
         _setter("target_instance_count", target_instance_count)
         _setter("username", username)
@@ -7701,7 +8301,9 @@ class KafkaClusterRolesWorkerNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -7800,7 +8402,19 @@ class KafkaClusterRolesZookeeperNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("username", username)
         _setter("vm_size", vm_size)
         if password is not None:
@@ -7898,7 +8512,9 @@ class KafkaClusterRolesZookeeperNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -7997,7 +8613,23 @@ class KafkaClusterSecurityProfile(dict):
              ldaps_urls: Sequence[str],
              msi_resource_id: str,
              cluster_users_group_dns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aaddsResourceId' in kwargs:
+            aadds_resource_id = kwargs['aaddsResourceId']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'domainUserPassword' in kwargs:
+            domain_user_password = kwargs['domainUserPassword']
+        if 'domainUsername' in kwargs:
+            domain_username = kwargs['domainUsername']
+        if 'ldapsUrls' in kwargs:
+            ldaps_urls = kwargs['ldapsUrls']
+        if 'msiResourceId' in kwargs:
+            msi_resource_id = kwargs['msiResourceId']
+        if 'clusterUsersGroupDns' in kwargs:
+            cluster_users_group_dns = kwargs['clusterUsersGroupDns']
+
         _setter("aadds_resource_id", aadds_resource_id)
         _setter("domain_name", domain_name)
         _setter("domain_user_password", domain_user_password)
@@ -8118,7 +8750,17 @@ class KafkaClusterStorageAccount(dict):
              storage_account_key: str,
              storage_container_id: str,
              storage_resource_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+
         _setter("is_default", is_default)
         _setter("storage_account_key", storage_account_key)
         _setter("storage_container_id", storage_container_id)
@@ -8216,7 +8858,17 @@ class KafkaClusterStorageAccountGen2(dict):
              is_default: bool,
              managed_identity_resource_id: str,
              storage_resource_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filesystemId' in kwargs:
+            filesystem_id = kwargs['filesystemId']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'managedIdentityResourceId' in kwargs:
+            managed_identity_resource_id = kwargs['managedIdentityResourceId']
+        if 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+
         _setter("filesystem_id", filesystem_id)
         _setter("is_default", is_default)
         _setter("managed_identity_resource_id", managed_identity_resource_id)
@@ -8274,7 +8926,9 @@ class SparkClusterComponentVersion(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              spark: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("spark", spark)
 
     @property
@@ -8324,7 +8978,13 @@ class SparkClusterComputeIsolation(dict):
              _setter: Callable[[Any, Any], None],
              compute_isolation_enabled: Optional[bool] = None,
              host_sku: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'computeIsolationEnabled' in kwargs:
+            compute_isolation_enabled = kwargs['computeIsolationEnabled']
+        if 'hostSku' in kwargs:
+            host_sku = kwargs['hostSku']
+
         if compute_isolation_enabled is not None:
             _setter("compute_isolation_enabled", compute_isolation_enabled)
         if host_sku is not None:
@@ -8397,7 +9057,17 @@ class SparkClusterDiskEncryption(dict):
              encryption_at_host_enabled: Optional[bool] = None,
              key_vault_key_id: Optional[str] = None,
              key_vault_managed_identity_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'encryptionAlgorithm' in kwargs:
+            encryption_algorithm = kwargs['encryptionAlgorithm']
+        if 'encryptionAtHostEnabled' in kwargs:
+            encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
+        if 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if 'keyVaultManagedIdentityId' in kwargs:
+            key_vault_managed_identity_id = kwargs['keyVaultManagedIdentityId']
+
         if encryption_algorithm is not None:
             _setter("encryption_algorithm", encryption_algorithm)
         if encryption_at_host_enabled is not None:
@@ -8478,7 +9148,13 @@ class SparkClusterExtension(dict):
              _setter: Callable[[Any, Any], None],
              log_analytics_workspace_id: str,
              primary_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
 
@@ -8520,7 +9196,9 @@ class SparkClusterGateway(dict):
              _setter: Callable[[Any, Any], None],
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("password", password)
         _setter("username", username)
 
@@ -8566,7 +9244,9 @@ class SparkClusterMetastores(dict):
              ambari: Optional['outputs.SparkClusterMetastoresAmbari'] = None,
              hive: Optional['outputs.SparkClusterMetastoresHive'] = None,
              oozie: Optional['outputs.SparkClusterMetastoresOozie'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if ambari is not None:
             _setter("ambari", ambari)
         if hive is not None:
@@ -8643,7 +9323,11 @@ class SparkClusterMetastoresAmbari(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -8726,7 +9410,11 @@ class SparkClusterMetastoresHive(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -8809,7 +9497,11 @@ class SparkClusterMetastoresOozie(dict):
              password: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("database_name", database_name)
         _setter("password", password)
         _setter("server", server)
@@ -8886,7 +9578,13 @@ class SparkClusterMonitor(dict):
              _setter: Callable[[Any, Any], None],
              log_analytics_workspace_id: str,
              primary_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+
         _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         _setter("primary_key", primary_key)
 
@@ -8947,7 +9645,13 @@ class SparkClusterNetwork(dict):
              _setter: Callable[[Any, Any], None],
              connection_direction: Optional[str] = None,
              private_link_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionDirection' in kwargs:
+            connection_direction = kwargs['connectionDirection']
+        if 'privateLinkEnabled' in kwargs:
+            private_link_enabled = kwargs['privateLinkEnabled']
+
         if connection_direction is not None:
             _setter("connection_direction", connection_direction)
         if private_link_enabled is not None:
@@ -9016,7 +9720,15 @@ class SparkClusterRoles(dict):
              head_node: 'outputs.SparkClusterRolesHeadNode',
              worker_node: 'outputs.SparkClusterRolesWorkerNode',
              zookeeper_node: 'outputs.SparkClusterRolesZookeeperNode',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'headNode' in kwargs:
+            head_node = kwargs['headNode']
+        if 'workerNode' in kwargs:
+            worker_node = kwargs['workerNode']
+        if 'zookeeperNode' in kwargs:
+            zookeeper_node = kwargs['zookeeperNode']
+
         _setter("head_node", head_node)
         _setter("worker_node", worker_node)
         _setter("zookeeper_node", zookeeper_node)
@@ -9114,7 +9826,19 @@ class SparkClusterRolesHeadNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("username", username)
         _setter("vm_size", vm_size)
         if password is not None:
@@ -9212,7 +9936,9 @@ class SparkClusterRolesHeadNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -9321,7 +10047,21 @@ class SparkClusterRolesWorkerNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetInstanceCount' in kwargs:
+            target_instance_count = kwargs['targetInstanceCount']
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("target_instance_count", target_instance_count)
         _setter("username", username)
         _setter("vm_size", vm_size)
@@ -9436,7 +10176,9 @@ class SparkClusterRolesWorkerNodeAutoscale(dict):
              _setter: Callable[[Any, Any], None],
              capacity: Optional['outputs.SparkClusterRolesWorkerNodeAutoscaleCapacity'] = None,
              recurrence: Optional['outputs.SparkClusterRolesWorkerNodeAutoscaleRecurrence'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if capacity is not None:
             _setter("capacity", capacity)
         if recurrence is not None:
@@ -9499,7 +10241,13 @@ class SparkClusterRolesWorkerNodeAutoscaleCapacity(dict):
              _setter: Callable[[Any, Any], None],
              max_instance_count: int,
              min_instance_count: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'maxInstanceCount' in kwargs:
+            max_instance_count = kwargs['maxInstanceCount']
+        if 'minInstanceCount' in kwargs:
+            min_instance_count = kwargs['minInstanceCount']
+
         _setter("max_instance_count", max_instance_count)
         _setter("min_instance_count", min_instance_count)
 
@@ -9539,7 +10287,9 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrence(dict):
              _setter: Callable[[Any, Any], None],
              schedules: Sequence['outputs.SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule'],
              timezone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("schedules", schedules)
         _setter("timezone", timezone)
 
@@ -9600,7 +10350,11 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(dict):
              days: Sequence[str],
              target_instance_count: int,
              time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetInstanceCount' in kwargs:
+            target_instance_count = kwargs['targetInstanceCount']
+
         _setter("days", days)
         _setter("target_instance_count", target_instance_count)
         _setter("time", time)
@@ -9653,7 +10407,9 @@ class SparkClusterRolesWorkerNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -9752,7 +10508,19 @@ class SparkClusterRolesZookeeperNode(dict):
              ssh_keys: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
              virtual_network_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'vmSize' in kwargs:
+            vm_size = kwargs['vmSize']
+        if 'scriptActions' in kwargs:
+            script_actions = kwargs['scriptActions']
+        if 'sshKeys' in kwargs:
+            ssh_keys = kwargs['sshKeys']
+        if 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("username", username)
         _setter("vm_size", vm_size)
         if password is not None:
@@ -9850,7 +10618,9 @@ class SparkClusterRolesZookeeperNodeScriptAction(dict):
              name: str,
              uri: str,
              parameters: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("uri", uri)
         if parameters is not None:
@@ -9949,7 +10719,23 @@ class SparkClusterSecurityProfile(dict):
              ldaps_urls: Sequence[str],
              msi_resource_id: str,
              cluster_users_group_dns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'aaddsResourceId' in kwargs:
+            aadds_resource_id = kwargs['aaddsResourceId']
+        if 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if 'domainUserPassword' in kwargs:
+            domain_user_password = kwargs['domainUserPassword']
+        if 'domainUsername' in kwargs:
+            domain_username = kwargs['domainUsername']
+        if 'ldapsUrls' in kwargs:
+            ldaps_urls = kwargs['ldapsUrls']
+        if 'msiResourceId' in kwargs:
+            msi_resource_id = kwargs['msiResourceId']
+        if 'clusterUsersGroupDns' in kwargs:
+            cluster_users_group_dns = kwargs['clusterUsersGroupDns']
+
         _setter("aadds_resource_id", aadds_resource_id)
         _setter("domain_name", domain_name)
         _setter("domain_user_password", domain_user_password)
@@ -10070,7 +10856,17 @@ class SparkClusterStorageAccount(dict):
              storage_account_key: str,
              storage_container_id: str,
              storage_resource_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+
         _setter("is_default", is_default)
         _setter("storage_account_key", storage_account_key)
         _setter("storage_container_id", storage_container_id)
@@ -10168,7 +10964,17 @@ class SparkClusterStorageAccountGen2(dict):
              is_default: bool,
              managed_identity_resource_id: str,
              storage_resource_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'filesystemId' in kwargs:
+            filesystem_id = kwargs['filesystemId']
+        if 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if 'managedIdentityResourceId' in kwargs:
+            managed_identity_resource_id = kwargs['managedIdentityResourceId']
+        if 'storageResourceId' in kwargs:
+            storage_resource_id = kwargs['storageResourceId']
+
         _setter("filesystem_id", filesystem_id)
         _setter("is_default", is_default)
         _setter("managed_identity_resource_id", managed_identity_resource_id)
@@ -10234,7 +11040,9 @@ class GetClusterGatewayResult(dict):
              enabled: bool,
              password: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("enabled", enabled)
         _setter("password", password)
         _setter("username", username)

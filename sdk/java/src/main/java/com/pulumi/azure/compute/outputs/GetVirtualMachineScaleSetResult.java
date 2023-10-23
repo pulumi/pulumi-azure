@@ -165,15 +165,15 @@ public final class GetVirtualMachineScaleSetResult {
             return this;
         }
         public GetVirtualMachineScaleSetResult build() {
-            final var o = new GetVirtualMachineScaleSetResult();
-            o.id = id;
-            o.identities = identities;
-            o.instances = instances;
-            o.location = location;
-            o.name = name;
-            o.networkInterfaces = networkInterfaces;
-            o.resourceGroupName = resourceGroupName;
-            return o;
+            final var _resultValue = new GetVirtualMachineScaleSetResult();
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.instances = instances;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.networkInterfaces = networkInterfaces;
+            _resultValue.resourceGroupName = resourceGroupName;
+            return _resultValue;
         }
     }
 }

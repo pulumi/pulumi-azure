@@ -46,9 +46,9 @@ public final class ServiceSignIn {
             return this;
         }
         public ServiceSignIn build() {
-            final var o = new ServiceSignIn();
-            o.enabled = enabled;
-            return o;
+            final var _resultValue = new ServiceSignIn();
+            _resultValue.enabled = enabled;
+            return _resultValue;
         }
     }
 }

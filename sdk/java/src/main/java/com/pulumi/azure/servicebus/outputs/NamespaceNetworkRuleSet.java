@@ -133,13 +133,13 @@ public final class NamespaceNetworkRuleSet {
             return this;
         }
         public NamespaceNetworkRuleSet build() {
-            final var o = new NamespaceNetworkRuleSet();
-            o.defaultAction = defaultAction;
-            o.ipRules = ipRules;
-            o.networkRules = networkRules;
-            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            o.trustedServicesAllowed = trustedServicesAllowed;
-            return o;
+            final var _resultValue = new NamespaceNetworkRuleSet();
+            _resultValue.defaultAction = defaultAction;
+            _resultValue.ipRules = ipRules;
+            _resultValue.networkRules = networkRules;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            _resultValue.trustedServicesAllowed = trustedServicesAllowed;
+            return _resultValue;
         }
     }
 }

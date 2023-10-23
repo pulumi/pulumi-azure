@@ -124,14 +124,14 @@ public final class GetKubernetesServiceVersionsResult {
             return versions(List.of(versions));
         }
         public GetKubernetesServiceVersionsResult build() {
-            final var o = new GetKubernetesServiceVersionsResult();
-            o.id = id;
-            o.includePreview = includePreview;
-            o.latestVersion = latestVersion;
-            o.location = location;
-            o.versionPrefix = versionPrefix;
-            o.versions = versions;
-            return o;
+            final var _resultValue = new GetKubernetesServiceVersionsResult();
+            _resultValue.id = id;
+            _resultValue.includePreview = includePreview;
+            _resultValue.latestVersion = latestVersion;
+            _resultValue.location = location;
+            _resultValue.versionPrefix = versionPrefix;
+            _resultValue.versions = versions;
+            return _resultValue;
         }
     }
 }

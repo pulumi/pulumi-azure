@@ -67,10 +67,10 @@ public final class AccountSasPolicy {
             return this;
         }
         public AccountSasPolicy build() {
-            final var o = new AccountSasPolicy();
-            o.expirationAction = expirationAction;
-            o.expirationPeriod = expirationPeriod;
-            return o;
+            final var _resultValue = new AccountSasPolicy();
+            _resultValue.expirationAction = expirationAction;
+            _resultValue.expirationPeriod = expirationPeriod;
+            return _resultValue;
         }
     }
 }

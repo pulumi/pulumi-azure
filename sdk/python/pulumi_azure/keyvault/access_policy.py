@@ -55,7 +55,25 @@ class AccessPolicyArgs:
              key_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'certificatePermissions' in kwargs:
+            certificate_permissions = kwargs['certificatePermissions']
+        if 'keyPermissions' in kwargs:
+            key_permissions = kwargs['keyPermissions']
+        if 'secretPermissions' in kwargs:
+            secret_permissions = kwargs['secretPermissions']
+        if 'storagePermissions' in kwargs:
+            storage_permissions = kwargs['storagePermissions']
+
         _setter("key_vault_id", key_vault_id)
         _setter("object_id", object_id)
         _setter("tenant_id", tenant_id)
@@ -211,7 +229,25 @@ class _AccessPolicyState:
              secret_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              storage_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if 'certificatePermissions' in kwargs:
+            certificate_permissions = kwargs['certificatePermissions']
+        if 'keyPermissions' in kwargs:
+            key_permissions = kwargs['keyPermissions']
+        if 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if 'secretPermissions' in kwargs:
+            secret_permissions = kwargs['secretPermissions']
+        if 'storagePermissions' in kwargs:
+            storage_permissions = kwargs['storagePermissions']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if application_id is not None:
             _setter("application_id", application_id)
         if certificate_permissions is not None:

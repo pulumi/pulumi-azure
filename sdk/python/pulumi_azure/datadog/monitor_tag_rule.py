@@ -41,7 +41,11 @@ class MonitorTagRuleArgs:
              logs: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]] = None,
              metrics: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datadogMonitorId' in kwargs:
+            datadog_monitor_id = kwargs['datadogMonitorId']
+
         _setter("datadog_monitor_id", datadog_monitor_id)
         if logs is not None:
             _setter("logs", logs)
@@ -127,7 +131,11 @@ class _MonitorTagRuleState:
              logs: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogArgs']]]] = None,
              metrics: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'datadogMonitorId' in kwargs:
+            datadog_monitor_id = kwargs['datadogMonitorId']
+
         if datadog_monitor_id is not None:
             _setter("datadog_monitor_id", datadog_monitor_id)
         if logs is not None:

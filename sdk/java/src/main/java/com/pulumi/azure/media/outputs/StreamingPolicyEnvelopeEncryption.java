@@ -88,11 +88,11 @@ public final class StreamingPolicyEnvelopeEncryption {
             return this;
         }
         public StreamingPolicyEnvelopeEncryption build() {
-            final var o = new StreamingPolicyEnvelopeEncryption();
-            o.customKeysAcquisitionUrlTemplate = customKeysAcquisitionUrlTemplate;
-            o.defaultContentKey = defaultContentKey;
-            o.enabledProtocols = enabledProtocols;
-            return o;
+            final var _resultValue = new StreamingPolicyEnvelopeEncryption();
+            _resultValue.customKeysAcquisitionUrlTemplate = customKeysAcquisitionUrlTemplate;
+            _resultValue.defaultContentKey = defaultContentKey;
+            _resultValue.enabledProtocols = enabledProtocols;
+            return _resultValue;
         }
     }
 }

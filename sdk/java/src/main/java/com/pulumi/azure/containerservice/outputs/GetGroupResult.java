@@ -214,18 +214,18 @@ public final class GetGroupResult {
             return zones(List.of(zones));
         }
         public GetGroupResult build() {
-            final var o = new GetGroupResult();
-            o.fqdn = fqdn;
-            o.id = id;
-            o.identities = identities;
-            o.ipAddress = ipAddress;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.subnetIds = subnetIds;
-            o.tags = tags;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new GetGroupResult();
+            _resultValue.fqdn = fqdn;
+            _resultValue.id = id;
+            _resultValue.identities = identities;
+            _resultValue.ipAddress = ipAddress;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.subnetIds = subnetIds;
+            _resultValue.tags = tags;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

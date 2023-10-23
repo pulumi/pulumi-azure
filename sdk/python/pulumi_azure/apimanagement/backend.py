@@ -73,7 +73,17 @@ class BackendArgs:
              service_fabric_cluster: Optional[pulumi.Input['BackendServiceFabricClusterArgs']] = None,
              title: Optional[pulumi.Input[str]] = None,
              tls: Optional[pulumi.Input['BackendTlsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'serviceFabricCluster' in kwargs:
+            service_fabric_cluster = kwargs['serviceFabricCluster']
+
         _setter("api_management_name", api_management_name)
         _setter("protocol", protocol)
         _setter("resource_group_name", resource_group_name)
@@ -300,7 +310,17 @@ class _BackendState:
              title: Optional[pulumi.Input[str]] = None,
              tls: Optional[pulumi.Input['BackendTlsArgs']] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if 'serviceFabricCluster' in kwargs:
+            service_fabric_cluster = kwargs['serviceFabricCluster']
+
         if api_management_name is not None:
             _setter("api_management_name", api_management_name)
         if credentials is not None:

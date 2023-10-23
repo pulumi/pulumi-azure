@@ -67,10 +67,10 @@ public final class TriggerBlobEventPipeline {
             return this;
         }
         public TriggerBlobEventPipeline build() {
-            final var o = new TriggerBlobEventPipeline();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new TriggerBlobEventPipeline();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

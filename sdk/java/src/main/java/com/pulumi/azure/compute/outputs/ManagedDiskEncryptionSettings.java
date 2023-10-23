@@ -92,11 +92,11 @@ public final class ManagedDiskEncryptionSettings {
             return this;
         }
         public ManagedDiskEncryptionSettings build() {
-            final var o = new ManagedDiskEncryptionSettings();
-            o.diskEncryptionKey = diskEncryptionKey;
-            o.enabled = enabled;
-            o.keyEncryptionKey = keyEncryptionKey;
-            return o;
+            final var _resultValue = new ManagedDiskEncryptionSettings();
+            _resultValue.diskEncryptionKey = diskEncryptionKey;
+            _resultValue.enabled = enabled;
+            _resultValue.keyEncryptionKey = keyEncryptionKey;
+            return _resultValue;
         }
     }
 }

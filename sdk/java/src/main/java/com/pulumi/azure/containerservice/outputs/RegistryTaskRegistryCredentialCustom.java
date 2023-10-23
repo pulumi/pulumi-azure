@@ -105,12 +105,12 @@ public final class RegistryTaskRegistryCredentialCustom {
             return this;
         }
         public RegistryTaskRegistryCredentialCustom build() {
-            final var o = new RegistryTaskRegistryCredentialCustom();
-            o.identity = identity;
-            o.loginServer = loginServer;
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new RegistryTaskRegistryCredentialCustom();
+            _resultValue.identity = identity;
+            _resultValue.loginServer = loginServer;
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

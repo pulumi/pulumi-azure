@@ -67,10 +67,10 @@ public final class DataFlowTransformationDataset {
             return this;
         }
         public DataFlowTransformationDataset build() {
-            final var o = new DataFlowTransformationDataset();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new DataFlowTransformationDataset();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

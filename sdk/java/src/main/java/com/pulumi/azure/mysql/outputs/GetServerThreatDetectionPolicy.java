@@ -169,15 +169,15 @@ public final class GetServerThreatDetectionPolicy {
             return this;
         }
         public GetServerThreatDetectionPolicy build() {
-            final var o = new GetServerThreatDetectionPolicy();
-            o.disabledAlerts = disabledAlerts;
-            o.emailAccountAdmins = emailAccountAdmins;
-            o.emailAddresses = emailAddresses;
-            o.enabled = enabled;
-            o.retentionDays = retentionDays;
-            o.storageAccountAccessKey = storageAccountAccessKey;
-            o.storageEndpoint = storageEndpoint;
-            return o;
+            final var _resultValue = new GetServerThreatDetectionPolicy();
+            _resultValue.disabledAlerts = disabledAlerts;
+            _resultValue.emailAccountAdmins = emailAccountAdmins;
+            _resultValue.emailAddresses = emailAddresses;
+            _resultValue.enabled = enabled;
+            _resultValue.retentionDays = retentionDays;
+            _resultValue.storageAccountAccessKey = storageAccountAccessKey;
+            _resultValue.storageEndpoint = storageEndpoint;
+            return _resultValue;
         }
     }
 }

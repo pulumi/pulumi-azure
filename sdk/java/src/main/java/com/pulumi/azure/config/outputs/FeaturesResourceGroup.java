@@ -40,9 +40,9 @@ public final class FeaturesResourceGroup {
             return this;
         }
         public FeaturesResourceGroup build() {
-            final var o = new FeaturesResourceGroup();
-            o.preventDeletionIfContainsResources = preventDeletionIfContainsResources;
-            return o;
+            final var _resultValue = new FeaturesResourceGroup();
+            _resultValue.preventDeletionIfContainsResources = preventDeletionIfContainsResources;
+            return _resultValue;
         }
     }
 }

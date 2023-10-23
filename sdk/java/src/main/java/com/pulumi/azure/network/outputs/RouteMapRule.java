@@ -114,12 +114,12 @@ public final class RouteMapRule {
             return this;
         }
         public RouteMapRule build() {
-            final var o = new RouteMapRule();
-            o.actions = actions;
-            o.matchCriterions = matchCriterions;
-            o.name = name;
-            o.nextStepIfMatched = nextStepIfMatched;
-            return o;
+            final var _resultValue = new RouteMapRule();
+            _resultValue.actions = actions;
+            _resultValue.matchCriterions = matchCriterions;
+            _resultValue.name = name;
+            _resultValue.nextStepIfMatched = nextStepIfMatched;
+            return _resultValue;
         }
     }
 }

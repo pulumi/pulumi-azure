@@ -108,12 +108,12 @@ public final class GetComputeMachineErrorDetail {
             return this;
         }
         public GetComputeMachineErrorDetail build() {
-            final var o = new GetComputeMachineErrorDetail();
-            o.additionalInfos = additionalInfos;
-            o.code = code;
-            o.message = message;
-            o.target = target;
-            return o;
+            final var _resultValue = new GetComputeMachineErrorDetail();
+            _resultValue.additionalInfos = additionalInfos;
+            _resultValue.code = code;
+            _resultValue.message = message;
+            _resultValue.target = target;
+            return _resultValue;
         }
     }
 }

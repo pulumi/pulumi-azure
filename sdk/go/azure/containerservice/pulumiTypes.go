@@ -14237,6 +14237,8 @@ type KubernetesClusterNetworkProfile struct {
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
+	//
+	// > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
 	OutboundType *string `pulumi:"outboundType"`
@@ -14309,6 +14311,8 @@ type KubernetesClusterNetworkProfileArgs struct {
 	// Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
+	//
+	// > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
 	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
@@ -14498,6 +14502,8 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPluginMode() pulumi.String
 // Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
 //
 // > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
+//
+// > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
@@ -14684,6 +14690,8 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPluginMode() pulumi.Str
 // Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico`, `azure` and `cilium`. Changing this forces a new resource to be created.
 //
 // > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
+//
+// > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {

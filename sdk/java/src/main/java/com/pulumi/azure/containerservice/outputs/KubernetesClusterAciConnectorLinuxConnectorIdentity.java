@@ -90,11 +90,11 @@ public final class KubernetesClusterAciConnectorLinuxConnectorIdentity {
             return this;
         }
         public KubernetesClusterAciConnectorLinuxConnectorIdentity build() {
-            final var o = new KubernetesClusterAciConnectorLinuxConnectorIdentity();
-            o.clientId = clientId;
-            o.objectId = objectId;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            return o;
+            final var _resultValue = new KubernetesClusterAciConnectorLinuxConnectorIdentity();
+            _resultValue.clientId = clientId;
+            _resultValue.objectId = objectId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            return _resultValue;
         }
     }
 }

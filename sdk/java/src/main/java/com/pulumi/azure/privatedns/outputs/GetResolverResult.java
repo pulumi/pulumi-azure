@@ -126,14 +126,14 @@ public final class GetResolverResult {
             return this;
         }
         public GetResolverResult build() {
-            final var o = new GetResolverResult();
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.virtualNetworkId = virtualNetworkId;
-            return o;
+            final var _resultValue = new GetResolverResult();
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.virtualNetworkId = virtualNetworkId;
+            return _resultValue;
         }
     }
 }

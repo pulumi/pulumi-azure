@@ -51,7 +51,13 @@ class RouteTableArgs:
              name: Optional[pulumi.Input[str]] = None,
              routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'disableBgpRoutePropagation' in kwargs:
+            disable_bgp_route_propagation = kwargs['disableBgpRoutePropagation']
+
         _setter("resource_group_name", resource_group_name)
         if disable_bgp_route_propagation is not None:
             _setter("disable_bgp_route_propagation", disable_bgp_route_propagation)
@@ -181,7 +187,13 @@ class _RouteTableState:
              routes: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTableRouteArgs']]]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disableBgpRoutePropagation' in kwargs:
+            disable_bgp_route_propagation = kwargs['disableBgpRoutePropagation']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if disable_bgp_route_propagation is not None:
             _setter("disable_bgp_route_propagation", disable_bgp_route_propagation)
         if location is not None:

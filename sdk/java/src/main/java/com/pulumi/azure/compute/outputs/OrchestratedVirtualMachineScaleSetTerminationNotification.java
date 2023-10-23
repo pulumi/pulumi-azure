@@ -68,10 +68,10 @@ public final class OrchestratedVirtualMachineScaleSetTerminationNotification {
             return this;
         }
         public OrchestratedVirtualMachineScaleSetTerminationNotification build() {
-            final var o = new OrchestratedVirtualMachineScaleSetTerminationNotification();
-            o.enabled = enabled;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetTerminationNotification();
+            _resultValue.enabled = enabled;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

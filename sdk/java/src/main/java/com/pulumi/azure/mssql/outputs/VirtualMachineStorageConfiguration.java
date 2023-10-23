@@ -147,14 +147,14 @@ public final class VirtualMachineStorageConfiguration {
             return this;
         }
         public VirtualMachineStorageConfiguration build() {
-            final var o = new VirtualMachineStorageConfiguration();
-            o.dataSettings = dataSettings;
-            o.diskType = diskType;
-            o.logSettings = logSettings;
-            o.storageWorkloadType = storageWorkloadType;
-            o.systemDbOnDataDiskEnabled = systemDbOnDataDiskEnabled;
-            o.tempDbSettings = tempDbSettings;
-            return o;
+            final var _resultValue = new VirtualMachineStorageConfiguration();
+            _resultValue.dataSettings = dataSettings;
+            _resultValue.diskType = diskType;
+            _resultValue.logSettings = logSettings;
+            _resultValue.storageWorkloadType = storageWorkloadType;
+            _resultValue.systemDbOnDataDiskEnabled = systemDbOnDataDiskEnabled;
+            _resultValue.tempDbSettings = tempDbSettings;
+            return _resultValue;
         }
     }
 }

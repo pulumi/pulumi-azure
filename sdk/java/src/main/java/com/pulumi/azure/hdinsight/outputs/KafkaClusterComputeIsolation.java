@@ -68,10 +68,10 @@ public final class KafkaClusterComputeIsolation {
             return this;
         }
         public KafkaClusterComputeIsolation build() {
-            final var o = new KafkaClusterComputeIsolation();
-            o.computeIsolationEnabled = computeIsolationEnabled;
-            o.hostSku = hostSku;
-            return o;
+            final var _resultValue = new KafkaClusterComputeIsolation();
+            _resultValue.computeIsolationEnabled = computeIsolationEnabled;
+            _resultValue.hostSku = hostSku;
+            return _resultValue;
         }
     }
 }

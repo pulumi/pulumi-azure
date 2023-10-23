@@ -46,9 +46,9 @@ public final class GetPoolDiskEncryption {
             return this;
         }
         public GetPoolDiskEncryption build() {
-            final var o = new GetPoolDiskEncryption();
-            o.diskEncryptionTarget = diskEncryptionTarget;
-            return o;
+            final var _resultValue = new GetPoolDiskEncryption();
+            _resultValue.diskEncryptionTarget = diskEncryptionTarget;
+            return _resultValue;
         }
     }
 }

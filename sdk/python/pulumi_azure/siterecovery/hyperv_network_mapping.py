@@ -43,7 +43,17 @@ class HypervNetworkMappingArgs:
              source_system_center_virtual_machine_manager_name: pulumi.Input[str],
              target_network_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+        if 'sourceNetworkName' in kwargs:
+            source_network_name = kwargs['sourceNetworkName']
+        if 'sourceSystemCenterVirtualMachineManagerName' in kwargs:
+            source_system_center_virtual_machine_manager_name = kwargs['sourceSystemCenterVirtualMachineManagerName']
+        if 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+
         _setter("recovery_vault_id", recovery_vault_id)
         _setter("source_network_name", source_network_name)
         _setter("source_system_center_virtual_machine_manager_name", source_system_center_virtual_machine_manager_name)
@@ -144,7 +154,17 @@ class _HypervNetworkMappingState:
              source_network_name: Optional[pulumi.Input[str]] = None,
              source_system_center_virtual_machine_manager_name: Optional[pulumi.Input[str]] = None,
              target_network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+        if 'sourceNetworkName' in kwargs:
+            source_network_name = kwargs['sourceNetworkName']
+        if 'sourceSystemCenterVirtualMachineManagerName' in kwargs:
+            source_system_center_virtual_machine_manager_name = kwargs['sourceSystemCenterVirtualMachineManagerName']
+        if 'targetNetworkId' in kwargs:
+            target_network_id = kwargs['targetNetworkId']
+
         if name is not None:
             _setter("name", name)
         if recovery_vault_id is not None:

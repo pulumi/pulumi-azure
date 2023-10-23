@@ -69,7 +69,17 @@ class LinkedServiceArgs:
              integration_runtime: Optional[pulumi.Input['LinkedServiceIntegrationRuntimeArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if 'typePropertiesJson' in kwargs:
+            type_properties_json = kwargs['typePropertiesJson']
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'integrationRuntime' in kwargs:
+            integration_runtime = kwargs['integrationRuntime']
+
         _setter("synapse_workspace_id", synapse_workspace_id)
         _setter("type", type)
         _setter("type_properties_json", type_properties_json)
@@ -259,7 +269,17 @@ class _LinkedServiceState:
              synapse_workspace_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              type_properties_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if 'integrationRuntime' in kwargs:
+            integration_runtime = kwargs['integrationRuntime']
+        if 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if 'typePropertiesJson' in kwargs:
+            type_properties_json = kwargs['typePropertiesJson']
+
         if additional_properties is not None:
             _setter("additional_properties", additional_properties)
         if annotations is not None:

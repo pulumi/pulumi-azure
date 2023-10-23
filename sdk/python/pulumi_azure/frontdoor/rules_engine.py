@@ -45,7 +45,13 @@ class RulesEngineArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frontdoorName' in kwargs:
+            frontdoor_name = kwargs['frontdoorName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("frontdoor_name", frontdoor_name)
         _setter("resource_group_name", resource_group_name)
         if enabled is not None:
@@ -151,7 +157,13 @@ class _RulesEngineState:
              name: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'frontdoorName' in kwargs:
+            frontdoor_name = kwargs['frontdoorName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if frontdoor_name is not None:

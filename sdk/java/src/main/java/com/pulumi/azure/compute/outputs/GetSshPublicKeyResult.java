@@ -100,13 +100,13 @@ public final class GetSshPublicKeyResult {
             return this;
         }
         public GetSshPublicKeyResult build() {
-            final var o = new GetSshPublicKeyResult();
-            o.id = id;
-            o.name = name;
-            o.publicKey = publicKey;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new GetSshPublicKeyResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.publicKey = publicKey;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

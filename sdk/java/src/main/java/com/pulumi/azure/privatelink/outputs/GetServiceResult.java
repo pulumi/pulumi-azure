@@ -244,19 +244,19 @@ public final class GetServiceResult {
             return visibilitySubscriptionIds(List.of(visibilitySubscriptionIds));
         }
         public GetServiceResult build() {
-            final var o = new GetServiceResult();
-            o.alias = alias;
-            o.autoApprovalSubscriptionIds = autoApprovalSubscriptionIds;
-            o.enableProxyProtocol = enableProxyProtocol;
-            o.id = id;
-            o.loadBalancerFrontendIpConfigurationIds = loadBalancerFrontendIpConfigurationIds;
-            o.location = location;
-            o.name = name;
-            o.natIpConfigurations = natIpConfigurations;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.visibilitySubscriptionIds = visibilitySubscriptionIds;
-            return o;
+            final var _resultValue = new GetServiceResult();
+            _resultValue.alias = alias;
+            _resultValue.autoApprovalSubscriptionIds = autoApprovalSubscriptionIds;
+            _resultValue.enableProxyProtocol = enableProxyProtocol;
+            _resultValue.id = id;
+            _resultValue.loadBalancerFrontendIpConfigurationIds = loadBalancerFrontendIpConfigurationIds;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.natIpConfigurations = natIpConfigurations;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.visibilitySubscriptionIds = visibilitySubscriptionIds;
+            return _resultValue;
         }
     }
 }

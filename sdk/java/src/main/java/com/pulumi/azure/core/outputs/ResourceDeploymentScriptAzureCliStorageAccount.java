@@ -65,10 +65,10 @@ public final class ResourceDeploymentScriptAzureCliStorageAccount {
             return this;
         }
         public ResourceDeploymentScriptAzureCliStorageAccount build() {
-            final var o = new ResourceDeploymentScriptAzureCliStorageAccount();
-            o.key = key;
-            o.name = name;
-            return o;
+            final var _resultValue = new ResourceDeploymentScriptAzureCliStorageAccount();
+            _resultValue.key = key;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -75,7 +75,31 @@ class NatRuleArgs:
              frontend_port_start: Optional[pulumi.Input[int]] = None,
              idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'frontendIpConfigurationName' in kwargs:
+            frontend_ip_configuration_name = kwargs['frontendIpConfigurationName']
+        if 'loadbalancerId' in kwargs:
+            loadbalancer_id = kwargs['loadbalancerId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'backendAddressPoolId' in kwargs:
+            backend_address_pool_id = kwargs['backendAddressPoolId']
+        if 'enableFloatingIp' in kwargs:
+            enable_floating_ip = kwargs['enableFloatingIp']
+        if 'enableTcpReset' in kwargs:
+            enable_tcp_reset = kwargs['enableTcpReset']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+        if 'frontendPortEnd' in kwargs:
+            frontend_port_end = kwargs['frontendPortEnd']
+        if 'frontendPortStart' in kwargs:
+            frontend_port_start = kwargs['frontendPortStart']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+
         _setter("backend_port", backend_port)
         _setter("frontend_ip_configuration_name", frontend_ip_configuration_name)
         _setter("loadbalancer_id", loadbalancer_id)
@@ -325,7 +349,35 @@ class _NatRuleState:
              name: Optional[pulumi.Input[str]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'backendAddressPoolId' in kwargs:
+            backend_address_pool_id = kwargs['backendAddressPoolId']
+        if 'backendIpConfigurationId' in kwargs:
+            backend_ip_configuration_id = kwargs['backendIpConfigurationId']
+        if 'backendPort' in kwargs:
+            backend_port = kwargs['backendPort']
+        if 'enableFloatingIp' in kwargs:
+            enable_floating_ip = kwargs['enableFloatingIp']
+        if 'enableTcpReset' in kwargs:
+            enable_tcp_reset = kwargs['enableTcpReset']
+        if 'frontendIpConfigurationId' in kwargs:
+            frontend_ip_configuration_id = kwargs['frontendIpConfigurationId']
+        if 'frontendIpConfigurationName' in kwargs:
+            frontend_ip_configuration_name = kwargs['frontendIpConfigurationName']
+        if 'frontendPort' in kwargs:
+            frontend_port = kwargs['frontendPort']
+        if 'frontendPortEnd' in kwargs:
+            frontend_port_end = kwargs['frontendPortEnd']
+        if 'frontendPortStart' in kwargs:
+            frontend_port_start = kwargs['frontendPortStart']
+        if 'idleTimeoutInMinutes' in kwargs:
+            idle_timeout_in_minutes = kwargs['idleTimeoutInMinutes']
+        if 'loadbalancerId' in kwargs:
+            loadbalancer_id = kwargs['loadbalancerId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if backend_address_pool_id is not None:
             _setter("backend_address_pool_id", backend_address_pool_id)
         if backend_ip_configuration_id is not None:

@@ -103,12 +103,12 @@ public final class GetPolicyRuleActionVersion {
             return this;
         }
         public GetPolicyRuleActionVersion build() {
-            final var o = new GetPolicyRuleActionVersion();
-            o.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
-            o.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
-            o.deleteAfterDaysSinceCreation = deleteAfterDaysSinceCreation;
-            o.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
-            return o;
+            final var _resultValue = new GetPolicyRuleActionVersion();
+            _resultValue.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
+            _resultValue.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
+            _resultValue.deleteAfterDaysSinceCreation = deleteAfterDaysSinceCreation;
+            _resultValue.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
+            return _resultValue;
         }
     }
 }

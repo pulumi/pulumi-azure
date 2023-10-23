@@ -65,12 +65,16 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
+     * 
      */
     @Import(name="skuName", required=true)
     private Output<String> skuName;
 
     /**
      * @return The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
      * 
      */
     public Output<String> skuName() {
@@ -186,6 +190,8 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param skuName The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
+         * 
          * @return builder
          * 
          */
@@ -196,6 +202,8 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param skuName The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
          * 
          * @return builder
          * 

@@ -67,10 +67,10 @@ public final class DataFlowSinkDataset {
             return this;
         }
         public DataFlowSinkDataset build() {
-            final var o = new DataFlowSinkDataset();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new DataFlowSinkDataset();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

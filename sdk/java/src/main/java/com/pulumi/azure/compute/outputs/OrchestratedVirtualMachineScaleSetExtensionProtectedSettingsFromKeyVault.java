@@ -65,10 +65,10 @@ public final class OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsF
             return this;
         }
         public OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault build() {
-            final var o = new OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault();
-            o.secretUrl = secretUrl;
-            o.sourceVaultId = sourceVaultId;
-            return o;
+            final var _resultValue = new OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault();
+            _resultValue.secretUrl = secretUrl;
+            _resultValue.sourceVaultId = sourceVaultId;
+            return _resultValue;
         }
     }
 }

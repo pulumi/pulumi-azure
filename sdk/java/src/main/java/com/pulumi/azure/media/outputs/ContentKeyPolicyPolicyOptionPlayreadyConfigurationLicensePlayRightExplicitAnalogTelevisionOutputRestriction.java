@@ -68,10 +68,10 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
             return this;
         }
         public ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction build() {
-            final var o = new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction();
-            o.bestEffortEnforced = bestEffortEnforced;
-            o.controlBits = controlBits;
-            return o;
+            final var _resultValue = new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestriction();
+            _resultValue.bestEffortEnforced = bestEffortEnforced;
+            _resultValue.controlBits = controlBits;
+            return _resultValue;
         }
     }
 }

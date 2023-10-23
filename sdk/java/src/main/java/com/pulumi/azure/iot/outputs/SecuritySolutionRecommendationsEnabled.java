@@ -333,24 +333,24 @@ public final class SecuritySolutionRecommendationsEnabled {
             return this;
         }
         public SecuritySolutionRecommendationsEnabled build() {
-            final var o = new SecuritySolutionRecommendationsEnabled();
-            o.acrAuthentication = acrAuthentication;
-            o.agentSendUnutilizedMsg = agentSendUnutilizedMsg;
-            o.baseline = baseline;
-            o.edgeHubMemOptimize = edgeHubMemOptimize;
-            o.edgeLoggingOption = edgeLoggingOption;
-            o.inconsistentModuleSettings = inconsistentModuleSettings;
-            o.installAgent = installAgent;
-            o.ipFilterDenyAll = ipFilterDenyAll;
-            o.ipFilterPermissiveRule = ipFilterPermissiveRule;
-            o.openPorts = openPorts;
-            o.permissiveFirewallPolicy = permissiveFirewallPolicy;
-            o.permissiveInputFirewallRules = permissiveInputFirewallRules;
-            o.permissiveOutputFirewallRules = permissiveOutputFirewallRules;
-            o.privilegedDockerOptions = privilegedDockerOptions;
-            o.sharedCredentials = sharedCredentials;
-            o.vulnerableTlsCipherSuite = vulnerableTlsCipherSuite;
-            return o;
+            final var _resultValue = new SecuritySolutionRecommendationsEnabled();
+            _resultValue.acrAuthentication = acrAuthentication;
+            _resultValue.agentSendUnutilizedMsg = agentSendUnutilizedMsg;
+            _resultValue.baseline = baseline;
+            _resultValue.edgeHubMemOptimize = edgeHubMemOptimize;
+            _resultValue.edgeLoggingOption = edgeLoggingOption;
+            _resultValue.inconsistentModuleSettings = inconsistentModuleSettings;
+            _resultValue.installAgent = installAgent;
+            _resultValue.ipFilterDenyAll = ipFilterDenyAll;
+            _resultValue.ipFilterPermissiveRule = ipFilterPermissiveRule;
+            _resultValue.openPorts = openPorts;
+            _resultValue.permissiveFirewallPolicy = permissiveFirewallPolicy;
+            _resultValue.permissiveInputFirewallRules = permissiveInputFirewallRules;
+            _resultValue.permissiveOutputFirewallRules = permissiveOutputFirewallRules;
+            _resultValue.privilegedDockerOptions = privilegedDockerOptions;
+            _resultValue.sharedCredentials = sharedCredentials;
+            _resultValue.vulnerableTlsCipherSuite = vulnerableTlsCipherSuite;
+            return _resultValue;
         }
     }
 }

@@ -139,15 +139,15 @@ public final class Azurerm_portal_dashboardResult {
             return this;
         }
         public Azurerm_portal_dashboardResult build() {
-            final var o = new Azurerm_portal_dashboardResult();
-            o.dashboardProperties = dashboardProperties;
-            o.displayName = displayName;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            return o;
+            final var _resultValue = new Azurerm_portal_dashboardResult();
+            _resultValue.dashboardProperties = dashboardProperties;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            return _resultValue;
         }
     }
 }

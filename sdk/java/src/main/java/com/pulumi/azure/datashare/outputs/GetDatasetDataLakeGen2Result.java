@@ -163,16 +163,16 @@ public final class GetDatasetDataLakeGen2Result {
             return this;
         }
         public GetDatasetDataLakeGen2Result build() {
-            final var o = new GetDatasetDataLakeGen2Result();
-            o.displayName = displayName;
-            o.filePath = filePath;
-            o.fileSystemName = fileSystemName;
-            o.folderPath = folderPath;
-            o.id = id;
-            o.name = name;
-            o.shareId = shareId;
-            o.storageAccountId = storageAccountId;
-            return o;
+            final var _resultValue = new GetDatasetDataLakeGen2Result();
+            _resultValue.displayName = displayName;
+            _resultValue.filePath = filePath;
+            _resultValue.fileSystemName = fileSystemName;
+            _resultValue.folderPath = folderPath;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.shareId = shareId;
+            _resultValue.storageAccountId = storageAccountId;
+            return _resultValue;
         }
     }
 }

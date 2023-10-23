@@ -68,10 +68,10 @@ public final class AlertPrometheusRuleGroupRuleAlertResolution {
             return this;
         }
         public AlertPrometheusRuleGroupRuleAlertResolution build() {
-            final var o = new AlertPrometheusRuleGroupRuleAlertResolution();
-            o.autoResolved = autoResolved;
-            o.timeToResolve = timeToResolve;
-            return o;
+            final var _resultValue = new AlertPrometheusRuleGroupRuleAlertResolution();
+            _resultValue.autoResolved = autoResolved;
+            _resultValue.timeToResolve = timeToResolve;
+            return _resultValue;
         }
     }
 }

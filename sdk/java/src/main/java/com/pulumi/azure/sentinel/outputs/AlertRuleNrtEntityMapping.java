@@ -70,10 +70,10 @@ public final class AlertRuleNrtEntityMapping {
             return fieldMappings(List.of(fieldMappings));
         }
         public AlertRuleNrtEntityMapping build() {
-            final var o = new AlertRuleNrtEntityMapping();
-            o.entityType = entityType;
-            o.fieldMappings = fieldMappings;
-            return o;
+            final var _resultValue = new AlertRuleNrtEntityMapping();
+            _resultValue.entityType = entityType;
+            _resultValue.fieldMappings = fieldMappings;
+            return _resultValue;
         }
     }
 }

@@ -154,15 +154,15 @@ public final class CustomHttpsConfigurationCustomHttpsConfiguration {
             return this;
         }
         public CustomHttpsConfigurationCustomHttpsConfiguration build() {
-            final var o = new CustomHttpsConfigurationCustomHttpsConfiguration();
-            o.azureKeyVaultCertificateSecretName = azureKeyVaultCertificateSecretName;
-            o.azureKeyVaultCertificateSecretVersion = azureKeyVaultCertificateSecretVersion;
-            o.azureKeyVaultCertificateVaultId = azureKeyVaultCertificateVaultId;
-            o.certificateSource = certificateSource;
-            o.minimumTlsVersion = minimumTlsVersion;
-            o.provisioningState = provisioningState;
-            o.provisioningSubstate = provisioningSubstate;
-            return o;
+            final var _resultValue = new CustomHttpsConfigurationCustomHttpsConfiguration();
+            _resultValue.azureKeyVaultCertificateSecretName = azureKeyVaultCertificateSecretName;
+            _resultValue.azureKeyVaultCertificateSecretVersion = azureKeyVaultCertificateSecretVersion;
+            _resultValue.azureKeyVaultCertificateVaultId = azureKeyVaultCertificateVaultId;
+            _resultValue.certificateSource = certificateSource;
+            _resultValue.minimumTlsVersion = minimumTlsVersion;
+            _resultValue.provisioningState = provisioningState;
+            _resultValue.provisioningSubstate = provisioningSubstate;
+            return _resultValue;
         }
     }
 }

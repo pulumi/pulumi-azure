@@ -196,17 +196,17 @@ public final class GetPublicIpPrefixResult {
             return zones(List.of(zones));
         }
         public GetPublicIpPrefixResult build() {
-            final var o = new GetPublicIpPrefixResult();
-            o.id = id;
-            o.ipPrefix = ipPrefix;
-            o.location = location;
-            o.name = name;
-            o.prefixLength = prefixLength;
-            o.resourceGroupName = resourceGroupName;
-            o.sku = sku;
-            o.tags = tags;
-            o.zones = zones;
-            return o;
+            final var _resultValue = new GetPublicIpPrefixResult();
+            _resultValue.id = id;
+            _resultValue.ipPrefix = ipPrefix;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.prefixLength = prefixLength;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.sku = sku;
+            _resultValue.tags = tags;
+            _resultValue.zones = zones;
+            return _resultValue;
         }
     }
 }

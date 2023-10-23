@@ -101,12 +101,12 @@ public final class GetActionGroupWebhookReceiver {
             return this;
         }
         public GetActionGroupWebhookReceiver build() {
-            final var o = new GetActionGroupWebhookReceiver();
-            o.aadAuths = aadAuths;
-            o.name = name;
-            o.serviceUri = serviceUri;
-            o.useCommonAlertSchema = useCommonAlertSchema;
-            return o;
+            final var _resultValue = new GetActionGroupWebhookReceiver();
+            _resultValue.aadAuths = aadAuths;
+            _resultValue.name = name;
+            _resultValue.serviceUri = serviceUri;
+            _resultValue.useCommonAlertSchema = useCommonAlertSchema;
+            return _resultValue;
         }
     }
 }

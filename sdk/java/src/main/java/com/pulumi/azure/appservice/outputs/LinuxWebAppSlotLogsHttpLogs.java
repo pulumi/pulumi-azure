@@ -68,10 +68,10 @@ public final class LinuxWebAppSlotLogsHttpLogs {
             return this;
         }
         public LinuxWebAppSlotLogsHttpLogs build() {
-            final var o = new LinuxWebAppSlotLogsHttpLogs();
-            o.azureBlobStorage = azureBlobStorage;
-            o.fileSystem = fileSystem;
-            return o;
+            final var _resultValue = new LinuxWebAppSlotLogsHttpLogs();
+            _resultValue.azureBlobStorage = azureBlobStorage;
+            _resultValue.fileSystem = fileSystem;
+            return _resultValue;
         }
     }
 }

@@ -248,19 +248,19 @@ public final class WindowsWebAppAuthSettingsV2Login {
             return this;
         }
         public WindowsWebAppAuthSettingsV2Login build() {
-            final var o = new WindowsWebAppAuthSettingsV2Login();
-            o.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
-            o.cookieExpirationConvention = cookieExpirationConvention;
-            o.cookieExpirationTime = cookieExpirationTime;
-            o.logoutEndpoint = logoutEndpoint;
-            o.nonceExpirationTime = nonceExpirationTime;
-            o.preserveUrlFragmentsForLogins = preserveUrlFragmentsForLogins;
-            o.tokenRefreshExtensionTime = tokenRefreshExtensionTime;
-            o.tokenStoreEnabled = tokenStoreEnabled;
-            o.tokenStorePath = tokenStorePath;
-            o.tokenStoreSasSettingName = tokenStoreSasSettingName;
-            o.validateNonce = validateNonce;
-            return o;
+            final var _resultValue = new WindowsWebAppAuthSettingsV2Login();
+            _resultValue.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
+            _resultValue.cookieExpirationConvention = cookieExpirationConvention;
+            _resultValue.cookieExpirationTime = cookieExpirationTime;
+            _resultValue.logoutEndpoint = logoutEndpoint;
+            _resultValue.nonceExpirationTime = nonceExpirationTime;
+            _resultValue.preserveUrlFragmentsForLogins = preserveUrlFragmentsForLogins;
+            _resultValue.tokenRefreshExtensionTime = tokenRefreshExtensionTime;
+            _resultValue.tokenStoreEnabled = tokenStoreEnabled;
+            _resultValue.tokenStorePath = tokenStorePath;
+            _resultValue.tokenStoreSasSettingName = tokenStoreSasSettingName;
+            _resultValue.validateNonce = validateNonce;
+            return _resultValue;
         }
     }
 }

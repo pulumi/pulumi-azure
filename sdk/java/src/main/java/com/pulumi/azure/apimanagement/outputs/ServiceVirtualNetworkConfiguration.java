@@ -46,9 +46,9 @@ public final class ServiceVirtualNetworkConfiguration {
             return this;
         }
         public ServiceVirtualNetworkConfiguration build() {
-            final var o = new ServiceVirtualNetworkConfiguration();
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new ServiceVirtualNetworkConfiguration();
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

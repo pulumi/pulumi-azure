@@ -107,12 +107,12 @@ public final class AppServiceLogs {
             return this;
         }
         public AppServiceLogs build() {
-            final var o = new AppServiceLogs();
-            o.applicationLogs = applicationLogs;
-            o.detailedErrorMessagesEnabled = detailedErrorMessagesEnabled;
-            o.failedRequestTracingEnabled = failedRequestTracingEnabled;
-            o.httpLogs = httpLogs;
-            return o;
+            final var _resultValue = new AppServiceLogs();
+            _resultValue.applicationLogs = applicationLogs;
+            _resultValue.detailedErrorMessagesEnabled = detailedErrorMessagesEnabled;
+            _resultValue.failedRequestTracingEnabled = failedRequestTracingEnabled;
+            _resultValue.httpLogs = httpLogs;
+            return _resultValue;
         }
     }
 }

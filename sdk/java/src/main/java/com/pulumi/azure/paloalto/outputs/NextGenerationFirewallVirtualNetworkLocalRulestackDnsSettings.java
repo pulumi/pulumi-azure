@@ -86,11 +86,11 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings
             return this;
         }
         public NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings build() {
-            final var o = new NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings();
-            o.azureDnsServers = azureDnsServers;
-            o.dnsServers = dnsServers;
-            o.useAzureDns = useAzureDns;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings();
+            _resultValue.azureDnsServers = azureDnsServers;
+            _resultValue.dnsServers = dnsServers;
+            _resultValue.useAzureDns = useAzureDns;
+            return _resultValue;
         }
     }
 }

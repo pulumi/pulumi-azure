@@ -67,10 +67,10 @@ public final class BackendCredentialsAuthorization {
             return this;
         }
         public BackendCredentialsAuthorization build() {
-            final var o = new BackendCredentialsAuthorization();
-            o.parameter = parameter;
-            o.scheme = scheme;
-            return o;
+            final var _resultValue = new BackendCredentialsAuthorization();
+            _resultValue.parameter = parameter;
+            _resultValue.scheme = scheme;
+            return _resultValue;
         }
     }
 }

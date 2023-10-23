@@ -43,7 +43,15 @@ class EnrichmentArgs:
              key: pulumi.Input[str],
              resource_group_name: pulumi.Input[str],
              value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointNames' in kwargs:
+            endpoint_names = kwargs['endpointNames']
+        if 'iothubName' in kwargs:
+            iothub_name = kwargs['iothubName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         _setter("endpoint_names", endpoint_names)
         _setter("iothub_name", iothub_name)
         _setter("key", key)
@@ -143,7 +151,15 @@ class _EnrichmentState:
              key: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'endpointNames' in kwargs:
+            endpoint_names = kwargs['endpointNames']
+        if 'iothubName' in kwargs:
+            iothub_name = kwargs['iothubName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if endpoint_names is not None:
             _setter("endpoint_names", endpoint_names)
         if iothub_name is not None:

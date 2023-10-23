@@ -66,10 +66,10 @@ public final class ScalingPlanHostPool {
             return this;
         }
         public ScalingPlanHostPool build() {
-            final var o = new ScalingPlanHostPool();
-            o.hostpoolId = hostpoolId;
-            o.scalingPlanEnabled = scalingPlanEnabled;
-            return o;
+            final var _resultValue = new ScalingPlanHostPool();
+            _resultValue.hostpoolId = hostpoolId;
+            _resultValue.scalingPlanEnabled = scalingPlanEnabled;
+            return _resultValue;
         }
     }
 }

@@ -104,12 +104,12 @@ public final class GetActionGroupLogicAppReceiver {
             return this;
         }
         public GetActionGroupLogicAppReceiver build() {
-            final var o = new GetActionGroupLogicAppReceiver();
-            o.callbackUrl = callbackUrl;
-            o.name = name;
-            o.resourceId = resourceId;
-            o.useCommonAlertSchema = useCommonAlertSchema;
-            return o;
+            final var _resultValue = new GetActionGroupLogicAppReceiver();
+            _resultValue.callbackUrl = callbackUrl;
+            _resultValue.name = name;
+            _resultValue.resourceId = resourceId;
+            _resultValue.useCommonAlertSchema = useCommonAlertSchema;
+            return _resultValue;
         }
     }
 }

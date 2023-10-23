@@ -84,11 +84,11 @@ public final class GetLinuxWebAppAuthSettingTwitter {
             return this;
         }
         public GetLinuxWebAppAuthSettingTwitter build() {
-            final var o = new GetLinuxWebAppAuthSettingTwitter();
-            o.consumerKey = consumerKey;
-            o.consumerSecret = consumerSecret;
-            o.consumerSecretSettingName = consumerSecretSettingName;
-            return o;
+            final var _resultValue = new GetLinuxWebAppAuthSettingTwitter();
+            _resultValue.consumerKey = consumerKey;
+            _resultValue.consumerSecret = consumerSecret;
+            _resultValue.consumerSecretSettingName = consumerSecretSettingName;
+            return _resultValue;
         }
     }
 }

@@ -53,7 +53,19 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackArgs:
              dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+        if 'destinationNats' in kwargs:
+            destination_nats = kwargs['destinationNats']
+        if 'dnsSettings' in kwargs:
+            dns_settings = kwargs['dnsSettings']
+
         _setter("network_profile", network_profile)
         _setter("resource_group_name", resource_group_name)
         _setter("rulestack_id", rulestack_id)
@@ -191,7 +203,19 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
              resource_group_name: Optional[pulumi.Input[str]] = None,
              rulestack_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'destinationNats' in kwargs:
+            destination_nats = kwargs['destinationNats']
+        if 'dnsSettings' in kwargs:
+            dns_settings = kwargs['dnsSettings']
+        if 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+
         if destination_nats is not None:
             _setter("destination_nats", destination_nats)
         if dns_settings is not None:

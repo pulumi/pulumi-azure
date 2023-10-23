@@ -85,11 +85,11 @@ public final class GetSecretsSecret {
             return this;
         }
         public GetSecretsSecret build() {
-            final var o = new GetSecretsSecret();
-            o.enabled = enabled;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetSecretsSecret();
+            _resultValue.enabled = enabled;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

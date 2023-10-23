@@ -65,10 +65,10 @@ public final class GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate {
             return this;
         }
         public GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate build() {
-            final var o = new GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate();
-            o.downlink = downlink;
-            o.uplink = uplink;
-            return o;
+            final var _resultValue = new GetNetworkSimPolicyUserEquipmentAggregateMaximumBitRate();
+            _resultValue.downlink = downlink;
+            _resultValue.uplink = uplink;
+            return _resultValue;
         }
     }
 }

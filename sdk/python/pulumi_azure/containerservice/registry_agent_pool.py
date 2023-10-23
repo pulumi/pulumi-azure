@@ -55,7 +55,17 @@ class RegistryAgentPoolArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tier: Optional[pulumi.Input[str]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerRegistryName' in kwargs:
+            container_registry_name = kwargs['containerRegistryName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         _setter("container_registry_name", container_registry_name)
         _setter("resource_group_name", resource_group_name)
         if instance_count is not None:
@@ -212,7 +222,17 @@ class _RegistryAgentPoolState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              tier: Optional[pulumi.Input[str]] = None,
              virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'containerRegistryName' in kwargs:
+            container_registry_name = kwargs['containerRegistryName']
+        if 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+
         if container_registry_name is not None:
             _setter("container_registry_name", container_registry_name)
         if instance_count is not None:

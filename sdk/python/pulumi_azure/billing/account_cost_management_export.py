@@ -57,7 +57,21 @@ class AccountCostManagementExportArgs:
              recurrence_type: pulumi.Input[str],
              active: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingAccountId' in kwargs:
+            billing_account_id = kwargs['billingAccountId']
+        if 'exportDataOptions' in kwargs:
+            export_data_options = kwargs['exportDataOptions']
+        if 'exportDataStorageLocation' in kwargs:
+            export_data_storage_location = kwargs['exportDataStorageLocation']
+        if 'recurrencePeriodEndDate' in kwargs:
+            recurrence_period_end_date = kwargs['recurrencePeriodEndDate']
+        if 'recurrencePeriodStartDate' in kwargs:
+            recurrence_period_start_date = kwargs['recurrencePeriodStartDate']
+        if 'recurrenceType' in kwargs:
+            recurrence_type = kwargs['recurrenceType']
+
         _setter("billing_account_id", billing_account_id)
         _setter("export_data_options", export_data_options)
         _setter("export_data_storage_location", export_data_storage_location)
@@ -210,7 +224,21 @@ class _AccountCostManagementExportState:
              recurrence_period_end_date: Optional[pulumi.Input[str]] = None,
              recurrence_period_start_date: Optional[pulumi.Input[str]] = None,
              recurrence_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'billingAccountId' in kwargs:
+            billing_account_id = kwargs['billingAccountId']
+        if 'exportDataOptions' in kwargs:
+            export_data_options = kwargs['exportDataOptions']
+        if 'exportDataStorageLocation' in kwargs:
+            export_data_storage_location = kwargs['exportDataStorageLocation']
+        if 'recurrencePeriodEndDate' in kwargs:
+            recurrence_period_end_date = kwargs['recurrencePeriodEndDate']
+        if 'recurrencePeriodStartDate' in kwargs:
+            recurrence_period_start_date = kwargs['recurrencePeriodStartDate']
+        if 'recurrenceType' in kwargs:
+            recurrence_type = kwargs['recurrenceType']
+
         if active is not None:
             _setter("active", active)
         if billing_account_id is not None:

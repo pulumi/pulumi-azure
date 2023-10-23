@@ -280,22 +280,22 @@ public final class GetFlexibleServerResult {
             return this;
         }
         public GetFlexibleServerResult build() {
-            final var o = new GetFlexibleServerResult();
-            o.administratorLogin = administratorLogin;
-            o.autoGrowEnabled = autoGrowEnabled;
-            o.backupRetentionDays = backupRetentionDays;
-            o.delegatedSubnetId = delegatedSubnetId;
-            o.fqdn = fqdn;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            o.resourceGroupName = resourceGroupName;
-            o.skuName = skuName;
-            o.storageMb = storageMb;
-            o.tags = tags;
-            o.version = version;
-            return o;
+            final var _resultValue = new GetFlexibleServerResult();
+            _resultValue.administratorLogin = administratorLogin;
+            _resultValue.autoGrowEnabled = autoGrowEnabled;
+            _resultValue.backupRetentionDays = backupRetentionDays;
+            _resultValue.delegatedSubnetId = delegatedSubnetId;
+            _resultValue.fqdn = fqdn;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.skuName = skuName;
+            _resultValue.storageMb = storageMb;
+            _resultValue.tags = tags;
+            _resultValue.version = version;
+            return _resultValue;
         }
     }
 }

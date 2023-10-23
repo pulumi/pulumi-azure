@@ -125,13 +125,13 @@ public final class TransformOutputCustomPresetCodecAacAudio {
             return this;
         }
         public TransformOutputCustomPresetCodecAacAudio build() {
-            final var o = new TransformOutputCustomPresetCodecAacAudio();
-            o.bitrate = bitrate;
-            o.channels = channels;
-            o.label = label;
-            o.profile = profile;
-            o.samplingRate = samplingRate;
-            return o;
+            final var _resultValue = new TransformOutputCustomPresetCodecAacAudio();
+            _resultValue.bitrate = bitrate;
+            _resultValue.channels = channels;
+            _resultValue.label = label;
+            _resultValue.profile = profile;
+            _resultValue.samplingRate = samplingRate;
+            return _resultValue;
         }
     }
 }

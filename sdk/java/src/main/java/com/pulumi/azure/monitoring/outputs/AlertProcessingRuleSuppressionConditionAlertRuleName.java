@@ -69,10 +69,10 @@ public final class AlertProcessingRuleSuppressionConditionAlertRuleName {
             return values(List.of(values));
         }
         public AlertProcessingRuleSuppressionConditionAlertRuleName build() {
-            final var o = new AlertProcessingRuleSuppressionConditionAlertRuleName();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new AlertProcessingRuleSuppressionConditionAlertRuleName();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

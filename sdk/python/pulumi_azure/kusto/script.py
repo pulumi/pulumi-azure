@@ -51,7 +51,19 @@ class ScriptArgs:
              sas_token: Optional[pulumi.Input[str]] = None,
              script_content: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'databaseId' in kwargs:
+            database_id = kwargs['databaseId']
+        if 'continueOnErrorsEnabled' in kwargs:
+            continue_on_errors_enabled = kwargs['continueOnErrorsEnabled']
+        if 'forceAnUpdateWhenValueChanged' in kwargs:
+            force_an_update_when_value_changed = kwargs['forceAnUpdateWhenValueChanged']
+        if 'sasToken' in kwargs:
+            sas_token = kwargs['sasToken']
+        if 'scriptContent' in kwargs:
+            script_content = kwargs['scriptContent']
+
         _setter("database_id", database_id)
         if continue_on_errors_enabled is not None:
             _setter("continue_on_errors_enabled", continue_on_errors_enabled)
@@ -191,7 +203,19 @@ class _ScriptState:
              sas_token: Optional[pulumi.Input[str]] = None,
              script_content: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'continueOnErrorsEnabled' in kwargs:
+            continue_on_errors_enabled = kwargs['continueOnErrorsEnabled']
+        if 'databaseId' in kwargs:
+            database_id = kwargs['databaseId']
+        if 'forceAnUpdateWhenValueChanged' in kwargs:
+            force_an_update_when_value_changed = kwargs['forceAnUpdateWhenValueChanged']
+        if 'sasToken' in kwargs:
+            sas_token = kwargs['sasToken']
+        if 'scriptContent' in kwargs:
+            script_content = kwargs['scriptContent']
+
         if continue_on_errors_enabled is not None:
             _setter("continue_on_errors_enabled", continue_on_errors_enabled)
         if database_id is not None:

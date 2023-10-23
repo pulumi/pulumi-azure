@@ -93,11 +93,11 @@ public final class GroupPolicyAssignmentOverrideSelector {
             return notIns(List.of(notIns));
         }
         public GroupPolicyAssignmentOverrideSelector build() {
-            final var o = new GroupPolicyAssignmentOverrideSelector();
-            o.ins = ins;
-            o.kind = kind;
-            o.notIns = notIns;
-            return o;
+            final var _resultValue = new GroupPolicyAssignmentOverrideSelector();
+            _resultValue.ins = ins;
+            _resultValue.kind = kind;
+            _resultValue.notIns = notIns;
+            return _resultValue;
         }
     }
 }

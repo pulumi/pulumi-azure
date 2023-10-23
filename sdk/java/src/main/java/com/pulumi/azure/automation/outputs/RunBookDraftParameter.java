@@ -126,13 +126,13 @@ public final class RunBookDraftParameter {
             return this;
         }
         public RunBookDraftParameter build() {
-            final var o = new RunBookDraftParameter();
-            o.defaultValue = defaultValue;
-            o.key = key;
-            o.mandatory = mandatory;
-            o.position = position;
-            o.type = type;
-            return o;
+            final var _resultValue = new RunBookDraftParameter();
+            _resultValue.defaultValue = defaultValue;
+            _resultValue.key = key;
+            _resultValue.mandatory = mandatory;
+            _resultValue.position = position;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

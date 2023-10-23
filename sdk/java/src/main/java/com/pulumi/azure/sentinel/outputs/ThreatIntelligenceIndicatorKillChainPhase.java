@@ -48,9 +48,9 @@ public final class ThreatIntelligenceIndicatorKillChainPhase {
             return this;
         }
         public ThreatIntelligenceIndicatorKillChainPhase build() {
-            final var o = new ThreatIntelligenceIndicatorKillChainPhase();
-            o.name = name;
-            return o;
+            final var _resultValue = new ThreatIntelligenceIndicatorKillChainPhase();
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

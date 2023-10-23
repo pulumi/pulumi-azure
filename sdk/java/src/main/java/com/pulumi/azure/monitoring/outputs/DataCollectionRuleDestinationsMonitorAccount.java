@@ -65,10 +65,10 @@ public final class DataCollectionRuleDestinationsMonitorAccount {
             return this;
         }
         public DataCollectionRuleDestinationsMonitorAccount build() {
-            final var o = new DataCollectionRuleDestinationsMonitorAccount();
-            o.monitorAccountId = monitorAccountId;
-            o.name = name;
-            return o;
+            final var _resultValue = new DataCollectionRuleDestinationsMonitorAccount();
+            _resultValue.monitorAccountId = monitorAccountId;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

@@ -43,7 +43,15 @@ class NetworkManagerScopeConnectionArgs:
              tenant_id: pulumi.Input[str],
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'networkManagerId' in kwargs:
+            network_manager_id = kwargs['networkManagerId']
+        if 'targetScopeId' in kwargs:
+            target_scope_id = kwargs['targetScopeId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("network_manager_id", network_manager_id)
         _setter("target_scope_id", target_scope_id)
         _setter("tenant_id", tenant_id)
@@ -149,7 +157,17 @@ class _NetworkManagerScopeConnectionState:
              network_manager_id: Optional[pulumi.Input[str]] = None,
              target_scope_id: Optional[pulumi.Input[str]] = None,
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'connectionState' in kwargs:
+            connection_state = kwargs['connectionState']
+        if 'networkManagerId' in kwargs:
+            network_manager_id = kwargs['networkManagerId']
+        if 'targetScopeId' in kwargs:
+            target_scope_id = kwargs['targetScopeId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if connection_state is not None:
             _setter("connection_state", connection_state)
         if description is not None:

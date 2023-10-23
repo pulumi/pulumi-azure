@@ -86,11 +86,11 @@ public final class DatasetAzureBlobSchemaColumn {
             return this;
         }
         public DatasetAzureBlobSchemaColumn build() {
-            final var o = new DatasetAzureBlobSchemaColumn();
-            o.description = description;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DatasetAzureBlobSchemaColumn();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

@@ -55,7 +55,19 @@ class GroupTemplateDeploymentArgs:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template_content: Optional[pulumi.Input[str]] = None,
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'debugLevel' in kwargs:
+            debug_level = kwargs['debugLevel']
+        if 'parametersContent' in kwargs:
+            parameters_content = kwargs['parametersContent']
+        if 'templateContent' in kwargs:
+            template_content = kwargs['templateContent']
+        if 'templateSpecVersionId' in kwargs:
+            template_spec_version_id = kwargs['templateSpecVersionId']
+
         _setter("management_group_id", management_group_id)
         if debug_level is not None:
             _setter("debug_level", debug_level)
@@ -217,7 +229,21 @@ class _GroupTemplateDeploymentState:
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              template_content: Optional[pulumi.Input[str]] = None,
              template_spec_version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'debugLevel' in kwargs:
+            debug_level = kwargs['debugLevel']
+        if 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if 'outputContent' in kwargs:
+            output_content = kwargs['outputContent']
+        if 'parametersContent' in kwargs:
+            parameters_content = kwargs['parametersContent']
+        if 'templateContent' in kwargs:
+            template_content = kwargs['templateContent']
+        if 'templateSpecVersionId' in kwargs:
+            template_spec_version_id = kwargs['templateSpecVersionId']
+
         if debug_level is not None:
             _setter("debug_level", debug_level)
         if location is not None:

@@ -105,12 +105,12 @@ public final class StreamingPolicyNoEncryptionEnabledProtocols {
             return this;
         }
         public StreamingPolicyNoEncryptionEnabledProtocols build() {
-            final var o = new StreamingPolicyNoEncryptionEnabledProtocols();
-            o.dash = dash;
-            o.download = download;
-            o.hls = hls;
-            o.smoothStreaming = smoothStreaming;
-            return o;
+            final var _resultValue = new StreamingPolicyNoEncryptionEnabledProtocols();
+            _resultValue.dash = dash;
+            _resultValue.download = download;
+            _resultValue.hls = hls;
+            _resultValue.smoothStreaming = smoothStreaming;
+            return _resultValue;
         }
     }
 }

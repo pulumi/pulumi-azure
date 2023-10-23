@@ -113,12 +113,12 @@ public final class ApplicationGatewayTrustedRootCertificate {
             return this;
         }
         public ApplicationGatewayTrustedRootCertificate build() {
-            final var o = new ApplicationGatewayTrustedRootCertificate();
-            o.data = data;
-            o.id = id;
-            o.keyVaultSecretId = keyVaultSecretId;
-            o.name = name;
-            return o;
+            final var _resultValue = new ApplicationGatewayTrustedRootCertificate();
+            _resultValue.data = data;
+            _resultValue.id = id;
+            _resultValue.keyVaultSecretId = keyVaultSecretId;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

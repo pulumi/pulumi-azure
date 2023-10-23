@@ -181,16 +181,16 @@ public final class VirtualMachineGroupWsfcDomainProfile {
             return this;
         }
         public VirtualMachineGroupWsfcDomainProfile build() {
-            final var o = new VirtualMachineGroupWsfcDomainProfile();
-            o.clusterBootstrapAccountName = clusterBootstrapAccountName;
-            o.clusterOperatorAccountName = clusterOperatorAccountName;
-            o.clusterSubnetType = clusterSubnetType;
-            o.fqdn = fqdn;
-            o.organizationalUnitPath = organizationalUnitPath;
-            o.sqlServiceAccountName = sqlServiceAccountName;
-            o.storageAccountPrimaryKey = storageAccountPrimaryKey;
-            o.storageAccountUrl = storageAccountUrl;
-            return o;
+            final var _resultValue = new VirtualMachineGroupWsfcDomainProfile();
+            _resultValue.clusterBootstrapAccountName = clusterBootstrapAccountName;
+            _resultValue.clusterOperatorAccountName = clusterOperatorAccountName;
+            _resultValue.clusterSubnetType = clusterSubnetType;
+            _resultValue.fqdn = fqdn;
+            _resultValue.organizationalUnitPath = organizationalUnitPath;
+            _resultValue.sqlServiceAccountName = sqlServiceAccountName;
+            _resultValue.storageAccountPrimaryKey = storageAccountPrimaryKey;
+            _resultValue.storageAccountUrl = storageAccountUrl;
+            return _resultValue;
         }
     }
 }

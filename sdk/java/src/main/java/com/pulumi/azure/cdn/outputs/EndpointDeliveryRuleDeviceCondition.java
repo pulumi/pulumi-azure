@@ -91,11 +91,11 @@ public final class EndpointDeliveryRuleDeviceCondition {
             return this;
         }
         public EndpointDeliveryRuleDeviceCondition build() {
-            final var o = new EndpointDeliveryRuleDeviceCondition();
-            o.matchValues = matchValues;
-            o.negateCondition = negateCondition;
-            o.operator = operator;
-            return o;
+            final var _resultValue = new EndpointDeliveryRuleDeviceCondition();
+            _resultValue.matchValues = matchValues;
+            _resultValue.negateCondition = negateCondition;
+            _resultValue.operator = operator;
+            return _resultValue;
         }
     }
 }

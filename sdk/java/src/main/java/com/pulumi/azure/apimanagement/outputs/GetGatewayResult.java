@@ -119,13 +119,13 @@ public final class GetGatewayResult {
             return this;
         }
         public GetGatewayResult build() {
-            final var o = new GetGatewayResult();
-            o.apiManagementId = apiManagementId;
-            o.description = description;
-            o.id = id;
-            o.locationDatas = locationDatas;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetGatewayResult();
+            _resultValue.apiManagementId = apiManagementId;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.locationDatas = locationDatas;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

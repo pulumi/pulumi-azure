@@ -57,10 +57,10 @@ public final class GetTrafficManagerResult {
             return this;
         }
         public GetTrafficManagerResult build() {
-            final var o = new GetTrafficManagerResult();
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new GetTrafficManagerResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

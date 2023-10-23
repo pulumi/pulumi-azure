@@ -106,12 +106,12 @@ public final class AlertProcessingRuleSuppressionSchedule {
             return this;
         }
         public AlertProcessingRuleSuppressionSchedule build() {
-            final var o = new AlertProcessingRuleSuppressionSchedule();
-            o.effectiveFrom = effectiveFrom;
-            o.effectiveUntil = effectiveUntil;
-            o.recurrence = recurrence;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new AlertProcessingRuleSuppressionSchedule();
+            _resultValue.effectiveFrom = effectiveFrom;
+            _resultValue.effectiveUntil = effectiveUntil;
+            _resultValue.recurrence = recurrence;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

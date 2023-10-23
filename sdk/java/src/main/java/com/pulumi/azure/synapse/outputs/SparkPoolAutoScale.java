@@ -65,10 +65,10 @@ public final class SparkPoolAutoScale {
             return this;
         }
         public SparkPoolAutoScale build() {
-            final var o = new SparkPoolAutoScale();
-            o.maxNodeCount = maxNodeCount;
-            o.minNodeCount = minNodeCount;
-            return o;
+            final var _resultValue = new SparkPoolAutoScale();
+            _resultValue.maxNodeCount = maxNodeCount;
+            _resultValue.minNodeCount = minNodeCount;
+            return _resultValue;
         }
     }
 }

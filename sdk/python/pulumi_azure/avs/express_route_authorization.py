@@ -31,7 +31,11 @@ class ExpressRouteAuthorizationArgs:
              _setter: Callable[[Any, Any], None],
              private_cloud_id: pulumi.Input[str],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'privateCloudId' in kwargs:
+            private_cloud_id = kwargs['privateCloudId']
+
         _setter("private_cloud_id", private_cloud_id)
         if name is not None:
             _setter("name", name)
@@ -89,7 +93,15 @@ class _ExpressRouteAuthorizationState:
              express_route_authorization_key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              private_cloud_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'expressRouteAuthorizationId' in kwargs:
+            express_route_authorization_id = kwargs['expressRouteAuthorizationId']
+        if 'expressRouteAuthorizationKey' in kwargs:
+            express_route_authorization_key = kwargs['expressRouteAuthorizationKey']
+        if 'privateCloudId' in kwargs:
+            private_cloud_id = kwargs['privateCloudId']
+
         if express_route_authorization_id is not None:
             _setter("express_route_authorization_id", express_route_authorization_id)
         if express_route_authorization_key is not None:

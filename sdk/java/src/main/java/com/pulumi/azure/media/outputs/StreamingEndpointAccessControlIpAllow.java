@@ -87,11 +87,11 @@ public final class StreamingEndpointAccessControlIpAllow {
             return this;
         }
         public StreamingEndpointAccessControlIpAllow build() {
-            final var o = new StreamingEndpointAccessControlIpAllow();
-            o.address = address;
-            o.name = name;
-            o.subnetPrefixLength = subnetPrefixLength;
-            return o;
+            final var _resultValue = new StreamingEndpointAccessControlIpAllow();
+            _resultValue.address = address;
+            _resultValue.name = name;
+            _resultValue.subnetPrefixLength = subnetPrefixLength;
+            return _resultValue;
         }
     }
 }

@@ -70,10 +70,10 @@ public final class LinuxVirtualMachineScaleSetSecret {
             return this;
         }
         public LinuxVirtualMachineScaleSetSecret build() {
-            final var o = new LinuxVirtualMachineScaleSetSecret();
-            o.certificates = certificates;
-            o.keyVaultId = keyVaultId;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetSecret();
+            _resultValue.certificates = certificates;
+            _resultValue.keyVaultId = keyVaultId;
+            return _resultValue;
         }
     }
 }

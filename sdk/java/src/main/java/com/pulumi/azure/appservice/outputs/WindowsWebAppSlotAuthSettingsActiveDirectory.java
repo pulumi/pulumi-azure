@@ -113,12 +113,12 @@ public final class WindowsWebAppSlotAuthSettingsActiveDirectory {
             return this;
         }
         public WindowsWebAppSlotAuthSettingsActiveDirectory build() {
-            final var o = new WindowsWebAppSlotAuthSettingsActiveDirectory();
-            o.allowedAudiences = allowedAudiences;
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.clientSecretSettingName = clientSecretSettingName;
-            return o;
+            final var _resultValue = new WindowsWebAppSlotAuthSettingsActiveDirectory();
+            _resultValue.allowedAudiences = allowedAudiences;
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.clientSecretSettingName = clientSecretSettingName;
+            return _resultValue;
         }
     }
 }

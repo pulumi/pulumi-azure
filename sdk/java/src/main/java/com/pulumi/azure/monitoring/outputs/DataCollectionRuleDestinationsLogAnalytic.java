@@ -65,10 +65,10 @@ public final class DataCollectionRuleDestinationsLogAnalytic {
             return this;
         }
         public DataCollectionRuleDestinationsLogAnalytic build() {
-            final var o = new DataCollectionRuleDestinationsLogAnalytic();
-            o.name = name;
-            o.workspaceResourceId = workspaceResourceId;
-            return o;
+            final var _resultValue = new DataCollectionRuleDestinationsLogAnalytic();
+            _resultValue.name = name;
+            _resultValue.workspaceResourceId = workspaceResourceId;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class WindowsVirtualMachineTerminationNotification {
             return this;
         }
         public WindowsVirtualMachineTerminationNotification build() {
-            final var o = new WindowsVirtualMachineTerminationNotification();
-            o.enabled = enabled;
-            o.timeout = timeout;
-            return o;
+            final var _resultValue = new WindowsVirtualMachineTerminationNotification();
+            _resultValue.enabled = enabled;
+            _resultValue.timeout = timeout;
+            return _resultValue;
         }
     }
 }

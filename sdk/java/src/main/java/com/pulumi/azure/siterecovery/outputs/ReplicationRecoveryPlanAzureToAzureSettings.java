@@ -113,12 +113,12 @@ public final class ReplicationRecoveryPlanAzureToAzureSettings {
             return this;
         }
         public ReplicationRecoveryPlanAzureToAzureSettings build() {
-            final var o = new ReplicationRecoveryPlanAzureToAzureSettings();
-            o.primaryEdgeZone = primaryEdgeZone;
-            o.primaryZone = primaryZone;
-            o.recoveryEdgeZone = recoveryEdgeZone;
-            o.recoveryZone = recoveryZone;
-            return o;
+            final var _resultValue = new ReplicationRecoveryPlanAzureToAzureSettings();
+            _resultValue.primaryEdgeZone = primaryEdgeZone;
+            _resultValue.primaryZone = primaryZone;
+            _resultValue.recoveryEdgeZone = recoveryEdgeZone;
+            _resultValue.recoveryZone = recoveryZone;
+            return _resultValue;
         }
     }
 }

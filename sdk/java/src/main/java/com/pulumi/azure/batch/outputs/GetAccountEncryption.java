@@ -46,9 +46,9 @@ public final class GetAccountEncryption {
             return this;
         }
         public GetAccountEncryption build() {
-            final var o = new GetAccountEncryption();
-            o.keyVaultKeyId = keyVaultKeyId;
-            return o;
+            final var _resultValue = new GetAccountEncryption();
+            _resultValue.keyVaultKeyId = keyVaultKeyId;
+            return _resultValue;
         }
     }
 }

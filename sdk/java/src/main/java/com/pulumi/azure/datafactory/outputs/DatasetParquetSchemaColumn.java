@@ -86,11 +86,11 @@ public final class DatasetParquetSchemaColumn {
             return this;
         }
         public DatasetParquetSchemaColumn build() {
-            final var o = new DatasetParquetSchemaColumn();
-            o.description = description;
-            o.name = name;
-            o.type = type;
-            return o;
+            final var _resultValue = new DatasetParquetSchemaColumn();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

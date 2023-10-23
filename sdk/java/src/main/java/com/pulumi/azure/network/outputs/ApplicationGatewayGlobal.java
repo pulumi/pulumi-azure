@@ -65,10 +65,10 @@ public final class ApplicationGatewayGlobal {
             return this;
         }
         public ApplicationGatewayGlobal build() {
-            final var o = new ApplicationGatewayGlobal();
-            o.requestBufferingEnabled = requestBufferingEnabled;
-            o.responseBufferingEnabled = responseBufferingEnabled;
-            return o;
+            final var _resultValue = new ApplicationGatewayGlobal();
+            _resultValue.requestBufferingEnabled = requestBufferingEnabled;
+            _resultValue.responseBufferingEnabled = responseBufferingEnabled;
+            return _resultValue;
         }
     }
 }

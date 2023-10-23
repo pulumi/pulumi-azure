@@ -46,9 +46,9 @@ public final class SqlContainerIndexingPolicyExcludedPath {
             return this;
         }
         public SqlContainerIndexingPolicyExcludedPath build() {
-            final var o = new SqlContainerIndexingPolicyExcludedPath();
-            o.path = path;
-            return o;
+            final var _resultValue = new SqlContainerIndexingPolicyExcludedPath();
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

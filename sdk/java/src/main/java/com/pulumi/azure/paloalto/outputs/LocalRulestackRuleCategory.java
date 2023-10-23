@@ -73,10 +73,10 @@ public final class LocalRulestackRuleCategory {
             return feeds(List.of(feeds));
         }
         public LocalRulestackRuleCategory build() {
-            final var o = new LocalRulestackRuleCategory();
-            o.customUrls = customUrls;
-            o.feeds = feeds;
-            return o;
+            final var _resultValue = new LocalRulestackRuleCategory();
+            _resultValue.customUrls = customUrls;
+            _resultValue.feeds = feeds;
+            return _resultValue;
         }
     }
 }

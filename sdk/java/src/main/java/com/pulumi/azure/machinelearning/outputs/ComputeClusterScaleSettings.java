@@ -85,11 +85,11 @@ public final class ComputeClusterScaleSettings {
             return this;
         }
         public ComputeClusterScaleSettings build() {
-            final var o = new ComputeClusterScaleSettings();
-            o.maxNodeCount = maxNodeCount;
-            o.minNodeCount = minNodeCount;
-            o.scaleDownNodesAfterIdleDuration = scaleDownNodesAfterIdleDuration;
-            return o;
+            final var _resultValue = new ComputeClusterScaleSettings();
+            _resultValue.maxNodeCount = maxNodeCount;
+            _resultValue.minNodeCount = minNodeCount;
+            _resultValue.scaleDownNodesAfterIdleDuration = scaleDownNodesAfterIdleDuration;
+            return _resultValue;
         }
     }
 }

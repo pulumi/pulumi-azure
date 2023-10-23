@@ -46,9 +46,9 @@ public final class GetTxtRecordRecord {
             return this;
         }
         public GetTxtRecordRecord build() {
-            final var o = new GetTxtRecordRecord();
-            o.value = value;
-            return o;
+            final var _resultValue = new GetTxtRecordRecord();
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

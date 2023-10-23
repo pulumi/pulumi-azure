@@ -107,12 +107,12 @@ public final class GroupContainerReadinessProbeHttpGet {
             return this;
         }
         public GroupContainerReadinessProbeHttpGet build() {
-            final var o = new GroupContainerReadinessProbeHttpGet();
-            o.httpHeaders = httpHeaders;
-            o.path = path;
-            o.port = port;
-            o.scheme = scheme;
-            return o;
+            final var _resultValue = new GroupContainerReadinessProbeHttpGet();
+            _resultValue.httpHeaders = httpHeaders;
+            _resultValue.path = path;
+            _resultValue.port = port;
+            _resultValue.scheme = scheme;
+            return _resultValue;
         }
     }
 }

@@ -87,11 +87,11 @@ public final class AuthomationRuleActionPlaybook {
             return this;
         }
         public AuthomationRuleActionPlaybook build() {
-            final var o = new AuthomationRuleActionPlaybook();
-            o.logicAppId = logicAppId;
-            o.order = order;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new AuthomationRuleActionPlaybook();
+            _resultValue.logicAppId = logicAppId;
+            _resultValue.order = order;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

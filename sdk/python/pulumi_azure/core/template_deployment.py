@@ -49,7 +49,17 @@ class TemplateDeploymentArgs:
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              parameters_body: Optional[pulumi.Input[str]] = None,
              template_body: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentMode' in kwargs:
+            deployment_mode = kwargs['deploymentMode']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'parametersBody' in kwargs:
+            parameters_body = kwargs['parametersBody']
+        if 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+
         _setter("deployment_mode", deployment_mode)
         _setter("resource_group_name", resource_group_name)
         if name is not None:
@@ -178,7 +188,17 @@ class _TemplateDeploymentState:
              parameters_body: Optional[pulumi.Input[str]] = None,
              resource_group_name: Optional[pulumi.Input[str]] = None,
              template_body: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'deploymentMode' in kwargs:
+            deployment_mode = kwargs['deploymentMode']
+        if 'parametersBody' in kwargs:
+            parameters_body = kwargs['parametersBody']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+
         if deployment_mode is not None:
             _setter("deployment_mode", deployment_mode)
         if name is not None:

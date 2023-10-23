@@ -46,9 +46,9 @@ public final class GetPoolTaskSchedulingPolicy {
             return this;
         }
         public GetPoolTaskSchedulingPolicy build() {
-            final var o = new GetPoolTaskSchedulingPolicy();
-            o.nodeFillType = nodeFillType;
-            return o;
+            final var _resultValue = new GetPoolTaskSchedulingPolicy();
+            _resultValue.nodeFillType = nodeFillType;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class TriggerTumblingWindowPipeline {
             return this;
         }
         public TriggerTumblingWindowPipeline build() {
-            final var o = new TriggerTumblingWindowPipeline();
-            o.name = name;
-            o.parameters = parameters;
-            return o;
+            final var _resultValue = new TriggerTumblingWindowPipeline();
+            _resultValue.name = name;
+            _resultValue.parameters = parameters;
+            return _resultValue;
         }
     }
 }

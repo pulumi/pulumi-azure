@@ -105,12 +105,12 @@ public final class StreamingPolicyCommonEncryptionCencEnabledProtocols {
             return this;
         }
         public StreamingPolicyCommonEncryptionCencEnabledProtocols build() {
-            final var o = new StreamingPolicyCommonEncryptionCencEnabledProtocols();
-            o.dash = dash;
-            o.download = download;
-            o.hls = hls;
-            o.smoothStreaming = smoothStreaming;
-            return o;
+            final var _resultValue = new StreamingPolicyCommonEncryptionCencEnabledProtocols();
+            _resultValue.dash = dash;
+            _resultValue.download = download;
+            _resultValue.hls = hls;
+            _resultValue.smoothStreaming = smoothStreaming;
+            return _resultValue;
         }
     }
 }

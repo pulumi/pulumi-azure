@@ -145,14 +145,14 @@ public final class CacheDirectoryLdap {
             return this;
         }
         public CacheDirectoryLdap build() {
-            final var o = new CacheDirectoryLdap();
-            o.baseDn = baseDn;
-            o.bind = bind;
-            o.certificateValidationUri = certificateValidationUri;
-            o.downloadCertificateAutomatically = downloadCertificateAutomatically;
-            o.encrypted = encrypted;
-            o.server = server;
-            return o;
+            final var _resultValue = new CacheDirectoryLdap();
+            _resultValue.baseDn = baseDn;
+            _resultValue.bind = bind;
+            _resultValue.certificateValidationUri = certificateValidationUri;
+            _resultValue.downloadCertificateAutomatically = downloadCertificateAutomatically;
+            _resultValue.encrypted = encrypted;
+            _resultValue.server = server;
+            return _resultValue;
         }
     }
 }

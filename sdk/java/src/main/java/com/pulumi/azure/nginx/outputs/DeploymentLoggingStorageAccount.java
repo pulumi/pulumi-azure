@@ -67,10 +67,10 @@ public final class DeploymentLoggingStorageAccount {
             return this;
         }
         public DeploymentLoggingStorageAccount build() {
-            final var o = new DeploymentLoggingStorageAccount();
-            o.containerName = containerName;
-            o.name = name;
-            return o;
+            final var _resultValue = new DeploymentLoggingStorageAccount();
+            _resultValue.containerName = containerName;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

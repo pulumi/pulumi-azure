@@ -103,12 +103,12 @@ public final class GetCertificateOrderCertificate {
             return this;
         }
         public GetCertificateOrderCertificate build() {
-            final var o = new GetCertificateOrderCertificate();
-            o.certificateName = certificateName;
-            o.keyVaultId = keyVaultId;
-            o.keyVaultSecretName = keyVaultSecretName;
-            o.provisioningState = provisioningState;
-            return o;
+            final var _resultValue = new GetCertificateOrderCertificate();
+            _resultValue.certificateName = certificateName;
+            _resultValue.keyVaultId = keyVaultId;
+            _resultValue.keyVaultSecretName = keyVaultSecretName;
+            _resultValue.provisioningState = provisioningState;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class CustomProviderValidation {
             return this;
         }
         public CustomProviderValidation build() {
-            final var o = new CustomProviderValidation();
-            o.specification = specification;
-            return o;
+            final var _resultValue = new CustomProviderValidation();
+            _resultValue.specification = specification;
+            return _resultValue;
         }
     }
 }

@@ -207,18 +207,18 @@ public final class GetVirtualHubResult {
             return this;
         }
         public GetVirtualHubResult build() {
-            final var o = new GetVirtualHubResult();
-            o.addressPrefix = addressPrefix;
-            o.defaultRouteTableId = defaultRouteTableId;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.virtualRouterAsn = virtualRouterAsn;
-            o.virtualRouterIps = virtualRouterIps;
-            o.virtualWanId = virtualWanId;
-            return o;
+            final var _resultValue = new GetVirtualHubResult();
+            _resultValue.addressPrefix = addressPrefix;
+            _resultValue.defaultRouteTableId = defaultRouteTableId;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.virtualRouterAsn = virtualRouterAsn;
+            _resultValue.virtualRouterIps = virtualRouterIps;
+            _resultValue.virtualWanId = virtualWanId;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class WindowsWebAppSlotSiteConfigCors {
             return this;
         }
         public WindowsWebAppSlotSiteConfigCors build() {
-            final var o = new WindowsWebAppSlotSiteConfigCors();
-            o.allowedOrigins = allowedOrigins;
-            o.supportCredentials = supportCredentials;
-            return o;
+            final var _resultValue = new WindowsWebAppSlotSiteConfigCors();
+            _resultValue.allowedOrigins = allowedOrigins;
+            _resultValue.supportCredentials = supportCredentials;
+            return _resultValue;
         }
     }
 }

@@ -111,7 +111,15 @@ class AppDapr(dict):
              app_id: str,
              app_port: Optional[int] = None,
              app_protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appPort' in kwargs:
+            app_port = kwargs['appPort']
+        if 'appProtocol' in kwargs:
+            app_protocol = kwargs['appProtocol']
+
         _setter("app_id", app_id)
         if app_port is not None:
             _setter("app_port", app_port)
@@ -189,7 +197,15 @@ class AppIdentity(dict):
              identity_ids: Optional[Sequence[str]] = None,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if identity_ids is not None:
             _setter("identity_ids", identity_ids)
@@ -291,7 +307,19 @@ class AppIngress(dict):
              external_enabled: Optional[bool] = None,
              fqdn: Optional[str] = None,
              transport: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'targetPort' in kwargs:
+            target_port = kwargs['targetPort']
+        if 'trafficWeights' in kwargs:
+            traffic_weights = kwargs['trafficWeights']
+        if 'allowInsecureConnections' in kwargs:
+            allow_insecure_connections = kwargs['allowInsecureConnections']
+        if 'customDomain' in kwargs:
+            custom_domain = kwargs['customDomain']
+        if 'externalEnabled' in kwargs:
+            external_enabled = kwargs['externalEnabled']
+
         _setter("target_port", target_port)
         _setter("traffic_weights", traffic_weights)
         if allow_insecure_connections is not None:
@@ -406,7 +434,13 @@ class AppIngressCustomDomain(dict):
              certificate_id: str,
              name: str,
              certificate_binding_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+        if 'certificateBindingType' in kwargs:
+            certificate_binding_type = kwargs['certificateBindingType']
+
         _setter("certificate_id", certificate_id)
         _setter("name", name)
         if certificate_binding_type is not None:
@@ -485,7 +519,13 @@ class AppIngressTrafficWeight(dict):
              label: Optional[str] = None,
              latest_revision: Optional[bool] = None,
              revision_suffix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'latestRevision' in kwargs:
+            latest_revision = kwargs['latestRevision']
+        if 'revisionSuffix' in kwargs:
+            revision_suffix = kwargs['revisionSuffix']
+
         _setter("percentage", percentage)
         if label is not None:
             _setter("label", label)
@@ -575,7 +615,11 @@ class AppRegistry(dict):
              identity: Optional[str] = None,
              password_secret_name: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordSecretName' in kwargs:
+            password_secret_name = kwargs['passwordSecretName']
+
         _setter("server", server)
         if identity is not None:
             _setter("identity", identity)
@@ -640,7 +684,9 @@ class AppSecret(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -739,7 +785,23 @@ class AppTemplate(dict):
              revision_suffix: Optional[str] = None,
              tcp_scale_rules: Optional[Sequence['outputs.AppTemplateTcpScaleRule']] = None,
              volumes: Optional[Sequence['outputs.AppTemplateVolume']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureQueueScaleRules' in kwargs:
+            azure_queue_scale_rules = kwargs['azureQueueScaleRules']
+        if 'customScaleRules' in kwargs:
+            custom_scale_rules = kwargs['customScaleRules']
+        if 'httpScaleRules' in kwargs:
+            http_scale_rules = kwargs['httpScaleRules']
+        if 'maxReplicas' in kwargs:
+            max_replicas = kwargs['maxReplicas']
+        if 'minReplicas' in kwargs:
+            min_replicas = kwargs['minReplicas']
+        if 'revisionSuffix' in kwargs:
+            revision_suffix = kwargs['revisionSuffix']
+        if 'tcpScaleRules' in kwargs:
+            tcp_scale_rules = kwargs['tcpScaleRules']
+
         _setter("containers", containers)
         if azure_queue_scale_rules is not None:
             _setter("azure_queue_scale_rules", azure_queue_scale_rules)
@@ -877,7 +939,13 @@ class AppTemplateAzureQueueScaleRule(dict):
              name: str,
              queue_length: int,
              queue_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueLength' in kwargs:
+            queue_length = kwargs['queueLength']
+        if 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+
         _setter("authentications", authentications)
         _setter("name", name)
         _setter("queue_length", queue_length)
@@ -954,7 +1022,13 @@ class AppTemplateAzureQueueScaleRuleAuthentication(dict):
              _setter: Callable[[Any, Any], None],
              secret_name: str,
              trigger_parameter: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
         _setter("secret_name", secret_name)
         _setter("trigger_parameter", trigger_parameter)
 
@@ -1065,7 +1139,19 @@ class AppTemplateContainer(dict):
              readiness_probes: Optional[Sequence['outputs.AppTemplateContainerReadinessProbe']] = None,
              startup_probes: Optional[Sequence['outputs.AppTemplateContainerStartupProbe']] = None,
              volume_mounts: Optional[Sequence['outputs.AppTemplateContainerVolumeMount']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if 'livenessProbes' in kwargs:
+            liveness_probes = kwargs['livenessProbes']
+        if 'readinessProbes' in kwargs:
+            readiness_probes = kwargs['readinessProbes']
+        if 'startupProbes' in kwargs:
+            startup_probes = kwargs['startupProbes']
+        if 'volumeMounts' in kwargs:
+            volume_mounts = kwargs['volumeMounts']
+
         _setter("cpu", cpu)
         _setter("image", image)
         _setter("memory", memory)
@@ -1232,7 +1318,11 @@ class AppTemplateContainerEnv(dict):
              name: str,
              secret_name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("name", name)
         if secret_name is not None:
             _setter("secret_name", secret_name)
@@ -1340,7 +1430,17 @@ class AppTemplateContainerLivenessProbe(dict):
              path: Optional[str] = None,
              termination_grace_period_seconds: Optional[int] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if 'initialDelay' in kwargs:
+            initial_delay = kwargs['initialDelay']
+        if 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if 'terminationGracePeriodSeconds' in kwargs:
+            termination_grace_period_seconds = kwargs['terminationGracePeriodSeconds']
+
         _setter("port", port)
         _setter("transport", transport)
         if failure_count_threshold is not None:
@@ -1460,7 +1560,9 @@ class AppTemplateContainerLivenessProbeHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1549,7 +1651,15 @@ class AppTemplateContainerReadinessProbe(dict):
              path: Optional[str] = None,
              success_count_threshold: Optional[int] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if 'successCountThreshold' in kwargs:
+            success_count_threshold = kwargs['successCountThreshold']
+
         _setter("port", port)
         _setter("transport", transport)
         if failure_count_threshold is not None:
@@ -1659,7 +1769,9 @@ class AppTemplateContainerReadinessProbeHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1748,7 +1860,15 @@ class AppTemplateContainerStartupProbe(dict):
              path: Optional[str] = None,
              termination_grace_period_seconds: Optional[int] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if 'terminationGracePeriodSeconds' in kwargs:
+            termination_grace_period_seconds = kwargs['terminationGracePeriodSeconds']
+
         _setter("port", port)
         _setter("transport", transport)
         if failure_count_threshold is not None:
@@ -1858,7 +1978,9 @@ class AppTemplateContainerStartupProbeHeader(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1898,7 +2020,9 @@ class AppTemplateContainerVolumeMount(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
 
@@ -1963,7 +2087,11 @@ class AppTemplateCustomScaleRule(dict):
              metadata: Mapping[str, str],
              name: str,
              authentications: Optional[Sequence['outputs.AppTemplateCustomScaleRuleAuthentication']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRuleType' in kwargs:
+            custom_rule_type = kwargs['customRuleType']
+
         _setter("custom_rule_type", custom_rule_type)
         _setter("metadata", metadata)
         _setter("name", name)
@@ -2041,7 +2169,13 @@ class AppTemplateCustomScaleRuleAuthentication(dict):
              _setter: Callable[[Any, Any], None],
              secret_name: str,
              trigger_parameter: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
         _setter("secret_name", secret_name)
         _setter("trigger_parameter", trigger_parameter)
 
@@ -2102,7 +2236,11 @@ class AppTemplateHttpScaleRule(dict):
              concurrent_requests: str,
              name: str,
              authentications: Optional[Sequence['outputs.AppTemplateHttpScaleRuleAuthentication']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'concurrentRequests' in kwargs:
+            concurrent_requests = kwargs['concurrentRequests']
+
         _setter("concurrent_requests", concurrent_requests)
         _setter("name", name)
         if authentications is not None:
@@ -2171,7 +2309,13 @@ class AppTemplateHttpScaleRuleAuthentication(dict):
              _setter: Callable[[Any, Any], None],
              secret_name: str,
              trigger_parameter: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
         _setter("secret_name", secret_name)
         if trigger_parameter is not None:
             _setter("trigger_parameter", trigger_parameter)
@@ -2233,7 +2377,11 @@ class AppTemplateTcpScaleRule(dict):
              concurrent_requests: str,
              name: str,
              authentications: Optional[Sequence['outputs.AppTemplateTcpScaleRuleAuthentication']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'concurrentRequests' in kwargs:
+            concurrent_requests = kwargs['concurrentRequests']
+
         _setter("concurrent_requests", concurrent_requests)
         _setter("name", name)
         if authentications is not None:
@@ -2302,7 +2450,13 @@ class AppTemplateTcpScaleRuleAuthentication(dict):
              _setter: Callable[[Any, Any], None],
              secret_name: str,
              trigger_parameter: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
         _setter("secret_name", secret_name)
         if trigger_parameter is not None:
             _setter("trigger_parameter", trigger_parameter)
@@ -2366,7 +2520,13 @@ class AppTemplateVolume(dict):
              name: str,
              storage_name: Optional[str] = None,
              storage_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageName' in kwargs:
+            storage_name = kwargs['storageName']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+
         _setter("name", name)
         if storage_name is not None:
             _setter("storage_name", storage_name)
@@ -2438,7 +2598,11 @@ class EnvironmentDaprComponentMetadata(dict):
              name: str,
              secret_name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("name", name)
         if secret_name is not None:
             _setter("secret_name", secret_name)
@@ -2489,7 +2653,9 @@ class EnvironmentDaprComponentSecret(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -2533,7 +2699,15 @@ class GetAppDaprResult(dict):
              app_id: str,
              app_port: int,
              app_protocol: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if 'appPort' in kwargs:
+            app_port = kwargs['appPort']
+        if 'appProtocol' in kwargs:
+            app_protocol = kwargs['appProtocol']
+
         _setter("app_id", app_id)
         _setter("app_port", app_port)
         _setter("app_protocol", app_protocol)
@@ -2588,7 +2762,15 @@ class GetAppIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("identity_ids", identity_ids)
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
@@ -2660,7 +2842,19 @@ class GetAppIngressResult(dict):
              target_port: int,
              traffic_weights: Sequence['outputs.GetAppIngressTrafficWeightResult'],
              transport: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'allowInsecureConnections' in kwargs:
+            allow_insecure_connections = kwargs['allowInsecureConnections']
+        if 'customDomains' in kwargs:
+            custom_domains = kwargs['customDomains']
+        if 'externalEnabled' in kwargs:
+            external_enabled = kwargs['externalEnabled']
+        if 'targetPort' in kwargs:
+            target_port = kwargs['targetPort']
+        if 'trafficWeights' in kwargs:
+            traffic_weights = kwargs['trafficWeights']
+
         _setter("allow_insecure_connections", allow_insecure_connections)
         _setter("custom_domains", custom_domains)
         _setter("external_enabled", external_enabled)
@@ -2749,7 +2943,13 @@ class GetAppIngressCustomDomainResult(dict):
              certificate_binding_type: str,
              certificate_id: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateBindingType' in kwargs:
+            certificate_binding_type = kwargs['certificateBindingType']
+        if 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+
         _setter("certificate_binding_type", certificate_binding_type)
         _setter("certificate_id", certificate_id)
         _setter("name", name)
@@ -2806,7 +3006,13 @@ class GetAppIngressTrafficWeightResult(dict):
              latest_revision: bool,
              percentage: int,
              revision_suffix: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'latestRevision' in kwargs:
+            latest_revision = kwargs['latestRevision']
+        if 'revisionSuffix' in kwargs:
+            revision_suffix = kwargs['revisionSuffix']
+
         _setter("label", label)
         _setter("latest_revision", latest_revision)
         _setter("percentage", percentage)
@@ -2872,7 +3078,11 @@ class GetAppRegistryResult(dict):
              password_secret_name: str,
              server: str,
              username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'passwordSecretName' in kwargs:
+            password_secret_name = kwargs['passwordSecretName']
+
         _setter("identity", identity)
         _setter("password_secret_name", password_secret_name)
         _setter("server", server)
@@ -2930,7 +3140,9 @@ class GetAppSecretResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -2994,7 +3206,23 @@ class GetAppTemplateResult(dict):
              tcp_scale_rules: Sequence['outputs.GetAppTemplateTcpScaleRuleResult'],
              volumes: Sequence['outputs.GetAppTemplateVolumeResult'],
              custom_scale_rules: Optional[Sequence['outputs.GetAppTemplateCustomScaleRuleResult']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'azureQueueScaleRules' in kwargs:
+            azure_queue_scale_rules = kwargs['azureQueueScaleRules']
+        if 'httpScaleRules' in kwargs:
+            http_scale_rules = kwargs['httpScaleRules']
+        if 'maxReplicas' in kwargs:
+            max_replicas = kwargs['maxReplicas']
+        if 'minReplicas' in kwargs:
+            min_replicas = kwargs['minReplicas']
+        if 'revisionSuffix' in kwargs:
+            revision_suffix = kwargs['revisionSuffix']
+        if 'tcpScaleRules' in kwargs:
+            tcp_scale_rules = kwargs['tcpScaleRules']
+        if 'customScaleRules' in kwargs:
+            custom_scale_rules = kwargs['customScaleRules']
+
         _setter("azure_queue_scale_rules", azure_queue_scale_rules)
         _setter("containers", containers)
         _setter("http_scale_rules", http_scale_rules)
@@ -3091,7 +3319,13 @@ class GetAppTemplateAzureQueueScaleRuleResult(dict):
              name: str,
              queue_length: int,
              queue_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'queueLength' in kwargs:
+            queue_length = kwargs['queueLength']
+        if 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+
         _setter("authentications", authentications)
         _setter("name", name)
         _setter("queue_length", queue_length)
@@ -3139,7 +3373,13 @@ class GetAppTemplateAzureQueueScaleRuleAuthenticationResult(dict):
              _setter: Callable[[Any, Any], None],
              secret_name: str,
              trigger_parameter: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
         _setter("secret_name", secret_name)
         _setter("trigger_parameter", trigger_parameter)
 
@@ -3216,7 +3456,19 @@ class GetAppTemplateContainerResult(dict):
              readiness_probes: Sequence['outputs.GetAppTemplateContainerReadinessProbeResult'],
              startup_probes: Sequence['outputs.GetAppTemplateContainerStartupProbeResult'],
              volume_mounts: Sequence['outputs.GetAppTemplateContainerVolumeMountResult'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if 'livenessProbes' in kwargs:
+            liveness_probes = kwargs['livenessProbes']
+        if 'readinessProbes' in kwargs:
+            readiness_probes = kwargs['readinessProbes']
+        if 'startupProbes' in kwargs:
+            startup_probes = kwargs['startupProbes']
+        if 'volumeMounts' in kwargs:
+            volume_mounts = kwargs['volumeMounts']
+
         _setter("args", args)
         _setter("commands", commands)
         _setter("cpu", cpu)
@@ -3350,7 +3602,11 @@ class GetAppTemplateContainerEnvResult(dict):
              name: str,
              secret_name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
         _setter("name", name)
         _setter("secret_name", secret_name)
         _setter("value", value)
@@ -3431,7 +3687,17 @@ class GetAppTemplateContainerLivenessProbeResult(dict):
              termination_grace_period_seconds: int,
              timeout: int,
              transport: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if 'initialDelay' in kwargs:
+            initial_delay = kwargs['initialDelay']
+        if 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if 'terminationGracePeriodSeconds' in kwargs:
+            termination_grace_period_seconds = kwargs['terminationGracePeriodSeconds']
+
         _setter("failure_count_threshold", failure_count_threshold)
         _setter("headers", headers)
         _setter("host", host)
@@ -3543,7 +3809,9 @@ class GetAppTemplateContainerLivenessProbeHeaderResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -3611,7 +3879,15 @@ class GetAppTemplateContainerReadinessProbeResult(dict):
              success_count_threshold: int,
              timeout: int,
              transport: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if 'successCountThreshold' in kwargs:
+            success_count_threshold = kwargs['successCountThreshold']
+
         _setter("failure_count_threshold", failure_count_threshold)
         _setter("headers", headers)
         _setter("host", host)
@@ -3714,7 +3990,9 @@ class GetAppTemplateContainerReadinessProbeHeaderResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -3782,7 +4060,15 @@ class GetAppTemplateContainerStartupProbeResult(dict):
              termination_grace_period_seconds: int,
              timeout: int,
              transport: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if 'terminationGracePeriodSeconds' in kwargs:
+            termination_grace_period_seconds = kwargs['terminationGracePeriodSeconds']
+
         _setter("failure_count_threshold", failure_count_threshold)
         _setter("headers", headers)
         _setter("host", host)
@@ -3885,7 +4171,9 @@ class GetAppTemplateContainerStartupProbeHeaderResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("value", value)
 
@@ -3925,7 +4213,9 @@ class GetAppTemplateContainerVolumeMountResult(dict):
              _setter: Callable[[Any, Any], None],
              name: str,
              path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("name", name)
         _setter("path", path)
 
@@ -3970,7 +4260,11 @@ class GetAppTemplateCustomScaleRuleResult(dict):
              custom_rule_type: str,
              metadata: Mapping[str, str],
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'customRuleType' in kwargs:
+            custom_rule_type = kwargs['customRuleType']
+
         _setter("authentications", authentications)
         _setter("custom_rule_type", custom_rule_type)
         _setter("metadata", metadata)
@@ -4018,7 +4312,13 @@ class GetAppTemplateCustomScaleRuleAuthenticationResult(dict):
              _setter: Callable[[Any, Any], None],
              secret_name: str,
              trigger_parameter: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
         _setter("secret_name", secret_name)
         _setter("trigger_parameter", trigger_parameter)
 
@@ -4057,7 +4357,11 @@ class GetAppTemplateHttpScaleRuleResult(dict):
              authentications: Sequence['outputs.GetAppTemplateHttpScaleRuleAuthenticationResult'],
              concurrent_requests: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'concurrentRequests' in kwargs:
+            concurrent_requests = kwargs['concurrentRequests']
+
         _setter("authentications", authentications)
         _setter("concurrent_requests", concurrent_requests)
         _setter("name", name)
@@ -4099,7 +4403,13 @@ class GetAppTemplateHttpScaleRuleAuthenticationResult(dict):
              _setter: Callable[[Any, Any], None],
              secret_name: str,
              trigger_parameter: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
         _setter("secret_name", secret_name)
         _setter("trigger_parameter", trigger_parameter)
 
@@ -4138,7 +4448,11 @@ class GetAppTemplateTcpScaleRuleResult(dict):
              authentications: Sequence['outputs.GetAppTemplateTcpScaleRuleAuthenticationResult'],
              concurrent_requests: str,
              name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'concurrentRequests' in kwargs:
+            concurrent_requests = kwargs['concurrentRequests']
+
         _setter("authentications", authentications)
         _setter("concurrent_requests", concurrent_requests)
         _setter("name", name)
@@ -4180,7 +4494,13 @@ class GetAppTemplateTcpScaleRuleAuthenticationResult(dict):
              _setter: Callable[[Any, Any], None],
              secret_name: str,
              trigger_parameter: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
         _setter("secret_name", secret_name)
         _setter("trigger_parameter", trigger_parameter)
 
@@ -4221,7 +4541,13 @@ class GetAppTemplateVolumeResult(dict):
              name: str,
              storage_name: str,
              storage_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageName' in kwargs:
+            storage_name = kwargs['storageName']
+        if 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+
         _setter("name", name)
         _setter("storage_name", storage_name)
         _setter("storage_type", storage_type)

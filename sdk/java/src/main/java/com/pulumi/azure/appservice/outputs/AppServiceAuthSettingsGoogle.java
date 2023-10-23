@@ -89,11 +89,11 @@ public final class AppServiceAuthSettingsGoogle {
             return oauthScopes(List.of(oauthScopes));
         }
         public AppServiceAuthSettingsGoogle build() {
-            final var o = new AppServiceAuthSettingsGoogle();
-            o.clientId = clientId;
-            o.clientSecret = clientSecret;
-            o.oauthScopes = oauthScopes;
-            return o;
+            final var _resultValue = new AppServiceAuthSettingsGoogle();
+            _resultValue.clientId = clientId;
+            _resultValue.clientSecret = clientSecret;
+            _resultValue.oauthScopes = oauthScopes;
+            return _resultValue;
         }
     }
 }

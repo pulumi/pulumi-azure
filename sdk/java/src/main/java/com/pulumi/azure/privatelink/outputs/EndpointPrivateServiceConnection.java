@@ -175,15 +175,15 @@ public final class EndpointPrivateServiceConnection {
             return subresourceNames(List.of(subresourceNames));
         }
         public EndpointPrivateServiceConnection build() {
-            final var o = new EndpointPrivateServiceConnection();
-            o.isManualConnection = isManualConnection;
-            o.name = name;
-            o.privateConnectionResourceAlias = privateConnectionResourceAlias;
-            o.privateConnectionResourceId = privateConnectionResourceId;
-            o.privateIpAddress = privateIpAddress;
-            o.requestMessage = requestMessage;
-            o.subresourceNames = subresourceNames;
-            return o;
+            final var _resultValue = new EndpointPrivateServiceConnection();
+            _resultValue.isManualConnection = isManualConnection;
+            _resultValue.name = name;
+            _resultValue.privateConnectionResourceAlias = privateConnectionResourceAlias;
+            _resultValue.privateConnectionResourceId = privateConnectionResourceId;
+            _resultValue.privateIpAddress = privateIpAddress;
+            _resultValue.requestMessage = requestMessage;
+            _resultValue.subresourceNames = subresourceNames;
+            return _resultValue;
         }
     }
 }

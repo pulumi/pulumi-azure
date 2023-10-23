@@ -67,10 +67,10 @@ public final class ServicePolicy {
             return this;
         }
         public ServicePolicy build() {
-            final var o = new ServicePolicy();
-            o.xmlContent = xmlContent;
-            o.xmlLink = xmlLink;
-            return o;
+            final var _resultValue = new ServicePolicy();
+            _resultValue.xmlContent = xmlContent;
+            _resultValue.xmlLink = xmlLink;
+            return _resultValue;
         }
     }
 }

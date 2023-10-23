@@ -90,11 +90,11 @@ public final class ScaleSetPacketCaptureStorageLocation {
             return this;
         }
         public ScaleSetPacketCaptureStorageLocation build() {
-            final var o = new ScaleSetPacketCaptureStorageLocation();
-            o.filePath = filePath;
-            o.storageAccountId = storageAccountId;
-            o.storagePath = storagePath;
-            return o;
+            final var _resultValue = new ScaleSetPacketCaptureStorageLocation();
+            _resultValue.filePath = filePath;
+            _resultValue.storageAccountId = storageAccountId;
+            _resultValue.storagePath = storagePath;
+            return _resultValue;
         }
     }
 }

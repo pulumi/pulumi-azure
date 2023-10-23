@@ -145,15 +145,15 @@ public final class GetProviderResult {
             return this;
         }
         public GetProviderResult build() {
-            final var o = new GetProviderResult();
-            o.attestationUri = attestationUri;
-            o.id = id;
-            o.location = location;
-            o.name = name;
-            o.resourceGroupName = resourceGroupName;
-            o.tags = tags;
-            o.trustModel = trustModel;
-            return o;
+            final var _resultValue = new GetProviderResult();
+            _resultValue.attestationUri = attestationUri;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            _resultValue.name = name;
+            _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.tags = tags;
+            _resultValue.trustModel = trustModel;
+            return _resultValue;
         }
     }
 }

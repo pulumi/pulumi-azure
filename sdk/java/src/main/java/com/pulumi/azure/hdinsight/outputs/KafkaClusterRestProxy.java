@@ -69,10 +69,10 @@ public final class KafkaClusterRestProxy {
             return this;
         }
         public KafkaClusterRestProxy build() {
-            final var o = new KafkaClusterRestProxy();
-            o.securityGroupId = securityGroupId;
-            o.securityGroupName = securityGroupName;
-            return o;
+            final var _resultValue = new KafkaClusterRestProxy();
+            _resultValue.securityGroupId = securityGroupId;
+            _resultValue.securityGroupName = securityGroupName;
+            return _resultValue;
         }
     }
 }

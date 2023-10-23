@@ -109,12 +109,12 @@ public final class AlertRuleAnomalyDuplicateSingleSelectObservation {
             return this;
         }
         public AlertRuleAnomalyDuplicateSingleSelectObservation build() {
-            final var o = new AlertRuleAnomalyDuplicateSingleSelectObservation();
-            o.description = description;
-            o.name = name;
-            o.supportedValues = supportedValues;
-            o.value = value;
-            return o;
+            final var _resultValue = new AlertRuleAnomalyDuplicateSingleSelectObservation();
+            _resultValue.description = description;
+            _resultValue.name = name;
+            _resultValue.supportedValues = supportedValues;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

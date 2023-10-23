@@ -84,11 +84,11 @@ public final class AccountFilterTrackSelectionCondition {
             return this;
         }
         public AccountFilterTrackSelectionCondition build() {
-            final var o = new AccountFilterTrackSelectionCondition();
-            o.operation = operation;
-            o.property = property;
-            o.value = value;
-            return o;
+            final var _resultValue = new AccountFilterTrackSelectionCondition();
+            _resultValue.operation = operation;
+            _resultValue.property = property;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

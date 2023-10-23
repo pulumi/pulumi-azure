@@ -88,11 +88,11 @@ public final class GetBudgetSubscriptionFilterTag {
             return values(List.of(values));
         }
         public GetBudgetSubscriptionFilterTag build() {
-            final var o = new GetBudgetSubscriptionFilterTag();
-            o.name = name;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new GetBudgetSubscriptionFilterTag();
+            _resultValue.name = name;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

@@ -88,11 +88,11 @@ public final class MetricAlertDynamicCriteriaDimension {
             return values(List.of(values));
         }
         public MetricAlertDynamicCriteriaDimension build() {
-            final var o = new MetricAlertDynamicCriteriaDimension();
-            o.name = name;
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new MetricAlertDynamicCriteriaDimension();
+            _resultValue.name = name;
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

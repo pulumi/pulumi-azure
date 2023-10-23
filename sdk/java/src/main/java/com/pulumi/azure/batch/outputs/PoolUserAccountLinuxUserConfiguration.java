@@ -87,11 +87,11 @@ public final class PoolUserAccountLinuxUserConfiguration {
             return this;
         }
         public PoolUserAccountLinuxUserConfiguration build() {
-            final var o = new PoolUserAccountLinuxUserConfiguration();
-            o.gid = gid;
-            o.sshPrivateKey = sshPrivateKey;
-            o.uid = uid;
-            return o;
+            final var _resultValue = new PoolUserAccountLinuxUserConfiguration();
+            _resultValue.gid = gid;
+            _resultValue.sshPrivateKey = sshPrivateKey;
+            _resultValue.uid = uid;
+            return _resultValue;
         }
     }
 }

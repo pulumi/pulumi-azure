@@ -92,7 +92,23 @@ class DatabaseImport(dict):
              storage_key_type: str,
              storage_uri: str,
              operation_mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if 'storageKey' in kwargs:
+            storage_key = kwargs['storageKey']
+        if 'storageKeyType' in kwargs:
+            storage_key_type = kwargs['storageKeyType']
+        if 'storageUri' in kwargs:
+            storage_uri = kwargs['storageUri']
+        if 'operationMode' in kwargs:
+            operation_mode = kwargs['operationMode']
+
         _setter("administrator_login", administrator_login)
         _setter("administrator_login_password", administrator_login_password)
         _setter("authentication_type", authentication_type)
@@ -225,7 +241,21 @@ class DatabaseThreatDetectionPolicy(dict):
              state: Optional[str] = None,
              storage_account_access_key: Optional[str] = None,
              storage_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disabledAlerts' in kwargs:
+            disabled_alerts = kwargs['disabledAlerts']
+        if 'emailAccountAdmins' in kwargs:
+            email_account_admins = kwargs['emailAccountAdmins']
+        if 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         if disabled_alerts is not None:
             _setter("disabled_alerts", disabled_alerts)
         if email_account_admins is not None:
@@ -321,7 +351,9 @@ class FailoverGroupPartnerServer(dict):
              id: str,
              location: Optional[str] = None,
              role: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("id", id)
         if location is not None:
             _setter("location", location)
@@ -389,7 +421,11 @@ class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
              _setter: Callable[[Any, Any], None],
              mode: str,
              grace_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'graceMinutes' in kwargs:
+            grace_minutes = kwargs['graceMinutes']
+
         _setter("mode", mode)
         if grace_minutes is not None:
             _setter("grace_minutes", grace_minutes)
@@ -426,7 +462,9 @@ class FailoverGroupReadonlyEndpointFailoverPolicy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              mode: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         _setter("mode", mode)
 
     @property
@@ -457,7 +495,9 @@ class ManagedInstanceFailoverGroupPartnerRegion(dict):
              _setter: Callable[[Any, Any], None],
              location: Optional[str] = None,
              role: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if location is not None:
             _setter("location", location)
         if role is not None:
@@ -516,7 +556,11 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy(dict):
              _setter: Callable[[Any, Any], None],
              mode: str,
              grace_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'graceMinutes' in kwargs:
+            grace_minutes = kwargs['graceMinutes']
+
         _setter("mode", mode)
         if grace_minutes is not None:
             _setter("grace_minutes", grace_minutes)
@@ -580,7 +624,13 @@ class ManagedInstanceIdentity(dict):
              type: str,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if principal_id is not None:
             _setter("principal_id", principal_id)
@@ -656,7 +706,13 @@ class SqlServerIdentity(dict):
              type: str,
              principal_id: Optional[str] = None,
              tenant_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("type", type)
         if principal_id is not None:
             _setter("principal_id", principal_id)
@@ -756,7 +812,21 @@ class SqlServerThreatDetectionPolicy(dict):
              state: Optional[str] = None,
              storage_account_access_key: Optional[str] = None,
              storage_endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'disabledAlerts' in kwargs:
+            disabled_alerts = kwargs['disabledAlerts']
+        if 'emailAccountAdmins' in kwargs:
+            email_account_admins = kwargs['emailAccountAdmins']
+        if 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         if disabled_alerts is not None:
             _setter("disabled_alerts", disabled_alerts)
         if email_account_admins is not None:
@@ -852,7 +922,13 @@ class GetServerIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
         _setter("type", type)
@@ -904,7 +980,13 @@ class GetSqlManagedInstanceIdentityResult(dict):
              principal_id: str,
              tenant_id: str,
              type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         _setter("principal_id", principal_id)
         _setter("tenant_id", tenant_id)
         _setter("type", type)

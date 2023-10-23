@@ -90,11 +90,11 @@ public final class GetKubernetesClusterKeyVaultSecretsProvider {
             return this;
         }
         public GetKubernetesClusterKeyVaultSecretsProvider build() {
-            final var o = new GetKubernetesClusterKeyVaultSecretsProvider();
-            o.secretIdentities = secretIdentities;
-            o.secretRotationEnabled = secretRotationEnabled;
-            o.secretRotationInterval = secretRotationInterval;
-            return o;
+            final var _resultValue = new GetKubernetesClusterKeyVaultSecretsProvider();
+            _resultValue.secretIdentities = secretIdentities;
+            _resultValue.secretRotationEnabled = secretRotationEnabled;
+            _resultValue.secretRotationInterval = secretRotationInterval;
+            return _resultValue;
         }
     }
 }

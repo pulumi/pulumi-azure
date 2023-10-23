@@ -86,11 +86,11 @@ public final class ApplicationGatewayAuthenticationCertificate {
             return this;
         }
         public ApplicationGatewayAuthenticationCertificate build() {
-            final var o = new ApplicationGatewayAuthenticationCertificate();
-            o.data = data;
-            o.id = id;
-            o.name = name;
-            return o;
+            final var _resultValue = new ApplicationGatewayAuthenticationCertificate();
+            _resultValue.data = data;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            return _resultValue;
         }
     }
 }

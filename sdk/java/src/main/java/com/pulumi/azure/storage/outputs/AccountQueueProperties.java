@@ -112,12 +112,12 @@ public final class AccountQueueProperties {
             return this;
         }
         public AccountQueueProperties build() {
-            final var o = new AccountQueueProperties();
-            o.corsRules = corsRules;
-            o.hourMetrics = hourMetrics;
-            o.logging = logging;
-            o.minuteMetrics = minuteMetrics;
-            return o;
+            final var _resultValue = new AccountQueueProperties();
+            _resultValue.corsRules = corsRules;
+            _resultValue.hourMetrics = hourMetrics;
+            _resultValue.logging = logging;
+            _resultValue.minuteMetrics = minuteMetrics;
+            return _resultValue;
         }
     }
 }

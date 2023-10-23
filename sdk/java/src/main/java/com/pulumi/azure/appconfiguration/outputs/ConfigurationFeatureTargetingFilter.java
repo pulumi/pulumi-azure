@@ -94,11 +94,11 @@ public final class ConfigurationFeatureTargetingFilter {
             return users(List.of(users));
         }
         public ConfigurationFeatureTargetingFilter build() {
-            final var o = new ConfigurationFeatureTargetingFilter();
-            o.defaultRolloutPercentage = defaultRolloutPercentage;
-            o.groups = groups;
-            o.users = users;
-            return o;
+            final var _resultValue = new ConfigurationFeatureTargetingFilter();
+            _resultValue.defaultRolloutPercentage = defaultRolloutPercentage;
+            _resultValue.groups = groups;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

@@ -67,10 +67,10 @@ public final class AccountNetworkRulesPrivateLinkAccess {
             return this;
         }
         public AccountNetworkRulesPrivateLinkAccess build() {
-            final var o = new AccountNetworkRulesPrivateLinkAccess();
-            o.endpointResourceId = endpointResourceId;
-            o.endpointTenantId = endpointTenantId;
-            return o;
+            final var _resultValue = new AccountNetworkRulesPrivateLinkAccess();
+            _resultValue.endpointResourceId = endpointResourceId;
+            _resultValue.endpointTenantId = endpointTenantId;
+            return _resultValue;
         }
     }
 }

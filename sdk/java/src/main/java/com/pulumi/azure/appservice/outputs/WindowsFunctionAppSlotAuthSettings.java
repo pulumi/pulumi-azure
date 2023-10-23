@@ -335,23 +335,23 @@ public final class WindowsFunctionAppSlotAuthSettings {
             return this;
         }
         public WindowsFunctionAppSlotAuthSettings build() {
-            final var o = new WindowsFunctionAppSlotAuthSettings();
-            o.activeDirectory = activeDirectory;
-            o.additionalLoginParameters = additionalLoginParameters;
-            o.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
-            o.defaultProvider = defaultProvider;
-            o.enabled = enabled;
-            o.facebook = facebook;
-            o.github = github;
-            o.google = google;
-            o.issuer = issuer;
-            o.microsoft = microsoft;
-            o.runtimeVersion = runtimeVersion;
-            o.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
-            o.tokenStoreEnabled = tokenStoreEnabled;
-            o.twitter = twitter;
-            o.unauthenticatedClientAction = unauthenticatedClientAction;
-            return o;
+            final var _resultValue = new WindowsFunctionAppSlotAuthSettings();
+            _resultValue.activeDirectory = activeDirectory;
+            _resultValue.additionalLoginParameters = additionalLoginParameters;
+            _resultValue.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
+            _resultValue.defaultProvider = defaultProvider;
+            _resultValue.enabled = enabled;
+            _resultValue.facebook = facebook;
+            _resultValue.github = github;
+            _resultValue.google = google;
+            _resultValue.issuer = issuer;
+            _resultValue.microsoft = microsoft;
+            _resultValue.runtimeVersion = runtimeVersion;
+            _resultValue.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
+            _resultValue.tokenStoreEnabled = tokenStoreEnabled;
+            _resultValue.twitter = twitter;
+            _resultValue.unauthenticatedClientAction = unauthenticatedClientAction;
+            return _resultValue;
         }
     }
 }

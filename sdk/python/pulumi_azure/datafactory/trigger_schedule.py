@@ -81,7 +81,21 @@ class TriggerScheduleArgs:
              schedule: Optional[pulumi.Input['TriggerScheduleScheduleArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'pipelineName' in kwargs:
+            pipeline_name = kwargs['pipelineName']
+        if 'pipelineParameters' in kwargs:
+            pipeline_parameters = kwargs['pipelineParameters']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("data_factory_id", data_factory_id)
         if activated is not None:
             _setter("activated", activated)
@@ -347,7 +361,21 @@ class _TriggerScheduleState:
              schedule: Optional[pulumi.Input['TriggerScheduleScheduleArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if 'pipelineName' in kwargs:
+            pipeline_name = kwargs['pipelineName']
+        if 'pipelineParameters' in kwargs:
+            pipeline_parameters = kwargs['pipelineParameters']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if activated is not None:
             _setter("activated", activated)
         if annotations is not None:

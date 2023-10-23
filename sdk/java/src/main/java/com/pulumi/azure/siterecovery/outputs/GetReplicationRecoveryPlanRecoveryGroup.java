@@ -109,12 +109,12 @@ public final class GetReplicationRecoveryPlanRecoveryGroup {
             return this;
         }
         public GetReplicationRecoveryPlanRecoveryGroup build() {
-            final var o = new GetReplicationRecoveryPlanRecoveryGroup();
-            o.postActions = postActions;
-            o.preActions = preActions;
-            o.replicatedProtectedItems = replicatedProtectedItems;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetReplicationRecoveryPlanRecoveryGroup();
+            _resultValue.postActions = postActions;
+            _resultValue.preActions = preActions;
+            _resultValue.replicatedProtectedItems = replicatedProtectedItems;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

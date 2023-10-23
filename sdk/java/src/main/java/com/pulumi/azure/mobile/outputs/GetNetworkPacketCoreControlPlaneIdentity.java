@@ -69,10 +69,10 @@ public final class GetNetworkPacketCoreControlPlaneIdentity {
             return this;
         }
         public GetNetworkPacketCoreControlPlaneIdentity build() {
-            final var o = new GetNetworkPacketCoreControlPlaneIdentity();
-            o.identityIds = identityIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new GetNetworkPacketCoreControlPlaneIdentity();
+            _resultValue.identityIds = identityIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

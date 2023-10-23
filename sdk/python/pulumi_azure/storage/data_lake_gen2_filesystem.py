@@ -51,7 +51,11 @@ class DataLakeGen2FilesystemArgs:
              name: Optional[pulumi.Input[str]] = None,
              owner: Optional[pulumi.Input[str]] = None,
              properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         _setter("storage_account_id", storage_account_id)
         if aces is not None:
             _setter("aces", aces)
@@ -177,7 +181,11 @@ class _DataLakeGen2FilesystemState:
              owner: Optional[pulumi.Input[str]] = None,
              properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              storage_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if aces is not None:
             _setter("aces", aces)
         if group is not None:

@@ -87,11 +87,11 @@ public final class TrafficManagerNestedEndpointSubnet {
             return this;
         }
         public TrafficManagerNestedEndpointSubnet build() {
-            final var o = new TrafficManagerNestedEndpointSubnet();
-            o.first = first;
-            o.last = last;
-            o.scope = scope;
-            return o;
+            final var _resultValue = new TrafficManagerNestedEndpointSubnet();
+            _resultValue.first = first;
+            _resultValue.last = last;
+            _resultValue.scope = scope;
+            return _resultValue;
         }
     }
 }

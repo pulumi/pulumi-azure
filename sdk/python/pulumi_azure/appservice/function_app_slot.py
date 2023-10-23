@@ -109,7 +109,35 @@ class FunctionAppSlotArgs:
              site_config: Optional[pulumi.Input['FunctionAppSlotSiteConfigArgs']] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if 'functionAppName' in kwargs:
+            function_app_name = kwargs['functionAppName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'dailyMemoryTimeQuota' in kwargs:
+            daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
+        if 'enableBuiltinLogging' in kwargs:
+            enable_builtin_logging = kwargs['enableBuiltinLogging']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+
         _setter("app_service_plan_id", app_service_plan_id)
         _setter("function_app_name", function_app_name)
         _setter("resource_group_name", resource_group_name)
@@ -497,7 +525,43 @@ class _FunctionAppSlotState:
              storage_account_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if 'dailyMemoryTimeQuota' in kwargs:
+            daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
+        if 'defaultHostname' in kwargs:
+            default_hostname = kwargs['defaultHostname']
+        if 'enableBuiltinLogging' in kwargs:
+            enable_builtin_logging = kwargs['enableBuiltinLogging']
+        if 'functionAppName' in kwargs:
+            function_app_name = kwargs['functionAppName']
+        if 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if 'outboundIpAddresses' in kwargs:
+            outbound_ip_addresses = kwargs['outboundIpAddresses']
+        if 'possibleOutboundIpAddresses' in kwargs:
+            possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if 'siteCredentials' in kwargs:
+            site_credentials = kwargs['siteCredentials']
+        if 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         if app_service_plan_id is not None:
             _setter("app_service_plan_id", app_service_plan_id)
         if app_settings is not None:

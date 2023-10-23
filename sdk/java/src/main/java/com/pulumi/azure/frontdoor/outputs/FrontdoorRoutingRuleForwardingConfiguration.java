@@ -186,16 +186,16 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
             return this;
         }
         public FrontdoorRoutingRuleForwardingConfiguration build() {
-            final var o = new FrontdoorRoutingRuleForwardingConfiguration();
-            o.backendPoolName = backendPoolName;
-            o.cacheDuration = cacheDuration;
-            o.cacheEnabled = cacheEnabled;
-            o.cacheQueryParameterStripDirective = cacheQueryParameterStripDirective;
-            o.cacheQueryParameters = cacheQueryParameters;
-            o.cacheUseDynamicCompression = cacheUseDynamicCompression;
-            o.customForwardingPath = customForwardingPath;
-            o.forwardingProtocol = forwardingProtocol;
-            return o;
+            final var _resultValue = new FrontdoorRoutingRuleForwardingConfiguration();
+            _resultValue.backendPoolName = backendPoolName;
+            _resultValue.cacheDuration = cacheDuration;
+            _resultValue.cacheEnabled = cacheEnabled;
+            _resultValue.cacheQueryParameterStripDirective = cacheQueryParameterStripDirective;
+            _resultValue.cacheQueryParameters = cacheQueryParameters;
+            _resultValue.cacheUseDynamicCompression = cacheUseDynamicCompression;
+            _resultValue.customForwardingPath = customForwardingPath;
+            _resultValue.forwardingProtocol = forwardingProtocol;
+            return _resultValue;
         }
     }
 }

@@ -114,12 +114,12 @@ public final class ScaleSetOsProfileWindowsConfig {
             return winrms(List.of(winrms));
         }
         public ScaleSetOsProfileWindowsConfig build() {
-            final var o = new ScaleSetOsProfileWindowsConfig();
-            o.additionalUnattendConfigs = additionalUnattendConfigs;
-            o.enableAutomaticUpgrades = enableAutomaticUpgrades;
-            o.provisionVmAgent = provisionVmAgent;
-            o.winrms = winrms;
-            return o;
+            final var _resultValue = new ScaleSetOsProfileWindowsConfig();
+            _resultValue.additionalUnattendConfigs = additionalUnattendConfigs;
+            _resultValue.enableAutomaticUpgrades = enableAutomaticUpgrades;
+            _resultValue.provisionVmAgent = provisionVmAgent;
+            _resultValue.winrms = winrms;
+            return _resultValue;
         }
     }
 }

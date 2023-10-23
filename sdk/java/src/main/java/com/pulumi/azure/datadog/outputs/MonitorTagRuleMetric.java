@@ -55,9 +55,9 @@ public final class MonitorTagRuleMetric {
             return filters(List.of(filters));
         }
         public MonitorTagRuleMetric build() {
-            final var o = new MonitorTagRuleMetric();
-            o.filters = filters;
-            return o;
+            final var _resultValue = new MonitorTagRuleMetric();
+            _resultValue.filters = filters;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
             return this;
         }
         public LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy build() {
-            final var o = new LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy();
-            o.disableAutomaticRollback = disableAutomaticRollback;
-            o.enableAutomaticOsUpgrade = enableAutomaticOsUpgrade;
-            return o;
+            final var _resultValue = new LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy();
+            _resultValue.disableAutomaticRollback = disableAutomaticRollback;
+            _resultValue.enableAutomaticOsUpgrade = enableAutomaticOsUpgrade;
+            return _resultValue;
         }
     }
 }

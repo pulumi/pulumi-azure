@@ -77,11 +77,11 @@ public final class GetAccountGeoLocation {
             return this;
         }
         public GetAccountGeoLocation build() {
-            final var o = new GetAccountGeoLocation();
-            o.failoverPriority = failoverPriority;
-            o.id = id;
-            o.location = location;
-            return o;
+            final var _resultValue = new GetAccountGeoLocation();
+            _resultValue.failoverPriority = failoverPriority;
+            _resultValue.id = id;
+            _resultValue.location = location;
+            return _resultValue;
         }
     }
 }

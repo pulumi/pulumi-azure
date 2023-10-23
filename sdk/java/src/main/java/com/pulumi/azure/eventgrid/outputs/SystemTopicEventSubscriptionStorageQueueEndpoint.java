@@ -87,11 +87,11 @@ public final class SystemTopicEventSubscriptionStorageQueueEndpoint {
             return this;
         }
         public SystemTopicEventSubscriptionStorageQueueEndpoint build() {
-            final var o = new SystemTopicEventSubscriptionStorageQueueEndpoint();
-            o.queueMessageTimeToLiveInSeconds = queueMessageTimeToLiveInSeconds;
-            o.queueName = queueName;
-            o.storageAccountId = storageAccountId;
-            return o;
+            final var _resultValue = new SystemTopicEventSubscriptionStorageQueueEndpoint();
+            _resultValue.queueMessageTimeToLiveInSeconds = queueMessageTimeToLiveInSeconds;
+            _resultValue.queueName = queueName;
+            _resultValue.storageAccountId = storageAccountId;
+            return _resultValue;
         }
     }
 }

@@ -65,10 +65,10 @@ public final class ManagedHardwareSecurityModuleNetworkAcls {
             return this;
         }
         public ManagedHardwareSecurityModuleNetworkAcls build() {
-            final var o = new ManagedHardwareSecurityModuleNetworkAcls();
-            o.bypass = bypass;
-            o.defaultAction = defaultAction;
-            return o;
+            final var _resultValue = new ManagedHardwareSecurityModuleNetworkAcls();
+            _resultValue.bypass = bypass;
+            _resultValue.defaultAction = defaultAction;
+            return _resultValue;
         }
     }
 }

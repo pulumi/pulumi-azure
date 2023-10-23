@@ -35,7 +35,15 @@ class CertificateBindingArgs:
              certificate_id: pulumi.Input[str],
              hostname_binding_id: pulumi.Input[str],
              ssl_state: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+        if 'hostnameBindingId' in kwargs:
+            hostname_binding_id = kwargs['hostnameBindingId']
+        if 'sslState' in kwargs:
+            ssl_state = kwargs['sslState']
+
         _setter("certificate_id", certificate_id)
         _setter("hostname_binding_id", hostname_binding_id)
         _setter("ssl_state", ssl_state)
@@ -113,7 +121,17 @@ class _CertificateBindingState:
              hostname_binding_id: Optional[pulumi.Input[str]] = None,
              ssl_state: Optional[pulumi.Input[str]] = None,
              thumbprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'appServiceName' in kwargs:
+            app_service_name = kwargs['appServiceName']
+        if 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+        if 'hostnameBindingId' in kwargs:
+            hostname_binding_id = kwargs['hostnameBindingId']
+        if 'sslState' in kwargs:
+            ssl_state = kwargs['sslState']
+
         if app_service_name is not None:
             _setter("app_service_name", app_service_name)
         if certificate_id is not None:

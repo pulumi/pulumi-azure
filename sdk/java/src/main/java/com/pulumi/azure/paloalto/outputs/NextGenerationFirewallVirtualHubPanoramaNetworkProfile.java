@@ -141,17 +141,17 @@ public final class NextGenerationFirewallVirtualHubPanoramaNetworkProfile {
             return this;
         }
         public NextGenerationFirewallVirtualHubPanoramaNetworkProfile build() {
-            final var o = new NextGenerationFirewallVirtualHubPanoramaNetworkProfile();
-            o.egressNatIpAddressIds = egressNatIpAddressIds;
-            o.egressNatIpAddresses = egressNatIpAddresses;
-            o.ipOfTrustForUserDefinedRoutes = ipOfTrustForUserDefinedRoutes;
-            o.networkVirtualApplianceId = networkVirtualApplianceId;
-            o.publicIpAddressIds = publicIpAddressIds;
-            o.publicIpAddresses = publicIpAddresses;
-            o.trustedSubnetId = trustedSubnetId;
-            o.untrustedSubnetId = untrustedSubnetId;
-            o.virtualHubId = virtualHubId;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualHubPanoramaNetworkProfile();
+            _resultValue.egressNatIpAddressIds = egressNatIpAddressIds;
+            _resultValue.egressNatIpAddresses = egressNatIpAddresses;
+            _resultValue.ipOfTrustForUserDefinedRoutes = ipOfTrustForUserDefinedRoutes;
+            _resultValue.networkVirtualApplianceId = networkVirtualApplianceId;
+            _resultValue.publicIpAddressIds = publicIpAddressIds;
+            _resultValue.publicIpAddresses = publicIpAddresses;
+            _resultValue.trustedSubnetId = trustedSubnetId;
+            _resultValue.untrustedSubnetId = untrustedSubnetId;
+            _resultValue.virtualHubId = virtualHubId;
+            return _resultValue;
         }
     }
 }

@@ -73,10 +73,10 @@ public final class VirtualMachineOsProfileLinuxConfigSshKey {
             return this;
         }
         public VirtualMachineOsProfileLinuxConfigSshKey build() {
-            final var o = new VirtualMachineOsProfileLinuxConfigSshKey();
-            o.keyData = keyData;
-            o.path = path;
-            return o;
+            final var _resultValue = new VirtualMachineOsProfileLinuxConfigSshKey();
+            _resultValue.keyData = keyData;
+            _resultValue.path = path;
+            return _resultValue;
         }
     }
 }

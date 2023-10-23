@@ -86,11 +86,11 @@ public final class SpringCloudCustomizedAcceleratorGitRepositorySshAuth {
             return this;
         }
         public SpringCloudCustomizedAcceleratorGitRepositorySshAuth build() {
-            final var o = new SpringCloudCustomizedAcceleratorGitRepositorySshAuth();
-            o.hostKey = hostKey;
-            o.hostKeyAlgorithm = hostKeyAlgorithm;
-            o.privateKey = privateKey;
-            return o;
+            final var _resultValue = new SpringCloudCustomizedAcceleratorGitRepositorySshAuth();
+            _resultValue.hostKey = hostKey;
+            _resultValue.hostKeyAlgorithm = hostKeyAlgorithm;
+            _resultValue.privateKey = privateKey;
+            return _resultValue;
         }
     }
 }

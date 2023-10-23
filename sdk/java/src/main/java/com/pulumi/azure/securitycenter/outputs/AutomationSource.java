@@ -75,10 +75,10 @@ public final class AutomationSource {
             return ruleSets(List.of(ruleSets));
         }
         public AutomationSource build() {
-            final var o = new AutomationSource();
-            o.eventSource = eventSource;
-            o.ruleSets = ruleSets;
-            return o;
+            final var _resultValue = new AutomationSource();
+            _resultValue.eventSource = eventSource;
+            _resultValue.ruleSets = ruleSets;
+            return _resultValue;
         }
     }
 }

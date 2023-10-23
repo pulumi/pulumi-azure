@@ -88,11 +88,11 @@ public final class BastionHostIpConfiguration {
             return this;
         }
         public BastionHostIpConfiguration build() {
-            final var o = new BastionHostIpConfiguration();
-            o.name = name;
-            o.publicIpAddressId = publicIpAddressId;
-            o.subnetId = subnetId;
-            return o;
+            final var _resultValue = new BastionHostIpConfiguration();
+            _resultValue.name = name;
+            _resultValue.publicIpAddressId = publicIpAddressId;
+            _resultValue.subnetId = subnetId;
+            return _resultValue;
         }
     }
 }

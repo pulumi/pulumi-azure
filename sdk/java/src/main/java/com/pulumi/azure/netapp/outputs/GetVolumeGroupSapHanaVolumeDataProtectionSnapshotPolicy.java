@@ -46,9 +46,9 @@ public final class GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy {
             return this;
         }
         public GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy build() {
-            final var o = new GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy();
-            o.snapshotPolicyId = snapshotPolicyId;
-            return o;
+            final var _resultValue = new GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy();
+            _resultValue.snapshotPolicyId = snapshotPolicyId;
+            return _resultValue;
         }
     }
 }

@@ -66,10 +66,10 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackDestination
             return this;
         }
         public NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig build() {
-            final var o = new NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig();
-            o.port = port;
-            o.publicIpAddress = publicIpAddress;
-            return o;
+            final var _resultValue = new NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfig();
+            _resultValue.port = port;
+            _resultValue.publicIpAddress = publicIpAddress;
+            return _resultValue;
         }
     }
 }

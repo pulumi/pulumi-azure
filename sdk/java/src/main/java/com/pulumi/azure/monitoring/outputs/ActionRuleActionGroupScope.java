@@ -69,10 +69,10 @@ public final class ActionRuleActionGroupScope {
             return this;
         }
         public ActionRuleActionGroupScope build() {
-            final var o = new ActionRuleActionGroupScope();
-            o.resourceIds = resourceIds;
-            o.type = type;
-            return o;
+            final var _resultValue = new ActionRuleActionGroupScope();
+            _resultValue.resourceIds = resourceIds;
+            _resultValue.type = type;
+            return _resultValue;
         }
     }
 }

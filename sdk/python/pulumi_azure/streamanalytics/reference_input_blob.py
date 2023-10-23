@@ -69,7 +69,27 @@ class ReferenceInputBlobArgs:
              authentication_mode: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              storage_account_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'dateFormat' in kwargs:
+            date_format = kwargs['dateFormat']
+        if 'pathPattern' in kwargs:
+            path_pattern = kwargs['pathPattern']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'storageContainerName' in kwargs:
+            storage_container_name = kwargs['storageContainerName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if 'timeFormat' in kwargs:
+            time_format = kwargs['timeFormat']
+        if 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+
         _setter("date_format", date_format)
         _setter("path_pattern", path_pattern)
         _setter("resource_group_name", resource_group_name)
@@ -274,7 +294,27 @@ class _ReferenceInputBlobState:
              storage_container_name: Optional[pulumi.Input[str]] = None,
              stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
              time_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if 'dateFormat' in kwargs:
+            date_format = kwargs['dateFormat']
+        if 'pathPattern' in kwargs:
+            path_pattern = kwargs['pathPattern']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if 'storageContainerName' in kwargs:
+            storage_container_name = kwargs['storageContainerName']
+        if 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if 'timeFormat' in kwargs:
+            time_format = kwargs['timeFormat']
+
         if authentication_mode is not None:
             _setter("authentication_mode", authentication_mode)
         if date_format is not None:

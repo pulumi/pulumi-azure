@@ -55,7 +55,15 @@ class TriggerRecurrenceArgs:
              schedule: Optional[pulumi.Input['TriggerRecurrenceScheduleArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("frequency", frequency)
         _setter("interval", interval)
         _setter("logic_app_id", logic_app_id)
@@ -197,7 +205,15 @@ class _TriggerRecurrenceState:
              schedule: Optional[pulumi.Input['TriggerRecurrenceScheduleArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+        if 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if frequency is not None:
             _setter("frequency", frequency)
         if interval is not None:

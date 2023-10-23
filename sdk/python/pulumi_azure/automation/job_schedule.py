@@ -53,7 +53,21 @@ class JobScheduleArgs:
              job_schedule_id: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
              run_on: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'runbookName' in kwargs:
+            runbook_name = kwargs['runbookName']
+        if 'scheduleName' in kwargs:
+            schedule_name = kwargs['scheduleName']
+        if 'jobScheduleId' in kwargs:
+            job_schedule_id = kwargs['jobScheduleId']
+        if 'runOn' in kwargs:
+            run_on = kwargs['runOn']
+
         _setter("automation_account_name", automation_account_name)
         _setter("resource_group_name", resource_group_name)
         _setter("runbook_name", runbook_name)
@@ -194,7 +208,21 @@ class _JobScheduleState:
              run_on: Optional[pulumi.Input[str]] = None,
              runbook_name: Optional[pulumi.Input[str]] = None,
              schedule_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if 'jobScheduleId' in kwargs:
+            job_schedule_id = kwargs['jobScheduleId']
+        if 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if 'runOn' in kwargs:
+            run_on = kwargs['runOn']
+        if 'runbookName' in kwargs:
+            runbook_name = kwargs['runbookName']
+        if 'scheduleName' in kwargs:
+            schedule_name = kwargs['scheduleName']
+
         if automation_account_name is not None:
             _setter("automation_account_name", automation_account_name)
         if job_schedule_id is not None:

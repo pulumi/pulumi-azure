@@ -89,11 +89,11 @@ public final class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
             return this;
         }
         public HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule build() {
-            final var o = new HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule();
-            o.days = days;
-            o.targetInstanceCount = targetInstanceCount;
-            o.time = time;
-            return o;
+            final var _resultValue = new HadoopClusterRolesWorkerNodeAutoscaleRecurrenceSchedule();
+            _resultValue.days = days;
+            _resultValue.targetInstanceCount = targetInstanceCount;
+            _resultValue.time = time;
+            return _resultValue;
         }
     }
 }

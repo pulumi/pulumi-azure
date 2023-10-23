@@ -165,15 +165,15 @@ public final class VirtualMachineAutoBackup {
             return this;
         }
         public VirtualMachineAutoBackup build() {
-            final var o = new VirtualMachineAutoBackup();
-            o.encryptionEnabled = encryptionEnabled;
-            o.encryptionPassword = encryptionPassword;
-            o.manualSchedule = manualSchedule;
-            o.retentionPeriodInDays = retentionPeriodInDays;
-            o.storageAccountAccessKey = storageAccountAccessKey;
-            o.storageBlobEndpoint = storageBlobEndpoint;
-            o.systemDatabasesBackupEnabled = systemDatabasesBackupEnabled;
-            return o;
+            final var _resultValue = new VirtualMachineAutoBackup();
+            _resultValue.encryptionEnabled = encryptionEnabled;
+            _resultValue.encryptionPassword = encryptionPassword;
+            _resultValue.manualSchedule = manualSchedule;
+            _resultValue.retentionPeriodInDays = retentionPeriodInDays;
+            _resultValue.storageAccountAccessKey = storageAccountAccessKey;
+            _resultValue.storageBlobEndpoint = storageBlobEndpoint;
+            _resultValue.systemDatabasesBackupEnabled = systemDatabasesBackupEnabled;
+            return _resultValue;
         }
     }
 }

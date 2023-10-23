@@ -69,10 +69,10 @@ public final class AlertProcessingRuleSuppressionConditionSeverity {
             return values(List.of(values));
         }
         public AlertProcessingRuleSuppressionConditionSeverity build() {
-            final var o = new AlertProcessingRuleSuppressionConditionSeverity();
-            o.operator = operator;
-            o.values = values;
-            return o;
+            final var _resultValue = new AlertProcessingRuleSuppressionConditionSeverity();
+            _resultValue.operator = operator;
+            _resultValue.values = values;
+            return _resultValue;
         }
     }
 }

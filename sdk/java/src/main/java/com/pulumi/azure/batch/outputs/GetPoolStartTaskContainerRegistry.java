@@ -103,12 +103,12 @@ public final class GetPoolStartTaskContainerRegistry {
             return this;
         }
         public GetPoolStartTaskContainerRegistry build() {
-            final var o = new GetPoolStartTaskContainerRegistry();
-            o.password = password;
-            o.registryServer = registryServer;
-            o.userAssignedIdentityId = userAssignedIdentityId;
-            o.userName = userName;
-            return o;
+            final var _resultValue = new GetPoolStartTaskContainerRegistry();
+            _resultValue.password = password;
+            _resultValue.registryServer = registryServer;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
+            _resultValue.userName = userName;
+            return _resultValue;
         }
     }
 }

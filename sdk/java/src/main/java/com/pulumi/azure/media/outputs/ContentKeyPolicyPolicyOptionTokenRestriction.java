@@ -232,18 +232,18 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
             return this;
         }
         public ContentKeyPolicyPolicyOptionTokenRestriction build() {
-            final var o = new ContentKeyPolicyPolicyOptionTokenRestriction();
-            o.alternateKeys = alternateKeys;
-            o.audience = audience;
-            o.issuer = issuer;
-            o.openIdConnectDiscoveryDocument = openIdConnectDiscoveryDocument;
-            o.primaryRsaTokenKeyExponent = primaryRsaTokenKeyExponent;
-            o.primaryRsaTokenKeyModulus = primaryRsaTokenKeyModulus;
-            o.primarySymmetricTokenKey = primarySymmetricTokenKey;
-            o.primaryX509TokenKeyRaw = primaryX509TokenKeyRaw;
-            o.requiredClaims = requiredClaims;
-            o.tokenType = tokenType;
-            return o;
+            final var _resultValue = new ContentKeyPolicyPolicyOptionTokenRestriction();
+            _resultValue.alternateKeys = alternateKeys;
+            _resultValue.audience = audience;
+            _resultValue.issuer = issuer;
+            _resultValue.openIdConnectDiscoveryDocument = openIdConnectDiscoveryDocument;
+            _resultValue.primaryRsaTokenKeyExponent = primaryRsaTokenKeyExponent;
+            _resultValue.primaryRsaTokenKeyModulus = primaryRsaTokenKeyModulus;
+            _resultValue.primarySymmetricTokenKey = primarySymmetricTokenKey;
+            _resultValue.primaryX509TokenKeyRaw = primaryX509TokenKeyRaw;
+            _resultValue.requiredClaims = requiredClaims;
+            _resultValue.tokenType = tokenType;
+            return _resultValue;
         }
     }
 }
